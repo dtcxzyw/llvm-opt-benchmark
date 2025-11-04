@@ -13577,27 +13577,34 @@ define internal fastcc range(i32 0, 256) i32 @find_firstassertedcu(ptr noundef n
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %.split.us.split.us, label %.split.split
 
-.split.us.split.us:                               ; preds = %3, %27
-  %6 = phi i8 [ 121, %27 ], [ %.pr, %3 ]
-  %.047.us.us = phi i32 [ %.249.us.us, %27 ], [ -2, %3 ]
-  %.044.us.us = phi i32 [ %.246.us.us, %27 ], [ 0, %3 ]
-  %.042.us.us = phi ptr [ %35, %27 ], [ %0, %3 ]
+.split.us.split.us:                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  switch i8 %6, label %7 [
+  switch i8 %.pr, label %6 [
     i8 -117, label %10
     i8 -112, label %10
     i8 -116, label %10
   ]
 
-7:                                                ; preds = %.split.us.split.us
-  %8 = icmp eq i8 %6, -111
+.split.us.split.us.jt121:                         ; preds = %27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  br label %6
+
+6:                                                ; preds = %.split.us.split.us.jt121, %.split.us.split.us
+  %.042.us.us105 = phi ptr [ %35, %.split.us.split.us.jt121 ], [ %0, %.split.us.split.us ]
+  %.044.us.us103 = phi i32 [ %.246.us.us, %.split.us.split.us.jt121 ], [ 0, %.split.us.split.us ]
+  %.047.us.us101 = phi i32 [ %.249.us.us, %.split.us.split.us.jt121 ], [ -2, %.split.us.split.us ]
+  %7 = phi i8 [ 121, %.split.us.split.us.jt121 ], [ %.pr, %.split.us.split.us ]
+  %8 = icmp eq i8 %7, -111
   %9 = select i1 %8, i64 2, i64 0
   br label %10
 
-10:                                               ; preds = %7, %.split.us.split.us, %.split.us.split.us, %.split.us.split.us
-  %11 = phi i64 [ 2, %.split.us.split.us ], [ %9, %7 ], [ 2, %.split.us.split.us ], [ 2, %.split.us.split.us ]
-  %12 = getelementptr inbounds nuw i8, ptr %.042.us.us, i64 1
-  %13 = getelementptr inbounds nuw i8, ptr %.042.us.us, i64 3
+10:                                               ; preds = %6, %.split.us.split.us, %.split.us.split.us, %.split.us.split.us
+  %.042.us.us106 = phi ptr [ %.042.us.us105, %6 ], [ %0, %.split.us.split.us ], [ %0, %.split.us.split.us ], [ %0, %.split.us.split.us ]
+  %.044.us.us104 = phi i32 [ %.044.us.us103, %6 ], [ 0, %.split.us.split.us ], [ 0, %.split.us.split.us ], [ 0, %.split.us.split.us ]
+  %.047.us.us102 = phi i32 [ %.047.us.us101, %6 ], [ -2, %.split.us.split.us ], [ -2, %.split.us.split.us ], [ -2, %.split.us.split.us ]
+  %11 = phi i64 [ %9, %6 ], [ 2, %.split.us.split.us ], [ 2, %.split.us.split.us ], [ 2, %.split.us.split.us ]
+  %12 = getelementptr inbounds nuw i8, ptr %.042.us.us106, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.042.us.us106, i64 3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %11
   %15 = tail call fastcc ptr @first_significant_code(ptr noundef %14, i32 noundef 1)
   %16 = load i8, ptr %15, align 1, !tbaa !23
@@ -13624,30 +13631,30 @@ define internal fastcc range(i32 0, 256) i32 @find_firstassertedcu(ptr noundef n
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %17
-  %25 = icmp ugt i32 %.047.us.us, -3
+  %25 = icmp ugt i32 %.047.us.us102, -3
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %24
-  %.not54.us.us = icmp eq i32 %.044.us.us, %21
-  %.not55.us.us = icmp eq i32 %.047.us.us, %22
+  %.not54.us.us = icmp eq i32 %.044.us.us104, %21
+  %.not55.us.us = icmp eq i32 %.047.us.us102, %22
   %or.cond.us.us = select i1 %.not54.us.us, i1 %.not55.us.us, i1 false
   br i1 %or.cond.us.us, label %27, label %.thread
 
 27:                                               ; preds = %26, %24
-  %.249.us.us = phi i32 [ %22, %24 ], [ %.047.us.us, %26 ]
-  %.246.us.us = phi i32 [ %21, %24 ], [ %.044.us.us, %26 ]
+  %.249.us.us = phi i32 [ %22, %24 ], [ %.047.us.us102, %26 ]
+  %.246.us.us = phi i32 [ %21, %24 ], [ %.044.us.us104, %26 ]
   %28 = load i8, ptr %12, align 1, !tbaa !23
   %29 = zext i8 %28 to i64
   %30 = shl nuw nsw i64 %29, 8
-  %31 = getelementptr inbounds nuw i8, ptr %.042.us.us, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.042.us.us106, i64 2
   %32 = load i8, ptr %31, align 1, !tbaa !23
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %.042.us.us, i64 %30
+  %34 = getelementptr inbounds nuw i8, ptr %.042.us.us106, i64 %30
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = load i8, ptr %35, align 1, !tbaa !23
   %37 = icmp eq i8 %36, 121
-  br i1 %37, label %.split.us.split.us, label %.split61.us
+  br i1 %37, label %.split.us.split.us.jt121, label %.split61.us
 
 .split.split:                                     ; preds = %3, %78
   %38 = phi i8 [ 121, %78 ], [ %.pr, %3 ]

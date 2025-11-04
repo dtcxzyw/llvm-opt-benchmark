@@ -718,51 +718,42 @@ define void @_ZN6casadi13rootfinder_inB5cxx11Ev(ptr dead_on_unwind noalias writa
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %19 = trunc i64 %.09 to i32
   store ptr %14, ptr %1, align 8, !tbaa !3, !alias.scope !23
-  switch i32 %19, label %20 [
-    i32 0, label %._crit_edge.i.i.i
-    i32 1, label %._crit_edge.i.i4.i
+  switch i32 %19, label %_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt0 [
+    i32 0, label %_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt2
+    i32 1, label %_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt1
   ]
 
-._crit_edge.i.i.i:                                ; preds = %18
+_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt2:      ; preds = %18
   store i16 12408, ptr %14, align 8, !alias.scope !23
   store i64 2, ptr %15, align 8, !tbaa !14, !alias.scope !23
   store i8 0, ptr %17, align 2, !tbaa !13, !alias.scope !23
-  br label %_ZN6casadi13rootfinder_inB5cxx11Ex.exit
+  %20 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2, i64 %.09
+  %21 = load ptr, ptr %20, align 8, !tbaa !11
+  store i16 12408, ptr %21, align 1
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
-._crit_edge.i.i4.i:                               ; preds = %18
+_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt1:      ; preds = %18
   store i8 112, ptr %14, align 8, !tbaa !13, !alias.scope !23
   store i64 1, ptr %15, align 8, !tbaa !14, !alias.scope !23
   store i8 0, ptr %16, align 1, !tbaa !13, !alias.scope !23
-  br label %_ZN6casadi13rootfinder_inB5cxx11Ex.exit
+  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2, i64 %.09
+  %23 = load ptr, ptr %22, align 8, !tbaa !11
+  store i8 112, ptr %23, align 1, !tbaa !13
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
-20:                                               ; preds = %18
+_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt0:      ; preds = %18
   store i64 0, ptr %15, align 8, !tbaa !14, !alias.scope !23
   store i8 0, ptr %14, align 8, !tbaa !13, !alias.scope !23
-  br label %_ZN6casadi13rootfinder_inB5cxx11Ex.exit
-
-_ZN6casadi13rootfinder_inB5cxx11Ex.exit:          ; preds = %20, %._crit_edge.i.i4.i, %._crit_edge.i.i.i
-  %21 = phi i8 [ 0, %20 ], [ 112, %._crit_edge.i.i4.i ], [ 120, %._crit_edge.i.i.i ]
-  %22 = phi i64 [ 0, %20 ], [ 1, %._crit_edge.i.i4.i ], [ 2, %._crit_edge.i.i.i ]
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2, i64 %.09
-  %24 = load ptr, ptr %23, align 8, !tbaa !11
-  switch i64 %22, label %26 [
-    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
-    i64 1, label %25
-  ]
-
-25:                                               ; preds = %_ZN6casadi13rootfinder_inB5cxx11Ex.exit
-  store i8 %21, ptr %24, align 1, !tbaa !13
+  %24 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2, i64 %.09
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
-26:                                               ; preds = %_ZN6casadi13rootfinder_inB5cxx11Ex.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 8 %14, i64 %22, i1 false)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %_ZN6casadi13rootfinder_inB5cxx11Ex.exit, %25, %26
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt0, %_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt1, %_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt2
+  %25 = phi ptr [ %20, %_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt2 ], [ %22, %_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt1 ], [ %24, %_ZN6casadi13rootfinder_inB5cxx11Ex.exit.jt0 ]
+  %26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2, i64 %.09
   %27 = load i64, ptr %15, align 8, !tbaa !14
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %27, ptr %28, align 8, !tbaa !14
-  %29 = load ptr, ptr %23, align 8, !tbaa !11
+  %29 = load ptr, ptr %25, align 8, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   store i8 0, ptr %30, align 1, !tbaa !13
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !11

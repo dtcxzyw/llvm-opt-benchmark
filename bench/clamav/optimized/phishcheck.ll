@@ -748,7 +748,7 @@ hash_match.exit.thread83.us.us.us.preheader.i.i:  ; preds = %.lr.ph.us.us.i.i
   %188 = load i8, ptr %187, align 1, !tbaa !94
   switch i8 %188, label %.thread139.i.loopexit.i [
     i8 87, label %189
-    i8 49, label %.thread139.i.loopexit.i.loopexit158
+    i8 49, label %.thread139.i.loopexit.i.loopexit160
     i8 50, label %.thread139.i.loopexit.i.loopexit
   ]
 
@@ -789,11 +789,11 @@ hash_match.exit.thread83.us.us.us.preheader.i.i:  ; preds = %.lr.ph.us.us.i.i
 .thread139.i.loopexit.i.loopexit:                 ; preds = %186
   br label %.thread139.i.loopexit.i
 
-.thread139.i.loopexit.i.loopexit158:              ; preds = %186
+.thread139.i.loopexit.i.loopexit160:              ; preds = %186
   br label %.thread139.i.loopexit.i
 
-.thread139.i.loopexit.i:                          ; preds = %186, %.thread139.i.loopexit.i.loopexit158, %.thread139.i.loopexit.i.loopexit
-  %.sink.i.i = phi i32 [ 109, %.thread139.i.loopexit.i.loopexit ], [ 108, %.thread139.i.loopexit.i.loopexit158 ], [ 107, %186 ]
+.thread139.i.loopexit.i:                          ; preds = %186, %.thread139.i.loopexit.i.loopexit160, %.thread139.i.loopexit.i.loopexit
+  %.sink.i.i = phi i32 [ 109, %.thread139.i.loopexit.i.loopexit ], [ 108, %.thread139.i.loopexit.i.loopexit160 ], [ 107, %186 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1034,16 +1034,18 @@ isSSL.exit.thread.i:                              ; preds = %isSSL.exit98.i, %is
 281:                                              ; preds = %277
   %282 = and i32 %275, 1
   %.not.i99.i = icmp eq i32 %282, 0
+  br i1 %.not.i99.i, label %..i.i.si.unfold.true, label %.thread129.i
+
+..i.i.si.unfold.true:                             ; preds = %281
   %283 = and i32 %275, 2
   %.not4.i.i = icmp eq i32 %283, 0
-  %..i.i = select i1 %.not4.i.i, i32 106, i32 102
-  %spec.select.i = select i1 %.not.i99.i, i32 %..i.i, i32 101
+  %spec.select = select i1 %.not4.i.i, i32 106, i32 102
   br label %.thread129.i
 
-.thread129.i:                                     ; preds = %281, %isSSL.exit98.i, %272, %264, %.thread139.i.loopexit.i
-  %.0144.i = phi ptr [ %228, %264 ], [ %228, %isSSL.exit98.i ], [ %228, %272 ], [ null, %.thread139.i.loopexit.i ], [ %228, %281 ]
-  %.057143.i = phi ptr [ %224, %264 ], [ %224, %isSSL.exit98.i ], [ %224, %272 ], [ null, %.thread139.i.loopexit.i ], [ %224, %281 ]
-  %.0119142.i = phi i32 [ 104, %264 ], [ 105, %isSSL.exit98.i ], [ 105, %272 ], [ %.sink.i.i, %.thread139.i.loopexit.i ], [ %spec.select.i, %281 ]
+.thread129.i:                                     ; preds = %..i.i.si.unfold.true, %281, %isSSL.exit98.i, %272, %264, %.thread139.i.loopexit.i
+  %.0144.i = phi ptr [ %228, %264 ], [ %228, %isSSL.exit98.i ], [ %228, %272 ], [ null, %.thread139.i.loopexit.i ], [ %228, %281 ], [ %228, %..i.i.si.unfold.true ]
+  %.057143.i = phi ptr [ %224, %264 ], [ %224, %isSSL.exit98.i ], [ %224, %272 ], [ null, %.thread139.i.loopexit.i ], [ %224, %281 ], [ %224, %..i.i.si.unfold.true ]
+  %.0119142.i = phi i32 [ 104, %264 ], [ 105, %isSSL.exit98.i ], [ 105, %272 ], [ %.sink.i.i, %.thread139.i.loopexit.i ], [ 101, %281 ], [ %spec.select, %..i.i.si.unfold.true ]
   call void (ptr, ptr, ...) @cli_infomsg(ptr noundef %0, ptr noundef nonnull @.str.31) #17
   %284 = load ptr, ptr %33, align 8, !tbaa !69
   call void (ptr, ptr, ...) @cli_infomsg(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %284) #17

@@ -42164,7 +42164,7 @@ define void @_ZN6ide_db14syntax_helpers19format_string_exprs18parse_format_exprs
 
 thread-pre-split:                                 ; preds = %thread-pre-split.backedge, %3
   %19 = phi ptr [ %1, %3 ], [ %.be, %thread-pre-split.backedge ]
-  %20 = phi i32 [ 1114113, %3 ], [ %.be273, %thread-pre-split.backedge ]
+  %20 = phi i32 [ 1114113, %3 ], [ %.be275, %thread-pre-split.backedge ]
   %.057 = phi i32 [ 0, %3 ], [ %.057.be, %thread-pre-split.backedge ]
   %.0 = phi i8 [ 0, %3 ], [ %.0.be, %thread-pre-split.backedge ]
   %21 = icmp eq i32 %20, 1114113
@@ -42483,7 +42483,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84: ; preds = %90, %.noexc8
   %149 = and i32 %.059183, 2097119
   %150 = add nsw i32 %149, -65
   %or.cond3.i = icmp ult i32 %150, 26
-  br i1 %or.cond3.i, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit", label %151
+  br i1 %or.cond3.i, label %thread-pre-split.backedge, label %151
 
 151:                                              ; preds = %148
   %152 = icmp samesign ugt i32 %.059183, 127
@@ -42493,12 +42493,19 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84: ; preds = %90, %.noexc8
   %154 = invoke noundef zeroext i1 @_ZN4core7unicode12unicode_data10alphabetic6lookup17he2429d790a896900E(i32 noundef range(i32 0, 1114113) %.059183)
           to label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit" unwind label %.loopexit184
 
-"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit": ; preds = %151, %148, %153
-  %.0.i = phi i1 [ true, %148 ], [ false, %151 ], [ %154, %153 ]
+"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit": ; preds = %151, %153
+  %.0.i = phi i1 [ false, %151 ], [ %154, %153 ]
   %155 = icmp eq i32 %.059183, 95
   %or.cond = or i1 %155, %.0.i
-  %. = select i1 %or.cond, i8 3, i8 2
+  %spec.select = select i1 %or.cond, i8 3, i8 2
   br label %thread-pre-split.backedge
+
+thread-pre-split.backedge:                        ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit", %148, %274, %392, %290, %383, %384, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit133, %124, %143, %410, %68, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread", %.thread177, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit81, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit99, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit139
+  %.be = phi ptr [ %61, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit139 ], [ %61, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit99 ], [ %61, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84 ], [ %61, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit81 ], [ %61, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit ], [ %61, %143 ], [ %61, %124 ], [ %61, %68 ], [ %61, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread" ], [ %61, %.thread177 ], [ %61, %410 ], [ %249, %274 ], [ %284, %290 ], [ %284, %392 ], [ %284, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit133 ], [ %284, %383 ], [ %284, %384 ], [ %61, %148 ], [ %61, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit" ]
+  %.be275 = phi i32 [ 1114113, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit139 ], [ 1114113, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit99 ], [ 1114113, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84 ], [ 1114113, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit81 ], [ 1114113, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit ], [ 1114113, %143 ], [ 1114113, %124 ], [ 1114113, %68 ], [ 1114113, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread" ], [ 1114113, %.thread177 ], [ 1114113, %410 ], [ 1114113, %274 ], [ %.pr171192, %290 ], [ %.pr171192, %392 ], [ %.pr171192, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit133 ], [ %.pr171192, %383 ], [ %.pr171192, %384 ], [ 1114113, %148 ], [ 1114113, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit" ]
+  %.057.be = phi i32 [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit139 ], [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit99 ], [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84 ], [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit81 ], [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit ], [ %.057, %143 ], [ %.057, %124 ], [ %.057, %68 ], [ %.057, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread" ], [ %.057, %.thread177 ], [ %411, %410 ], [ %.057, %274 ], [ %.057, %290 ], [ %398, %392 ], [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit133 ], [ 0, %383 ], [ 0, %384 ], [ %.057, %148 ], [ %.057, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit" ]
+  %.0.be = phi i8 [ 0, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit139 ], [ 0, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit99 ], [ 0, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84 ], [ 4, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit81 ], [ 1, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit ], [ 5, %143 ], [ 0, %124 ], [ 0, %68 ], [ %.3, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread" ], [ 5, %.thread177 ], [ 2, %410 ], [ 2, %274 ], [ %.0, %290 ], [ %.0, %392 ], [ %.0, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit133 ], [ 5, %383 ], [ 0, %384 ], [ 3, %148 ], [ %spec.select, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit" ]
+  br label %thread-pre-split
 
 156:                                              ; preds = %66
   %157 = load i64, ptr %.sroa.423.0..sroa_idx24, align 8, !alias.scope !9523, !noundef !4
@@ -42720,13 +42727,6 @@ thread-pre-split170:                              ; preds = %220, %"_ZN91_$LT$co
   %279 = add i64 %278, 2
   store i64 %279, ptr %.sroa.423.0..sroa_idx, align 8, !alias.scope !9566, !noalias !9564
   br label %thread-pre-split.backedge
-
-thread-pre-split.backedge:                        ; preds = %274, %392, %290, %383, %384, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit133, %124, %143, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit", %410, %68, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread", %.thread177, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit81, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit99, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit139
-  %.be = phi ptr [ %61, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit139 ], [ %61, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit99 ], [ %61, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84 ], [ %61, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit81 ], [ %61, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit ], [ %61, %143 ], [ %61, %124 ], [ %61, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit" ], [ %61, %68 ], [ %61, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread" ], [ %61, %.thread177 ], [ %61, %410 ], [ %249, %274 ], [ %284, %290 ], [ %284, %392 ], [ %284, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit133 ], [ %284, %383 ], [ %284, %384 ]
-  %.be273 = phi i32 [ 1114113, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit139 ], [ 1114113, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit99 ], [ 1114113, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84 ], [ 1114113, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit81 ], [ 1114113, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit ], [ 1114113, %143 ], [ 1114113, %124 ], [ 1114113, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit" ], [ 1114113, %68 ], [ 1114113, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread" ], [ 1114113, %.thread177 ], [ 1114113, %410 ], [ 1114113, %274 ], [ %.pr171192, %290 ], [ %.pr171192, %392 ], [ %.pr171192, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit133 ], [ %.pr171192, %383 ], [ %.pr171192, %384 ]
-  %.057.be = phi i32 [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit139 ], [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit99 ], [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84 ], [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit81 ], [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit ], [ %.057, %143 ], [ %.057, %124 ], [ %.057, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit" ], [ %.057, %68 ], [ %.057, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread" ], [ %.057, %.thread177 ], [ %411, %410 ], [ %.057, %274 ], [ %.057, %290 ], [ %398, %392 ], [ %.057, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit133 ], [ 0, %383 ], [ 0, %384 ]
-  %.0.be = phi i8 [ 0, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit139 ], [ 0, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit99 ], [ 0, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit84 ], [ 4, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit81 ], [ 1, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit ], [ 5, %143 ], [ 0, %124 ], [ %., %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit" ], [ 0, %68 ], [ %.3, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread" ], [ 5, %.thread177 ], [ 2, %410 ], [ 2, %274 ], [ %.0, %290 ], [ %.0, %392 ], [ %.0, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit133 ], [ 5, %383 ], [ 0, %384 ]
-  br label %thread-pre-split
 
 280:                                              ; preds = %.critedge
   %281 = icmp eq i32 %.059183, 123

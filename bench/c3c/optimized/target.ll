@@ -2273,7 +2273,7 @@ os_target_signed_c_char_type.exit.thread:         ; preds = %478, %478, %478, %4
     i32 21, label %559
     i32 31, label %569
     i32 32, label %593
-    i32 0, label %725
+    i32 0, label %728
   ]
 
 485:                                              ; preds = %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread, %os_target_signed_c_char_type.exit.thread
@@ -2541,7 +2541,7 @@ switch.lookup317:                                 ; preds = %559
   %600 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %601 = load i32, ptr %600, align 4
   %.not.i107 = icmp eq i32 %601, -1
-  br i1 %.not.i107, label %602, label %636
+  br i1 %.not.i107, label %602, label %639
 
 602:                                              ; preds = %593
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2590,7 +2590,11 @@ switch.lookup317:                                 ; preds = %559
 622:                                              ; preds = %616
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 74)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 88)
+  %623 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %624 = load i64, ptr %604, align 8
+  %625 = or i64 %624, 18612224
+  store i64 %625, ptr %604, align 8
+  store ptr null, ptr %623, align 8
   call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 40)
   call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 41)
   call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 55)
@@ -2602,70 +2606,70 @@ switch.lookup317:                                 ; preds = %559
   %.val13.i.i = load i64, ptr %603, align 8
   %.val14.i.i = load i64, ptr %4, align 8
   %.val15.i.i = load i64, ptr %604, align 8
-  %623 = and i64 %.val14.i.i, %.val12.i.i
-  %624 = icmp eq i64 %623, %.val14.i.i
-  %625 = and i64 %.val15.i.i, %.val13.i.i
-  %626 = icmp eq i64 %625, %.val15.i.i
-  %627 = select i1 %624, i1 %626, i1 false
-  %..i.i = zext i1 %627 to i32
+  %626 = and i64 %.val14.i.i, %.val12.i.i
+  %627 = icmp eq i64 %626, %.val14.i.i
+  %628 = and i64 %.val15.i.i, %.val13.i.i
+  %629 = icmp eq i64 %628, %.val15.i.i
+  %630 = select i1 %627, i1 %629, i1 false
+  %..i.i = zext i1 %630 to i32
   br label %x64_cpu_default.exit.i
 
 x64_cpu_default.exit.i:                           ; preds = %622, %616, %610, %602
   %.0.i.i = phi i32 [ 4, %602 ], [ 3, %610 ], [ 2, %616 ], [ %..i.i, %622 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %628 = load i8, ptr @debug_log, align 1
-  %629 = trunc i8 %628 to i1
-  br i1 %629, label %630, label %636
+  %631 = load i8, ptr @debug_log, align 1
+  %632 = trunc i8 %631 to i1
+  br i1 %632, label %633, label %639
 
-630:                                              ; preds = %x64_cpu_default.exit.i
-  %631 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
-  %632 = zext nneg i32 %.0.i.i to i64
-  %633 = getelementptr inbounds nuw ptr, ptr @x86_cpu_set, i64 %632
-  %634 = load ptr, ptr %633, align 8
-  %635 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.203, ptr noundef %634)
+633:                                              ; preds = %x64_cpu_default.exit.i
+  %634 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
+  %635 = zext nneg i32 %.0.i.i to i64
+  %636 = getelementptr inbounds nuw ptr, ptr @x86_cpu_set, i64 %635
+  %637 = load ptr, ptr %636, align 8
+  %638 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.203, ptr noundef %637)
   %putchar.i = call i32 @putchar(i32 10)
-  br label %636
+  br label %639
 
-636:                                              ; preds = %630, %x64_cpu_default.exit.i, %593
-  %.0.i108 = phi i32 [ %.0.i.i, %630 ], [ %.0.i.i, %x64_cpu_default.exit.i ], [ %601, %593 ]
-  switch i32 %.0.i108, label %642 [
-    i32 7, label %640
+639:                                              ; preds = %633, %x64_cpu_default.exit.i, %593
+  %.0.i108 = phi i32 [ %.0.i.i, %633 ], [ %.0.i.i, %x64_cpu_default.exit.i ], [ %601, %593 ]
+  switch i32 %.0.i108, label %645 [
+    i32 7, label %643
     i32 0, label %x86_cpu_from_set.exit.i
     i32 1, label %x86_cpu_from_set.exit.i
-    i32 2, label %637
-    i32 3, label %637
-    i32 4, label %638
-    i32 5, label %638
-    i32 6, label %639
+    i32 2, label %640
+    i32 3, label %640
+    i32 4, label %641
+    i32 5, label %641
+    i32 6, label %642
   ]
 
-637:                                              ; preds = %636, %636
+640:                                              ; preds = %639, %639
   br label %x86_cpu_from_set.exit.i
 
-638:                                              ; preds = %636, %636
+641:                                              ; preds = %639, %639
   br label %x86_cpu_from_set.exit.i
 
-639:                                              ; preds = %636
+642:                                              ; preds = %639
   br label %x86_cpu_from_set.exit.i
 
-640:                                              ; preds = %636
-  %641 = call ptr @LLVMGetHostCPUName() #17
+643:                                              ; preds = %639
+  %644 = call ptr @LLVMGetHostCPUName() #17
   br label %x86_cpu_from_set.exit.i
 
-642:                                              ; preds = %636
+645:                                              ; preds = %639
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.x86_cpu_from_set, ptr noundef nonnull @.str.18, i32 noundef 766) #16
   unreachable
 
-x86_cpu_from_set.exit.i:                          ; preds = %640, %639, %638, %637, %636, %636
-  %.0.i18.i = phi ptr [ @.str.322, %637 ], [ @.str.323, %638 ], [ @.str.324, %639 ], [ %641, %640 ], [ @.str.321, %636 ], [ @.str.321, %636 ]
+x86_cpu_from_set.exit.i:                          ; preds = %643, %642, %641, %640, %639, %639
+  %.0.i18.i = phi ptr [ @.str.322, %640 ], [ @.str.323, %641 ], [ @.str.324, %642 ], [ %644, %643 ], [ @.str.321, %639 ], [ @.str.321, %639 ]
   store ptr %.0.i18.i, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 16), align 8
   call fastcc void @x86features_from_cpu(ptr noundef %5, i32 noundef %.0.i108)
-  %643 = load i16, ptr %599, align 8
-  %644 = shl i16 %643, 6
-  %645 = ashr i16 %644, 12
-  switch i16 %645, label %x64features_limit_from_capability.exit.i [
-    i16 0, label %646
+  %646 = load i16, ptr %599, align 8
+  %647 = shl i16 %646, 6
+  %648 = ashr i16 %647, 12
+  switch i16 %648, label %x64features_limit_from_capability.exit.i [
+    i16 0, label %649
     i16 1, label %._crit_edge.i.i
     i16 2, label %._crit_edge44.i.i
     i16 3, label %._crit_edge47.i.i
@@ -2673,86 +2677,86 @@ x86_cpu_from_set.exit.i:                          ; preds = %640, %639, %638, %6
 
 ._crit_edge47.i.i:                                ; preds = %x86_cpu_from_set.exit.i
   %.pre48.i.i = load i64, ptr %5, align 8
-  br label %661
+  br label %664
 
 ._crit_edge44.i.i:                                ; preds = %x86_cpu_from_set.exit.i
   %.pre45.i.i = load i64, ptr %5, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre46.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
-  br label %655
+  br label %658
 
 ._crit_edge.i.i:                                  ; preds = %x86_cpu_from_set.exit.i
   %.pre.i.i = load i64, ptr %5, align 8
-  br label %649
+  br label %652
 
-646:                                              ; preds = %x86_cpu_from_set.exit.i
-  %647 = load i64, ptr %5, align 8
-  %648 = and i64 %647, -36028797018963969
-  br label %649
+649:                                              ; preds = %x86_cpu_from_set.exit.i
+  %650 = load i64, ptr %5, align 8
+  %651 = and i64 %650, -36028797018963969
+  br label %652
 
-649:                                              ; preds = %646, %._crit_edge.i.i
-  %650 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %648, %646 ]
-  %651 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %652 = load i64, ptr %651, align 8
-  %653 = and i64 %650, -1157988054187638787
-  %654 = and i64 %652, -8623235073
-  br label %655
+652:                                              ; preds = %649, %._crit_edge.i.i
+  %653 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %651, %649 ]
+  %654 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %655 = load i64, ptr %654, align 8
+  %656 = and i64 %653, -1157988054187638787
+  %657 = and i64 %655, -8623235073
+  br label %658
 
-655:                                              ; preds = %649, %._crit_edge44.i.i
-  %656 = phi i64 [ %.pre46.i.i, %._crit_edge44.i.i ], [ %654, %649 ]
-  %657 = phi i64 [ %.pre45.i.i, %._crit_edge44.i.i ], [ %653, %649 ]
-  %658 = and i64 %657, -123148389319041
-  %659 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %660 = and i64 %656, -35165044737
-  store i64 %660, ptr %659, align 8
-  br label %661
+658:                                              ; preds = %652, %._crit_edge44.i.i
+  %659 = phi i64 [ %.pre46.i.i, %._crit_edge44.i.i ], [ %657, %652 ]
+  %660 = phi i64 [ %.pre45.i.i, %._crit_edge44.i.i ], [ %656, %652 ]
+  %661 = and i64 %660, -123148389319041
+  %662 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %663 = and i64 %659, -35165044737
+  store i64 %663, ptr %662, align 8
+  br label %664
 
-661:                                              ; preds = %655, %._crit_edge47.i.i
-  %662 = phi i64 [ %.pre48.i.i, %._crit_edge47.i.i ], [ %658, %655 ]
-  %663 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %664 = and i64 %662, -134217217
-  store i64 %664, ptr %5, align 8
-  store ptr null, ptr %663, align 8
+664:                                              ; preds = %658, %._crit_edge47.i.i
+  %665 = phi i64 [ %.pre48.i.i, %._crit_edge47.i.i ], [ %661, %658 ]
+  %666 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %667 = and i64 %665, -134217217
+  store i64 %667, ptr %5, align 8
+  store ptr null, ptr %666, align 8
   br label %x64features_limit_from_capability.exit.i
 
-x64features_limit_from_capability.exit.i:         ; preds = %661, %x86_cpu_from_set.exit.i
-  %.mask.i = and i16 %643, 7
-  %665 = icmp eq i16 %.mask.i, 1
-  br i1 %665, label %666, label %669
+x64features_limit_from_capability.exit.i:         ; preds = %664, %x86_cpu_from_set.exit.i
+  %.mask.i = and i16 %646, 7
+  %668 = icmp eq i16 %.mask.i, 1
+  br i1 %668, label %669, label %672
 
-666:                                              ; preds = %x64features_limit_from_capability.exit.i
-  %667 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
-  %668 = or i32 %667, 65536
-  store i32 %668, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
-  br label %669
+669:                                              ; preds = %x64features_limit_from_capability.exit.i
+  %670 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
+  %671 = or i32 %670, 65536
+  store i32 %671, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
+  br label %672
 
-669:                                              ; preds = %666, %x64features_limit_from_capability.exit.i
+672:                                              ; preds = %669, %x64features_limit_from_capability.exit.i
   call void @scratch_buffer_clear() #17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   switch i32 %.0.i108, label %default.unreachable.i [
-    i32 7, label %670
-    i32 6, label %671
-    i32 4, label %672
-    i32 5, label %672
-    i32 2, label %673
-    i32 3, label %673
-    i32 1, label %674
-    i32 0, label %674
+    i32 7, label %673
+    i32 6, label %674
+    i32 4, label %675
+    i32 5, label %675
+    i32 2, label %676
+    i32 3, label %676
+    i32 1, label %677
+    i32 0, label %677
   ]
 
-670:                                              ; preds = %669
+673:                                              ; preds = %672
   call fastcc void @x86_features_from_host(ptr noundef %2)
-  br label %675
+  br label %678
 
-671:                                              ; preds = %669
+674:                                              ; preds = %672
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 13)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 14)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 15)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 23)
-  br label %672
+  br label %675
 
-672:                                              ; preds = %671, %669, %669
+675:                                              ; preds = %674, %672, %672
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 8)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 33)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 32)
@@ -2761,17 +2765,17 @@ x64features_limit_from_capability.exit.i:         ; preds = %661, %x86_cpu_from_
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 54)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 56)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 100)
-  br label %673
+  br label %676
 
-673:                                              ; preds = %672, %669, %669
+676:                                              ; preds = %675, %672, %672
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 74)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 63)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 42)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 86)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 40)
-  br label %674
+  br label %677
 
-674:                                              ; preds = %673, %669, %669
+677:                                              ; preds = %676, %672, %672
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 55)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 84)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 83)
@@ -2779,241 +2783,241 @@ x64features_limit_from_capability.exit.i:         ; preds = %661, %x86_cpu_from_
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 38)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 48)
   call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 41)
-  br label %675
-
-default.unreachable.i:                            ; preds = %669
-  unreachable
-
-675:                                              ; preds = %674, %670
-  %676 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %677 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %678
 
-678:                                              ; preds = %699, %675
-  %indvars.iv.i.i = phi i64 [ 0, %675 ], [ %indvars.iv.next.i.i, %699 ]
-  %679 = trunc i64 %indvars.iv.i.i to i32
-  %680 = add i32 %679, -9
-  %or.cond.i.i = icmp ult i32 %680, 2
-  br i1 %or.cond.i.i, label %699, label %681
+default.unreachable.i:                            ; preds = %672
+  unreachable
 
-681:                                              ; preds = %678
-  %682 = icmp samesign ult i64 %indvars.iv.i.i, 64
-  br i1 %682, label %683, label %686
+678:                                              ; preds = %677, %673
+  %679 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %680 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %681
 
-683:                                              ; preds = %681
+681:                                              ; preds = %702, %678
+  %indvars.iv.i.i = phi i64 [ 0, %678 ], [ %indvars.iv.next.i.i, %702 ]
+  %682 = trunc i64 %indvars.iv.i.i to i32
+  %683 = add i32 %682, -9
+  %or.cond.i.i = icmp ult i32 %683, 2
+  br i1 %or.cond.i.i, label %702, label %684
+
+684:                                              ; preds = %681
+  %685 = icmp samesign ult i64 %indvars.iv.i.i, 64
+  br i1 %685, label %686, label %689
+
+686:                                              ; preds = %684
   %.sink.i18.i.i = load i64, ptr %2, align 8
-  %684 = shl nuw i64 1, %indvars.iv.i.i
-  %685 = and i64 %.sink.i18.i.i, %684
+  %687 = shl nuw i64 1, %indvars.iv.i.i
+  %688 = and i64 %.sink.i18.i.i, %687
   br label %x64features_contains.exit15.i.i
 
-686:                                              ; preds = %681
-  %687 = add nsw i64 %indvars.iv.i.i, -64
-  %.sink.i.i.i = load i64, ptr %676, align 8
-  %688 = shl nuw nsw i64 1, %687
-  %689 = and i64 %.sink.i.i.i, %688
-  %690 = add nuw nsw i64 %indvars.iv.i.i, 4294967232
+689:                                              ; preds = %684
+  %690 = add nsw i64 %indvars.iv.i.i, -64
+  %.sink.i.i.i = load i64, ptr %679, align 8
+  %691 = shl nuw nsw i64 1, %690
+  %692 = and i64 %.sink.i.i.i, %691
+  %693 = add nuw nsw i64 %indvars.iv.i.i, 4294967232
   br label %x64features_contains.exit15.i.i
 
-x64features_contains.exit15.i.i:                  ; preds = %686, %683
-  %.0.i20.in.i.i = phi i64 [ %689, %686 ], [ %685, %683 ]
-  %.sink9.i11.i.i = phi i64 [ %690, %686 ], [ %indvars.iv.i.i, %683 ]
-  %.sink.in.i12.i.i = phi ptr [ %677, %686 ], [ %5, %683 ]
+x64features_contains.exit15.i.i:                  ; preds = %689, %686
+  %.0.i20.in.i.i = phi i64 [ %692, %689 ], [ %688, %686 ]
+  %.sink9.i11.i.i = phi i64 [ %693, %689 ], [ %indvars.iv.i.i, %686 ]
+  %.sink.in.i12.i.i = phi ptr [ %680, %689 ], [ %5, %686 ]
   %.0.i20.not.i.i = icmp eq i64 %.0.i20.in.i.i, 0
   %.sink.i13.i.i = load i64, ptr %.sink.in.i12.i.i, align 8
-  %691 = and i64 %.sink9.i11.i.i, 4294967295
-  %692 = shl nuw i64 1, %691
-  %693 = and i64 %.sink.i13.i.i, %692
-  %.0.i14.not.i.i = icmp eq i64 %693, 0
-  br i1 %.0.i14.not.i.i, label %695, label %694
+  %694 = and i64 %.sink9.i11.i.i, 4294967295
+  %695 = shl nuw i64 1, %694
+  %696 = and i64 %.sink.i13.i.i, %695
+  %.0.i14.not.i.i = icmp eq i64 %696, 0
+  br i1 %.0.i14.not.i.i, label %698, label %697
 
-694:                                              ; preds = %x64features_contains.exit15.i.i
-  br i1 %.0.i20.not.i.i, label %696, label %699
+697:                                              ; preds = %x64features_contains.exit15.i.i
+  br i1 %.0.i20.not.i.i, label %699, label %702
 
-695:                                              ; preds = %x64features_contains.exit15.i.i
-  br i1 %.0.i20.not.i.i, label %699, label %696
+698:                                              ; preds = %x64features_contains.exit15.i.i
+  br i1 %.0.i20.not.i.i, label %702, label %699
 
-696:                                              ; preds = %695, %694
-  %.sink.i.i = phi i8 [ 43, %694 ], [ 45, %695 ]
+699:                                              ; preds = %698, %697
+  %.sink.i.i = phi i8 [ 43, %697 ], [ 45, %698 ]
   call void @scratch_buffer_append_char(i8 noundef signext %.sink.i.i) #17
-  %697 = getelementptr inbounds nuw ptr, ptr @x86_feature_name, i64 %indvars.iv.i.i
-  %698 = load ptr, ptr %697, align 8
-  call void @scratch_buffer_append(ptr noundef %698) #17
+  %700 = getelementptr inbounds nuw ptr, ptr @x86_feature_name, i64 %indvars.iv.i.i
+  %701 = load ptr, ptr %700, align 8
+  call void @scratch_buffer_append(ptr noundef %701) #17
   call void @scratch_buffer_append_char(i8 noundef signext 44) #17
-  br label %699
+  br label %702
 
-699:                                              ; preds = %696, %695, %694, %678
+702:                                              ; preds = %699, %698, %697, %681
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 104
-  br i1 %exitcond.not.i.i, label %x86features_as_diff_to_scratch.exit.i, label %678, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %x86features_as_diff_to_scratch.exit.i, label %681, !llvm.loop !11
 
-x86features_as_diff_to_scratch.exit.i:            ; preds = %699
+x86features_as_diff_to_scratch.exit.i:            ; preds = %702
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %700 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
-  %701 = and i32 %700, 65536
-  %.not16.i = icmp eq i32 %701, 0
-  br i1 %.not16.i, label %703, label %702
+  %703 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
+  %704 = and i32 %703, 65536
+  %.not16.i = icmp eq i32 %704, 0
+  br i1 %.not16.i, label %706, label %705
 
-702:                                              ; preds = %x86features_as_diff_to_scratch.exit.i
+705:                                              ; preds = %x86features_as_diff_to_scratch.exit.i
   call void @scratch_buffer_append(ptr noundef nonnull @.str.204) #17
-  br label %703
+  br label %706
 
-703:                                              ; preds = %702, %x86features_as_diff_to_scratch.exit.i
-  %704 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
-  %.not17.i = icmp eq i32 %704, 0
-  br i1 %.not17.i, label %707, label %705
+706:                                              ; preds = %705, %x86features_as_diff_to_scratch.exit.i
+  %707 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
+  %.not17.i = icmp eq i32 %707, 0
+  br i1 %.not17.i, label %710, label %708
 
-705:                                              ; preds = %703
-  %706 = add i32 %704, -1
-  store i32 %706, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
-  br label %707
+708:                                              ; preds = %706
+  %709 = add i32 %707, -1
+  store i32 %709, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
+  br label %710
 
-707:                                              ; preds = %705, %703
-  %708 = call ptr @scratch_buffer_copy() #17
-  store ptr %708, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 24), align 8
-  %709 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
-  switch i32 %709, label %713 [
-    i32 12, label %710
-    i32 9, label %710
+710:                                              ; preds = %708, %706
+  %711 = call ptr @scratch_buffer_copy() #17
+  store ptr %711, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 24), align 8
+  %712 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
+  switch i32 %712, label %716 [
+    i32 12, label %713
+    i32 9, label %713
   ]
 
-710:                                              ; preds = %707, %707
-  %711 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
-  %712 = or i32 %711, 524288
-  store i32 %712, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
-  br label %713
+713:                                              ; preds = %710, %710
+  %714 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
+  %715 = or i32 %714, 524288
+  store i32 %715, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
+  br label %716
 
-713:                                              ; preds = %710, %707
+716:                                              ; preds = %713, %710
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %.sink.i19.i = load i64, ptr %5, align 8
-  %714 = and i64 %.sink.i19.i, 131072
-  %.0.i20.not.i = icmp eq i64 %714, 0
-  br i1 %.0.i20.not.i, label %715, label %.sink.split.i
+  %717 = and i64 %.sink.i19.i, 131072
+  %.0.i20.not.i = icmp eq i64 %717, 0
+  br i1 %.0.i20.not.i, label %718, label %.sink.split.i
 
-715:                                              ; preds = %713
-  %716 = and i64 %.sink.i19.i, 128
-  %.0.i22.not.i = icmp eq i64 %716, 0
-  br i1 %.0.i22.not.i, label %717, label %.sink.split.i
+718:                                              ; preds = %716
+  %719 = and i64 %.sink.i19.i, 128
+  %.0.i22.not.i = icmp eq i64 %719, 0
+  br i1 %.0.i22.not.i, label %720, label %.sink.split.i
 
-717:                                              ; preds = %715
-  %.sink.i23.i = load i64, ptr %677, align 8
-  %718 = and i64 %.sink.i23.i, 262144
-  %.0.i24.not.i = icmp eq i64 %718, 0
+720:                                              ; preds = %718
+  %.sink.i23.i = load i64, ptr %680, align 8
+  %721 = and i64 %.sink.i23.i, 262144
+  %.0.i24.not.i = icmp eq i64 %721, 0
   br i1 %.0.i24.not.i, label %target_setup_x64_abi.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %717, %715, %713
-  %.sink.i109 = phi i32 [ 64, %713 ], [ 32, %715 ], [ 16, %717 ]
-  %.sink28.i = phi i32 [ 512, %713 ], [ 256, %715 ], [ 128, %717 ]
+.sink.split.i:                                    ; preds = %720, %718, %716
+  %.sink.i109 = phi i32 [ 64, %716 ], [ 32, %718 ], [ 16, %720 ]
+  %.sink28.i = phi i32 [ 512, %716 ], [ 256, %718 ], [ 128, %720 ]
   store i32 %.sink.i109, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
-  %719 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
-  %720 = and i32 %719, -65536
-  %721 = or disjoint i32 %720, %.sink28.i
-  store i32 %721, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
+  %722 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
+  %723 = and i32 %722, -65536
+  %724 = or disjoint i32 %723, %.sink28.i
+  store i32 %724, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
   br label %target_setup_x64_abi.exit
 
-target_setup_x64_abi.exit:                        ; preds = %717, %.sink.split.i
+target_setup_x64_abi.exit:                        ; preds = %720, %.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %722 = icmp eq i32 %709, 15
-  br i1 %722, label %723, label %724
+  %725 = icmp eq i32 %712, 15
+  br i1 %725, label %726, label %727
 
-723:                                              ; preds = %target_setup_x64_abi.exit
+726:                                              ; preds = %target_setup_x64_abi.exit
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
   br label %target_setup_x86_abi.exit
 
-724:                                              ; preds = %target_setup_x64_abi.exit
+727:                                              ; preds = %target_setup_x64_abi.exit
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
   br label %target_setup_x86_abi.exit
 
-725:                                              ; preds = %os_target_signed_c_char_type.exit.thread
+728:                                              ; preds = %os_target_signed_c_char_type.exit.thread
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
   br label %target_setup_x86_abi.exit
 
-target_setup_x86_abi.exit:                        ; preds = %588, %584, %725, %724, %723, %568, %549, %target_setup_arm_abi.exit, %495, %os_is_apple.exit, %os_target_signed_c_char_type.exit.thread
-  %726 = phi i32 [ %475, %588 ], [ %475, %584 ], [ %475, %725 ], [ %709, %724 ], [ 15, %723 ], [ %.pre268, %568 ], [ %475, %549 ], [ %475, %target_setup_arm_abi.exit ], [ %475, %495 ], [ %475, %os_is_apple.exit ], [ %475, %os_target_signed_c_char_type.exit.thread ]
-  %727 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
-  %728 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 44), align 4
-  %729 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
-  %730 = lshr i8 %729, 1
-  %731 = and i8 %730, 7
-  switch i32 %727, label %os_is_apple.exit.i113 [
+target_setup_x86_abi.exit:                        ; preds = %588, %584, %728, %727, %726, %568, %549, %target_setup_arm_abi.exit, %495, %os_is_apple.exit, %os_target_signed_c_char_type.exit.thread
+  %729 = phi i32 [ %475, %588 ], [ %475, %584 ], [ %475, %728 ], [ %712, %727 ], [ 15, %726 ], [ %.pre268, %568 ], [ %475, %549 ], [ %475, %target_setup_arm_abi.exit ], [ %475, %495 ], [ %475, %os_is_apple.exit ], [ %475, %os_target_signed_c_char_type.exit.thread ]
+  %730 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
+  %731 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 44), align 4
+  %732 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
+  %733 = lshr i8 %732, 1
+  %734 = and i8 %733, 7
+  switch i32 %730, label %os_is_apple.exit.i113 [
     i32 3, label %os_arch_max_alignment_of_vector.exit
-    i32 1, label %732
-    i32 2, label %732
-    i32 31, label %736
+    i32 1, label %735
+    i32 2, label %735
+    i32 31, label %739
   ]
 
-732:                                              ; preds = %target_setup_x86_abi.exit, %target_setup_x86_abi.exit
-  %733 = icmp eq i32 %728, 12
-  br i1 %733, label %os_arch_max_alignment_of_vector.exit, label %734
+735:                                              ; preds = %target_setup_x86_abi.exit, %target_setup_x86_abi.exit
+  %736 = icmp eq i32 %731, 12
+  br i1 %736, label %os_arch_max_alignment_of_vector.exit, label %737
 
-734:                                              ; preds = %732
-  %switch.selectcmp.case1.i = icmp eq i8 %731, 0
-  %switch.selectcmp.case2.i = icmp eq i8 %731, 3
+737:                                              ; preds = %735
+  %switch.selectcmp.case1.i = icmp eq i8 %734, 0
+  %switch.selectcmp.case2.i = icmp eq i8 %734, 3
   %switch.selectcmp.i = or i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
-  %735 = select i1 %switch.selectcmp.i, i32 8, i32 0
+  %738 = select i1 %switch.selectcmp.i, i32 8, i32 0
   br label %os_arch_max_alignment_of_vector.exit
 
-736:                                              ; preds = %target_setup_x86_abi.exit
-  switch i32 %726, label %os_is_apple.exit.i113 [
+739:                                              ; preds = %target_setup_x86_abi.exit
+  switch i32 %729, label %os_is_apple.exit.i113 [
     i32 15, label %os_arch_max_alignment_of_vector.exit
-    i32 28, label %737
-    i32 27, label %737
-    i32 11, label %737
-    i32 7, label %737
+    i32 28, label %740
+    i32 27, label %740
+    i32 11, label %740
+    i32 7, label %740
   ]
 
-737:                                              ; preds = %736, %736, %736, %736
+740:                                              ; preds = %739, %739, %739, %739
   %.sink.i.i110 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
-  %738 = and i64 %.sink.i.i110, 131072
-  %.0.i.not.i = icmp eq i64 %738, 0
-  br i1 %.0.i.not.i, label %739, label %os_arch_max_alignment_of_vector.exit
+  %741 = and i64 %.sink.i.i110, 131072
+  %.0.i.not.i = icmp eq i64 %741, 0
+  br i1 %.0.i.not.i, label %742, label %os_arch_max_alignment_of_vector.exit
 
-739:                                              ; preds = %737
-  %740 = and i64 %.sink.i.i110, 128
-  %.0.i9.not.i = icmp eq i64 %740, 0
+742:                                              ; preds = %740
+  %743 = and i64 %.sink.i.i110, 128
+  %.0.i9.not.i = icmp eq i64 %743, 0
   %..i112 = select i1 %.0.i9.not.i, i32 16, i32 32
   br label %os_arch_max_alignment_of_vector.exit
 
-os_is_apple.exit.i113:                            ; preds = %736, %target_setup_x86_abi.exit
+os_is_apple.exit.i113:                            ; preds = %739, %target_setup_x86_abi.exit
   br label %os_arch_max_alignment_of_vector.exit
 
-os_arch_max_alignment_of_vector.exit:             ; preds = %target_setup_x86_abi.exit, %732, %734, %736, %737, %739, %os_is_apple.exit.i113
-  %.0.i111 = phi i32 [ 0, %os_is_apple.exit.i113 ], [ 16, %target_setup_x86_abi.exit ], [ 0, %732 ], [ %735, %734 ], [ 1024, %736 ], [ 64, %737 ], [ %..i112, %739 ]
+os_arch_max_alignment_of_vector.exit:             ; preds = %target_setup_x86_abi.exit, %735, %737, %739, %740, %742, %os_is_apple.exit.i113
+  %.0.i111 = phi i32 [ 0, %os_is_apple.exit.i113 ], [ 16, %target_setup_x86_abi.exit ], [ 0, %735 ], [ %738, %737 ], [ 1024, %739 ], [ 64, %740 ], [ %..i112, %742 ]
   store i32 %.0.i111, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 292), align 4
-  %cond.i114 = icmp eq i32 %727, 31
-  %741 = icmp eq i32 %726, 15
-  %or.cond.i115 = and i1 %741, %cond.i114
+  %cond.i114 = icmp eq i32 %730, 31
+  %744 = icmp eq i32 %729, 15
+  %or.cond.i115 = and i1 %744, %cond.i114
   %..i116 = select i1 %or.cond.i115, i32 8192, i32 0
   store i32 %..i116, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 296), align 8
-  %742 = load i32, ptr @active_target, align 8
-  %.not250 = icmp eq i32 %742, 0
-  br i1 %.not250, label %749, label %743
+  %745 = load i32, ptr @active_target, align 8
+  %.not250 = icmp eq i32 %745, 0
+  br i1 %.not250, label %752, label %746
 
-743:                                              ; preds = %os_arch_max_alignment_of_vector.exit
-  switch i32 %726, label %748 [
-    i32 21, label %744
-    i32 16, label %744
-    i32 2, label %744
-    i32 3, label %744
-    i32 4, label %744
-    i32 6, label %744
-    i32 8, label %744
-    i32 10, label %744
-    i32 18, label %744
-    i32 14, label %744
-    i32 17, label %744
-    i32 19, label %744
-    i32 20, label %744
-    i32 22, label %744
-    i32 23, label %744
-    i32 24, label %744
-    i32 25, label %744
-    i32 26, label %744
-    i32 29, label %744
-    i32 30, label %744
-    i32 31, label %744
-    i32 32, label %744
-    i32 33, label %744
-    i32 35, label %744
+746:                                              ; preds = %os_arch_max_alignment_of_vector.exit
+  switch i32 %729, label %751 [
+    i32 21, label %747
+    i32 16, label %747
+    i32 2, label %747
+    i32 3, label %747
+    i32 4, label %747
+    i32 6, label %747
+    i32 8, label %747
+    i32 10, label %747
+    i32 18, label %747
+    i32 14, label %747
+    i32 17, label %747
+    i32 19, label %747
+    i32 20, label %747
+    i32 22, label %747
+    i32 23, label %747
+    i32 24, label %747
+    i32 25, label %747
+    i32 26, label %747
+    i32 29, label %747
+    i32 30, label %747
+    i32 31, label %747
+    i32 32, label %747
+    i32 33, label %747
+    i32 35, label %747
     i32 13, label %arch_os_reloc_default.exit
     i32 28, label %arch_os_reloc_default.exit
     i32 7, label %arch_os_reloc_default.exit
@@ -3021,109 +3025,109 @@ os_arch_max_alignment_of_vector.exit:             ; preds = %target_setup_x86_ab
     i32 11, label %arch_os_reloc_default.exit
     i32 15, label %arch_os_reloc_default.exit.thread239
     i32 34, label %arch_os_reloc_default.exit.thread
-    i32 0, label %747
-    i32 1, label %747
-    i32 5, label %747
-    i32 9, label %747
-    i32 12, label %747
+    i32 0, label %750
+    i32 1, label %750
+    i32 5, label %750
+    i32 9, label %750
+    i32 12, label %750
   ]
 
-744:                                              ; preds = %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743, %743
+747:                                              ; preds = %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746, %746
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_reloc_default, ptr noundef nonnull @.str.18, i32 noundef 1599) #16
   unreachable
 
-arch_os_reloc_default.exit.thread239:             ; preds = %743
-  %745 = icmp eq i32 %727, 32
-  %746 = zext i1 %745 to i32
-  store i32 %746, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
-  br label %756
+arch_os_reloc_default.exit.thread239:             ; preds = %746
+  %748 = icmp eq i32 %730, 32
+  %749 = zext i1 %748 to i32
+  store i32 %749, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
+  br label %759
 
-747:                                              ; preds = %743, %743, %743, %743, %743
-  %.off.i = add i32 %727, -13
+750:                                              ; preds = %746, %746, %746, %746, %746
+  %.off.i = add i32 %730, -13
   %switch.i = icmp ult i32 %.off.i, 2
   %..i118 = zext i1 %switch.i to i32
   br label %arch_os_reloc_default.exit
 
-748:                                              ; preds = %743
+751:                                              ; preds = %746
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_reloc_default, ptr noundef nonnull @.str.18, i32 noundef 1621) #16
   unreachable
 
-749:                                              ; preds = %os_arch_max_alignment_of_vector.exit
-  switch i32 %726, label %754 [
+752:                                              ; preds = %os_arch_max_alignment_of_vector.exit
+  switch i32 %729, label %757 [
     i32 0, label %arch_os_reloc_default.exit
     i32 1, label %arch_os_reloc_default.exit
-    i32 13, label %750
-    i32 15, label %750
-    i32 28, label %750
-    i32 7, label %750
-    i32 27, label %750
-    i32 11, label %750
-    i32 34, label %750
-    i32 5, label %750
-    i32 12, label %750
-    i32 9, label %751
-    i32 21, label %753
-    i32 16, label %753
-    i32 2, label %753
-    i32 3, label %753
-    i32 4, label %753
-    i32 6, label %753
-    i32 8, label %753
-    i32 10, label %753
-    i32 18, label %753
-    i32 14, label %753
-    i32 17, label %753
-    i32 19, label %753
-    i32 20, label %753
-    i32 22, label %753
-    i32 23, label %753
-    i32 24, label %753
-    i32 25, label %753
-    i32 26, label %753
-    i32 29, label %753
-    i32 30, label %753
-    i32 31, label %753
-    i32 32, label %753
-    i32 33, label %753
-    i32 35, label %753
+    i32 13, label %753
+    i32 15, label %753
+    i32 28, label %753
+    i32 7, label %753
+    i32 27, label %753
+    i32 11, label %753
+    i32 34, label %753
+    i32 5, label %753
+    i32 12, label %753
+    i32 9, label %754
+    i32 21, label %756
+    i32 16, label %756
+    i32 2, label %756
+    i32 3, label %756
+    i32 4, label %756
+    i32 6, label %756
+    i32 8, label %756
+    i32 10, label %756
+    i32 18, label %756
+    i32 14, label %756
+    i32 17, label %756
+    i32 19, label %756
+    i32 20, label %756
+    i32 22, label %756
+    i32 23, label %756
+    i32 24, label %756
+    i32 25, label %756
+    i32 26, label %756
+    i32 29, label %756
+    i32 30, label %756
+    i32 31, label %756
+    i32 32, label %756
+    i32 33, label %756
+    i32 35, label %756
   ]
 
-750:                                              ; preds = %749, %749, %749, %749, %749, %749, %749, %749, %749
+753:                                              ; preds = %752, %752, %752, %752, %752, %752, %752, %752, %752
   br label %arch_os_reloc_default.exit
 
-751:                                              ; preds = %749
-  %switch.tableidx320 = add i32 %728, -12
-  %752 = icmp ult i32 %switch.tableidx320, 4
-  br i1 %752, label %switch.lookup321, label %arch_os_reloc_default.exit.thread
+754:                                              ; preds = %752
+  %switch.tableidx320 = add i32 %731, -12
+  %755 = icmp ult i32 %switch.tableidx320, 4
+  br i1 %755, label %switch.lookup321, label %arch_os_reloc_default.exit.thread
 
-753:                                              ; preds = %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749
+756:                                              ; preds = %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752, %752
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_reloc_default, ptr noundef nonnull @.str.18, i32 noundef 1642) #16
   unreachable
 
-754:                                              ; preds = %749
+757:                                              ; preds = %752
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_reloc_default, ptr noundef nonnull @.str.18, i32 noundef 1644) #16
   unreachable
 
-switch.lookup321:                                 ; preds = %751
-  %755 = zext nneg i32 %switch.tableidx320 to i64
-  %switch.gep322 = getelementptr inbounds nuw i32, ptr @switch.table.target_setup.5, i64 %755
+switch.lookup321:                                 ; preds = %754
+  %758 = zext nneg i32 %switch.tableidx320 to i64
+  %switch.gep322 = getelementptr inbounds nuw i32, ptr @switch.table.target_setup.5, i64 %758
   %switch.load323 = load i32, ptr %switch.gep322, align 4
   br label %arch_os_reloc_default.exit.thread
 
-arch_os_reloc_default.exit.thread:                ; preds = %751, %switch.lookup321, %743
-  %.0.i117.ph = phi i32 [ 0, %743 ], [ %switch.load323, %switch.lookup321 ], [ 0, %751 ]
+arch_os_reloc_default.exit.thread:                ; preds = %754, %switch.lookup321, %746
+  %.0.i117.ph = phi i32 [ 0, %746 ], [ %switch.load323, %switch.lookup321 ], [ 0, %754 ]
   store i32 %.0.i117.ph, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   br label %arch_os_pic_default_forced.exit
 
-arch_os_reloc_default.exit:                       ; preds = %743, %743, %743, %743, %743, %747, %749, %749, %750
-  %.0.i117 = phi i32 [ 3, %750 ], [ 1, %743 ], [ 1, %743 ], [ 1, %743 ], [ 1, %743 ], [ 1, %743 ], [ %..i118, %747 ], [ 0, %749 ], [ 0, %749 ]
+arch_os_reloc_default.exit:                       ; preds = %746, %746, %746, %746, %746, %750, %752, %752, %753
+  %.0.i117 = phi i32 [ 3, %753 ], [ 1, %746 ], [ 1, %746 ], [ 1, %746 ], [ 1, %746 ], [ 1, %746 ], [ %..i118, %750 ], [ 0, %752 ], [ 0, %752 ]
   store i32 %.0.i117, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
-  switch i32 %726, label %default.unreachable245 [
-    i32 15, label %756
-    i32 28, label %758
-    i32 7, label %758
-    i32 27, label %758
-    i32 11, label %758
+  switch i32 %729, label %default.unreachable245 [
+    i32 15, label %759
+    i32 28, label %761
+    i32 7, label %761
+    i32 27, label %761
+    i32 11, label %761
     i32 34, label %arch_os_pic_default_forced.exit
     i32 0, label %arch_os_pic_default_forced.exit
     i32 1, label %arch_os_pic_default_forced.exit
@@ -3131,178 +3135,178 @@ arch_os_reloc_default.exit:                       ; preds = %743, %743, %743, %7
     i32 9, label %arch_os_pic_default_forced.exit
     i32 12, label %arch_os_pic_default_forced.exit
     i32 13, label %arch_os_pic_default_forced.exit
-    i32 21, label %762
-    i32 16, label %762
-    i32 2, label %762
-    i32 3, label %762
-    i32 4, label %762
-    i32 6, label %762
-    i32 8, label %762
-    i32 10, label %762
-    i32 18, label %762
-    i32 14, label %762
-    i32 17, label %762
-    i32 19, label %762
-    i32 20, label %762
-    i32 22, label %762
-    i32 23, label %762
-    i32 24, label %762
-    i32 25, label %762
-    i32 26, label %762
-    i32 29, label %762
-    i32 30, label %762
-    i32 31, label %762
-    i32 32, label %762
-    i32 33, label %762
+    i32 21, label %765
+    i32 16, label %765
+    i32 2, label %765
+    i32 3, label %765
+    i32 4, label %765
+    i32 6, label %765
+    i32 8, label %765
+    i32 10, label %765
+    i32 18, label %765
+    i32 14, label %765
+    i32 17, label %765
+    i32 19, label %765
+    i32 20, label %765
+    i32 22, label %765
+    i32 23, label %765
+    i32 24, label %765
+    i32 25, label %765
+    i32 26, label %765
+    i32 29, label %765
+    i32 30, label %765
+    i32 31, label %765
+    i32 32, label %765
+    i32 33, label %765
   ]
 
-756:                                              ; preds = %arch_os_reloc_default.exit.thread239, %arch_os_reloc_default.exit
-  %757 = icmp eq i32 %727, 32
+759:                                              ; preds = %arch_os_reloc_default.exit.thread239, %arch_os_reloc_default.exit
+  %760 = icmp eq i32 %730, 32
   br label %arch_os_pic_default_forced.exit
 
-758:                                              ; preds = %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit
-  %759 = icmp eq i32 %727, 3
-  %760 = icmp eq i32 %727, 32
-  %761 = or i1 %759, %760
+761:                                              ; preds = %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit
+  %762 = icmp eq i32 %730, 3
+  %763 = icmp eq i32 %730, 32
+  %764 = or i1 %762, %763
   br label %arch_os_pic_default_forced.exit
 
-762:                                              ; preds = %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit
+765:                                              ; preds = %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_pic_default_forced, ptr noundef nonnull @.str.18, i32 noundef 1664) #16
   unreachable
 
 default.unreachable245:                           ; preds = %arch_os_reloc_default.exit
   unreachable
 
-arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_default.exit.thread, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %756, %758
-  %.0.i119 = phi i1 [ %757, %756 ], [ %761, %758 ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit.thread ]
-  %763 = zext i1 %.0.i119 to i16
-  %764 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
-  %765 = and i16 %764, -2
-  %766 = or disjoint i16 %765, %763
-  store i16 %766, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
-  %767 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %768 = load i32, ptr %767, align 4
-  switch i32 %768, label %770 [
-    i32 -1, label %771
-    i32 0, label %769
+arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_default.exit.thread, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %759, %761
+  %.0.i119 = phi i1 [ %760, %759 ], [ %764, %761 ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit.thread ]
+  %766 = zext i1 %.0.i119 to i16
+  %767 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
+  %768 = and i16 %767, -2
+  %769 = or disjoint i16 %768, %766
+  store i16 %769, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
+  %770 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %771 = load i32, ptr %770, align 4
+  switch i32 %771, label %773 [
+    i32 -1, label %774
+    i32 0, label %772
   ]
 
-769:                                              ; preds = %arch_os_pic_default_forced.exit
-  br i1 %.0.i119, label %771, label %770
+772:                                              ; preds = %arch_os_pic_default_forced.exit
+  br i1 %.0.i119, label %774, label %773
 
-770:                                              ; preds = %arch_os_pic_default_forced.exit, %769
-  store i32 %768, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
-  br label %771
+773:                                              ; preds = %arch_os_pic_default_forced.exit, %772
+  store i32 %771, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
+  br label %774
 
-771:                                              ; preds = %arch_os_pic_default_forced.exit, %770, %769
-  %772 = icmp eq i32 %726, 11
-  br i1 %772, label %773, label %816
+774:                                              ; preds = %arch_os_pic_default_forced.exit, %773, %772
+  %775 = icmp eq i32 %729, 11
+  br i1 %775, label %776, label %819
 
-773:                                              ; preds = %771
-  %774 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 344), align 8
-  %.not58 = icmp eq ptr %774, null
-  br i1 %.not58, label %775, label %.thread243
+776:                                              ; preds = %774
+  %777 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 344), align 8
+  %.not58 = icmp eq ptr %777, null
+  br i1 %.not58, label %778, label %.thread243
 
-775:                                              ; preds = %773
-  %776 = call ptr @macos_sysroot() #17
-  store ptr %776, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 344), align 8
-  %.not59 = icmp eq ptr %776, null
-  br i1 %.not59, label %777, label %.thread243
+778:                                              ; preds = %776
+  %779 = call ptr @macos_sysroot() #17
+  store ptr %779, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 344), align 8
+  %.not59 = icmp eq ptr %779, null
+  br i1 %.not59, label %780, label %.thread243
 
-.thread243:                                       ; preds = %775, %773
-  %.ph = phi ptr [ %776, %775 ], [ %774, %773 ]
+.thread243:                                       ; preds = %778, %776
+  %.ph = phi ptr [ %779, %778 ], [ %777, %776 ]
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
-  br label %779
+  br label %782
 
-777:                                              ; preds = %775
-  %778 = call ptr @macos_sysroot() #17
+780:                                              ; preds = %778
+  %781 = call ptr @macos_sysroot() #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
-  %.not60 = icmp eq ptr %778, null
-  br i1 %.not60, label %800, label %779
+  %.not60 = icmp eq ptr %781, null
+  br i1 %.not60, label %803, label %782
 
-779:                                              ; preds = %.thread243, %777
-  %780 = phi ptr [ %.ph, %.thread243 ], [ %778, %777 ]
-  %781 = load i8, ptr @debug_log, align 1
-  %782 = trunc i8 %781 to i1
-  br i1 %782, label %783, label %786
+782:                                              ; preds = %.thread243, %780
+  %783 = phi ptr [ %.ph, %.thread243 ], [ %781, %780 ]
+  %784 = load i8, ptr @debug_log, align 1
+  %785 = trunc i8 %784 to i1
+  br i1 %785, label %786, label %789
 
-783:                                              ; preds = %779
-  %784 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
-  %785 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %780)
+786:                                              ; preds = %782
+  %787 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
+  %788 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %783)
   %putchar61 = call i32 @putchar(i32 10)
-  br label %786
+  br label %789
 
-786:                                              ; preds = %779, %783
-  %787 = call ptr @macos_sysroot_sdk_information(ptr noundef nonnull %780) #17
-  store ptr %787, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
-  %788 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
-  %789 = icmp eq i32 %788, 3
-  br i1 %789, label %790, label %800
+789:                                              ; preds = %782, %786
+  %790 = call ptr @macos_sysroot_sdk_information(ptr noundef nonnull %783) #17
+  store ptr %790, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
+  %791 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
+  %792 = icmp eq i32 %791, 3
+  br i1 %792, label %793, label %803
 
-790:                                              ; preds = %786
-  %791 = getelementptr inbounds nuw i8, ptr %787, i64 8
-  %792 = load i32, ptr %791, align 4
-  %793 = icmp slt i32 %792, 11
-  br i1 %793, label %794, label %795
+793:                                              ; preds = %789
+  %794 = getelementptr inbounds nuw i8, ptr %790, i64 8
+  %795 = load i32, ptr %794, align 4
+  %796 = icmp slt i32 %795, 11
+  br i1 %796, label %797, label %798
 
-794:                                              ; preds = %790
-  store i32 11, ptr %791, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %787, i64 12
+797:                                              ; preds = %793
+  store i32 11, ptr %794, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %790, i64 12
   store i32 0, ptr %.sroa.22.0..sroa_idx, align 4
   %.pre269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
-  br label %795
+  br label %798
 
-795:                                              ; preds = %794, %790
-  %796 = phi ptr [ %.pre269, %794 ], [ %787, %790 ]
-  %797 = load i32, ptr %796, align 4
-  %798 = icmp slt i32 %797, 11
-  br i1 %798, label %799, label %800
+798:                                              ; preds = %797, %793
+  %799 = phi ptr [ %.pre269, %797 ], [ %790, %793 ]
+  %800 = load i32, ptr %799, align 4
+  %801 = icmp slt i32 %800, 11
+  br i1 %801, label %802, label %803
 
-799:                                              ; preds = %795
-  store i32 11, ptr %796, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %796, i64 4
+802:                                              ; preds = %798
+  store i32 11, ptr %799, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %799, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
-  br label %800
+  br label %803
 
-800:                                              ; preds = %786, %799, %795, %777
-  %801 = load ptr, ptr @platform_target, align 8
-  %802 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 352), align 8
-  %.not62 = icmp eq ptr %802, null
-  br i1 %.not62, label %805, label %803
+803:                                              ; preds = %789, %802, %798, %780
+  %804 = load ptr, ptr @platform_target, align 8
+  %805 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 352), align 8
+  %.not62 = icmp eq ptr %805, null
+  br i1 %.not62, label %808, label %806
 
-803:                                              ; preds = %800
+806:                                              ; preds = %803
   call void @scratch_buffer_clear() #17
-  call void @scratch_buffer_append(ptr noundef %801) #17
-  %804 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 352), align 8
   call void @scratch_buffer_append(ptr noundef %804) #17
-  br label %813
-
-805:                                              ; preds = %800
-  %806 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
-  %.not63 = icmp eq ptr %806, null
-  call void @scratch_buffer_clear() #17
-  call void @scratch_buffer_append(ptr noundef %801) #17
-  br i1 %.not63, label %807, label %808
-
-807:                                              ; preds = %805
-  call void @scratch_buffer_append(ptr noundef nonnull @.str.325) #17
-  br label %813
-
-808:                                              ; preds = %805
-  %809 = getelementptr inbounds nuw i8, ptr %806, i64 8
-  %810 = load i32, ptr %809, align 4
-  %811 = getelementptr inbounds nuw i8, ptr %806, i64 12
-  %812 = load i32, ptr %811, align 4
-  call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.326, i32 noundef %810, i32 noundef %812) #17
-  br label %813
-
-813:                                              ; preds = %808, %807, %803
-  %814 = call ptr @scratch_buffer_to_string() #17
-  %815 = call noalias ptr @strdup(ptr noundef %814) #17
-  store ptr %815, ptr @platform_target, align 8
+  %807 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 352), align 8
+  call void @scratch_buffer_append(ptr noundef %807) #17
   br label %816
 
-816:                                              ; preds = %813, %771
+808:                                              ; preds = %803
+  %809 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
+  %.not63 = icmp eq ptr %809, null
+  call void @scratch_buffer_clear() #17
+  call void @scratch_buffer_append(ptr noundef %804) #17
+  br i1 %.not63, label %810, label %811
+
+810:                                              ; preds = %808
+  call void @scratch_buffer_append(ptr noundef nonnull @.str.325) #17
+  br label %816
+
+811:                                              ; preds = %808
+  %812 = getelementptr inbounds nuw i8, ptr %809, i64 8
+  %813 = load i32, ptr %812, align 4
+  %814 = getelementptr inbounds nuw i8, ptr %809, i64 12
+  %815 = load i32, ptr %814, align 4
+  call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.326, i32 noundef %813, i32 noundef %815) #17
+  br label %816
+
+816:                                              ; preds = %811, %810, %806
+  %817 = call ptr @scratch_buffer_to_string() #17
+  %818 = call noalias ptr @strdup(ptr noundef %817) #17
+  store ptr %818, ptr @platform_target, align 8
+  br label %819
+
+819:                                              ; preds = %816, %774
   call void @type_setup(ptr noundef nonnull @platform_target) #17
   ret void
 }
@@ -3515,15 +3519,15 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @x86features_from_cpu(ptr noundef nonnull initializes((0, 24)) %0, i32 noundef range(i32 0, -1) %1) unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  switch i32 %1, label %11 [
+  switch i32 %1, label %15 [
     i32 6, label %3
     i32 5, label %4
     i32 4, label %5
     i32 3, label %6
     i32 2, label %7
     i32 1, label %8
-    i32 7, label %10
-    i32 0, label %9
+    i32 7, label %14
+    i32 0, label %13
   ]
 
 3:                                                ; preds = %2
@@ -3587,28 +3591,33 @@ define internal fastcc void @x86features_from_cpu(ptr noundef nonnull initialize
 
 8:                                                ; preds = %7, %2
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 74)
-  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 88)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8
+  %12 = or i64 %11, 18612224
+  store i64 %12, ptr %10, align 8
+  store ptr null, ptr %9, align 8
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 40)
-  br label %9
+  br label %13
 
-9:                                                ; preds = %8, %2
+13:                                               ; preds = %8, %2
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 41)
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 55)
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 48)
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 82)
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 83)
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 38)
-  br label %12
+  br label %16
 
-10:                                               ; preds = %2
+14:                                               ; preds = %2
   tail call fastcc void @x86_features_from_host(ptr noundef %0)
-  br label %12
+  br label %16
 
-11:                                               ; preds = %2
+15:                                               ; preds = %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.x86features_from_cpu, ptr noundef nonnull @.str.18, i32 noundef 883) #16
   unreachable
 
-12:                                               ; preds = %10, %9
+16:                                               ; preds = %14, %13
   ret void
 }
 
@@ -3802,7 +3811,7 @@ define internal fastcc void @x86_features_add_feature(ptr noundef nonnull initia
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
-  %.tr28 = phi i32 [ %1, %2 ], [ %.tr28.be, %tailrecurse.backedge ]
+  %.tr28 = phi i32 [ %1, %2 ], [ 88, %tailrecurse.backedge ]
   %5 = icmp samesign ult i32 %.tr28, 64
   br i1 %5, label %6, label %11
 
@@ -3825,58 +3834,58 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 x64features_add_feature_single.exit:              ; preds = %6, %11
   store ptr null, ptr %3, align 8
-  switch i32 %.tr28, label %59 [
-    i32 83, label %17
-    i32 49, label %17
-    i32 60, label %17
-    i32 1, label %20
-    i32 84, label %20
-    i32 77, label %20
-    i32 52, label %20
-    i32 85, label %tailrecurse.backedge
-    i32 87, label %23
-    i32 88, label %23
-    i32 86, label %26
-    i32 7, label %27
-    i32 17, label %28
-    i32 8, label %29
-    i32 44, label %29
-    i32 45, label %29
-    i32 80, label %29
-    i32 92, label %30
-    i32 93, label %35
-    i32 101, label %40
-    i32 102, label %40
-    i32 103, label %40
-    i32 14, label %43
-    i32 13, label %43
-    i32 15, label %43
-    i32 16, label %43
-    i32 20, label %43
-    i32 23, label %43
-    i32 19, label %43
-    i32 24, label %43
-    i32 26, label %43
-    i32 25, label %43
-    i32 46, label %44
-    i32 99, label %47
-    i32 2, label %48
-    i32 4, label %48
-    i32 5, label %48
-    i32 3, label %48
-    i32 31, label %51
-    i32 30, label %51
-    i32 27, label %51
-    i32 28, label %51
-    i32 29, label %51
-    i32 78, label %51
-    i32 81, label %51
-    i32 18, label %52
-    i32 97, label %53
-    i32 21, label %58
-    i32 22, label %58
-    i32 12, label %58
-    i32 11, label %58
+  switch i32 %.tr28, label %69 [
+    i32 83, label %33
+    i32 49, label %33
+    i32 60, label %33
+    i32 1, label %36
+    i32 84, label %36
+    i32 77, label %36
+    i32 52, label %36
+    i32 85, label %x64features_add_feature_single.exit.jt88
+    i32 87, label %.loopexit
+    i32 88, label %.loopexit
+    i32 86, label %tailrecurse.backedge
+    i32 7, label %x64features_add_feature_single.exit.jt86
+    i32 17, label %43
+    i32 8, label %x64features_add_feature_single.exit.jt7
+    i32 44, label %x64features_add_feature_single.exit.jt7
+    i32 45, label %x64features_add_feature_single.exit.jt7
+    i32 80, label %x64features_add_feature_single.exit.jt7
+    i32 92, label %44
+    i32 93, label %49
+    i32 101, label %54
+    i32 102, label %54
+    i32 103, label %54
+    i32 14, label %x64features_add_feature_single.exit.jt17
+    i32 13, label %x64features_add_feature_single.exit.jt17
+    i32 15, label %x64features_add_feature_single.exit.jt17
+    i32 16, label %x64features_add_feature_single.exit.jt17
+    i32 20, label %x64features_add_feature_single.exit.jt17
+    i32 23, label %x64features_add_feature_single.exit.jt17
+    i32 19, label %x64features_add_feature_single.exit.jt17
+    i32 24, label %x64features_add_feature_single.exit.jt17
+    i32 26, label %x64features_add_feature_single.exit.jt17
+    i32 25, label %x64features_add_feature_single.exit.jt17
+    i32 46, label %57
+    i32 99, label %x64features_add_feature_single.exit.jt46
+    i32 2, label %60
+    i32 4, label %60
+    i32 5, label %60
+    i32 3, label %60
+    i32 31, label %x64features_add_feature_single.exit.jt45
+    i32 30, label %x64features_add_feature_single.exit.jt45
+    i32 27, label %x64features_add_feature_single.exit.jt45
+    i32 28, label %x64features_add_feature_single.exit.jt45
+    i32 29, label %x64features_add_feature_single.exit.jt45
+    i32 78, label %x64features_add_feature_single.exit.jt45
+    i32 81, label %x64features_add_feature_single.exit.jt45
+    i32 18, label %63
+    i32 97, label %64
+    i32 21, label %x64features_add_feature_single.exit.jt23
+    i32 22, label %x64features_add_feature_single.exit.jt23
+    i32 12, label %x64features_add_feature_single.exit.jt23
+    i32 11, label %x64features_add_feature_single.exit.jt23
     i32 10, label %common.ret
     i32 9, label %common.ret
     i32 0, label %common.ret
@@ -3932,115 +3941,144 @@ x64features_add_feature_single.exit:              ; preds = %6, %11
     i32 100, label %common.ret
   ]
 
-17:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
-  %18 = load i64, ptr %4, align 8
-  %19 = or i64 %18, 262144
-  store i64 %19, ptr %4, align 8
-  br label %common.ret.sink.split
+x64features_add_feature_single.exit.jt88:         ; preds = %x64features_add_feature_single.exit
+  %17 = load i64, ptr %4, align 8
+  %18 = or i64 %17, 16777216
+  store i64 %18, ptr %4, align 8
+  br label %.loopexit
 
-20:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
-  %21 = load i64, ptr %4, align 8
-  %22 = or i64 %21, 786432
-  store i64 %22, ptr %4, align 8
-  br label %common.ret.sink.split
+x64features_add_feature_single.exit.jt23:         ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %63
+  %.tr28.be.jt23 = phi i64 [ 23, %63 ], [ 13, %x64features_add_feature_single.exit ], [ 13, %x64features_add_feature_single.exit ], [ 13, %x64features_add_feature_single.exit ], [ 13, %x64features_add_feature_single.exit ]
+  %19 = shl nuw nsw i64 1, %.tr28.be.jt23
+  %20 = load i64, ptr %0, align 8
+  %21 = or i64 %20, %19
+  store i64 %21, ptr %0, align 8
+  br label %x64features_add_feature_single.exit.jt17
 
-23:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
-  %24 = load i64, ptr %4, align 8
-  %25 = or i64 %24, 1835008
-  store i64 %25, ptr %4, align 8
-  br label %common.ret.sink.split
+x64features_add_feature_single.exit.jt46:         ; preds = %x64features_add_feature_single.exit
+  %22 = load i64, ptr %0, align 8
+  %23 = or i64 %22, 70368744177664
+  store i64 %23, ptr %0, align 8
+  br label %57
 
-26:                                               ; preds = %x64features_add_feature_single.exit
+x64features_add_feature_single.exit.jt17:         ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit.jt23
+  %24 = load i64, ptr %0, align 8
+  %25 = or i64 %24, 131072
+  store i64 %25, ptr %0, align 8
+  store ptr null, ptr %3, align 8
+  br label %43
+
+x64features_add_feature_single.exit.jt7:          ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit.jt45, %44, %57
+  %26 = load i64, ptr %0, align 8
+  %27 = or i64 %26, 128
+  store i64 %27, ptr %0, align 8
+  br label %x64features_add_feature_single.exit.jt86
+
+x64features_add_feature_single.exit.jt45:         ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %43
+  %.tr28.be.jt45 = phi i64 [ 45, %43 ], [ 8, %x64features_add_feature_single.exit ], [ 8, %x64features_add_feature_single.exit ], [ 8, %x64features_add_feature_single.exit ], [ 8, %x64features_add_feature_single.exit ], [ 8, %x64features_add_feature_single.exit ], [ 8, %x64features_add_feature_single.exit ], [ 8, %x64features_add_feature_single.exit ]
+  %28 = shl nuw nsw i64 1, %.tr28.be.jt45
+  %29 = load i64, ptr %0, align 8
+  %30 = or i64 %29, %28
+  store i64 %30, ptr %0, align 8
+  br label %x64features_add_feature_single.exit.jt7
+
+x64features_add_feature_single.exit.jt86:         ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit.jt7
+  %31 = load i64, ptr %4, align 8
+  %32 = or i64 %31, 4194304
+  store i64 %32, ptr %4, align 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %26, %27, %28, %29, %30, %43, %44, %47, %51, %52, %58, %x64features_add_feature_single.exit
-  %.tr28.be = phi i32 [ 85, %26 ], [ 86, %27 ], [ 45, %28 ], [ 7, %29 ], [ 7, %30 ], [ 17, %43 ], [ 7, %44 ], [ 46, %47 ], [ 8, %51 ], [ 23, %52 ], [ 13, %58 ], [ 88, %x64features_add_feature_single.exit ]
+33:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
+  %34 = load i64, ptr %4, align 8
+  %35 = or i64 %34, 262144
+  store i64 %35, ptr %4, align 8
+  br label %common.ret.sink.split
+
+36:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
+  %37 = load i64, ptr %4, align 8
+  %38 = or i64 %37, 786432
+  store i64 %38, ptr %4, align 8
+  br label %common.ret.sink.split
+
+.loopexit:                                        ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit.jt88
+  %39 = load i64, ptr %4, align 8
+  %40 = or i64 %39, 1835008
+  store i64 %40, ptr %4, align 8
+  br label %common.ret.sink.split
+
+tailrecurse.backedge:                             ; preds = %x64features_add_feature_single.exit.jt86, %x64features_add_feature_single.exit
+  %41 = load i64, ptr %4, align 8
+  %42 = or i64 %41, 2097152
+  store i64 %42, ptr %4, align 8
+  store ptr null, ptr %3, align 8
   br label %tailrecurse
 
-27:                                               ; preds = %x64features_add_feature_single.exit
-  br label %tailrecurse.backedge
-
-28:                                               ; preds = %x64features_add_feature_single.exit
+43:                                               ; preds = %x64features_add_feature_single.exit.jt17, %x64features_add_feature_single.exit
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 8)
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 44)
-  br label %tailrecurse.backedge
+  br label %x64features_add_feature_single.exit.jt45
 
-29:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
-  br label %tailrecurse.backedge
-
-30:                                               ; preds = %x64features_add_feature_single.exit
-  %31 = load i64, ptr %0, align 8
-  %32 = or i64 %31, 2
-  store i64 %32, ptr %0, align 8
-  %33 = load i64, ptr %4, align 8
-  %34 = or i64 %33, 786432
-  store i64 %34, ptr %4, align 8
+44:                                               ; preds = %x64features_add_feature_single.exit
+  %45 = load i64, ptr %0, align 8
+  %46 = or i64 %45, 2
+  store i64 %46, ptr %0, align 8
   store ptr null, ptr %3, align 8
-  br label %tailrecurse.backedge
+  %47 = load i64, ptr %4, align 8
+  %48 = or i64 %47, 786432
+  store i64 %48, ptr %4, align 8
+  br label %x64features_add_feature_single.exit.jt7
 
-common.ret.sink.split:                            ; preds = %35, %53, %48, %40, %23, %20, %17
+common.ret.sink.split:                            ; preds = %49, %64, %60, %54, %.loopexit, %36, %33
   store ptr null, ptr %3, align 8
   br label %common.ret
 
 common.ret:                                       ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %common.ret.sink.split
   ret void
 
-35:                                               ; preds = %x64features_add_feature_single.exit
+49:                                               ; preds = %x64features_add_feature_single.exit
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 7)
-  %36 = load i64, ptr %0, align 8
-  %37 = or i64 %36, 1152921504606846976
-  store i64 %37, ptr %0, align 8
-  %38 = load i64, ptr %4, align 8
-  %39 = or i64 %38, 262144
-  store i64 %39, ptr %4, align 8
+  %50 = load i64, ptr %0, align 8
+  %51 = or i64 %50, 1152921504606846976
+  store i64 %51, ptr %0, align 8
+  %52 = load i64, ptr %4, align 8
+  %53 = or i64 %52, 262144
+  store i64 %53, ptr %4, align 8
   br label %common.ret.sink.split
 
-40:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
-  %41 = load i64, ptr %4, align 8
-  %42 = or i64 %41, 68719476736
-  store i64 %42, ptr %4, align 8
+54:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
+  %55 = load i64, ptr %4, align 8
+  %56 = or i64 %55, 68719476736
+  store i64 %56, ptr %4, align 8
   br label %common.ret.sink.split
 
-43:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
-  br label %tailrecurse.backedge
-
-44:                                               ; preds = %x64features_add_feature_single.exit
-  %45 = load i64, ptr %4, align 8
-  %46 = or i64 %45, 10223616
-  store i64 %46, ptr %4, align 8
+57:                                               ; preds = %x64features_add_feature_single.exit.jt46, %x64features_add_feature_single.exit
+  %58 = load i64, ptr %4, align 8
   store ptr null, ptr %3, align 8
-  br label %tailrecurse.backedge
+  %59 = or i64 %58, 10223616
+  store i64 %59, ptr %4, align 8
+  br label %x64features_add_feature_single.exit.jt7
 
-47:                                               ; preds = %x64features_add_feature_single.exit
-  br label %tailrecurse.backedge
-
-48:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
-  %49 = load i64, ptr %0, align 8
-  %50 = or i64 %49, 64
-  store i64 %50, ptr %0, align 8
+60:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
+  %61 = load i64, ptr %0, align 8
+  %62 = or i64 %61, 64
+  store i64 %62, ptr %0, align 8
   br label %common.ret.sink.split
 
-51:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
-  br label %tailrecurse.backedge
-
-52:                                               ; preds = %x64features_add_feature_single.exit
+63:                                               ; preds = %x64features_add_feature_single.exit
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 13)
   tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 15)
-  br label %tailrecurse.backedge
+  br label %x64features_add_feature_single.exit.jt23
 
-53:                                               ; preds = %x64features_add_feature_single.exit
-  %54 = load i64, ptr %0, align 8
-  %55 = or i64 %54, 4503599627370496
-  store i64 %55, ptr %0, align 8
-  %56 = load i64, ptr %4, align 8
-  %57 = or i64 %56, 786432
-  store i64 %57, ptr %4, align 8
+64:                                               ; preds = %x64features_add_feature_single.exit
+  %65 = load i64, ptr %0, align 8
+  %66 = or i64 %65, 4503599627370496
+  store i64 %66, ptr %0, align 8
+  %67 = load i64, ptr %4, align 8
+  %68 = or i64 %67, 786432
+  store i64 %68, ptr %4, align 8
   br label %common.ret.sink.split
 
-58:                                               ; preds = %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit, %x64features_add_feature_single.exit
-  br label %tailrecurse.backedge
-
-59:                                               ; preds = %x64features_add_feature_single.exit
+69:                                               ; preds = %x64features_add_feature_single.exit
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.x86_features_add_feature, ptr noundef nonnull @.str.18, i32 noundef 667) #16
   unreachable
 }

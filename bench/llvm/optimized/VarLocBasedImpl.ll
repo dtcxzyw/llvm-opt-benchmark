@@ -20318,16 +20318,16 @@ _ZN4llvm13DebugVariableC2EPKNS_15DILocalVariableEPKNS_12DIExpressionEPKNS_10DILo
   %62 = ptrtoint ptr %3 to i64
   br label %63
 
-._crit_edge:                                      ; preds = %324, %_ZN4llvm13DebugVariableC2EPKNS_15DILocalVariableEPKNS_12DIExpressionEPKNS_10DILocationE.exit
+._crit_edge:                                      ; preds = %344, %_ZN4llvm13DebugVariableC2EPKNS_15DILocalVariableEPKNS_12DIExpressionEPKNS_10DILocationE.exit
   ret void
 
-63:                                               ; preds = %.lr.ph, %324
-  %.056 = phi ptr [ %.pn6.i, %.lr.ph ], [ %325, %324 ]
+63:                                               ; preds = %.lr.ph, %344
+  %.056 = phi ptr [ %.pn6.i, %.lr.ph ], [ %345, %344 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !794)
   %64 = load i32, ptr %.056, align 8, !noalias !794
   %trunc.i = trunc i32 %64 to i8
-  switch i8 %trunc.i, label %79 [
+  switch i8 %trunc.i, label %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4 [
     i8 0, label %65
     i8 1, label %68
     i8 3, label %71
@@ -20337,14 +20337,14 @@ _ZN4llvm13DebugVariableC2EPKNS_15DILocalVariableEPKNS_12DIExpressionEPKNS_10DILo
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %.056, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !264, !noalias !794
-  br label %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit
+  br label %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %.056, i64 16
   %70 = load i64, ptr %69, align 8, !tbaa !264, !noalias !794
   %.sroa.012.sroa.0.0.extract.trunc15.i = trunc i64 %70 to i32
   %.sroa.012.sroa.9.0.extract.shift20.i = and i64 %70, -4294967296
-  br label %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit
+  br label %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1
 
 71:                                               ; preds = %63
   %72 = getelementptr inbounds nuw i8, ptr %.056, i64 16
@@ -20352,7 +20352,7 @@ _ZN4llvm13DebugVariableC2EPKNS_15DILocalVariableEPKNS_12DIExpressionEPKNS_10DILo
   %74 = ptrtoint ptr %73 to i64
   %.sroa.012.sroa.0.0.extract.trunc.i = trunc i64 %74 to i32
   %.sroa.012.sroa.9.0.extract.shift.i = and i64 %74, -4294967296
-  br label %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit
+  br label %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1
 
 75:                                               ; preds = %63
   %76 = getelementptr inbounds nuw i8, ptr %.056, i64 16
@@ -20360,533 +20360,620 @@ _ZN4llvm13DebugVariableC2EPKNS_15DILocalVariableEPKNS_12DIExpressionEPKNS_10DILo
   %78 = ptrtoint ptr %77 to i64
   %.sroa.012.sroa.0.0.extract.trunc13.i = trunc i64 %78 to i32
   %.sroa.012.sroa.9.0.extract.shift16.i = and i64 %78, -4294967296
-  br label %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit
+  br label %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1
 
-79:                                               ; preds = %63
-  %80 = and i32 %64, 255
-  %81 = icmp eq i32 %80, 7
-  call void @llvm.assume(i1 %81)
-  %82 = getelementptr inbounds nuw i8, ptr %.056, i64 16
-  %83 = load i32, ptr %82, align 8, !tbaa !264, !noalias !794
-  %84 = getelementptr inbounds nuw i8, ptr %.056, i64 24
-  %85 = load i32, ptr %84, align 8, !tbaa !264, !noalias !794
-  %86 = sext i32 %85 to i64
-  %87 = shl nsw i64 %86, 32
-  %88 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  %89 = load i32, ptr %88, align 4, !tbaa !264, !noalias !794
-  %90 = zext i32 %89 to i64
-  %91 = or disjoint i64 %87, %90
-  br label %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit
+_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4: ; preds = %63
+  %79 = and i32 %64, 255
+  %80 = icmp eq i32 %79, 7
+  call void @llvm.assume(i1 %80)
+  %81 = getelementptr inbounds nuw i8, ptr %.056, i64 16
+  %82 = load i32, ptr %81, align 8, !tbaa !264, !noalias !794
+  %83 = getelementptr inbounds nuw i8, ptr %.056, i64 24
+  %84 = load i32, ptr %83, align 8, !tbaa !264, !noalias !794
+  %85 = sext i32 %84 to i64
+  %86 = shl nsw i64 %85, 32
+  %87 = getelementptr inbounds nuw i8, ptr %.056, i64 4
+  %88 = load i32, ptr %87, align 4, !tbaa !264, !noalias !794
+  %89 = zext i32 %88 to i64
+  %90 = or disjoint i64 %86, %89
+  store i32 4, ptr %3, align 8, !tbaa !546, !alias.scope !794
+  %.sroa.012.sroa.0.0.insert.ext.i.jt4 = zext i32 %82 to i64
+  store i64 %.sroa.012.sroa.0.0.insert.ext.i.jt4, ptr %60, align 8, !alias.scope !794
+  store i64 %90, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !794
+  %.val22.jt4 = load ptr, ptr %42, align 8, !tbaa !6
+  %.val23.jt4 = load i32, ptr %44, align 8, !tbaa !11
+  %91 = zext i32 %.val23.jt4 to i64
+  %.idx1.i.jt4 = shl nuw nsw i64 %91, 5
+  %92 = getelementptr inbounds nuw i8, ptr %.val22.jt4, i64 %.idx1.i.jt4
+  %.not.i24.jt4 = icmp ult i32 %.val23.jt4, 4
+  br i1 %.not.i24.jt4, label %._crit_edge.i.i.i.i.jt4, label %.lr.ph.i.i.i.i
 
-_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit: ; preds = %65, %68, %71, %75, %79
-  %.sroa.012.sroa.0.0.i = phi i32 [ %67, %65 ], [ %.sroa.012.sroa.0.0.extract.trunc15.i, %68 ], [ %.sroa.012.sroa.0.0.extract.trunc.i, %71 ], [ %.sroa.012.sroa.0.0.extract.trunc13.i, %75 ], [ %83, %79 ]
-  %.sroa.9.0.i = phi i64 [ undef, %65 ], [ undef, %68 ], [ undef, %71 ], [ undef, %75 ], [ %91, %79 ]
-  %.sroa.012.sroa.9.0.i = phi i64 [ 0, %65 ], [ %.sroa.012.sroa.9.0.extract.shift20.i, %68 ], [ %.sroa.012.sroa.9.0.extract.shift.i, %71 ], [ %.sroa.012.sroa.9.0.extract.shift16.i, %75 ], [ 0, %79 ]
-  %.0.i = phi i32 [ 1, %65 ], [ 3, %68 ], [ 3, %71 ], [ 3, %75 ], [ 4, %79 ]
-  store i32 %.0.i, ptr %3, align 8, !tbaa !546, !alias.scope !794
-  %.sroa.012.sroa.0.0.insert.ext.i = zext i32 %.sroa.012.sroa.0.0.i to i64
-  %.sroa.012.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.012.sroa.9.0.i, %.sroa.012.sroa.0.0.insert.ext.i
-  store i64 %.sroa.012.sroa.0.0.insert.insert.i, ptr %60, align 8, !alias.scope !794
-  store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !794
-  %.val22 = load ptr, ptr %42, align 8, !tbaa !6
-  %.val23 = load i32, ptr %44, align 8, !tbaa !11
-  %92 = zext i32 %.val23 to i64
-  %.idx1.i = shl nuw nsw i64 %92, 5
-  %93 = getelementptr inbounds nuw i8, ptr %.val22, i64 %.idx1.i
-  %.not.i24 = icmp ult i32 %.val23, 4
-  br i1 %.not.i24, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1: ; preds = %75, %71, %68, %65
+  %.sroa.012.sroa.0.0.i.jt1 = phi i32 [ %67, %65 ], [ %.sroa.012.sroa.0.0.extract.trunc15.i, %68 ], [ %.sroa.012.sroa.0.0.extract.trunc.i, %71 ], [ %.sroa.012.sroa.0.0.extract.trunc13.i, %75 ]
+  %.sroa.012.sroa.9.0.i.jt1 = phi i64 [ 0, %65 ], [ %.sroa.012.sroa.9.0.extract.shift20.i, %68 ], [ %.sroa.012.sroa.9.0.extract.shift.i, %71 ], [ %.sroa.012.sroa.9.0.extract.shift16.i, %75 ]
+  %.0.i.jt1 = phi i32 [ 1, %65 ], [ 3, %68 ], [ 3, %71 ], [ 3, %75 ]
+  store i32 %.0.i.jt1, ptr %3, align 8, !tbaa !546, !alias.scope !794
+  %.sroa.012.sroa.0.0.insert.ext.i.jt1 = zext i32 %.sroa.012.sroa.0.0.i.jt1 to i64
+  %.sroa.012.sroa.0.0.insert.insert.i.jt1 = or disjoint i64 %.sroa.012.sroa.9.0.i.jt1, %.sroa.012.sroa.0.0.insert.ext.i.jt1
+  store i64 %.sroa.012.sroa.0.0.insert.insert.i.jt1, ptr %60, align 8, !alias.scope !794
+  %.val22.jt1 = load ptr, ptr %42, align 8, !tbaa !6
+  %.val23.jt1 = load i32, ptr %44, align 8, !tbaa !11
+  %93 = zext i32 %.val23.jt1 to i64
+  %.idx1.i.jt1 = shl nuw nsw i64 %93, 5
+  %94 = getelementptr inbounds nuw i8, ptr %.val22.jt1, i64 %.idx1.i.jt1
+  %.not.i24.jt1 = icmp ult i32 %.val23.jt1, 4
+  br i1 %.not.i24.jt1, label %._crit_edge.i.i.i.i.jt1, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit
-  %94 = lshr i64 %92, 2
-  %95 = and i64 %.idx1.i, 137438953344
-  %scevgep.i.i.i.i = getelementptr i8, ptr %.val22, i64 %95
-  %96 = load i64, ptr %61, align 8
-  br label %97
+.lr.ph.i.i.i.i:                                   ; preds = %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1
+  %95 = phi ptr [ %92, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4 ], [ %94, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1 ]
+  %.idx1.i113 = phi i64 [ %.idx1.i.jt4, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4 ], [ %.idx1.i.jt1, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1 ]
+  %96 = phi i64 [ %91, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4 ], [ %93, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1 ]
+  %.val23105 = phi i32 [ %.val23.jt4, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4 ], [ %.val23.jt1, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1 ]
+  %.val2297 = phi ptr [ %.val22.jt4, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4 ], [ %.val22.jt1, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1 ]
+  %.sroa.012.sroa.0.0.insert.insert.i91 = phi i64 [ %.sroa.012.sroa.0.0.insert.ext.i.jt4, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4 ], [ %.sroa.012.sroa.0.0.insert.insert.i.jt1, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1 ]
+  %.0.i85 = phi i32 [ 4, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4 ], [ %.0.i.jt1, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1 ]
+  %.sroa.9.0.i79 = phi i64 [ %90, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4 ], [ undef, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1 ]
+  %.sroa.012.sroa.0.0.i73 = phi i32 [ %82, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4 ], [ %.sroa.012.sroa.0.0.i.jt1, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1 ]
+  %97 = lshr i64 %96, 2
+  %98 = and i64 %.idx1.i113, 137438953344
+  %scevgep.i.i.i.i = getelementptr i8, ptr %.val2297, i64 %98
+  %99 = load i64, ptr %61, align 8
+  br label %100
 
-97:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i, %.lr.ph.i.i.i.i
-  %.0122.i.i.i.i = phi i64 [ %94, %.lr.ph.i.i.i.i ], [ %194, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i ]
-  %.029121.i.i.i.i = phi ptr [ %.val22, %.lr.ph.i.i.i.i ], [ %193, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i ]
-  %98 = load i32, ptr %.029121.i.i.i.i, align 8, !tbaa !546
-  %.not.i.i.i.i.i.i = icmp eq i32 %98, %.0.i
-  br i1 %.not.i.i.i.i.i.i, label %99, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
+100:                                              ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i, %.lr.ph.i.i.i.i
+  %.0122.i.i.i.i = phi i64 [ %97, %.lr.ph.i.i.i.i ], [ %197, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i ]
+  %.029121.i.i.i.i = phi ptr [ %.val2297, %.lr.ph.i.i.i.i ], [ %196, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i ]
+  %101 = load i32, ptr %.029121.i.i.i.i, align 8, !tbaa !546
+  %.not.i.i.i.i.i.i = icmp eq i32 %101, %.0.i85
+  br i1 %.not.i.i.i.i.i.i, label %102, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
 
-99:                                               ; preds = %97
-  switch i32 %.0.i, label %default.unreachable [
-    i32 2, label %100
-    i32 4, label %104
-    i32 1, label %110
-    i32 3, label %110
+102:                                              ; preds = %100
+  switch i32 %.0.i85, label %default.unreachable [
+    i32 2, label %103
+    i32 4, label %107
+    i32 1, label %113
+    i32 3, label %113
   ]
 
-100:                                              ; preds = %99
-  %101 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 8
-  %102 = load i32, ptr %101, align 8, !tbaa !730
-  %103 = icmp eq i32 %102, %.sroa.012.sroa.0.0.i
-  br i1 %103, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
+103:                                              ; preds = %102
+  %104 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 8
+  %105 = load i32, ptr %104, align 8, !tbaa !730
+  %106 = icmp eq i32 %105, %.sroa.012.sroa.0.0.i73
+  br i1 %106, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
 
-104:                                              ; preds = %99
-  %105 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 8
-  %.val.i.i.i.i.i.i = load i32, ptr %105, align 8, !tbaa !797
-  %106 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 16
-  %.val7.i.i.i.i.i.i = load i64, ptr %106, align 8
-  %107 = icmp eq i32 %.val.i.i.i.i.i.i, %.sroa.012.sroa.0.0.i
-  %108 = icmp eq i64 %.val7.i.i.i.i.i.i, %.sroa.9.0.i
-  %109 = select i1 %107, i1 %108, i1 false
-  br i1 %109, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 8
+  %.val.i.i.i.i.i.i = load i32, ptr %108, align 8, !tbaa !797
+  %109 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 16
+  %.val7.i.i.i.i.i.i = load i64, ptr %109, align 8
+  %110 = icmp eq i32 %.val.i.i.i.i.i.i, %.sroa.012.sroa.0.0.i73
+  %111 = icmp eq i64 %.val7.i.i.i.i.i.i, %.sroa.9.0.i79
+  %112 = select i1 %110, i1 %111, i1 false
+  br i1 %112, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
 
-110:                                              ; preds = %99, %99
-  %111 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 8
-  %112 = load i64, ptr %111, align 8, !tbaa !264
-  %113 = icmp eq i64 %112, %.sroa.012.sroa.0.0.insert.insert.i
-  br i1 %113, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
+113:                                              ; preds = %102, %102
+  %114 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 8
+  %115 = load i64, ptr %114, align 8, !tbaa !264
+  %116 = icmp eq i64 %115, %.sroa.012.sroa.0.0.insert.insert.i91
+  br i1 %116, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
 
-default.unreachable:                              ; preds = %249, %224, %199, %._crit_edge.i.i.i.i, %171, %147, %123, %99
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.jt4, %._crit_edge.i.i.i.i.jt1, %266, %239, %206, %._crit_edge.loopexit.i.i.i.i, %174, %150, %126, %102
   unreachable
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i: ; preds = %100
-  %114 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 16
-  %115 = load i64, ptr %114, align 8, !tbaa !548
-  %116 = icmp eq i64 %115, %.sroa.9.0.i
-  %117 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 24
-  %118 = load i64, ptr %117, align 8
-  %119 = icmp eq i64 %118, %96
-  %120 = select i1 %116, i1 %119, i1 false
-  br i1 %120, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i: ; preds = %103
+  %117 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 16
+  %118 = load i64, ptr %117, align 8, !tbaa !548
+  %119 = icmp eq i64 %118, %.sroa.9.0.i79
+  %120 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 24
+  %121 = load i64, ptr %120, align 8
+  %122 = icmp eq i64 %121, %99
+  %123 = select i1 %119, i1 %122, i1 false
+  br i1 %123, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i, %110, %104, %100, %97
-  %121 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 32
-  %122 = load i32, ptr %121, align 8, !tbaa !546
-  %.not.i.i36.i.i.i.i = icmp eq i32 %122, %.0.i
-  br i1 %.not.i.i36.i.i.i.i, label %123, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i, %113, %107, %103, %100
+  %124 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 32
+  %125 = load i32, ptr %124, align 8, !tbaa !546
+  %.not.i.i36.i.i.i.i = icmp eq i32 %125, %.0.i85
+  br i1 %.not.i.i36.i.i.i.i, label %126, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
 
-123:                                              ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
-  switch i32 %.0.i, label %default.unreachable [
-    i32 2, label %124
-    i32 4, label %128
-    i32 1, label %134
-    i32 3, label %134
+126:                                              ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
+  switch i32 %.0.i85, label %default.unreachable [
+    i32 2, label %127
+    i32 4, label %131
+    i32 1, label %137
+    i32 3, label %137
   ]
 
-124:                                              ; preds = %123
-  %125 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 40
-  %126 = load i32, ptr %125, align 8, !tbaa !730
-  %127 = icmp eq i32 %126, %.sroa.012.sroa.0.0.i
-  br i1 %127, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
+127:                                              ; preds = %126
+  %128 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 40
+  %129 = load i32, ptr %128, align 8, !tbaa !730
+  %130 = icmp eq i32 %129, %.sroa.012.sroa.0.0.i73
+  br i1 %130, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
 
-128:                                              ; preds = %123
-  %129 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 40
-  %.val.i.i38.i.i.i.i = load i32, ptr %129, align 8, !tbaa !797
-  %130 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 48
-  %.val7.i.i39.i.i.i.i = load i64, ptr %130, align 8
-  %131 = icmp eq i32 %.val.i.i38.i.i.i.i, %.sroa.012.sroa.0.0.i
-  %132 = icmp eq i64 %.val7.i.i39.i.i.i.i, %.sroa.9.0.i
-  %133 = select i1 %131, i1 %132, i1 false
-  br i1 %133, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit78, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
+131:                                              ; preds = %126
+  %132 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 40
+  %.val.i.i38.i.i.i.i = load i32, ptr %132, align 8, !tbaa !797
+  %133 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 48
+  %.val7.i.i39.i.i.i.i = load i64, ptr %133, align 8
+  %134 = icmp eq i32 %.val.i.i38.i.i.i.i, %.sroa.012.sroa.0.0.i73
+  %135 = icmp eq i64 %.val7.i.i39.i.i.i.i, %.sroa.9.0.i79
+  %136 = select i1 %134, i1 %135, i1 false
+  br i1 %136, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit122, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
 
-134:                                              ; preds = %123, %123
-  %135 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 40
-  %136 = load i64, ptr %135, align 8, !tbaa !264
-  %137 = icmp eq i64 %136, %.sroa.012.sroa.0.0.insert.insert.i
-  br i1 %137, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit80, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
+137:                                              ; preds = %126, %126
+  %138 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 40
+  %139 = load i64, ptr %138, align 8, !tbaa !264
+  %140 = icmp eq i64 %139, %.sroa.012.sroa.0.0.insert.insert.i91
+  br i1 %140, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit124, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.i.i.i.i: ; preds = %124
-  %138 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 48
-  %139 = load i64, ptr %138, align 8, !tbaa !548
-  %140 = icmp eq i64 %139, %.sroa.9.0.i
-  %141 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 56
-  %142 = load i64, ptr %141, align 8
-  %143 = icmp eq i64 %142, %96
-  %144 = select i1 %140, i1 %143, i1 false
-  br i1 %144, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.i.i.i.i: ; preds = %127
+  %141 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 48
+  %142 = load i64, ptr %141, align 8, !tbaa !548
+  %143 = icmp eq i64 %142, %.sroa.9.0.i79
+  %144 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 56
+  %145 = load i64, ptr %144, align 8
+  %146 = icmp eq i64 %145, %99
+  %147 = select i1 %143, i1 %146, i1 false
+  br i1 %147, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.i.i.i.i, %134, %128, %124, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
-  %145 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 64
-  %146 = load i32, ptr %145, align 8, !tbaa !546
-  %.not.i.i43.i.i.i.i = icmp eq i32 %146, %.0.i
-  br i1 %.not.i.i43.i.i.i.i, label %147, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.i.i.i.i, %137, %131, %127, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.thread.i.i.i.i
+  %148 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 64
+  %149 = load i32, ptr %148, align 8, !tbaa !546
+  %.not.i.i43.i.i.i.i = icmp eq i32 %149, %.0.i85
+  br i1 %.not.i.i43.i.i.i.i, label %150, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
 
-147:                                              ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
-  switch i32 %.0.i, label %default.unreachable [
-    i32 2, label %148
-    i32 4, label %152
-    i32 1, label %158
-    i32 3, label %158
+150:                                              ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
+  switch i32 %.0.i85, label %default.unreachable [
+    i32 2, label %151
+    i32 4, label %155
+    i32 1, label %161
+    i32 3, label %161
   ]
 
-148:                                              ; preds = %147
-  %149 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 72
-  %150 = load i32, ptr %149, align 8, !tbaa !730
-  %151 = icmp eq i32 %150, %.sroa.012.sroa.0.0.i
-  br i1 %151, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
+151:                                              ; preds = %150
+  %152 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 72
+  %153 = load i32, ptr %152, align 8, !tbaa !730
+  %154 = icmp eq i32 %153, %.sroa.012.sroa.0.0.i73
+  br i1 %154, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
 
-152:                                              ; preds = %147
-  %153 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 72
-  %.val.i.i45.i.i.i.i = load i32, ptr %153, align 8, !tbaa !797
-  %154 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 80
-  %.val7.i.i46.i.i.i.i = load i64, ptr %154, align 8
-  %155 = icmp eq i32 %.val.i.i45.i.i.i.i, %.sroa.012.sroa.0.0.i
-  %156 = icmp eq i64 %.val7.i.i46.i.i.i.i, %.sroa.9.0.i
-  %157 = select i1 %155, i1 %156, i1 false
-  br i1 %157, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit82, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
+155:                                              ; preds = %150
+  %156 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 72
+  %.val.i.i45.i.i.i.i = load i32, ptr %156, align 8, !tbaa !797
+  %157 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 80
+  %.val7.i.i46.i.i.i.i = load i64, ptr %157, align 8
+  %158 = icmp eq i32 %.val.i.i45.i.i.i.i, %.sroa.012.sroa.0.0.i73
+  %159 = icmp eq i64 %.val7.i.i46.i.i.i.i, %.sroa.9.0.i79
+  %160 = select i1 %158, i1 %159, i1 false
+  br i1 %160, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit126, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
 
-158:                                              ; preds = %147, %147
-  %159 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 72
-  %160 = load i64, ptr %159, align 8, !tbaa !264
-  %161 = icmp eq i64 %160, %.sroa.012.sroa.0.0.insert.insert.i
-  br i1 %161, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit84, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
+161:                                              ; preds = %150, %150
+  %162 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 72
+  %163 = load i64, ptr %162, align 8, !tbaa !264
+  %164 = icmp eq i64 %163, %.sroa.012.sroa.0.0.insert.insert.i91
+  br i1 %164, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit128, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.i.i.i.i: ; preds = %148
-  %162 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 80
-  %163 = load i64, ptr %162, align 8, !tbaa !548
-  %164 = icmp eq i64 %163, %.sroa.9.0.i
-  %165 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 88
-  %166 = load i64, ptr %165, align 8
-  %167 = icmp eq i64 %166, %96
-  %168 = select i1 %164, i1 %167, i1 false
-  br i1 %168, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit74, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.i.i.i.i: ; preds = %151
+  %165 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 80
+  %166 = load i64, ptr %165, align 8, !tbaa !548
+  %167 = icmp eq i64 %166, %.sroa.9.0.i79
+  %168 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 88
+  %169 = load i64, ptr %168, align 8
+  %170 = icmp eq i64 %169, %99
+  %171 = select i1 %167, i1 %170, i1 false
+  br i1 %171, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit118, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.i.i.i.i, %158, %152, %148, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
-  %169 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 96
-  %170 = load i32, ptr %169, align 8, !tbaa !546
-  %.not.i.i50.i.i.i.i = icmp eq i32 %170, %.0.i
-  br i1 %.not.i.i50.i.i.i.i, label %171, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.i.i.i.i, %161, %155, %151, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.thread.i.i.i.i
+  %172 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 96
+  %173 = load i32, ptr %172, align 8, !tbaa !546
+  %.not.i.i50.i.i.i.i = icmp eq i32 %173, %.0.i85
+  br i1 %.not.i.i50.i.i.i.i, label %174, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i
 
-171:                                              ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
-  switch i32 %.0.i, label %default.unreachable [
-    i32 2, label %172
-    i32 4, label %176
-    i32 1, label %182
-    i32 3, label %182
+174:                                              ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
+  switch i32 %.0.i85, label %default.unreachable [
+    i32 2, label %175
+    i32 4, label %179
+    i32 1, label %185
+    i32 3, label %185
   ]
 
-172:                                              ; preds = %171
-  %173 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 104
-  %174 = load i32, ptr %173, align 8, !tbaa !730
-  %175 = icmp eq i32 %174, %.sroa.012.sroa.0.0.i
-  br i1 %175, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i
+175:                                              ; preds = %174
+  %176 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 104
+  %177 = load i32, ptr %176, align 8, !tbaa !730
+  %178 = icmp eq i32 %177, %.sroa.012.sroa.0.0.i73
+  br i1 %178, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i
 
-176:                                              ; preds = %171
-  %177 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 104
-  %.val.i.i52.i.i.i.i = load i32, ptr %177, align 8, !tbaa !797
-  %178 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 112
-  %.val7.i.i53.i.i.i.i = load i64, ptr %178, align 8
-  %179 = icmp eq i32 %.val.i.i52.i.i.i.i, %.sroa.012.sroa.0.0.i
-  %180 = icmp eq i64 %.val7.i.i53.i.i.i.i, %.sroa.9.0.i
-  %181 = select i1 %179, i1 %180, i1 false
-  br i1 %181, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit86, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i
+179:                                              ; preds = %174
+  %180 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 104
+  %.val.i.i52.i.i.i.i = load i32, ptr %180, align 8, !tbaa !797
+  %181 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 112
+  %.val7.i.i53.i.i.i.i = load i64, ptr %181, align 8
+  %182 = icmp eq i32 %.val.i.i52.i.i.i.i, %.sroa.012.sroa.0.0.i73
+  %183 = icmp eq i64 %.val7.i.i53.i.i.i.i, %.sroa.9.0.i79
+  %184 = select i1 %182, i1 %183, i1 false
+  br i1 %184, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i
 
-182:                                              ; preds = %171, %171
-  %183 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 104
-  %184 = load i64, ptr %183, align 8, !tbaa !264
-  %185 = icmp eq i64 %184, %.sroa.012.sroa.0.0.insert.insert.i
-  br i1 %185, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit88, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i
+185:                                              ; preds = %174, %174
+  %186 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 104
+  %187 = load i64, ptr %186, align 8, !tbaa !264
+  %188 = icmp eq i64 %187, %.sroa.012.sroa.0.0.insert.insert.i91
+  br i1 %188, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.i.i.i.i: ; preds = %172
-  %186 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 112
-  %187 = load i64, ptr %186, align 8, !tbaa !548
-  %188 = icmp eq i64 %187, %.sroa.9.0.i
-  %189 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 120
-  %190 = load i64, ptr %189, align 8
-  %191 = icmp eq i64 %190, %96
-  %192 = select i1 %188, i1 %191, i1 false
-  br i1 %192, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit76, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.i.i.i.i: ; preds = %175
+  %189 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 112
+  %190 = load i64, ptr %189, align 8, !tbaa !548
+  %191 = icmp eq i64 %190, %.sroa.9.0.i79
+  %192 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 120
+  %193 = load i64, ptr %192, align 8
+  %194 = icmp eq i64 %193, %99
+  %195 = select i1 %191, i1 %194, i1 false
+  br i1 %195, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit120, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.i.i.i.i, %182, %176, %172, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
-  %193 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 128
-  %194 = add nsw i64 %.0122.i.i.i.i, -1
-  %195 = icmp sgt i64 %.0122.i.i.i.i, 1
-  br i1 %195, label %97, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !799
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.i.i.i.i, %185, %179, %175, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.thread.i.i.i.i
+  %196 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 128
+  %197 = add nsw i64 %.0122.i.i.i.i, -1
+  %198 = icmp sgt i64 %.0122.i.i.i.i, 1
+  br i1 %198, label %100, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !799
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.thread.i.i.i.i
-  %196 = and i32 %.val23, 3
-  br label %._crit_edge.i.i.i.i
-
-._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit
-  %.pre-phi141.i.i.i.i = phi i32 [ %196, %._crit_edge.loopexit.i.i.i.i ], [ %.val23, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit ]
-  %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %.val22, %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit ]
-  switch i32 %.pre-phi141.i.i.i.i, label %default.unreachable [
-    i32 3, label %197
+  %199 = and i32 %.val23105, 3
+  switch i32 %199, label %default.unreachable [
+    i32 3, label %200
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge137.i.i.i.i
     i32 0, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
   ]
 
-197:                                              ; preds = %._crit_edge.i.i.i.i
-  %198 = load i32, ptr %.029.lcssa.i.i.i.i, align 8, !tbaa !546
-  %.not.i.i57.i.i.i.i = icmp eq i32 %198, %.0.i
-  br i1 %.not.i.i57.i.i.i.i, label %199, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
-
-199:                                              ; preds = %197
-  switch i32 %.0.i, label %default.unreachable [
-    i32 2, label %200
-    i32 4, label %204
-    i32 1, label %210
-    i32 3, label %210
+._crit_edge.i.i.i.i.jt4:                          ; preds = %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt4
+  switch i32 %.val23.jt4, label %default.unreachable [
+    i32 3, label %202
+    i32 2, label %._crit_edge._crit_edge.i.i.i.i
+    i32 1, label %._crit_edge._crit_edge137.i.i.i.i
+    i32 0, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
   ]
 
-200:                                              ; preds = %199
-  %201 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
-  %202 = load i32, ptr %201, align 8, !tbaa !730
-  %203 = icmp eq i32 %202, %.sroa.012.sroa.0.0.i
-  br i1 %203, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
+._crit_edge.i.i.i.i.jt1:                          ; preds = %_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLoc11GetLocForOpERKN4llvm14MachineOperandE.exit.jt1
+  switch i32 %.val23.jt1, label %default.unreachable [
+    i32 3, label %204
+    i32 2, label %._crit_edge._crit_edge.i.i.i.i
+    i32 1, label %._crit_edge._crit_edge137.i.i.i.i
+    i32 0, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
+  ]
 
-204:                                              ; preds = %199
-  %205 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
-  %.val.i.i59.i.i.i.i = load i32, ptr %205, align 8, !tbaa !797
-  %206 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 16
-  %.val7.i.i60.i.i.i.i = load i64, ptr %206, align 8
-  %207 = icmp eq i32 %.val.i.i59.i.i.i.i, %.sroa.012.sroa.0.0.i
-  %208 = icmp eq i64 %.val7.i.i60.i.i.i.i, %.sroa.9.0.i
-  %209 = select i1 %207, i1 %208, i1 false
-  br i1 %209, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
+200:                                              ; preds = %._crit_edge.loopexit.i.i.i.i
+  %201 = load i32, ptr %scevgep.i.i.i.i, align 8, !tbaa !546
+  %.not.i.i57.i.i.i.i = icmp eq i32 %201, %.0.i85
+  br i1 %.not.i.i57.i.i.i.i, label %206, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
 
-210:                                              ; preds = %199, %199
-  %211 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
-  %212 = load i64, ptr %211, align 8, !tbaa !264
-  %213 = icmp eq i64 %212, %.sroa.012.sroa.0.0.insert.insert.i
-  br i1 %213, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
+202:                                              ; preds = %._crit_edge.i.i.i.i.jt4
+  %203 = load i32, ptr %.val22.jt4, align 8, !tbaa !546
+  %.not.i.i57.i.i.i.i.jt4 = icmp eq i32 %203, 4
+  br i1 %.not.i.i57.i.i.i.i.jt4, label %211, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i: ; preds = %200
-  %214 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 16
-  %215 = load i64, ptr %214, align 8, !tbaa !548
-  %216 = icmp eq i64 %215, %.sroa.9.0.i
-  %217 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 24
-  %218 = load i64, ptr %217, align 8
-  %219 = load i64, ptr %61, align 8
-  %220 = icmp eq i64 %218, %219
-  %221 = select i1 %216, i1 %220, i1 false
-  br i1 %221, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
+204:                                              ; preds = %._crit_edge.i.i.i.i.jt1
+  %205 = load i32, ptr %.val22.jt1, align 8, !tbaa !546
+  %.not.i.i57.i.i.i.i.jt1 = icmp eq i32 %205, %.0.i.jt1
+  br i1 %.not.i.i57.i.i.i.i.jt1, label %219, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i, %210, %204, %200, %197
-  %222 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 32
+206:                                              ; preds = %200
+  switch i32 %.0.i85, label %default.unreachable [
+    i32 2, label %207
+    i32 4, label %211
+    i32 1, label %219
+    i32 3, label %219
+  ]
+
+207:                                              ; preds = %206
+  %208 = getelementptr inbounds nuw i8, ptr %scevgep.i.i.i.i, i64 8
+  %209 = load i32, ptr %208, align 8, !tbaa !730
+  %210 = icmp eq i32 %209, %.sroa.012.sroa.0.0.i73
+  br i1 %210, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
+
+211:                                              ; preds = %202, %206
+  %.029.lcssa.i.i.i.i115 = phi ptr [ %scevgep.i.i.i.i, %206 ], [ %.val22.jt4, %202 ]
+  %212 = phi ptr [ %95, %206 ], [ %92, %202 ]
+  %213 = phi i64 [ %96, %206 ], [ 3, %202 ]
+  %.val23110 = phi i32 [ %.val23105, %206 ], [ 3, %202 ]
+  %.val22102 = phi ptr [ %.val2297, %206 ], [ %.val22.jt4, %202 ]
+  %.sroa.012.sroa.0.0.insert.insert.i95 = phi i64 [ %.sroa.012.sroa.0.0.insert.insert.i91, %206 ], [ %.sroa.012.sroa.0.0.insert.ext.i.jt4, %202 ]
+  %.sroa.9.0.i83 = phi i64 [ %.sroa.9.0.i79, %206 ], [ %90, %202 ]
+  %.sroa.012.sroa.0.0.i77 = phi i32 [ %.sroa.012.sroa.0.0.i73, %206 ], [ %82, %202 ]
+  %214 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i115, i64 8
+  %.val.i.i59.i.i.i.i = load i32, ptr %214, align 8, !tbaa !797
+  %215 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i115, i64 16
+  %.val7.i.i60.i.i.i.i = load i64, ptr %215, align 8
+  %216 = icmp eq i32 %.val.i.i59.i.i.i.i, %.sroa.012.sroa.0.0.i77
+  %217 = icmp eq i64 %.val7.i.i60.i.i.i.i, %.sroa.9.0.i83
+  %218 = select i1 %216, i1 %217, i1 false
+  br i1 %218, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
+
+219:                                              ; preds = %204, %206, %206
+  %.029.lcssa.i.i.i.i116 = phi ptr [ %scevgep.i.i.i.i, %206 ], [ %scevgep.i.i.i.i, %206 ], [ %.val22.jt1, %204 ]
+  %220 = phi ptr [ %95, %206 ], [ %95, %206 ], [ %94, %204 ]
+  %221 = phi i64 [ %96, %206 ], [ %96, %206 ], [ %93, %204 ]
+  %.val23111 = phi i32 [ %.val23105, %206 ], [ %.val23105, %206 ], [ %.val23.jt1, %204 ]
+  %.val22103 = phi ptr [ %.val2297, %206 ], [ %.val2297, %206 ], [ %.val22.jt1, %204 ]
+  %.sroa.012.sroa.0.0.insert.insert.i96 = phi i64 [ %.sroa.012.sroa.0.0.insert.insert.i91, %206 ], [ %.sroa.012.sroa.0.0.insert.insert.i91, %206 ], [ %.sroa.012.sroa.0.0.insert.insert.i.jt1, %204 ]
+  %.0.i90 = phi i32 [ %.0.i85, %206 ], [ %.0.i85, %206 ], [ %.0.i.jt1, %204 ]
+  %.sroa.9.0.i84 = phi i64 [ %.sroa.9.0.i79, %206 ], [ %.sroa.9.0.i79, %206 ], [ undef, %204 ]
+  %.sroa.012.sroa.0.0.i78 = phi i32 [ %.sroa.012.sroa.0.0.i73, %206 ], [ %.sroa.012.sroa.0.0.i73, %206 ], [ %.sroa.012.sroa.0.0.i.jt1, %204 ]
+  %222 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i116, i64 8
+  %223 = load i64, ptr %222, align 8, !tbaa !264
+  %224 = icmp eq i64 %223, %.sroa.012.sroa.0.0.insert.insert.i96
+  br i1 %224, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
+
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i: ; preds = %207
+  %225 = getelementptr inbounds nuw i8, ptr %scevgep.i.i.i.i, i64 16
+  %226 = load i64, ptr %225, align 8, !tbaa !548
+  %227 = icmp eq i64 %226, %.sroa.9.0.i79
+  %228 = getelementptr inbounds nuw i8, ptr %scevgep.i.i.i.i, i64 24
+  %229 = load i64, ptr %228, align 8
+  %230 = load i64, ptr %61, align 8
+  %231 = icmp eq i64 %229, %230
+  %232 = select i1 %227, i1 %231, i1 false
+  br i1 %232, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
+
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i: ; preds = %202, %204, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i, %219, %211, %207, %200
+  %.029.lcssa.i.i.i.i114 = phi ptr [ %.val22.jt4, %202 ], [ %.val22.jt1, %204 ], [ %scevgep.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %.029.lcssa.i.i.i.i116, %219 ], [ %.029.lcssa.i.i.i.i115, %211 ], [ %scevgep.i.i.i.i, %207 ], [ %scevgep.i.i.i.i, %200 ]
+  %233 = phi ptr [ %92, %202 ], [ %94, %204 ], [ %95, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %220, %219 ], [ %212, %211 ], [ %95, %207 ], [ %95, %200 ]
+  %234 = phi i64 [ 3, %202 ], [ %93, %204 ], [ %96, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %221, %219 ], [ %213, %211 ], [ %96, %207 ], [ %96, %200 ]
+  %.val23109 = phi i32 [ 3, %202 ], [ %.val23.jt1, %204 ], [ %.val23105, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %.val23111, %219 ], [ %.val23110, %211 ], [ %.val23105, %207 ], [ %.val23105, %200 ]
+  %.val22101 = phi ptr [ %.val22.jt4, %202 ], [ %.val22.jt1, %204 ], [ %.val2297, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %.val22103, %219 ], [ %.val22102, %211 ], [ %.val2297, %207 ], [ %.val2297, %200 ]
+  %.sroa.012.sroa.0.0.insert.insert.i94 = phi i64 [ %.sroa.012.sroa.0.0.insert.ext.i.jt4, %202 ], [ %.sroa.012.sroa.0.0.insert.insert.i.jt1, %204 ], [ %.sroa.012.sroa.0.0.insert.insert.i91, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %.sroa.012.sroa.0.0.insert.insert.i96, %219 ], [ %.sroa.012.sroa.0.0.insert.insert.i95, %211 ], [ %.sroa.012.sroa.0.0.insert.insert.i91, %207 ], [ %.sroa.012.sroa.0.0.insert.insert.i91, %200 ]
+  %.0.i88 = phi i32 [ 4, %202 ], [ %.0.i.jt1, %204 ], [ 2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %.0.i90, %219 ], [ 4, %211 ], [ 2, %207 ], [ %.0.i85, %200 ]
+  %.sroa.9.0.i82 = phi i64 [ %90, %202 ], [ undef, %204 ], [ %.sroa.9.0.i79, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %.sroa.9.0.i84, %219 ], [ %.sroa.9.0.i83, %211 ], [ %.sroa.9.0.i79, %207 ], [ %.sroa.9.0.i79, %200 ]
+  %.sroa.012.sroa.0.0.i76 = phi i32 [ %82, %202 ], [ %.sroa.012.sroa.0.0.i.jt1, %204 ], [ %.sroa.012.sroa.0.0.i73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %.sroa.012.sroa.0.0.i78, %219 ], [ %.sroa.012.sroa.0.0.i77, %211 ], [ %.sroa.012.sroa.0.0.i73, %207 ], [ %.sroa.012.sroa.0.0.i73, %200 ]
+  %235 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i114, i64 32
   br label %._crit_edge._crit_edge.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %222, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %223 = load i32, ptr %.1.i.i.i.i, align 8, !tbaa !546
-  %.not.i.i64.i.i.i.i = icmp eq i32 %223, %.0.i
-  br i1 %.not.i.i64.i.i.i.i, label %224, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
+._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i.jt4, %._crit_edge.i.i.i.i.jt1, %._crit_edge.loopexit.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i
+  %236 = phi ptr [ %92, %._crit_edge.i.i.i.i.jt4 ], [ %94, %._crit_edge.i.i.i.i.jt1 ], [ %95, %._crit_edge.loopexit.i.i.i.i ], [ %233, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i ]
+  %237 = phi i64 [ 2, %._crit_edge.i.i.i.i.jt4 ], [ %93, %._crit_edge.i.i.i.i.jt1 ], [ %96, %._crit_edge.loopexit.i.i.i.i ], [ %234, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i ]
+  %.val23106 = phi i32 [ %.val23.jt4, %._crit_edge.i.i.i.i.jt4 ], [ %.val23.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.val23105, %._crit_edge.loopexit.i.i.i.i ], [ %.val23109, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i ]
+  %.val2298 = phi ptr [ %.val22.jt4, %._crit_edge.i.i.i.i.jt4 ], [ %.val22.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.val2297, %._crit_edge.loopexit.i.i.i.i ], [ %.val22101, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i ]
+  %.sroa.012.sroa.0.0.insert.insert.i92 = phi i64 [ %.sroa.012.sroa.0.0.insert.ext.i.jt4, %._crit_edge.i.i.i.i.jt4 ], [ %.sroa.012.sroa.0.0.insert.insert.i.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.sroa.012.sroa.0.0.insert.insert.i91, %._crit_edge.loopexit.i.i.i.i ], [ %.sroa.012.sroa.0.0.insert.insert.i94, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i ]
+  %.0.i86 = phi i32 [ 4, %._crit_edge.i.i.i.i.jt4 ], [ %.0.i.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.0.i85, %._crit_edge.loopexit.i.i.i.i ], [ %.0.i88, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i ]
+  %.sroa.9.0.i80 = phi i64 [ %90, %._crit_edge.i.i.i.i.jt4 ], [ undef, %._crit_edge.i.i.i.i.jt1 ], [ %.sroa.9.0.i79, %._crit_edge.loopexit.i.i.i.i ], [ %.sroa.9.0.i82, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i ]
+  %.sroa.012.sroa.0.0.i74 = phi i32 [ %82, %._crit_edge.i.i.i.i.jt4 ], [ %.sroa.012.sroa.0.0.i.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.sroa.012.sroa.0.0.i73, %._crit_edge.loopexit.i.i.i.i ], [ %.sroa.012.sroa.0.0.i76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %.val22.jt4, %._crit_edge.i.i.i.i.jt4 ], [ %.val22.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %235, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.thread.i.i.i.i ]
+  %238 = load i32, ptr %.1.i.i.i.i, align 8, !tbaa !546
+  %.not.i.i64.i.i.i.i = icmp eq i32 %238, %.0.i86
+  br i1 %.not.i.i64.i.i.i.i, label %239, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
 
-224:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i
-  switch i32 %.0.i, label %default.unreachable [
-    i32 2, label %225
-    i32 4, label %229
-    i32 1, label %235
-    i32 3, label %235
+239:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i
+  switch i32 %.0.i86, label %default.unreachable [
+    i32 2, label %240
+    i32 4, label %244
+    i32 1, label %250
+    i32 3, label %250
   ]
 
-225:                                              ; preds = %224
-  %226 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
-  %227 = load i32, ptr %226, align 8, !tbaa !730
-  %228 = icmp eq i32 %227, %.sroa.012.sroa.0.0.i
-  br i1 %228, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
+240:                                              ; preds = %239
+  %241 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
+  %242 = load i32, ptr %241, align 8, !tbaa !730
+  %243 = icmp eq i32 %242, %.sroa.012.sroa.0.0.i74
+  br i1 %243, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
 
-229:                                              ; preds = %224
-  %230 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
-  %.val.i.i66.i.i.i.i = load i32, ptr %230, align 8, !tbaa !797
-  %231 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
-  %.val7.i.i67.i.i.i.i = load i64, ptr %231, align 8
-  %232 = icmp eq i32 %.val.i.i66.i.i.i.i, %.sroa.012.sroa.0.0.i
-  %233 = icmp eq i64 %.val7.i.i67.i.i.i.i, %.sroa.9.0.i
-  %234 = select i1 %232, i1 %233, i1 false
-  br i1 %234, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
+244:                                              ; preds = %239
+  %245 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
+  %.val.i.i66.i.i.i.i = load i32, ptr %245, align 8, !tbaa !797
+  %246 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
+  %.val7.i.i67.i.i.i.i = load i64, ptr %246, align 8
+  %247 = icmp eq i32 %.val.i.i66.i.i.i.i, %.sroa.012.sroa.0.0.i74
+  %248 = icmp eq i64 %.val7.i.i67.i.i.i.i, %.sroa.9.0.i80
+  %249 = select i1 %247, i1 %248, i1 false
+  br i1 %249, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
 
-235:                                              ; preds = %224, %224
-  %236 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
-  %237 = load i64, ptr %236, align 8, !tbaa !264
-  %238 = icmp eq i64 %237, %.sroa.012.sroa.0.0.insert.insert.i
-  br i1 %238, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
+250:                                              ; preds = %239, %239
+  %251 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
+  %252 = load i64, ptr %251, align 8, !tbaa !264
+  %253 = icmp eq i64 %252, %.sroa.012.sroa.0.0.insert.insert.i92
+  br i1 %253, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i: ; preds = %225
-  %239 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
-  %240 = load i64, ptr %239, align 8, !tbaa !548
-  %241 = icmp eq i64 %240, %.sroa.9.0.i
-  %242 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
-  %243 = load i64, ptr %242, align 8
-  %244 = load i64, ptr %61, align 8
-  %245 = icmp eq i64 %243, %244
-  %246 = select i1 %241, i1 %245, i1 false
-  br i1 %246, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i: ; preds = %240
+  %254 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
+  %255 = load i64, ptr %254, align 8, !tbaa !548
+  %256 = icmp eq i64 %255, %.sroa.9.0.i80
+  %257 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
+  %258 = load i64, ptr %257, align 8
+  %259 = load i64, ptr %61, align 8
+  %260 = icmp eq i64 %258, %259
+  %261 = select i1 %256, i1 %260, i1 false
+  br i1 %261, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i, %235, %229, %225, %._crit_edge._crit_edge.i.i.i.i
-  %247 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 32
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i, %250, %244, %240, %._crit_edge._crit_edge.i.i.i.i
+  %262 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 32
   br label %._crit_edge._crit_edge137.i.i.i.i
 
-._crit_edge._crit_edge137.i.i.i.i:                ; preds = %._crit_edge.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %247, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %248 = load i32, ptr %.2.i.i.i.i, align 8, !tbaa !546
-  %.not.i.i71.i.i.i.i = icmp eq i32 %248, %.0.i
-  br i1 %.not.i.i71.i.i.i.i, label %249, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
+._crit_edge._crit_edge137.i.i.i.i:                ; preds = %._crit_edge.i.i.i.i.jt4, %._crit_edge.i.i.i.i.jt1, %._crit_edge.loopexit.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i
+  %263 = phi ptr [ %92, %._crit_edge.i.i.i.i.jt4 ], [ %94, %._crit_edge.i.i.i.i.jt1 ], [ %95, %._crit_edge.loopexit.i.i.i.i ], [ %236, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i ]
+  %264 = phi i64 [ 1, %._crit_edge.i.i.i.i.jt4 ], [ %93, %._crit_edge.i.i.i.i.jt1 ], [ %96, %._crit_edge.loopexit.i.i.i.i ], [ %237, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i ]
+  %.val23107 = phi i32 [ %.val23.jt4, %._crit_edge.i.i.i.i.jt4 ], [ %.val23.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.val23105, %._crit_edge.loopexit.i.i.i.i ], [ %.val23106, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i ]
+  %.val2299 = phi ptr [ %.val22.jt4, %._crit_edge.i.i.i.i.jt4 ], [ %.val22.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.val2297, %._crit_edge.loopexit.i.i.i.i ], [ %.val2298, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i ]
+  %.sroa.012.sroa.0.0.insert.insert.i93 = phi i64 [ %.sroa.012.sroa.0.0.insert.ext.i.jt4, %._crit_edge.i.i.i.i.jt4 ], [ %.sroa.012.sroa.0.0.insert.insert.i.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.sroa.012.sroa.0.0.insert.insert.i91, %._crit_edge.loopexit.i.i.i.i ], [ %.sroa.012.sroa.0.0.insert.insert.i92, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i ]
+  %.0.i87 = phi i32 [ 4, %._crit_edge.i.i.i.i.jt4 ], [ %.0.i.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.0.i85, %._crit_edge.loopexit.i.i.i.i ], [ %.0.i86, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i ]
+  %.sroa.9.0.i81 = phi i64 [ %90, %._crit_edge.i.i.i.i.jt4 ], [ undef, %._crit_edge.i.i.i.i.jt1 ], [ %.sroa.9.0.i79, %._crit_edge.loopexit.i.i.i.i ], [ %.sroa.9.0.i80, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i ]
+  %.sroa.012.sroa.0.0.i75 = phi i32 [ %82, %._crit_edge.i.i.i.i.jt4 ], [ %.sroa.012.sroa.0.0.i.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.sroa.012.sroa.0.0.i73, %._crit_edge.loopexit.i.i.i.i ], [ %.sroa.012.sroa.0.0.i74, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %.val22.jt4, %._crit_edge.i.i.i.i.jt4 ], [ %.val22.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %262, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.thread.i.i.i.i ]
+  %265 = load i32, ptr %.2.i.i.i.i, align 8, !tbaa !546
+  %.not.i.i71.i.i.i.i = icmp eq i32 %265, %.0.i87
+  br i1 %.not.i.i71.i.i.i.i, label %266, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
 
-249:                                              ; preds = %._crit_edge._crit_edge137.i.i.i.i
-  switch i32 %.0.i, label %default.unreachable [
-    i32 2, label %250
-    i32 4, label %254
-    i32 1, label %260
-    i32 3, label %260
+266:                                              ; preds = %._crit_edge._crit_edge137.i.i.i.i
+  switch i32 %.0.i87, label %default.unreachable [
+    i32 2, label %267
+    i32 4, label %271
+    i32 1, label %277
+    i32 3, label %277
   ]
 
-250:                                              ; preds = %249
-  %251 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 8
-  %252 = load i32, ptr %251, align 8, !tbaa !730
-  %253 = icmp eq i32 %252, %.sroa.012.sroa.0.0.i
-  br i1 %253, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
+267:                                              ; preds = %266
+  %268 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 8
+  %269 = load i32, ptr %268, align 8, !tbaa !730
+  %270 = icmp eq i32 %269, %.sroa.012.sroa.0.0.i75
+  br i1 %270, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
 
-254:                                              ; preds = %249
-  %255 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 8
-  %.val.i.i73.i.i.i.i = load i32, ptr %255, align 8, !tbaa !797
-  %256 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 16
-  %.val7.i.i74.i.i.i.i = load i64, ptr %256, align 8
-  %257 = icmp eq i32 %.val.i.i73.i.i.i.i, %.sroa.012.sroa.0.0.i
-  %258 = icmp eq i64 %.val7.i.i74.i.i.i.i, %.sroa.9.0.i
-  %259 = select i1 %257, i1 %258, i1 false
-  br i1 %259, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
+271:                                              ; preds = %266
+  %272 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 8
+  %.val.i.i73.i.i.i.i = load i32, ptr %272, align 8, !tbaa !797
+  %273 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 16
+  %.val7.i.i74.i.i.i.i = load i64, ptr %273, align 8
+  %274 = icmp eq i32 %.val.i.i73.i.i.i.i, %.sroa.012.sroa.0.0.i75
+  %275 = icmp eq i64 %.val7.i.i74.i.i.i.i, %.sroa.9.0.i81
+  %276 = select i1 %274, i1 %275, i1 false
+  br i1 %276, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
 
-260:                                              ; preds = %249, %249
-  %261 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 8
-  %262 = load i64, ptr %261, align 8, !tbaa !264
-  %263 = icmp eq i64 %262, %.sroa.012.sroa.0.0.insert.insert.i
-  br i1 %263, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
+277:                                              ; preds = %266, %266
+  %278 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 8
+  %279 = load i64, ptr %278, align 8, !tbaa !264
+  %280 = icmp eq i64 %279, %.sroa.012.sroa.0.0.insert.insert.i93
+  br i1 %280, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i: ; preds = %250
-  %264 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 16
-  %265 = load i64, ptr %264, align 8, !tbaa !548
-  %266 = icmp eq i64 %265, %.sroa.9.0.i
-  %267 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 24
-  %268 = load i64, ptr %267, align 8
-  %269 = load i64, ptr %61, align 8
-  %270 = icmp eq i64 %268, %269
-  %271 = select i1 %266, i1 %270, i1 false
-  br i1 %271, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i: ; preds = %267
+  %281 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 16
+  %282 = load i64, ptr %281, align 8, !tbaa !548
+  %283 = icmp eq i64 %282, %.sroa.9.0.i81
+  %284 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 24
+  %285 = load i64, ptr %284, align 8
+  %286 = load i64, ptr %61, align 8
+  %287 = icmp eq i64 %285, %286
+  %288 = select i1 %283, i1 %287, i1 false
+  br i1 %288, label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i, %260, %254, %250, %._crit_edge._crit_edge137.i.i.i.i, %._crit_edge.i.i.i.i
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.jt4, %._crit_edge.i.i.i.i.jt1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i, %277, %271, %267, %._crit_edge._crit_edge137.i.i.i.i, %._crit_edge.loopexit.i.i.i.i
+  %289 = phi ptr [ %92, %._crit_edge.i.i.i.i.jt4 ], [ %94, %._crit_edge.i.i.i.i.jt1 ], [ %263, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i ], [ %263, %277 ], [ %263, %271 ], [ %263, %267 ], [ %263, %._crit_edge._crit_edge137.i.i.i.i ], [ %95, %._crit_edge.loopexit.i.i.i.i ]
+  %290 = phi i64 [ 0, %._crit_edge.i.i.i.i.jt4 ], [ %93, %._crit_edge.i.i.i.i.jt1 ], [ %264, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i ], [ %264, %277 ], [ %264, %271 ], [ %264, %267 ], [ %264, %._crit_edge._crit_edge137.i.i.i.i ], [ %96, %._crit_edge.loopexit.i.i.i.i ]
+  %.val23108 = phi i32 [ %.val23.jt4, %._crit_edge.i.i.i.i.jt4 ], [ %.val23.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.val23107, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i ], [ %.val23107, %277 ], [ %.val23107, %271 ], [ %.val23107, %267 ], [ %.val23107, %._crit_edge._crit_edge137.i.i.i.i ], [ %.val23105, %._crit_edge.loopexit.i.i.i.i ]
+  %.val22100 = phi ptr [ %.val22.jt4, %._crit_edge.i.i.i.i.jt4 ], [ %.val22.jt1, %._crit_edge.i.i.i.i.jt1 ], [ %.val2299, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i ], [ %.val2299, %277 ], [ %.val2299, %271 ], [ %.val2299, %267 ], [ %.val2299, %._crit_edge._crit_edge137.i.i.i.i ], [ %.val2297, %._crit_edge.loopexit.i.i.i.i ]
   br label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
 
 _ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit42.i.i.i.i
-  %272 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 32
+  %291 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 32
   br label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit74: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.i.i.i.i
-  %273 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 64
+_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit118: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit49.i.i.i.i
+  %292 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 64
   br label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit76: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.i.i.i.i
-  %274 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 96
+_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit120: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit56.i.i.i.i
+  %293 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 96
   br label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit78: ; preds = %128
-  %275 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 32
+_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit122: ; preds = %131
+  %294 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 32
   br label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit80: ; preds = %134
-  %276 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 32
+_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit124: ; preds = %137
+  %295 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 32
   br label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit82: ; preds = %152
-  %277 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 64
+_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit126: ; preds = %155
+  %296 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 64
   br label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit84: ; preds = %158
-  %278 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 64
+_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit128: ; preds = %161
+  %297 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 64
   br label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit86: ; preds = %176
-  %279 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 96
+_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130: ; preds = %179
+  %298 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 96
   br label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit88: ; preds = %182
-  %280 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 96
+_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132: ; preds = %185
+  %299 = getelementptr inbounds nuw i8, ptr %.029121.i.i.i.i, i64 96
   br label %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit: ; preds = %104, %110, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit74, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit76, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit78, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit80, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit82, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit84, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit86, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit88, %204, %210, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i, %229, %235, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i, %254, %260, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %93, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %.1.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i ], [ %.2.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %204 ], [ %.029.lcssa.i.i.i.i, %210 ], [ %.1.i.i.i.i, %229 ], [ %.1.i.i.i.i, %235 ], [ %.2.i.i.i.i, %254 ], [ %.2.i.i.i.i, %260 ], [ %272, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %273, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit74 ], [ %274, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit76 ], [ %275, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit78 ], [ %276, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit80 ], [ %277, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit82 ], [ %278, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit84 ], [ %279, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit86 ], [ %280, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit88 ], [ %.029121.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i ], [ %.029121.i.i.i.i, %110 ], [ %.029121.i.i.i.i, %104 ]
-  %281 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VarLocBasedLDV::VarLoc::MachineLoc", ptr %.val22, i64 %92
-  %282 = icmp eq ptr %.028.i.i.i.i, %281
-  br i1 %282, label %283, label %316
+_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit: ; preds = %107, %113, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit118, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit120, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit122, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit124, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit126, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit128, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132, %211, %219, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i, %244, %250, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i, %271, %277, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i
+  %300 = phi i64 [ %213, %211 ], [ %221, %219 ], [ %96, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %237, %244 ], [ %237, %250 ], [ %237, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i ], [ %264, %271 ], [ %264, %277 ], [ %264, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i ], [ %290, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i ], [ %96, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132 ], [ %96, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130 ], [ %96, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit128 ], [ %96, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit126 ], [ %96, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit124 ], [ %96, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit122 ], [ %96, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit120 ], [ %96, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit118 ], [ %96, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %96, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i ], [ %96, %113 ], [ %96, %107 ]
+  %.val23112 = phi i32 [ %.val23110, %211 ], [ %.val23111, %219 ], [ %.val23105, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %.val23106, %244 ], [ %.val23106, %250 ], [ %.val23106, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i ], [ %.val23107, %271 ], [ %.val23107, %277 ], [ %.val23107, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i ], [ %.val23108, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i ], [ %.val23105, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132 ], [ %.val23105, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130 ], [ %.val23105, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit128 ], [ %.val23105, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit126 ], [ %.val23105, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit124 ], [ %.val23105, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit122 ], [ %.val23105, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit120 ], [ %.val23105, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit118 ], [ %.val23105, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.val23105, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i ], [ %.val23105, %113 ], [ %.val23105, %107 ]
+  %.val22104 = phi ptr [ %.val22102, %211 ], [ %.val22103, %219 ], [ %.val2297, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %.val2298, %244 ], [ %.val2298, %250 ], [ %.val2298, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i ], [ %.val2299, %271 ], [ %.val2299, %277 ], [ %.val2299, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i ], [ %.val22100, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i ], [ %.val2297, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132 ], [ %.val2297, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130 ], [ %.val2297, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit128 ], [ %.val2297, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit126 ], [ %.val2297, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit124 ], [ %.val2297, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit122 ], [ %.val2297, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit120 ], [ %.val2297, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit118 ], [ %.val2297, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.val2297, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i ], [ %.val2297, %113 ], [ %.val2297, %107 ]
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i115, %211 ], [ %.029.lcssa.i.i.i.i116, %219 ], [ %scevgep.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit63.i.i.i.i ], [ %.1.i.i.i.i, %244 ], [ %.1.i.i.i.i, %250 ], [ %.1.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit70.i.i.i.i ], [ %.2.i.i.i.i, %271 ], [ %.2.i.i.i.i, %277 ], [ %.2.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.i.i.i.i ], [ %289, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit77.thread.i.i.i.i ], [ %299, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132 ], [ %298, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130 ], [ %297, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit128 ], [ %296, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit126 ], [ %295, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit124 ], [ %294, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit122 ], [ %293, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit120 ], [ %292, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit118 ], [ %291, %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.029121.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocEEclIPS5_EEbT_.exit.i.i.i.i ], [ %.029121.i.i.i.i, %113 ], [ %.029121.i.i.i.i, %107 ]
+  %301 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VarLocBasedLDV::VarLoc::MachineLoc", ptr %.val22104, i64 %300
+  %302 = icmp eq ptr %.028.i.i.i.i, %301
+  br i1 %302, label %303, label %336
 
-283:                                              ; preds = %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
-  %284 = add nuw nsw i64 %92, 1
-  %285 = load i32, ptr %45, align 4, !tbaa !12
-  %.not.not.i.i.i = icmp ult i32 %.val23, %285
-  br i1 %.not.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit, label %286, !prof !373
+303:                                              ; preds = %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
+  %304 = add nuw nsw i64 %300, 1
+  %305 = load i32, ptr %45, align 4, !tbaa !12
+  %.not.not.i.i.i = icmp ult i32 %.val23112, %305
+  br i1 %.not.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit, label %306, !prof !373
 
-286:                                              ; preds = %283
-  %287 = icmp uge ptr %3, %.val22
-  %288 = icmp ult ptr %3, %.028.i.i.i.i
-  %spec.select.i.i.i.i.i = and i1 %287, %288
-  br i1 %spec.select.i.i.i.i.i, label %289, label %.critedge.i.i.i, !prof !603
+306:                                              ; preds = %303
+  %307 = icmp uge ptr %3, %.val22104
+  %308 = icmp ult ptr %3, %.028.i.i.i.i
+  %spec.select.i.i.i.i.i = and i1 %307, %308
+  br i1 %spec.select.i.i.i.i.i, label %309, label %.critedge.i.i.i, !prof !603
 
-289:                                              ; preds = %286
-  %290 = ptrtoint ptr %.val22 to i64
-  %291 = sub i64 %62, %290
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %43, i64 noundef %284, i64 noundef 32) #22
+309:                                              ; preds = %306
+  %310 = ptrtoint ptr %.val22104 to i64
+  %311 = sub i64 %62, %310
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %43, i64 noundef %304, i64 noundef 32) #22
   %.val.i.i.i = load ptr, ptr %42, align 8, !tbaa !6
-  %292 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %291
+  %312 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %311
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit
 
-.critedge.i.i.i:                                  ; preds = %286
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %43, i64 noundef %284, i64 noundef 32) #22
+.critedge.i.i.i:                                  ; preds = %306
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %43, i64 noundef %304, i64 noundef 32) #22
   %.val.pre.i = load ptr, ptr %42, align 8, !tbaa !6
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit: ; preds = %283, %289, %.critedge.i.i.i
-  %.val.i = phi ptr [ %.val22, %283 ], [ %.val.i.i.i, %289 ], [ %.val.pre.i, %.critedge.i.i.i ]
-  %.016.i.i.i = phi ptr [ %3, %283 ], [ %292, %289 ], [ %3, %.critedge.i.i.i ]
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit: ; preds = %303, %309, %.critedge.i.i.i
+  %.val.i = phi ptr [ %.val22104, %303 ], [ %.val.i.i.i, %309 ], [ %.val.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %3, %303 ], [ %312, %309 ], [ %3, %.critedge.i.i.i ]
   %.val3.i = load i32, ptr %44, align 8, !tbaa !11
-  %293 = zext i32 %.val3.i to i64
-  %294 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VarLocBasedLDV::VarLoc::MachineLoc", ptr %.val.i, i64 %293
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %294, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
-  %295 = load i32, ptr %44, align 8, !tbaa !11
-  %296 = add i32 %295, 1
-  store i32 %296, ptr %44, align 8, !tbaa !11
-  %297 = load i16, ptr %50, align 4, !tbaa !269
-  %298 = icmp eq i16 %297, 14
-  %299 = load ptr, ptr %53, align 8
-  %.pn6.idx.i.i = select i1 %298, i64 0, i64 64
-  %.pn6.i.i = getelementptr inbounds nuw i8, ptr %299, i64 %.pn6.idx.i.i
-  %300 = ptrtoint ptr %.056 to i64
-  %301 = ptrtoint ptr %.pn6.i.i to i64
-  %302 = sub i64 %300, %301
-  %303 = lshr exact i64 %302, 5
-  %304 = trunc i64 %303 to i32
-  %305 = load i32, ptr %48, align 8, !tbaa !11
-  %306 = load i32, ptr %49, align 4, !tbaa !12
-  %.not.i.i.not.i = icmp ult i32 %305, %306
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, label %307, !prof !373
+  %313 = zext i32 %.val3.i to i64
+  %314 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VarLocBasedLDV::VarLoc::MachineLoc", ptr %.val.i, i64 %313
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %314, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
+  %315 = load i32, ptr %44, align 8, !tbaa !11
+  %316 = add i32 %315, 1
+  store i32 %316, ptr %44, align 8, !tbaa !11
+  %317 = load i16, ptr %50, align 4, !tbaa !269
+  %318 = icmp eq i16 %317, 14
+  %319 = load ptr, ptr %53, align 8
+  %.pn6.idx.i.i = select i1 %318, i64 0, i64 64
+  %.pn6.i.i = getelementptr inbounds nuw i8, ptr %319, i64 %.pn6.idx.i.i
+  %320 = ptrtoint ptr %.056 to i64
+  %321 = ptrtoint ptr %.pn6.i.i to i64
+  %322 = sub i64 %320, %321
+  %323 = lshr exact i64 %322, 5
+  %324 = trunc i64 %323 to i32
+  %325 = load i32, ptr %48, align 8, !tbaa !11
+  %326 = load i32, ptr %49, align 4, !tbaa !12
+  %.not.i.i.not.i = icmp ult i32 %325, %326
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, label %327, !prof !373
 
-307:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit
-  %308 = zext i32 %305 to i64
-  %309 = add nuw nsw i64 %308, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull %47, i64 noundef %309, i64 noundef 4) #22
+327:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit
+  %328 = zext i32 %325 to i64
+  %329 = add nuw nsw i64 %328, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull %47, i64 noundef %329, i64 noundef 4) #22
   %.pre.i = load i32, ptr %48, align 8, !tbaa !11
   br label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit, %307
-  %310 = phi i32 [ %305, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit ], [ %.pre.i, %307 ]
-  %311 = load ptr, ptr %46, align 8, !tbaa !6
-  %312 = zext i32 %310 to i64
-  %313 = getelementptr inbounds nuw i32, ptr %311, i64 %312
-  store i32 %304, ptr %313, align 1
-  %314 = load i32, ptr %48, align 8, !tbaa !11
-  %315 = add i32 %314, 1
-  store i32 %315, ptr %48, align 8, !tbaa !11
-  br label %324
+_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit, %327
+  %330 = phi i32 [ %325, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELb1EE9push_backERKS4_.exit ], [ %.pre.i, %327 ]
+  %331 = load ptr, ptr %46, align 8, !tbaa !6
+  %332 = zext i32 %330 to i64
+  %333 = getelementptr inbounds nuw i32, ptr %331, i64 %332
+  store i32 %324, ptr %333, align 1
+  %334 = load i32, ptr %48, align 8, !tbaa !11
+  %335 = add i32 %334, 1
+  store i32 %335, ptr %48, align 8, !tbaa !11
+  br label %344
 
-316:                                              ; preds = %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
-  %317 = ptrtoint ptr %.028.i.i.i.i to i64
-  %318 = ptrtoint ptr %.val22 to i64
-  %319 = sub i64 %317, %318
-  %320 = lshr exact i64 %319, 5
-  %321 = load ptr, ptr %38, align 8, !tbaa !358
-  %322 = and i64 %320, 4294967295
-  %323 = call noundef ptr @_ZN4llvm12DIExpression10replaceArgEPKS0_mm(ptr noundef %321, i64 noundef %92, i64 noundef %322) #22
-  store ptr %323, ptr %38, align 8, !tbaa !358
-  br label %324
+336:                                              ; preds = %_ZN4llvm4findIRNS_11SmallVectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineLocELj8EEES5_EEDaOT_RKT0_.exit
+  %337 = ptrtoint ptr %.028.i.i.i.i to i64
+  %338 = ptrtoint ptr %.val22104 to i64
+  %339 = sub i64 %337, %338
+  %340 = lshr exact i64 %339, 5
+  %341 = load ptr, ptr %38, align 8, !tbaa !358
+  %342 = and i64 %340, 4294967295
+  %343 = call noundef ptr @_ZN4llvm12DIExpression10replaceArgEPKS0_mm(ptr noundef %341, i64 noundef %300, i64 noundef %342) #22
+  store ptr %343, ptr %38, align 8, !tbaa !358
+  br label %344
 
-324:                                              ; preds = %316, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
+344:                                              ; preds = %336, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %325 = getelementptr inbounds nuw i8, ptr %.056, i64 32
-  %.not = icmp eq ptr %325, %.pn4.i
+  %345 = getelementptr inbounds nuw i8, ptr %.056, i64 32
+  %.not = icmp eq ptr %345, %.pn4.i
   br i1 %.not, label %._crit_edge, label %63
 }
 

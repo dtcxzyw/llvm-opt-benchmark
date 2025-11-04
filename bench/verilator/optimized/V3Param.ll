@@ -8081,7 +8081,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154: ; preds = %22
 231:                                              ; preds = %227
   br i1 %230, label %.loopexit, label %.backedge
 
-.backedge:                                        ; preds = %103, %102, %_ZN7AstNode11privateCastI20AstBracketArrayDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit, %82, %78, %163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140, %231, %164, %79
+.backedge:                                        ; preds = %79, %164, %231, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123, %163, %78, %103, %102, %_ZN7AstNode11privateCastI20AstBracketArrayDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit, %82
   %232 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %233 = load ptr, ptr %232, align 8, !tbaa !304
   %.not71 = icmp eq ptr %233, null

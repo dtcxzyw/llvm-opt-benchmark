@@ -2566,7 +2566,7 @@ define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noun
 21:                                               ; preds = %.lr.ph64, %57
   %22 = phi ptr [ %17, %.lr.ph64 ], [ %59, %57 ]
   %.04263 = phi ptr [ @ossl_predefined_providers, %.lr.ph64 ], [ %58, %57 ]
-  %.04462 = phi i32 [ 0, %.lr.ph64 ], [ %.1, %57 ]
+  %.04462 = phi i32 [ 0, %.lr.ph64 ], [ %.1.jt0, %57 ]
   %23 = getelementptr inbounds nuw i8, ptr %.04263, i64 32
   %24 = load i8, ptr %23, align 8
   %25 = and i8 %24, 1
@@ -2641,14 +2641,14 @@ define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noun
   br label %57
 
 57:                                               ; preds = %55, %21
-  %.1 = phi i32 [ %56, %55 ], [ %.04462, %21 ]
+  %.1.jt0 = phi i32 [ %56, %55 ], [ %.04462, %21 ]
   %58 = getelementptr inbounds nuw i8, ptr %.04263, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !3
   %.not50 = icmp eq ptr %59, null
   br i1 %.not50, label %._crit_edge, label %21, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %57
-  %60 = icmp sgt i32 %.1, 0
+  %60 = icmp sgt i32 %.1.jt0, 0
   br i1 %60, label %61, label %.loopexit54.sink.split
 
 61:                                               ; preds = %._crit_edge

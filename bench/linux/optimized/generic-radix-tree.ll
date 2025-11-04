@@ -69,123 +69,124 @@ define dso_local ptr @__genradix_ptr(ptr noundef %0, i64 noundef %1) #0 align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @__genradix_ptr_alloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr %0, align 8
-  %5 = or i32 %2, 256
-  br label %6
+.preheader32:
+  %3 = load volatile ptr, ptr %0, align 8
+  %4 = or i32 %2, 256
+  br label %5
 
-6:                                                ; preds = %26, %3
-  %7 = phi ptr [ null, %3 ], [ %36, %26 ]
-  %8 = phi ptr [ %4, %3 ], [ %37, %26 ]
-  %9 = ptrtoint ptr %8 to i64
-  %10 = and i64 %9, -8
-  %11 = inttoptr i64 %10 to ptr
-  %12 = trunc i64 %9 to i32
-  %13 = and i32 %12, 7
-  %14 = icmp eq i64 %10, 0
-  br i1 %14, label %20, label %15
+5:                                                ; preds = %.preheader32, %25
+  %6 = phi ptr [ %35, %25 ], [ null, %.preheader32 ]
+  %7 = phi ptr [ %36, %25 ], [ %3, %.preheader32 ]
+  %8 = ptrtoint ptr %7 to i64
+  %9 = and i64 %8, -8
+  %10 = inttoptr i64 %9 to ptr
+  %11 = trunc i64 %8 to i32
+  %12 = and i32 %11, 7
+  %13 = icmp eq i64 %9, 0
+  br i1 %13, label %19, label %14
 
-15:                                               ; preds = %6
-  %16 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %1, i32 -1) #4, !srcloc !5
-  %17 = mul nuw nsw i32 %13, 9
-  %18 = add nuw nsw i32 %17, 12
-  %19 = icmp slt i32 %16, %18
-  br i1 %19, label %.preheader, label %20
+14:                                               ; preds = %5
+  %15 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %1, i32 -1) #4, !srcloc !5
+  %16 = mul nuw nsw i32 %12, 9
+  %17 = add nuw nsw i32 %16, 12
+  %18 = icmp slt i32 %15, %17
+  br i1 %18, label %.preheader, label %19
 
-20:                                               ; preds = %15, %6
-  %21 = icmp eq ptr %7, null
-  br i1 %21, label %22, label %26
+19:                                               ; preds = %14, %5
+  %20 = icmp eq ptr %6, null
+  br i1 %20, label %21, label %25
 
-22:                                               ; preds = %20
-  %23 = tail call i64 @__get_free_pages(i32 noundef %5, i32 noundef 0) #5
-  %24 = inttoptr i64 %23 to ptr
-  %25 = icmp eq i64 %23, 0
-  br i1 %25, label %.critedge, label %26
+21:                                               ; preds = %19
+  %22 = tail call i64 @__get_free_pages(i32 noundef %4, i32 noundef 0) #5
+  %23 = inttoptr i64 %22 to ptr
+  %24 = icmp eq i64 %22, 0
+  br i1 %24, label %.critedge, label %25
 
-26:                                               ; preds = %20, %22
-  %27 = phi ptr [ %7, %20 ], [ %24, %22 ]
-  store ptr %11, ptr %27, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %29 = add nuw nsw i32 %13, 1
-  %30 = zext nneg i32 %29 to i64
-  %31 = select i1 %14, i64 0, i64 %30
-  %32 = or i64 %31, %28
-  %33 = inttoptr i64 %32 to ptr
-  %34 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr nonnull %33, ptr %8, ptr elementtype(i64) %0) #5, !srcloc !8
-  %35 = icmp eq ptr %34, %8
-  %36 = select i1 %35, ptr null, ptr %27
-  %37 = select i1 %35, ptr %33, ptr %34
-  br label %6
+25:                                               ; preds = %19, %21
+  %26 = phi ptr [ %6, %19 ], [ %23, %21 ]
+  store ptr %10, ptr %26, align 8
+  %27 = ptrtoint ptr %26 to i64
+  %28 = add nuw nsw i32 %12, 1
+  %29 = zext nneg i32 %28 to i64
+  %30 = select i1 %13, i64 0, i64 %29
+  %31 = or i64 %30, %27
+  %32 = inttoptr i64 %31 to ptr
+  %33 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr nonnull %32, ptr %7, ptr elementtype(i64) %0) #5, !srcloc !8
+  %34 = icmp eq ptr %33, %7
+  %35 = select i1 %34, ptr null, ptr %26
+  %36 = select i1 %34, ptr %32, ptr %33
+  br label %5
 
-.preheader:                                       ; preds = %15
-  %38 = icmp eq i32 %13, 0
-  br i1 %38, label %._crit_edge, label %.lr.ph.preheader
+.preheader:                                       ; preds = %14
+  %37 = icmp eq i32 %12, 0
+  br i1 %37, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %39 = and i64 %9, 7
+  %38 = and i64 %8, 7
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %65
-  %indvars.iv = phi i64 [ %39, %.lr.ph.preheader ], [ %indvars.iv.next, %65 ]
-  %40 = phi i64 [ %1, %.lr.ph.preheader ], [ %50, %65 ]
-  %41 = phi ptr [ %11, %.lr.ph.preheader ], [ %67, %65 ]
-  %42 = phi ptr [ %7, %.lr.ph.preheader ], [ %66, %65 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
+  %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
+  %39 = phi i64 [ %1, %.lr.ph.preheader ], [ %49, %64 ]
+  %40 = phi ptr [ %10, %.lr.ph.preheader ], [ %66, %64 ]
+  %41 = phi ptr [ %6, %.lr.ph.preheader ], [ %65, %64 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %43 = mul i64 %indvars.iv.next, 9
-  %44 = add i64 %43, 12
-  %45 = and i64 %44, 4294967295
-  %46 = lshr i64 %40, %45
-  %47 = getelementptr ptr, ptr %41, i64 %46
-  %48 = shl nsw i64 -1, %45
-  %49 = xor i64 %48, -1
-  %50 = and i64 %40, %49
-  %51 = load volatile ptr, ptr %47, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %65
+  %42 = mul i64 %indvars.iv.next, 9
+  %43 = add i64 %42, 12
+  %44 = and i64 %43, 4294967295
+  %45 = lshr i64 %39, %44
+  %46 = getelementptr ptr, ptr %40, i64 %45
+  %47 = shl nsw i64 -1, %44
+  %48 = xor i64 %47, -1
+  %49 = and i64 %39, %48
+  %50 = load volatile ptr, ptr %46, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %64
 
-53:                                               ; preds = %.lr.ph
-  %54 = icmp eq ptr %42, null
-  br i1 %54, label %55, label %59
+52:                                               ; preds = %.lr.ph
+  %53 = icmp eq ptr %41, null
+  br i1 %53, label %54, label %58
 
-55:                                               ; preds = %53
-  %56 = tail call i64 @__get_free_pages(i32 noundef %5, i32 noundef 0) #5
-  %57 = inttoptr i64 %56 to ptr
-  %58 = icmp eq i64 %56, 0
-  br i1 %58, label %.critedge, label %59
+54:                                               ; preds = %52
+  %55 = tail call i64 @__get_free_pages(i32 noundef %4, i32 noundef 0) #5
+  %56 = inttoptr i64 %55 to ptr
+  %57 = icmp eq i64 %55, 0
+  br i1 %57, label %.critedge, label %58
 
-59:                                               ; preds = %55, %53
-  %60 = phi ptr [ %42, %53 ], [ %57, %55 ]
-  %61 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %47, ptr nonnull %60, ptr null, ptr elementtype(i64) %47) #5, !srcloc !9
-  %62 = icmp eq ptr %61, null
-  %63 = select i1 %62, ptr null, ptr %60
-  %64 = select i1 %62, ptr %60, ptr %61
-  br label %65
+58:                                               ; preds = %54, %52
+  %59 = phi ptr [ %41, %52 ], [ %56, %54 ]
+  %60 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %46, ptr nonnull %59, ptr null, ptr elementtype(i64) %46) #5, !srcloc !9
+  %61 = icmp eq ptr %60, null
+  %62 = select i1 %61, ptr null, ptr %59
+  %63 = select i1 %61, ptr %59, ptr %60
+  br label %64
 
-65:                                               ; preds = %59, %.lr.ph
-  %66 = phi ptr [ %63, %59 ], [ %42, %.lr.ph ]
-  %67 = phi ptr [ %64, %59 ], [ %51, %.lr.ph ]
-  %68 = and i64 %indvars.iv.next, 4294967295
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+64:                                               ; preds = %58, %.lr.ph
+  %65 = phi ptr [ %62, %58 ], [ %41, %.lr.ph ]
+  %66 = phi ptr [ %63, %58 ], [ %50, %.lr.ph ]
+  %67 = and i64 %indvars.iv.next, 4294967295
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %65, %.preheader
-  %.lcssa7 = phi ptr [ %7, %.preheader ], [ %66, %65 ]
-  %.lcssa5 = phi ptr [ %11, %.preheader ], [ %67, %65 ]
-  %.lcssa = phi i64 [ %1, %.preheader ], [ %50, %65 ]
-  %70 = icmp eq ptr %.lcssa7, null
-  br i1 %70, label %73, label %71
+._crit_edge:                                      ; preds = %64, %.preheader
+  %.lcssa7 = phi ptr [ %6, %.preheader ], [ %65, %64 ]
+  %.lcssa5 = phi ptr [ %10, %.preheader ], [ %66, %64 ]
+  %.lcssa = phi i64 [ %1, %.preheader ], [ %49, %64 ]
+  %69 = icmp eq ptr %.lcssa7, null
+  br i1 %69, label %72, label %70
 
-71:                                               ; preds = %._crit_edge
-  %72 = ptrtoint ptr %.lcssa7 to i64
-  tail call void @free_pages(i64 noundef %72, i32 noundef 0) #5
-  br label %73
+70:                                               ; preds = %._crit_edge
+  %71 = ptrtoint ptr %.lcssa7 to i64
+  tail call void @free_pages(i64 noundef %71, i32 noundef 0) #5
+  br label %72
 
-73:                                               ; preds = %71, %._crit_edge
-  %74 = getelementptr i8, ptr %.lcssa5, i64 %.lcssa
+72:                                               ; preds = %70, %._crit_edge
+  %73 = getelementptr i8, ptr %.lcssa5, i64 %.lcssa
   br label %.critedge
 
-.critedge:                                        ; preds = %22, %55, %73
-  %75 = phi ptr [ %74, %73 ], [ null, %55 ], [ null, %22 ]
-  ret ptr %75
+.critedge:                                        ; preds = %21, %54, %72
+  %74 = phi ptr [ %73, %72 ], [ null, %54 ], [ null, %21 ]
+  ret ptr %74
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: readwrite)

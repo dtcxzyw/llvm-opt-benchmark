@@ -3205,7 +3205,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %76, %74, %56
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %84 = load i8, ptr %83, align 8, !range !101, !noalias !330
   %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %.thread658
+  br i1 %85, label %86, label %.thread640
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr %13, align 8, !tbaa !139, !noalias !330
@@ -3220,14 +3220,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %76, %74, %56
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %98, label %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread
 
-.thread658:                                       ; preds = %82
+.thread640:                                       ; preds = %82
   store ptr null, ptr %0, align 8, !tbaa !28, !alias.scope !333
   %95 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %96 = load i8, ptr %95, align 8, !tbaa !134, !range !101, !noundef !102
   %97 = trunc nuw i8 %96 to i1
   br i1 %97, label %98, label %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread.thread
 
-_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread.thread: ; preds = %.thread658
+_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread.thread: ; preds = %.thread640
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge166.thread455
 
@@ -3235,11 +3235,11 @@ _ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %114
 
-98:                                               ; preds = %.thread658, %86
-  %99 = phi ptr [ %95, %.thread658 ], [ %92, %86 ]
-  %.sroa.0373.1.ph666 = phi ptr [ undef, %.thread658 ], [ %87, %86 ]
-  %.sroa.14.1.ph664 = phi ptr [ undef, %.thread658 ], [ %89, %86 ]
-  %.sroa.21.1.ph662 = phi ptr [ undef, %.thread658 ], [ %91, %86 ]
+98:                                               ; preds = %.thread640, %86
+  %99 = phi ptr [ %95, %.thread640 ], [ %92, %86 ]
+  %.sroa.0373.1.ph648 = phi ptr [ undef, %.thread640 ], [ %87, %86 ]
+  %.sroa.14.1.ph646 = phi ptr [ undef, %.thread640 ], [ %89, %86 ]
+  %.sroa.21.1.ph644 = phi ptr [ undef, %.thread640 ], [ %91, %86 ]
   store i8 0, ptr %99, align 8, !tbaa !134
   %100 = load ptr, ptr %13, align 8, !tbaa !139
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -3281,10 +3281,10 @@ _ZSt8_DestroyIPN4llvm18BitstreamBlockInfo9BlockInfoES2_EvT_S4_RSaIT0_E.exit.i.i.
   br label %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit
 
 _ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit: ; preds = %111, %_ZSt8_DestroyIPN4llvm18BitstreamBlockInfo9BlockInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i, %105
-  %.sroa.21.1597612.ph = phi ptr [ %.sroa.21.1.ph662, %105 ], [ %.sroa.21.1.ph662, %_ZSt8_DestroyIPN4llvm18BitstreamBlockInfo9BlockInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i ], [ undef, %111 ]
+  %.sroa.21.1597612.ph = phi ptr [ %.sroa.21.1.ph644, %105 ], [ %.sroa.21.1.ph644, %_ZSt8_DestroyIPN4llvm18BitstreamBlockInfo9BlockInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i ], [ undef, %111 ]
   %.sroa.28.0598610.ph = phi i1 [ %85, %105 ], [ %85, %_ZSt8_DestroyIPN4llvm18BitstreamBlockInfo9BlockInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i ], [ false, %111 ]
-  %.sroa.14.1599608.ph = phi ptr [ %.sroa.14.1.ph664, %105 ], [ %.sroa.14.1.ph664, %_ZSt8_DestroyIPN4llvm18BitstreamBlockInfo9BlockInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i ], [ undef, %111 ]
-  %.sroa.0373.1600606.ph = phi ptr [ %.sroa.0373.1.ph666, %105 ], [ %.sroa.0373.1.ph666, %_ZSt8_DestroyIPN4llvm18BitstreamBlockInfo9BlockInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i ], [ undef, %111 ]
+  %.sroa.14.1599608.ph = phi ptr [ %.sroa.14.1.ph646, %105 ], [ %.sroa.14.1.ph646, %_ZSt8_DestroyIPN4llvm18BitstreamBlockInfo9BlockInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i ], [ undef, %111 ]
+  %.sroa.0373.1600606.ph = phi ptr [ %.sroa.0373.1.ph648, %105 ], [ %.sroa.0373.1.ph648, %_ZSt8_DestroyIPN4llvm18BitstreamBlockInfo9BlockInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i ], [ undef, %111 ]
   %.pr614 = load ptr, ptr %0, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not479 = icmp eq ptr %.pr614, null
@@ -3368,11 +3368,11 @@ _ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit: ; preds = %130
   br i1 %.not480, label %_ZN4llvm5ErrorD2Ev.exit187, label %_ZNSt14_Optional_baseIN4llvm18BitstreamBlockInfoELb0ELb0EED2Ev.exit330
 
 _ZN4llvm5ErrorD2Ev.exit187:                       ; preds = %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread391
-  %spec.select678 = select i1 %54, i8 %58, i8 0
+  %spec.select660 = select i1 %54, i8 %58, i8 0
   br label %_ZNSt14_Optional_baseIN4llvm18BitstreamBlockInfoELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4llvm18BitstreamBlockInfoELb0ELb0EED2Ev.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit187, %_ZNSt3mapIjN4llvm15BitcodeAnalyzer15PerBlockIDStatsESt4lessIjESaISt4pairIKjS2_EEEixERS6_.exit
-  %.0119 = phi i8 [ %53, %_ZNSt3mapIjN4llvm15BitcodeAnalyzer15PerBlockIDStatsESt4lessIjESaISt4pairIKjS2_EEEixERS6_.exit ], [ %spec.select678, %_ZN4llvm5ErrorD2Ev.exit187 ]
+  %.0119 = phi i8 [ %53, %_ZNSt3mapIjN4llvm15BitcodeAnalyzer15PerBlockIDStatsESt4lessIjESaISt4pairIKjS2_EEEixERS6_.exit ], [ %spec.select660, %_ZN4llvm5ErrorD2Ev.exit187 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !36
   %136 = load i32, ptr %11, align 4, !tbaa !36
@@ -3571,11 +3571,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit206:              ; preds = %228, %230
   br label %.sink.split
 
 .sink.split:                                      ; preds = %209, %211, %_ZN4llvm11raw_ostreamlsEPKc.exit206
-  %.sink679 = phi i32 [ %233, %_ZN4llvm11raw_ostreamlsEPKc.exit206 ], [ %.pre542, %209 ], [ %161, %211 ]
+  %.sink661 = phi i32 [ %233, %_ZN4llvm11raw_ostreamlsEPKc.exit206 ], [ %.pre542, %209 ], [ %161, %211 ]
   %.0.i.i201.sink = phi ptr [ %.0.i.i205, %_ZN4llvm11raw_ostreamlsEPKc.exit206 ], [ %210, %209 ], [ %146, %211 ]
   %.sroa.0.1.i397424.ph = phi ptr [ %.sroa.0.1.i397423428, %_ZN4llvm11raw_ostreamlsEPKc.exit206 ], [ @.str.95, %209 ], [ @.str.95, %211 ]
   %.sroa.21.1.i399422.ph = phi i1 [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit206 ], [ false, %209 ], [ false, %211 ]
-  %234 = zext i32 %.sink679 to i64
+  %234 = zext i32 %.sink661 to i64
   %235 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i201.sink, i64 noundef %234) #24
   br label %236
 
@@ -3708,11 +3708,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit218:              ; preds = %280, %278, %_ZN4llv
 315:                                              ; preds = %.lr.ph530, %.backedge
   %316 = phi i64 [ %290, %.lr.ph530 ], [ %818, %.backedge ]
   %317 = phi i32 [ %287, %.lr.ph530 ], [ %815, %.backedge ]
-  %.0118529 = phi i64 [ %34, %.lr.ph530 ], [ %.1651, %.backedge ]
-  %.0131528 = phi i64 [ 0, %.lr.ph530 ], [ %.1132650, %.backedge ]
+  %.0118529 = phi i64 [ %34, %.lr.ph530 ], [ %.1.jt2, %.backedge ]
+  %.0131528 = phi i64 [ 0, %.lr.ph530 ], [ %.1132.jt2, %.backedge ]
   %.sroa.4357.0527 = phi i32 [ undef, %.lr.ph530 ], [ %.sroa.4357.1, %.backedge ]
   %.sroa.0356.0526 = phi i32 [ undef, %.lr.ph530 ], [ %.sroa.0356.1, %.backedge ]
-  %.0525 = phi i32 [ undef, %.lr.ph530 ], [ %.1390649, %.backedge ]
+  %.0525 = phi i32 [ undef, %.lr.ph530 ], [ %.1390.jt2, %.backedge ]
   %318 = shl i64 %316, 3
   %319 = zext i32 %317 to i64
   %320 = sub i64 %318, %319
@@ -3974,7 +3974,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %434
   store ptr %446, ptr %0, align 8, !tbaa !28, !alias.scope !369
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.not484 = icmp eq i64 %445, 0
-  br i1 %.not484, label %_ZN4llvm5ErrorD2Ev.exit256, label %.critedge172.thread653
+  br i1 %.not484, label %_ZN4llvm5ErrorD2Ev.exit256, label %.critedge172.jt1
 
 _ZN4llvm5ErrorD2Ev.exit256:                       ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit.thread, %_ZN4llvm8ExpectedIjED2Ev.exit
   %447 = load ptr, ptr %299, align 8, !tbaa !370
@@ -4234,7 +4234,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i282: ; preds = %58
 
 _ZN4llvm8ExpectedIPKNS_13BitCodeAbbrevEED2Ev.exit: ; preds = %581, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i282, %578
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br i1 %558, label %.critedge172.thread653, label %586
+  br i1 %558, label %.critedge172.jt1, label %586
 
 586:                                              ; preds = %_ZN4llvm8ExpectedIPKNS_13BitCodeAbbrevEED2Ev.exit, %.thread431
   %.0146 = phi ptr [ %.1147, %_ZN4llvm8ExpectedIPKNS_13BitCodeAbbrevEED2Ev.exit ], [ null, %.thread431 ]
@@ -4590,7 +4590,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.crit
   call void @_ZN4llvm15BitcodeAnalyzer25decodeMetadataStringsBlobENS_9StringRefENS_8ArrayRefImEES1_RNS_11raw_ostreamE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr nonnull align 8 poison, ptr %753, i64 %754, ptr %755, i64 %757, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %17, ptr noundef nonnull align 8 dereferenceable(48) %486)
   %758 = load ptr, ptr %0, align 8, !tbaa !28
   %.not485 = icmp eq ptr %758, null
-  br i1 %.not485, label %_ZN4llvm5ErrorD2Ev.exit300, label %.critedge172.thread653
+  br i1 %.not485, label %_ZN4llvm5ErrorD2Ev.exit300, label %.critedge172.jt1
 
 759:                                              ; preds = %747
   %760 = load ptr, ptr %686, align 8, !tbaa !11
@@ -4710,38 +4710,37 @@ _ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit313: ; preds = %806
   store ptr %810, ptr %0, align 8, !tbaa !28, !alias.scope !386
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !386
   %.not486 = icmp eq i64 %809, 0
-  br i1 %.not486, label %_ZN4llvm5ErrorD2Ev.exit314, label %.critedge172.thread653
+  br i1 %.not486, label %_ZN4llvm5ErrorD2Ev.exit314, label %.critedge172.jt1
 
 _ZN4llvm5ErrorD2Ev.exit314:                       ; preds = %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit313, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit313.thread, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit313.thread443
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @_ZN4llvm15BitstreamCursor10skipRecordEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %24, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef %.sroa.4357.1) #24
   %811 = load i8, ptr %313, align 8
   %812 = trunc i8 %811 to i1
-  br i1 %812, label %.critedge172.thread656, label %.critedge172
+  br i1 %812, label %_ZN4llvm8ExpectedIjED2Ev.exit321.jt1, label %.critedge175.jt2
 
-.critedge172.thread656:                           ; preds = %_ZN4llvm5ErrorD2Ev.exit314
+_ZN4llvm8ExpectedIjED2Ev.exit321.jt1:             ; preds = %_ZN4llvm5ErrorD2Ev.exit314
   call void @llvm.experimental.noalias.scope.decl(metadata !392)
   %813 = load i64, ptr %24, align 8, !tbaa !32, !noalias !392
   %814 = inttoptr i64 %813 to ptr
   store ptr null, ptr %24, align 8, !tbaa !32, !noalias !392
   store ptr %814, ptr %0, align 8, !tbaa !28, !alias.scope !392
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %.critedge172.thread
+  br label %.critedge172.jt1
 
-.critedge172.thread653:                           ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit313, %_ZN4llvm8ExpectedIPKNS_13BitCodeAbbrevEED2Ev.exit, %752
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %.critedge172.thread
-
-.critedge172:                                     ; preds = %_ZN4llvm5ErrorD2Ev.exit314
+.critedge175.jt2:                                 ; preds = %_ZN4llvm5ErrorD2Ev.exit314
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit248, %_ZN4llvm5ErrorD2Ev.exit249, %.critedge172
-  %.1651 = phi i64 [ %.0118529, %.critedge172 ], [ %427, %_ZN4llvm5ErrorD2Ev.exit248 ], [ %.0118529, %_ZN4llvm5ErrorD2Ev.exit249 ]
-  %.1132650 = phi i64 [ %.3134, %.critedge172 ], [ %.0131528, %_ZN4llvm5ErrorD2Ev.exit248 ], [ %.0131528, %_ZN4llvm5ErrorD2Ev.exit249 ]
-  %.1390649 = phi i32 [ %spec.select, %.critedge172 ], [ %.0525, %_ZN4llvm5ErrorD2Ev.exit248 ], [ %.0525, %_ZN4llvm5ErrorD2Ev.exit249 ]
+.critedge172.jt1:                                 ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit313, %_ZN4llvm8ExpectedIPKNS_13BitCodeAbbrevEED2Ev.exit, %752, %_ZN4llvm8ExpectedIjED2Ev.exit321.jt1
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  br label %.critedge172.thread
+
+.backedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit249, %.critedge175.jt2, %_ZN4llvm5ErrorD2Ev.exit248
+  %.1390.jt2 = phi i32 [ %.0525, %_ZN4llvm5ErrorD2Ev.exit249 ], [ %.0525, %_ZN4llvm5ErrorD2Ev.exit248 ], [ %spec.select, %.critedge175.jt2 ]
+  %.1132.jt2 = phi i64 [ %.0131528, %_ZN4llvm5ErrorD2Ev.exit249 ], [ %.0131528, %_ZN4llvm5ErrorD2Ev.exit248 ], [ %.3134, %.critedge175.jt2 ]
+  %.1.jt2 = phi i64 [ %.0118529, %_ZN4llvm5ErrorD2Ev.exit249 ], [ %427, %_ZN4llvm5ErrorD2Ev.exit248 ], [ %.0118529, %.critedge175.jt2 ]
   %815 = load i32, ptr %31, align 8, !tbaa !18
   %816 = icmp eq i32 %815, 0
   %817 = load i64, ptr %286, align 8
@@ -4750,7 +4749,7 @@ _ZN4llvm5ErrorD2Ev.exit314:                       ; preds = %_ZN4llvm21SimpleBit
   %820 = select i1 %816, i1 %819, i1 false
   br i1 %820, label %._crit_edge531, label %315, !llvm.loop !361
 
-.critedge172.thread:                              ; preds = %430, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit, %413, %.critedge172.thread653, %.critedge172.thread656, %_ZN4llvm5ErrorD2Ev.exit247, %325, %._crit_edge531
+.critedge172.thread:                              ; preds = %430, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit, %413, %.critedge172.jt1, %_ZN4llvm5ErrorD2Ev.exit247, %325, %._crit_edge531
   %821 = load ptr, ptr %15, align 8, !tbaa !67
   %822 = icmp eq ptr %821, %283
   br i1 %822, label %_ZN4llvm11SmallVectorImLj64EED2Ev.exit, label %823

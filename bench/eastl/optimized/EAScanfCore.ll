@@ -824,7 +824,7 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %entry
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %sw.epilog302
-  %2 = phi i8 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %77, %sw.epilog302 ]
+  %2 = phi i8 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %79, %sw.epilog302 ]
   %nAssignmentCount.0.ph249 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nAssignmentCount.2, %sw.epilog302 ]
   %pFormatCurrent.0.ph248 = phi ptr [ %pFormat, %while.body.lr.ph.lr.ph.lr.ph ], [ %call23, %sw.epilog302 ]
   %nReadCountSum.0.ph247 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nReadCountSum.4, %sw.epilog302 ]
@@ -970,11 +970,11 @@ if.end36:                                         ; preds = %lor.lhs.false32
     i32 71, label %sw.bb182
     i32 98, label %if.end96
     i32 111, label %if.end96.loopexit252
-    i32 117, label %if.end96.loopexit469
-    i32 100, label %if.end96.loopexit469
+    i32 117, label %if.end96.loopexit471
+    i32 100, label %if.end96.loopexit471
     i32 105, label %if.end96.loopexit338
-    i32 88, label %if.end96.loopexit403
-    i32 120, label %if.end96.loopexit403
+    i32 88, label %if.end96.loopexit405
+    i32 120, label %if.end96.loopexit405
   ]
 
 while.cond38:                                     ; preds = %if.end36, %while.cond38
@@ -1071,14 +1071,14 @@ if.end96.loopexit252:                             ; preds = %if.end36
 if.end96.loopexit338:                             ; preds = %if.end36
   br label %if.end96
 
-if.end96.loopexit403:                             ; preds = %if.end36, %if.end36
+if.end96.loopexit405:                             ; preds = %if.end36, %if.end36
   br label %if.end96
 
-if.end96.loopexit469:                             ; preds = %if.end36, %if.end36
+if.end96.loopexit471:                             ; preds = %if.end36, %if.end36
   br label %if.end96
 
-if.end96:                                         ; preds = %if.end36, %if.end96.loopexit469, %if.end96.loopexit403, %if.end96.loopexit338, %if.end96.loopexit252
-  %nBase.0 = phi i32 [ 8, %if.end96.loopexit252 ], [ 0, %if.end96.loopexit338 ], [ 16, %if.end96.loopexit403 ], [ 10, %if.end96.loopexit469 ], [ 2, %if.end36 ]
+if.end96:                                         ; preds = %if.end36, %if.end96.loopexit471, %if.end96.loopexit405, %if.end96.loopexit338, %if.end96.loopexit252
+  %nBase.0 = phi i32 [ 8, %if.end96.loopexit252 ], [ 0, %if.end96.loopexit338 ], [ 16, %if.end96.loopexit405 ], [ 10, %if.end96.loopexit471 ], [ 2, %if.end36 ]
   %26 = load i32, ptr %mModifier.i, align 4
   %switch.tableidx = add i32 %26, -2
   %27 = icmp ult i32 %switch.tableidx, 14
@@ -1348,90 +1348,94 @@ sw.bb214:                                         ; preds = %if.end36, %while.en
 if.then216:                                       ; preds = %sw.bb214
   %52 = load i32, ptr %mModifier.i, align 4
   switch i32 %52, label %Done [
-    i32 12, label %sw.epilog223
-    i32 1, label %sw.epilog223
-    i32 13, label %sw.bb219
-    i32 14, label %sw.bb220
-    i32 11, label %sw.bb220
+    i32 12, label %sw.epilog223.jt1
+    i32 1, label %sw.epilog223.jt1
+    i32 13, label %sw.epilog223.jt2
+    i32 14, label %sw.epilog223.jt4
+    i32 11, label %sw.epilog223.jt4
   ]
 
-sw.bb219:                                         ; preds = %if.then216
-  br label %sw.epilog223
+sw.epilog223.jt1:                                 ; preds = %if.then216, %if.then216
+  %call224.jt1 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
+  br i1 %call224.jt1, label %if.end226.jt1, label %Done
 
-sw.bb220:                                         ; preds = %if.then216, %if.then216
-  br label %sw.epilog223
+sw.epilog223.jt4:                                 ; preds = %if.then216, %if.then216
+  %call224.jt4 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
+  br i1 %call224.jt4, label %if.end226.jt4, label %Done
 
-sw.epilog223:                                     ; preds = %if.then216, %if.then216, %sw.bb220, %sw.bb219
-  %stringTypeSize.0 = phi i32 [ 2, %sw.bb219 ], [ 4, %sw.bb220 ], [ 1, %if.then216 ], [ 1, %if.then216 ]
-  %call224 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize.0, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
-  br i1 %call224, label %if.end226, label %Done
+sw.epilog223.jt2:                                 ; preds = %if.then216
+  %call224.jt2 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
+  br i1 %call224.jt2, label %if.end226.jt2, label %Done
 
-if.end226:                                        ; preds = %sw.epilog223
+if.end226.jt1:                                    ; preds = %sw.epilog223.jt1
   %53 = load i32, ptr %nReadCount, align 4
-  %tobool227.not = icmp eq i32 %53, 0
-  br i1 %tobool227.not, label %if.then228, label %if.end230
+  %tobool227.not.jt1 = icmp eq i32 %53, 0
+  br i1 %tobool227.not.jt1, label %if.then228, label %sw.bb231
 
-if.then228:                                       ; preds = %if.end226
-  %54 = load i32, ptr %c, align 4
+if.end226.jt4:                                    ; preds = %sw.epilog223.jt4
+  %54 = load i32, ptr %nReadCount, align 4
+  %tobool227.not.jt4 = icmp eq i32 %54, 0
+  br i1 %tobool227.not.jt4, label %if.then228, label %sw.bb233
+
+if.end226.jt2:                                    ; preds = %sw.epilog223.jt2
+  %55 = load i32, ptr %nReadCount, align 4
+  %tobool227.not.jt2 = icmp eq i32 %55, 0
+  br i1 %tobool227.not.jt2, label %if.then228, label %sw.bb232
+
+if.then228:                                       ; preds = %if.end226.jt1, %if.end226.jt4, %if.end226.jt2
+  %56 = load i32, ptr %c, align 4
   br label %Done.sink.split
 
-if.end230:                                        ; preds = %if.end226
-  switch i32 %stringTypeSize.0, label %sw.epilog234 [
-    i32 1, label %sw.bb231
-    i32 2, label %sw.bb232
-    i32 4, label %sw.bb233
-  ]
-
-sw.bb231:                                         ; preds = %if.end230
-  %55 = load ptr, ptr %pArgumentCurrent, align 8
-  store i8 0, ptr %55, align 1
-  br label %sw.epilog234
-
-sw.bb232:                                         ; preds = %if.end230
-  %56 = load ptr, ptr %pArgumentCurrent, align 8
-  store i16 0, ptr %56, align 2
-  br label %sw.epilog234
-
-sw.bb233:                                         ; preds = %if.end230
+sw.bb231:                                         ; preds = %if.end226.jt1
   %57 = load ptr, ptr %pArgumentCurrent, align 8
-  store i32 0, ptr %57, align 4
+  store i8 0, ptr %57, align 1
   br label %sw.epilog234
 
-sw.epilog234:                                     ; preds = %sw.bb233, %sw.bb232, %sw.bb231, %if.end230
+sw.bb232:                                         ; preds = %if.end226.jt2
+  %58 = load ptr, ptr %pArgumentCurrent, align 8
+  store i16 0, ptr %58, align 2
+  br label %sw.epilog234
+
+sw.bb233:                                         ; preds = %if.end226.jt4
+  %59 = load ptr, ptr %pArgumentCurrent, align 8
+  store i32 0, ptr %59, align 4
+  br label %sw.epilog234
+
+sw.epilog234:                                     ; preds = %sw.bb233, %sw.bb232, %sw.bb231
   %inc235 = add nsw i32 %nAssignmentCount.0.ph249, 1
   br label %if.end242
 
 if.else236:                                       ; preds = %sw.bb214
   %call237 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
-  %58 = load i32, ptr %nReadCount, align 4
-  %tobool238.not = icmp eq i32 %58, 0
+  %60 = load i32, ptr %nReadCount, align 4
+  %tobool238.not = icmp eq i32 %60, 0
   br i1 %tobool238.not, label %if.then239, label %if.end242
 
 if.then239:                                       ; preds = %if.else236
-  %59 = load i32, ptr %c, align 4
-  %call240 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %59, ptr noundef %pContext)
+  %61 = load i32, ptr %c, align 4
+  %call240 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %61, ptr noundef %pContext)
   br label %sw.epilog302
 
 if.end242:                                        ; preds = %if.else236, %sw.epilog234
   %nAssignmentCount.5 = phi i32 [ %inc235, %sw.epilog234 ], [ %nAssignmentCount.0.ph249, %if.else236 ]
-  %60 = load i32, ptr %fd, align 4
-  %cmp244 = icmp sgt i32 %60, -1
+  %62 = load i32, ptr %fd, align 4
+  %cmp244 = icmp sgt i32 %62, -1
   br i1 %cmp244, label %if.then245, label %if.end247
 
 if.then245:                                       ; preds = %if.end242
-  %61 = load i32, ptr %c, align 4
-  %call246 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %61, ptr noundef %pContext)
+  %63 = load i32, ptr %c, align 4
+  %call246 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %63, ptr noundef %pContext)
   br label %if.end247
 
 if.end247:                                        ; preds = %if.then245, %if.end242
-  %62 = load i32, ptr %nReadCount, align 4
-  %add248 = add nsw i32 %62, %nReadCountSum.2
+  %64 = load i32, ptr %nReadCount, align 4
+  %add248 = add nsw i32 %64, %nReadCountSum.2
   %inc249 = add nsw i32 %nConversionCount.0.ph246, 1
   br label %sw.epilog302
 
 sw.bb250:                                         ; preds = %if.end36, %if.end36
-  %63 = load i8, ptr %mbWidthSpecified, align 4
-  %tobool251 = trunc i8 %63 to i1
+  %65 = load i8, ptr %mbWidthSpecified, align 4
+  %tobool251 = trunc i8 %65 to i1
   br i1 %tobool251, label %if.end254, label %if.then252
 
 if.then252:                                       ; preds = %sw.bb250
@@ -1440,20 +1444,20 @@ if.then252:                                       ; preds = %sw.bb250
 
 if.end254:                                        ; preds = %if.then252, %sw.bb250
   store i32 0, ptr %nReadCount, align 4
-  %64 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool255.not = icmp eq ptr %64, null
+  %66 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool255.not = icmp eq ptr %66, null
   br i1 %tobool255.not, label %while.cond283.preheader, label %if.then256
 
 while.cond283.preheader:                          ; preds = %if.end254
-  %65 = load i32, ptr %fd, align 4
-  %dec285243 = add nsw i32 %65, -1
+  %67 = load i32, ptr %fd, align 4
+  %dec285243 = add nsw i32 %67, -1
   store i32 %dec285243, ptr %fd, align 4
-  %tobool286.not244 = icmp eq i32 %65, 0
+  %tobool286.not244 = icmp eq i32 %67, 0
   br i1 %tobool286.not244, label %Done, label %land.rhs287
 
 if.then256:                                       ; preds = %if.end254
-  %66 = load i32, ptr %mModifier.i, align 4
-  switch i32 %66, label %Done [
+  %68 = load i32, ptr %mModifier.i, align 4
+  switch i32 %68, label %Done [
     i32 12, label %sw.epilog263
     i32 1, label %sw.epilog263
     i32 13, label %sw.bb259
@@ -1469,10 +1473,10 @@ sw.bb260:                                         ; preds = %if.then256, %if.the
 
 sw.epilog263:                                     ; preds = %if.then256, %if.then256, %sw.bb260, %sw.bb259
   %charTypeSize.0 = phi i32 [ 2, %sw.bb259 ], [ 4, %sw.bb260 ], [ 1, %if.then256 ], [ 1, %if.then256 ]
-  %67 = load i32, ptr %fd, align 4
-  %dec241 = add nsw i32 %67, -1
+  %69 = load i32, ptr %fd, align 4
+  %dec241 = add nsw i32 %69, -1
   store i32 %dec241, ptr %fd, align 4
-  %tobool266.not242 = icmp eq i32 %67, 0
+  %tobool266.not242 = icmp eq i32 %69, 0
   br i1 %tobool266.not242, label %Done, label %land.rhs
 
 land.rhs:                                         ; preds = %sw.epilog263, %sw.epilog275
@@ -1494,34 +1498,34 @@ while.body269:                                    ; preds = %land.rhs
 
 sw.bb270:                                         ; preds = %while.body269
   %conv271 = trunc i32 %call267 to i8
-  %68 = load ptr, ptr %pArgumentCurrent, align 8
-  store i8 %conv271, ptr %68, align 1
+  %70 = load ptr, ptr %pArgumentCurrent, align 8
+  store i8 %conv271, ptr %70, align 1
   br label %sw.epilog275
 
 sw.bb272:                                         ; preds = %while.body269
   %conv273 = trunc i32 %call267 to i16
-  %69 = load ptr, ptr %pArgumentCurrent, align 8
-  store i16 %conv273, ptr %69, align 2
+  %71 = load ptr, ptr %pArgumentCurrent, align 8
+  store i16 %conv273, ptr %71, align 2
   br label %sw.epilog275
 
 sw.bb274:                                         ; preds = %while.body269
-  %70 = load ptr, ptr %pArgumentCurrent, align 8
-  store i32 %call267, ptr %70, align 4
+  %72 = load ptr, ptr %pArgumentCurrent, align 8
+  store i32 %call267, ptr %72, align 4
   br label %sw.epilog275
 
 sw.epilog275:                                     ; preds = %sw.bb274, %sw.bb272, %sw.bb270, %while.body269
-  %71 = load i32, ptr %nReadCount, align 4
-  %inc276 = add nsw i32 %71, 1
+  %73 = load i32, ptr %nReadCount, align 4
+  %inc276 = add nsw i32 %73, 1
   store i32 %inc276, ptr %nReadCount, align 4
-  %72 = load i32, ptr %fd, align 4
-  %dec = add nsw i32 %72, -1
+  %74 = load i32, ptr %fd, align 4
+  %dec = add nsw i32 %74, -1
   store i32 %dec, ptr %fd, align 4
-  %tobool266.not = icmp eq i32 %72, 0
+  %tobool266.not = icmp eq i32 %74, 0
   br i1 %tobool266.not, label %while.end277, label %land.rhs, !llvm.loop !17
 
 while.end277:                                     ; preds = %sw.epilog275, %land.rhs.while.end277.loopexit_crit_edge
-  %73 = phi i32 [ %.pre316.pre, %land.rhs.while.end277.loopexit_crit_edge ], [ %inc276, %sw.epilog275 ]
-  %tobool278.not = icmp eq i32 %73, 0
+  %75 = phi i32 [ %.pre316.pre, %land.rhs.while.end277.loopexit_crit_edge ], [ %inc276, %sw.epilog275 ]
+  %tobool278.not = icmp eq i32 %75, 0
   br i1 %tobool278.not, label %Done, label %if.end280
 
 if.end280:                                        ; preds = %while.end277
@@ -1538,21 +1542,21 @@ land.rhs287:                                      ; preds = %while.cond283.prehe
 while.body291:                                    ; preds = %land.rhs287
   %inc292 = add nsw i32 %.pre317.pre, 1
   store i32 %inc292, ptr %nReadCount, align 4
-  %74 = load i32, ptr %fd, align 4
-  %dec285 = add nsw i32 %74, -1
+  %76 = load i32, ptr %fd, align 4
+  %dec285 = add nsw i32 %76, -1
   store i32 %dec285, ptr %fd, align 4
-  %tobool286.not = icmp eq i32 %74, 0
+  %tobool286.not = icmp eq i32 %76, 0
   br i1 %tobool286.not, label %while.end293, label %land.rhs287, !llvm.loop !18
 
 while.end293:                                     ; preds = %land.rhs287, %while.body291
-  %75 = phi i32 [ %inc292, %while.body291 ], [ %.pre317.pre, %land.rhs287 ]
-  %tobool294.not = icmp eq i32 %75, 0
+  %77 = phi i32 [ %inc292, %while.body291 ], [ %.pre317.pre, %land.rhs287 ]
+  %tobool294.not = icmp eq i32 %77, 0
   br i1 %tobool294.not, label %Done, label %if.end297
 
 if.end297:                                        ; preds = %while.end293, %if.end280
-  %76 = phi i32 [ %73, %if.end280 ], [ %75, %while.end293 ]
+  %78 = phi i32 [ %75, %if.end280 ], [ %77, %while.end293 ]
   %nAssignmentCount.6 = phi i32 [ %inc281, %if.end280 ], [ %nAssignmentCount.0.ph249, %while.end293 ]
-  %add298 = add nsw i32 %76, %nReadCountSum.0.ph145229
+  %add298 = add nsw i32 %78, %nReadCountSum.0.ph145229
   %inc299 = add nsw i32 %nConversionCount.0.ph246, 1
   br label %sw.epilog302
 
@@ -1560,18 +1564,18 @@ sw.epilog302:                                     ; preds = %while.end45, %if.en
   %nConversionCount.1 = phi i32 [ %inc181, %if.end180 ], [ %inc202, %if.end200 ], [ %inc249, %if.end247 ], [ %nConversionCount.0.ph246, %if.then239 ], [ %inc299, %if.end297 ], [ %nConversionCount.0.ph246, %while.end45 ]
   %nReadCountSum.4 = phi i32 [ %add, %if.end180 ], [ %add201, %if.end200 ], [ %add248, %if.end247 ], [ %nReadCountSum.2, %if.then239 ], [ %add298, %if.end297 ], [ %inc44, %while.end45 ]
   %nAssignmentCount.2 = phi i32 [ %nAssignmentCount.3, %if.end180 ], [ %nAssignmentCount.4, %if.end200 ], [ %nAssignmentCount.5, %if.end247 ], [ %nAssignmentCount.0.ph249, %if.then239 ], [ %nAssignmentCount.6, %if.end297 ], [ %nAssignmentCount.0.ph249, %while.end45 ]
-  %77 = load i8, ptr %call23, align 1
-  %tobool.not217228 = icmp eq i8 %77, 0
+  %79 = load i8, ptr %call23, align 1
+  %tobool.not217228 = icmp eq i8 %79, 0
   br i1 %tobool.not217228, label %Done, label %while.body.lr.ph.lr.ph, !llvm.loop !14
 
 Done.sink.split:                                  ; preds = %while.end45, %if.then13, %if.then228
-  %.sink402 = phi i32 [ %54, %if.then228 ], [ %call14, %if.then13 ], [ %call39, %while.end45 ]
-  %call229 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink402, ptr noundef %pContext)
+  %.sink404 = phi i32 [ %56, %if.then228 ], [ %call14, %if.then13 ], [ %call39, %while.end45 ]
+  %call229 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink404, ptr noundef %pContext)
   br label %Done
 
-Done:                                             ; preds = %sw.epilog263, %while.cond283.preheader, %sw.epilog302, %sw.epilog223, %while.end293, %while.end277, %if.then256, %if.then216, %sw.bb182, %sw.epilog119, %while.cond.outer144.backedge, %land.lhs.true, %lor.lhs.false32, %if.end72, %if.end36, %Done.sink.split
-  %nConversionCount.0.ph215 = phi i32 [ %nConversionCount.0.ph246, %Done.sink.split ], [ %nConversionCount.0.ph246, %if.end36 ], [ %nConversionCount.0.ph246, %if.end72 ], [ %nConversionCount.0.ph246, %lor.lhs.false32 ], [ %nConversionCount.0.ph246, %land.lhs.true ], [ %nConversionCount.0.ph246, %while.cond.outer144.backedge ], [ %nConversionCount.0.ph246, %sw.epilog263 ], [ %nConversionCount.0.ph246, %while.cond283.preheader ], [ %nConversionCount.1, %sw.epilog302 ], [ %nConversionCount.0.ph246, %sw.epilog223 ], [ %nConversionCount.0.ph246, %while.end293 ], [ %nConversionCount.0.ph246, %while.end277 ], [ %nConversionCount.0.ph246, %if.then256 ], [ %nConversionCount.0.ph246, %if.then216 ], [ %nConversionCount.0.ph246, %sw.bb182 ], [ %nConversionCount.0.ph246, %sw.epilog119 ]
-  %nAssignmentCount.1 = phi i32 [ %nAssignmentCount.0.ph249, %Done.sink.split ], [ %nAssignmentCount.0.ph249, %if.end36 ], [ %nAssignmentCount.0.ph249, %if.end72 ], [ %nAssignmentCount.0.ph249, %lor.lhs.false32 ], [ %nAssignmentCount.0.ph249, %land.lhs.true ], [ %nAssignmentCount.0.ph249, %while.cond.outer144.backedge ], [ %nAssignmentCount.0.ph249, %sw.epilog263 ], [ %nAssignmentCount.0.ph249, %while.cond283.preheader ], [ %nAssignmentCount.2, %sw.epilog302 ], [ -1, %sw.epilog223 ], [ %nAssignmentCount.0.ph249, %while.end293 ], [ %nAssignmentCount.0.ph249, %while.end277 ], [ %nAssignmentCount.0.ph249, %if.then256 ], [ %nAssignmentCount.0.ph249, %if.then216 ], [ %nAssignmentCount.0.ph249, %sw.bb182 ], [ %nAssignmentCount.0.ph249, %sw.epilog119 ]
+Done:                                             ; preds = %sw.epilog263, %while.cond283.preheader, %sw.epilog302, %while.end293, %while.end277, %if.then256, %if.then216, %sw.bb182, %sw.epilog119, %sw.epilog223.jt2, %sw.epilog223.jt4, %sw.epilog223.jt1, %while.cond.outer144.backedge, %land.lhs.true, %lor.lhs.false32, %if.end72, %if.end36, %Done.sink.split
+  %nConversionCount.0.ph215 = phi i32 [ %nConversionCount.0.ph246, %Done.sink.split ], [ %nConversionCount.0.ph246, %if.end36 ], [ %nConversionCount.0.ph246, %if.end72 ], [ %nConversionCount.0.ph246, %lor.lhs.false32 ], [ %nConversionCount.0.ph246, %land.lhs.true ], [ %nConversionCount.0.ph246, %while.cond.outer144.backedge ], [ %nConversionCount.0.ph246, %sw.epilog263 ], [ %nConversionCount.0.ph246, %while.cond283.preheader ], [ %nConversionCount.0.ph246, %sw.epilog223.jt1 ], [ %nConversionCount.0.ph246, %sw.epilog223.jt4 ], [ %nConversionCount.0.ph246, %sw.epilog223.jt2 ], [ %nConversionCount.1, %sw.epilog302 ], [ %nConversionCount.0.ph246, %while.end293 ], [ %nConversionCount.0.ph246, %while.end277 ], [ %nConversionCount.0.ph246, %if.then256 ], [ %nConversionCount.0.ph246, %if.then216 ], [ %nConversionCount.0.ph246, %sw.bb182 ], [ %nConversionCount.0.ph246, %sw.epilog119 ]
+  %nAssignmentCount.1 = phi i32 [ %nAssignmentCount.0.ph249, %Done.sink.split ], [ %nAssignmentCount.0.ph249, %if.end36 ], [ %nAssignmentCount.0.ph249, %if.end72 ], [ %nAssignmentCount.0.ph249, %lor.lhs.false32 ], [ %nAssignmentCount.0.ph249, %land.lhs.true ], [ %nAssignmentCount.0.ph249, %while.cond.outer144.backedge ], [ %nAssignmentCount.0.ph249, %sw.epilog263 ], [ %nAssignmentCount.0.ph249, %while.cond283.preheader ], [ -1, %sw.epilog223.jt1 ], [ -1, %sw.epilog223.jt4 ], [ -1, %sw.epilog223.jt2 ], [ %nAssignmentCount.2, %sw.epilog302 ], [ %nAssignmentCount.0.ph249, %while.end293 ], [ %nAssignmentCount.0.ph249, %while.end277 ], [ %nAssignmentCount.0.ph249, %if.then256 ], [ %nAssignmentCount.0.ph249, %if.then216 ], [ %nAssignmentCount.0.ph249, %sw.bb182 ], [ %nAssignmentCount.0.ph249, %sw.epilog119 ]
   %cmp304 = icmp eq i32 %nConversionCount.0.ph215, 0
   br i1 %cmp304, label %land.lhs.true305, label %if.end309
 
@@ -1628,7 +1632,7 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %entry
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %sw.epilog302
-  %2 = phi i16 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %78, %sw.epilog302 ]
+  %2 = phi i16 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %80, %sw.epilog302 ]
   %nAssignmentCount.0.ph302 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nAssignmentCount.2, %sw.epilog302 ]
   %pFormatCurrent.0.ph301 = phi ptr [ %pFormat, %while.body.lr.ph.lr.ph.lr.ph ], [ %call23, %sw.epilog302 ]
   %nReadCountSum.0.ph300 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nReadCountSum.4, %sw.epilog302 ]
@@ -1797,11 +1801,11 @@ if.end36:                                         ; preds = %lor.lhs.false32
     i32 71, label %sw.bb182
     i32 98, label %if.end96
     i32 111, label %if.end96.loopexit305
-    i32 117, label %if.end96.loopexit542
-    i32 100, label %if.end96.loopexit542
+    i32 117, label %if.end96.loopexit544
+    i32 100, label %if.end96.loopexit544
     i32 105, label %if.end96.loopexit399
-    i32 88, label %if.end96.loopexit471
-    i32 120, label %if.end96.loopexit471
+    i32 88, label %if.end96.loopexit473
+    i32 120, label %if.end96.loopexit473
   ]
 
 while.cond38.preheader:                           ; preds = %if.end36
@@ -1915,14 +1919,14 @@ if.end96.loopexit305:                             ; preds = %if.end36
 if.end96.loopexit399:                             ; preds = %if.end36
   br label %if.end96
 
-if.end96.loopexit471:                             ; preds = %if.end36, %if.end36
+if.end96.loopexit473:                             ; preds = %if.end36, %if.end36
   br label %if.end96
 
-if.end96.loopexit542:                             ; preds = %if.end36, %if.end36
+if.end96.loopexit544:                             ; preds = %if.end36, %if.end36
   br label %if.end96
 
-if.end96:                                         ; preds = %if.end36, %if.end96.loopexit542, %if.end96.loopexit471, %if.end96.loopexit399, %if.end96.loopexit305
-  %nBase.0 = phi i32 [ 8, %if.end96.loopexit305 ], [ 0, %if.end96.loopexit399 ], [ 16, %if.end96.loopexit471 ], [ 10, %if.end96.loopexit542 ], [ 2, %if.end36 ]
+if.end96:                                         ; preds = %if.end36, %if.end96.loopexit544, %if.end96.loopexit473, %if.end96.loopexit399, %if.end96.loopexit305
+  %nBase.0 = phi i32 [ 8, %if.end96.loopexit305 ], [ 0, %if.end96.loopexit399 ], [ 16, %if.end96.loopexit473 ], [ 10, %if.end96.loopexit544 ], [ 2, %if.end36 ]
   %29 = load i32, ptr %mModifier.i, align 4
   %switch.tableidx = add i32 %29, -2
   %30 = icmp ult i32 %switch.tableidx, 14
@@ -2194,90 +2198,94 @@ sw.bb214:                                         ; preds = %if.end36, %while.en
 if.then216:                                       ; preds = %sw.bb214
   %53 = load i32, ptr %mModifier.i, align 4
   switch i32 %53, label %Done [
-    i32 12, label %sw.epilog223
-    i32 1, label %sw.epilog223
-    i32 13, label %sw.bb219
-    i32 14, label %sw.bb220
-    i32 11, label %sw.bb220
+    i32 12, label %sw.epilog223.jt1
+    i32 1, label %sw.epilog223.jt1
+    i32 13, label %sw.epilog223.jt2
+    i32 14, label %sw.epilog223.jt4
+    i32 11, label %sw.epilog223.jt4
   ]
 
-sw.bb219:                                         ; preds = %if.then216
-  br label %sw.epilog223
+sw.epilog223.jt1:                                 ; preds = %if.then216, %if.then216
+  %call224.jt1 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
+  br i1 %call224.jt1, label %if.end226.jt1, label %Done
 
-sw.bb220:                                         ; preds = %if.then216, %if.then216
-  br label %sw.epilog223
+sw.epilog223.jt4:                                 ; preds = %if.then216, %if.then216
+  %call224.jt4 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
+  br i1 %call224.jt4, label %if.end226.jt4, label %Done
 
-sw.epilog223:                                     ; preds = %if.then216, %if.then216, %sw.bb220, %sw.bb219
-  %stringTypeSize.0 = phi i32 [ 2, %sw.bb219 ], [ 4, %sw.bb220 ], [ 1, %if.then216 ], [ 1, %if.then216 ]
-  %call224 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize.0, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
-  br i1 %call224, label %if.end226, label %Done
+sw.epilog223.jt2:                                 ; preds = %if.then216
+  %call224.jt2 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
+  br i1 %call224.jt2, label %if.end226.jt2, label %Done
 
-if.end226:                                        ; preds = %sw.epilog223
+if.end226.jt1:                                    ; preds = %sw.epilog223.jt1
   %54 = load i32, ptr %nReadCount, align 4
-  %tobool227.not = icmp eq i32 %54, 0
-  br i1 %tobool227.not, label %if.then228, label %if.end230
+  %tobool227.not.jt1 = icmp eq i32 %54, 0
+  br i1 %tobool227.not.jt1, label %if.then228, label %sw.bb231
 
-if.then228:                                       ; preds = %if.end226
-  %55 = load i32, ptr %c, align 4
+if.end226.jt4:                                    ; preds = %sw.epilog223.jt4
+  %55 = load i32, ptr %nReadCount, align 4
+  %tobool227.not.jt4 = icmp eq i32 %55, 0
+  br i1 %tobool227.not.jt4, label %if.then228, label %sw.bb233
+
+if.end226.jt2:                                    ; preds = %sw.epilog223.jt2
+  %56 = load i32, ptr %nReadCount, align 4
+  %tobool227.not.jt2 = icmp eq i32 %56, 0
+  br i1 %tobool227.not.jt2, label %if.then228, label %sw.bb232
+
+if.then228:                                       ; preds = %if.end226.jt1, %if.end226.jt4, %if.end226.jt2
+  %57 = load i32, ptr %c, align 4
   br label %Done.sink.split
 
-if.end230:                                        ; preds = %if.end226
-  switch i32 %stringTypeSize.0, label %sw.epilog234 [
-    i32 1, label %sw.bb231
-    i32 2, label %sw.bb232
-    i32 4, label %sw.bb233
-  ]
-
-sw.bb231:                                         ; preds = %if.end230
-  %56 = load ptr, ptr %pArgumentCurrent, align 8
-  store i8 0, ptr %56, align 1
-  br label %sw.epilog234
-
-sw.bb232:                                         ; preds = %if.end230
-  %57 = load ptr, ptr %pArgumentCurrent, align 8
-  store i16 0, ptr %57, align 2
-  br label %sw.epilog234
-
-sw.bb233:                                         ; preds = %if.end230
+sw.bb231:                                         ; preds = %if.end226.jt1
   %58 = load ptr, ptr %pArgumentCurrent, align 8
-  store i32 0, ptr %58, align 4
+  store i8 0, ptr %58, align 1
   br label %sw.epilog234
 
-sw.epilog234:                                     ; preds = %sw.bb233, %sw.bb232, %sw.bb231, %if.end230
+sw.bb232:                                         ; preds = %if.end226.jt2
+  %59 = load ptr, ptr %pArgumentCurrent, align 8
+  store i16 0, ptr %59, align 2
+  br label %sw.epilog234
+
+sw.bb233:                                         ; preds = %if.end226.jt4
+  %60 = load ptr, ptr %pArgumentCurrent, align 8
+  store i32 0, ptr %60, align 4
+  br label %sw.epilog234
+
+sw.epilog234:                                     ; preds = %sw.bb233, %sw.bb232, %sw.bb231
   %inc235 = add nsw i32 %nAssignmentCount.0.ph302, 1
   br label %if.end242
 
 if.else236:                                       ; preds = %sw.bb214
   %call237 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
-  %59 = load i32, ptr %nReadCount, align 4
-  %tobool238.not = icmp eq i32 %59, 0
+  %61 = load i32, ptr %nReadCount, align 4
+  %tobool238.not = icmp eq i32 %61, 0
   br i1 %tobool238.not, label %if.then239, label %if.end242
 
 if.then239:                                       ; preds = %if.else236
-  %60 = load i32, ptr %c, align 4
-  %call240 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %60, ptr noundef %pContext)
+  %62 = load i32, ptr %c, align 4
+  %call240 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %62, ptr noundef %pContext)
   br label %sw.epilog302
 
 if.end242:                                        ; preds = %if.else236, %sw.epilog234
   %nAssignmentCount.5 = phi i32 [ %inc235, %sw.epilog234 ], [ %nAssignmentCount.0.ph302, %if.else236 ]
-  %61 = load i32, ptr %fd, align 4
-  %cmp244 = icmp sgt i32 %61, -1
+  %63 = load i32, ptr %fd, align 4
+  %cmp244 = icmp sgt i32 %63, -1
   br i1 %cmp244, label %if.then245, label %if.end247
 
 if.then245:                                       ; preds = %if.end242
-  %62 = load i32, ptr %c, align 4
-  %call246 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %62, ptr noundef %pContext)
+  %64 = load i32, ptr %c, align 4
+  %call246 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %64, ptr noundef %pContext)
   br label %if.end247
 
 if.end247:                                        ; preds = %if.then245, %if.end242
-  %63 = load i32, ptr %nReadCount, align 4
-  %add248 = add nsw i32 %63, %nReadCountSum.2
+  %65 = load i32, ptr %nReadCount, align 4
+  %add248 = add nsw i32 %65, %nReadCountSum.2
   %inc249 = add nsw i32 %nConversionCount.0.ph299, 1
   br label %sw.epilog302
 
 sw.bb250:                                         ; preds = %if.end36, %if.end36
-  %64 = load i8, ptr %mbWidthSpecified, align 4
-  %tobool251 = trunc i8 %64 to i1
+  %66 = load i8, ptr %mbWidthSpecified, align 4
+  %tobool251 = trunc i8 %66 to i1
   br i1 %tobool251, label %if.end254, label %if.then252
 
 if.then252:                                       ; preds = %sw.bb250
@@ -2286,20 +2294,20 @@ if.then252:                                       ; preds = %sw.bb250
 
 if.end254:                                        ; preds = %if.then252, %sw.bb250
   store i32 0, ptr %nReadCount, align 4
-  %65 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool255.not = icmp eq ptr %65, null
+  %67 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool255.not = icmp eq ptr %67, null
   br i1 %tobool255.not, label %while.cond283.preheader, label %if.then256
 
 while.cond283.preheader:                          ; preds = %if.end254
-  %66 = load i32, ptr %fd, align 4
-  %dec285286 = add nsw i32 %66, -1
+  %68 = load i32, ptr %fd, align 4
+  %dec285286 = add nsw i32 %68, -1
   store i32 %dec285286, ptr %fd, align 4
-  %tobool286.not287 = icmp eq i32 %66, 0
+  %tobool286.not287 = icmp eq i32 %68, 0
   br i1 %tobool286.not287, label %Done, label %land.rhs287
 
 if.then256:                                       ; preds = %if.end254
-  %67 = load i32, ptr %mModifier.i, align 4
-  switch i32 %67, label %Done [
+  %69 = load i32, ptr %mModifier.i, align 4
+  switch i32 %69, label %Done [
     i32 12, label %sw.epilog263
     i32 1, label %sw.epilog263
     i32 13, label %sw.bb259
@@ -2315,10 +2323,10 @@ sw.bb260:                                         ; preds = %if.then256, %if.the
 
 sw.epilog263:                                     ; preds = %if.then256, %if.then256, %sw.bb260, %sw.bb259
   %charTypeSize.0 = phi i32 [ 2, %sw.bb259 ], [ 4, %sw.bb260 ], [ 1, %if.then256 ], [ 1, %if.then256 ]
-  %68 = load i32, ptr %fd, align 4
-  %dec284 = add nsw i32 %68, -1
+  %70 = load i32, ptr %fd, align 4
+  %dec284 = add nsw i32 %70, -1
   store i32 %dec284, ptr %fd, align 4
-  %tobool266.not285 = icmp eq i32 %68, 0
+  %tobool266.not285 = icmp eq i32 %70, 0
   br i1 %tobool266.not285, label %Done, label %land.rhs
 
 land.rhs:                                         ; preds = %sw.epilog263, %sw.epilog275
@@ -2340,34 +2348,34 @@ while.body269:                                    ; preds = %land.rhs
 
 sw.bb270:                                         ; preds = %while.body269
   %conv271 = trunc i32 %call267 to i8
-  %69 = load ptr, ptr %pArgumentCurrent, align 8
-  store i8 %conv271, ptr %69, align 1
+  %71 = load ptr, ptr %pArgumentCurrent, align 8
+  store i8 %conv271, ptr %71, align 1
   br label %sw.epilog275
 
 sw.bb272:                                         ; preds = %while.body269
   %conv273 = trunc i32 %call267 to i16
-  %70 = load ptr, ptr %pArgumentCurrent, align 8
-  store i16 %conv273, ptr %70, align 2
+  %72 = load ptr, ptr %pArgumentCurrent, align 8
+  store i16 %conv273, ptr %72, align 2
   br label %sw.epilog275
 
 sw.bb274:                                         ; preds = %while.body269
-  %71 = load ptr, ptr %pArgumentCurrent, align 8
-  store i32 %call267, ptr %71, align 4
+  %73 = load ptr, ptr %pArgumentCurrent, align 8
+  store i32 %call267, ptr %73, align 4
   br label %sw.epilog275
 
 sw.epilog275:                                     ; preds = %sw.bb274, %sw.bb272, %sw.bb270, %while.body269
-  %72 = load i32, ptr %nReadCount, align 4
-  %inc276 = add nsw i32 %72, 1
+  %74 = load i32, ptr %nReadCount, align 4
+  %inc276 = add nsw i32 %74, 1
   store i32 %inc276, ptr %nReadCount, align 4
-  %73 = load i32, ptr %fd, align 4
-  %dec = add nsw i32 %73, -1
+  %75 = load i32, ptr %fd, align 4
+  %dec = add nsw i32 %75, -1
   store i32 %dec, ptr %fd, align 4
-  %tobool266.not = icmp eq i32 %73, 0
+  %tobool266.not = icmp eq i32 %75, 0
   br i1 %tobool266.not, label %while.end277, label %land.rhs, !llvm.loop !24
 
 while.end277:                                     ; preds = %sw.epilog275, %land.rhs.while.end277.loopexit_crit_edge
-  %74 = phi i32 [ %.pre376.pre, %land.rhs.while.end277.loopexit_crit_edge ], [ %inc276, %sw.epilog275 ]
-  %tobool278.not = icmp eq i32 %74, 0
+  %76 = phi i32 [ %.pre376.pre, %land.rhs.while.end277.loopexit_crit_edge ], [ %inc276, %sw.epilog275 ]
+  %tobool278.not = icmp eq i32 %76, 0
   br i1 %tobool278.not, label %Done, label %if.end280
 
 if.end280:                                        ; preds = %while.end277
@@ -2384,21 +2392,21 @@ land.rhs287:                                      ; preds = %while.cond283.prehe
 while.body291:                                    ; preds = %land.rhs287
   %inc292 = add nsw i32 %.pre377.pre, 1
   store i32 %inc292, ptr %nReadCount, align 4
-  %75 = load i32, ptr %fd, align 4
-  %dec285 = add nsw i32 %75, -1
+  %77 = load i32, ptr %fd, align 4
+  %dec285 = add nsw i32 %77, -1
   store i32 %dec285, ptr %fd, align 4
-  %tobool286.not = icmp eq i32 %75, 0
+  %tobool286.not = icmp eq i32 %77, 0
   br i1 %tobool286.not, label %while.end293, label %land.rhs287, !llvm.loop !25
 
 while.end293:                                     ; preds = %land.rhs287, %while.body291
-  %76 = phi i32 [ %inc292, %while.body291 ], [ %.pre377.pre, %land.rhs287 ]
-  %tobool294.not = icmp eq i32 %76, 0
+  %78 = phi i32 [ %inc292, %while.body291 ], [ %.pre377.pre, %land.rhs287 ]
+  %tobool294.not = icmp eq i32 %78, 0
   br i1 %tobool294.not, label %Done, label %if.end297
 
 if.end297:                                        ; preds = %while.end293, %if.end280
-  %77 = phi i32 [ %74, %if.end280 ], [ %76, %while.end293 ]
+  %79 = phi i32 [ %76, %if.end280 ], [ %78, %while.end293 ]
   %nAssignmentCount.6 = phi i32 [ %inc281, %if.end280 ], [ %nAssignmentCount.0.ph302, %while.end293 ]
-  %add298 = add nsw i32 %77, %nReadCountSum.0.ph172271
+  %add298 = add nsw i32 %79, %nReadCountSum.0.ph172271
   %inc299 = add nsw i32 %nConversionCount.0.ph299, 1
   br label %sw.epilog302
 
@@ -2406,18 +2414,18 @@ sw.epilog302:                                     ; preds = %if.end297, %if.end2
   %nConversionCount.1 = phi i32 [ %nConversionCount.0.ph299, %if.end49 ], [ %inc181, %if.end180 ], [ %inc202, %if.end200 ], [ %inc249, %if.end247 ], [ %nConversionCount.0.ph299, %if.then239 ], [ %inc299, %if.end297 ]
   %nReadCountSum.4 = phi i32 [ %inc50, %if.end49 ], [ %add, %if.end180 ], [ %add201, %if.end200 ], [ %add248, %if.end247 ], [ %nReadCountSum.2, %if.then239 ], [ %add298, %if.end297 ]
   %nAssignmentCount.2 = phi i32 [ %nAssignmentCount.0.ph302, %if.end49 ], [ %nAssignmentCount.3, %if.end180 ], [ %nAssignmentCount.4, %if.end200 ], [ %nAssignmentCount.5, %if.end247 ], [ %nAssignmentCount.0.ph302, %if.then239 ], [ %nAssignmentCount.6, %if.end297 ]
-  %78 = load i16, ptr %call23, align 2
-  %tobool.not251270 = icmp eq i16 %78, 0
+  %80 = load i16, ptr %call23, align 2
+  %tobool.not251270 = icmp eq i16 %80, 0
   br i1 %tobool.not251270, label %Done, label %while.body.lr.ph.lr.ph, !llvm.loop !21
 
 Done.sink.split:                                  ; preds = %while.cond38.preheader, %while.end45, %if.then13, %while.body43, %if.then228
-  %.sink470 = phi i32 [ %55, %if.then228 ], [ %call39, %while.body43 ], [ %call14, %if.then13 ], [ %call39288, %while.cond38.preheader ], [ %call39291, %while.end45 ]
-  %call229 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink470, ptr noundef %pContext)
+  %.sink472 = phi i32 [ %57, %if.then228 ], [ %call39, %while.body43 ], [ %call14, %if.then13 ], [ %call39288, %while.cond38.preheader ], [ %call39291, %while.end45 ]
+  %call229 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink472, ptr noundef %pContext)
   br label %Done
 
-Done:                                             ; preds = %sw.epilog263, %while.cond283.preheader, %sw.epilog302, %sw.epilog223, %while.end293, %while.end277, %if.then256, %if.then216, %sw.bb182, %sw.epilog119, %while.cond.outer171.backedge, %land.lhs.true, %lor.lhs.false32, %if.end72, %if.end36, %Done.sink.split
-  %nConversionCount.0.ph248 = phi i32 [ %nConversionCount.0.ph299, %Done.sink.split ], [ %nConversionCount.0.ph299, %if.end36 ], [ %nConversionCount.0.ph299, %if.end72 ], [ %nConversionCount.0.ph299, %lor.lhs.false32 ], [ %nConversionCount.0.ph299, %land.lhs.true ], [ %nConversionCount.0.ph299, %while.cond.outer171.backedge ], [ %nConversionCount.0.ph299, %sw.epilog263 ], [ %nConversionCount.0.ph299, %while.cond283.preheader ], [ %nConversionCount.1, %sw.epilog302 ], [ %nConversionCount.0.ph299, %sw.epilog223 ], [ %nConversionCount.0.ph299, %while.end293 ], [ %nConversionCount.0.ph299, %while.end277 ], [ %nConversionCount.0.ph299, %if.then256 ], [ %nConversionCount.0.ph299, %if.then216 ], [ %nConversionCount.0.ph299, %sw.bb182 ], [ %nConversionCount.0.ph299, %sw.epilog119 ]
-  %nAssignmentCount.1 = phi i32 [ %nAssignmentCount.0.ph302, %Done.sink.split ], [ %nAssignmentCount.0.ph302, %if.end36 ], [ %nAssignmentCount.0.ph302, %if.end72 ], [ %nAssignmentCount.0.ph302, %lor.lhs.false32 ], [ %nAssignmentCount.0.ph302, %land.lhs.true ], [ %nAssignmentCount.0.ph302, %while.cond.outer171.backedge ], [ %nAssignmentCount.0.ph302, %sw.epilog263 ], [ %nAssignmentCount.0.ph302, %while.cond283.preheader ], [ %nAssignmentCount.2, %sw.epilog302 ], [ -1, %sw.epilog223 ], [ %nAssignmentCount.0.ph302, %while.end293 ], [ %nAssignmentCount.0.ph302, %while.end277 ], [ %nAssignmentCount.0.ph302, %if.then256 ], [ %nAssignmentCount.0.ph302, %if.then216 ], [ %nAssignmentCount.0.ph302, %sw.bb182 ], [ %nAssignmentCount.0.ph302, %sw.epilog119 ]
+Done:                                             ; preds = %sw.epilog263, %while.cond283.preheader, %sw.epilog302, %while.end293, %while.end277, %if.then256, %if.then216, %sw.bb182, %sw.epilog119, %sw.epilog223.jt2, %sw.epilog223.jt4, %sw.epilog223.jt1, %while.cond.outer171.backedge, %land.lhs.true, %lor.lhs.false32, %if.end72, %if.end36, %Done.sink.split
+  %nConversionCount.0.ph248 = phi i32 [ %nConversionCount.0.ph299, %Done.sink.split ], [ %nConversionCount.0.ph299, %if.end36 ], [ %nConversionCount.0.ph299, %if.end72 ], [ %nConversionCount.0.ph299, %lor.lhs.false32 ], [ %nConversionCount.0.ph299, %land.lhs.true ], [ %nConversionCount.0.ph299, %while.cond.outer171.backedge ], [ %nConversionCount.0.ph299, %sw.epilog263 ], [ %nConversionCount.0.ph299, %while.cond283.preheader ], [ %nConversionCount.0.ph299, %sw.epilog223.jt1 ], [ %nConversionCount.0.ph299, %sw.epilog223.jt4 ], [ %nConversionCount.0.ph299, %sw.epilog223.jt2 ], [ %nConversionCount.1, %sw.epilog302 ], [ %nConversionCount.0.ph299, %while.end293 ], [ %nConversionCount.0.ph299, %while.end277 ], [ %nConversionCount.0.ph299, %if.then256 ], [ %nConversionCount.0.ph299, %if.then216 ], [ %nConversionCount.0.ph299, %sw.bb182 ], [ %nConversionCount.0.ph299, %sw.epilog119 ]
+  %nAssignmentCount.1 = phi i32 [ %nAssignmentCount.0.ph302, %Done.sink.split ], [ %nAssignmentCount.0.ph302, %if.end36 ], [ %nAssignmentCount.0.ph302, %if.end72 ], [ %nAssignmentCount.0.ph302, %lor.lhs.false32 ], [ %nAssignmentCount.0.ph302, %land.lhs.true ], [ %nAssignmentCount.0.ph302, %while.cond.outer171.backedge ], [ %nAssignmentCount.0.ph302, %sw.epilog263 ], [ %nAssignmentCount.0.ph302, %while.cond283.preheader ], [ -1, %sw.epilog223.jt1 ], [ -1, %sw.epilog223.jt4 ], [ -1, %sw.epilog223.jt2 ], [ %nAssignmentCount.2, %sw.epilog302 ], [ %nAssignmentCount.0.ph302, %while.end293 ], [ %nAssignmentCount.0.ph302, %while.end277 ], [ %nAssignmentCount.0.ph302, %if.then256 ], [ %nAssignmentCount.0.ph302, %if.then216 ], [ %nAssignmentCount.0.ph302, %sw.bb182 ], [ %nAssignmentCount.0.ph302, %sw.epilog119 ]
   %cmp304 = icmp eq i32 %nConversionCount.0.ph248, 0
   br i1 %cmp304, label %land.lhs.true305, label %if.end309
 
@@ -2474,7 +2482,7 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %entry
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %sw.epilog297
-  %2 = phi i32 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %72, %sw.epilog297 ]
+  %2 = phi i32 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %74, %sw.epilog297 ]
   %nAssignmentCount.0.ph302 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nAssignmentCount.2, %sw.epilog297 ]
   %pFormatCurrent.0.ph301 = phi ptr [ %pFormat, %while.body.lr.ph.lr.ph.lr.ph ], [ %call21, %sw.epilog297 ]
   %nReadCountSum.0.ph300 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nReadCountSum.4, %sw.epilog297 ]
@@ -2639,11 +2647,11 @@ if.end34:                                         ; preds = %lor.lhs.false30
     i32 71, label %sw.bb178
     i32 98, label %if.end92
     i32 111, label %if.end92.loopexit305
-    i32 117, label %if.end92.loopexit542
-    i32 100, label %if.end92.loopexit542
+    i32 117, label %if.end92.loopexit544
+    i32 100, label %if.end92.loopexit544
     i32 105, label %if.end92.loopexit399
-    i32 88, label %if.end92.loopexit471
-    i32 120, label %if.end92.loopexit471
+    i32 88, label %if.end92.loopexit473
+    i32 120, label %if.end92.loopexit473
   ]
 
 while.cond36.preheader:                           ; preds = %if.end34
@@ -2754,14 +2762,14 @@ if.end92.loopexit305:                             ; preds = %if.end34
 if.end92.loopexit399:                             ; preds = %if.end34
   br label %if.end92
 
-if.end92.loopexit471:                             ; preds = %if.end34, %if.end34
+if.end92.loopexit473:                             ; preds = %if.end34, %if.end34
   br label %if.end92
 
-if.end92.loopexit542:                             ; preds = %if.end34, %if.end34
+if.end92.loopexit544:                             ; preds = %if.end34, %if.end34
   br label %if.end92
 
-if.end92:                                         ; preds = %if.end34, %if.end92.loopexit542, %if.end92.loopexit471, %if.end92.loopexit399, %if.end92.loopexit305
-  %nBase.0 = phi i32 [ 8, %if.end92.loopexit305 ], [ 0, %if.end92.loopexit399 ], [ 16, %if.end92.loopexit471 ], [ 10, %if.end92.loopexit542 ], [ 2, %if.end34 ]
+if.end92:                                         ; preds = %if.end34, %if.end92.loopexit544, %if.end92.loopexit473, %if.end92.loopexit399, %if.end92.loopexit305
+  %nBase.0 = phi i32 [ 8, %if.end92.loopexit305 ], [ 0, %if.end92.loopexit399 ], [ 16, %if.end92.loopexit473 ], [ 10, %if.end92.loopexit544 ], [ 2, %if.end34 ]
   %25 = load i32, ptr %mModifier.i, align 4
   %switch.tableidx = add i32 %25, -2
   %26 = icmp ult i32 %switch.tableidx, 14
@@ -3030,90 +3038,94 @@ sw.bb209:                                         ; preds = %if.end34, %while.en
 if.then211:                                       ; preds = %sw.bb209
   %47 = load i32, ptr %mModifier.i, align 4
   switch i32 %47, label %Done [
-    i32 12, label %sw.epilog218
-    i32 1, label %sw.epilog218
-    i32 13, label %sw.bb214
-    i32 14, label %sw.bb215
-    i32 11, label %sw.bb215
+    i32 12, label %sw.epilog218.jt1
+    i32 1, label %sw.epilog218.jt1
+    i32 13, label %sw.epilog218.jt2
+    i32 14, label %sw.epilog218.jt4
+    i32 11, label %sw.epilog218.jt4
   ]
 
-sw.bb214:                                         ; preds = %if.then211
-  br label %sw.epilog218
+sw.epilog218.jt1:                                 ; preds = %if.then211, %if.then211
+  %call219.jt1 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
+  br i1 %call219.jt1, label %if.end221.jt1, label %Done
 
-sw.bb215:                                         ; preds = %if.then211, %if.then211
-  br label %sw.epilog218
+sw.epilog218.jt4:                                 ; preds = %if.then211, %if.then211
+  %call219.jt4 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
+  br i1 %call219.jt4, label %if.end221.jt4, label %Done
 
-sw.epilog218:                                     ; preds = %if.then211, %if.then211, %sw.bb215, %sw.bb214
-  %stringTypeSize.0 = phi i32 [ 2, %sw.bb214 ], [ 4, %sw.bb215 ], [ 1, %if.then211 ], [ 1, %if.then211 ]
-  %call219 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize.0, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
-  br i1 %call219, label %if.end221, label %Done
+sw.epilog218.jt2:                                 ; preds = %if.then211
+  %call219.jt2 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
+  br i1 %call219.jt2, label %if.end221.jt2, label %Done
 
-if.end221:                                        ; preds = %sw.epilog218
+if.end221.jt1:                                    ; preds = %sw.epilog218.jt1
   %48 = load i32, ptr %nReadCount, align 4
-  %tobool222.not = icmp eq i32 %48, 0
-  br i1 %tobool222.not, label %if.then223, label %if.end225
+  %tobool222.not.jt1 = icmp eq i32 %48, 0
+  br i1 %tobool222.not.jt1, label %if.then223, label %sw.bb226
 
-if.then223:                                       ; preds = %if.end221
-  %49 = load i32, ptr %c, align 4
+if.end221.jt4:                                    ; preds = %sw.epilog218.jt4
+  %49 = load i32, ptr %nReadCount, align 4
+  %tobool222.not.jt4 = icmp eq i32 %49, 0
+  br i1 %tobool222.not.jt4, label %if.then223, label %sw.bb228
+
+if.end221.jt2:                                    ; preds = %sw.epilog218.jt2
+  %50 = load i32, ptr %nReadCount, align 4
+  %tobool222.not.jt2 = icmp eq i32 %50, 0
+  br i1 %tobool222.not.jt2, label %if.then223, label %sw.bb227
+
+if.then223:                                       ; preds = %if.end221.jt1, %if.end221.jt4, %if.end221.jt2
+  %51 = load i32, ptr %c, align 4
   br label %Done.sink.split
 
-if.end225:                                        ; preds = %if.end221
-  switch i32 %stringTypeSize.0, label %sw.epilog229 [
-    i32 1, label %sw.bb226
-    i32 2, label %sw.bb227
-    i32 4, label %sw.bb228
-  ]
-
-sw.bb226:                                         ; preds = %if.end225
-  %50 = load ptr, ptr %pArgumentCurrent, align 8
-  store i8 0, ptr %50, align 1
-  br label %sw.epilog229
-
-sw.bb227:                                         ; preds = %if.end225
-  %51 = load ptr, ptr %pArgumentCurrent, align 8
-  store i16 0, ptr %51, align 2
-  br label %sw.epilog229
-
-sw.bb228:                                         ; preds = %if.end225
+sw.bb226:                                         ; preds = %if.end221.jt1
   %52 = load ptr, ptr %pArgumentCurrent, align 8
-  store i32 0, ptr %52, align 4
+  store i8 0, ptr %52, align 1
   br label %sw.epilog229
 
-sw.epilog229:                                     ; preds = %sw.bb228, %sw.bb227, %sw.bb226, %if.end225
+sw.bb227:                                         ; preds = %if.end221.jt2
+  %53 = load ptr, ptr %pArgumentCurrent, align 8
+  store i16 0, ptr %53, align 2
+  br label %sw.epilog229
+
+sw.bb228:                                         ; preds = %if.end221.jt4
+  %54 = load ptr, ptr %pArgumentCurrent, align 8
+  store i32 0, ptr %54, align 4
+  br label %sw.epilog229
+
+sw.epilog229:                                     ; preds = %sw.bb228, %sw.bb227, %sw.bb226
   %inc230 = add nsw i32 %nAssignmentCount.0.ph302, 1
   br label %if.end237
 
 if.else231:                                       ; preds = %sw.bb209
   %call232 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
-  %53 = load i32, ptr %nReadCount, align 4
-  %tobool233.not = icmp eq i32 %53, 0
+  %55 = load i32, ptr %nReadCount, align 4
+  %tobool233.not = icmp eq i32 %55, 0
   br i1 %tobool233.not, label %if.then234, label %if.end237
 
 if.then234:                                       ; preds = %if.else231
-  %54 = load i32, ptr %c, align 4
-  %call235 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %54, ptr noundef %pContext)
+  %56 = load i32, ptr %c, align 4
+  %call235 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %56, ptr noundef %pContext)
   br label %sw.epilog297
 
 if.end237:                                        ; preds = %if.else231, %sw.epilog229
   %nAssignmentCount.5 = phi i32 [ %inc230, %sw.epilog229 ], [ %nAssignmentCount.0.ph302, %if.else231 ]
-  %55 = load i32, ptr %fd, align 4
-  %cmp239 = icmp sgt i32 %55, -1
+  %57 = load i32, ptr %fd, align 4
+  %cmp239 = icmp sgt i32 %57, -1
   br i1 %cmp239, label %if.then240, label %if.end242
 
 if.then240:                                       ; preds = %if.end237
-  %56 = load i32, ptr %c, align 4
-  %call241 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %56, ptr noundef %pContext)
+  %58 = load i32, ptr %c, align 4
+  %call241 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %58, ptr noundef %pContext)
   br label %if.end242
 
 if.end242:                                        ; preds = %if.then240, %if.end237
-  %57 = load i32, ptr %nReadCount, align 4
-  %add243 = add nsw i32 %57, %nReadCountSum.2
+  %59 = load i32, ptr %nReadCount, align 4
+  %add243 = add nsw i32 %59, %nReadCountSum.2
   %inc244 = add nsw i32 %nConversionCount.0.ph299, 1
   br label %sw.epilog297
 
 sw.bb245:                                         ; preds = %if.end34, %if.end34
-  %58 = load i8, ptr %mbWidthSpecified, align 4
-  %tobool246 = trunc i8 %58 to i1
+  %60 = load i8, ptr %mbWidthSpecified, align 4
+  %tobool246 = trunc i8 %60 to i1
   br i1 %tobool246, label %if.end249, label %if.then247
 
 if.then247:                                       ; preds = %sw.bb245
@@ -3122,20 +3134,20 @@ if.then247:                                       ; preds = %sw.bb245
 
 if.end249:                                        ; preds = %if.then247, %sw.bb245
   store i32 0, ptr %nReadCount, align 4
-  %59 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool250.not = icmp eq ptr %59, null
+  %61 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool250.not = icmp eq ptr %61, null
   br i1 %tobool250.not, label %while.cond278.preheader, label %if.then251
 
 while.cond278.preheader:                          ; preds = %if.end249
-  %60 = load i32, ptr %fd, align 4
-  %dec280286 = add nsw i32 %60, -1
+  %62 = load i32, ptr %fd, align 4
+  %dec280286 = add nsw i32 %62, -1
   store i32 %dec280286, ptr %fd, align 4
-  %tobool281.not287 = icmp eq i32 %60, 0
+  %tobool281.not287 = icmp eq i32 %62, 0
   br i1 %tobool281.not287, label %Done, label %land.rhs282
 
 if.then251:                                       ; preds = %if.end249
-  %61 = load i32, ptr %mModifier.i, align 4
-  switch i32 %61, label %Done [
+  %63 = load i32, ptr %mModifier.i, align 4
+  switch i32 %63, label %Done [
     i32 12, label %sw.epilog258
     i32 1, label %sw.epilog258
     i32 13, label %sw.bb254
@@ -3151,10 +3163,10 @@ sw.bb255:                                         ; preds = %if.then251, %if.the
 
 sw.epilog258:                                     ; preds = %if.then251, %if.then251, %sw.bb255, %sw.bb254
   %charTypeSize.0 = phi i32 [ 2, %sw.bb254 ], [ 4, %sw.bb255 ], [ 1, %if.then251 ], [ 1, %if.then251 ]
-  %62 = load i32, ptr %fd, align 4
-  %dec284 = add nsw i32 %62, -1
+  %64 = load i32, ptr %fd, align 4
+  %dec284 = add nsw i32 %64, -1
   store i32 %dec284, ptr %fd, align 4
-  %tobool261.not285 = icmp eq i32 %62, 0
+  %tobool261.not285 = icmp eq i32 %64, 0
   br i1 %tobool261.not285, label %Done, label %land.rhs
 
 land.rhs:                                         ; preds = %sw.epilog258, %sw.epilog270
@@ -3176,34 +3188,34 @@ while.body264:                                    ; preds = %land.rhs
 
 sw.bb265:                                         ; preds = %while.body264
   %conv266 = trunc i32 %call262 to i8
-  %63 = load ptr, ptr %pArgumentCurrent, align 8
-  store i8 %conv266, ptr %63, align 1
+  %65 = load ptr, ptr %pArgumentCurrent, align 8
+  store i8 %conv266, ptr %65, align 1
   br label %sw.epilog270
 
 sw.bb267:                                         ; preds = %while.body264
   %conv268 = trunc i32 %call262 to i16
-  %64 = load ptr, ptr %pArgumentCurrent, align 8
-  store i16 %conv268, ptr %64, align 2
+  %66 = load ptr, ptr %pArgumentCurrent, align 8
+  store i16 %conv268, ptr %66, align 2
   br label %sw.epilog270
 
 sw.bb269:                                         ; preds = %while.body264
-  %65 = load ptr, ptr %pArgumentCurrent, align 8
-  store i32 %call262, ptr %65, align 4
+  %67 = load ptr, ptr %pArgumentCurrent, align 8
+  store i32 %call262, ptr %67, align 4
   br label %sw.epilog270
 
 sw.epilog270:                                     ; preds = %sw.bb269, %sw.bb267, %sw.bb265, %while.body264
-  %66 = load i32, ptr %nReadCount, align 4
-  %inc271 = add nsw i32 %66, 1
+  %68 = load i32, ptr %nReadCount, align 4
+  %inc271 = add nsw i32 %68, 1
   store i32 %inc271, ptr %nReadCount, align 4
-  %67 = load i32, ptr %fd, align 4
-  %dec = add nsw i32 %67, -1
+  %69 = load i32, ptr %fd, align 4
+  %dec = add nsw i32 %69, -1
   store i32 %dec, ptr %fd, align 4
-  %tobool261.not = icmp eq i32 %67, 0
+  %tobool261.not = icmp eq i32 %69, 0
   br i1 %tobool261.not, label %while.end272, label %land.rhs, !llvm.loop !31
 
 while.end272:                                     ; preds = %sw.epilog270, %land.rhs.while.end272.loopexit_crit_edge
-  %68 = phi i32 [ %.pre376.pre, %land.rhs.while.end272.loopexit_crit_edge ], [ %inc271, %sw.epilog270 ]
-  %tobool273.not = icmp eq i32 %68, 0
+  %70 = phi i32 [ %.pre376.pre, %land.rhs.while.end272.loopexit_crit_edge ], [ %inc271, %sw.epilog270 ]
+  %tobool273.not = icmp eq i32 %70, 0
   br i1 %tobool273.not, label %Done, label %if.end275
 
 if.end275:                                        ; preds = %while.end272
@@ -3220,21 +3232,21 @@ land.rhs282:                                      ; preds = %while.cond278.prehe
 while.body286:                                    ; preds = %land.rhs282
   %inc287 = add nsw i32 %.pre377.pre, 1
   store i32 %inc287, ptr %nReadCount, align 4
-  %69 = load i32, ptr %fd, align 4
-  %dec280 = add nsw i32 %69, -1
+  %71 = load i32, ptr %fd, align 4
+  %dec280 = add nsw i32 %71, -1
   store i32 %dec280, ptr %fd, align 4
-  %tobool281.not = icmp eq i32 %69, 0
+  %tobool281.not = icmp eq i32 %71, 0
   br i1 %tobool281.not, label %while.end288, label %land.rhs282, !llvm.loop !32
 
 while.end288:                                     ; preds = %land.rhs282, %while.body286
-  %70 = phi i32 [ %inc287, %while.body286 ], [ %.pre377.pre, %land.rhs282 ]
-  %tobool289.not = icmp eq i32 %70, 0
+  %72 = phi i32 [ %inc287, %while.body286 ], [ %.pre377.pre, %land.rhs282 ]
+  %tobool289.not = icmp eq i32 %72, 0
   br i1 %tobool289.not, label %Done, label %if.end292
 
 if.end292:                                        ; preds = %while.end288, %if.end275
-  %71 = phi i32 [ %68, %if.end275 ], [ %70, %while.end288 ]
+  %73 = phi i32 [ %70, %if.end275 ], [ %72, %while.end288 ]
   %nAssignmentCount.6 = phi i32 [ %inc276, %if.end275 ], [ %nAssignmentCount.0.ph302, %while.end288 ]
-  %add293 = add nsw i32 %71, %nReadCountSum.0.ph172271
+  %add293 = add nsw i32 %73, %nReadCountSum.0.ph172271
   %inc294 = add nsw i32 %nConversionCount.0.ph299, 1
   br label %sw.epilog297
 
@@ -3242,18 +3254,18 @@ sw.epilog297:                                     ; preds = %if.end292, %if.end2
   %nConversionCount.1 = phi i32 [ %nConversionCount.0.ph299, %if.end46 ], [ %inc177, %if.end176 ], [ %inc198, %if.end196 ], [ %inc244, %if.end242 ], [ %nConversionCount.0.ph299, %if.then234 ], [ %inc294, %if.end292 ]
   %nReadCountSum.4 = phi i32 [ %inc47, %if.end46 ], [ %add, %if.end176 ], [ %add197, %if.end196 ], [ %add243, %if.end242 ], [ %nReadCountSum.2, %if.then234 ], [ %add293, %if.end292 ]
   %nAssignmentCount.2 = phi i32 [ %nAssignmentCount.0.ph302, %if.end46 ], [ %nAssignmentCount.3, %if.end176 ], [ %nAssignmentCount.4, %if.end196 ], [ %nAssignmentCount.5, %if.end242 ], [ %nAssignmentCount.0.ph302, %if.then234 ], [ %nAssignmentCount.6, %if.end292 ]
-  %72 = load i32, ptr %call21, align 4
-  %tobool.not251270 = icmp eq i32 %72, 0
+  %74 = load i32, ptr %call21, align 4
+  %tobool.not251270 = icmp eq i32 %74, 0
   br i1 %tobool.not251270, label %Done, label %while.body.lr.ph.lr.ph, !llvm.loop !28
 
 Done.sink.split:                                  ; preds = %while.cond36.preheader, %while.end42, %if.then12, %while.body40, %if.then223
-  %.sink470 = phi i32 [ %49, %if.then223 ], [ %call37, %while.body40 ], [ %call13, %if.then12 ], [ %call37288, %while.cond36.preheader ], [ %call37291, %while.end42 ]
-  %call224 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink470, ptr noundef %pContext)
+  %.sink472 = phi i32 [ %51, %if.then223 ], [ %call37, %while.body40 ], [ %call13, %if.then12 ], [ %call37288, %while.cond36.preheader ], [ %call37291, %while.end42 ]
+  %call224 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink472, ptr noundef %pContext)
   br label %Done
 
-Done:                                             ; preds = %sw.epilog258, %while.cond278.preheader, %sw.epilog297, %sw.epilog218, %while.end288, %while.end272, %if.then251, %if.then211, %sw.bb178, %sw.epilog115, %while.cond.outer171.backedge, %land.lhs.true, %lor.lhs.false30, %if.end68, %if.end34, %Done.sink.split
-  %nConversionCount.0.ph248 = phi i32 [ %nConversionCount.0.ph299, %Done.sink.split ], [ %nConversionCount.0.ph299, %if.end34 ], [ %nConversionCount.0.ph299, %if.end68 ], [ %nConversionCount.0.ph299, %lor.lhs.false30 ], [ %nConversionCount.0.ph299, %land.lhs.true ], [ %nConversionCount.0.ph299, %while.cond.outer171.backedge ], [ %nConversionCount.0.ph299, %sw.epilog258 ], [ %nConversionCount.0.ph299, %while.cond278.preheader ], [ %nConversionCount.1, %sw.epilog297 ], [ %nConversionCount.0.ph299, %sw.epilog218 ], [ %nConversionCount.0.ph299, %while.end288 ], [ %nConversionCount.0.ph299, %while.end272 ], [ %nConversionCount.0.ph299, %if.then251 ], [ %nConversionCount.0.ph299, %if.then211 ], [ %nConversionCount.0.ph299, %sw.bb178 ], [ %nConversionCount.0.ph299, %sw.epilog115 ]
-  %nAssignmentCount.1 = phi i32 [ %nAssignmentCount.0.ph302, %Done.sink.split ], [ %nAssignmentCount.0.ph302, %if.end34 ], [ %nAssignmentCount.0.ph302, %if.end68 ], [ %nAssignmentCount.0.ph302, %lor.lhs.false30 ], [ %nAssignmentCount.0.ph302, %land.lhs.true ], [ %nAssignmentCount.0.ph302, %while.cond.outer171.backedge ], [ %nAssignmentCount.0.ph302, %sw.epilog258 ], [ %nAssignmentCount.0.ph302, %while.cond278.preheader ], [ %nAssignmentCount.2, %sw.epilog297 ], [ -1, %sw.epilog218 ], [ %nAssignmentCount.0.ph302, %while.end288 ], [ %nAssignmentCount.0.ph302, %while.end272 ], [ %nAssignmentCount.0.ph302, %if.then251 ], [ %nAssignmentCount.0.ph302, %if.then211 ], [ %nAssignmentCount.0.ph302, %sw.bb178 ], [ %nAssignmentCount.0.ph302, %sw.epilog115 ]
+Done:                                             ; preds = %sw.epilog258, %while.cond278.preheader, %sw.epilog297, %while.end288, %while.end272, %if.then251, %if.then211, %sw.bb178, %sw.epilog115, %sw.epilog218.jt2, %sw.epilog218.jt4, %sw.epilog218.jt1, %while.cond.outer171.backedge, %land.lhs.true, %lor.lhs.false30, %if.end68, %if.end34, %Done.sink.split
+  %nConversionCount.0.ph248 = phi i32 [ %nConversionCount.0.ph299, %Done.sink.split ], [ %nConversionCount.0.ph299, %if.end34 ], [ %nConversionCount.0.ph299, %if.end68 ], [ %nConversionCount.0.ph299, %lor.lhs.false30 ], [ %nConversionCount.0.ph299, %land.lhs.true ], [ %nConversionCount.0.ph299, %while.cond.outer171.backedge ], [ %nConversionCount.0.ph299, %sw.epilog258 ], [ %nConversionCount.0.ph299, %while.cond278.preheader ], [ %nConversionCount.0.ph299, %sw.epilog218.jt1 ], [ %nConversionCount.0.ph299, %sw.epilog218.jt4 ], [ %nConversionCount.0.ph299, %sw.epilog218.jt2 ], [ %nConversionCount.1, %sw.epilog297 ], [ %nConversionCount.0.ph299, %while.end288 ], [ %nConversionCount.0.ph299, %while.end272 ], [ %nConversionCount.0.ph299, %if.then251 ], [ %nConversionCount.0.ph299, %if.then211 ], [ %nConversionCount.0.ph299, %sw.bb178 ], [ %nConversionCount.0.ph299, %sw.epilog115 ]
+  %nAssignmentCount.1 = phi i32 [ %nAssignmentCount.0.ph302, %Done.sink.split ], [ %nAssignmentCount.0.ph302, %if.end34 ], [ %nAssignmentCount.0.ph302, %if.end68 ], [ %nAssignmentCount.0.ph302, %lor.lhs.false30 ], [ %nAssignmentCount.0.ph302, %land.lhs.true ], [ %nAssignmentCount.0.ph302, %while.cond.outer171.backedge ], [ %nAssignmentCount.0.ph302, %sw.epilog258 ], [ %nAssignmentCount.0.ph302, %while.cond278.preheader ], [ -1, %sw.epilog218.jt1 ], [ -1, %sw.epilog218.jt4 ], [ -1, %sw.epilog218.jt2 ], [ %nAssignmentCount.2, %sw.epilog297 ], [ %nAssignmentCount.0.ph302, %while.end288 ], [ %nAssignmentCount.0.ph302, %while.end272 ], [ %nAssignmentCount.0.ph302, %if.then251 ], [ %nAssignmentCount.0.ph302, %if.then211 ], [ %nAssignmentCount.0.ph302, %sw.bb178 ], [ %nAssignmentCount.0.ph302, %sw.epilog115 ]
   %cmp299 = icmp eq i32 %nConversionCount.0.ph248, 0
   br i1 %cmp299, label %land.lhs.true300, label %if.end304
 

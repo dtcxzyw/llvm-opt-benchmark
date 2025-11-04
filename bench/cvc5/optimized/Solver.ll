@@ -8899,8 +8899,8 @@ define hidden range(i8 0, 3) i8 @_ZN4cvc58internal7Minisat6Solver6searchEi(ptr n
   br label %58
 
 58:                                               ; preds = %.backedge, %2
-  %.044 = phi i32 [ 1, %2 ], [ %.145.ph, %.backedge ]
-  %.0 = phi i32 [ 0, %2 ], [ %.1.ph, %.backedge ]
+  %.044 = phi i32 [ 1, %2 ], [ %.145.jt3, %.backedge ]
+  %.0 = phi i32 [ 0, %2 ], [ %.1.jt3, %.backedge ]
   %59 = invoke noundef i32 @_ZN4cvc58internal7Minisat6Solver9propagateENS2_15TheoryCheckTypeE(ptr noundef nonnull align 8 dereferenceable(850) %0, i32 noundef %.044)
           to label %60 unwind label %.loopexit320
 
@@ -9877,8 +9877,8 @@ _ZNK4cvc58internal7Minisat6Solver12withinBudgetENS0_8ResourceE.exit.thread300: ;
   br label %.backedge
 
 .backedge:                                        ; preds = %389, %395, %.critedge96, %371, %322, %310, %488, %.noexc242, %483
-  %.145.ph = phi i32 [ 2, %483 ], [ 1, %.noexc242 ], [ 1, %488 ], [ 1, %310 ], [ 1, %322 ], [ 1, %371 ], [ 1, %.critedge96 ], [ 2, %395 ], [ 1, %389 ]
-  %.1.ph = phi i32 [ %.0, %483 ], [ %.0, %.noexc242 ], [ %.0, %488 ], [ %64, %310 ], [ %64, %322 ], [ %64, %371 ], [ %.0, %.critedge96 ], [ %.0, %395 ], [ %.0, %389 ]
+  %.145.jt3 = phi i32 [ 1, %389 ], [ 2, %395 ], [ 1, %.critedge96 ], [ 1, %371 ], [ 1, %322 ], [ 1, %310 ], [ 1, %488 ], [ 1, %.noexc242 ], [ 2, %483 ]
+  %.1.jt3 = phi i32 [ %.0, %389 ], [ %.0, %395 ], [ %.0, %.critedge96 ], [ %64, %371 ], [ %64, %322 ], [ %64, %310 ], [ %.0, %488 ], [ %.0, %.noexc242 ], [ %.0, %483 ]
   br label %58, !llvm.loop !460
 
 512:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit320, %.loopexit.split-lp321, %474, %485, %295, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev.exit204, %126, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev.exit106, %393

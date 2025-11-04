@@ -2907,11 +2907,11 @@ _ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit: ; preds = %4, %23, %25
 
 31:                                               ; preds = %29
   %32 = icmp ult i64 %27, 4294967296
-  %..i193 = select i1 %32, i8 4, i8 6
+  %spec.select325 = select i1 %32, i8 4, i8 6
   br label %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit195
 
-_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit195: ; preds = %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit, %29, %31
-  %.0.i194 = phi i8 [ 1, %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit ], [ 2, %29 ], [ %..i193, %31 ]
+_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit195: ; preds = %31, %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit, %29
+  %.0.i194 = phi i8 [ 1, %_ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit ], [ 2, %29 ], [ %spec.select325, %31 ]
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !177
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2975,10 +2975,10 @@ switch.lookup:                                    ; preds = %_ZN3net10QuicFramer
 
 _ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit: ; preds = %switch.lookup, %.critedge.i, %.noexc
   %.0.i198 = phi i8 [ 12, %.noexc ], [ 12, %.critedge.i ], [ %switch.masked, %switch.lookup ]
-  %switch.tableidx329 = add nsw i8 %.0.i194, -1
-  %switch.shifted332 = lshr i8 43, %switch.tableidx329
-  %switch.lobit333 = trunc i8 %switch.shifted332 to i1
-  br i1 %switch.lobit333, label %switch.lookup331, label %55
+  %switch.tableidx330 = add nsw i8 %.0.i194, -1
+  %switch.shifted333 = lshr i8 43, %switch.tableidx330
+  %switch.lobit334 = trunc i8 %switch.shifted333 to i1
+  br i1 %switch.lobit334, label %switch.lookup332, label %55
 
 55:                                               ; preds = %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
   %56 = invoke noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -3009,15 +3009,15 @@ _ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.body
 
-switch.lookup331:                                 ; preds = %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
-  %switch.cast334 = zext i8 %switch.tableidx329 to i48
-  %switch.shiftamt335 = shl nuw nsw i48 %switch.cast334, 3
-  %switch.downshift336 = lshr i48 3298568438016, %switch.shiftamt335
-  %switch.masked337 = trunc i48 %switch.downshift336 to i8
+switch.lookup332:                                 ; preds = %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
+  %switch.cast335 = zext i8 %switch.tableidx330 to i48
+  %switch.shiftamt336 = shl nuw nsw i48 %switch.cast335, 3
+  %switch.downshift337 = lshr i48 3298568438016, %switch.shiftamt336
+  %switch.masked338 = trunc i48 %switch.downshift337 to i8
   br label %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit206
 
-_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit206: ; preds = %switch.lookup331, %.critedge.i201, %.noexc202
-  %.0.i200 = phi i8 [ 3, %.noexc202 ], [ 3, %.critedge.i201 ], [ %switch.masked337, %switch.lookup331 ]
+_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit206: ; preds = %switch.lookup332, %.critedge.i201, %.noexc202
+  %.0.i200 = phi i8 [ 3, %.noexc202 ], [ 3, %.critedge.i201 ], [ %switch.masked338, %switch.lookup332 ]
   %62 = select i1 %47, i8 0, i8 2
   %63 = zext i1 %46 to i8
   %64 = or disjoint i8 %62, %63

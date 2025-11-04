@@ -8685,10 +8685,10 @@ switch.lookup:                                    ; preds = %181
   br i1 %.not9416.i, label %hwloc_linux_parse_cpuinfo.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %186, %.backedge.i
-  %.06920.i = phi i32 [ %.1.ph.i, %.backedge.i ], [ 0, %186 ]
-  %.07019.i = phi ptr [ %.272.ph.i, %.backedge.i ], [ null, %186 ]
-  %.07518.i = phi i32 [ %.277.ph.i, %.backedge.i ], [ 0, %186 ]
-  %.08017.i = phi i32 [ %.181.ph.i, %.backedge.i ], [ -1, %186 ]
+  %.06920.i = phi i32 [ %.1.jt3.i, %.backedge.i ], [ 0, %186 ]
+  %.07019.i = phi ptr [ %.272.jt3.i, %.backedge.i ], [ null, %186 ]
+  %.07518.i = phi i32 [ %.277.jt3.i, %.backedge.i ], [ 0, %186 ]
+  %.08017.i = phi i32 [ %.181.jt3.i, %.backedge.i ], [ -1, %186 ]
   %188 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %92, i32 noundef 10) #31
   %.not95.not.i = icmp eq ptr %188, null
   br i1 %.not95.not.i, label %190, label %189
@@ -8794,10 +8794,10 @@ switch.lookup:                                    ; preds = %181
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %231, %227, %194, %192, %190
-  %.181.ph.i = phi i32 [ %.282.i, %227 ], [ %.282.i, %231 ], [ %.08017.i, %194 ], [ %.08017.i, %192 ], [ -1, %190 ]
-  %.277.ph.i = phi i32 [ %.378.i, %227 ], [ %.378.i, %231 ], [ %.07518.i, %194 ], [ %.07518.i, %192 ], [ %.07518.i, %190 ]
-  %.272.ph.i = phi ptr [ %.5.i, %227 ], [ %.5.i, %231 ], [ %.07019.i, %194 ], [ %.07019.i, %192 ], [ %.07019.i, %190 ]
-  %.1.ph.i = phi i32 [ %.4.i, %227 ], [ %.4.i, %231 ], [ %.06920.i, %194 ], [ %.06920.i, %192 ], [ %.06920.i, %190 ]
+  %.181.jt3.i = phi i32 [ -1, %190 ], [ %.08017.i, %192 ], [ %.08017.i, %194 ], [ %.282.i, %231 ], [ %.282.i, %227 ]
+  %.277.jt3.i = phi i32 [ %.07518.i, %190 ], [ %.07518.i, %192 ], [ %.07518.i, %194 ], [ %.378.i, %231 ], [ %.378.i, %227 ]
+  %.272.jt3.i = phi ptr [ %.07019.i, %190 ], [ %.07019.i, %192 ], [ %.07019.i, %194 ], [ %.5.i, %231 ], [ %.5.i, %227 ]
+  %.1.jt3.i = phi i32 [ %.06920.i, %190 ], [ %.06920.i, %192 ], [ %.06920.i, %194 ], [ %.4.i, %231 ], [ %.4.i, %227 ]
   %233 = call ptr @fgets(ptr noundef nonnull %92, i32 noundef 128, ptr noundef nonnull %180)
   %.not94.i = icmp eq ptr %233, null
   br i1 %.not94.i, label %hwloc_linux_parse_cpuinfo.exit, label %.lr.ph.i, !llvm.loop !192
@@ -8813,8 +8813,8 @@ hwloc_linux_parse_cpuinfo.exit.thread:            ; preds = %hwloc_fopen.exit.i,
   br label %.critedge97
 
 hwloc_linux_parse_cpuinfo.exit:                   ; preds = %228, %.backedge.i, %186
-  %.176.i = phi i32 [ 0, %186 ], [ %.277.ph.i, %.backedge.i ], [ %.378.i, %228 ]
-  %.171.i = phi ptr [ null, %186 ], [ %.272.ph.i, %.backedge.i ], [ %.5.i, %228 ]
+  %.176.i = phi i32 [ 0, %186 ], [ %.277.jt3.i, %.backedge.i ], [ %.378.i, %228 ]
+  %.171.i = phi ptr [ null, %186 ], [ %.272.jt3.i, %.backedge.i ], [ %.5.i, %228 ]
   %235 = call i32 @fclose(ptr noundef nonnull %180)
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   call void @llvm.lifetime.end.p0(ptr nonnull %92)

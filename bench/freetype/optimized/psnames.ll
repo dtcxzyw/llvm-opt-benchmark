@@ -152,134 +152,134 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
 .critedge:                                        ; preds = %.thread89, %.thread89
   %.0.ptr.le = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx
   %.not = icmp eq i64 %.0.idx, 0
-  br i1 %.not, label %.thread86, label %54
+  br i1 %.not, label %.thread86, label %.preheader98.i
 
-54:                                               ; preds = %.critedge
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br label %56
+.preheader98.i:                                   ; preds = %.critedge
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  br label %55
 
-56:                                               ; preds = %54, %72
-  %.055.i126 = phi i32 [ 52, %54 ], [ %.257.i, %72 ]
-  %.058.i125 = phi i32 [ 0, %54 ], [ %.260.i, %72 ]
-  %57 = add nuw nsw i32 %.055.i126, %.058.i125
-  %58 = and i32 %57, -2
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @ft_adobe_glyph_list, i64 2), i64 %59
-  %61 = load i8, ptr %60, align 2, !tbaa !3
-  %62 = zext i8 %61 to i64
-  %63 = shl nuw nsw i64 %62, 8
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  %65 = load i8, ptr %64, align 1, !tbaa !3
-  %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %63
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %66
-  %69 = load i8, ptr %68, align 1, !tbaa !3
-  %70 = and i8 %69, 127
-  %71 = icmp eq i8 %70, %2
-  br i1 %71, label %.preheader.i, label %72
+55:                                               ; preds = %.preheader98.i, %72
+  %.055.i126 = phi i32 [ 52, %.preheader98.i ], [ %.257.i, %72 ]
+  %.058.i125 = phi i32 [ 0, %.preheader98.i ], [ %.260.i, %72 ]
+  %56 = add nuw nsw i32 %.055.i126, %.058.i125
+  %57 = and i32 %56, -2
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @ft_adobe_glyph_list, i64 2), i64 %58
+  %60 = load i8, ptr %59, align 2, !tbaa !3
+  %61 = zext i8 %60 to i64
+  %62 = shl nuw nsw i64 %61, 8
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 1
+  %64 = load i8, ptr %63, align 1, !tbaa !3
+  %65 = zext i8 %64 to i64
+  %66 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %62
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %65
+  %68 = load i8, ptr %67, align 1, !tbaa !3
+  %69 = and i8 %68, 127
+  %70 = icmp eq i8 %69, %2
+  br i1 %70, label %.preheader.i, label %72
 
-72:                                               ; preds = %56
-  %73 = lshr i32 %57, 1
-  %74 = icmp slt i8 %70, %2
+.preheader.i:                                     ; preds = %55
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 %65
+  %.not6580.i.not = icmp eq i64 %.0.idx, 1
+  br i1 %.not6580.i.not, label %._crit_edge.i, label %.lr.ph83.i
+
+72:                                               ; preds = %55
+  %73 = lshr i32 %56, 1
+  %74 = icmp slt i8 %69, %2
   %75 = add nuw nsw i32 %73, 1
   %.260.i = select i1 %74, i32 %75, i32 %.058.i125
   %.257.i = select i1 %74, i32 %.055.i126, i32 %73
   %76 = icmp slt i32 %.260.i, %.257.i
-  br i1 %76, label %56, label %ft_get_adobe_glyph_index.exit
-
-.preheader.i:                                     ; preds = %56
-  %77 = getelementptr inbounds nuw i8, ptr %67, i64 %66
-  %.not6580.i.not = icmp eq i64 %.0.idx, 1
-  br i1 %.not6580.i.not, label %._crit_edge.i, label %.lr.ph83.i
+  br i1 %76, label %55, label %ft_get_adobe_glyph_index.exit
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %.preheader.i
-  %78 = phi i8 [ %69, %.preheader.i ], [ %100, %.backedge.i ]
-  %.2.lcssa.i = phi ptr [ %77, %.preheader.i ], [ %.2.be.i, %.backedge.i ]
-  %79 = icmp sgt i8 %78, -1
-  br i1 %79, label %80, label %ft_get_adobe_glyph_index.exit
+  %77 = phi i8 [ %68, %.preheader.i ], [ %99, %.backedge.i ]
+  %.2.lcssa.i = phi ptr [ %71, %.preheader.i ], [ %.2.be.i, %.backedge.i ]
+  %78 = icmp sgt i8 %77, -1
+  br i1 %78, label %79, label %ft_get_adobe_glyph_index.exit
 
-80:                                               ; preds = %._crit_edge.i
-  %81 = getelementptr inbounds nuw i8, ptr %.2.lcssa.i, i64 1
-  %82 = load i8, ptr %81, align 1, !tbaa !3
-  %.not69.i = icmp sgt i8 %82, -1
-  br i1 %.not69.i, label %ft_get_adobe_glyph_index.exit, label %83
+79:                                               ; preds = %._crit_edge.i
+  %80 = getelementptr inbounds nuw i8, ptr %.2.lcssa.i, i64 1
+  %81 = load i8, ptr %80, align 1, !tbaa !3
+  %.not69.i = icmp sgt i8 %81, -1
+  br i1 %.not69.i, label %ft_get_adobe_glyph_index.exit, label %82
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %.2.lcssa.i, i64 2
-  %85 = load i8, ptr %84, align 1, !tbaa !3
-  %86 = zext i8 %85 to i32
-  %87 = shl nuw nsw i32 %86, 8
-  %88 = getelementptr inbounds nuw i8, ptr %.2.lcssa.i, i64 3
-  %89 = load i8, ptr %88, align 1, !tbaa !3
-  %90 = zext i8 %89 to i32
-  %91 = or disjoint i32 %87, %90
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %.2.lcssa.i, i64 2
+  %84 = load i8, ptr %83, align 1, !tbaa !3
+  %85 = zext i8 %84 to i32
+  %86 = shl nuw nsw i32 %85, 8
+  %87 = getelementptr inbounds nuw i8, ptr %.2.lcssa.i, i64 3
+  %88 = load i8, ptr %87, align 1, !tbaa !3
+  %89 = zext i8 %88 to i32
+  %90 = or disjoint i32 %86, %89
   br label %ft_get_adobe_glyph_index.exit
 
 .lr.ph83.i:                                       ; preds = %.preheader.i, %.backedge.i
-  %92 = phi i8 [ %100, %.backedge.i ], [ %69, %.preheader.i ]
-  %.05082.i = phi ptr [ %93, %.backedge.i ], [ %55, %.preheader.i ]
-  %.281.i = phi ptr [ %.2.be.i, %.backedge.i ], [ %77, %.preheader.i ]
-  %93 = getelementptr inbounds nuw i8, ptr %.05082.i, i64 1
-  %94 = load i8, ptr %.05082.i, align 1, !tbaa !3
-  %.not66.i = icmp sgt i8 %92, -1
-  %95 = getelementptr inbounds nuw i8, ptr %.281.i, i64 1
-  %96 = load i8, ptr %95, align 1, !tbaa !3
-  %97 = and i8 %96, 127
-  br i1 %.not66.i, label %101, label %98
+  %91 = phi i8 [ %99, %.backedge.i ], [ %68, %.preheader.i ]
+  %.05082.i = phi ptr [ %92, %.backedge.i ], [ %54, %.preheader.i ]
+  %.281.i = phi ptr [ %.2.be.i, %.backedge.i ], [ %71, %.preheader.i ]
+  %92 = getelementptr inbounds nuw i8, ptr %.05082.i, i64 1
+  %93 = load i8, ptr %.05082.i, align 1, !tbaa !3
+  %.not66.i = icmp sgt i8 %91, -1
+  %94 = getelementptr inbounds nuw i8, ptr %.281.i, i64 1
+  %95 = load i8, ptr %94, align 1, !tbaa !3
+  %96 = and i8 %95, 127
+  br i1 %.not66.i, label %100, label %97
 
-98:                                               ; preds = %.lr.ph83.i
-  %.not68.i = icmp eq i8 %94, %97
+97:                                               ; preds = %.lr.ph83.i
+  %.not68.i = icmp eq i8 %93, %96
   br i1 %.not68.i, label %.backedge.i, label %ft_get_adobe_glyph_index.exit
 
 .backedge.i.loopexit:                             ; preds = %.lr.ph.i
-  %99 = getelementptr inbounds nuw i8, ptr %111, i64 %110
+  %98 = getelementptr inbounds nuw i8, ptr %110, i64 %109
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %.backedge.i.loopexit, %98
-  %100 = phi i8 [ %96, %98 ], [ %113, %.backedge.i.loopexit ]
-  %.2.be.i = phi ptr [ %95, %98 ], [ %99, %.backedge.i.loopexit ]
-  %exitcond.not.i = icmp eq ptr %93, %.0.ptr.le
+.backedge.i:                                      ; preds = %.backedge.i.loopexit, %97
+  %99 = phi i8 [ %95, %97 ], [ %112, %.backedge.i.loopexit ]
+  %.2.be.i = phi ptr [ %94, %97 ], [ %98, %.backedge.i.loopexit ]
+  %exitcond.not.i = icmp eq ptr %92, %.0.ptr.le
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph83.i
 
-101:                                              ; preds = %.lr.ph83.i
-  %.not84.i = icmp eq i8 %97, 0
+100:                                              ; preds = %.lr.ph83.i
+  %.not84.i = icmp eq i8 %96, 0
   br i1 %.not84.i, label %ft_get_adobe_glyph_index.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %101
-  %.not67.i = icmp sgt i8 %96, -1
+.lr.ph.preheader.i:                               ; preds = %100
+  %.not67.i = icmp sgt i8 %95, -1
   %spec.select.i = select i1 %.not67.i, i64 1, i64 3
-  %102 = getelementptr inbounds nuw i8, ptr %.281.i, i64 %spec.select.i
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1
-  %104 = zext nneg i8 %97 to i32
+  %101 = getelementptr inbounds nuw i8, ptr %.281.i, i64 %spec.select.i
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
+  %103 = zext nneg i8 %96 to i32
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %116, %.lr.ph.preheader.i
-  %.05278.i = phi i32 [ %117, %116 ], [ %104, %.lr.ph.preheader.i ]
-  %.477.i = phi ptr [ %118, %116 ], [ %103, %.lr.ph.preheader.i ]
-  %105 = load i8, ptr %.477.i, align 1, !tbaa !3
-  %106 = zext i8 %105 to i64
-  %107 = shl nuw nsw i64 %106, 8
-  %108 = getelementptr inbounds nuw i8, ptr %.477.i, i64 1
-  %109 = load i8, ptr %108, align 1, !tbaa !3
-  %110 = zext i8 %109 to i64
-  %111 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %107
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 %110
-  %113 = load i8, ptr %112, align 1, !tbaa !3
-  %114 = and i8 %113, 127
-  %115 = icmp eq i8 %94, %114
-  br i1 %115, label %.backedge.i.loopexit, label %116
+.lr.ph.i:                                         ; preds = %115, %.lr.ph.preheader.i
+  %.05278.i = phi i32 [ %116, %115 ], [ %103, %.lr.ph.preheader.i ]
+  %.477.i = phi ptr [ %117, %115 ], [ %102, %.lr.ph.preheader.i ]
+  %104 = load i8, ptr %.477.i, align 1, !tbaa !3
+  %105 = zext i8 %104 to i64
+  %106 = shl nuw nsw i64 %105, 8
+  %107 = getelementptr inbounds nuw i8, ptr %.477.i, i64 1
+  %108 = load i8, ptr %107, align 1, !tbaa !3
+  %109 = zext i8 %108 to i64
+  %110 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %106
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %109
+  %112 = load i8, ptr %111, align 1, !tbaa !3
+  %113 = and i8 %112, 127
+  %114 = icmp eq i8 %93, %113
+  br i1 %114, label %.backedge.i.loopexit, label %115
 
-116:                                              ; preds = %.lr.ph.i
-  %117 = add nsw i32 %.05278.i, -1
-  %118 = getelementptr inbounds nuw i8, ptr %.477.i, i64 2
-  %119 = icmp sgt i32 %.05278.i, 1
-  br i1 %119, label %.lr.ph.i, label %ft_get_adobe_glyph_index.exit, !llvm.loop !10
+115:                                              ; preds = %.lr.ph.i
+  %116 = add nsw i32 %.05278.i, -1
+  %117 = getelementptr inbounds nuw i8, ptr %.477.i, i64 2
+  %118 = icmp sgt i32 %.05278.i, 1
+  br i1 %118, label %.lr.ph.i, label %ft_get_adobe_glyph_index.exit, !llvm.loop !10
 
-ft_get_adobe_glyph_index.exit:                    ; preds = %72, %98, %101, %116, %._crit_edge.i, %80, %83
-  %.0.i = phi i32 [ %91, %83 ], [ 0, %._crit_edge.i ], [ 0, %80 ], [ 0, %116 ], [ 0, %101 ], [ 0, %98 ], [ 0, %72 ]
-  %120 = icmp eq i8 %52, 46
-  %121 = or i32 %.0.i, -2147483648
-  %spec.select = select i1 %120, i32 %121, i32 %.0.i
+ft_get_adobe_glyph_index.exit:                    ; preds = %72, %97, %100, %115, %._crit_edge.i, %79, %82
+  %.0.i = phi i32 [ %90, %82 ], [ 0, %._crit_edge.i ], [ 0, %79 ], [ 0, %115 ], [ 0, %100 ], [ 0, %97 ], [ 0, %72 ]
+  %119 = icmp eq i8 %52, 46
+  %120 = or i32 %.0.i, -2147483648
+  %spec.select = select i1 %119, i32 %120, i32 %.0.i
   br label %.thread86
 
 .thread86:                                        ; preds = %.thread91, %50, %29, %31, %ft_get_adobe_glyph_index.exit, %.critedge

@@ -12548,8 +12548,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit161:      ; preds = %81, %76
 116:                                              ; preds = %.lr.ph281, %.backedge
   %117 = phi i32 [ %105, %.lr.ph281 ], [ %308, %.backedge ]
   %118 = phi i16 [ %101, %.lr.ph281 ], [ %304, %.backedge ]
-  %.2115280 = phi i32 [ %.0113, %.lr.ph281 ], [ %.8.ph, %.backedge ]
-  %.0118279 = phi i32 [ 0, %.lr.ph281 ], [ %.3121.ph, %.backedge ]
+  %.2115280 = phi i32 [ %.0113, %.lr.ph281 ], [ %.8.jt8, %.backedge ]
+  %.0118279 = phi i32 [ 0, %.lr.ph281 ], [ %.3121.jt8, %.backedge ]
   %119 = load i16, ptr %108, align 8, !tbaa !51
   %120 = icmp slt i16 %119, 0
   %121 = ashr i16 %119, 5
@@ -12918,20 +12918,20 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit180:      ; preds = %287, %_ZNK6icu_7713
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit, %296, %302
-  %.3121.ph = phi i32 [ %303, %302 ], [ %.2120.lcssa340, %296 ], [ %.2120.lcssa340, %_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit ]
-  %.8.ph = add nsw i32 %.4117, 1
+  %.3121.jt8 = phi i32 [ %.2120.lcssa340, %296 ], [ %303, %302 ], [ %.2120.lcssa340, %_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit ]
+  %.8.jt8 = add nsw i32 %.4117, 1
   %304 = load i16, ptr %10, align 8, !tbaa !51
   %305 = icmp slt i16 %304, 0
   %306 = ashr i16 %304, 5
   %307 = sext i16 %306 to i32
   %308 = load i32, ptr %100, align 4
   %309 = select i1 %305, i32 %308, i32 %307
-  %310 = icmp slt i32 %.3121.ph, %309
+  %310 = icmp slt i32 %.3121.jt8, %309
   br i1 %310, label %116, label %.critedge3, !llvm.loop !207
 
 .critedge3:                                       ; preds = %116, %.backedge, %190, %299
-  %.1119 = phi i32 [ %.2120.lcssa340, %299 ], [ %.2120.lcssa.ph346, %190 ], [ %.0118279, %116 ], [ %.3121.ph, %.backedge ]
-  %.3116 = phi i32 [ %.4117, %299 ], [ %.5.lcssa, %190 ], [ %.2115280, %116 ], [ %.8.ph, %.backedge ]
+  %.1119 = phi i32 [ %.2120.lcssa340, %299 ], [ %.2120.lcssa.ph346, %190 ], [ %.0118279, %116 ], [ %.3121.jt8, %.backedge ]
+  %.3116 = phi i32 [ %.4117, %299 ], [ %.5.lcssa, %190 ], [ %.2115280, %116 ], [ %.8.jt8, %.backedge ]
   %311 = icmp slt i32 %.1119, 1
   br i1 %311, label %.critedge3.thread, label %.thread232
 

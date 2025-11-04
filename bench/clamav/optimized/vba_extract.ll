@@ -2736,136 +2736,221 @@ define internal fastcc i64 @vba_normalize(ptr noundef captures(none) %0, i64 nou
   %.not81 = icmp eq i64 %1, 0
   br i1 %.not81, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %49
-  %.080 = phi i32 [ %.2, %49 ], [ 0, %2 ]
-  %.07179 = phi i64 [ %.3, %49 ], [ 0, %2 ]
-  %.07578 = phi i64 [ %50, %49 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %spec.store.select14.si.unfold.false
+  %.080 = phi i32 [ %.2, %spec.store.select14.si.unfold.false ], [ 0, %2 ]
+  %.07179 = phi i64 [ %.3, %spec.store.select14.si.unfold.false ], [ 0, %2 ]
+  %.07578 = phi i64 [ %41, %spec.store.select14.si.unfold.false ], [ 0, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.07578
   %4 = load i8, ptr %3, align 1, !tbaa !10
-  switch i8 %4, label %35 [
-    i8 34, label %5
-    i8 95, label %13
-    i8 13, label %17
+  switch i8 %4, label %.loopexit [
+    i8 34, label %11
+    i8 95, label %.preheader148.preheader
+    i8 13, label %.preheader.preheader
     i8 10, label %21
-    i8 9, label %29
-    i8 32, label %29
+    i8 9, label %24
+    i8 32, label %24
   ]
 
-5:                                                ; preds = %.lr.ph
-  %6 = icmp eq i32 %.080, 1
-  br i1 %6, label %10, label %7
+.preheader.preheader:                             ; preds = %.lr.ph.jt2, %.lr.ph, %.lr.ph.jt0
+  %.07578104.ph = phi i64 [ %47, %.lr.ph.jt0 ], [ %.07578, %.lr.ph ], [ %45, %.lr.ph.jt2 ]
+  %.0717996.ph = phi i64 [ %.3.jt0, %.lr.ph.jt0 ], [ %.07179, %.lr.ph ], [ %16, %.lr.ph.jt2 ]
+  %.08090.ph = phi i32 [ %.2.jt0, %.lr.ph.jt0 ], [ %.080, %.lr.ph ], [ 2, %.lr.ph.jt2 ]
+  br label %.preheader
 
-7:                                                ; preds = %5
-  %8 = and i32 %.080, -3
-  %or.cond = icmp eq i32 %8, 0
-  %9 = icmp eq i32 %.080, 5
-  %or.cond3 = or i1 %9, %or.cond
-  %spec.store.select13 = select i1 %or.cond3, i32 1, i32 %.080
-  br label %10
+.lr.ph.jt3:                                       ; preds = %42
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %43
+  %6 = load i8, ptr %5, align 1, !tbaa !10
+  switch i8 %6, label %.loopexit [
+    i8 34, label %.thread
+    i8 95, label %.preheader148.preheader
+    i8 13, label %.preheader
+    i8 10, label %.loopexit147
+    i8 9, label %spec.store.select14.si.unfold.false.sink.split
+    i8 32, label %spec.store.select14.si.unfold.false.sink.split
+  ]
 
-10:                                               ; preds = %5, %7
-  %.1 = phi i32 [ %spec.store.select13, %7 ], [ 0, %5 ]
-  %11 = add i64 %.07179, 1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.07179
-  store i8 34, ptr %12, align 1, !tbaa !10
-  br label %49
+.lr.ph.jt2:                                       ; preds = %44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %45
+  %8 = load i8, ptr %7, align 1, !tbaa !10
+  switch i8 %8, label %.loopexit [
+    i8 34, label %.thread.thread
+    i8 95, label %.preheader148
+    i8 13, label %.preheader.preheader
+    i8 10, label %.loopexit152
+    i8 9, label %.thread120
+    i8 32, label %.thread120
+  ]
 
-13:                                               ; preds = %.lr.ph
-  %14 = icmp eq i32 %.080, 5
-  %spec.store.select = select i1 %14, i32 2, i32 %.080
-  %15 = add i64 %.07179, 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.07179
-  store i8 95, ptr %16, align 1, !tbaa !10
-  br label %49
+.lr.ph.jt0:                                       ; preds = %46
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %47
+  %10 = load i8, ptr %9, align 1, !tbaa !10
+  switch i8 %10, label %.loopexit [
+    i8 34, label %11
+    i8 95, label %.preheader148.preheader
+    i8 13, label %.preheader.preheader
+    i8 10, label %spec.store.select14.si.unfold.false.sink.split
+    i8 9, label %24
+    i8 32, label %24
+  ]
 
-17:                                               ; preds = %.lr.ph
-  %18 = icmp eq i32 %.080, 2
-  %spec.store.select4 = select i1 %18, i32 3, i32 %.080
-  %19 = add i64 %.07179, 1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.07179
+11:                                               ; preds = %.lr.ph.jt0, %.lr.ph
+  %.07578102 = phi i64 [ %47, %.lr.ph.jt0 ], [ %.07578, %.lr.ph ]
+  %.0717994 = phi i64 [ %.3.jt0, %.lr.ph.jt0 ], [ %.07179, %.lr.ph ]
+  %.08088 = phi i32 [ %.2.jt0, %.lr.ph.jt0 ], [ %.080, %.lr.ph ]
+  %12 = icmp eq i32 %.08088, 1
+  br i1 %12, label %.thread.thread, label %.thread
+
+.thread:                                          ; preds = %.lr.ph.jt3, %11
+  %.08088118 = phi i32 [ %.08088, %11 ], [ 3, %.lr.ph.jt3 ]
+  %.0717994116 = phi i64 [ %.0717994, %11 ], [ %19, %.lr.ph.jt3 ]
+  %.07578102114 = phi i64 [ %.07578102, %11 ], [ %43, %.lr.ph.jt3 ]
+  switch i32 %.08088118, label %spec.store.select14.si.unfold.false.sink.split [
+    i32 5, label %.thread.thread
+    i32 2, label %.thread.thread
+    i32 0, label %.thread.thread
+  ]
+
+.thread.thread:                                   ; preds = %.lr.ph.jt2, %.thread, %.thread, %.thread, %11
+  %.0717994117 = phi i64 [ %.0717994116, %.thread ], [ %.0717994, %11 ], [ %.0717994116, %.thread ], [ %.0717994116, %.thread ], [ %16, %.lr.ph.jt2 ]
+  %.07578102115 = phi i64 [ %.07578102114, %.thread ], [ %.07578102, %11 ], [ %.07578102114, %.thread ], [ %.07578102114, %.thread ], [ %45, %.lr.ph.jt2 ]
+  %.1.jt0 = phi i32 [ 1, %.thread ], [ 0, %11 ], [ 1, %.thread ], [ 1, %.thread ], [ 1, %.lr.ph.jt2 ]
+  %13 = add i64 %.0717994117, 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.0717994117
+  store i8 34, ptr %14, align 1, !tbaa !10
+  br label %46
+
+.preheader148.preheader:                          ; preds = %.lr.ph.jt3, %.lr.ph, %.lr.ph.jt0
+  %.07578103.ph = phi i64 [ %47, %.lr.ph.jt0 ], [ %.07578, %.lr.ph ], [ %43, %.lr.ph.jt3 ]
+  %.0717995.ph = phi i64 [ %.3.jt0, %.lr.ph.jt0 ], [ %.07179, %.lr.ph ], [ %19, %.lr.ph.jt3 ]
+  %.08089.ph = phi i32 [ %.2.jt0, %.lr.ph.jt0 ], [ %.080, %.lr.ph ], [ 3, %.lr.ph.jt3 ]
+  br label %.preheader148
+
+.preheader148:                                    ; preds = %.preheader148.preheader, %.lr.ph.jt2
+  %.07578103 = phi i64 [ %45, %.lr.ph.jt2 ], [ %.07578103.ph, %.preheader148.preheader ]
+  %.0717995 = phi i64 [ %16, %.lr.ph.jt2 ], [ %.0717995.ph, %.preheader148.preheader ]
+  %.08089 = phi i32 [ 2, %.lr.ph.jt2 ], [ %.08089.ph, %.preheader148.preheader ]
+  %15 = icmp eq i32 %.08089, 5
+  %16 = add i64 %.0717995, 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %.0717995
+  store i8 95, ptr %17, align 1, !tbaa !10
+  br i1 %15, label %44, label %spec.store.select14.si.unfold.false
+
+.preheader:                                       ; preds = %.preheader.preheader, %.lr.ph.jt3
+  %.07578104 = phi i64 [ %43, %.lr.ph.jt3 ], [ %.07578104.ph, %.preheader.preheader ]
+  %.0717996 = phi i64 [ %19, %.lr.ph.jt3 ], [ %.0717996.ph, %.preheader.preheader ]
+  %.08090 = phi i32 [ 3, %.lr.ph.jt3 ], [ %.08090.ph, %.preheader.preheader ]
+  %18 = icmp eq i32 %.08090, 2
+  %19 = add i64 %.0717996, 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.0717996
   store i8 13, ptr %20, align 1, !tbaa !10
-  br label %49
+  br i1 %18, label %42, label %spec.store.select14.si.unfold.false
 
 21:                                               ; preds = %.lr.ph
-  switch i32 %.080, label %26 [
-    i32 2, label %22
-    i32 3, label %24
+  switch i32 %.080, label %spec.store.select14.si.unfold.false.sink.split [
+    i32 2, label %.loopexit152
+    i32 3, label %.loopexit147
   ]
 
-22:                                               ; preds = %21
-  %23 = add i64 %.07179, -1
-  br label %49
+.loopexit152:                                     ; preds = %.lr.ph.jt2, %21
+  %.07578107 = phi i64 [ %.07578, %21 ], [ %45, %.lr.ph.jt2 ]
+  %.0717999 = phi i64 [ %.07179, %21 ], [ %16, %.lr.ph.jt2 ]
+  %22 = add i64 %.0717999, -1
+  br label %46
 
-24:                                               ; preds = %21
-  %25 = add i64 %.07179, -2
-  br label %49
+.loopexit147:                                     ; preds = %.lr.ph.jt3, %21
+  %.07578106 = phi i64 [ %.07578, %21 ], [ %43, %.lr.ph.jt3 ]
+  %.0717998 = phi i64 [ %.07179, %21 ], [ %19, %.lr.ph.jt3 ]
+  %23 = add i64 %.0717998, -2
+  br label %46
 
-26:                                               ; preds = %21
-  %27 = add i64 %.07179, 1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %.07179
-  store i8 10, ptr %28, align 1, !tbaa !10
-  br label %49
+24:                                               ; preds = %.lr.ph.jt0, %.lr.ph.jt0, %.lr.ph, %.lr.ph
+  %.07578105 = phi i64 [ %47, %.lr.ph.jt0 ], [ %47, %.lr.ph.jt0 ], [ %.07578, %.lr.ph ], [ %.07578, %.lr.ph ]
+  %.0717997 = phi i64 [ %.3.jt0, %.lr.ph.jt0 ], [ %.3.jt0, %.lr.ph.jt0 ], [ %.07179, %.lr.ph ], [ %.07179, %.lr.ph ]
+  %.08091 = phi i32 [ %.2.jt0, %.lr.ph.jt0 ], [ %.2.jt0, %.lr.ph.jt0 ], [ %.080, %.lr.ph ], [ %.080, %.lr.ph ]
+  %.not = icmp eq i32 %.08091, 5
+  br i1 %.not, label %spec.store.select14.si.unfold.false, label %.thread120
 
-29:                                               ; preds = %.lr.ph, %.lr.ph
-  %.not = icmp eq i32 %.080, 5
-  br i1 %.not, label %33, label %30
+.thread120:                                       ; preds = %.lr.ph.jt2, %.lr.ph.jt2, %24
+  %.08091128 = phi i32 [ %.08091, %24 ], [ 2, %.lr.ph.jt2 ], [ 2, %.lr.ph.jt2 ]
+  %.0717997127 = phi i64 [ %.0717997, %24 ], [ %16, %.lr.ph.jt2 ], [ %16, %.lr.ph.jt2 ]
+  %.07578105125 = phi i64 [ %.07578105, %24 ], [ %45, %.lr.ph.jt2 ], [ %45, %.lr.ph.jt2 ]
+  %25 = add i64 %.0717997127, 1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.0717997127
+  store i8 32, ptr %26, align 1, !tbaa !10
+  %27 = and i32 %.08091128, -3
+  %or.cond6 = icmp eq i32 %27, 0
+  br i1 %or.cond6, label %46, label %spec.store.select14.si.unfold.false
 
-30:                                               ; preds = %29
-  %31 = add i64 %.07179, 1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.07179
-  store i8 32, ptr %32, align 1, !tbaa !10
-  br label %33
-
-33:                                               ; preds = %30, %29
-  %.172 = phi i64 [ %31, %30 ], [ %.07179, %29 ]
-  %34 = and i32 %.080, -3
-  %or.cond6 = icmp eq i32 %34, 0
-  %spec.store.select14 = select i1 %or.cond6, i32 5, i32 %.080
-  br label %49
-
-35:                                               ; preds = %.lr.ph
-  switch i32 %.080, label %46 [
-    i32 5, label %36
-    i32 2, label %36
-    i32 0, label %36
+.loopexit:                                        ; preds = %.lr.ph.jt2, %.lr.ph.jt3, %.lr.ph.jt0, %.lr.ph
+  %28 = phi i8 [ %10, %.lr.ph.jt0 ], [ %4, %.lr.ph ], [ %6, %.lr.ph.jt3 ], [ %8, %.lr.ph.jt2 ]
+  %.07578101 = phi i64 [ %47, %.lr.ph.jt0 ], [ %.07578, %.lr.ph ], [ %43, %.lr.ph.jt3 ], [ %45, %.lr.ph.jt2 ]
+  %.0717993 = phi i64 [ %.3.jt0, %.lr.ph.jt0 ], [ %.07179, %.lr.ph ], [ %19, %.lr.ph.jt3 ], [ %16, %.lr.ph.jt2 ]
+  %.08087 = phi i32 [ %.2.jt0, %.lr.ph.jt0 ], [ %.080, %.lr.ph ], [ 3, %.lr.ph.jt3 ], [ 2, %.lr.ph.jt2 ]
+  switch i32 %.08087, label %spec.store.select14.si.unfold.false.sink.split [
+    i32 5, label %29
+    i32 2, label %29
+    i32 0, label %29
   ]
 
-36:                                               ; preds = %35, %35, %35
-  %37 = add i8 %4, -65
-  %or.cond77 = icmp ult i8 %37, 26
-  br i1 %or.cond77, label %38, label %44
+29:                                               ; preds = %.loopexit, %.loopexit, %.loopexit
+  %30 = add i8 %28, -65
+  %or.cond77 = icmp ult i8 %30, 26
+  br i1 %or.cond77, label %31, label %37
 
-38:                                               ; preds = %36
-  %39 = tail call ptr @__ctype_tolower_loc() #18
-  %40 = load ptr, ptr %39, align 8, !tbaa !50
-  %41 = zext nneg i8 %4 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
-  %.074 = load i32, ptr %42, align 4, !tbaa !11
-  %43 = trunc i32 %.074 to i8
-  br label %44
+31:                                               ; preds = %29
+  %32 = tail call ptr @__ctype_tolower_loc() #18
+  %33 = load ptr, ptr %32, align 8, !tbaa !50
+  %34 = zext nneg i8 %28 to i64
+  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %.074 = load i32, ptr %35, align 4, !tbaa !11
+  %36 = trunc i32 %.074 to i8
+  br label %37
 
-44:                                               ; preds = %36, %38
-  %.sink = phi i8 [ %43, %38 ], [ %4, %36 ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %.07179
-  store i8 %.sink, ptr %45, align 1, !tbaa !10
-  %.273 = add i64 %.07179, 1
-  br label %49
+37:                                               ; preds = %29, %31
+  %.sink = phi i8 [ %36, %31 ], [ %28, %29 ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.0717993
+  store i8 %.sink, ptr %38, align 1, !tbaa !10
+  %.273 = add i64 %.0717993, 1
+  br label %46
 
-46:                                               ; preds = %35
-  %47 = add i64 %.07179, 1
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %.07179
-  store i8 %4, ptr %48, align 1, !tbaa !10
-  br label %49
+spec.store.select14.si.unfold.false.sink.split:   ; preds = %.lr.ph.jt3, %.lr.ph.jt3, %.loopexit, %21, %.lr.ph.jt0, %.thread
+  %.lcssa194.sink228 = phi i64 [ %.0717994116, %.thread ], [ %.07179, %21 ], [ %.3.jt0, %.lr.ph.jt0 ], [ %.0717993, %.loopexit ], [ %19, %.lr.ph.jt3 ], [ %19, %.lr.ph.jt3 ]
+  %.sink226 = phi i8 [ 34, %.thread ], [ 10, %21 ], [ %10, %.lr.ph.jt0 ], [ %28, %.loopexit ], [ 32, %.lr.ph.jt3 ], [ 32, %.lr.ph.jt3 ]
+  %.07578110.ph = phi i64 [ %.07578102114, %.thread ], [ %.07578, %21 ], [ %47, %.lr.ph.jt0 ], [ %.07578101, %.loopexit ], [ %43, %.lr.ph.jt3 ], [ %43, %.lr.ph.jt3 ]
+  %.2.ph = phi i32 [ %.08088118, %.thread ], [ %.080, %21 ], [ %.2.jt0, %.lr.ph.jt0 ], [ %.08087, %.loopexit ], [ 3, %.lr.ph.jt3 ], [ 3, %.lr.ph.jt3 ]
+  %39 = add i64 %.lcssa194.sink228, 1
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %.lcssa194.sink228
+  store i8 %.sink226, ptr %40, align 1, !tbaa !10
+  br label %spec.store.select14.si.unfold.false
 
-49:                                               ; preds = %33, %10, %13, %17, %24, %26, %22, %46, %44
-  %.3 = phi i64 [ %.273, %44 ], [ %47, %46 ], [ %11, %10 ], [ %15, %13 ], [ %19, %17 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %.172, %33 ]
-  %.2 = phi i32 [ 0, %44 ], [ %.080, %46 ], [ %.1, %10 ], [ %spec.store.select, %13 ], [ %spec.store.select4, %17 ], [ 5, %22 ], [ 5, %24 ], [ %.080, %26 ], [ %spec.store.select14, %33 ]
-  %50 = add nuw i64 %.07578, 1
-  %exitcond.not = icmp eq i64 %50, %1
+spec.store.select14.si.unfold.false:              ; preds = %.preheader148, %.preheader, %spec.store.select14.si.unfold.false.sink.split, %24, %.thread120
+  %.07578110 = phi i64 [ %.07578105125, %.thread120 ], [ %.07578105, %24 ], [ %.07578110.ph, %spec.store.select14.si.unfold.false.sink.split ], [ %.07578104, %.preheader ], [ %.07578103, %.preheader148 ]
+  %.3 = phi i64 [ %25, %.thread120 ], [ %.0717997, %24 ], [ %39, %spec.store.select14.si.unfold.false.sink.split ], [ %19, %.preheader ], [ %16, %.preheader148 ]
+  %.2 = phi i32 [ %.08091128, %.thread120 ], [ 5, %24 ], [ %.2.ph, %spec.store.select14.si.unfold.false.sink.split ], [ %.08090, %.preheader ], [ %.08089, %.preheader148 ]
+  %41 = add nuw i64 %.07578110, 1
+  %exitcond.not = icmp eq i64 %41, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %49, %2
-  %.071.lcssa = phi i64 [ 0, %2 ], [ %.3, %49 ]
+42:                                               ; preds = %.preheader
+  %43 = add nuw i64 %.07578104, 1
+  %exitcond.not.jt3 = icmp eq i64 %43, %1
+  br i1 %exitcond.not.jt3, label %._crit_edge, label %.lr.ph.jt3
+
+44:                                               ; preds = %.preheader148
+  %45 = add nuw i64 %.07578103, 1
+  %exitcond.not.jt2 = icmp eq i64 %45, %1
+  br i1 %exitcond.not.jt2, label %._crit_edge, label %.lr.ph.jt2
+
+46:                                               ; preds = %.thread120, %.loopexit147, %.loopexit152, %.thread.thread, %37
+  %.07578109 = phi i64 [ %.07578105125, %.thread120 ], [ %.07578106, %.loopexit147 ], [ %.07578107, %.loopexit152 ], [ %.07578102115, %.thread.thread ], [ %.07578101, %37 ]
+  %.3.jt0 = phi i64 [ %25, %.thread120 ], [ %23, %.loopexit147 ], [ %22, %.loopexit152 ], [ %13, %.thread.thread ], [ %.273, %37 ]
+  %.2.jt0 = phi i32 [ 5, %.thread120 ], [ 5, %.loopexit147 ], [ 5, %.loopexit152 ], [ %.1.jt0, %.thread.thread ], [ 0, %37 ]
+  %47 = add nuw i64 %.07578109, 1
+  %exitcond.not.jt0 = icmp eq i64 %47, %1
+  br i1 %exitcond.not.jt0, label %._crit_edge, label %.lr.ph.jt0
+
+._crit_edge:                                      ; preds = %spec.store.select14.si.unfold.false, %46, %44, %42, %2
+  %.071.lcssa = phi i64 [ 0, %2 ], [ %19, %42 ], [ %16, %44 ], [ %.3, %spec.store.select14.si.unfold.false ], [ %.3.jt0, %46 ]
   ret i64 %.071.lcssa
 }
 

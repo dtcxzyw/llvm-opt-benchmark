@@ -1505,40 +1505,40 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
   %45 = load ptr, ptr %3, align 8
   %46 = call i32 %44(ptr noundef %45, ptr noundef nonnull %8) #8
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %.thread74, label %48
+  br i1 %47, label %64, label %48
 
 48:                                               ; preds = %43
   %49 = load i32, ptr %8, align 4
   %50 = icmp eq i32 %49, -1
-  br i1 %50, label %60, label %51
+  br i1 %50, label %.loopexit.jt0, label %51
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %3, align 8
   %53 = call fastcc i32 @hotplug_device_process(ptr noundef %52, ptr noundef %22, i32 noundef %49, i32 noundef 0, ptr noundef %4, ptr noundef %5)
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %.thread74, label %55
+  br i1 %54, label %64, label %55
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %3, align 8
   %57 = load i32, ptr %8, align 4
   %58 = call fastcc i32 @hotplug_device_process(ptr noundef %56, ptr noundef %22, i32 noundef %57, i32 noundef 1, ptr noundef %4, ptr noundef %5)
   %59 = icmp slt i32 %58, 0
-  br i1 %59, label %.thread74, label %43
+  br i1 %59, label %64, label %43
 
-.thread74:                                        ; preds = %43, %51, %55
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread39.sink.split
-
-60:                                               ; preds = %48
-  %61 = load ptr, ptr @ALSA_snd_ctl_close, align 8
-  %62 = load ptr, ptr %3, align 8
-  %63 = call i32 %61(ptr noundef %62) #8
-  %64 = load ptr, ptr @ALSA_snd_ctl_card_info_clear, align 8
-  call void %64(ptr noundef nonnull %22) #8
+.loopexit.jt0:                                    ; preds = %48
+  %60 = load ptr, ptr @ALSA_snd_ctl_close, align 8
+  %61 = load ptr, ptr %3, align 8
+  %62 = call i32 %60(ptr noundef %61) #8
+  %63 = load ptr, ptr @ALSA_snd_ctl_card_info_clear, align 8
+  call void %63(ptr noundef nonnull %22) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge
 
-.backedge:                                        ; preds = %31, %60
+64:                                               ; preds = %43, %51, %55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %.thread39.sink.split
+
+.backedge:                                        ; preds = %31, %.loopexit.jt0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %65 = load ptr, ptr @ALSA_snd_card_next, align 8
   %66 = call i32 %65(ptr noundef nonnull %6) #8
@@ -1570,7 +1570,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   store ptr %75, ptr @hotplug_devices, align 8
   br i1 %15, label %.loopexit48, label %.loopexit48.sink.split
 
-.thread39.sink.split:                             ; preds = %37, %.thread74
+.thread39.sink.split:                             ; preds = %37, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread39
 

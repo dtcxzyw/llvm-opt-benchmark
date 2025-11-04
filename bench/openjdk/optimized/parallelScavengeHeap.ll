@@ -782,23 +782,25 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap17mem_allocate_workEmbPb(ptr
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.lr.ph
-  %.0.ph79 = phi ptr [ undef, %.lr.ph.lr.ph ], [ %.1, %.lr.ph.backedge ]
-  %.036.ph78 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %85, %.lr.ph.backedge ]
-  %.039.ph77 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.140, %.lr.ph.backedge ]
-  br label %18
+  %.036.ph78 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %82, %.lr.ph.backedge ]
+  %.039.ph77 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.03973.ph, %.lr.ph.backedge ]
+  br label %.backedge.outer
 
-18:                                               ; preds = %.lr.ph, %.backedge
-  %.074 = phi ptr [ %.0.ph79, %.lr.ph ], [ %.1, %.backedge ]
-  %.03973 = phi i32 [ %.039.ph77, %.lr.ph ], [ %.140, %.backedge ]
+.backedge.outer:                                  ; preds = %.backedge.outer.backedge, %.lr.ph
+  %.03973.ph = phi i32 [ %.039.ph77, %.lr.ph ], [ %51, %.backedge.outer.backedge ]
+  %18 = zext i32 %.03973.ph to i64
+  br label %.backedge
+
+.backedge:                                        ; preds = %.backedge.outer, %80
   %19 = load ptr, ptr @Heap_lock, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %20
 
-20:                                               ; preds = %18
+20:                                               ; preds = %.backedge
   call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %19) #15
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %18, %20
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %.backedge, %20
   %21 = load i32, ptr %14, align 8
   %22 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -808,7 +810,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %18, %20
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %1) #15
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %29, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+  br i1 %.not, label %29, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt1
 
 29:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   br i1 %2, label %32, label %30
@@ -816,176 +818,168 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %18, %20
 30:                                               ; preds = %29
   %31 = call noundef ptr @_ZN20ParallelScavengeHeap20mem_allocate_old_genEm(ptr nonnull align 8 poison, i64 noundef %1)
   %.not46 = icmp eq ptr %31, null
-  br i1 %.not46, label %32, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+  br i1 %.not46, label %32, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt1
 
 32:                                               ; preds = %30, %29
-  %33 = zext i32 %.03973 to i64
-  %34 = load i64, ptr @GCLockerRetryAllocationCount, align 8
-  %35 = icmp ult i64 %34, %33
-  br i1 %35, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread, label %36
+  %33 = load i64, ptr @GCLockerRetryAllocationCount, align 8
+  %34 = icmp ult i64 %33, %18
+  br i1 %34, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt1, label %35
 
-36:                                               ; preds = %32
-  %37 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+35:                                               ; preds = %32
+  %36 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt0
 
-_ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %36
-  %39 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %41, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+_ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %35
+  %38 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %40, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt0
 
-41:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
-  %42 = load ptr, ptr %15, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1308
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %48, label %_ZN13MutexUnlockerD2Ev.exit
+40:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
+  %41 = load ptr, ptr %15, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1308
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %45, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt2
 
-_ZN13MutexUnlockerD2Ev.exit:                      ; preds = %41
-  %46 = load ptr, ptr @Heap_lock, align 8
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %46) #15
-  call void @_ZN8GCLocker17stall_until_clearEv() #15
-  %47 = add i32 %.03973, 1
-  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %46) #15
-  br label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+45:                                               ; preds = %40
+  %46 = load i8, ptr @CheckJNICalls, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt1
 
-48:                                               ; preds = %41
-  %49 = load i8, ptr @CheckJNICalls, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
-
-51:                                               ; preds = %48
-  %52 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %52, align 1
+48:                                               ; preds = %45
+  %49 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %49, align 1
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.10, i32 noundef 341, ptr noundef nonnull @.str.11) #16
   unreachable
 
-_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %36, %_ZN8GCLocker22is_active_and_needs_gcEv.exit, %48, %32, %30, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %_ZN13MutexUnlockerD2Ev.exit
-  %.140 = phi i32 [ %47, %_ZN13MutexUnlockerD2Ev.exit ], [ %.03973, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %.03973, %30 ], [ %.03973, %32 ], [ %.03973, %48 ], [ %.03973, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %.03973, %36 ]
-  %.037 = phi i32 [ 2, %_ZN13MutexUnlockerD2Ev.exit ], [ 1, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ 1, %30 ], [ 1, %32 ], [ 1, %48 ], [ 0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ 0, %36 ]
-  %.134 = phi ptr [ null, %_ZN13MutexUnlockerD2Ev.exit ], [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ null, %48 ], [ null, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ null, %36 ]
-  %.1 = phi ptr [ %.074, %_ZN13MutexUnlockerD2Ev.exit ], [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ null, %48 ], [ %.074, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %.074, %36 ]
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %53
+_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt0: ; preds = %35, %_ZN8GCLocker22is_active_and_needs_gcEv.exit
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit.jt0.thread, label %52
 
-53:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt1: ; preds = %32, %30, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %45
+  %.1.jt1 = phi ptr [ null, %45 ], [ null, %32 ], [ %31, %30 ], [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ]
+  br i1 %.not.i.i, label %.loopexit, label %53
+
+_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt2: ; preds = %40
+  %50 = load ptr, ptr @Heap_lock, align 8
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %50) #15
+  call void @_ZN8GCLocker17stall_until_clearEv() #15
+  %51 = add i32 %.03973.ph, 1
+  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %50) #15
+  br i1 %.not.i.i, label %.backedge.outer.backedge, label %54
+
+52:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt0
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %19) #15
-  br label %_ZN11MutexLockerD2Ev.exit
+  br label %_ZN11MutexLockerD2Ev.exit.jt0.thread
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread, %53
-  switch i32 %.037, label %default.unreachable103 [
-    i32 0, label %55
-    i32 1, label %.loopexit
-    i32 2, label %.backedge
-  ]
+53:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt1
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %19) #15
+  br label %.loopexit
 
-.backedge:                                        ; preds = %_ZN11MutexLockerD2Ev.exit, %83
-  %54 = icmp eq ptr %.134, null
-  br i1 %54, label %18, label %.loopexit
+54:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt2
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %19) #15
+  br label %.backedge.outer.backedge
 
-55:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
-  %56 = icmp eq ptr %.134, null
-  br i1 %56, label %57, label %.loopexit
+.backedge.outer.backedge:                         ; preds = %54, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt2
+  br label %.backedge.outer
 
-57:                                               ; preds = %55
+_ZN11MutexLockerD2Ev.exit.jt0.thread:             ; preds = %52, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt0
   call void @_ZN31VM_ParallelCollectForAllocationC1Embj(ptr noundef nonnull align 8 dereferenceable(57) %5, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %21) #15
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %5) #15
-  %58 = load i8, ptr %16, align 1
+  %55 = load i8, ptr %16, align 1
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %81
+
+57:                                               ; preds = %_ZN11MutexLockerD2Ev.exit.jt0.thread
+  %58 = load i8, ptr %17, align 8
   %59 = trunc i8 %58 to i1
-  br i1 %59, label %60, label %84
+  br i1 %59, label %80, label %60, !llvm.loop !12
 
 60:                                               ; preds = %57
-  %61 = load i8, ptr %17, align 8
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %83, label %63, !llvm.loop !12
+  %61 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %63 = load i8, ptr %62, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %65 = load i8, ptr %64, align 1
+  %66 = and i8 %63, 1
+  %67 = and i8 %66, %65
+  %or.cond.not = icmp eq i8 %67, 0
+  br i1 %or.cond.not, label %77, label %68
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %66 = load i8, ptr %65, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %68 = load i8, ptr %67, align 1
-  %69 = and i8 %66, 1
-  %70 = and i8 %69, %68
-  %or.cond.not = icmp eq i8 %70, 0
-  br i1 %or.cond.not, label %80, label %71
-
-71:                                               ; preds = %63
+68:                                               ; preds = %60
   store i8 1, ptr %3, align 1
-  %72 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
-  store i8 0, ptr %73, align 4
-  %74 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not60 = icmp eq ptr %74, null
-  br i1 %.not60, label %76, label %75
+  %69 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  store i8 0, ptr %70, align 4
+  %71 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not60 = icmp eq ptr %71, null
+  br i1 %.not60, label %73, label %72
 
-75:                                               ; preds = %71
+72:                                               ; preds = %68
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.12)
-  br label %76
+  br label %73
 
-76:                                               ; preds = %71, %75
-  %77 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %78 = load ptr, ptr %77, align 8
-  %.not47 = icmp eq ptr %78, null
-  br i1 %.not47, label %.thread, label %79
+73:                                               ; preds = %68, %72
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %75 = load ptr, ptr %74, align 8
+  %.not47 = icmp eq ptr %75, null
+  br i1 %.not47, label %.thread, label %76
 
-79:                                               ; preds = %76
-  call void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr noundef nonnull %78, i64 noundef %1, i1 noundef zeroext true) #15
+76:                                               ; preds = %73
+  call void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr noundef nonnull %75, i64 noundef %1, i1 noundef zeroext true) #15
   br label %.thread
 
-80:                                               ; preds = %63
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %82 = load ptr, ptr %81, align 8
+77:                                               ; preds = %60
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %79 = load ptr, ptr %78, align 8
   br label %.thread
 
-.thread:                                          ; preds = %80, %79, %76
-  %.4.ph = phi ptr [ null, %76 ], [ null, %79 ], [ %82, %80 ]
+.thread:                                          ; preds = %77, %76, %73
+  %.4.ph = phi ptr [ null, %73 ], [ null, %76 ], [ %79, %77 ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %5) #15
   br label %.loopexit
 
-83:                                               ; preds = %60
+80:                                               ; preds = %57
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %5) #15
   br label %.backedge
 
-84:                                               ; preds = %57
+81:                                               ; preds = %_ZN11MutexLockerD2Ev.exit.jt0.thread
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %5) #15
-  %85 = add i32 %.036.ph78, 1
-  %86 = load i64, ptr @QueuedAllocationWarningCount, align 8
-  %.not57 = icmp eq i64 %86, 0
-  br i1 %.not57, label %.lr.ph.backedge, label %87
+  %82 = add i32 %.036.ph78, 1
+  %83 = load i64, ptr @QueuedAllocationWarningCount, align 8
+  %.not57 = icmp eq i64 %83, 0
+  br i1 %.not57, label %.lr.ph.backedge, label %84
 
-87:                                               ; preds = %84
-  %88 = zext i32 %85 to i64
-  %89 = urem i64 %88, %86
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %91, label %.lr.ph.backedge
+84:                                               ; preds = %81
+  %85 = zext i32 %82 to i64
+  %86 = urem i64 %85, %83
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %88, label %.lr.ph.backedge
 
-91:                                               ; preds = %87
+88:                                               ; preds = %84
+  %89 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not58 = icmp eq ptr %89, null
+  br i1 %.not58, label %91, label %90
+
+90:                                               ; preds = %88
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.13, i32 noundef %82)
+  br label %91
+
+91:                                               ; preds = %88, %90
   %92 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not58 = icmp eq ptr %92, null
-  br i1 %.not58, label %94, label %93
+  %.not59 = icmp eq ptr %92, null
+  br i1 %.not59, label %.lr.ph.backedge, label %93
 
 93:                                               ; preds = %91
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.13, i32 noundef %85)
-  br label %94
-
-94:                                               ; preds = %91, %93
-  %95 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not59 = icmp eq ptr %95, null
-  br i1 %.not59, label %.lr.ph.backedge, label %96
-
-96:                                               ; preds = %94
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.14, i64 noundef %1)
   br label %.lr.ph.backedge
 
-.lr.ph.backedge:                                  ; preds = %96, %94, %87, %84
-  br label %.lr.ph, !llvm.loop !12
+.lr.ph.backedge:                                  ; preds = %93, %91, %84, %81
+  br label %.lr.ph
 
-.loopexit:                                        ; preds = %55, %_ZN11MutexLockerD2Ev.exit, %.backedge, %4, %.thread
-  %.2 = phi ptr [ %.4.ph, %.thread ], [ %12, %4 ], [ %.134, %55 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %.134, %.backedge ]
+.loopexit:                                        ; preds = %53, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt1, %4, %.thread
+  %.2 = phi ptr [ %.4.ph, %.thread ], [ %12, %4 ], [ %.1.jt1, %53 ], [ %.1.jt1, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread.jt1 ]
   ret ptr %.2
-
-default.unreachable103:                           ; preds = %_ZN11MutexLockerD2Ev.exit
-  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

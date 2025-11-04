@@ -1032,7 +1032,7 @@ _ZN20unicode_segmentation8grapheme10check_pair17hf95ed60c16c41c83E.exit.thread99
   %360 = trunc nuw i8 %359 to i1
   %.not.i77 = xor i1 %360, true
   %brmerge.i = or i1 %283, %.not.i77
-  br i1 %brmerge.i, label %select.unfold521, label %.lr.ph.preheader.i.i
+  br i1 %brmerge.i, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %358
   %361 = getelementptr inbounds nuw i8, ptr %128, i64 %274
@@ -1163,13 +1163,13 @@ _ZN20unicode_segmentation8grapheme10check_pair17hf95ed60c16c41c83E.exit.thread99
   %422 = phi i64 [ %366, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h89a7b6ab180c1888E.exit.i.i" ], [ 1, %418 ]
   %.sroa.011.2.i.i = phi i64 [ %.sroa.011.126.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h89a7b6ab180c1888E.exit.i.i" ], [ %419, %418 ]
   %423 = icmp eq ptr %128, %.sroa.5.3.ph.i.i
-  br i1 %423, label %select.unfold521, label %.lr.ph.i.i
+  br i1 %423, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2, label %.lr.ph.i.i
 
 424:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h89a7b6ab180c1888E.exit.i.i"
   %425 = trunc nuw i64 %366 to i1
   %426 = icmp ne i64 %365, 0
   %.sroa.014.0.not.i.i = select i1 %425, i1 %426, i1 false
-  br i1 %.sroa.014.0.not.i.i, label %427, label %select.unfold521
+  br i1 %.sroa.014.0.not.i.i, label %427, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2
 
 427:                                              ; preds = %424
   %428 = invoke noundef i8 @_ZN20unicode_segmentation8grapheme14GraphemeCursor17grapheme_category17hbc5b7938cd9e24cbE(ptr noalias noundef nonnull align 8 dereferenceable(200) %8, i32 noundef %.sroa.4.1.i.ph.i.i)
@@ -1177,7 +1177,7 @@ _ZN20unicode_segmentation8grapheme10check_pair17hf95ed60c16c41c83E.exit.thread99
 
 .noexc85:                                         ; preds = %427
   %.not.i4.i = icmp eq i8 %428, 5
-  br i1 %.not.i4.i, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.loopexit310, label %select.unfold521
+  br i1 %.not.i4.i, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt1, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2
 
 429:                                              ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hf95ed60c16c41c83E.exit.thread97.i.i.i.i.i
   %430 = load i64, ptr %18, align 8, !alias.scope !68, !noalias !71, !noundef !7
@@ -1207,7 +1207,7 @@ _ZN20unicode_segmentation8grapheme10check_pair17hf95ed60c16c41c83E.exit.thread99
 .noexc87.thread:                                  ; preds = %440
   store i64 1, ptr %.sroa.016.sroa.7.0..sroa_idx, align 8, !alias.scope !110, !noalias !113
   store i64 0, ptr %18, align 8, !alias.scope !110, !noalias !113
-  br label %select.unfold521
+  br label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2
 
 .lr.ph.preheader.i:                               ; preds = %436, %440
   %441 = getelementptr inbounds nuw i8, ptr %128, i64 %274
@@ -1299,7 +1299,7 @@ _ZN20unicode_segmentation8grapheme10check_pair17hf95ed60c16c41c83E.exit.thread99
   store i64 %.sroa.08.1.lcssa.sink29.i, ptr %18, align 8, !alias.scope !110, !noalias !113
   %484 = and i64 %.sroa.08.1.lcssa.sink29.i, 1
   %485 = icmp eq i64 %484, 0
-  br i1 %485, label %select.unfold521, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.loopexit310
+  br i1 %485, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt1
 
 486:                                              ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hf95ed60c16c41c83E.exit.thread99.i.i.i.i.i
   br i1 %283, label %_ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i.preheader, label %.thread18
@@ -1376,7 +1376,7 @@ _ZN20unicode_segmentation8grapheme10check_pair17hf95ed60c16c41c83E.exit.thread99
 
 .noexc106:                                        ; preds = %524
   %.not.i105 = icmp eq i8 %526, 15
-  br i1 %.not.i105, label %_ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i.preheader, label %select.unfold521
+  br i1 %.not.i105, label %_ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i.preheader, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2
 
 _ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i.preheader: ; preds = %.noexc106, %486
   %.sroa.5.0.i.ph = phi ptr [ %354, %486 ], [ %.sroa.6.2.ph.i, %.noexc106 ]
@@ -1385,7 +1385,7 @@ _ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i.pr
 _ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i: ; preds = %_ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i.preheader, %.noexc107
   %.sroa.5.0.i = phi ptr [ %.sroa.5.3.ph.i, %.noexc107 ], [ %.sroa.5.0.i.ph, %_ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i.preheader ]
   %527 = icmp eq ptr %128, %.sroa.5.0.i
-  br i1 %527, label %select.unfold521, label %528
+  br i1 %527, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2, label %528
 
 528:                                              ; preds = %_ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i
   %529 = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -1
@@ -1457,24 +1457,24 @@ _ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i: ;
           to label %.noexc107 unwind label %.loopexit
 
 .noexc107:                                        ; preds = %565
-  switch i8 %567, label %select.unfold521 [
+  switch i8 %567, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2 [
     i8 3, label %_ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i
-    i8 4, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.loopexit310
+    i8 4, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt1
   ]
 
-select.unfold521:                                 ; preds = %420, %_ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i, %.noexc107, %.noexc87, %.noexc87.thread, %424, %.noexc85, %358, %.noexc106
+_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt1: ; preds = %.noexc107, %.noexc87, %.noexc85
+  store i8 1, ptr %.sroa.016.sroa.14.0..sroa_idx, align 2, !noalias !7
+  %.sroa.922.8.insert.mask.i = and i64 %.sroa.922.1.i, -256
+  br label %_ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17h6ac25b481717cddfE.exit.thread.i
+
+_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2: ; preds = %420, %.noexc107, %_ZN4core3str11validations23next_code_point_reverse17hb82e34bde42d640fE.exit.i, %.noexc85, %.noexc87.thread, %.noexc106, %.noexc87, %358, %424
   store i8 2, ptr %.sroa.016.sroa.14.0..sroa_idx, align 2, !noalias !7
   %.sroa.922.8.insert.mask25.i = and i64 %.sroa.922.1.i, -256
   %.sroa.922.8.insert.insert26.i = or disjoint i64 %.sroa.922.8.insert.mask25.i, 1
   br label %_ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17h6ac25b481717cddfE.exit.thread.i
 
-_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.loopexit310: ; preds = %.noexc107, %.noexc85, %.noexc87
-  store i8 1, ptr %.sroa.016.sroa.14.0..sroa_idx, align 2, !noalias !7
-  %.sroa.922.8.insert.mask.i = and i64 %.sroa.922.1.i, -256
-  br label %_ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17h6ac25b481717cddfE.exit.thread.i
-
-_ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17h6ac25b481717cddfE.exit.thread.i: ; preds = %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.loopexit310, %select.unfold521
-  %.sroa.922.4.ph.i = phi i64 [ %.sroa.922.8.insert.mask.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.loopexit310 ], [ %.sroa.922.8.insert.insert26.i, %select.unfold521 ]
+_ZN20unicode_segmentation8grapheme14GraphemeCursor18is_boundary_result17h6ac25b481717cddfE.exit.thread.i: ; preds = %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt1, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2
+  %.sroa.922.4.ph.i = phi i64 [ %.sroa.922.8.insert.mask.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt1 ], [ %.sroa.922.8.insert.insert26.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.i.i.i.i.jt2 ]
   %568 = trunc i64 %.sroa.922.4.ph.i to i8
   br label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h65169267682aaaafE.exit.thread.i.i.i.i
 

@@ -4842,16 +4842,22 @@ define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr nound
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %89 = getelementptr i8, ptr %0, i64 20008
+  br label %.outer
+
+.outer:                                           ; preds = %214, %.preheader290
+  %.2220.ph = phi ptr [ %.6224, %214 ], [ %.0218, %.preheader290 ]
+  %.0213.ph = phi i64 [ %.4217, %214 ], [ %24, %.preheader290 ]
+  %.0204.ph = phi i64 [ %.4208, %214 ], [ %15, %.preheader290 ]
+  %.0194.ph = phi ptr [ %.4198, %214 ], [ %31, %.preheader290 ]
+  %.0188.ph = phi ptr [ %.4192, %214 ], [ %22, %.preheader290 ]
+  %.1182.ph = phi i64 [ %210, %214 ], [ %.0181.lcssa360, %.preheader290 ]
+  %.0172.ph = phi i64 [ %116, %214 ], [ 0, %.preheader290 ]
   br label %90
 
-90:                                               ; preds = %.preheader290, %220
-  %.2220 = phi ptr [ %.3221, %220 ], [ %.0218, %.preheader290 ]
-  %.0213 = phi i64 [ %.1214, %220 ], [ %24, %.preheader290 ]
-  %.0204 = phi i64 [ %.1205, %220 ], [ %15, %.preheader290 ]
-  %.0194 = phi ptr [ %.1195, %220 ], [ %31, %.preheader290 ]
-  %.0188 = phi ptr [ %.1189, %220 ], [ %22, %.preheader290 ]
-  %.1182 = phi i64 [ %.4185, %220 ], [ %.0181.lcssa360, %.preheader290 ]
-  %.0172 = phi i64 [ %116, %220 ], [ 0, %.preheader290 ]
+90:                                               ; preds = %.outer, %149
+  %.2220 = phi ptr [ %.4222, %149 ], [ %.2220.ph, %.outer ]
+  %.1182 = phi i64 [ %.2183, %149 ], [ %.1182.ph, %.outer ]
+  %.0172 = phi i64 [ %116, %149 ], [ %.0172.ph, %.outer ]
   %91 = sub i64 %6, %.0172
   %92 = sub i64 %2, %.1182
   %spec.select = tail call i64 @llvm.umin.i64(i64 %92, i64 %91)
@@ -4962,7 +4968,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr nound
 149:                                              ; preds = %142, %134
   %.4222 = phi ptr [ %145, %142 ], [ %.2220, %134 ]
   store i8 %118, ptr %81, align 4, !tbaa !230
-  br label %220
+  br label %90
 
 150:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4978,7 +4984,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr nound
 
 156:                                              ; preds = %150
   %157 = icmp eq ptr %.2220, %38
-  br i1 %157, label %.thread248, label %158
+  br i1 %157, label %220, label %158
 
 158:                                              ; preds = %156
   %159 = shl nuw i32 %151, 8
@@ -4996,29 +5002,29 @@ define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr nound
   br i1 %119, label %166, label %171
 
 166:                                              ; preds = %165
-  %167 = icmp ult i64 %.0204, 4
-  br i1 %167, label %.thread248, label %168
+  %167 = icmp ult i64 %.0204.ph, 4
+  br i1 %167, label %220, label %168
 
 168:                                              ; preds = %166
-  %169 = getelementptr inbounds nuw i8, ptr %.0188, i64 4
-  %170 = add i64 %.0204, -4
+  %169 = getelementptr inbounds nuw i8, ptr %.0188.ph, i64 4
+  %170 = add i64 %.0204.ph, -4
   br label %176
 
 171:                                              ; preds = %165
-  %172 = icmp ult i64 %.0213, 4
-  br i1 %172, label %.thread248, label %173
+  %172 = icmp ult i64 %.0213.ph, 4
+  br i1 %172, label %220, label %173
 
 173:                                              ; preds = %171
-  %174 = getelementptr inbounds nuw i8, ptr %.0194, i64 4
-  %175 = add i64 %.0213, -4
+  %174 = getelementptr inbounds nuw i8, ptr %.0194.ph, i64 4
+  %175 = add i64 %.0213.ph, -4
   br label %176
 
 176:                                              ; preds = %173, %168
-  %.4217 = phi i64 [ %.0213, %168 ], [ %175, %173 ]
-  %.4208 = phi i64 [ %170, %168 ], [ %.0204, %173 ]
-  %.4198 = phi ptr [ %.0194, %168 ], [ %174, %173 ]
-  %.4192 = phi ptr [ %169, %168 ], [ %.0188, %173 ]
-  %.0 = phi ptr [ %.0188, %168 ], [ %.0194, %173 ]
+  %.4217 = phi i64 [ %.0213.ph, %168 ], [ %175, %173 ]
+  %.4208 = phi i64 [ %170, %168 ], [ %.0204.ph, %173 ]
+  %.4198 = phi ptr [ %.0194.ph, %168 ], [ %174, %173 ]
+  %.4192 = phi ptr [ %169, %168 ], [ %.0188.ph, %173 ]
+  %.0 = phi ptr [ %.0188.ph, %168 ], [ %.0194.ph, %173 ]
   %177 = load i8, ptr %.0, align 1, !tbaa !37
   %178 = zext i8 %177 to i32
   %179 = shl nuw i32 %178, 24
@@ -5055,7 +5061,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr nound
   store i8 %205, ptr %81, align 4, !tbaa !230
   store i8 %205, ptr %88, align 1, !tbaa !37
   %206 = icmp ult i64 %.2183, %2
-  br i1 %206, label %.lr.ph315.preheader, label %.lr.ph322
+  br i1 %206, label %.lr.ph315.preheader, label %._crit_edge316.thread
 
 .lr.ph315.preheader:                              ; preds = %176
   %scevgep = getelementptr i8, ptr %1, i64 %.2183
@@ -5077,56 +5083,40 @@ define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr nound
   br i1 %213, label %.lr.ph315, label %._crit_edge316, !llvm.loop !237
 
 ._crit_edge316:                                   ; preds = %.lr.ph315
-  %214 = trunc nuw nsw i64 %indvars.iv.next344 to i32
-  br i1 %211, label %.lr.ph322, label %219
+  br i1 %211, label %._crit_edge316.thread.split.loop.exit397, label %214
 
-.lr.ph322:                                        ; preds = %176, %._crit_edge316
-  %.7.lcssa365 = phi i64 [ %210, %._crit_edge316 ], [ %.2183, %176 ]
-  %.2211.lcssa364 = phi i32 [ %214, %._crit_edge316 ], [ 0, %176 ]
-  %215 = sub nuw nsw i32 4, %.2211.lcssa364
-  %216 = zext nneg i32 %215 to i64
-  store i64 %216, ptr %63, align 8, !tbaa !158
-  %217 = zext nneg i32 %.2211.lcssa364 to i64
-  %scevgep346 = getelementptr i8, ptr %4, i64 %217
+214:                                              ; preds = %._crit_edge316
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %.outer
+
+._crit_edge316.thread.split.loop.exit397:         ; preds = %._crit_edge316
+  %215 = trunc nuw nsw i64 %indvars.iv.next344 to i32
+  br label %._crit_edge316.thread
+
+._crit_edge316.thread:                            ; preds = %176, %._crit_edge316.thread.split.loop.exit397
+  %.7.lcssa365 = phi i64 [ %210, %._crit_edge316.thread.split.loop.exit397 ], [ %.2183, %176 ]
+  %.2211.lcssa364 = phi i32 [ %215, %._crit_edge316.thread.split.loop.exit397 ], [ 0, %176 ]
+  %216 = sub nuw nsw i32 4, %.2211.lcssa364
+  %217 = zext nneg i32 %216 to i64
+  store i64 %217, ptr %63, align 8, !tbaa !158
+  %218 = zext nneg i32 %.2211.lcssa364 to i64
+  %scevgep346 = getelementptr i8, ptr %4, i64 %218
   %narrow = sub nuw nsw i32 4, %.2211.lcssa364
-  %218 = zext nneg i32 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr align 1 %scevgep346, i64 %218, i1 false), !tbaa !37
-  br label %.thread248
-
-.thread248:                                       ; preds = %.lr.ph322, %156, %166, %171
-  %.7225.ph = phi ptr [ %.6224, %171 ], [ %.6224, %166 ], [ %.2220, %156 ], [ %.6224, %.lr.ph322 ]
-  %.3216.ph = phi i64 [ %.0213, %171 ], [ %.0213, %166 ], [ %.0213, %156 ], [ %.4217, %.lr.ph322 ]
-  %.3207.ph = phi i64 [ %.0204, %171 ], [ %.0204, %166 ], [ %.0204, %156 ], [ %.4208, %.lr.ph322 ]
-  %.3202.ph = phi i32 [ 1, %171 ], [ 1, %166 ], [ 1, %156 ], [ 11, %.lr.ph322 ]
-  %.3197.ph = phi ptr [ %.0194, %171 ], [ %.0194, %166 ], [ %.0194, %156 ], [ %.4198, %.lr.ph322 ]
-  %.3191.ph = phi ptr [ %.0188, %171 ], [ %.0188, %166 ], [ %.0188, %156 ], [ %.4192, %.lr.ph322 ]
-  %.6187.ph = phi i64 [ %.2183, %171 ], [ %.2183, %166 ], [ %.2183, %156 ], [ %.7.lcssa365, %.lr.ph322 ]
+  %219 = zext nneg i32 %narrow to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr align 1 %scevgep346, i64 %219, i1 false), !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %220
+  br label %.thread264
 
-219:                                              ; preds = %._crit_edge316
+220:                                              ; preds = %171, %166, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %220
+  br label %.thread278
 
-220:                                              ; preds = %219, %.thread248, %149
-  %.3221 = phi ptr [ %.4222, %149 ], [ %.6224, %219 ], [ %.7225.ph, %.thread248 ]
-  %.1214 = phi i64 [ %.0213, %149 ], [ %.4217, %219 ], [ %.3216.ph, %.thread248 ]
-  %.1205 = phi i64 [ %.0204, %149 ], [ %.4208, %219 ], [ %.3207.ph, %.thread248 ]
-  %.2201 = phi i32 [ 0, %149 ], [ 0, %219 ], [ %.3202.ph, %.thread248 ]
-  %.1195 = phi ptr [ %.0194, %149 ], [ %.4198, %219 ], [ %.3197.ph, %.thread248 ]
-  %.1189 = phi ptr [ %.0188, %149 ], [ %.4192, %219 ], [ %.3191.ph, %.thread248 ]
-  %.4185 = phi i64 [ %.2183, %149 ], [ %210, %219 ], [ %.6187.ph, %.thread248 ]
-  switch i32 %.2201, label %.thread278 [
-    i32 0, label %90
-    i32 11, label %.thread264
-  ]
-
-.thread264:                                       ; preds = %112, %220, %96
-  %.4176277 = phi i64 [ %97, %96 ], [ %.1173, %112 ], [ %116, %220 ]
-  %.4185276 = phi i64 [ %101, %96 ], [ %.2183, %112 ], [ %.4185, %220 ]
-  %.1205275 = phi i64 [ %.0204, %96 ], [ %.0204, %112 ], [ %.1205, %220 ]
-  %.1214274 = phi i64 [ %.0213, %96 ], [ %.0213, %112 ], [ %.1214, %220 ]
-  %.3221273 = phi ptr [ %.2220, %96 ], [ %.2220, %112 ], [ %.3221, %220 ]
+.thread264:                                       ; preds = %112, %96, %._crit_edge316.thread
+  %.4176277 = phi i64 [ %116, %._crit_edge316.thread ], [ %97, %96 ], [ %.1173, %112 ]
+  %.4185276 = phi i64 [ %.7.lcssa365, %._crit_edge316.thread ], [ %101, %96 ], [ %.2183, %112 ]
+  %.1205275 = phi i64 [ %.4208, %._crit_edge316.thread ], [ %.0204.ph, %96 ], [ %.0204.ph, %112 ]
+  %.1214274 = phi i64 [ %.4217, %._crit_edge316.thread ], [ %.0213.ph, %96 ], [ %.0213.ph, %112 ]
+  %.3221273 = phi ptr [ %.6224, %._crit_edge316.thread ], [ %.2220, %96 ], [ %.2220, %112 ]
   %221 = load i64, ptr %5, align 8, !tbaa !189
   %222 = sub i64 %221, %.4176277
   store i64 %222, ptr %5, align 8, !tbaa !189
@@ -5141,8 +5131,8 @@ define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr nound
   store i64 %227, ptr %85, align 8, !tbaa !159
   br label %.thread278
 
-.thread278:                                       ; preds = %52, %140, %220, %._crit_edge, %.thread264
-  %.2 = phi i64 [ %.4185276, %.thread264 ], [ 0, %._crit_edge ], [ -25, %220 ], [ -25, %140 ], [ -25, %52 ]
+.thread278:                                       ; preds = %52, %140, %._crit_edge, %220, %.thread264
+  %.2 = phi i64 [ %.4185276, %.thread264 ], [ -25, %220 ], [ 0, %._crit_edge ], [ -25, %140 ], [ -25, %52 ]
   ret i64 %.2
 }
 

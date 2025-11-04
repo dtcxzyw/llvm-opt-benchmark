@@ -7040,16 +7040,16 @@ rioWriteBulkStreamID.exit111:                     ; preds = %83, %92, %95, %99, 
   %146 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %147 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %148 = call i32 @raxNext(ptr noundef nonnull %11) #20
-  %.not87131 = icmp eq i32 %148, 0
-  br i1 %.not87131, label %.thread115, label %.lr.ph133
+  %.not87127 = icmp eq i32 %148, 0
+  br i1 %.not87127, label %.thread115, label %.lr.ph129
 
-.lr.ph133:                                        ; preds = %140, %._crit_edge
+.lr.ph129:                                        ; preds = %140, %._crit_edge
   %149 = load ptr, ptr %142, align 8, !tbaa !190
   %150 = call i64 @rioWriteBulkCount(ptr noundef %0, i8 noundef signext 42, i64 noundef 7) #20
   %.not88 = icmp eq i64 %150, 0
   br i1 %.not88, label %.thread116, label %151
 
-151:                                              ; preds = %.lr.ph133
+151:                                              ; preds = %.lr.ph129
   %152 = call i64 @rioWriteBulkString(ptr noundef %0, ptr noundef nonnull @.str.135, i64 noundef 6) #20
   %.not89 = icmp eq i64 %152, 0
   br i1 %.not89, label %.thread116, label %153
@@ -7088,7 +7088,7 @@ rioWriteBulkStreamID.exit111:                     ; preds = %83, %92, %95, %99, 
   %.not95 = icmp eq i64 %168, 0
   br i1 %.not95, label %.thread116, label %169
 
-.thread116:                                       ; preds = %.lr.ph133, %151, %153, %155, %157, %161, %163, %165
+.thread116:                                       ; preds = %.lr.ph129, %151, %153, %155, %157, %161, %163, %165
   call void @raxStop(ptr noundef nonnull %11) #20
   call void @streamIteratorStop(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -7151,7 +7151,15 @@ rioWriteBulkStreamID.exit111:                     ; preds = %83, %92, %95, %99, 
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.backedge
 
-.backedge:                                        ; preds = %179, %194
+.loopexit:                                        ; preds = %188
+  call void @raxStop(ptr noundef nonnull %13) #20
+  call void @raxStop(ptr noundef nonnull %12) #20
+  call void @raxStop(ptr noundef nonnull %11) #20
+  call void @streamIteratorStop(ptr noundef nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  br label %.loopexit117, !llvm.loop !201
+
+.backedge:                                        ; preds = %194, %179
   %195 = call i32 @raxNext(ptr noundef nonnull %12) #20
   %.not96 = icmp eq i32 %195, 0
   br i1 %.not96, label %._crit_edge, label %.lr.ph125, !llvm.loop !200
@@ -7161,15 +7169,7 @@ rioWriteBulkStreamID.exit111:                     ; preds = %83, %92, %95, %99, 
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %196 = call i32 @raxNext(ptr noundef nonnull %11) #20
   %.not87 = icmp eq i32 %196, 0
-  br i1 %.not87, label %.thread115, label %.lr.ph133, !llvm.loop !201
-
-.loopexit:                                        ; preds = %188
-  call void @raxStop(ptr noundef nonnull %13) #20
-  call void @raxStop(ptr noundef nonnull %12) #20
-  call void @raxStop(ptr noundef nonnull %11) #20
-  call void @streamIteratorStop(ptr noundef nonnull %4) #20
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.loopexit117, !llvm.loop !201
+  br i1 %.not87, label %.thread115, label %.lr.ph129, !llvm.loop !201
 
 .thread115:                                       ; preds = %._crit_edge, %140
   call void @raxStop(ptr noundef nonnull %11) #20

@@ -7664,131 +7664,132 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.crit
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor18VisitCXXDeleteExprEPKN5clang13CXXDeleteExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr readonly captures(address) %.24.val) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not33 = icmp eq ptr %.24.val, null
-  br i1 %.not33, label %.loopexit, label %.lr.ph
+.preheader:
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.not28 = icmp eq ptr %.24.val, null
+  br i1 %.not28, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %.critedge84
-  %.04834 = phi ptr [ %.351, %.critedge84 ], [ %.24.val, %1 ]
-  %3 = load i16, ptr %.04834, align 8
-  %4 = and i16 %3, 511
-  %.not11 = icmp eq i16 %4, 22
-  br i1 %.not11, label %5, label %8
+.lr.ph:                                           ; preds = %.preheader, %.critedge84.jt0
+  %.04829 = phi ptr [ %.351.jt0, %.critedge84.jt0 ], [ %.24.val, %.preheader ]
+  %2 = load i16, ptr %.04829, align 8
+  %3 = and i16 %2, 511
+  %.not11 = icmp eq i16 %3, 22
+  br i1 %.not11, label %4, label %7
 
-5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.04834, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !413
-  br label %.critedge84
+4:                                                ; preds = %.lr.ph
+  %5 = getelementptr inbounds nuw i8, ptr %.04829, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !413
+  br label %.critedge84.jt0
 
-8:                                                ; preds = %.lr.ph
-  %9 = add nsw i16 %4, -91
-  %spec.select.i.i.i.i.i.i.i.i = icmp ult i16 %9, -10
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %.loopexit, label %10
+7:                                                ; preds = %.lr.ph
+  %8 = add nsw i16 %3, -91
+  %spec.select.i.i.i.i.i.i.i.i = icmp ult i16 %8, -10
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %.loopexit, label %9
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %.04834, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !415
-  %13 = getelementptr inbounds nuw i8, ptr %.04834, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %13, align 8, !tbaa !16
-  %14 = and i64 %.sroa.0.0.copyload.i, -16
-  %15 = inttoptr i64 %14 to ptr
-  %16 = load ptr, ptr %15, align 16, !tbaa !148
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load i8, ptr %17, align 16
-  %19 = icmp ne i8 %18, 41
-  %.not7113 = icmp eq ptr %16, null
-  %.not71 = or i1 %.not7113, %19
-  br i1 %.not71, label %.critedge84, label %20
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %.04829, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !415
+  %12 = getelementptr inbounds nuw i8, ptr %.04829, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %12, align 8, !tbaa !16
+  %13 = and i64 %.sroa.0.0.copyload.i, -16
+  %14 = inttoptr i64 %13 to ptr
+  %15 = load ptr, ptr %14, align 16, !tbaa !148
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load i8, ptr %16, align 16
+  %18 = icmp ne i8 %17, 41
+  %.not7113 = icmp eq ptr %15, null
+  %.not71 = or i1 %.not7113, %18
+  br i1 %.not71, label %.critedge84.jt0, label %19
 
-20:                                               ; preds = %10
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  br label %22
+19:                                               ; preds = %9
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  br label %21
 
-22:                                               ; preds = %22, %20
-  %.sroa.02.0.in = phi ptr [ %21, %20 ], [ %29, %22 ]
+21:                                               ; preds = %21, %19
+  %.sroa.02.0.in = phi ptr [ %20, %19 ], [ %28, %21 ]
   %.sroa.02.0 = load i64, ptr %.sroa.02.0.in, align 8, !tbaa !16
-  %23 = and i64 %.sroa.02.0, -16
-  %24 = inttoptr i64 %23 to ptr
-  %25 = load ptr, ptr %24, align 16, !tbaa !148
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load i8, ptr %26, align 16
-  %28 = icmp ne i8 %27, 24
-  %.not7214 = icmp eq ptr %25, null
-  %.not72 = or i1 %.not7214, %28
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  br i1 %.not72, label %30, label %22
+  %22 = and i64 %.sroa.02.0, -16
+  %23 = inttoptr i64 %22 to ptr
+  %24 = load ptr, ptr %23, align 16, !tbaa !148
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = load i8, ptr %25, align 16
+  %27 = icmp ne i8 %26, 24
+  %.not7214 = icmp eq ptr %24, null
+  %.not72 = or i1 %.not7214, %27
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  br i1 %.not72, label %29, label %21
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %32 = icmp ne i8 %27, 49
-  %.not73 = or i1 %.not7214, %32
-  br i1 %.not73, label %46, label %33
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %31 = icmp ne i8 %26, 49
+  %.not73 = or i1 %.not7214, %31
+  br i1 %.not73, label %45, label %32
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %0, align 8, !tbaa !347
-  %.not77 = icmp eq ptr %34, null
-  br i1 %.not77, label %.critedge84, label %35
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %0, align 8, !tbaa !347
+  %.not77 = icmp eq ptr %33, null
+  br i1 %.not77, label %.critedge84.jt0, label %34
 
-35:                                               ; preds = %33
-  %36 = load i64, ptr %31, align 16
-  %37 = lshr i64 %36, 48
-  %38 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load i64, ptr %39, align 8, !tbaa !16
-  %41 = and i64 %40, -16
-  %42 = inttoptr i64 %41 to ptr
-  %43 = load ptr, ptr %42, align 16, !tbaa !148
-  %44 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %43) #19
-  %45 = load ptr, ptr %2, align 8, !tbaa !353
-  %.not78 = icmp eq ptr %44, %45
-  br i1 %.not78, label %.loopexit, label %.critedge84
+34:                                               ; preds = %32
+  %35 = load i64, ptr %30, align 16
+  %36 = lshr i64 %35, 48
+  %37 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %33, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = load i64, ptr %38, align 8, !tbaa !16
+  %40 = and i64 %39, -16
+  %41 = inttoptr i64 %40 to ptr
+  %42 = load ptr, ptr %41, align 16, !tbaa !148
+  %43 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %42) #19
+  %44 = load ptr, ptr %1, align 8, !tbaa !353
+  %.not78 = icmp eq ptr %43, %44
+  br i1 %.not78, label %.loopexit, label %.critedge84.jt0
 
-46:                                               ; preds = %30
-  %47 = icmp ne i8 %27, 47
-  %.not74 = or i1 %.not7214, %47
-  br i1 %.not74, label %52, label %48
+45:                                               ; preds = %29
+  %46 = icmp ne i8 %26, 47
+  %.not74 = or i1 %.not7214, %46
+  br i1 %.not74, label %51, label %47
 
-48:                                               ; preds = %46
-  %49 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %25) #19
-  %50 = load ptr, ptr %2, align 8, !tbaa !353
-  %51 = icmp eq ptr %49, %50
-  br i1 %51, label %.loopexit, label %.critedge84
+47:                                               ; preds = %45
+  %48 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %24) #19
+  %49 = load ptr, ptr %1, align 8, !tbaa !353
+  %50 = icmp eq ptr %48, %49
+  br i1 %50, label %.loopexit, label %.critedge84.jt0
 
-52:                                               ; preds = %46
-  %53 = icmp ne i8 %27, 45
-  %.not75 = or i1 %.not7214, %53
-  br i1 %.not75, label %.critedge84, label %54
+51:                                               ; preds = %45
+  %52 = icmp ne i8 %26, 45
+  %.not75 = or i1 %.not7214, %52
+  br i1 %.not75, label %.critedge84.jt0, label %53
 
-54:                                               ; preds = %52
-  %55 = load i64, ptr %31, align 16
-  %56 = and i64 %55, 524288
-  %.not.i = icmp eq i64 %56, 0
+53:                                               ; preds = %51
+  %54 = load i64, ptr %30, align 16
+  %55 = and i64 %54, 524288
+  %.not.i = icmp eq i64 %55, 0
   %.sroa.0.0.in.v.i = select i1 %.not.i, i64 8, i64 48
-  %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.0.0.in.v.i
+  %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %24, i64 %.sroa.0.0.in.v.i
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 8, !tbaa !16
-  %57 = and i64 %.sroa.0.0.i, -16
-  %58 = inttoptr i64 %57 to ptr
-  %59 = load ptr, ptr %58, align 16, !tbaa !148
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load i8, ptr %60, align 16
-  %62 = icmp ne i8 %61, 47
-  %.not7618 = icmp eq ptr %59, null
-  %.not76 = or i1 %.not7618, %62
-  br i1 %.not76, label %.critedge84, label %63
+  %56 = and i64 %.sroa.0.0.i, -16
+  %57 = inttoptr i64 %56 to ptr
+  %58 = load ptr, ptr %57, align 16, !tbaa !148
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %60 = load i8, ptr %59, align 16
+  %61 = icmp ne i8 %60, 47
+  %.not7618 = icmp eq ptr %58, null
+  %.not76 = or i1 %.not7618, %61
+  br i1 %.not76, label %.critedge84.jt0, label %62
 
-63:                                               ; preds = %54
-  %64 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %59) #19
-  %65 = load ptr, ptr %2, align 8, !tbaa !353
-  %66 = icmp eq ptr %64, %65
-  br i1 %66, label %.loopexit, label %.critedge84
+62:                                               ; preds = %53
+  %63 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %58) #19
+  %64 = load ptr, ptr %1, align 8, !tbaa !353
+  %65 = icmp eq ptr %63, %64
+  br i1 %65, label %.loopexit, label %.critedge84.jt0
 
-.critedge84:                                      ; preds = %35, %33, %52, %48, %63, %54, %10, %5
-  %.351 = phi ptr [ %7, %5 ], [ %12, %10 ], [ %12, %54 ], [ %12, %63 ], [ %12, %48 ], [ %12, %52 ], [ %12, %33 ], [ %12, %35 ]
-  %.not = icmp eq ptr %.351, null
+.critedge84.jt0:                                  ; preds = %34, %32, %51, %47, %62, %53, %9, %4
+  %.351.jt0 = phi ptr [ %6, %4 ], [ %11, %9 ], [ %11, %53 ], [ %11, %62 ], [ %11, %47 ], [ %11, %51 ], [ %11, %32 ], [ %11, %34 ]
+  %.not = icmp eq ptr %.351.jt0, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %35, %48, %63, %.critedge84, %8, %1
-  %.14 = phi i1 [ false, %1 ], [ true, %35 ], [ true, %48 ], [ true, %63 ], [ false, %.critedge84 ], [ false, %8 ]
+.loopexit:                                        ; preds = %7, %.critedge84.jt0, %62, %47, %34, %.preheader
+  %.14 = phi i1 [ false, %.preheader ], [ false, %7 ], [ false, %.critedge84.jt0 ], [ true, %62 ], [ true, %47 ], [ true, %34 ]
   ret i1 %.14
 }
 

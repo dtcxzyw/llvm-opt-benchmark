@@ -27,10 +27,10 @@ define void @ff_dash_fill_tmpl_params(ptr noundef %0, i64 noundef %1, ptr nounde
   %.not100 = icmp eq i64 %11, 0
   br i1 %.not100, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %99
-  %12 = phi i64 [ %106, %99 ], [ 0, %7 ]
-  %.06098 = phi i32 [ %105, %99 ], [ 0, %7 ]
-  %.06197 = phi ptr [ %.076, %99 ], [ %2, %7 ]
+.lr.ph:                                           ; preds = %7, %138
+  %12 = phi i64 [ %145, %138 ], [ 0, %7 ]
+  %.06098 = phi i32 [ %144, %138 ], [ 0, %7 ]
+  %.06197 = phi ptr [ %.076, %138 ], [ %2, %7 ]
   %13 = load i8, ptr %.06197, align 1, !tbaa !4
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %.critedge, label %14
@@ -74,168 +74,223 @@ define void @ff_dash_fill_tmpl_params(ptr noundef %0, i64 noundef %1, ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %36 = call i32 @av_strstart(ptr noundef nonnull %15, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #7
   %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %38, label %dash_read_tmpl_id.exit.thread
+  br i1 %.not.i, label %40, label %dash_read_tmpl_id.exit.thread
 
 dash_read_tmpl_id.exit.thread:                    ; preds = %35
   %37 = load ptr, ptr %8, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %76
+  %38 = getelementptr inbounds i8, ptr %0, i64 %28
+  %39 = call i64 @av_strlcpy(ptr noundef %38, ptr noundef nonnull @.str, i64 noundef 2) #7
+  br label %138
 
-38:                                               ; preds = %35
-  %39 = call i32 @av_strstart(ptr noundef nonnull %15, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #7
-  %.not19.i = icmp eq i32 %39, 0
-  br i1 %.not19.i, label %42, label %dash_read_tmpl_id.exit.thread81
+40:                                               ; preds = %35
+  %41 = call i32 @av_strstart(ptr noundef nonnull %15, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #7
+  %.not19.i = icmp eq i32 %41, 0
+  br i1 %.not19.i, label %47, label %dash_read_tmpl_id.exit.thread81
 
-dash_read_tmpl_id.exit.thread81:                  ; preds = %38
-  %40 = call i64 @av_strlcpy(ptr noundef nonnull %10, ptr noundef nonnull @.str.3, i64 noundef 7) #7
-  %41 = load ptr, ptr %8, align 8, !tbaa !7
+dash_read_tmpl_id.exit.thread81:                  ; preds = %40
+  %42 = call i64 @av_strlcpy(ptr noundef nonnull %10, ptr noundef nonnull @.str.3, i64 noundef 7) #7
+  %43 = load ptr, ptr %8, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %79
+  %44 = getelementptr inbounds i8, ptr %0, i64 %28
+  %45 = sub i64 %1, %28
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %44, i64 noundef %45, ptr noundef nonnull %10, i32 noundef %3) #7
+  br label %138
 
-42:                                               ; preds = %38
-  %43 = call i32 @av_strstart(ptr noundef nonnull %15, ptr noundef nonnull @.str.4, ptr noundef nonnull %8) #7
-  %.not20.i = icmp eq i32 %43, 0
-  br i1 %.not20.i, label %44, label %.thread.i
+47:                                               ; preds = %40
+  %48 = call i32 @av_strstart(ptr noundef nonnull %15, ptr noundef nonnull @.str.4, ptr noundef nonnull %8) #7
+  %.not20.i = icmp eq i32 %48, 0
+  br i1 %.not20.i, label %49, label %.thread.i.jt2
 
-44:                                               ; preds = %42
-  %45 = call i32 @av_strstart(ptr noundef nonnull %15, ptr noundef nonnull @.str.5, ptr noundef nonnull %8) #7
-  %.not21.i = icmp eq i32 %45, 0
-  br i1 %.not21.i, label %46, label %.thread.i
+49:                                               ; preds = %47
+  %50 = call i32 @av_strstart(ptr noundef nonnull %15, ptr noundef nonnull @.str.5, ptr noundef nonnull %8) #7
+  %.not21.i = icmp eq i32 %50, 0
+  br i1 %.not21.i, label %51, label %.thread.i.jt3
 
-46:                                               ; preds = %44
-  %47 = call i32 @av_strstart(ptr noundef nonnull %15, ptr noundef nonnull @.str.6, ptr noundef nonnull %8) #7
-  %.not22.i = icmp eq i32 %47, 0
-  br i1 %.not22.i, label %dash_read_tmpl_id.exit.thread85, label %.thread.i
+51:                                               ; preds = %49
+  %52 = call i32 @av_strstart(ptr noundef nonnull %15, ptr noundef nonnull @.str.6, ptr noundef nonnull %8) #7
+  %.not22.i = icmp eq i32 %52, 0
+  br i1 %.not22.i, label %dash_read_tmpl_id.exit.thread85, label %.thread.i.jt4
 
-dash_read_tmpl_id.exit.thread85:                  ; preds = %46
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %95
+.thread.i.jt2:                                    ; preds = %47
+  %53 = load ptr, ptr %8, align 8, !tbaa !7
+  %54 = load i8, ptr %53, align 1, !tbaa !4
+  %55 = icmp eq i8 %54, 36
+  br i1 %55, label %62, label %74
 
-.thread.i:                                        ; preds = %46, %44, %42
-  %.130.i = phi i32 [ 4, %46 ], [ 3, %44 ], [ 2, %42 ]
-  %48 = phi ptr [ @.str.7, %46 ], [ @.str.8, %44 ], [ @.str.8, %42 ]
-  %49 = load ptr, ptr %8, align 8, !tbaa !7
-  %50 = load i8, ptr %49, align 1, !tbaa !4
-  %51 = icmp eq i8 %50, 36
-  br i1 %51, label %52, label %56
+.thread.i.jt3:                                    ; preds = %49
+  %56 = load ptr, ptr %8, align 8, !tbaa !7
+  %57 = load i8, ptr %56, align 1, !tbaa !4
+  %58 = icmp eq i8 %57, 36
+  br i1 %58, label %66, label %76
 
-52:                                               ; preds = %.thread.i
-  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 7, ptr noundef nonnull @.str.9, ptr noundef nonnull %48) #7
-  %54 = load ptr, ptr %8, align 8, !tbaa !7
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
-  br label %dash_read_tmpl_id.exit
-
-56:                                               ; preds = %.thread.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %57 = call i32 @av_strstart(ptr noundef nonnull %49, ptr noundef nonnull @.str.10, ptr noundef nonnull %9) #7
-  %.not24.i = icmp eq i32 %57, 0
-  br i1 %.not24.i, label %73, label %58
-
-58:                                               ; preds = %56
-  %59 = load ptr, ptr %9, align 8, !tbaa !7
+.thread.i.jt4:                                    ; preds = %51
+  %59 = load ptr, ptr %8, align 8, !tbaa !7
   %60 = load i8, ptr %59, align 1, !tbaa !4
-  %61 = sext i8 %60 to i32
-  %62 = add nsw i32 %61, -58
-  %63 = icmp ult i32 %62, -10
-  br i1 %63, label %73, label %64
+  %61 = icmp eq i8 %60, 36
+  br i1 %61, label %70, label %78
 
-64:                                               ; preds = %58
-  %65 = getelementptr inbounds nuw i8, ptr %59, i64 1
-  %66 = call i32 @av_strstart(ptr noundef nonnull %65, ptr noundef nonnull @.str.11, ptr noundef nonnull %8) #7
-  %.not26.i = icmp eq i32 %66, 0
-  br i1 %.not26.i, label %73, label %67
+62:                                               ; preds = %.thread.i.jt2
+  %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 7, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8) #7
+  %64 = load ptr, ptr %8, align 8, !tbaa !7
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
+  br label %dash_read_tmpl_id.exit.jt2
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %9, align 8, !tbaa !7
-  %69 = load i8, ptr %68, align 1, !tbaa !4
-  %70 = sext i8 %69 to i32
-  %71 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef %70, ptr noundef nonnull %48) #7
+66:                                               ; preds = %.thread.i.jt3
+  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 7, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8) #7
+  %68 = load ptr, ptr %8, align 8, !tbaa !7
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
+  br label %dash_read_tmpl_id.exit.jt3
+
+70:                                               ; preds = %.thread.i.jt4
+  %71 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 7, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.7) #7
   %72 = load ptr, ptr %8, align 8, !tbaa !7
-  br label %75
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
+  br label %dash_read_tmpl_id.exit.jt4
 
-73:                                               ; preds = %64, %58, %56
-  %74 = load ptr, ptr %8, align 8, !tbaa !7
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.13, ptr noundef %74) #7
-  br label %75
+74:                                               ; preds = %.thread.i.jt2
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  %75 = call i32 @av_strstart(ptr noundef nonnull %53, ptr noundef nonnull @.str.10, ptr noundef nonnull %9) #7
+  %.not24.i.jt2 = icmp eq i32 %75, 0
+  br i1 %.not24.i.jt2, label %dash_read_tmpl_id.exit.jt4294967295, label %80
 
-75:                                               ; preds = %73, %67
-  %.177 = phi ptr [ %15, %73 ], [ %72, %67 ]
-  %.3.i = phi i32 [ -1, %73 ], [ %.130.i, %67 ]
+76:                                               ; preds = %.thread.i.jt3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  %77 = call i32 @av_strstart(ptr noundef nonnull %56, ptr noundef nonnull @.str.10, ptr noundef nonnull %9) #7
+  %.not24.i.jt3 = icmp eq i32 %77, 0
+  br i1 %.not24.i.jt3, label %dash_read_tmpl_id.exit.jt4294967295, label %86
+
+78:                                               ; preds = %.thread.i.jt4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  %79 = call i32 @av_strstart(ptr noundef nonnull %59, ptr noundef nonnull @.str.10, ptr noundef nonnull %9) #7
+  %.not24.i.jt4 = icmp eq i32 %79, 0
+  br i1 %.not24.i.jt4, label %dash_read_tmpl_id.exit.jt4294967295, label %92
+
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %9, align 8, !tbaa !7
+  %82 = load i8, ptr %81, align 1, !tbaa !4
+  %83 = sext i8 %82 to i32
+  %84 = add nsw i32 %83, -58
+  %85 = icmp ult i32 %84, -10
+  br i1 %85, label %dash_read_tmpl_id.exit.jt4294967295, label %98
+
+86:                                               ; preds = %76
+  %87 = load ptr, ptr %9, align 8, !tbaa !7
+  %88 = load i8, ptr %87, align 1, !tbaa !4
+  %89 = sext i8 %88 to i32
+  %90 = add nsw i32 %89, -58
+  %91 = icmp ult i32 %90, -10
+  br i1 %91, label %dash_read_tmpl_id.exit.jt4294967295, label %101
+
+92:                                               ; preds = %78
+  %93 = load ptr, ptr %9, align 8, !tbaa !7
+  %94 = load i8, ptr %93, align 1, !tbaa !4
+  %95 = sext i8 %94 to i32
+  %96 = add nsw i32 %95, -58
+  %97 = icmp ult i32 %96, -10
+  br i1 %97, label %dash_read_tmpl_id.exit.jt4294967295, label %104
+
+98:                                               ; preds = %80
+  %99 = getelementptr inbounds nuw i8, ptr %81, i64 1
+  %100 = call i32 @av_strstart(ptr noundef nonnull %99, ptr noundef nonnull @.str.11, ptr noundef nonnull %8) #7
+  %.not26.i.jt2 = icmp eq i32 %100, 0
+  br i1 %.not26.i.jt2, label %dash_read_tmpl_id.exit.jt4294967295, label %107
+
+101:                                              ; preds = %86
+  %102 = getelementptr inbounds nuw i8, ptr %87, i64 1
+  %103 = call i32 @av_strstart(ptr noundef nonnull %102, ptr noundef nonnull @.str.11, ptr noundef nonnull %8) #7
+  %.not26.i.jt3 = icmp eq i32 %103, 0
+  br i1 %.not26.i.jt3, label %dash_read_tmpl_id.exit.jt4294967295, label %113
+
+104:                                              ; preds = %92
+  %105 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  %106 = call i32 @av_strstart(ptr noundef nonnull %105, ptr noundef nonnull @.str.11, ptr noundef nonnull %8) #7
+  %.not26.i.jt4 = icmp eq i32 %106, 0
+  br i1 %.not26.i.jt4, label %dash_read_tmpl_id.exit.jt4294967295, label %119
+
+107:                                              ; preds = %98
+  %108 = load ptr, ptr %9, align 8, !tbaa !7
+  %109 = load i8, ptr %108, align 1, !tbaa !4
+  %110 = sext i8 %109 to i32
+  %111 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef %110, ptr noundef nonnull @.str.8) #7
+  %112 = load ptr, ptr %8, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %dash_read_tmpl_id.exit
+  br label %dash_read_tmpl_id.exit.jt2
 
-dash_read_tmpl_id.exit:                           ; preds = %52, %75
-  %.2 = phi ptr [ %55, %52 ], [ %.177, %75 ]
-  %.0.i = phi i32 [ %.130.i, %52 ], [ %.3.i, %75 ]
+113:                                              ; preds = %101
+  %114 = load ptr, ptr %9, align 8, !tbaa !7
+  %115 = load i8, ptr %114, align 1, !tbaa !4
+  %116 = sext i8 %115 to i32
+  %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef %116, ptr noundef nonnull @.str.8) #7
+  %118 = load ptr, ptr %8, align 8, !tbaa !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %dash_read_tmpl_id.exit.jt3
+
+119:                                              ; preds = %104
+  %120 = load ptr, ptr %9, align 8, !tbaa !7
+  %121 = load i8, ptr %120, align 1, !tbaa !4
+  %122 = sext i8 %121 to i32
+  %123 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef %122, ptr noundef nonnull @.str.7) #7
+  %124 = load ptr, ptr %8, align 8, !tbaa !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %dash_read_tmpl_id.exit.jt4
+
+dash_read_tmpl_id.exit.jt4294967295:              ; preds = %98, %80, %74, %101, %86, %76, %104, %92, %78
+  %125 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.13, ptr noundef %125) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %dash_read_tmpl_id.exit.thread85
+
+dash_read_tmpl_id.exit.jt2:                       ; preds = %107, %62
+  %.2.jt2 = phi ptr [ %65, %62 ], [ %112, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  switch i32 %.0.i, label %default.unreachable110 [
-    i32 0, label %76
-    i32 1, label %79
-    i32 2, label %83
-    i32 3, label %87
-    i32 4, label %91
-    i32 -1, label %95
-  ]
+  %126 = getelementptr inbounds i8, ptr %0, i64 %28
+  %127 = sub i64 %1, %28
+  %128 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %126, i64 noundef %127, ptr noundef nonnull %10, i32 noundef %4) #7
+  br label %138
 
-76:                                               ; preds = %dash_read_tmpl_id.exit.thread, %dash_read_tmpl_id.exit
-  %.280 = phi ptr [ %37, %dash_read_tmpl_id.exit.thread ], [ %.2, %dash_read_tmpl_id.exit ]
-  %77 = getelementptr inbounds i8, ptr %0, i64 %28
-  %78 = call i64 @av_strlcpy(ptr noundef %77, ptr noundef nonnull @.str, i64 noundef 2) #7
-  br label %99
+dash_read_tmpl_id.exit.jt3:                       ; preds = %113, %66
+  %.2.jt3 = phi ptr [ %69, %66 ], [ %118, %113 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  %129 = getelementptr inbounds i8, ptr %0, i64 %28
+  %130 = sub i64 %1, %28
+  %131 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %129, i64 noundef %130, ptr noundef nonnull %10, i32 noundef %5) #7
+  br label %138
 
-79:                                               ; preds = %dash_read_tmpl_id.exit.thread81, %dash_read_tmpl_id.exit
-  %.284 = phi ptr [ %41, %dash_read_tmpl_id.exit.thread81 ], [ %.2, %dash_read_tmpl_id.exit ]
-  %80 = getelementptr inbounds i8, ptr %0, i64 %28
-  %81 = sub i64 %1, %28
-  %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %80, i64 noundef %81, ptr noundef nonnull %10, i32 noundef %3) #7
-  br label %99
+dash_read_tmpl_id.exit.jt4:                       ; preds = %119, %70
+  %.2.jt4 = phi ptr [ %73, %70 ], [ %124, %119 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  %132 = getelementptr inbounds i8, ptr %0, i64 %28
+  %133 = sub i64 %1, %28
+  %134 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %132, i64 noundef %133, ptr noundef nonnull %10, i64 noundef %6) #7
+  br label %138
 
-83:                                               ; preds = %dash_read_tmpl_id.exit
-  %84 = getelementptr inbounds i8, ptr %0, i64 %28
-  %85 = sub i64 %1, %28
-  %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %84, i64 noundef %85, ptr noundef nonnull %10, i32 noundef %4) #7
-  br label %99
-
-87:                                               ; preds = %dash_read_tmpl_id.exit
-  %88 = getelementptr inbounds i8, ptr %0, i64 %28
-  %89 = sub i64 %1, %28
-  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %88, i64 noundef %89, ptr noundef nonnull %10, i32 noundef %5) #7
-  br label %99
-
-91:                                               ; preds = %dash_read_tmpl_id.exit
-  %92 = getelementptr inbounds i8, ptr %0, i64 %28
-  %93 = sub i64 %1, %28
-  %94 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %92, i64 noundef %93, ptr noundef nonnull %10, i64 noundef %6) #7
-  br label %99
-
-95:                                               ; preds = %dash_read_tmpl_id.exit.thread85, %dash_read_tmpl_id.exit
-  %96 = getelementptr inbounds i8, ptr %0, i64 %28
-  %97 = call i64 @av_strlcpy(ptr noundef %96, ptr noundef nonnull %15, i64 noundef 2) #7
-  %98 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  br label %99
-
-default.unreachable110:                           ; preds = %dash_read_tmpl_id.exit
-  unreachable
+dash_read_tmpl_id.exit.thread85:                  ; preds = %51, %dash_read_tmpl_id.exit.jt4294967295
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  %135 = getelementptr inbounds i8, ptr %0, i64 %28
+  %136 = call i64 @av_strlcpy(ptr noundef %135, ptr noundef nonnull %15, i64 noundef 2) #7
+  %137 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  br label %138
 
 .thread:                                          ; preds = %33, %16, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
-99:                                               ; preds = %76, %79, %83, %87, %91, %95
-  %.076 = phi ptr [ %.280, %76 ], [ %.284, %79 ], [ %.2, %83 ], [ %.2, %87 ], [ %.2, %91 ], [ %98, %95 ]
-  %.063 = phi i32 [ 1, %76 ], [ %82, %79 ], [ %86, %83 ], [ %90, %87 ], [ %94, %91 ], [ 1, %95 ]
-  %100 = sext i32 %.063 to i64
-  %101 = xor i64 %28, -1
-  %102 = add i64 %1, %101
-  %103 = call i64 @llvm.umin.i64(i64 %102, i64 %100)
-  %104 = trunc i64 %103 to i32
-  %105 = add i32 %27, %104
+138:                                              ; preds = %dash_read_tmpl_id.exit.thread, %dash_read_tmpl_id.exit.thread81, %dash_read_tmpl_id.exit.jt2, %dash_read_tmpl_id.exit.jt3, %dash_read_tmpl_id.exit.jt4, %dash_read_tmpl_id.exit.thread85
+  %.076 = phi ptr [ %37, %dash_read_tmpl_id.exit.thread ], [ %43, %dash_read_tmpl_id.exit.thread81 ], [ %.2.jt2, %dash_read_tmpl_id.exit.jt2 ], [ %.2.jt3, %dash_read_tmpl_id.exit.jt3 ], [ %.2.jt4, %dash_read_tmpl_id.exit.jt4 ], [ %137, %dash_read_tmpl_id.exit.thread85 ]
+  %.063 = phi i32 [ 1, %dash_read_tmpl_id.exit.thread ], [ %46, %dash_read_tmpl_id.exit.thread81 ], [ %128, %dash_read_tmpl_id.exit.jt2 ], [ %131, %dash_read_tmpl_id.exit.jt3 ], [ %134, %dash_read_tmpl_id.exit.jt4 ], [ 1, %dash_read_tmpl_id.exit.thread85 ]
+  %139 = sext i32 %.063 to i64
+  %140 = xor i64 %28, -1
+  %141 = add i64 %1, %140
+  %142 = call i64 @llvm.umin.i64(i64 %141, i64 %139)
+  %143 = trunc i64 %142 to i32
+  %144 = add i32 %27, %143
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %106 = sext i32 %105 to i64
-  %107 = icmp ugt i64 %11, %106
-  br i1 %107, label %.lr.ph, label %.critedge
+  %145 = sext i32 %144 to i64
+  %146 = icmp ugt i64 %11, %145
+  br i1 %146, label %.lr.ph, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %99, %7, %.thread
+.critedge:                                        ; preds = %.lr.ph, %138, %7, %.thread
   ret void
 }
 

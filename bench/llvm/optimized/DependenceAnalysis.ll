@@ -13647,13 +13647,13 @@ _ZN4llvm5APInt7getZeroEj.exit:                    ; preds = %44, %45
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load i16, ptr %50, align 8, !tbaa !183
-  %.not429 = icmp eq i16 %51, 8
-  br i1 %.not429, label %.lr.ph428, label %.preheader328
+  %.not427 = icmp eq i16 %51, 8
+  br i1 %.not427, label %.lr.ph426, label %.preheader328
 
-.lr.ph428:                                        ; preds = %_ZN4llvm5APInt7getZeroEj.exit, %109
-  %.0101427 = phi ptr [ %102, %109 ], [ %1, %_ZN4llvm5APInt7getZeroEj.exit ]
+.lr.ph426:                                        ; preds = %_ZN4llvm5APInt7getZeroEj.exit, %109
+  %.0101425 = phi ptr [ %102, %109 ], [ %1, %_ZN4llvm5APInt7getZeroEj.exit ]
   %52 = load ptr, ptr %37, align 8, !tbaa !75
-  %53 = call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %.0101427, ptr noundef nonnull align 8 dereferenceable(1344) %52)
+  %53 = call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %.0101425, ptr noundef nonnull align 8 dereferenceable(1344) %52)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i16, ptr %54, align 8, !tbaa !183
   %56 = icmp ne i16 %55, 0
@@ -13661,7 +13661,7 @@ _ZN4llvm5APInt7getZeroEj.exit:                    ; preds = %44, %45
   %.not.i = or i1 %.not25.i, %56
   br i1 %.not.i, label %57, label %_ZL15getConstantPartPKN4llvm4SCEVE.exit
 
-57:                                               ; preds = %.lr.ph428
+57:                                               ; preds = %.lr.ph426
   %58 = icmp ne i16 %55, 6
   %.not17.i = or i1 %.not25.i, %58
   br i1 %.not17.i, label %.thread, label %59
@@ -13675,8 +13675,8 @@ _ZN4llvm5APInt7getZeroEj.exit:                    ; preds = %44, %45
   %.not28.i = icmp eq i16 %64, 0
   br i1 %.not28.i, label %_ZL15getConstantPartPKN4llvm4SCEVE.exit, label %.thread
 
-_ZL15getConstantPartPKN4llvm4SCEVE.exit:          ; preds = %59, %.lr.ph428
-  %65 = phi ptr [ %53, %.lr.ph428 ], [ %62, %59 ]
+_ZL15getConstantPartPKN4llvm4SCEVE.exit:          ; preds = %59, %.lr.ph426
+  %65 = phi ptr [ %53, %.lr.ph426 ], [ %62, %59 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8, !tbaa !188
@@ -13763,7 +13763,7 @@ _ZN4llvm5APIntD2Ev.exit168:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntD2Ev.exit169:                       ; preds = %_ZN4llvm5APIntD2Ev.exit168, %96, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %100 = getelementptr inbounds nuw i8, ptr %.0101427, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %.0101425, i64 32
   %101 = load ptr, ptr %100, align 8, !tbaa !245
   %102 = load ptr, ptr %101, align 8, !tbaa !181
   %103 = load i32, ptr %46, align 8, !tbaa !191
@@ -13786,7 +13786,7 @@ _ZN4llvm5APIntD2Ev.exit169:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %112 = icmp ne i16 %111, 8
   %.not316 = icmp eq ptr %102, null
   %.not = or i1 %.not316, %112
-  br i1 %.not, label %.preheader328, label %.lr.ph428
+  br i1 %.not, label %.preheader328, label %.lr.ph426
 
 .preheader328:                                    ; preds = %109, %_ZN4llvm5APInt7getZeroEj.exit
   %.0101.lcssa = phi ptr [ %1, %_ZN4llvm5APInt7getZeroEj.exit ], [ %102, %109 ]
@@ -14155,8 +14155,8 @@ _ZNK4llvm5APInteqEm.exit:                         ; preds = %_ZNK4llvm5APInt13ge
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %_ZNK4llvm5APInteqEm.exit, %_ZN4llvm5APIntC2ERKS0_.exit202
-  %.ph411 = phi ptr [ %19, %_ZN4llvm5APIntC2ERKS0_.exit202 ], [ %265, %_ZNK4llvm5APInteqEm.exit ]
-  %.0.i.i.pr = load i64, ptr %.ph411, align 8, !tbaa !193
+  %.ph407 = phi ptr [ %19, %_ZN4llvm5APIntC2ERKS0_.exit202 ], [ %265, %_ZNK4llvm5APInteqEm.exit ]
+  %.0.i.i.pr = load i64, ptr %.ph407, align 8, !tbaa !193
   br label %266
 
 266:                                              ; preds = %thread-pre-split, %_ZN4llvm5APIntC2ERKS0_.exit202.thread

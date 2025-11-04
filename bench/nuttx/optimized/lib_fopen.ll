@@ -106,107 +106,187 @@ declare ptr @lib_get_streams() local_unnamed_addr #1
 define i32 @lib_mode2oflags(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
-2:                                                ; preds = %33, %1
-  %.025 = phi ptr [ %0, %1 ], [ %34, %33 ]
-  %.023 = phi i32 [ 0, %1 ], [ %.124, %33 ]
-  %.0 = phi i32 [ 0, %1 ], [ %.1, %33 ]
+2:                                                ; preds = %38, %1
+  %.025 = phi ptr [ %0, %1 ], [ %39, %38 ]
+  %.023 = phi i32 [ 0, %1 ], [ %.124, %38 ]
+  %.0 = phi i32 [ 0, %1 ], [ %.1, %38 ]
   %3 = load i8, ptr %.025, align 1
-  switch i8 %3, label %35 [
+  switch i8 %3, label %.thread [
     i8 0, label %.loopexit
-    i8 114, label %4
-    i8 119, label %6
-    i8 97, label %8
-    i8 43, label %10
-    i8 109, label %20
-    i8 98, label %21
-    i8 101, label %24
-    i8 120, label %27
-    i8 116, label %30
+    i8 114, label %13
+    i8 119, label %15
+    i8 97, label %17
+    i8 43, label %19
+    i8 109, label %29
+    i8 98, label %30
+    i8 101, label %32
+    i8 120, label %34
+    i8 116, label %36
   ]
 
-4:                                                ; preds = %2
-  %5 = icmp eq i32 %.023, 0
-  br i1 %5, label %33, label %35
-
-6:                                                ; preds = %2
-  %7 = icmp eq i32 %.023, 0
-  br i1 %7, label %33, label %35
-
-8:                                                ; preds = %2
-  %9 = icmp eq i32 %.023, 0
-  br i1 %9, label %33, label %35
-
-10:                                               ; preds = %2
-  switch i32 %.023, label %35 [
-    i32 1, label %11
-    i32 2, label %14
-    i32 4, label %17
+4:                                                ; preds = %26, %17
+  %.02549 = phi ptr [ %.02537, %17 ], [ %.02543, %26 ]
+  %.1.jt4 = phi i32 [ 278, %17 ], [ %28, %26 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.02549, i64 1
+  %6 = load i8, ptr %5, align 1
+  switch i8 %6, label %.thread [
+    i8 0, label %.loopexit
+    i8 114, label %13
+    i8 119, label %15
+    i8 97, label %17
+    i8 43, label %26
+    i8 116, label %.thread99
+    i8 98, label %.thread72
+    i8 101, label %.thread81
+    i8 120, label %.thread90
   ]
 
-11:                                               ; preds = %10
-  %12 = and i32 %.0, 1288
-  %13 = or disjoint i32 %12, 3
-  br label %33
+7:                                                ; preds = %23, %15
+  %.02547 = phi ptr [ %.02536, %15 ], [ %.02544, %23 ]
+  %.1.jt2 = phi i32 [ 294, %15 ], [ %25, %23 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.02547, i64 1
+  %9 = load i8, ptr %8, align 1
+  switch i8 %9, label %.thread [
+    i8 0, label %.loopexit
+    i8 114, label %13
+    i8 119, label %15
+    i8 97, label %17
+    i8 43, label %23
+    i8 116, label %.thread99
+    i8 98, label %.thread72
+    i8 101, label %.thread81
+    i8 120, label %.thread90
+  ]
 
-14:                                               ; preds = %10
-  %15 = and i32 %.0, 1288
-  %16 = or disjoint i32 %15, 39
-  br label %33
+10:                                               ; preds = %20, %29, %13
+  %.02546 = phi ptr [ %.02535, %13 ], [ %.02538, %29 ], [ %.02545, %20 ]
+  %.1.jt1 = phi i32 [ 257, %13 ], [ %.059, %29 ], [ %22, %20 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.02546, i64 1
+  %12 = load i8, ptr %11, align 1
+  switch i8 %12, label %.thread [
+    i8 0, label %.loopexit
+    i8 114, label %13
+    i8 119, label %15
+    i8 97, label %17
+    i8 43, label %20
+    i8 109, label %29
+    i8 98, label %.thread72
+    i8 101, label %.thread81
+    i8 120, label %.thread90
+    i8 116, label %.thread99
+  ]
 
-17:                                               ; preds = %10
-  %18 = and i32 %.0, 1288
-  %19 = or disjoint i32 %18, 23
-  br label %33
+13:                                               ; preds = %4, %7, %10, %2
+  %.02350 = phi i32 [ 4, %4 ], [ 4, %7 ], [ 4, %10 ], [ %.023, %2 ]
+  %.02535 = phi ptr [ %5, %4 ], [ %8, %7 ], [ %11, %10 ], [ %.025, %2 ]
+  %14 = icmp eq i32 %.02350, 0
+  br i1 %14, label %10, label %.thread
 
-20:                                               ; preds = %2
-  %.not32 = icmp eq i32 %.023, 1
-  br i1 %.not32, label %33, label %35
+15:                                               ; preds = %4, %7, %10, %2
+  %.02351 = phi i32 [ 4, %4 ], [ 4, %7 ], [ 4, %10 ], [ %.023, %2 ]
+  %.02536 = phi ptr [ %5, %4 ], [ %8, %7 ], [ %11, %10 ], [ %.025, %2 ]
+  %16 = icmp eq i32 %.02351, 0
+  br i1 %16, label %7, label %.thread
 
-21:                                               ; preds = %2
-  %.not31 = icmp eq i32 %.023, 0
-  br i1 %.not31, label %35, label %22
+17:                                               ; preds = %4, %7, %10, %2
+  %.02352 = phi i32 [ 4, %4 ], [ 4, %7 ], [ 4, %10 ], [ %.023, %2 ]
+  %.02537 = phi ptr [ %5, %4 ], [ %8, %7 ], [ %11, %10 ], [ %.025, %2 ]
+  %18 = icmp eq i32 %.02352, 0
+  br i1 %18, label %4, label %.thread
 
-22:                                               ; preds = %21
-  %23 = and i32 %.0, -257
-  br label %33
+19:                                               ; preds = %2
+  switch i32 %.023, label %.thread [
+    i32 1, label %20
+    i32 2, label %23
+    i32 4, label %26
+  ]
 
-24:                                               ; preds = %2
-  %.not30 = icmp eq i32 %.023, 0
-  br i1 %.not30, label %35, label %25
+20:                                               ; preds = %10, %19
+  %.066 = phi i32 [ %.0, %19 ], [ %.1.jt1, %10 ]
+  %.02545 = phi ptr [ %.025, %19 ], [ %11, %10 ]
+  %21 = and i32 %.066, 1288
+  %22 = or disjoint i32 %21, 3
+  br label %10
 
-25:                                               ; preds = %24
-  %26 = or i32 %.0, 1024
-  br label %33
+23:                                               ; preds = %7, %19
+  %.065 = phi i32 [ %.0, %19 ], [ %.1.jt2, %7 ]
+  %.02544 = phi ptr [ %.025, %19 ], [ %8, %7 ]
+  %24 = and i32 %.065, 1288
+  %25 = or disjoint i32 %24, 39
+  br label %7
 
-27:                                               ; preds = %2
-  %.not29 = icmp eq i32 %.023, 0
-  br i1 %.not29, label %35, label %28
+26:                                               ; preds = %4, %19
+  %.064 = phi i32 [ %.0, %19 ], [ %.1.jt4, %4 ]
+  %.02543 = phi ptr [ %.025, %19 ], [ %5, %4 ]
+  %27 = and i32 %.064, 1288
+  %28 = or disjoint i32 %27, 23
+  br label %4
 
-28:                                               ; preds = %27
-  %29 = or i32 %.0, 8
-  br label %33
+29:                                               ; preds = %10, %2
+  %.059 = phi i32 [ %.1.jt1, %10 ], [ %.0, %2 ]
+  %.02353 = phi i32 [ 1, %10 ], [ %.023, %2 ]
+  %.02538 = phi ptr [ %11, %10 ], [ %.025, %2 ]
+  %.not32 = icmp eq i32 %.02353, 1
+  br i1 %.not32, label %10, label %.thread
 
 30:                                               ; preds = %2
+  %.not31 = icmp eq i32 %.023, 0
+  br i1 %.not31, label %.thread, label %.thread72
+
+.thread72:                                        ; preds = %10, %7, %4, %30
+  %.0253979 = phi ptr [ %.025, %30 ], [ %11, %10 ], [ %8, %7 ], [ %5, %4 ]
+  %.0235478 = phi i32 [ %.023, %30 ], [ 1, %10 ], [ 2, %7 ], [ 4, %4 ]
+  %.06077 = phi i32 [ %.0, %30 ], [ %.1.jt1, %10 ], [ %.1.jt2, %7 ], [ %.1.jt4, %4 ]
+  %31 = and i32 %.06077, -257
+  br label %38
+
+32:                                               ; preds = %2
+  %.not30 = icmp eq i32 %.023, 0
+  br i1 %.not30, label %.thread, label %.thread81
+
+.thread81:                                        ; preds = %10, %7, %4, %32
+  %.0254088 = phi ptr [ %.025, %32 ], [ %11, %10 ], [ %8, %7 ], [ %5, %4 ]
+  %.0235587 = phi i32 [ %.023, %32 ], [ 1, %10 ], [ 2, %7 ], [ 4, %4 ]
+  %.06186 = phi i32 [ %.0, %32 ], [ %.1.jt1, %10 ], [ %.1.jt2, %7 ], [ %.1.jt4, %4 ]
+  %33 = or i32 %.06186, 1024
+  br label %38
+
+34:                                               ; preds = %2
+  %.not29 = icmp eq i32 %.023, 0
+  br i1 %.not29, label %.thread, label %.thread90
+
+.thread90:                                        ; preds = %10, %7, %4, %34
+  %.0254197 = phi ptr [ %.025, %34 ], [ %11, %10 ], [ %8, %7 ], [ %5, %4 ]
+  %.0235696 = phi i32 [ %.023, %34 ], [ 1, %10 ], [ 2, %7 ], [ 4, %4 ]
+  %.06295 = phi i32 [ %.0, %34 ], [ %.1.jt1, %10 ], [ %.1.jt2, %7 ], [ %.1.jt4, %4 ]
+  %35 = or i32 %.06295, 8
+  br label %38
+
+36:                                               ; preds = %2
   %.not28 = icmp eq i32 %.023, 0
-  br i1 %.not28, label %35, label %31
+  br i1 %.not28, label %.thread, label %.thread99
 
-31:                                               ; preds = %30
-  %32 = or i32 %.0, 256
-  br label %33
+.thread99:                                        ; preds = %7, %4, %10, %36
+  %.02542106 = phi ptr [ %.025, %36 ], [ %11, %10 ], [ %8, %7 ], [ %5, %4 ]
+  %.02357105 = phi i32 [ %.023, %36 ], [ 1, %10 ], [ 2, %7 ], [ 4, %4 ]
+  %.063104 = phi i32 [ %.0, %36 ], [ %.1.jt1, %10 ], [ %.1.jt2, %7 ], [ %.1.jt4, %4 ]
+  %37 = or i32 %.063104, 256
+  br label %38
 
-33:                                               ; preds = %8, %6, %4, %22, %25, %28, %31, %17, %14, %11, %20
-  %.124 = phi i32 [ 1, %11 ], [ 2, %14 ], [ 4, %17 ], [ 1, %20 ], [ %.023, %22 ], [ %.023, %25 ], [ %.023, %28 ], [ %.023, %31 ], [ 1, %4 ], [ 2, %6 ], [ 4, %8 ]
-  %.1 = phi i32 [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %.0, %20 ], [ %23, %22 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ 257, %4 ], [ 294, %6 ], [ 278, %8 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.025, i64 1
+38:                                               ; preds = %.thread72, %.thread81, %.thread90, %.thread99
+  %.02548 = phi ptr [ %.0253979, %.thread72 ], [ %.0254088, %.thread81 ], [ %.0254197, %.thread90 ], [ %.02542106, %.thread99 ]
+  %.124 = phi i32 [ %.0235478, %.thread72 ], [ %.0235587, %.thread81 ], [ %.0235696, %.thread90 ], [ %.02357105, %.thread99 ]
+  %.1 = phi i32 [ %31, %.thread72 ], [ %33, %.thread81 ], [ %35, %.thread90 ], [ %37, %.thread99 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.02548, i64 1
   br label %2, !llvm.loop !6
 
-35:                                               ; preds = %2, %4, %6, %8, %10, %20, %21, %24, %27, %30
-  %36 = tail call ptr @__errno() #6
-  store i32 22, ptr %36, align 4
+.thread:                                          ; preds = %4, %7, %10, %2, %13, %15, %17, %19, %29, %30, %32, %34, %36
+  %40 = tail call ptr @__errno() #6
+  store i32 22, ptr %40, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %2, %35
-  %.026 = phi i32 [ -1, %35 ], [ %.0, %2 ]
+.loopexit:                                        ; preds = %2, %10, %7, %4, %.thread
+  %.026 = phi i32 [ -1, %.thread ], [ %.0, %2 ], [ %.1.jt1, %10 ], [ %.1.jt2, %7 ], [ %.1.jt4, %4 ]
   ret i32 %.026
 }
 

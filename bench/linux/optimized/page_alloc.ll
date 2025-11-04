@@ -5976,14 +5976,14 @@ __zone_watermark_ok.exit37:                       ; preds = %168
 213:                                              ; preds = %.thread.i36
   %214 = icmp ne i64 %172, 0
   %215 = and i1 %62, %214
-  %or.cond281 = select i1 %61, i1 %215, i1 false, !prof !133
-  br i1 %or.cond281, label %216, label %.thread48, !prof !133
+  %or.cond280 = select i1 %61, i1 %215, i1 false, !prof !133
+  br i1 %or.cond280, label %216, label %.thread48, !prof !133
 
 216:                                              ; preds = %213
   %217 = load i64, ptr %74, align 64
   %218 = tail call zeroext i1 @__zone_watermark_ok(ptr noundef nonnull %74, i32 noundef 0, i64 noundef %217, i32 noundef %174, i32 noundef %30, i64 noundef %177)
-  %brmerge284 = or i1 %218, %64
-  br i1 %brmerge284, label %__zone_watermark_ok.exit.thread, label %219
+  %brmerge283 = or i1 %218, %64
+  br i1 %brmerge283, label %__zone_watermark_ok.exit.thread, label %219
 
 .thread48:                                        ; preds = %213
   br i1 %64, label %__zone_watermark_ok.exit.thread, label %219
@@ -6151,7 +6151,7 @@ zone_statistics.exit.thread:                      ; preds = %255, %259, %279, %2
   %319 = getelementptr i8, ptr %.split.i, i64 4
   br label %320
 
-320:                                              ; preds = %.loopexit288, %zone_statistics.exit.thread
+320:                                              ; preds = %.loopexit287, %zone_statistics.exit.thread
   %321 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %309) #22
   br i1 %66, label %.loopexit74.preheader, label %.preheader73
 
@@ -6434,7 +6434,7 @@ find_suitable_fallback.exit:                      ; preds = %.backedge.i, %375
   %470 = getelementptr inbounds nuw i8, ptr %468, i64 48
   %471 = load volatile i32, ptr %470, align 4
   %472 = icmp eq i32 %471, -1
-  br i1 %472, label %.preheader69, label %.loopexit288, !prof !120
+  br i1 %472, label %.preheader69, label %.loopexit287, !prof !120
 
 473:                                              ; preds = %.preheader69
   %474 = add nuw nsw i64 %483, 1
@@ -6448,7 +6448,7 @@ find_suitable_fallback.exit:                      ; preds = %.backedge.i, %375
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 48
   %481 = load volatile i32, ptr %480, align 4
   %482 = icmp eq i32 %481, -1
-  br i1 %482, label %.preheader69, label %.loopexit288, !prof !122, !llvm.loop !121
+  br i1 %482, label %.preheader69, label %.loopexit287, !prof !122, !llvm.loop !121
 
 .preheader69:                                     ; preds = %469, %478
   %483 = phi i64 [ %474, %478 ], [ 0, %469 ]
@@ -6464,11 +6464,11 @@ find_suitable_fallback.exit:                      ; preds = %.backedge.i, %375
   %493 = and i64 %492, 8388607
   %494 = or i64 %491, %493
   %495 = icmp eq i64 %494, 0
-  br i1 %495, label %473, label %.loopexit288, !prof !7
+  br i1 %495, label %473, label %.loopexit287, !prof !7
 
-.loopexit288:                                     ; preds = %.preheader69, %478, %469
-  %.lcssa259.sink = phi ptr [ %468, %469 ], [ %479, %478 ], [ %484, %.preheader69 ]
-  tail call fastcc void @check_new_page_bad(ptr noundef %.lcssa259.sink)
+.loopexit287:                                     ; preds = %.preheader69, %478, %469
+  %.lcssa258.sink = phi ptr [ %468, %469 ], [ %479, %478 ], [ %484, %.preheader69 ]
+  tail call fastcc void @check_new_page_bad(ptr noundef %.lcssa258.sink)
   br label %320
 
 .loopexit70:                                      ; preds = %467, %473

@@ -1331,56 +1331,55 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cmp.not24.i = icmp ne ptr %protocol.coerce0, %protocol.coerce1
   %or.cond.not = select i1 %strictValidation, i1 %cmp.not24.i, i1 false
-  br i1 %or.cond.not, label %for.body.us.i, label %if.end7
+  br i1 %or.cond.not, label %sw.bb.us.i, label %if.end7
 
-for.body.us.i:                                    ; preds = %if.end, %for.inc.us.i
-  %p.028.us.i = phi ptr [ %incdec.ptr47.us.i, %for.inc.us.i ], [ %protocol.coerce0, %if.end ]
-  %state.027.us.i = phi i32 [ %state.1.us.i, %for.inc.us.i ], [ 0, %if.end ]
-  %quote.026.us.i = phi i1 [ %quote.1.us.i, %for.inc.us.i ], [ false, %if.end ]
-  switch i32 %state.027.us.i, label %for.inc.us.i [
-    i32 0, label %sw.bb.us.i
-    i32 1, label %sw.bb25.us.i
-    i32 2, label %sw.bb30.us.i
-    i32 3, label %sw.bb38.us.i
+sw.bb38.us.i:                                     ; preds = %sw.bb38.us.i.lr.ph, %for.inc.us.i.jt3.backedge
+  %incdec.ptr47.us.i.jt333 = phi ptr [ %incdec.ptr47.us.i.jt330, %sw.bb38.us.i.lr.ph ], [ %incdec.ptr47.us.i.jt3, %for.inc.us.i.jt3.backedge ]
+  %p.1.us.i.jt332 = phi ptr [ %incdec.ptr47.us.i.jt2, %sw.bb38.us.i.lr.ph ], [ %incdec.ptr47.us.i.jt333, %for.inc.us.i.jt3.backedge ]
+  %1 = load i8, ptr %incdec.ptr47.us.i.jt333, align 1
+  switch i8 %1, label %for.inc.us.i.jt0 [
+    i8 32, label %for.inc.us.i.jt3.backedge
+    i8 9, label %for.inc.us.i.jt3.backedge
   ]
 
-sw.bb38.us.i:                                     ; preds = %for.body.us.i
-  %1 = load i8, ptr %p.028.us.i, align 1
-  switch i8 %1, label %if.then44.us.i [
-    i8 32, label %for.inc.us.i
-    i8 9, label %for.inc.us.i
-  ]
+for.inc.us.i.jt3.backedge:                        ; preds = %sw.bb38.us.i, %sw.bb38.us.i
+  %incdec.ptr47.us.i.jt3 = getelementptr inbounds nuw i8, ptr %incdec.ptr47.us.i.jt333, i64 1
+  %cmp.not.us.i.jt3 = icmp eq ptr %incdec.ptr47.us.i.jt3, %protocol.coerce1
+  br i1 %cmp.not.us.i.jt3, label %for.inc.us.i.jt3.if.end7.loopexit_crit_edge, label %sw.bb38.us.i, !llvm.loop !47
 
-if.then44.us.i:                                   ; preds = %sw.bb38.us.i
-  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %p.028.us.i, i64 -1
-  br label %for.inc.us.i
-
-sw.bb30.us.i:                                     ; preds = %for.body.us.i
-  %2 = load i8, ptr %p.028.us.i, align 1
+sw.bb30.us.i:                                     ; preds = %for.inc.us.i.jt2
+  %2 = load i8, ptr %incdec.ptr47.us.i.jt2, align 1
   switch i8 %2, label %if.then4 [
-    i8 32, label %for.inc.us.i
-    i8 9, label %for.inc.us.i
+    i8 32, label %for.inc.us.i.jt3.preheader
+    i8 9, label %for.inc.us.i.jt3.preheader
   ]
 
-sw.bb25.us.i:                                     ; preds = %for.body.us.i
-  %3 = load i8, ptr %p.028.us.i, align 1
-  %cmp27.not.us.i = icmp eq i8 %3, 10
-  br i1 %cmp27.not.us.i, label %for.inc.us.i, label %if.then4
+for.inc.us.i.jt3.preheader:                       ; preds = %sw.bb30.us.i, %sw.bb30.us.i
+  %incdec.ptr47.us.i.jt330 = getelementptr inbounds nuw i8, ptr %p.028.us.i13, i64 3
+  %cmp.not.us.i.jt331 = icmp eq ptr %incdec.ptr47.us.i.jt330, %protocol.coerce1
+  br i1 %cmp.not.us.i.jt331, label %for.inc.us.i.jt3.preheader.if.end7.loopexit_crit_edge, label %sw.bb38.us.i.lr.ph, !llvm.loop !47
 
-sw.bb.us.i:                                       ; preds = %for.body.us.i
-  %4 = load i8, ptr %p.028.us.i, align 1
+sw.bb38.us.i.lr.ph:                               ; preds = %for.inc.us.i.jt3.preheader
+  br label %sw.bb38.us.i, !llvm.loop !47
+
+sw.bb25.us.i:                                     ; preds = %for.inc.us.i.jt1
+  %3 = load i8, ptr %incdec.ptr47.us.i.jt1, align 1
+  %cmp27.not.us.i = icmp eq i8 %3, 10
+  br i1 %cmp27.not.us.i, label %for.inc.us.i.jt2, label %if.then4
+
+sw.bb.us.i:                                       ; preds = %if.end, %for.inc.us.i.jt0
+  %quote.026.us.i17 = phi i1 [ %quote.1.us.i.jt0, %for.inc.us.i.jt0 ], [ false, %if.end ]
+  %p.028.us.i13 = phi ptr [ %incdec.ptr47.us.i.jt0, %for.inc.us.i.jt0 ], [ %protocol.coerce0, %if.end ]
+  %4 = load i8, ptr %p.028.us.i13, align 1
   switch i8 %4, label %sw.default.us.i [
-    i8 92, label %sw.bb5.us.i
+    i8 92, label %for.inc.us.i.jt0
     i8 34, label %sw.bb9.us.i
-    i8 13, label %for.inc.us.i
+    i8 13, label %for.inc.us.i.jt1
   ]
 
 sw.bb9.us.i:                                      ; preds = %sw.bb.us.i
-  %frombool.us.i = xor i1 %quote.026.us.i, true
-  br label %for.inc.us.i
-
-sw.bb5.us.i:                                      ; preds = %sw.bb.us.i
-  br label %for.inc.us.i
+  %frombool.us.i = xor i1 %quote.026.us.i17, true
+  br label %for.inc.us.i.jt0
 
 sw.default.us.i:                                  ; preds = %sw.bb.us.i
   %cmp13.us.i = icmp ult i8 %4, 32
@@ -1388,27 +1387,30 @@ sw.default.us.i:                                  ; preds = %sw.bb.us.i
   %or.cond18.not21.us.i = and i1 %cmp13.us.i, %cmp15.not.us.i
   %5 = icmp ugt i8 %4, 126
   %or.cond.i = or i1 %5, %or.cond18.not21.us.i
-  br i1 %or.cond.i, label %if.then4, label %for.inc.us.i
+  br i1 %or.cond.i, label %if.then4, label %for.inc.us.i.jt0
 
-for.inc.us.i:                                     ; preds = %sw.default.us.i, %sw.bb5.us.i, %sw.bb9.us.i, %sw.bb.us.i, %sw.bb25.us.i, %sw.bb30.us.i, %sw.bb30.us.i, %if.then44.us.i, %sw.bb38.us.i, %sw.bb38.us.i, %for.body.us.i
-  %escape.2.us.i = phi i1 [ false, %for.body.us.i ], [ false, %sw.bb9.us.i ], [ false, %if.then44.us.i ], [ false, %sw.bb38.us.i ], [ %quote.026.us.i, %sw.bb5.us.i ], [ false, %sw.bb.us.i ], [ false, %sw.bb25.us.i ], [ false, %sw.bb30.us.i ], [ false, %sw.bb30.us.i ], [ false, %sw.bb38.us.i ], [ false, %sw.default.us.i ]
-  %quote.1.us.i = phi i1 [ %quote.026.us.i, %for.body.us.i ], [ %frombool.us.i, %sw.bb9.us.i ], [ %quote.026.us.i, %if.then44.us.i ], [ %quote.026.us.i, %sw.bb38.us.i ], [ %quote.026.us.i, %sw.bb5.us.i ], [ %quote.026.us.i, %sw.bb.us.i ], [ %quote.026.us.i, %sw.bb25.us.i ], [ %quote.026.us.i, %sw.bb30.us.i ], [ %quote.026.us.i, %sw.bb30.us.i ], [ %quote.026.us.i, %sw.bb38.us.i ], [ %quote.026.us.i, %sw.default.us.i ]
-  %state.1.us.i = phi i32 [ %state.027.us.i, %for.body.us.i ], [ 0, %sw.bb9.us.i ], [ 0, %if.then44.us.i ], [ 3, %sw.bb38.us.i ], [ 0, %sw.bb5.us.i ], [ 1, %sw.bb.us.i ], [ 2, %sw.bb25.us.i ], [ 3, %sw.bb30.us.i ], [ 3, %sw.bb30.us.i ], [ 3, %sw.bb38.us.i ], [ 0, %sw.default.us.i ]
-  %p.1.us.i = phi ptr [ %p.028.us.i, %for.body.us.i ], [ %p.028.us.i, %sw.bb9.us.i ], [ %incdec.ptr.us.i, %if.then44.us.i ], [ %p.028.us.i, %sw.bb38.us.i ], [ %p.028.us.i, %sw.bb5.us.i ], [ %p.028.us.i, %sw.bb.us.i ], [ %p.028.us.i, %sw.bb25.us.i ], [ %p.028.us.i, %sw.bb30.us.i ], [ %p.028.us.i, %sw.bb30.us.i ], [ %p.028.us.i, %sw.bb38.us.i ], [ %p.028.us.i, %sw.default.us.i ]
-  %incdec.ptr47.us.i = getelementptr inbounds nuw i8, ptr %p.1.us.i, i64 1
-  %cmp.not.us.i = icmp eq ptr %incdec.ptr47.us.i, %protocol.coerce1
-  br i1 %cmp.not.us.i, label %for.end.i, label %for.body.us.i, !llvm.loop !47
+for.inc.us.i.jt2:                                 ; preds = %sw.bb25.us.i
+  %incdec.ptr47.us.i.jt2 = getelementptr inbounds nuw i8, ptr %p.028.us.i13, i64 2
+  %cmp.not.us.i.jt2 = icmp eq ptr %incdec.ptr47.us.i.jt2, %protocol.coerce1
+  br i1 %cmp.not.us.i.jt2, label %if.then4, label %sw.bb30.us.i, !llvm.loop !47
 
-for.end.i:                                        ; preds = %for.inc.us.i
-  br i1 %escape.2.us.i, label %if.then4, label %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit
+for.inc.us.i.jt1:                                 ; preds = %sw.bb.us.i
+  %incdec.ptr47.us.i.jt1 = getelementptr inbounds nuw i8, ptr %p.028.us.i13, i64 1
+  %cmp.not.us.i.jt1 = icmp eq ptr %incdec.ptr47.us.i.jt1, %protocol.coerce1
+  br i1 %cmp.not.us.i.jt1, label %if.then4, label %sw.bb25.us.i, !llvm.loop !47
 
-_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit: ; preds = %for.end.i
-  switch i32 %state.1.us.i, label %if.then4 [
-    i32 3, label %if.end7
-    i32 0, label %if.end7
-  ]
+for.inc.us.i.jt0:                                 ; preds = %sw.bb38.us.i, %sw.bb.us.i, %sw.default.us.i, %sw.bb9.us.i
+  %escape.2.us.i.jt0 = phi i1 [ false, %sw.bb9.us.i ], [ false, %sw.default.us.i ], [ %quote.026.us.i17, %sw.bb.us.i ], [ false, %sw.bb38.us.i ]
+  %quote.1.us.i.jt0 = phi i1 [ %frombool.us.i, %sw.bb9.us.i ], [ %quote.026.us.i17, %sw.default.us.i ], [ %quote.026.us.i17, %sw.bb.us.i ], [ %quote.026.us.i17, %sw.bb38.us.i ]
+  %p.1.us.i.jt0 = phi ptr [ %p.028.us.i13, %sw.bb9.us.i ], [ %p.028.us.i13, %sw.default.us.i ], [ %p.028.us.i13, %sw.bb.us.i ], [ %p.1.us.i.jt332, %sw.bb38.us.i ]
+  %incdec.ptr47.us.i.jt0 = getelementptr inbounds nuw i8, ptr %p.1.us.i.jt0, i64 1
+  %cmp.not.us.i.jt0 = icmp eq ptr %incdec.ptr47.us.i.jt0, %protocol.coerce1
+  br i1 %cmp.not.us.i.jt0, label %for.end.i, label %sw.bb.us.i, !llvm.loop !47
 
-if.then4:                                         ; preds = %sw.bb30.us.i, %sw.bb25.us.i, %sw.default.us.i, %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %for.end.i
+for.end.i:                                        ; preds = %for.inc.us.i.jt0
+  br i1 %escape.2.us.i.jt0, label %if.then4, label %if.end7
+
+if.then4:                                         ; preds = %for.inc.us.i.jt2, %for.inc.us.i.jt1, %sw.bb30.us.i, %sw.bb25.us.i, %sw.default.us.i, %for.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %sizes.i.i.i.i), !noalias !48
   store i64 19, ptr %sizes.i.i.i.i, align 16, !noalias !48
@@ -1460,7 +1462,13 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA19_cNS_5Range
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   br label %return
 
-if.end7:                                          ; preds = %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %if.end
+for.inc.us.i.jt3.preheader.if.end7.loopexit_crit_edge: ; preds = %for.inc.us.i.jt3.preheader
+  br label %if.end7, !llvm.loop !47
+
+for.inc.us.i.jt3.if.end7.loopexit_crit_edge:      ; preds = %for.inc.us.i.jt3.backedge
+  br label %if.end7, !llvm.loop !47
+
+if.end7:                                          ; preds = %for.inc.us.i.jt3.preheader.if.end7.loopexit_crit_edge, %for.inc.us.i.jt3.if.end7.loopexit_crit_edge, %for.end.i, %if.end
   store i8 1, ptr %hasUpgradeProtocol_, align 4
   %msg_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %8 = load ptr, ptr %msg_, align 8
@@ -1826,59 +1834,58 @@ entry:
   br i1 %cmp.not24, label %land.rhs, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  switch i32 %mode, label %for.body.us.us [
+  switch i32 %mode, label %sw.bb.us.us [
     i32 0, label %for.body.us31
     i32 2, label %for.body.us
   ]
 
-for.body.us.us:                                   ; preds = %for.body.lr.ph, %for.inc.us.us
-  %p.028.us.us = phi ptr [ %incdec.ptr47.us.us, %for.inc.us.us ], [ %value.coerce0, %for.body.lr.ph ]
-  %state.027.us.us = phi i32 [ %state.1.us.us, %for.inc.us.us ], [ 0, %for.body.lr.ph ]
-  %quote.026.us.us = phi i8 [ %quote.1.us.us, %for.inc.us.us ], [ 0, %for.body.lr.ph ]
-  switch i32 %state.027.us.us, label %for.inc.us.us [
-    i32 0, label %sw.bb.us.us
-    i32 1, label %sw.bb25.us.us
-    i32 2, label %sw.bb30.us.us
-    i32 3, label %sw.bb38.us.us
+sw.bb38.us.us:                                    ; preds = %sw.bb38.us.us.lr.ph, %for.inc.us.us.jt3.backedge
+  %incdec.ptr47.us.us.jt3106 = phi ptr [ %incdec.ptr47.us.us.jt3103, %sw.bb38.us.us.lr.ph ], [ %incdec.ptr47.us.us.jt3, %for.inc.us.us.jt3.backedge ]
+  %p.1.us.us.jt3105 = phi ptr [ %incdec.ptr47.us.us.jt2, %sw.bb38.us.us.lr.ph ], [ %incdec.ptr47.us.us.jt3106, %for.inc.us.us.jt3.backedge ]
+  %0 = load i8, ptr %incdec.ptr47.us.us.jt3106, align 1
+  switch i8 %0, label %for.inc.us.us.jt0 [
+    i8 32, label %for.inc.us.us.jt3.backedge
+    i8 9, label %for.inc.us.us.jt3.backedge
   ]
 
-sw.bb38.us.us:                                    ; preds = %for.body.us.us
-  %0 = load i8, ptr %p.028.us.us, align 1
-  switch i8 %0, label %if.then44.us.us [
-    i8 32, label %for.inc.us.us
-    i8 9, label %for.inc.us.us
-  ]
+for.inc.us.us.jt3.backedge:                       ; preds = %sw.bb38.us.us, %sw.bb38.us.us
+  %incdec.ptr47.us.us.jt3 = getelementptr inbounds nuw i8, ptr %incdec.ptr47.us.us.jt3106, i64 1
+  %cmp.not.us.us.jt3 = icmp eq ptr %incdec.ptr47.us.us.jt3, %value.coerce1
+  br i1 %cmp.not.us.us.jt3, label %for.inc.us.us.jt3.land.rhs.loopexit_crit_edge, label %sw.bb38.us.us, !llvm.loop !47
 
-if.then44.us.us:                                  ; preds = %sw.bb38.us.us
-  %incdec.ptr.us.us = getelementptr inbounds i8, ptr %p.028.us.us, i64 -1
-  br label %for.inc.us.us
-
-sw.bb30.us.us:                                    ; preds = %for.body.us.us
-  %1 = load i8, ptr %p.028.us.us, align 1
+sw.bb30.us.us:                                    ; preds = %for.inc.us.us.jt2
+  %1 = load i8, ptr %incdec.ptr47.us.us.jt2, align 1
   switch i8 %1, label %return [
-    i8 32, label %for.inc.us.us
-    i8 9, label %for.inc.us.us
+    i8 32, label %for.inc.us.us.jt3.preheader
+    i8 9, label %for.inc.us.us.jt3.preheader
   ]
 
-sw.bb25.us.us:                                    ; preds = %for.body.us.us
-  %2 = load i8, ptr %p.028.us.us, align 1
-  %cmp27.not.us.us = icmp eq i8 %2, 10
-  br i1 %cmp27.not.us.us, label %for.inc.us.us, label %return
+for.inc.us.us.jt3.preheader:                      ; preds = %sw.bb30.us.us, %sw.bb30.us.us
+  %incdec.ptr47.us.us.jt3103 = getelementptr inbounds nuw i8, ptr %p.028.us.us80, i64 3
+  %cmp.not.us.us.jt3104 = icmp eq ptr %incdec.ptr47.us.us.jt3103, %value.coerce1
+  br i1 %cmp.not.us.us.jt3104, label %for.inc.us.us.jt3.preheader.land.rhs.loopexit_crit_edge, label %sw.bb38.us.us.lr.ph, !llvm.loop !47
 
-sw.bb.us.us:                                      ; preds = %for.body.us.us
-  %3 = load i8, ptr %p.028.us.us, align 1
+sw.bb38.us.us.lr.ph:                              ; preds = %for.inc.us.us.jt3.preheader
+  br label %sw.bb38.us.us, !llvm.loop !47
+
+sw.bb25.us.us:                                    ; preds = %for.inc.us.us.jt1
+  %2 = load i8, ptr %incdec.ptr47.us.us.jt1, align 1
+  %cmp27.not.us.us = icmp eq i8 %2, 10
+  br i1 %cmp27.not.us.us, label %for.inc.us.us.jt2, label %return
+
+sw.bb.us.us:                                      ; preds = %for.body.lr.ph, %for.inc.us.us.jt0
+  %quote.026.us.us84 = phi i8 [ %quote.1.us.us.jt0, %for.inc.us.us.jt0 ], [ 0, %for.body.lr.ph ]
+  %p.028.us.us80 = phi ptr [ %incdec.ptr47.us.us.jt0, %for.inc.us.us.jt0 ], [ %value.coerce0, %for.body.lr.ph ]
+  %3 = load i8, ptr %p.028.us.us80, align 1
   switch i8 %3, label %sw.default.us.us [
-    i8 92, label %sw.bb5.us.us
+    i8 92, label %for.inc.us.us.jt0
     i8 34, label %sw.bb9.us.us
-    i8 13, label %for.inc.us.us
+    i8 13, label %for.inc.us.us.jt1
   ]
 
 sw.bb9.us.us:                                     ; preds = %sw.bb.us.us
-  %frombool.us.us = xor i8 %quote.026.us.us, 1
-  br label %for.inc.us.us
-
-sw.bb5.us.us:                                     ; preds = %sw.bb.us.us
-  br label %for.inc.us.us
+  %frombool.us.us = xor i8 %quote.026.us.us84, 1
+  br label %for.inc.us.us.jt0
 
 sw.default.us.us:                                 ; preds = %sw.bb.us.us
   %cmp13.us.us = icmp ult i8 %3, 32
@@ -1886,16 +1893,25 @@ sw.default.us.us:                                 ; preds = %sw.bb.us.us
   %or.cond18.not21.us.us = and i1 %cmp13.us.us, %cmp15.not.us.us
   %cmp17.us.us = icmp eq i8 %3, 127
   %or.cond20.us.us = or i1 %cmp17.us.us, %or.cond18.not21.us.us
-  br i1 %or.cond20.us.us, label %return, label %for.inc.us.us
+  br i1 %or.cond20.us.us, label %return, label %for.inc.us.us.jt0
 
-for.inc.us.us:                                    ; preds = %sw.default.us.us, %sw.bb5.us.us, %sw.bb9.us.us, %sw.bb.us.us, %sw.bb25.us.us, %sw.bb30.us.us, %sw.bb30.us.us, %if.then44.us.us, %sw.bb38.us.us, %sw.bb38.us.us, %for.body.us.us
-  %escape.2.us.us = phi i8 [ 0, %for.body.us.us ], [ 0, %sw.bb9.us.us ], [ 0, %if.then44.us.us ], [ 0, %sw.bb38.us.us ], [ %quote.026.us.us, %sw.bb5.us.us ], [ 0, %sw.bb.us.us ], [ 0, %sw.bb25.us.us ], [ 0, %sw.bb30.us.us ], [ 0, %sw.bb30.us.us ], [ 0, %sw.bb38.us.us ], [ 0, %sw.default.us.us ]
-  %quote.1.us.us = phi i8 [ %quote.026.us.us, %for.body.us.us ], [ %frombool.us.us, %sw.bb9.us.us ], [ %quote.026.us.us, %if.then44.us.us ], [ %quote.026.us.us, %sw.bb38.us.us ], [ %quote.026.us.us, %sw.bb5.us.us ], [ %quote.026.us.us, %sw.bb.us.us ], [ %quote.026.us.us, %sw.bb25.us.us ], [ %quote.026.us.us, %sw.bb30.us.us ], [ %quote.026.us.us, %sw.bb30.us.us ], [ %quote.026.us.us, %sw.bb38.us.us ], [ %quote.026.us.us, %sw.default.us.us ]
-  %state.1.us.us = phi i32 [ %state.027.us.us, %for.body.us.us ], [ 0, %sw.bb9.us.us ], [ 0, %if.then44.us.us ], [ 3, %sw.bb38.us.us ], [ 0, %sw.bb5.us.us ], [ 1, %sw.bb.us.us ], [ 2, %sw.bb25.us.us ], [ 3, %sw.bb30.us.us ], [ 3, %sw.bb30.us.us ], [ 3, %sw.bb38.us.us ], [ 0, %sw.default.us.us ]
-  %p.1.us.us = phi ptr [ %p.028.us.us, %for.body.us.us ], [ %p.028.us.us, %sw.bb9.us.us ], [ %incdec.ptr.us.us, %if.then44.us.us ], [ %p.028.us.us, %sw.bb38.us.us ], [ %p.028.us.us, %sw.bb5.us.us ], [ %p.028.us.us, %sw.bb.us.us ], [ %p.028.us.us, %sw.bb25.us.us ], [ %p.028.us.us, %sw.bb30.us.us ], [ %p.028.us.us, %sw.bb30.us.us ], [ %p.028.us.us, %sw.bb38.us.us ], [ %p.028.us.us, %sw.default.us.us ]
-  %incdec.ptr47.us.us = getelementptr inbounds nuw i8, ptr %p.1.us.us, i64 1
-  %cmp.not.us.us = icmp eq ptr %incdec.ptr47.us.us, %value.coerce1
-  br i1 %cmp.not.us.us, label %for.end, label %for.body.us.us, !llvm.loop !47
+for.inc.us.us.jt2:                                ; preds = %sw.bb25.us.us
+  %incdec.ptr47.us.us.jt2 = getelementptr inbounds nuw i8, ptr %p.028.us.us80, i64 2
+  %cmp.not.us.us.jt2 = icmp eq ptr %incdec.ptr47.us.us.jt2, %value.coerce1
+  br i1 %cmp.not.us.us.jt2, label %land.rhs, label %sw.bb30.us.us, !llvm.loop !47
+
+for.inc.us.us.jt1:                                ; preds = %sw.bb.us.us
+  %incdec.ptr47.us.us.jt1 = getelementptr inbounds nuw i8, ptr %p.028.us.us80, i64 1
+  %cmp.not.us.us.jt1 = icmp eq ptr %incdec.ptr47.us.us.jt1, %value.coerce1
+  br i1 %cmp.not.us.us.jt1, label %land.rhs, label %sw.bb25.us.us, !llvm.loop !47
+
+for.inc.us.us.jt0:                                ; preds = %sw.bb38.us.us, %sw.bb.us.us, %sw.default.us.us, %sw.bb9.us.us
+  %escape.2.us.us.jt0 = phi i8 [ 0, %sw.bb9.us.us ], [ 0, %sw.default.us.us ], [ %quote.026.us.us84, %sw.bb.us.us ], [ 0, %sw.bb38.us.us ]
+  %quote.1.us.us.jt0 = phi i8 [ %frombool.us.us, %sw.bb9.us.us ], [ %quote.026.us.us84, %sw.default.us.us ], [ %quote.026.us.us84, %sw.bb.us.us ], [ %quote.026.us.us84, %sw.bb38.us.us ]
+  %p.1.us.us.jt0 = phi ptr [ %p.028.us.us80, %sw.bb9.us.us ], [ %p.028.us.us80, %sw.default.us.us ], [ %p.028.us.us80, %sw.bb.us.us ], [ %p.1.us.us.jt3105, %sw.bb38.us.us ]
+  %incdec.ptr47.us.us.jt0 = getelementptr inbounds nuw i8, ptr %p.1.us.us.jt0, i64 1
+  %cmp.not.us.us.jt0 = icmp eq ptr %incdec.ptr47.us.us.jt0, %value.coerce1
+  br i1 %cmp.not.us.us.jt0, label %for.end, label %sw.bb.us.us, !llvm.loop !47
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %p.028.us = phi ptr [ %incdec.ptr47.us, %for.inc.us ], [ %value.coerce0, %for.body.lr.ph ]
@@ -2034,16 +2050,22 @@ for.inc.us57:                                     ; preds = %sw.default.us48, %s
   %cmp.not.us63 = icmp eq ptr %incdec.ptr47.us62, %value.coerce1
   br i1 %cmp.not.us63, label %for.end, label %for.body.us31, !llvm.loop !47
 
-for.end:                                          ; preds = %for.inc.us, %for.inc.us57, %for.inc.us.us
-  %escape.0.lcssa = phi i8 [ %escape.2.us.us, %for.inc.us.us ], [ %escape.2.us58, %for.inc.us57 ], [ %escape.2.us, %for.inc.us ]
-  %state.0.lcssa = phi i32 [ %state.1.us.us, %for.inc.us.us ], [ %state.1.us60, %for.inc.us57 ], [ %state.1.us, %for.inc.us ]
+for.end:                                          ; preds = %for.inc.us, %for.inc.us57, %for.inc.us.us.jt0
+  %escape.0.lcssa = phi i8 [ %escape.2.us.us.jt0, %for.inc.us.us.jt0 ], [ %escape.2.us58, %for.inc.us57 ], [ %escape.2.us, %for.inc.us ]
+  %state.0.lcssa = phi i32 [ 0, %for.inc.us.us.jt0 ], [ %state.1.us60, %for.inc.us57 ], [ %state.1.us, %for.inc.us ]
   %tobool48 = trunc nuw i8 %escape.0.lcssa to i1
   br i1 %tobool48, label %return, label %land.rhs
 
-land.rhs:                                         ; preds = %entry, %for.end
-  %state.0.lcssa78 = phi i32 [ %state.0.lcssa, %for.end ], [ 0, %entry ]
-  %cmp49 = icmp eq i32 %state.0.lcssa78, 0
-  %cmp50 = icmp eq i32 %state.0.lcssa78, 3
+for.inc.us.us.jt3.preheader.land.rhs.loopexit_crit_edge: ; preds = %for.inc.us.us.jt3.preheader
+  br label %land.rhs, !llvm.loop !47
+
+for.inc.us.us.jt3.land.rhs.loopexit_crit_edge:    ; preds = %for.inc.us.us.jt3.backedge
+  br label %land.rhs, !llvm.loop !47
+
+land.rhs:                                         ; preds = %for.inc.us.us.jt1, %for.inc.us.us.jt2, %for.inc.us.us.jt3.preheader.land.rhs.loopexit_crit_edge, %for.inc.us.us.jt3.land.rhs.loopexit_crit_edge, %entry, %for.end
+  %state.0.lcssa88 = phi i32 [ %state.0.lcssa, %for.end ], [ 0, %entry ], [ 3, %for.inc.us.us.jt3.land.rhs.loopexit_crit_edge ], [ 3, %for.inc.us.us.jt3.preheader.land.rhs.loopexit_crit_edge ], [ 2, %for.inc.us.us.jt2 ], [ 1, %for.inc.us.us.jt1 ]
+  %cmp49 = icmp eq i32 %state.0.lcssa88, 0
+  %cmp50 = icmp eq i32 %state.0.lcssa88, 3
   %13 = or i1 %cmp49, %cmp50
   br label %return
 

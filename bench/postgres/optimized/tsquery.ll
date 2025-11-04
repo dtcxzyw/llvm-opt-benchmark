@@ -790,7 +790,7 @@ define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %11
 
-11:                                               ; preds = %156, %6
+11:                                               ; preds = %151, %6
   %12 = load i32, ptr %8, align 4
   switch i32 %12, label %._crit_edge [
     i32 3, label %13
@@ -800,7 +800,7 @@ define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr
 
 ._crit_edge:                                      ; preds = %11
   %.pre = load ptr, ptr %9, align 8
-  br label %156
+  br label %151
 
 13:                                               ; preds = %11, %11
   %14 = load ptr, ptr %9, align 8
@@ -808,7 +808,7 @@ define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr
   switch i8 %15, label %23 [
     i8 33, label %16
     i8 40, label %18
-    i8 58, label %.loopexit70
+    i8 58, label %.loopexit
   ]
 
 16:                                               ; preds = %13
@@ -816,7 +816,7 @@ define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr
   store ptr %17, ptr %9, align 8
   store i32 1, ptr %8, align 4
   store i8 1, ptr %1, align 1
-  br label %.loopexit70
+  br label %.loopexit
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 1
@@ -826,7 +826,7 @@ define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8
-  br label %.loopexit70
+  br label %.loopexit
 
 23:                                               ; preds = %13
   %24 = tail call ptr @__ctype_b_loc() #14
@@ -836,7 +836,7 @@ define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 8192
   %.not63 = icmp eq i16 %29, 0
-  br i1 %.not63, label %30, label %156
+  br i1 %.not63, label %30, label %151
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -918,7 +918,7 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %42, %57,
   %.0.i = phi ptr [ %36, %35 ], [ %.01718.i, %.preheader.i ], [ %.01720.i, %.lr.ph.i ], [ %.017.i, %57 ], [ %.01720.i, %42 ]
   store ptr %.0.i, ptr %9, align 8
   store i32 2, ptr %8, align 4
-  br label %.loopexit70
+  br label %.loopexit
 
 59:                                               ; preds = %30
   %60 = load ptr, ptr %10, align 8
@@ -934,16 +934,16 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %42, %57,
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %66 = load i8, ptr %65, align 4, !range !7, !noundef !8
   %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %.loopexit70, label %68
+  br i1 %67, label %.loopexit, label %68
 
 68:                                               ; preds = %64, %61, %59
   %69 = load i32, ptr %8, align 4
   %70 = icmp eq i32 %69, 3
-  br i1 %70, label %.loopexit70, label %71
+  br i1 %70, label %.loopexit, label %71
 
 71:                                               ; preds = %68
   %72 = tail call zeroext i1 @errsave_start(ptr noundef %60, ptr noundef null) #11
-  br i1 %72, label %73, label %.loopexit70
+  br i1 %72, label %73, label %.loopexit
 
 73:                                               ; preds = %71
   %74 = tail call i32 @errcode(i32 noundef 16801924) #11
@@ -951,7 +951,7 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %42, %57,
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %76) #11
   tail call void @errsave_finish(ptr noundef %60, ptr noundef nonnull @.str.1, i32 noundef 345, ptr noundef nonnull @__func__.gettoken_query_standard) #11
-  br label %.loopexit70
+  br label %.loopexit
 
 78:                                               ; preds = %11
   %79 = load ptr, ptr %9, align 8
@@ -966,184 +966,162 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %42, %57,
   store ptr %82, ptr %9, align 8
   store i32 1, ptr %8, align 4
   store i8 2, ptr %1, align 1
-  br label %.loopexit70
+  br label %.loopexit
 
 83:                                               ; preds = %78
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 1
   store ptr %84, ptr %9, align 8
   store i32 1, ptr %8, align 4
   store i8 3, ptr %1, align 1
-  br label %.loopexit70
+  br label %.loopexit
 
 85:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.not4952.i = icmp eq i8 %80, 0
-  br i1 %.not4952.i, label %.loopexit, label %.lr.ph.i65
+  %cond.i = icmp eq i8 %80, 60
+  br i1 %cond.i, label %.outer.jt1.i, label %121
 
-.lr.ph.i65:                                       ; preds = %85, %.outer.i
-  %86 = phi i8 [ %124, %.outer.i ], [ %80, %85 ]
-  %.024.ph55.i = phi i64 [ %.1.i, %.outer.i ], [ 1, %85 ]
-  %.025.ph54.i = phi ptr [ %.126.i, %.outer.i ], [ %79, %85 ]
-  %.027.ph53.i = phi i32 [ %.128.i, %.outer.i ], [ 0, %85 ]
-  br label %87
+86:                                               ; preds = %.outer.jt1.i
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 2
+  %88 = load i8, ptr %87, align 1
+  %.not.i66 = icmp eq i8 %88, 0
+  br i1 %.not.i66, label %121, label %.lr.ph.jt2.i, !llvm.loop !11
 
-87:                                               ; preds = %95, %.lr.ph.i65
-  %88 = phi i8 [ %86, %.lr.ph.i65 ], [ %97, %95 ]
-  %.02551.i = phi ptr [ %.025.ph54.i, %.lr.ph.i65 ], [ %96, %95 ]
-  %.02750.i = phi i32 [ %.027.ph53.i, %.lr.ph.i65 ], [ 2, %95 ]
-  switch i32 %.02750.i, label %default.unreachable.i [
-    i32 0, label %89
-    i32 1, label %93
-    i32 2, label %120
-    i32 3, label %125
+89:                                               ; preds = %.outer.jt1.i
+  %90 = tail call ptr @__ctype_b_loc() #14
+  %91 = load ptr, ptr %90, align 8
+  %92 = zext i8 %117 to i64
+  %93 = getelementptr inbounds nuw i16, ptr %91, i64 %92
+  %94 = load i16, ptr %93, align 2
+  %95 = and i16 %94, 2048
+  %.not33.i = icmp eq i16 %95, 0
+  br i1 %.not33.i, label %121, label %96
+
+96:                                               ; preds = %89
+  %97 = tail call ptr @__errno_location() #14
+  store i32 0, ptr %97, align 4
+  %98 = call i64 @strtol(ptr noundef nonnull %116, ptr noundef nonnull %7, i32 noundef 10) #11
+  %99 = load ptr, ptr %7, align 8
+  %100 = icmp eq ptr %116, %99
+  br i1 %100, label %121, label %101
+
+101:                                              ; preds = %96
+  %102 = load i32, ptr %97, align 4
+  %103 = icmp eq i32 %102, 34
+  %104 = icmp ugt i64 %98, 16384
+  %or.cond3.i = select i1 %103, i1 true, i1 %104
+  br i1 %or.cond3.i, label %105, label %.outer.jt2.i
+
+105:                                              ; preds = %101
+  %106 = load ptr, ptr %10, align 8
+  %107 = tail call zeroext i1 @errsave_start(ptr noundef %106, ptr noundef null) #11
+  br i1 %107, label %108, label %121
+
+108:                                              ; preds = %105
+  %109 = tail call i32 @errcode(i32 noundef 50856066) #11
+  %110 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef 16384) #11
+  tail call void @errsave_finish(ptr noundef %106, ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.parse_phrase_operator) #11
+  br label %121
+
+.lr.ph.jt2.i:                                     ; preds = %.outer.jt2.i, %86
+  %.024.ph5577.i = phi i64 [ 1, %86 ], [ %98, %.outer.jt2.i ]
+  %111 = phi i8 [ %88, %86 ], [ %113, %.outer.jt2.i ]
+  %.02551.jt2.i = phi ptr [ %87, %86 ], [ %99, %.outer.jt2.i ]
+  %112 = icmp eq i8 %111, 62
+  br i1 %112, label %.outer.jt3.i, label %121
+
+.outer.jt2.i:                                     ; preds = %101
+  %113 = load i8, ptr %99, align 1
+  %.not49.jt2.i = icmp eq i8 %113, 0
+  br i1 %.not49.jt2.i, label %121, label %.lr.ph.jt2.i, !llvm.loop !11
+
+.outer.jt3.i:                                     ; preds = %.lr.ph.jt2.i
+  %114 = getelementptr inbounds nuw i8, ptr %.02551.jt2.i, i64 1
+  %115 = load i8, ptr %114, align 1
+  %.not49.jt3.i = icmp eq i8 %115, 0
+  br i1 %.not49.jt3.i, label %121, label %118, !llvm.loop !11
+
+.outer.jt1.i:                                     ; preds = %85
+  %116 = getelementptr inbounds nuw i8, ptr %79, i64 1
+  %117 = load i8, ptr %116, align 1
+  switch i8 %117, label %89 [
+    i8 0, label %121
+    i8 45, label %86
   ]
 
-89:                                               ; preds = %87
-  %90 = icmp eq i8 %88, 60
-  br i1 %90, label %91, label %.loopexit
-
-91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw i8, ptr %.02551.i, i64 1
-  br label %.outer.i
-
-93:                                               ; preds = %87
-  %94 = icmp eq i8 %88, 45
-  br i1 %94, label %95, label %98
-
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds nuw i8, ptr %.02551.i, i64 1
-  %97 = load i8, ptr %96, align 1
-  %.not.i67 = icmp eq i8 %97, 0
-  br i1 %.not.i67, label %.loopexit, label %87, !llvm.loop !11
-
-98:                                               ; preds = %93
-  %99 = tail call ptr @__ctype_b_loc() #14
-  %100 = load ptr, ptr %99, align 8
-  %101 = zext i8 %88 to i64
-  %102 = getelementptr inbounds nuw i16, ptr %100, i64 %101
-  %103 = load i16, ptr %102, align 2
-  %104 = and i16 %103, 2048
-  %.not33.i = icmp eq i16 %104, 0
-  br i1 %.not33.i, label %.loopexit, label %105
-
-105:                                              ; preds = %98
-  %106 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %106, align 4
-  %107 = call i64 @strtol(ptr noundef nonnull %.02551.i, ptr noundef nonnull %7, i32 noundef 10) #11
-  %108 = load ptr, ptr %7, align 8
-  %109 = icmp eq ptr %.02551.i, %108
-  br i1 %109, label %.loopexit, label %110
-
-110:                                              ; preds = %105
-  %111 = load i32, ptr %106, align 4
-  %112 = icmp eq i32 %111, 34
-  %113 = icmp ugt i64 %107, 16384
-  %or.cond3.i = select i1 %112, i1 true, i1 %113
-  br i1 %or.cond3.i, label %114, label %.outer.i
-
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %10, align 8
-  %116 = tail call zeroext i1 @errsave_start(ptr noundef %115, ptr noundef null) #11
-  br i1 %116, label %117, label %.loopexit
-
-117:                                              ; preds = %114
-  %118 = tail call i32 @errcode(i32 noundef 50856066) #11
-  %119 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef 16384) #11
-  tail call void @errsave_finish(ptr noundef %115, ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.parse_phrase_operator) #11
-  br label %.loopexit
-
-120:                                              ; preds = %87
-  %121 = icmp eq i8 %88, 62
-  br i1 %121, label %122, label %.loopexit
-
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds nuw i8, ptr %.02551.i, i64 1
-  br label %.outer.i
-
-default.unreachable.i:                            ; preds = %87
-  unreachable
-
-.outer.i:                                         ; preds = %122, %110, %91
-  %.128.i = phi i32 [ 1, %91 ], [ 3, %122 ], [ 2, %110 ]
-  %.126.i = phi ptr [ %92, %91 ], [ %123, %122 ], [ %108, %110 ]
-  %.1.i = phi i64 [ %.024.ph55.i, %91 ], [ %.024.ph55.i, %122 ], [ %107, %110 ]
-  %124 = load i8, ptr %.126.i, align 1
-  %.not49.i = icmp eq i8 %124, 0
-  br i1 %.not49.i, label %.loopexit, label %.lr.ph.i65, !llvm.loop !11
-
-125:                                              ; preds = %87
-  %126 = trunc nuw nsw i64 %.024.ph55.i to i16
-  store i16 %126, ptr %4, align 2
-  store ptr %.02551.i, ptr %9, align 8
+118:                                              ; preds = %.outer.jt3.i
+  %119 = getelementptr inbounds nuw i8, ptr %.02551.jt2.i, i64 1
+  %120 = trunc nuw nsw i64 %.024.ph5577.i to i16
+  store i16 %120, ptr %4, align 2
+  store ptr %119, ptr %9, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i32 1, ptr %8, align 4
   store i8 4, ptr %1, align 1
-  br label %.loopexit70
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %89, %98, %105, %120, %.outer.i, %95, %117, %114, %85
+121:                                              ; preds = %108, %105, %86, %.outer.jt2.i, %.outer.jt3.i, %.outer.jt1.i, %89, %96, %.lr.ph.jt2.i, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %127 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %127, null
-  br i1 %.not, label %135, label %128
+  %122 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %122, null
+  br i1 %.not, label %130, label %123
 
-128:                                              ; preds = %.loopexit
-  %129 = load i32, ptr %127, align 4
-  %130 = icmp eq i32 %129, 446
-  br i1 %130, label %131, label %135
+123:                                              ; preds = %121
+  %124 = load i32, ptr %122, align 4
+  %125 = icmp eq i32 %124, 446
+  br i1 %125, label %126, label %130
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i8, ptr %127, i64 4
-  %133 = load i8, ptr %132, align 4, !range !7, !noundef !8
-  %134 = trunc nuw i8 %133 to i1
-  br i1 %134, label %.loopexit70, label %135
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  %128 = load i8, ptr %127, align 4, !range !7, !noundef !8
+  %129 = trunc nuw i8 %128 to i1
+  br i1 %129, label %.loopexit, label %130
 
-135:                                              ; preds = %131, %128, %.loopexit
-  %136 = load ptr, ptr %9, align 8
-  %137 = load i8, ptr %136, align 1
-  switch i8 %137, label %149 [
-    i8 41, label %138
-    i8 0, label %145
+130:                                              ; preds = %126, %123, %121
+  %131 = load ptr, ptr %9, align 8
+  %132 = load i8, ptr %131, align 1
+  switch i8 %132, label %144 [
+    i8 41, label %133
+    i8 0, label %140
   ]
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds nuw i8, ptr %136, i64 1
-  store ptr %139, ptr %9, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %141 = load i32, ptr %140, align 8
-  %142 = add i32 %141, -1
-  store i32 %142, ptr %140, align 8
-  %143 = icmp slt i32 %142, 0
-  %144 = select i1 %143, i32 1, i32 5
-  br label %.loopexit70
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 1
+  store ptr %134, ptr %9, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %136 = load i32, ptr %135, align 8
+  %137 = add i32 %136, -1
+  store i32 %137, ptr %135, align 8
+  %138 = icmp slt i32 %137, 0
+  %139 = select i1 %138, i32 1, i32 5
+  br label %.loopexit
 
-145:                                              ; preds = %135
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %147 = load i32, ptr %146, align 8
-  %.not62 = icmp ne i32 %147, 0
-  %148 = zext i1 %.not62 to i32
-  br label %.loopexit70
+140:                                              ; preds = %130
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %142 = load i32, ptr %141, align 8
+  %.not62 = icmp ne i32 %142, 0
+  %143 = zext i1 %.not62 to i32
+  br label %.loopexit
 
-149:                                              ; preds = %135
-  %150 = tail call ptr @__ctype_b_loc() #14
-  %151 = load ptr, ptr %150, align 8
-  %152 = zext i8 %137 to i64
-  %153 = getelementptr inbounds nuw i16, ptr %151, i64 %152
-  %154 = load i16, ptr %153, align 2
-  %155 = and i16 %154, 8192
-  %.not61 = icmp eq i16 %155, 0
-  br i1 %.not61, label %.loopexit70, label %156
+144:                                              ; preds = %130
+  %145 = tail call ptr @__ctype_b_loc() #14
+  %146 = load ptr, ptr %145, align 8
+  %147 = zext i8 %132 to i64
+  %148 = getelementptr inbounds nuw i16, ptr %146, i64 %147
+  %149 = load i16, ptr %148, align 2
+  %150 = and i16 %149, 8192
+  %.not61 = icmp eq i16 %150, 0
+  br i1 %.not61, label %.loopexit, label %151
 
-156:                                              ; preds = %._crit_edge, %149, %23
-  %157 = phi ptr [ %.pre, %._crit_edge ], [ %136, %149 ], [ %14, %23 ]
-  %158 = tail call i32 @pg_mblen(ptr noundef %157) #11
-  %159 = load ptr, ptr %9, align 8
-  %160 = sext i32 %158 to i64
-  %161 = getelementptr inbounds i8, ptr %159, i64 %160
-  store ptr %161, ptr %9, align 8
+151:                                              ; preds = %._crit_edge, %144, %23
+  %152 = phi ptr [ %.pre, %._crit_edge ], [ %131, %144 ], [ %14, %23 ]
+  %153 = tail call i32 @pg_mblen(ptr noundef %152) #11
+  %154 = load ptr, ptr %9, align 8
+  %155 = sext i32 %153 to i64
+  %156 = getelementptr inbounds i8, ptr %154, i64 %155
+  store ptr %156, ptr %9, align 8
   br label %11
 
-.loopexit70:                                      ; preds = %149, %131, %13, %71, %73, %68, %64, %145, %138, %125, %83, %81, %get_modifiers.exit, %18, %16
-  %.0 = phi i32 [ 3, %16 ], [ 4, %18 ], [ 2, %get_modifiers.exit ], [ 3, %81 ], [ 3, %83 ], [ 3, %125 ], [ %144, %138 ], [ %148, %145 ], [ 1, %64 ], [ 0, %68 ], [ 1, %73 ], [ 1, %71 ], [ 1, %13 ], [ 1, %131 ], [ 1, %149 ]
+.loopexit:                                        ; preds = %144, %126, %13, %71, %73, %68, %64, %140, %133, %118, %83, %81, %get_modifiers.exit, %18, %16
+  %.0 = phi i32 [ 3, %16 ], [ 4, %18 ], [ 2, %get_modifiers.exit ], [ 3, %81 ], [ 3, %83 ], [ 3, %118 ], [ %139, %133 ], [ %143, %140 ], [ 1, %64 ], [ 0, %68 ], [ 1, %73 ], [ 1, %71 ], [ 1, %13 ], [ 1, %126 ], [ 1, %144 ]
   ret i32 %.0
 }
 

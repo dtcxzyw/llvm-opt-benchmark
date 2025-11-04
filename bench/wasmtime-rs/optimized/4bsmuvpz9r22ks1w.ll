@@ -1433,7 +1433,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.102 = private unnamed_addr constant [6 x i16] [i16 6, i16 7, i16 8, i16 9, i16 poison, i16 11], align 2
 @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.105 = private unnamed_addr constant [6 x i16] [i16 7, i16 8, i16 9, i16 10, i16 poison, i16 12], align 2
 @"switch.table._ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$16compute_arg_locs17h0c45442e5d49b4e5E.110" = private unnamed_addr constant [9 x i8] c"\00\01\02\06\07\08\09\0A\0B", align 1
-@"switch.table._ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$19gen_clobber_restore17h5f662ec19114a2d5E" = private unnamed_addr constant [4 x i32] [i32 8, i32 16, i32 32, i32 64], align 4
 @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E" = private unnamed_addr constant [7 x ptr] [ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.232, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.233, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.234, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.235, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.236, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.237, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.238], align 8
 @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E.113" = private unnamed_addr constant [7 x i64] [i64 3, i64 3, i64 3, i64 3, i64 3, i64 2, i64 3], align 8
 @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..SseOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17ha3ba5b964ff8fbdaE" = private unnamed_addr constant [256 x ptr] [ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.377, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.378, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.379, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.380, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.381, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.382, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.383, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.384, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.385, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.386, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.387, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.388, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.389, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.390, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.391, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.392, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.393, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.394, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.395, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.396, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.397, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.398, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.399, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.400, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.401, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.402, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.403, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.404, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.405, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.406, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.407, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.408, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.409, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.410, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.411, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.412, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.413, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.414, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.415, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.416, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.417, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.418, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.419, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.420, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.421, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.422, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.423, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.424, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.425, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.426, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.427, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.428, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.429, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.430, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.431, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.432, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.433, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.434, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.435, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.436, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.437, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.249, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.250, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.251, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.252, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.253, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.254, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.255, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.256, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.257, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.258, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.259, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.260, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.261, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.262, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.263, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.264, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.265, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.266, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.267, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.268, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.269, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.270, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.271, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.272, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.273, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.274, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.275, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.276, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.277, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.278, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.279, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.280, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.281, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.282, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.283, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.284, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.285, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.286, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.287, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.288, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.289, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.290, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.291, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.292, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.293, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.294, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.295, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.296, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.297, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.298, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.299, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.300, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.301, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.302, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.303, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.304, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.305, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.306, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.307, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.308, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.309, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.310, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.311, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.312, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.313, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.314, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.315, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.316, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.317, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.318, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.319, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.320, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.321, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.322, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.323, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.324, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.325, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.326, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.327, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.328, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.329, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.330, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.331, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.332, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.333, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.334, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.335, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.336, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.337, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.338, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.339, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.340, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.341, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.342, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.343, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.344, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.345, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.346, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.347, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.348, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.349, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.350, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.351, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.352, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.353, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.354, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.355, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.356, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.357, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.358, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.359, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.360, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.361, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.362, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.363, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.364, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.365, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.366, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.367, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.368, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.369, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.370, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.371, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.372, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.373, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.374, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.375, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.376], align 8
@@ -12345,42 +12344,42 @@ define void @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %26
 
-.loopexit:                                        ; preds = %76, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit"
-  %lpad.loopexit = landingpad { ptr, i32 }
+.loopexit.loopexit:                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit.jt118", %76, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit.jt121", %70
+  %lpad.loopexit68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.invoke, %74
+.loopexit.split-lp:                               ; preds = %.invoke, %.loopexit67
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %88, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %lpad.phi53, %88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit.loopexit, %.loopexit.split-lp, %94, %43
+  %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %lpad.phi53, %94 ], [ %lpad.loopexit68, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr132drop_in_place$LT$smallvec..SmallVec$LT$$u5b$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$u3b$$u20$16$u5d$$GT$$GT$17ha214d5ddac77a1c3E"(ptr noalias noundef nonnull align 8 dereferenceable(648) %9) #37
-          to label %109 unwind label %107
+          to label %123 unwind label %121
 
 default.unreachable66:                            ; preds = %26
   unreachable
 
-._crit_edge:                                      ; preds = %switch.lookup, %4
+._crit_edge:                                      ; preds = %114, %4
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %24 = load i32, ptr %23, align 4, !noundef !4
   %25 = add i32 %.pre, %24
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %30, label %31
 
-26:                                               ; preds = %.lr.ph, %switch.lookup
-  %.01258 = phi i32 [ %.pre, %.lr.ph ], [ %105, %switch.lookup ]
-  %.sroa.0.057 = phi ptr [ %.val, %.lr.ph ], [ %27, %switch.lookup ]
+26:                                               ; preds = %.lr.ph, %114
+  %.01258 = phi i32 [ %.pre, %.lr.ph ], [ %119, %114 ]
+  %.sroa.0.057 = phi ptr [ %.val, %.lr.ph ], [ %27, %114 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.057, i64 1
   %28 = load i8, ptr %.sroa.0.057, align 1, !noundef !4
   %29 = lshr i8 %28, 6
   switch i8 %29, label %default.unreachable66 [
     i8 3, label %.invoke
-    i8 0, label %63
-    i8 1, label %62
-    i8 2, label %.invoke.loopexit73
+    i8 0, label %62
+    i8 1, label %65
+    i8 2, label %.invoke.loopexit79
   ]
 
 30:                                               ; preds = %55, %._crit_edge
@@ -12469,12 +12468,12 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %47
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %30
 
-.invoke.loopexit73:                               ; preds = %26
+.invoke.loopexit79:                               ; preds = %26
   br label %.invoke
 
-.invoke:                                          ; preds = %26, %.invoke.loopexit73
-  %60 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.50.llvm.17911367524062806024, %.invoke.loopexit73 ], [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %26 ]
-  %61 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.180, %.invoke.loopexit73 ], [ @anon.93d33193ed412401645690e7206ea482.204.llvm.6890334928246803750, %26 ]
+.invoke:                                          ; preds = %26, %.invoke.loopexit79
+  %60 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.50.llvm.17911367524062806024, %.invoke.loopexit79 ], [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %26 ]
+  %61 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.180, %.invoke.loopexit79 ], [ @anon.93d33193ed412401645690e7206ea482.204.llvm.6890334928246803750, %26 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %60, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) %61) #36
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -12482,40 +12481,52 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %47
   unreachable
 
 62:                                               ; preds = %26
-  br label %63
-
-63:                                               ; preds = %26, %62
-  %switch.tableidx = phi i64 [ 0, %62 ], [ 3, %26 ]
-  %.04247 = phi i16 [ 182, %62 ], [ 121, %26 ]
-  %.0.i.i.i = phi i32 [ 8, %62 ], [ 64, %26 ]
-  %64 = add nsw i16 %.04247, -112
-  %65 = lshr i16 %64, 4
-  %66 = zext nneg i16 %65 to i32
-  %67 = shl nuw nsw i32 %.0.i.i.i, %66
-  %68 = lshr exact i32 %67, 3
-  %69 = add i32 %.01258, -1
-  %70 = add i32 %69, %68
-  %71 = sub nsw i32 0, %68
-  %72 = and i32 %70, %71
+  %.reass76 = add i32 %.01258, 7
+  %63 = and i32 %.reass76, -8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit", label %74
+  %64 = icmp sgt i32 %.reass76, -1
+  br i1 %64, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit.jt121", label %.loopexit67
 
-74:                                               ; preds = %63
+65:                                               ; preds = %26
+  %.reass = add i32 %.01258, 15
+  %66 = and i32 %.reass, -16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %67 = icmp sgt i32 %.reass, -1
+  br i1 %67, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit.jt118", label %.loopexit67
+
+.loopexit67:                                      ; preds = %62, %65
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.7173b3c5b10b09ddf4bd2faf440a3554.34.llvm.17911367524062806024, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7173b3c5b10b09ddf4bd2faf440a3554.32.llvm.17911367524062806024, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7173b3c5b10b09ddf4bd2faf440a3554.179) #36
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %74
+.noexc:                                           ; preds = %.loopexit67
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit": ; preds = %63
-  %75 = invoke noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags14with_trap_code17h523ab09698224c2aE(i16 noundef 0, i16 noundef 14, i16 undef)
-          to label %76 unwind label %.loopexit
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit.jt121": ; preds = %62
+  %68 = invoke noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags14with_trap_code17h523ab09698224c2aE(i16 noundef 0, i16 noundef 14, i16 undef)
+          to label %70 unwind label %.loopexit.loopexit
 
-76:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit"
-  %77 = or i16 %75, 1
-  store i32 %72, ptr %19, align 4, !alias.scope !1253
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit.jt118": ; preds = %65
+  %69 = invoke noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags14with_trap_code17h523ab09698224c2aE(i16 noundef 0, i16 noundef 14, i16 undef)
+          to label %76 unwind label %.loopexit.loopexit
+
+70:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit.jt121"
+  %71 = or i16 %68, 1
+  store i32 %63, ptr %19, align 4, !alias.scope !1253
+  store i32 16, ptr %20, align 4, !alias.scope !1253
+  store i16 %71, ptr %21, align 2, !alias.scope !1253
+  store i8 0, ptr %7, align 4, !alias.scope !1253
+  %72 = zext i8 %28 to i32
+  %73 = shl nuw nsw i32 %72, 2
+  %74 = zext nneg i8 %29 to i32
+  %75 = or disjoint i32 %73, %74
+  invoke void @"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$4load17h94f218626cec5c7dE"(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %8, i16 noundef 121, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %7, i32 noundef %75, i8 noundef 0)
+          to label %82 unwind label %.loopexit.loopexit
+
+76:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4deeae0a1b40d690E.llvm.17911367524062806024.exit.jt118"
+  %77 = or i16 %69, 1
+  store i32 %66, ptr %19, align 4, !alias.scope !1253
   store i32 16, ptr %20, align 4, !alias.scope !1253
   store i16 %77, ptr %21, align 2, !alias.scope !1253
   store i8 0, ptr %7, align 4, !alias.scope !1253
@@ -12523,98 +12534,138 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %47
   %79 = shl nuw nsw i32 %78, 2
   %80 = zext nneg i8 %29 to i32
   %81 = or disjoint i32 %79, %80
-  invoke void @"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$4load17h94f218626cec5c7dE"(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %8, i16 noundef %.04247, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %7, i32 noundef %81, i8 noundef 0)
-          to label %82 unwind label %.loopexit
+  invoke void @"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$4load17h94f218626cec5c7dE"(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %8, i16 noundef 182, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %7, i32 noundef %81, i8 noundef 0)
+          to label %88 unwind label %.loopexit.loopexit
 
-82:                                               ; preds = %76
+82:                                               ; preds = %70
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %83 = load i64, ptr %10, align 8, !alias.scope !1256, !noalias !1261, !noundef !4
   %84 = icmp ugt i64 %83, 16
   %85 = load ptr, ptr %9, align 8, !alias.scope !1256, !noalias !1261, !nonnull !4
-  %.sink3.i.i21 = select i1 %84, ptr %85, ptr %9
-  %.sink2.i.i22 = select i1 %84, ptr %22, ptr %10
-  %.sink.i.i23 = call i64 @llvm.umax.i64(i64 %83, i64 16)
-  %86 = load i64, ptr %.sink2.i.i22, align 8, !alias.scope !1264, !noalias !1265, !noundef !4
-  %87 = icmp eq i64 %86, %.sink.i.i23
-  br i1 %87, label %89, label %switch.lookup
+  %.sink3.i.i21.jt121 = select i1 %84, ptr %85, ptr %9
+  %.sink2.i.i22.jt121 = select i1 %84, ptr %22, ptr %10
+  %.sink.i.i23.jt121 = call i64 @llvm.umax.i64(i64 %83, i64 16)
+  %86 = load i64, ptr %.sink2.i.i22.jt121, align 8, !alias.scope !1264, !noalias !1265, !noundef !4
+  %87 = icmp eq i64 %86, %.sink.i.i23.jt121
+  br i1 %87, label %95, label %108
 
-.loopexit49:                                      ; preds = %89
-  %lpad.loopexit51 = landingpad { ptr, i32 }
+88:                                               ; preds = %76
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %89 = load i64, ptr %10, align 8, !alias.scope !1256, !noalias !1261, !noundef !4
+  %90 = icmp ugt i64 %89, 16
+  %91 = load ptr, ptr %9, align 8, !alias.scope !1256, !noalias !1261, !nonnull !4
+  %.sink3.i.i21.jt118 = select i1 %90, ptr %91, ptr %9
+  %.sink2.i.i22.jt118 = select i1 %90, ptr %22, ptr %10
+  %.sink.i.i23.jt118 = call i64 @llvm.umax.i64(i64 %89, i64 16)
+  %92 = load i64, ptr %.sink2.i.i22.jt118, align 8, !alias.scope !1264, !noalias !1265, !noundef !4
+  %93 = icmp eq i64 %92, %.sink.i.i23.jt118
+  br i1 %93, label %97, label %111
+
+.loopexit49.loopexit:                             ; preds = %97, %95
+  %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %94
 
-.loopexit.split-lp50:                             ; preds = %93, %94
+.loopexit.split-lp50:                             ; preds = %.loopexit74, %.loopexit72
   %lpad.loopexit.split-lp52 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %94
 
-88:                                               ; preds = %.loopexit.split-lp50, %.loopexit49
-  %lpad.phi53 = phi { ptr, i32 } [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ]
+94:                                               ; preds = %.loopexit.split-lp50, %.loopexit49.loopexit
+  %lpad.phi53 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit49.loopexit ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E.llvm.17911367524062806024"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8) #37
-          to label %.body unwind label %97
+          to label %.body unwind label %106
 
-89:                                               ; preds = %82
-  %90 = invoke { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hf4133eeb19ede851E"(ptr noalias noundef nonnull align 8 dereferenceable(648) %9, i64 noundef 1)
-          to label %91 unwind label %.loopexit49, !noalias !1265
+95:                                               ; preds = %82
+  %96 = invoke { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hf4133eeb19ede851E"(ptr noalias noundef nonnull align 8 dereferenceable(648) %9, i64 noundef 1)
+          to label %99 unwind label %.loopexit49.loopexit, !noalias !1265
 
-91:                                               ; preds = %89
-  %92 = extractvalue { i64, i64 } %90, 0
-  switch i64 %92, label %94 [
-    i64 -9223372036854775807, label %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27
-    i64 0, label %93
+97:                                               ; preds = %88
+  %98 = invoke { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hf4133eeb19ede851E"(ptr noalias noundef nonnull align 8 dereferenceable(648) %9, i64 noundef 1)
+          to label %101 unwind label %.loopexit49.loopexit, !noalias !1265
+
+99:                                               ; preds = %95
+  %100 = extractvalue { i64, i64 } %96, 0
+  switch i64 %100, label %.loopexit72 [
+    i64 -9223372036854775807, label %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt121
+    i64 0, label %.loopexit74
   ]
 
-93:                                               ; preds = %91
+101:                                              ; preds = %97
+  %102 = extractvalue { i64, i64 } %98, 0
+  switch i64 %102, label %.loopexit72 [
+    i64 -9223372036854775807, label %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt118
+    i64 0, label %.loopexit74
+  ]
+
+.loopexit74:                                      ; preds = %99, %101
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569) #36
           to label %.noexc.i26 unwind label %.loopexit.split-lp50, !noalias !1265
 
-.noexc.i26:                                       ; preds = %93
+.noexc.i26:                                       ; preds = %.loopexit74
   unreachable
 
-94:                                               ; preds = %91
-  %95 = extractvalue { i64, i64 } %90, 1
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %92, i64 noundef %95) #36
+.loopexit72:                                      ; preds = %99, %101
+  %.ph = phi i64 [ %102, %101 ], [ %100, %99 ]
+  %.ph73 = phi { i64, i64 } [ %98, %101 ], [ %96, %99 ]
+  %103 = extractvalue { i64, i64 } %.ph73, 1
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %.ph, i64 noundef %103) #36
           to label %.noexc6.i29 unwind label %.loopexit.split-lp50, !noalias !1265
 
-.noexc6.i29:                                      ; preds = %94
+.noexc6.i29:                                      ; preds = %.loopexit72
   unreachable
 
-_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27: ; preds = %91
-  %96 = load ptr, ptr %9, align 8, !alias.scope !1264, !noalias !1265, !nonnull !4, !noundef !4
-  %.pre.i28 = load i64, ptr %22, align 8, !alias.scope !1264, !noalias !1265
-  br label %switch.lookup
+_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt121: ; preds = %99
+  %104 = load ptr, ptr %9, align 8, !alias.scope !1264, !noalias !1265, !nonnull !4, !noundef !4
+  %.pre.i28.jt121 = load i64, ptr %22, align 8, !alias.scope !1264, !noalias !1265
+  br label %108
 
-97:                                               ; preds = %88
-  %98 = landingpad { ptr, i32 }
+_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt118: ; preds = %101
+  %105 = load ptr, ptr %9, align 8, !alias.scope !1264, !noalias !1265, !nonnull !4, !noundef !4
+  %.pre.i28.jt118 = load i64, ptr %22, align 8, !alias.scope !1264, !noalias !1265
+  br label %111
+
+106:                                              ; preds = %94
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38
   unreachable
 
-switch.lookup:                                    ; preds = %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27, %82
-  %99 = phi i64 [ %.pre.i28, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27 ], [ %86, %82 ]
-  %.05.i24 = phi ptr [ %22, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27 ], [ %.sink2.i.i22, %82 ]
-  %.0.i25 = phi ptr [ %96, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27 ], [ %.sink3.i.i21, %82 ]
-  %100 = getelementptr inbounds { i8, [39 x i8] }, ptr %.0.i25, i64 %99
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %100, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
-  %101 = load i64, ptr %.05.i24, align 8, !alias.scope !1264, !noalias !1265, !noundef !4
-  %102 = add i64 %101, 1
-  store i64 %102, ptr %.05.i24, align 8, !alias.scope !1264, !noalias !1265
+108:                                              ; preds = %82, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt121
+  %109 = phi i64 [ %86, %82 ], [ %.pre.i28.jt121, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt121 ]
+  %.05.i24.jt121 = phi ptr [ %.sink2.i.i22.jt121, %82 ], [ %22, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt121 ]
+  %.0.i25.jt121 = phi ptr [ %.sink3.i.i21.jt121, %82 ], [ %104, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt121 ]
+  %110 = getelementptr inbounds { i8, [39 x i8] }, ptr %.0.i25.jt121, i64 %109
+  br label %114
+
+111:                                              ; preds = %88, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt118
+  %112 = phi i64 [ %92, %88 ], [ %.pre.i28.jt118, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt118 ]
+  %.05.i24.jt118 = phi ptr [ %.sink2.i.i22.jt118, %88 ], [ %22, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt118 ]
+  %.0.i25.jt118 = phi ptr [ %.sink3.i.i21.jt118, %88 ], [ %105, %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i27.jt118 ]
+  %113 = getelementptr inbounds { i8, [39 x i8] }, ptr %.0.i25.jt118, i64 %112
+  br label %114
+
+114:                                              ; preds = %111, %108
+  %.sink = phi ptr [ %113, %111 ], [ %110, %108 ]
+  %.05.i24.jt118.sink78 = phi ptr [ %.05.i24.jt118, %111 ], [ %.05.i24.jt121, %108 ]
+  %115 = phi i32 [ %66, %111 ], [ %63, %108 ]
+  %116 = phi i32 [ 16, %111 ], [ 8, %108 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  %117 = load i64, ptr %.05.i24.jt118.sink78, align 8, !alias.scope !1264, !noalias !1265, !noundef !4
+  %118 = add i64 %117, 1
+  store i64 %118, ptr %.05.i24.jt118.sink78, align 8, !alias.scope !1264, !noalias !1265
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$19gen_clobber_restore17h5f662ec19114a2d5E", i64 %switch.tableidx
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %103 = shl nuw nsw i32 %switch.load, %66
-  %104 = lshr exact i32 %103, 3
-  %105 = add nuw i32 %104, %72
-  %106 = icmp eq ptr %27, %17
-  br i1 %106, label %._crit_edge, label %26
+  %119 = add nuw i32 %116, %115
+  %120 = icmp eq ptr %27, %17
+  br i1 %120, label %._crit_edge, label %26
 
-107:                                              ; preds = %.body
-  %108 = landingpad { ptr, i32 }
+121:                                              ; preds = %.body
+  %122 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38
   unreachable
 
-109:                                              ; preds = %.body
+123:                                              ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

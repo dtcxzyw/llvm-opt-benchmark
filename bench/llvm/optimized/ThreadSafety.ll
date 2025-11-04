@@ -19839,77 +19839,75 @@ define linkonce_odr hidden void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printFunctionEPKNS1_8FunctionERSoj(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #1 comdat align 2 {
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  br label %tailrecurse
-
-tailrecurse:                                      ; preds = %36, %4
-  %.tr17 = phi ptr [ %1, %4 ], [ %35, %36 ]
-  %.tr19 = phi i32 [ %3, %4 ], [ 2, %36 ]
-  switch i32 %.tr19, label %6 [
-    i32 1, label %8
-    i32 2, label %10
+tailrecurse:
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  switch i32 %3, label %5 [
+    i32 1, label %7
+    i32 2, label %tailrecurse.jt2
   ]
 
-6:                                                ; preds = %tailrecurse
-  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.22, i64 noundef 2) #23
-  br label %12
+5:                                                ; preds = %tailrecurse
+  %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.22, i64 noundef 2) #23
+  br label %10
 
-8:                                                ; preds = %tailrecurse
-  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.7, i64 noundef 1) #23
-  br label %12
+7:                                                ; preds = %tailrecurse
+  %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.7, i64 noundef 1) #23
+  br label %10
 
-10:                                               ; preds = %tailrecurse
-  %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.23, i64 noundef 2) #23
-  br label %12
+tailrecurse.jt2:                                  ; preds = %34, %tailrecurse
+  %.tr1720 = phi ptr [ %1, %tailrecurse ], [ %33, %34 ]
+  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.23, i64 noundef 2) #23
+  br label %10
 
-12:                                               ; preds = %10, %8, %6
-  %13 = getelementptr inbounds nuw i8, ptr %.tr17, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !778
-  %15 = load i8, ptr %5, align 1, !tbaa !861, !range !304, !noundef !305
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %23
+10:                                               ; preds = %tailrecurse.jt2, %7, %5
+  %.tr1721 = phi ptr [ %.tr1720, %tailrecurse.jt2 ], [ %1, %7 ], [ %1, %5 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.tr1721, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !778
+  %13 = load i8, ptr %4, align 1, !tbaa !861, !range !304, !noundef !305
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %14, label %15, label %21
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  %19 = load i16, ptr %18, align 2, !tbaa !66
-  %20 = icmp eq i16 %19, 2
-  br i1 %20, label %21, label %23
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  %17 = load i16, ptr %16, align 2, !tbaa !66
+  %18 = icmp eq i16 %17, 2
+  br i1 %18, label %19, label %21
 
-21:                                               ; preds = %17
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.21, i64 noundef 4) #23
+19:                                               ; preds = %15
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.21, i64 noundef 4) #23
   br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printVariableEPKNS1_8VariableERSob.exit
 
-23:                                               ; preds = %17, %12
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %24, align 8, !tbaa !472
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 24
+21:                                               ; preds = %15, %10
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %22, align 8, !tbaa !472
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !239
-  %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %.sroa.2.0.copyload.i.i) #23
-  %26 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !872
-  %28 = zext i32 %27 to i64
-  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef %28) #23
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %.sroa.2.0.copyload.i.i) #23
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %25 = load i32, ptr %24, align 4, !tbaa !872
+  %26 = zext i32 %25 to i64
+  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %26) #23
   br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printVariableEPKNS1_8VariableERSob.exit
 
-_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printVariableEPKNS1_8VariableERSob.exit: ; preds = %21, %23
-  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.24, i64 noundef 2) #23
-  %31 = load ptr, ptr %13, align 8, !tbaa !778
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !780
-  tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10printSExprEPKNS1_5SExprERSojb(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 6, i1 noundef zeroext true)
-  %34 = getelementptr inbounds nuw i8, ptr %.tr17, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !782
-  %.not = icmp eq ptr %35, null
-  br i1 %.not, label %39, label %36
+_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printVariableEPKNS1_8VariableERSob.exit: ; preds = %19, %21
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.24, i64 noundef 2) #23
+  %29 = load ptr, ptr %11, align 8, !tbaa !778
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8, !tbaa !780
+  tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10printSExprEPKNS1_5SExprERSojb(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 6, i1 noundef zeroext true)
+  %32 = getelementptr inbounds nuw i8, ptr %.tr1721, i64 24
+  %33 = load ptr, ptr %32, align 8, !tbaa !782
+  %.not = icmp eq ptr %33, null
+  br i1 %.not, label %37, label %34
 
-36:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printVariableEPKNS1_8VariableERSob.exit
-  %37 = load i8, ptr %35, align 8, !tbaa !31
-  %38 = icmp eq i8 %37, 6
-  br i1 %38, label %tailrecurse, label %39
+34:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printVariableEPKNS1_8VariableERSob.exit
+  %35 = load i8, ptr %33, align 8, !tbaa !31
+  %36 = icmp eq i8 %35, 6
+  br i1 %36, label %tailrecurse.jt2, label %37
 
-39:                                               ; preds = %36, %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printVariableEPKNS1_8VariableERSob.exit
-  %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.8, i64 noundef 1) #23
-  tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10printSExprEPKNS1_5SExprERSojb(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 5, i1 noundef zeroext true)
+37:                                               ; preds = %34, %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printVariableEPKNS1_8VariableERSob.exit
+  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.8, i64 noundef 1) #23
+  tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10printSExprEPKNS1_5SExprERSojb(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 5, i1 noundef zeroext true)
   ret void
 }
 

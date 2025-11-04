@@ -223,57 +223,64 @@ define void @dtgtk_range_select_redraw(ptr noundef captures(none) %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !42
   %.not120.i = icmp eq ptr %.0114135.i, null
-  br i1 %.not120.i, label %.loopexit.i, label %27
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !45
+  %27 = icmp eq ptr %.pre, null
+  br i1 %.not120.i, label %.loopexit.jt0.i, label %28
 
-27:                                               ; preds = %26
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !45
-  %.not121.i = icmp eq ptr %29, null
-  br i1 %.not121.i, label %30, label %.loopexit.i
+28:                                               ; preds = %26
+  br i1 %27, label %30, label %.loopexit.jt0.i.thread
 
-30:                                               ; preds = %27
+.loopexit.jt0.i.thread:                           ; preds = %28
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  br label %47
+
+30:                                               ; preds = %28
   %31 = call i32 @g_date_time_get_year(ptr noundef nonnull %25) #17
   %32 = call i32 @g_date_time_get_year(ptr noundef nonnull %.0114135.i) #17
   %33 = icmp eq i32 %31, %32
-  br i1 %33, label %34, label %42
+  br i1 %33, label %34, label %spec.select.si.unfold.false.i
 
 34:                                               ; preds = %30
   %35 = call i32 @g_date_time_get_month(ptr noundef nonnull %25) #17
   %36 = call i32 @g_date_time_get_month(ptr noundef nonnull %.0114135.i) #17
   %37 = icmp eq i32 %35, %36
-  br i1 %37, label %38, label %42
+  br i1 %37, label %38, label %spec.select.si.unfold.false.i
 
 38:                                               ; preds = %34
   %39 = call i32 @g_date_time_get_day_of_month(ptr noundef nonnull %25) #17
   %40 = call i32 @g_date_time_get_day_of_month(ptr noundef nonnull %.0114135.i) #17
   %41 = icmp eq i32 %39, %40
-  %spec.select.i = select i1 %41, i32 3, i32 2
+  %spec.select = select i1 %41, i32 3, i32 2
+  br label %spec.select.si.unfold.false.i
+
+spec.select.si.unfold.false.i:                    ; preds = %38, %34, %30
+  %.1.i = phi i32 [ 1, %34 ], [ 0, %30 ], [ %spec.select, %38 ]
   br label %42
 
-42:                                               ; preds = %38, %34, %30
-  %.1.i = phi i32 [ 1, %34 ], [ 0, %30 ], [ %spec.select.i, %38 ]
-  br label %43
-
-43:                                               ; preds = %43, %42
-  %.0131.i = phi i32 [ %.1.i, %42 ], [ %45, %43 ]
-  %44 = call i32 @gtk_tree_model_iter_parent(ptr noundef %16, ptr noundef nonnull %4, ptr noundef nonnull %3) #17
+42:                                               ; preds = %42, %spec.select.si.unfold.false.i
+  %.0131.i = phi i32 [ %.1.i, %spec.select.si.unfold.false.i ], [ %44, %42 ]
+  %43 = call i32 @gtk_tree_model_iter_parent(ptr noundef %16, ptr noundef nonnull %4, ptr noundef nonnull %3) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !42
-  %45 = add nuw nsw i32 %.0131.i, 1
-  %exitcond.not.i = icmp eq i32 %45, 4
-  br i1 %exitcond.not.i, label %.loopexit.i, label %43
+  %44 = add nuw nsw i32 %.0131.i, 1
+  %exitcond.not.i = icmp eq i32 %44, 4
+  br i1 %exitcond.not.i, label %.loopexit.i, label %42
 
-.loopexit.i:                                      ; preds = %43, %27, %26
-  %.0105.i = phi i32 [ 0, %27 ], [ 0, %26 ], [ %.1.i, %43 ]
+.loopexit.i:                                      ; preds = %42
+  %45 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !45
+  %.not122.i = icmp eq ptr %45, null
+  br i1 %.not122.i, label %54, label %47
+
+.loopexit.jt0.i:                                  ; preds = %26
   %46 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !45
-  %.not122.i = icmp eq ptr %47, null
-  br i1 %.not122.i, label %54, label %48
+  br i1 %27, label %.thread.i, label %47
 
-48:                                               ; preds = %.loopexit.i
+47:                                               ; preds = %.loopexit.jt0.i.thread, %.loopexit.jt0.i, %.loopexit.i
+  %48 = phi ptr [ %46, %.loopexit.jt0.i ], [ %.phi.trans.insert, %.loopexit.i ], [ %29, %.loopexit.jt0.i.thread ]
   %49 = call noalias ptr @g_date_time_format(ptr noundef nonnull %25, ptr noundef nonnull @.str.43) #17
   %50 = call noalias ptr @g_date_time_format(ptr noundef nonnull %25, ptr noundef nonnull @.str.44) #17
   %51 = call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %19) #17
-  %52 = load ptr, ptr %46, align 8, !tbaa !45
+  %52 = load ptr, ptr %48, align 8, !tbaa !45
   call void (ptr, ptr, ptr, i32, ...) @gtk_tree_store_insert_with_values(ptr noundef %51, ptr noundef nonnull %2, ptr noundef null, i32 noundef %.0107137.i, i32 noundef 0, ptr noundef %52, i32 noundef 2, ptr noundef %49, i32 noundef 3, ptr noundef %50, i32 noundef 4, i32 noundef 0, i32 noundef 5, i32 noundef %.0110136.i, i32 noundef -1) #17
   %53 = add nsw i32 %.0107137.i, 1
   call void @g_free(ptr noundef %49) #17
@@ -281,13 +288,14 @@ define void @dtgtk_range_select_redraw(ptr noundef captures(none) %0) local_unna
   br label %85
 
 54:                                               ; preds = %.loopexit.i
-  switch i32 %.0105.i, label %71 [
+  switch i32 %.1.i, label %default.unreachable [
     i32 0, label %.thread.i
     i32 1, label %.thread127.i
     i32 2, label %65
+    i32 3, label %71
   ]
 
-.thread.i:                                        ; preds = %54
+.thread.i:                                        ; preds = %54, %.loopexit.jt0.i
   %55 = call noalias ptr @g_date_time_format(ptr noundef nonnull %25, ptr noundef nonnull @.str.45) #17
   %56 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef 5) #17
   %57 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %56, ptr noundef %55) #17
@@ -326,6 +334,9 @@ define void @dtgtk_range_select_redraw(ptr noundef captures(none) %0) local_unna
   call void @g_free(ptr noundef %67) #17
   call void @g_free(ptr noundef %68) #17
   br label %71
+
+default.unreachable:                              ; preds = %54
+  unreachable
 
 71:                                               ; preds = %65, %54
   %.5.i = phi i32 [ %70, %65 ], [ %.0110136.i, %54 ]
@@ -368,10 +379,10 @@ define void @dtgtk_range_select_redraw(ptr noundef captures(none) %0) local_unna
   call void @g_date_time_unref(ptr noundef nonnull %.0114135.i) #17
   br label %85
 
-85:                                               ; preds = %84, %._crit_edge.i, %48
-  %.2116.i = phi ptr [ %.0114135.i, %48 ], [ %25, %84 ], [ %25, %._crit_edge.i ]
-  %.2112.in.i = phi i32 [ %.0110136.i, %48 ], [ %.5.i, %84 ], [ %.5.i, %._crit_edge.i ]
-  %.2109.i = phi i32 [ %53, %48 ], [ %.0107137.i, %84 ], [ %.0107137.i, %._crit_edge.i ]
+85:                                               ; preds = %84, %._crit_edge.i, %47
+  %.2116.i = phi ptr [ %.0114135.i, %47 ], [ %25, %84 ], [ %25, %._crit_edge.i ]
+  %.2112.in.i = phi i32 [ %.0110136.i, %47 ], [ %.5.i, %84 ], [ %.5.i, %._crit_edge.i ]
+  %.2109.i = phi i32 [ %53, %47 ], [ %.0107137.i, %84 ], [ %.0107137.i, %._crit_edge.i ]
   %.2112.i = add nsw i32 %.2112.in.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %86

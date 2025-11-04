@@ -4461,8 +4461,8 @@ get_next_char.exit.thread82.i.i.i:                ; preds = %448, %447, %.thread
   %.not.i.i.i.i140.i = icmp eq i64 %470, 0
   %.neg.i.i.i141.i = add i64 %.pre.i37.i.i, 1
   %.not.i.i39.i.i = icmp eq i64 %470, %.neg.i.i.i141.i
-  %or.cond153.i.i.i = or i1 %.not.i.i.i.i140.i, %.not.i.i39.i.i
-  br i1 %or.cond153.i.i.i, label %strbuf_avail.exit.thread.i.i.i144.i, label %strbuf_addch.exit.i.i142.i
+  %or.cond146.i.i.i = or i1 %.not.i.i.i.i140.i, %.not.i.i39.i.i
+  br i1 %or.cond146.i.i.i, label %strbuf_avail.exit.thread.i.i.i144.i, label %strbuf_addch.exit.i.i142.i
 
 strbuf_avail.exit.thread.i.i.i144.i:              ; preds = %469
   call void @strbuf_grow(ptr noundef nonnull %11, i64 noundef 1) #31
@@ -4647,9 +4647,9 @@ strbuf_addch.exit75.i.i.i:                        ; preds = %strbuf_avail.exit.t
   br label %strbuf_setlen.exit.i.i.i.backedge
 
 strbuf_setlen.exit.i.i.i.backedge:                ; preds = %strbuf_addch.exit75.i.i.i, %518, %strbuf_addch.exit65.i.i.i, %502, %.thread87.i.i.i, %479, %479, %strbuf_addch.exit.i.i142.i, %468, %get_next_char.exit.thread82.i.i.i
-  %.038.i.i.i.be = phi i32 [ %.038.i.i.i, %.thread87.i.i.i ], [ %.038.i.i.i, %502 ], [ 0, %479 ], [ 0, %479 ], [ 0, %468 ], [ 0, %strbuf_addch.exit.i.i142.i ], [ %.038.i.i.i, %get_next_char.exit.thread82.i.i.i ], [ %.038.i.i.i, %strbuf_addch.exit75.i.i.i ], [ %519, %518 ], [ %.038.i.i.i, %strbuf_addch.exit65.i.i.i ]
-  %.not.i36.i.i.be = phi i1 [ true, %.thread87.i.i.i ], [ true, %502 ], [ false, %479 ], [ false, %479 ], [ true, %468 ], [ true, %strbuf_addch.exit.i.i142.i ], [ false, %get_next_char.exit.thread82.i.i.i ], [ true, %strbuf_addch.exit75.i.i.i ], [ true, %518 ], [ true, %strbuf_addch.exit65.i.i.i ]
-  %.035.i.i.i.be = phi i64 [ 0, %.thread87.i.i.i ], [ 0, %502 ], [ %.035.i.i.i, %479 ], [ %.035.i.i.i, %479 ], [ %spec.select.i38.i.i, %468 ], [ %spec.select.i38.i.i, %strbuf_addch.exit.i.i142.i ], [ %.035.i.i.i, %get_next_char.exit.thread82.i.i.i ], [ 0, %strbuf_addch.exit75.i.i.i ], [ 0, %518 ], [ 0, %strbuf_addch.exit65.i.i.i ]
+  %.038.i.i.i.be = phi i32 [ %.038.i.i.i, %strbuf_addch.exit65.i.i.i ], [ %519, %518 ], [ %.038.i.i.i, %strbuf_addch.exit75.i.i.i ], [ %.038.i.i.i, %get_next_char.exit.thread82.i.i.i ], [ 0, %strbuf_addch.exit.i.i142.i ], [ 0, %468 ], [ 0, %479 ], [ 0, %479 ], [ %.038.i.i.i, %502 ], [ %.038.i.i.i, %.thread87.i.i.i ]
+  %.not.i36.i.i.be = phi i1 [ true, %strbuf_addch.exit65.i.i.i ], [ true, %518 ], [ true, %strbuf_addch.exit75.i.i.i ], [ false, %get_next_char.exit.thread82.i.i.i ], [ true, %strbuf_addch.exit.i.i142.i ], [ true, %468 ], [ false, %479 ], [ false, %479 ], [ true, %502 ], [ true, %.thread87.i.i.i ]
+  %.035.i.i.i.be = phi i64 [ 0, %strbuf_addch.exit65.i.i.i ], [ 0, %518 ], [ 0, %strbuf_addch.exit75.i.i.i ], [ %.035.i.i.i, %get_next_char.exit.thread82.i.i.i ], [ %spec.select.i38.i.i, %strbuf_addch.exit.i.i142.i ], [ %spec.select.i38.i.i, %468 ], [ %.035.i.i.i, %479 ], [ %.035.i.i.i, %479 ], [ 0, %502 ], [ 0, %.thread87.i.i.i ]
   br label %strbuf_setlen.exit.i.i.i
 
 parse_value.exit.i.i:                             ; preds = %458, %451

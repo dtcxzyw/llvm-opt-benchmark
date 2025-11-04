@@ -33422,7 +33422,7 @@ define internal void @_ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_Degenerat
 72:                                               ; preds = %69
   %73 = fcmp oge float %63, %70
   %74 = uitofp i1 %73 to float
-  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545.preheader
+  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt3
 
 75:                                               ; preds = %69
   %76 = fcmp olt float %70, %63
@@ -33435,7 +33435,7 @@ define internal void @_ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_Degenerat
 
 79:                                               ; preds = %75
   %80 = select i1 %76, float 1.000000e+00, float 0.000000e+00
-  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545.preheader
+  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt3
 
 81:                                               ; preds = %75
   %82 = fcmp olt float %.23.i, 1.000000e+00
@@ -33458,15 +33458,15 @@ define internal void @_ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_Degenerat
   %91 = call float @llvm.fabs.f32(float %90)
   %92 = fcmp oeq float %91, 0x7FF0000000000000
   %or.cond28.i = or i1 %67, %92
-  br i1 %or.cond28.i, label %93, label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us.preheader
+  br i1 %or.cond28.i, label %93, label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt0
 
 93:                                               ; preds = %89
   %94 = select i1 %76, float 1.000000e+00, float 0.000000e+00
-  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545.preheader
+  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt3
 
 95:                                               ; preds = %88, %83
   %96 = fcmp ult float %.22.i, 0x47871544A0000000
-  br i1 %96, label %97, label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split
+  br i1 %96, label %97, label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt4
 
 97:                                               ; preds = %95
   %98 = fadd float %63, %70
@@ -33475,7 +33475,7 @@ define internal void @_ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_Degenerat
 
 100:                                              ; preds = %97
   %101 = fdiv float 1.000000e+00, %.22.i
-  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us537
+  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt2
 
 102:                                              ; preds = %97
   %103 = fadd float %.22.i, -1.000000e+00
@@ -33489,26 +33489,43 @@ define internal void @_ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_Degenerat
   %111 = fdiv float %106, %110
   %112 = call noundef float @sqrtf(float noundef %111) #40, !tbaa !81
   %113 = fdiv float 1.000000e+00, %112
-  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us537
+  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt2
 
-_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545.preheader: ; preds = %72, %93, %79
-  %.sroa.16495.2.ph = phi float [ %80, %79 ], [ %94, %93 ], [ %74, %72 ]
-  %.promoted705 = load i64, ptr %8, align 16
-  %.sroa.4.0..sroa_idx.i.i.promoted706 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  %114 = fcmp oeq float %63, %70
-  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545
-
-_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us.preheader: ; preds = %89
-  %.promoted = load i64, ptr %8, align 16
-  %.sroa.4.0..sroa_idx.i.i.promoted = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
+_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt0: ; preds = %89
+  %.promoted.jt0 = load i64, ptr %8, align 16
+  %.sroa.4.0..sroa_idx.i.i.promoted.jt0 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us
 
-_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us: ; preds = %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us.preheader, %171
-  %.062536.us = phi i32 [ %174, %171 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us.preheader ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa529535.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.us, %171 ], [ %.promoted, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us.preheader ]
-  %.sroa.22.0.copyload.i.i.i.i.i.i531534.us = phi i64 [ %.narrow.i.i.i.i.i33.i.us, %171 ], [ %.sroa.4.0..sroa_idx.i.i.promoted, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us.preheader ]
-  %115 = phi i32 [ %173, %171 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us.preheader ]
-  %116 = phi i32 [ %172, %171 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us.preheader ]
+_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt4: ; preds = %95
+  %114 = fdiv float %.22.i, %.23.i
+  %115 = select i1 %76, float 1.000000e+00, float %114
+  %116 = fadd float %114, 1.000000e+00
+  %117 = fdiv float %115, %116
+  %118 = fcmp oeq float %63, %70
+  %119 = fcmp oeq float %117, 0.000000e+00
+  br i1 %119, label %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader, label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split
+
+_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt2: ; preds = %100, %102
+  %.22.i.sink = phi float [ %.22.i, %100 ], [ %113, %102 ]
+  %.sroa.25498.2.jt2 = phi float [ %101, %100 ], [ %112, %102 ]
+  %120 = fadd float %.22.i, %.22.i.sink
+  %.promoted.jt2 = load i64, ptr %8, align 16
+  %.sroa.4.0..sroa_idx.i.i.promoted.jt2 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
+  br label %183
+
+_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt3: ; preds = %79, %93, %72
+  %.sroa.16495.2.jt3 = phi float [ %74, %72 ], [ %94, %93 ], [ %80, %79 ]
+  %.promoted.jt3 = load i64, ptr %8, align 16
+  %.sroa.4.0..sroa_idx.i.i.promoted.jt3 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
+  %121 = fcmp oeq float %63, %70
+  br label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545
+
+_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us: ; preds = %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt0, %178
+  %.062536.us = phi i32 [ %181, %178 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt0 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa529535.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.us, %178 ], [ %.promoted.jt0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt0 ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i531534.us = phi i64 [ %.narrow.i.i.i.i.i33.i.us, %178 ], [ %.sroa.4.0..sroa_idx.i.i.promoted.jt0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt0 ]
+  %122 = phi i32 [ %180, %178 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt0 ]
+  %123 = phi i32 [ %179, %178 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt0 ]
   br label %.backedge.i.us
 
 .backedge.i.us:                                   ; preds = %.backedge.i.us.backedge, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us
@@ -33518,332 +33535,315 @@ _ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us: ; preds = %_ZN4ab
   %.sroa.24.0.insert.shift.i.i.i.i.i.i291.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i290.us, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i292.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i3137.i.us to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i293.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i291.us, %.sroa.03.0.insert.ext.i.i.i.i.i.i292.us
-  %117 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i293.us, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us = add i128 %117, 1442695040888963407
+  %124 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i293.us, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us = add i128 %124, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i295.us = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us to i64
-  %118 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us, 64
-  %.tr.i.i.i.i.i.i296.us = trunc nuw i128 %118 to i64
+  %125 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us, 64
+  %.tr.i.i.i.i.i.i296.us = trunc nuw i128 %125 to i64
   %.narrow.i.i.i.i.i.i297.us = add i64 %.tr.i.i.i.i.i.i296.us, 6364136223846793005
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i298.us = lshr i64 %.narrow.i.i.i.i.i.i297.us, 58
-  %119 = xor i64 %.narrow.i.i.i.i.i.i297.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i295.us
-  %120 = call noundef i64 @llvm.fshr.i64(i64 %119, i64 %119, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i298.us)
-  %121 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %120, i1 false)
-  %122 = trunc nuw nsw i64 %121 to i32
-  %123 = and i64 %121, 63
-  %124 = shl i64 %120, %123
-  %125 = lshr i64 %124, 40
-  %126 = trunc nuw nsw i64 %125 to i32
-  %127 = and i32 %126, 8388607
-  %128 = shl nuw nsw i32 %122, 23
-  %reass.sub570 = sub nsw i32 %127, %128
-  %129 = add nsw i32 %reass.sub570, 1056964608
-  %130 = bitcast i32 %129 to float
+  %126 = xor i64 %.narrow.i.i.i.i.i.i297.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i295.us
+  %127 = call noundef i64 @llvm.fshr.i64(i64 %126, i64 %126, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i298.us)
+  %128 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %127, i1 false)
+  %129 = trunc nuw nsw i64 %128 to i32
+  %130 = and i64 %128, 63
+  %131 = shl i64 %127, %130
+  %132 = lshr i64 %131, 40
+  %133 = trunc nuw nsw i64 %132 to i32
+  %134 = and i32 %133, 8388607
+  %135 = shl nuw nsw i32 %129, 23
+  %reass.sub570 = sub nsw i32 %134, %135
+  %136 = add nsw i32 %reass.sub570, 1056964608
+  %137 = bitcast i32 %136 to float
   %.sroa.24.0.insert.ext.i.i.i.i.i26.i.us = zext i64 %.narrow.i.i.i.i.i.i297.us to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i27.i.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i26.i.us, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i28.i.us = and i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us, 18446744073709551615
   %.sroa.03.0.insert.insert.i.i.i.i.i29.i.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i27.i.us, %.sroa.03.0.insert.ext.i.i.i.i.i28.i.us
-  %131 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i29.i.us, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i30.i.us = add i128 %131, 1442695040888963407
+  %138 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i29.i.us, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i30.i.us = add i128 %138, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.us = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i30.i.us to i64
-  %132 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i30.i.us, 64
-  %.tr.i.i.i.i.i32.i.us = trunc nuw i128 %132 to i64
+  %139 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i30.i.us, 64
+  %.tr.i.i.i.i.i32.i.us = trunc nuw i128 %139 to i64
   %.narrow.i.i.i.i.i33.i.us = add i64 %.tr.i.i.i.i.i32.i.us, 6364136223846793005
   %.sroa.0.0.extract.trunc.i.i.i.i.i34.i.us = lshr i64 %.narrow.i.i.i.i.i33.i.us, 58
-  %133 = xor i64 %.narrow.i.i.i.i.i33.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.us
-  %134 = call noundef i64 @llvm.fshr.i64(i64 %133, i64 %133, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i34.i.us)
-  %135 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %134, i1 false)
-  %136 = trunc nuw nsw i64 %135 to i32
-  %137 = and i64 %135, 63
-  %138 = shl i64 %134, %137
-  %139 = lshr i64 %138, 40
-  %140 = trunc nuw nsw i64 %139 to i32
-  %141 = and i32 %140, 8388607
-  %142 = shl nuw nsw i32 %136, 23
-  %reass.sub571 = sub nsw i32 %141, %142
-  %143 = add nsw i32 %reass.sub571, 1056964608
-  %144 = bitcast i32 %143 to float
-  %145 = call noundef float @logf(float noundef %130) #40, !tbaa !81
-  %146 = fmul float %65, %145
-  %147 = call noundef float @logf(float noundef %144) #40, !tbaa !81
-  %148 = fmul float %90, %147
-  %149 = call float @llvm.fabs.f32(float %146)
-  %150 = fcmp one float %149, 0x7FF0000000000000
-  %151 = call float @llvm.fabs.f32(float %148)
-  %152 = fcmp one float %151, 0x7FF0000000000000
-  %or.cond.i300.us = and i1 %150, %152
-  br i1 %or.cond.i300.us, label %153, label %.backedge.i.us.backedge
+  %140 = xor i64 %.narrow.i.i.i.i.i33.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.us
+  %141 = call noundef i64 @llvm.fshr.i64(i64 %140, i64 %140, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i34.i.us)
+  %142 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %141, i1 false)
+  %143 = trunc nuw nsw i64 %142 to i32
+  %144 = and i64 %142, 63
+  %145 = shl i64 %141, %144
+  %146 = lshr i64 %145, 40
+  %147 = trunc nuw nsw i64 %146 to i32
+  %148 = and i32 %147, 8388607
+  %149 = shl nuw nsw i32 %143, 23
+  %reass.sub571 = sub nsw i32 %148, %149
+  %150 = add nsw i32 %reass.sub571, 1056964608
+  %151 = bitcast i32 %150 to float
+  %152 = call noundef float @logf(float noundef %137) #40, !tbaa !81
+  %153 = fmul float %65, %152
+  %154 = call noundef float @logf(float noundef %151) #40, !tbaa !81
+  %155 = fmul float %90, %154
+  %156 = call float @llvm.fabs.f32(float %153)
+  %157 = fcmp one float %156, 0x7FF0000000000000
+  %158 = call float @llvm.fabs.f32(float %155)
+  %159 = fcmp one float %158, 0x7FF0000000000000
+  %or.cond.i300.us = and i1 %157, %159
+  br i1 %or.cond.i300.us, label %160, label %.backedge.i.us.backedge
 
-153:                                              ; preds = %.backedge.i.us
-  %154 = fcmp ogt float %146, %148
-  %155 = fsub float %146, %148
-  %156 = fsub float %148, %146
-  %.sink48.i.us = select i1 %154, float %156, float %155
-  %.sink.i.us = select i1 %154, float %146, float %148
-  %157 = call noundef float @expf(float noundef %.sink48.i.us) #40, !tbaa !81
-  %158 = fadd float %157, 1.000000e+00
-  %159 = call noundef float @logf(float noundef %158) #40, !tbaa !81
-  %160 = fadd float %.sink.i.us, %159
-  %161 = fcmp ogt float %160, 0.000000e+00
-  br i1 %161, label %.backedge.i.us.backedge, label %_ZN4absl17beta_distributionIfE15AlgorithmJoehnkINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
+160:                                              ; preds = %.backedge.i.us
+  %161 = fcmp ogt float %153, %155
+  %162 = fsub float %153, %155
+  %163 = fsub float %155, %153
+  %.sink48.i.us = select i1 %161, float %163, float %162
+  %.sink.i.us = select i1 %161, float %153, float %155
+  %164 = call noundef float @expf(float noundef %.sink48.i.us) #40, !tbaa !81
+  %165 = fadd float %164, 1.000000e+00
+  %166 = call noundef float @logf(float noundef %165) #40, !tbaa !81
+  %167 = fadd float %.sink.i.us, %166
+  %168 = fcmp ogt float %167, 0.000000e+00
+  br i1 %168, label %.backedge.i.us.backedge, label %_ZN4absl17beta_distributionIfE15AlgorithmJoehnkINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
 
-.backedge.i.us.backedge:                          ; preds = %153, %.backedge.i.us
+.backedge.i.us.backedge:                          ; preds = %160, %.backedge.i.us
   br label %.backedge.i.us, !llvm.loop !1108
 
-_ZN4absl17beta_distributionIfE15AlgorithmJoehnkINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us: ; preds = %153
-  %162 = fsub float %146, %160
-  %163 = call noundef float @expf(float noundef %162) #40, !tbaa !81
-  %164 = fcmp oeq float %163, 0.000000e+00
-  br i1 %164, label %169, label %165
+_ZN4absl17beta_distributionIfE15AlgorithmJoehnkINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us: ; preds = %160
+  %169 = fsub float %153, %167
+  %170 = call noundef float @expf(float noundef %169) #40, !tbaa !81
+  %171 = fcmp oeq float %170, 0.000000e+00
+  br i1 %171, label %176, label %172
 
-165:                                              ; preds = %_ZN4absl17beta_distributionIfE15AlgorithmJoehnkINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
-  %166 = fcmp oeq float %163, 1.000000e+00
-  br i1 %166, label %167, label %171
+172:                                              ; preds = %_ZN4absl17beta_distributionIfE15AlgorithmJoehnkINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
+  %173 = fcmp oeq float %170, 1.000000e+00
+  br i1 %173, label %174, label %178
 
-167:                                              ; preds = %165
-  %168 = add nsw i32 %115, 1
-  store i32 %168, ptr %12, align 4, !tbaa !81
-  br label %171
+174:                                              ; preds = %172
+  %175 = add nsw i32 %122, 1
+  store i32 %175, ptr %12, align 4, !tbaa !81
+  br label %178
 
-169:                                              ; preds = %_ZN4absl17beta_distributionIfE15AlgorithmJoehnkINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
-  %170 = add nsw i32 %116, 1
-  store i32 %170, ptr %11, align 4, !tbaa !81
-  br label %171
+176:                                              ; preds = %_ZN4absl17beta_distributionIfE15AlgorithmJoehnkINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
+  %177 = add nsw i32 %123, 1
+  store i32 %177, ptr %11, align 4, !tbaa !81
+  br label %178
 
-171:                                              ; preds = %169, %167, %165
-  %172 = phi i32 [ %116, %165 ], [ %116, %167 ], [ %170, %169 ]
-  %173 = phi i32 [ %115, %165 ], [ %168, %167 ], [ %115, %169 ]
-  %174 = add nuw nsw i32 %.062536.us, 1
-  %exitcond595.not = icmp eq i32 %174, 1000
+178:                                              ; preds = %176, %174, %172
+  %179 = phi i32 [ %123, %172 ], [ %123, %174 ], [ %177, %176 ]
+  %180 = phi i32 [ %122, %172 ], [ %175, %174 ], [ %122, %176 ]
+  %181 = add nuw nsw i32 %.062536.us, 1
+  %exitcond595.not = icmp eq i32 %181, 1000
   br i1 %exitcond595.not, label %.split.us, label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us, !llvm.loop !1109
 
-.split.us:                                        ; preds = %171
-  %175 = fcmp oeq float %63, %70
+.split.us:                                        ; preds = %178
+  %182 = fcmp oeq float %63, %70
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.us, ptr %8, align 16, !tbaa !31
   store i64 %.narrow.i.i.i.i.i33.i.us, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !31
   br label %.split
 
-_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us537: ; preds = %102, %100
-  %.sink = phi float [ %113, %102 ], [ %.22.i, %100 ]
-  %.sroa.25498.2.ph = phi float [ %112, %102 ], [ %101, %100 ]
-  %176 = fadd float %.22.i, %.sink
-  %.promoted720 = load i64, ptr %8, align 16
-  %.sroa.4.0..sroa_idx.i.i.promoted721 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  br label %177
+183:                                              ; preds = %253, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt2
+  %.062536.us538 = phi i32 [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt2 ], [ %256, %253 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa529535.us539 = phi i64 [ %.promoted.jt2, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt2 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us, %253 ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i531534.us540 = phi i64 [ %.sroa.4.0..sroa_idx.i.i.promoted.jt2, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt2 ], [ %.narrow.i.i.i.i.i46.i.us, %253 ]
+  %184 = phi i32 [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt2 ], [ %255, %253 ]
+  %185 = phi i32 [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt2 ], [ %254, %253 ]
+  br label %186
 
-177:                                              ; preds = %247, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us537
-  %.062536.us538 = phi i32 [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us537 ], [ %250, %247 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa529535.us539 = phi i64 [ %.promoted720, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us537 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us, %247 ]
-  %.sroa.22.0.copyload.i.i.i.i.i.i531534.us540 = phi i64 [ %.sroa.4.0..sroa_idx.i.i.promoted721, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us537 ], [ %.narrow.i.i.i.i.i46.i.us, %247 ]
-  %178 = phi i32 [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us537 ], [ %249, %247 ]
-  %179 = phi i32 [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us537 ], [ %248, %247 ]
-  br label %180
-
-180:                                              ; preds = %230, %177
-  %.narrow.i.i.i.i.i4651.i.us = phi i64 [ %.narrow.i.i.i.i.i46.i.us, %230 ], [ %.sroa.22.0.copyload.i.i.i.i.i.i531534.us540, %177 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i4450.i.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us, %230 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa529535.us539, %177 ]
+186:                                              ; preds = %236, %183
+  %.narrow.i.i.i.i.i4651.i.us = phi i64 [ %.narrow.i.i.i.i.i46.i.us, %236 ], [ %.sroa.22.0.copyload.i.i.i.i.i.i531534.us540, %183 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i4450.i.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us, %236 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa529535.us539, %183 ]
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.us = zext i64 %.narrow.i.i.i.i.i4651.i.us to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.us, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i4450.i.us to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.us, %.sroa.03.0.insert.ext.i.i.i.i.i.i.us
-  %181 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.us, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us = add i128 %181, 1442695040888963407
+  %187 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.us, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us = add i128 %187, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us to i64
-  %182 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us, 64
-  %.tr.i.i.i.i.i.i.us = trunc nuw i128 %182 to i64
+  %188 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us, 64
+  %.tr.i.i.i.i.i.i.us = trunc nuw i128 %188 to i64
   %.narrow.i.i.i.i.i.i.us = add i64 %.tr.i.i.i.i.i.i.us, 6364136223846793005
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us = lshr i64 %.narrow.i.i.i.i.i.i.us, 58
-  %183 = xor i64 %.narrow.i.i.i.i.i.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us
-  %184 = call noundef i64 @llvm.fshr.i64(i64 %183, i64 %183, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us)
-  %185 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %184, i1 false)
-  %186 = trunc nuw nsw i64 %185 to i32
-  %187 = and i64 %185, 63
-  %188 = shl i64 %184, %187
-  %189 = lshr i64 %188, 40
-  %190 = trunc nuw nsw i64 %189 to i32
-  %191 = and i32 %190, 8388607
-  %192 = shl nuw nsw i32 %186, 23
-  %reass.sub = sub nsw i32 %191, %192
-  %193 = add nsw i32 %reass.sub, 1056964608
-  %194 = bitcast i32 %193 to float
+  %189 = xor i64 %.narrow.i.i.i.i.i.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us
+  %190 = call noundef i64 @llvm.fshr.i64(i64 %189, i64 %189, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us)
+  %191 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %190, i1 false)
+  %192 = trunc nuw nsw i64 %191 to i32
+  %193 = and i64 %191, 63
+  %194 = shl i64 %190, %193
+  %195 = lshr i64 %194, 40
+  %196 = trunc nuw nsw i64 %195 to i32
+  %197 = and i32 %196, 8388607
+  %198 = shl nuw nsw i32 %192, 23
+  %reass.sub = sub nsw i32 %197, %198
+  %199 = add nsw i32 %reass.sub, 1056964608
+  %200 = bitcast i32 %199 to float
   %.sroa.24.0.insert.ext.i.i.i.i.i39.i.us = zext i64 %.narrow.i.i.i.i.i.i.us to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i40.i.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i39.i.us, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i41.i.us = and i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us, 18446744073709551615
   %.sroa.03.0.insert.insert.i.i.i.i.i42.i.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i40.i.us, %.sroa.03.0.insert.ext.i.i.i.i.i41.i.us
-  %195 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i42.i.us, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i43.i.us = add i128 %195, 1442695040888963407
+  %201 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i42.i.us, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i43.i.us = add i128 %201, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i43.i.us to i64
-  %196 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i43.i.us, 64
-  %.tr.i.i.i.i.i45.i.us = trunc nuw i128 %196 to i64
+  %202 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i43.i.us, 64
+  %.tr.i.i.i.i.i45.i.us = trunc nuw i128 %202 to i64
   %.narrow.i.i.i.i.i46.i.us = add i64 %.tr.i.i.i.i.i45.i.us, 6364136223846793005
   %.sroa.0.0.extract.trunc.i.i.i.i.i47.i.us = lshr i64 %.narrow.i.i.i.i.i46.i.us, 58
-  %197 = xor i64 %.narrow.i.i.i.i.i46.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us
-  %198 = call noundef i64 @llvm.fshr.i64(i64 %197, i64 %197, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i47.i.us)
-  %199 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %198, i1 false)
-  %200 = trunc nuw nsw i64 %199 to i32
-  %201 = and i64 %199, 63
-  %202 = shl i64 %198, %201
-  %203 = lshr i64 %202, 40
-  %204 = trunc nuw nsw i64 %203 to i32
-  %205 = and i32 %204, 8388607
-  %206 = shl nuw nsw i32 %200, 23
-  %reass.sub569 = sub nsw i32 %205, %206
-  %207 = add nsw i32 %reass.sub569, 1056964608
-  %208 = bitcast i32 %207 to float
-  %209 = fsub float 1.000000e+00, %194
-  %210 = fdiv float %194, %209
-  %211 = call noundef float @logf(float noundef %210) #40, !tbaa !81
-  %212 = fmul float %.sroa.25498.2.ph, %211
-  %213 = call noundef float @expf(float noundef %212) #40, !tbaa !81
-  %214 = fmul float %.22.i, %213
-  %215 = fadd float %.23.i, %214
-  %216 = fdiv float 1.000000e+00, %215
-  %217 = call float @llvm.fmuladd.f32(float %176, float %212, float 0xBFF62E4300000000)
-  %218 = fadd float %.22.i, %217
-  %219 = fsub float %218, %214
-  %220 = fmul float %194, %194
-  %221 = fmul float %220, %208
-  br i1 %77, label %222, label %.thread.i.us
+  %203 = xor i64 %.narrow.i.i.i.i.i46.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us
+  %204 = call noundef i64 @llvm.fshr.i64(i64 %203, i64 %203, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i47.i.us)
+  %205 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %204, i1 false)
+  %206 = trunc nuw nsw i64 %205 to i32
+  %207 = and i64 %205, 63
+  %208 = shl i64 %204, %207
+  %209 = lshr i64 %208, 40
+  %210 = trunc nuw nsw i64 %209 to i32
+  %211 = and i32 %210, 8388607
+  %212 = shl nuw nsw i32 %206, 23
+  %reass.sub569 = sub nsw i32 %211, %212
+  %213 = add nsw i32 %reass.sub569, 1056964608
+  %214 = bitcast i32 %213 to float
+  %215 = fsub float 1.000000e+00, %200
+  %216 = fdiv float %200, %215
+  %217 = call noundef float @logf(float noundef %216) #40, !tbaa !81
+  %218 = fmul float %.sroa.25498.2.jt2, %217
+  %219 = call noundef float @expf(float noundef %218) #40, !tbaa !81
+  %220 = fmul float %.22.i, %219
+  %221 = fadd float %.23.i, %220
+  %222 = fdiv float 1.000000e+00, %221
+  %223 = call float @llvm.fmuladd.f32(float %120, float %218, float 0xBFF62E4300000000)
+  %224 = fadd float %.22.i, %223
+  %225 = fsub float %224, %220
+  %226 = fmul float %200, %200
+  %227 = fmul float %226, %214
+  br i1 %77, label %228, label %.thread.i.us
 
-222:                                              ; preds = %180
-  %223 = fadd float %219, 0x4004E02100000000
-  %224 = fmul float %221, 5.000000e+00
-  %225 = fcmp ult float %223, %224
-  br i1 %225, label %226, label %_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
+228:                                              ; preds = %186
+  %229 = fadd float %225, 0x4004E02100000000
+  %230 = fmul float %227, 5.000000e+00
+  %231 = fcmp ult float %229, %230
+  br i1 %231, label %232, label %_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
 
-226:                                              ; preds = %222
-  %227 = call noundef float @logf(float noundef %221) #40, !tbaa !81
-  %228 = fcmp ult float %219, %227
-  br i1 %228, label %230, label %_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
+232:                                              ; preds = %228
+  %233 = call noundef float @logf(float noundef %227) #40, !tbaa !81
+  %234 = fcmp ult float %225, %233
+  br i1 %234, label %236, label %_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
 
-.thread.i.us:                                     ; preds = %180
-  %229 = call noundef float @logf(float noundef %221) #40, !tbaa !81
-  br label %230
+.thread.i.us:                                     ; preds = %186
+  %235 = call noundef float @logf(float noundef %227) #40, !tbaa !81
+  br label %236
 
-230:                                              ; preds = %.thread.i.us, %226
-  %231 = phi float [ %229, %.thread.i.us ], [ %227, %226 ]
-  %232 = call noundef float @logf(float noundef %216) #40, !tbaa !81
-  %233 = fadd float %99, %232
-  %234 = call float @llvm.fmuladd.f32(float %98, float %233, float %217)
-  %235 = fcmp ult float %234, %231
-  br i1 %235, label %180, label %_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us, !llvm.loop !1110
+236:                                              ; preds = %.thread.i.us, %232
+  %237 = phi float [ %235, %.thread.i.us ], [ %233, %232 ]
+  %238 = call noundef float @logf(float noundef %222) #40, !tbaa !81
+  %239 = fadd float %99, %238
+  %240 = call float @llvm.fmuladd.f32(float %98, float %239, float %223)
+  %241 = fcmp ult float %240, %237
+  br i1 %241, label %186, label %_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us, !llvm.loop !1110
 
-_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us: ; preds = %230, %226, %222
-  %236 = fneg float %214
-  %237 = call float @llvm.fmuladd.f32(float %236, float %216, float 1.000000e+00)
-  %238 = fmul float %214, %216
-  %239 = select i1 %76, float %237, float %238
-  %240 = fcmp oeq float %239, 0.000000e+00
-  br i1 %240, label %245, label %241
+_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us: ; preds = %236, %232, %228
+  %242 = fneg float %220
+  %243 = call float @llvm.fmuladd.f32(float %242, float %222, float 1.000000e+00)
+  %244 = fmul float %220, %222
+  %245 = select i1 %76, float %243, float %244
+  %246 = fcmp oeq float %245, 0.000000e+00
+  br i1 %246, label %251, label %247
 
-241:                                              ; preds = %_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
-  %242 = fcmp oeq float %239, 1.000000e+00
-  br i1 %242, label %243, label %247
+247:                                              ; preds = %_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
+  %248 = fcmp oeq float %245, 1.000000e+00
+  br i1 %248, label %249, label %253
 
-243:                                              ; preds = %241
-  %244 = add nsw i32 %178, 1
-  store i32 %244, ptr %12, align 4, !tbaa !81
-  br label %247
+249:                                              ; preds = %247
+  %250 = add nsw i32 %184, 1
+  store i32 %250, ptr %12, align 4, !tbaa !81
+  br label %253
 
-245:                                              ; preds = %_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
-  %246 = add nsw i32 %179, 1
-  store i32 %246, ptr %11, align 4, !tbaa !81
-  br label %247
+251:                                              ; preds = %_ZN4absl17beta_distributionIfE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_RKNS1_10param_typeE.exit.us
+  %252 = add nsw i32 %185, 1
+  store i32 %252, ptr %11, align 4, !tbaa !81
+  br label %253
 
-247:                                              ; preds = %245, %243, %241
-  %248 = phi i32 [ %179, %241 ], [ %179, %243 ], [ %246, %245 ]
-  %249 = phi i32 [ %178, %241 ], [ %244, %243 ], [ %178, %245 ]
-  %250 = add nuw nsw i32 %.062536.us538, 1
-  %exitcond594.not = icmp eq i32 %250, 1000
-  br i1 %exitcond594.not, label %.split.split.us, label %177, !llvm.loop !1109
+253:                                              ; preds = %251, %249, %247
+  %254 = phi i32 [ %185, %247 ], [ %185, %249 ], [ %252, %251 ]
+  %255 = phi i32 [ %184, %247 ], [ %250, %249 ], [ %184, %251 ]
+  %256 = add nuw nsw i32 %.062536.us538, 1
+  %exitcond594.not = icmp eq i32 %256, 1000
+  br i1 %exitcond594.not, label %.split.split.us, label %183, !llvm.loop !1109
 
-.split.split.us:                                  ; preds = %247
-  %251 = fcmp oeq float %63, %70
+.split.split.us:                                  ; preds = %253
+  %257 = fcmp oeq float %63, %70
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us, ptr %8, align 16, !tbaa !31
   store i64 %.narrow.i.i.i.i.i46.i.us, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !31
   br label %.split
 
-_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545: ; preds = %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545.preheader, %269
-  %.062536.us546 = phi i32 [ %272, %269 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545.preheader ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa529535.us547 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa528.us551, %269 ], [ %.promoted705, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545.preheader ]
-  %.sroa.22.0.copyload.i.i.i.i.i.i531534.us548 = phi i64 [ %.sroa.22.0.copyload.i.i.i.i.i.i530.us550, %269 ], [ %.sroa.4.0..sroa_idx.i.i.promoted706, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545.preheader ]
-  %252 = phi i32 [ %271, %269 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545.preheader ]
-  %253 = phi i32 [ %270, %269 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545.preheader ]
-  br i1 %114, label %254, label %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us549
+_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545: ; preds = %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt3, %275
+  %.062536.us546 = phi i32 [ %278, %275 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt3 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa529535.us547 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa528.us551, %275 ], [ %.promoted.jt3, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt3 ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i531534.us548 = phi i64 [ %.sroa.22.0.copyload.i.i.i.i.i.i530.us550, %275 ], [ %.sroa.4.0..sroa_idx.i.i.promoted.jt3, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt3 ]
+  %258 = phi i32 [ %277, %275 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt3 ]
+  %259 = phi i32 [ %276, %275 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt3 ]
+  br i1 %121, label %260, label %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us549
 
-254:                                              ; preds = %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545
+260:                                              ; preds = %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.us = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i531534.us548 to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.us, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa529535.us547 to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.us, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.us
-  %255 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.us, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.us = add i128 %255, 1442695040888963407
+  %261 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.us, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.us = add i128 %261, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.us to i64
-  %256 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.us, 64
-  %.tr.i.i.i.i.i.i.i.i.us = trunc nuw i128 %256 to i64
+  %262 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.us, 64
+  %.tr.i.i.i.i.i.i.i.i.us = trunc nuw i128 %262 to i64
   %.narrow.i.i.i.i.i.i.i.i.us = add i64 %.tr.i.i.i.i.i.i.i.i.us, 6364136223846793005
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us, ptr %8, align 16, !tbaa !31
   store i64 %.narrow.i.i.i.i.i.i.i.i.us, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !31
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.us = lshr i64 %.narrow.i.i.i.i.i.i.i.i.us, 58
-  %257 = xor i64 %.narrow.i.i.i.i.i.i.i.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us
-  %258 = call noundef i64 @llvm.fshr.i64(i64 %257, i64 %257, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.us)
-  %259 = and i64 %258, 16
-  %260 = icmp ne i64 %259, 0
-  %261 = uitofp i1 %260 to float
+  %263 = xor i64 %.narrow.i.i.i.i.i.i.i.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us
+  %264 = call noundef i64 @llvm.fshr.i64(i64 %263, i64 %263, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.us)
+  %265 = and i64 %264, 16
+  %266 = icmp ne i64 %265, 0
+  %267 = uitofp i1 %266 to float
   br label %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us549
 
-_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us549: ; preds = %254, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545
-  %.sroa.22.0.copyload.i.i.i.i.i.i530.us550 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.us, %254 ], [ %.sroa.22.0.copyload.i.i.i.i.i.i531534.us548, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa528.us551 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us, %254 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa529535.us547, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545 ]
-  %.0.i.i.us552 = phi float [ %261, %254 ], [ %.sroa.16495.2.ph, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545 ]
-  %262 = fcmp oeq float %.0.i.i.us552, 0.000000e+00
-  br i1 %262, label %267, label %263
+_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us549: ; preds = %260, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545
+  %.sroa.22.0.copyload.i.i.i.i.i.i530.us550 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.us, %260 ], [ %.sroa.22.0.copyload.i.i.i.i.i.i531534.us548, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa528.us551 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us, %260 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31.i.lcssa529535.us547, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545 ]
+  %.0.i.i.us552 = phi float [ %267, %260 ], [ %.sroa.16495.2.jt3, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545 ]
+  %268 = fcmp oeq float %.0.i.i.us552, 0.000000e+00
+  br i1 %268, label %273, label %269
 
-263:                                              ; preds = %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us549
-  %264 = fcmp oeq float %.0.i.i.us552, 1.000000e+00
-  br i1 %264, label %265, label %269
+269:                                              ; preds = %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us549
+  %270 = fcmp oeq float %.0.i.i.us552, 1.000000e+00
+  br i1 %270, label %271, label %275
 
-265:                                              ; preds = %263
-  %266 = add nsw i32 %252, 1
-  store i32 %266, ptr %12, align 4, !tbaa !81
-  br label %269
+271:                                              ; preds = %269
+  %272 = add nsw i32 %258, 1
+  store i32 %272, ptr %12, align 4, !tbaa !81
+  br label %275
 
-267:                                              ; preds = %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us549
-  %268 = add nsw i32 %253, 1
-  store i32 %268, ptr %11, align 4, !tbaa !81
-  br label %269
+273:                                              ; preds = %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us549
+  %274 = add nsw i32 %259, 1
+  store i32 %274, ptr %11, align 4, !tbaa !81
+  br label %275
 
-269:                                              ; preds = %267, %265, %263
-  %270 = phi i32 [ %253, %263 ], [ %253, %265 ], [ %268, %267 ]
-  %271 = phi i32 [ %252, %263 ], [ %266, %265 ], [ %252, %267 ]
-  %272 = add nuw nsw i32 %.062536.us546, 1
-  %exitcond.not = icmp eq i32 %272, 1000
+275:                                              ; preds = %273, %271, %269
+  %276 = phi i32 [ %259, %269 ], [ %259, %271 ], [ %274, %273 ]
+  %277 = phi i32 [ %258, %269 ], [ %272, %271 ], [ %258, %273 ]
+  %278 = add nuw nsw i32 %.062536.us546, 1
+  %exitcond.not = icmp eq i32 %278, 1000
   br i1 %exitcond.not, label %.split, label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.us545, !llvm.loop !1109
 
-_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split: ; preds = %95
-  %273 = fdiv float %.22.i, %.23.i
-  %274 = select i1 %76, float 1.000000e+00, float %273
-  %275 = fadd float %273, 1.000000e+00
-  %276 = fdiv float %274, %275
-  %277 = fcmp oeq float %63, %70
-  %278 = fcmp oeq float %276, 0.000000e+00
-  br i1 %278, label %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader, label %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split
-
-_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader: ; preds = %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split
+_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader: ; preds = %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt4
   store i32 1000, ptr %11, align 4, !tbaa !81
   br label %.split
 
-_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split: ; preds = %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split
-  %279 = fcmp oeq float %276, 1.000000e+00
+_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split: ; preds = %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.jt4
+  %279 = fcmp oeq float %117, 1.000000e+00
   br i1 %279, label %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us555.preheader, label %.split
 
 _ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us555.preheader: ; preds = %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split
   store i32 1000, ptr %12, align 4, !tbaa !81
   br label %.split
 
-.split:                                           ; preds = %269, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split, %.split.split.us, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us555.preheader, %.split.us
-  %280 = phi i1 [ %251, %.split.split.us ], [ %277, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader ], [ %277, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us555.preheader ], [ %175, %.split.us ], [ %277, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split ], [ %114, %269 ]
-  %281 = phi i32 [ %248, %.split.split.us ], [ 1000, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader ], [ 0, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us555.preheader ], [ %172, %.split.us ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split ], [ %270, %269 ]
-  %282 = phi i32 [ %249, %.split.split.us ], [ 0, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader ], [ 1000, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us555.preheader ], [ %173, %.split.us ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split ], [ %271, %269 ]
+.split:                                           ; preds = %275, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split, %.split.split.us, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us555.preheader, %.split.us
+  %280 = phi i1 [ %257, %.split.split.us ], [ %118, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader ], [ %118, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us555.preheader ], [ %182, %.split.us ], [ %118, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split ], [ %121, %275 ]
+  %281 = phi i32 [ %254, %.split.split.us ], [ 1000, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader ], [ 0, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us555.preheader ], [ %179, %.split.us ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split ], [ %276, %275 ]
+  %282 = phi i32 [ %255, %.split.split.us ], [ 0, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us553.preheader ], [ 1000, %_ZN4absl17beta_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.us555.preheader ], [ %180, %.split.us ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit.split.split ], [ %277, %275 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %283 = add nsw i32 %281, %282
@@ -35685,13 +35685,13 @@ _ZN7testing15AssertionResultD2Ev.exit246:         ; preds = %977, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-thread-pre-split743:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit286
-  %.pr744 = load i32, ptr %924, align 4, !tbaa !292
+thread-pre-split697:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit286
+  %.pr698 = load i32, ptr %924, align 4, !tbaa !292
   br label %987
 
-987:                                              ; preds = %thread-pre-split743, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit467
-  %988 = phi i32 [ %.pr744, %thread-pre-split743 ], [ 4, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit467 ]
-  %.0568 = phi i32 [ %1077, %thread-pre-split743 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit467 ]
+987:                                              ; preds = %thread-pre-split697, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit467
+  %988 = phi i32 [ %.pr698, %thread-pre-split697 ], [ 4, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit467 ]
+  %.0568 = phi i32 [ %1077, %thread-pre-split697 ], [ 0, %_ZN4absl17beta_distributionIfE10param_typeC2Eff.exit467 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   switch i32 %988, label %1005 [
     i32 0, label %989
@@ -35978,7 +35978,7 @@ _ZN7testing15AssertionResultD2Ev.exit286:         ; preds = %1069, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %1077 = add nuw nsw i32 %.0568, 1
   %exitcond599.not = icmp eq i32 %1077, 1000
-  br i1 %exitcond599.not, label %986, label %thread-pre-split743, !llvm.loop !1134
+  br i1 %exitcond599.not, label %986, label %thread-pre-split697, !llvm.loop !1134
 
 1078:                                             ; preds = %_ZN7testing7MessageD2Ev.exit281, %_ZN7testing7MessageD2Ev.exit268
   %.pn94.pn.pn = phi { ptr, i32 } [ %.pn94.pn, %_ZN7testing7MessageD2Ev.exit281 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit268 ]
@@ -36702,7 +36702,7 @@ define internal void @_ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_Degenerat
 72:                                               ; preds = %69
   %73 = fcmp oge double %63, %70
   %74 = uitofp i1 %73 to double
-  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574.preheader
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt3
 
 75:                                               ; preds = %69
   %76 = fcmp olt double %70, %63
@@ -36715,7 +36715,7 @@ define internal void @_ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_Degenerat
 
 79:                                               ; preds = %75
   %80 = select i1 %76, double 1.000000e+00, double 0.000000e+00
-  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574.preheader
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt3
 
 81:                                               ; preds = %75
   %82 = fcmp uge double %.24.i, 1.000000e+00
@@ -36731,15 +36731,15 @@ define internal void @_ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_Degenerat
   %88 = call double @llvm.fabs.f64(double %87)
   %89 = fcmp oeq double %88, 0x7FF0000000000000
   %or.cond30.i = or i1 %67, %89
-  br i1 %or.cond30.i, label %90, label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us.preheader
+  br i1 %or.cond30.i, label %90, label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt0
 
 90:                                               ; preds = %86
   %91 = select i1 %76, double 1.000000e+00, double 0.000000e+00
-  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574.preheader
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt3
 
 92:                                               ; preds = %81
   %93 = fcmp ult double %.23.i, 0x7F571547652B837F
-  br i1 %93, label %94, label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split
+  br i1 %93, label %94, label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt4
 
 94:                                               ; preds = %92
   %95 = call double @log(double noundef %83) #40, !tbaa !81
@@ -36747,7 +36747,7 @@ define internal void @_ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_Degenerat
 
 96:                                               ; preds = %94
   %97 = fdiv double 1.000000e+00, %.23.i
-  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us566
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt2
 
 98:                                               ; preds = %94
   %99 = fadd double %.23.i, -1.000000e+00
@@ -36761,26 +36761,43 @@ define internal void @_ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_Degenerat
   %107 = fdiv double %102, %106
   %108 = call double @sqrt(double noundef %107) #40, !tbaa !81
   %109 = fdiv double 1.000000e+00, %108
-  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us566
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt2
 
-_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574.preheader: ; preds = %72, %90, %79
-  %.sroa.16506.2.ph = phi double [ %80, %79 ], [ %91, %90 ], [ %74, %72 ]
-  %.promoted757 = load i64, ptr %8, align 16
-  %.sroa.4.0..sroa_idx.i.i.promoted758 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  %110 = fcmp oeq double %63, %70
-  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574
-
-_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us.preheader: ; preds = %86
-  %.promoted = load i64, ptr %8, align 16
-  %.sroa.4.0..sroa_idx.i.i.promoted = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
+_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt0: ; preds = %86
+  %.promoted.jt0 = load i64, ptr %8, align 16
+  %.sroa.4.0..sroa_idx.i.i.promoted.jt0 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us
 
-_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us: ; preds = %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us.preheader, %173
-  %.062565.us = phi i32 [ %176, %173 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us.preheader ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa558564.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.us, %173 ], [ %.promoted, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us.preheader ]
-  %.sroa.22.0.copyload.i.i.i.i.i.i560563.us = phi i64 [ %.narrow.i.i.i.i.i46.i307.us, %173 ], [ %.sroa.4.0..sroa_idx.i.i.promoted, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us.preheader ]
-  %111 = phi i32 [ %175, %173 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us.preheader ]
-  %112 = phi i32 [ %174, %173 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us.preheader ]
+_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt4: ; preds = %92
+  %110 = fdiv double %.23.i, %.24.i
+  %111 = select i1 %76, double 1.000000e+00, double %110
+  %112 = fadd double %110, 1.000000e+00
+  %113 = fdiv double %111, %112
+  %114 = fcmp oeq double %63, %70
+  %115 = fcmp oeq double %113, 0.000000e+00
+  br i1 %115, label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader, label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split
+
+_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt2: ; preds = %96, %98
+  %.23.i.sink = phi double [ %.23.i, %96 ], [ %109, %98 ]
+  %.sroa.25509.2.jt2 = phi double [ %97, %96 ], [ %108, %98 ]
+  %116 = fadd double %.23.i, %.23.i.sink
+  %.promoted.jt2 = load i64, ptr %8, align 16
+  %.sroa.4.0..sroa_idx.i.i.promoted.jt2 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
+  br label %184
+
+_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt3: ; preds = %79, %90, %72
+  %.sroa.16506.2.jt3 = phi double [ %74, %72 ], [ %91, %90 ], [ %80, %79 ]
+  %.promoted.jt3 = load i64, ptr %8, align 16
+  %.sroa.4.0..sroa_idx.i.i.promoted.jt3 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
+  %117 = fcmp oeq double %63, %70
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574
+
+_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us: ; preds = %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt0, %180
+  %.062565.us = phi i32 [ %183, %180 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt0 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa558564.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.us, %180 ], [ %.promoted.jt0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt0 ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i560563.us = phi i64 [ %.narrow.i.i.i.i.i46.i307.us, %180 ], [ %.sroa.4.0..sroa_idx.i.i.promoted.jt0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt0 ]
+  %118 = phi i32 [ %182, %180 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt0 ]
+  %119 = phi i32 [ %181, %180 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt0 ]
   br label %.backedge.i.us
 
 .backedge.i.us:                                   ; preds = %.backedge.i.us.backedge, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us
@@ -36790,345 +36807,328 @@ _ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us: ; preds = %_ZN4ab
   %.sroa.24.0.insert.shift.i.i.i.i.i.i291.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i290.us, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i292.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i4454.i.us to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i293.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i291.us, %.sroa.03.0.insert.ext.i.i.i.i.i.i292.us
-  %113 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i293.us, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us = add i128 %113, 1442695040888963407
+  %120 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i293.us, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us = add i128 %120, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i295.us = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us to i64
-  %114 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us, 64
-  %.tr.i.i.i.i.i.i296.us = trunc nuw i128 %114 to i64
+  %121 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us, 64
+  %.tr.i.i.i.i.i.i296.us = trunc nuw i128 %121 to i64
   %.narrow.i.i.i.i.i.i297.us = add i64 %.tr.i.i.i.i.i.i296.us, 6364136223846793005
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i298.us = lshr i64 %.narrow.i.i.i.i.i.i297.us, 58
-  %115 = xor i64 %.narrow.i.i.i.i.i.i297.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i295.us
-  %116 = call noundef i64 @llvm.fshr.i64(i64 %115, i64 %115, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i298.us)
-  %117 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %116, i1 false)
-  %118 = and i64 %117, 63
-  %119 = shl i64 %116, %118
-  %120 = lshr i64 %119, 11
-  %121 = and i64 %120, 4503599627370495
-  %122 = shl nuw nsw i64 %117, 52
-  %reass.sub599 = sub nsw i64 %121, %122
-  %123 = add nsw i64 %reass.sub599, 4602678819172646912
-  %124 = bitcast i64 %123 to double
+  %122 = xor i64 %.narrow.i.i.i.i.i.i297.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i295.us
+  %123 = call noundef i64 @llvm.fshr.i64(i64 %122, i64 %122, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i298.us)
+  %124 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %123, i1 false)
+  %125 = and i64 %124, 63
+  %126 = shl i64 %123, %125
+  %127 = lshr i64 %126, 11
+  %128 = and i64 %127, 4503599627370495
+  %129 = shl nuw nsw i64 %124, 52
+  %reass.sub599 = sub nsw i64 %128, %129
+  %130 = add nsw i64 %reass.sub599, 4602678819172646912
+  %131 = bitcast i64 %130 to double
   %.sroa.24.0.insert.ext.i.i.i.i.i39.i300.us = zext i64 %.narrow.i.i.i.i.i.i297.us to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i40.i301.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i39.i300.us, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i41.i302.us = and i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i294.us, 18446744073709551615
   %.sroa.03.0.insert.insert.i.i.i.i.i42.i303.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i40.i301.us, %.sroa.03.0.insert.ext.i.i.i.i.i41.i302.us
-  %125 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i42.i303.us, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i43.i304.us = add i128 %125, 1442695040888963407
+  %132 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i42.i303.us, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i43.i304.us = add i128 %132, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.us = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i43.i304.us to i64
-  %126 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i43.i304.us, 64
-  %.tr.i.i.i.i.i45.i306.us = trunc nuw i128 %126 to i64
+  %133 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i43.i304.us, 64
+  %.tr.i.i.i.i.i45.i306.us = trunc nuw i128 %133 to i64
   %.narrow.i.i.i.i.i46.i307.us = add i64 %.tr.i.i.i.i.i45.i306.us, 6364136223846793005
   %.sroa.0.0.extract.trunc.i.i.i.i.i47.i308.us = lshr i64 %.narrow.i.i.i.i.i46.i307.us, 58
-  %127 = xor i64 %.narrow.i.i.i.i.i46.i307.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.us
-  %128 = call noundef i64 @llvm.fshr.i64(i64 %127, i64 %127, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i47.i308.us)
-  %129 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %128, i1 false)
-  %130 = and i64 %129, 63
-  %131 = shl i64 %128, %130
-  %132 = lshr i64 %131, 11
-  %133 = and i64 %132, 4503599627370495
-  %134 = shl nuw nsw i64 %129, 52
-  %reass.sub600 = sub nsw i64 %133, %134
-  %135 = add nsw i64 %reass.sub600, 4602678819172646912
-  %136 = bitcast i64 %135 to double
-  %137 = call double @pow(double noundef %124, double noundef %65) #40, !tbaa !81
-  %138 = call double @pow(double noundef %136, double noundef %87) #40, !tbaa !81
-  %139 = fadd double %137, %138
-  %140 = fcmp ogt double %139, 1.000000e+00
-  br i1 %140, label %.backedge.i.us.backedge, label %141
+  %134 = xor i64 %.narrow.i.i.i.i.i46.i307.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.us
+  %135 = call noundef i64 @llvm.fshr.i64(i64 %134, i64 %134, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i47.i308.us)
+  %136 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %135, i1 false)
+  %137 = and i64 %136, 63
+  %138 = shl i64 %135, %137
+  %139 = lshr i64 %138, 11
+  %140 = and i64 %139, 4503599627370495
+  %141 = shl nuw nsw i64 %136, 52
+  %reass.sub600 = sub nsw i64 %140, %141
+  %142 = add nsw i64 %reass.sub600, 4602678819172646912
+  %143 = bitcast i64 %142 to double
+  %144 = call double @pow(double noundef %131, double noundef %65) #40, !tbaa !81
+  %145 = call double @pow(double noundef %143, double noundef %87) #40, !tbaa !81
+  %146 = fadd double %144, %145
+  %147 = fcmp ogt double %146, 1.000000e+00
+  br i1 %147, label %.backedge.i.us.backedge, label %148
 
-141:                                              ; preds = %.backedge.i.us
-  %142 = fcmp ogt double %139, 0.000000e+00
-  br i1 %142, label %164, label %143
+148:                                              ; preds = %.backedge.i.us
+  %149 = fcmp ogt double %146, 0.000000e+00
+  br i1 %149, label %171, label %150
 
-143:                                              ; preds = %141
-  %144 = call double @llvm.log.f64(double %124), !tbaa !81
-  %145 = fmul double %65, %144
-  %146 = call double @llvm.log.f64(double %136), !tbaa !81
-  %147 = fmul double %87, %146
-  %148 = call double @llvm.fabs.f64(double %145)
-  %149 = fcmp one double %148, 0x7FF0000000000000
-  %150 = call double @llvm.fabs.f64(double %147)
-  %151 = fcmp one double %150, 0x7FF0000000000000
-  %or.cond.i309.us = and i1 %149, %151
-  br i1 %or.cond.i309.us, label %152, label %.backedge.i.us.backedge
+150:                                              ; preds = %148
+  %151 = call double @llvm.log.f64(double %131), !tbaa !81
+  %152 = fmul double %65, %151
+  %153 = call double @llvm.log.f64(double %143), !tbaa !81
+  %154 = fmul double %87, %153
+  %155 = call double @llvm.fabs.f64(double %152)
+  %156 = fcmp one double %155, 0x7FF0000000000000
+  %157 = call double @llvm.fabs.f64(double %154)
+  %158 = fcmp one double %157, 0x7FF0000000000000
+  %or.cond.i309.us = and i1 %156, %158
+  br i1 %or.cond.i309.us, label %159, label %.backedge.i.us.backedge
 
-152:                                              ; preds = %143
-  %153 = fcmp ogt double %145, %147
-  %154 = fsub double %145, %147
-  %155 = fsub double %147, %145
-  %.sink81.i.us = select i1 %153, double %155, double %154
-  %.sink.i.us = select i1 %153, double %145, double %147
-  %156 = call double @exp(double noundef %.sink81.i.us) #40, !tbaa !81
-  %157 = fadd double %156, 1.000000e+00
-  %158 = call double @log(double noundef %157) #40, !tbaa !81
-  %159 = fadd double %.sink.i.us, %158
-  %160 = fcmp ogt double %159, 0.000000e+00
-  br i1 %160, label %.backedge.i.us.backedge, label %161
+159:                                              ; preds = %150
+  %160 = fcmp ogt double %152, %154
+  %161 = fsub double %152, %154
+  %162 = fsub double %154, %152
+  %.sink81.i.us = select i1 %160, double %162, double %161
+  %.sink.i.us = select i1 %160, double %152, double %154
+  %163 = call double @exp(double noundef %.sink81.i.us) #40, !tbaa !81
+  %164 = fadd double %163, 1.000000e+00
+  %165 = call double @log(double noundef %164) #40, !tbaa !81
+  %166 = fadd double %.sink.i.us, %165
+  %167 = fcmp ogt double %166, 0.000000e+00
+  br i1 %167, label %.backedge.i.us.backedge, label %168
 
-.backedge.i.us.backedge:                          ; preds = %152, %143, %.backedge.i.us
+.backedge.i.us.backedge:                          ; preds = %159, %150, %.backedge.i.us
   br label %.backedge.i.us, !llvm.loop !1135
 
-161:                                              ; preds = %152
+168:                                              ; preds = %159
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.us, ptr %8, align 16, !tbaa !31
   store i64 %.narrow.i.i.i.i.i46.i307.us, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !31
-  %162 = fsub double %145, %159
-  %163 = call double @exp(double noundef %162) #40, !tbaa !81
+  %169 = fsub double %152, %166
+  %170 = call double @exp(double noundef %169) #40, !tbaa !81
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us
 
-164:                                              ; preds = %141
+171:                                              ; preds = %148
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.us, ptr %8, align 16, !tbaa !31
   store i64 %.narrow.i.i.i.i.i46.i307.us, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !31
-  %165 = fdiv double %137, %139
+  %172 = fdiv double %144, %146
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us
 
-_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us: ; preds = %164, %161
-  %.0.i.i.us = phi double [ %165, %164 ], [ %163, %161 ]
-  %166 = fcmp oeq double %.0.i.i.us, 0.000000e+00
-  br i1 %166, label %171, label %167
+_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us: ; preds = %171, %168
+  %.0.i.i.us = phi double [ %172, %171 ], [ %170, %168 ]
+  %173 = fcmp oeq double %.0.i.i.us, 0.000000e+00
+  br i1 %173, label %178, label %174
 
-167:                                              ; preds = %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us
-  %168 = fcmp oeq double %.0.i.i.us, 1.000000e+00
-  br i1 %168, label %169, label %173
+174:                                              ; preds = %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us
+  %175 = fcmp oeq double %.0.i.i.us, 1.000000e+00
+  br i1 %175, label %176, label %180
 
-169:                                              ; preds = %167
-  %170 = add nsw i32 %111, 1
-  store i32 %170, ptr %12, align 4, !tbaa !81
-  br label %173
+176:                                              ; preds = %174
+  %177 = add nsw i32 %118, 1
+  store i32 %177, ptr %12, align 4, !tbaa !81
+  br label %180
 
-171:                                              ; preds = %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us
-  %172 = add nsw i32 %112, 1
-  store i32 %172, ptr %11, align 4, !tbaa !81
-  br label %173
+178:                                              ; preds = %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us
+  %179 = add nsw i32 %119, 1
+  store i32 %179, ptr %11, align 4, !tbaa !81
+  br label %180
 
-173:                                              ; preds = %171, %169, %167
-  %174 = phi i32 [ %112, %167 ], [ %112, %169 ], [ %172, %171 ]
-  %175 = phi i32 [ %111, %167 ], [ %170, %169 ], [ %111, %171 ]
-  %176 = add nuw nsw i32 %.062565.us, 1
-  %exitcond645.not = icmp eq i32 %176, 1000
-  br i1 %exitcond645.not, label %.split.us.loopexit797, label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us, !llvm.loop !1136
+180:                                              ; preds = %178, %176, %174
+  %181 = phi i32 [ %119, %174 ], [ %119, %176 ], [ %179, %178 ]
+  %182 = phi i32 [ %118, %174 ], [ %177, %176 ], [ %118, %178 ]
+  %183 = add nuw nsw i32 %.062565.us, 1
+  %exitcond645.not = icmp eq i32 %183, 1000
+  br i1 %exitcond645.not, label %.split.us.loopexit846, label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us, !llvm.loop !1136
 
-_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us566: ; preds = %98, %96
-  %.sink = phi double [ %109, %98 ], [ %.23.i, %96 ]
-  %.sroa.25509.2.ph = phi double [ %108, %98 ], [ %97, %96 ]
-  %177 = fadd double %.23.i, %.sink
-  %.promoted772 = load i64, ptr %8, align 16
-  %.sroa.4.0..sroa_idx.i.i.promoted773 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  br label %178
+184:                                              ; preds = %250, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt2
+  %.062565.us567 = phi i32 [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt2 ], [ %253, %250 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa558564.us568 = phi i64 [ %.promoted.jt2, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt2 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us, %250 ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i560563.us569 = phi i64 [ %.sroa.4.0..sroa_idx.i.i.promoted.jt2, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt2 ], [ %.narrow.i.i.i.i.i46.i.us, %250 ]
+  %185 = phi i32 [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt2 ], [ %252, %250 ]
+  %186 = phi i32 [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt2 ], [ %251, %250 ]
+  br label %187
 
-178:                                              ; preds = %244, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us566
-  %.062565.us567 = phi i32 [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us566 ], [ %247, %244 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa558564.us568 = phi i64 [ %.promoted772, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us566 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us, %244 ]
-  %.sroa.22.0.copyload.i.i.i.i.i.i560563.us569 = phi i64 [ %.sroa.4.0..sroa_idx.i.i.promoted773, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us566 ], [ %.narrow.i.i.i.i.i46.i.us, %244 ]
-  %179 = phi i32 [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us566 ], [ %246, %244 ]
-  %180 = phi i32 [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us566 ], [ %245, %244 ]
-  br label %181
-
-181:                                              ; preds = %227, %178
-  %.narrow.i.i.i.i.i4651.i.us = phi i64 [ %.narrow.i.i.i.i.i46.i.us, %227 ], [ %.sroa.22.0.copyload.i.i.i.i.i.i560563.us569, %178 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i4450.i.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us, %227 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa558564.us568, %178 ]
+187:                                              ; preds = %233, %184
+  %.narrow.i.i.i.i.i4651.i.us = phi i64 [ %.narrow.i.i.i.i.i46.i.us, %233 ], [ %.sroa.22.0.copyload.i.i.i.i.i.i560563.us569, %184 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i4450.i.us = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us, %233 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa558564.us568, %184 ]
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.us = zext i64 %.narrow.i.i.i.i.i4651.i.us to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.us, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i4450.i.us to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.us, %.sroa.03.0.insert.ext.i.i.i.i.i.i.us
-  %182 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.us, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us = add i128 %182, 1442695040888963407
+  %188 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.us, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us = add i128 %188, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us to i64
-  %183 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us, 64
-  %.tr.i.i.i.i.i.i.us = trunc nuw i128 %183 to i64
+  %189 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us, 64
+  %.tr.i.i.i.i.i.i.us = trunc nuw i128 %189 to i64
   %.narrow.i.i.i.i.i.i.us = add i64 %.tr.i.i.i.i.i.i.us, 6364136223846793005
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us = lshr i64 %.narrow.i.i.i.i.i.i.us, 58
-  %184 = xor i64 %.narrow.i.i.i.i.i.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us
-  %185 = call noundef i64 @llvm.fshr.i64(i64 %184, i64 %184, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us)
-  %186 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %185, i1 false)
-  %187 = and i64 %186, 63
-  %188 = shl i64 %185, %187
-  %189 = lshr i64 %188, 11
-  %190 = and i64 %189, 4503599627370495
-  %191 = shl nuw nsw i64 %186, 52
-  %reass.sub = sub nsw i64 %190, %191
-  %192 = add nsw i64 %reass.sub, 4602678819172646912
-  %193 = bitcast i64 %192 to double
+  %190 = xor i64 %.narrow.i.i.i.i.i.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us
+  %191 = call noundef i64 @llvm.fshr.i64(i64 %190, i64 %190, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us)
+  %192 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %191, i1 false)
+  %193 = and i64 %192, 63
+  %194 = shl i64 %191, %193
+  %195 = lshr i64 %194, 11
+  %196 = and i64 %195, 4503599627370495
+  %197 = shl nuw nsw i64 %192, 52
+  %reass.sub = sub nsw i64 %196, %197
+  %198 = add nsw i64 %reass.sub, 4602678819172646912
+  %199 = bitcast i64 %198 to double
   %.sroa.24.0.insert.ext.i.i.i.i.i39.i.us = zext i64 %.narrow.i.i.i.i.i.i.us to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i40.i.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i39.i.us, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i41.i.us = and i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us, 18446744073709551615
   %.sroa.03.0.insert.insert.i.i.i.i.i42.i.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i40.i.us, %.sroa.03.0.insert.ext.i.i.i.i.i41.i.us
-  %194 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i42.i.us, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i43.i.us = add i128 %194, 1442695040888963407
+  %200 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i42.i.us, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i43.i.us = add i128 %200, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i43.i.us to i64
-  %195 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i43.i.us, 64
-  %.tr.i.i.i.i.i45.i.us = trunc nuw i128 %195 to i64
+  %201 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i43.i.us, 64
+  %.tr.i.i.i.i.i45.i.us = trunc nuw i128 %201 to i64
   %.narrow.i.i.i.i.i46.i.us = add i64 %.tr.i.i.i.i.i45.i.us, 6364136223846793005
   %.sroa.0.0.extract.trunc.i.i.i.i.i47.i.us = lshr i64 %.narrow.i.i.i.i.i46.i.us, 58
-  %196 = xor i64 %.narrow.i.i.i.i.i46.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us
-  %197 = call noundef i64 @llvm.fshr.i64(i64 %196, i64 %196, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i47.i.us)
-  %198 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %197, i1 false)
-  %199 = and i64 %198, 63
-  %200 = shl i64 %197, %199
-  %201 = lshr i64 %200, 11
-  %202 = and i64 %201, 4503599627370495
-  %203 = shl nuw nsw i64 %198, 52
-  %reass.sub598 = sub nsw i64 %202, %203
-  %204 = add nsw i64 %reass.sub598, 4602678819172646912
-  %205 = bitcast i64 %204 to double
-  %206 = fsub double 1.000000e+00, %193
-  %207 = fdiv double %193, %206
-  %208 = call double @log(double noundef %207) #40, !tbaa !81
-  %209 = fmul double %.sroa.25509.2.ph, %208
-  %210 = call double @exp(double noundef %209) #40, !tbaa !81
-  %211 = fmul double %.23.i, %210
-  %212 = fadd double %.24.i, %211
-  %213 = fdiv double 1.000000e+00, %212
-  %214 = call double @llvm.fmuladd.f64(double %177, double %209, double 0xBFF62E42FEFA39EF)
-  %215 = fadd double %.23.i, %214
-  %216 = fsub double %215, %211
-  %217 = fmul double %193, %193
-  %218 = fmul double %217, %205
-  br i1 %77, label %219, label %.thread.i.us
+  %202 = xor i64 %.narrow.i.i.i.i.i46.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us
+  %203 = call noundef i64 @llvm.fshr.i64(i64 %202, i64 %202, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i47.i.us)
+  %204 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %203, i1 false)
+  %205 = and i64 %204, 63
+  %206 = shl i64 %203, %205
+  %207 = lshr i64 %206, 11
+  %208 = and i64 %207, 4503599627370495
+  %209 = shl nuw nsw i64 %204, 52
+  %reass.sub598 = sub nsw i64 %208, %209
+  %210 = add nsw i64 %reass.sub598, 4602678819172646912
+  %211 = bitcast i64 %210 to double
+  %212 = fsub double 1.000000e+00, %199
+  %213 = fdiv double %199, %212
+  %214 = call double @log(double noundef %213) #40, !tbaa !81
+  %215 = fmul double %.sroa.25509.2.jt2, %214
+  %216 = call double @exp(double noundef %215) #40, !tbaa !81
+  %217 = fmul double %.23.i, %216
+  %218 = fadd double %.24.i, %217
+  %219 = fdiv double 1.000000e+00, %218
+  %220 = call double @llvm.fmuladd.f64(double %116, double %215, double 0xBFF62E42FEFA39EF)
+  %221 = fadd double %.23.i, %220
+  %222 = fsub double %221, %217
+  %223 = fmul double %199, %199
+  %224 = fmul double %223, %211
+  br i1 %77, label %225, label %.thread.i.us
 
-219:                                              ; preds = %181
-  %220 = fadd double %216, 0x4004E020FBF6C69A
-  %221 = fmul double %218, 5.000000e+00
-  %222 = fcmp ult double %220, %221
-  br i1 %222, label %223, label %_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us
+225:                                              ; preds = %187
+  %226 = fadd double %222, 0x4004E020FBF6C69A
+  %227 = fmul double %224, 5.000000e+00
+  %228 = fcmp ult double %226, %227
+  br i1 %228, label %229, label %_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us
 
-223:                                              ; preds = %219
-  %224 = call double @log(double noundef %218) #40, !tbaa !81
-  %225 = fcmp ult double %216, %224
-  br i1 %225, label %227, label %_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us
+229:                                              ; preds = %225
+  %230 = call double @log(double noundef %224) #40, !tbaa !81
+  %231 = fcmp ult double %222, %230
+  br i1 %231, label %233, label %_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us
 
-.thread.i.us:                                     ; preds = %181
-  %226 = call double @log(double noundef %218) #40, !tbaa !81
-  br label %227
+.thread.i.us:                                     ; preds = %187
+  %232 = call double @log(double noundef %224) #40, !tbaa !81
+  br label %233
 
-227:                                              ; preds = %.thread.i.us, %223
-  %228 = phi double [ %226, %.thread.i.us ], [ %224, %223 ]
-  %229 = call double @log(double noundef %213) #40, !tbaa !81
-  %230 = fadd double %95, %229
-  %231 = call double @llvm.fmuladd.f64(double %83, double %230, double %214)
-  %232 = fcmp ult double %231, %228
-  br i1 %232, label %181, label %_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us, !llvm.loop !1137
+233:                                              ; preds = %.thread.i.us, %229
+  %234 = phi double [ %232, %.thread.i.us ], [ %230, %229 ]
+  %235 = call double @log(double noundef %219) #40, !tbaa !81
+  %236 = fadd double %95, %235
+  %237 = call double @llvm.fmuladd.f64(double %83, double %236, double %220)
+  %238 = fcmp ult double %237, %234
+  br i1 %238, label %187, label %_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us, !llvm.loop !1137
 
-_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us: ; preds = %227, %223, %219
-  %233 = fneg double %211
-  %234 = call double @llvm.fmuladd.f64(double %233, double %213, double 1.000000e+00)
-  %235 = fmul double %211, %213
-  %236 = select i1 %76, double %234, double %235
-  %237 = fcmp oeq double %236, 0.000000e+00
-  br i1 %237, label %242, label %238
+_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us: ; preds = %233, %229, %225
+  %239 = fneg double %217
+  %240 = call double @llvm.fmuladd.f64(double %239, double %219, double 1.000000e+00)
+  %241 = fmul double %217, %219
+  %242 = select i1 %76, double %240, double %241
+  %243 = fcmp oeq double %242, 0.000000e+00
+  br i1 %243, label %248, label %244
 
-238:                                              ; preds = %_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us
-  %239 = fcmp oeq double %236, 1.000000e+00
-  br i1 %239, label %240, label %244
+244:                                              ; preds = %_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us
+  %245 = fcmp oeq double %242, 1.000000e+00
+  br i1 %245, label %246, label %250
 
-240:                                              ; preds = %238
-  %241 = add nsw i32 %179, 1
-  store i32 %241, ptr %12, align 4, !tbaa !81
-  br label %244
+246:                                              ; preds = %244
+  %247 = add nsw i32 %185, 1
+  store i32 %247, ptr %12, align 4, !tbaa !81
+  br label %250
 
-242:                                              ; preds = %_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us
-  %243 = add nsw i32 %180, 1
-  store i32 %243, ptr %11, align 4, !tbaa !81
-  br label %244
+248:                                              ; preds = %_ZN4absl17beta_distributionIdE14AlgorithmChengINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_RKNS1_10param_typeE.exit.us
+  %249 = add nsw i32 %186, 1
+  store i32 %249, ptr %11, align 4, !tbaa !81
+  br label %250
 
-244:                                              ; preds = %242, %240, %238
-  %245 = phi i32 [ %180, %238 ], [ %180, %240 ], [ %243, %242 ]
-  %246 = phi i32 [ %179, %238 ], [ %241, %240 ], [ %179, %242 ]
-  %247 = add nuw nsw i32 %.062565.us567, 1
-  %exitcond644.not = icmp eq i32 %247, 1000
-  br i1 %exitcond644.not, label %.split.split.us, label %178, !llvm.loop !1136
+250:                                              ; preds = %248, %246, %244
+  %251 = phi i32 [ %186, %244 ], [ %186, %246 ], [ %249, %248 ]
+  %252 = phi i32 [ %185, %244 ], [ %247, %246 ], [ %185, %248 ]
+  %253 = add nuw nsw i32 %.062565.us567, 1
+  %exitcond644.not = icmp eq i32 %253, 1000
+  br i1 %exitcond644.not, label %.split.split.us, label %184, !llvm.loop !1136
 
-.split.split.us:                                  ; preds = %244
-  %248 = fcmp oeq double %63, %70
+.split.split.us:                                  ; preds = %250
+  %254 = fcmp oeq double %63, %70
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i.us, ptr %8, align 16, !tbaa !31
   store i64 %.narrow.i.i.i.i.i46.i.us, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !31
   br label %.split.us
 
-_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574: ; preds = %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574.preheader, %266
-  %.062565.us575 = phi i32 [ %269, %266 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574.preheader ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa558564.us576 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa557.us580, %266 ], [ %.promoted757, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574.preheader ]
-  %.sroa.22.0.copyload.i.i.i.i.i.i560563.us577 = phi i64 [ %.sroa.22.0.copyload.i.i.i.i.i.i559.us579, %266 ], [ %.sroa.4.0..sroa_idx.i.i.promoted758, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574.preheader ]
-  %249 = phi i32 [ %268, %266 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574.preheader ]
-  %250 = phi i32 [ %267, %266 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574.preheader ]
-  br i1 %110, label %251, label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us578
+_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574: ; preds = %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt3, %272
+  %.062565.us575 = phi i32 [ %275, %272 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt3 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa558564.us576 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa557.us580, %272 ], [ %.promoted.jt3, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt3 ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i560563.us577 = phi i64 [ %.sroa.22.0.copyload.i.i.i.i.i.i559.us579, %272 ], [ %.sroa.4.0..sroa_idx.i.i.promoted.jt3, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt3 ]
+  %255 = phi i32 [ %274, %272 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt3 ]
+  %256 = phi i32 [ %273, %272 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt3 ]
+  br i1 %117, label %257, label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us578
 
-251:                                              ; preds = %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574
+257:                                              ; preds = %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.us = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i560563.us577 to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.us = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.us, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.us = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa558564.us576 to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.us = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.us, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.us
-  %252 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.us, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.us = add i128 %252, 1442695040888963407
+  %258 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.us, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.us = add i128 %258, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.us to i64
-  %253 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.us, 64
-  %.tr.i.i.i.i.i.i.i.i.us = trunc nuw i128 %253 to i64
+  %259 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.us, 64
+  %.tr.i.i.i.i.i.i.i.i.us = trunc nuw i128 %259 to i64
   %.narrow.i.i.i.i.i.i.i.i.us = add i64 %.tr.i.i.i.i.i.i.i.i.us, 6364136223846793005
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us, ptr %8, align 16, !tbaa !31
   store i64 %.narrow.i.i.i.i.i.i.i.i.us, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !31
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.us = lshr i64 %.narrow.i.i.i.i.i.i.i.i.us, 58
-  %254 = xor i64 %.narrow.i.i.i.i.i.i.i.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us
-  %255 = call noundef i64 @llvm.fshr.i64(i64 %254, i64 %254, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.us)
-  %256 = and i64 %255, 16
-  %257 = icmp ne i64 %256, 0
-  %258 = uitofp i1 %257 to double
+  %260 = xor i64 %.narrow.i.i.i.i.i.i.i.i.us, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us
+  %261 = call noundef i64 @llvm.fshr.i64(i64 %260, i64 %260, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.us)
+  %262 = and i64 %261, 16
+  %263 = icmp ne i64 %262, 0
+  %264 = uitofp i1 %263 to double
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us578
 
-_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us578: ; preds = %251, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574
-  %.sroa.22.0.copyload.i.i.i.i.i.i559.us579 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.us, %251 ], [ %.sroa.22.0.copyload.i.i.i.i.i.i560563.us577, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa557.us580 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us, %251 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa558564.us576, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574 ]
-  %.0.i.i.us581 = phi double [ %258, %251 ], [ %.sroa.16506.2.ph, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574 ]
-  %259 = fcmp oeq double %.0.i.i.us581, 0.000000e+00
-  br i1 %259, label %264, label %260
+_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us578: ; preds = %257, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574
+  %.sroa.22.0.copyload.i.i.i.i.i.i559.us579 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.us, %257 ], [ %.sroa.22.0.copyload.i.i.i.i.i.i560563.us577, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa557.us580 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.us, %257 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i44.i305.lcssa558564.us576, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574 ]
+  %.0.i.i.us581 = phi double [ %264, %257 ], [ %.sroa.16506.2.jt3, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574 ]
+  %265 = fcmp oeq double %.0.i.i.us581, 0.000000e+00
+  br i1 %265, label %270, label %266
 
-260:                                              ; preds = %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us578
-  %261 = fcmp oeq double %.0.i.i.us581, 1.000000e+00
-  br i1 %261, label %262, label %266
+266:                                              ; preds = %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us578
+  %267 = fcmp oeq double %.0.i.i.us581, 1.000000e+00
+  br i1 %267, label %268, label %272
 
-262:                                              ; preds = %260
-  %263 = add nsw i32 %249, 1
-  store i32 %263, ptr %12, align 4, !tbaa !81
-  br label %266
+268:                                              ; preds = %266
+  %269 = add nsw i32 %255, 1
+  store i32 %269, ptr %12, align 4, !tbaa !81
+  br label %272
 
-264:                                              ; preds = %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us578
-  %265 = add nsw i32 %250, 1
-  store i32 %265, ptr %11, align 4, !tbaa !81
-  br label %266
+270:                                              ; preds = %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us578
+  %271 = add nsw i32 %256, 1
+  store i32 %271, ptr %11, align 4, !tbaa !81
+  br label %272
 
-266:                                              ; preds = %264, %262, %260
-  %267 = phi i32 [ %250, %260 ], [ %250, %262 ], [ %265, %264 ]
-  %268 = phi i32 [ %249, %260 ], [ %263, %262 ], [ %249, %264 ]
-  %269 = add nuw nsw i32 %.062565.us575, 1
-  %exitcond.not = icmp eq i32 %269, 1000
+272:                                              ; preds = %270, %268, %266
+  %273 = phi i32 [ %256, %266 ], [ %256, %268 ], [ %271, %270 ]
+  %274 = phi i32 [ %255, %266 ], [ %269, %268 ], [ %255, %270 ]
+  %275 = add nuw nsw i32 %.062565.us575, 1
+  %exitcond.not = icmp eq i32 %275, 1000
   br i1 %exitcond.not, label %.split.us, label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us574, !llvm.loop !1136
 
-_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split: ; preds = %92
-  %270 = fdiv double %.23.i, %.24.i
-  %271 = select i1 %76, double 1.000000e+00, double %270
-  %272 = fadd double %270, 1.000000e+00
-  %273 = fdiv double %271, %272
-  %274 = fcmp oeq double %63, %70
-  %275 = fcmp oeq double %273, 0.000000e+00
-  br i1 %275, label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader, label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split
-
-_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader: ; preds = %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split
+_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader: ; preds = %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt4
   store i32 1000, ptr %11, align 4, !tbaa !81
   br label %.split.us
 
-_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split: ; preds = %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split
-  %276 = fcmp oeq double %273, 1.000000e+00
+_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split: ; preds = %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.jt4
+  %276 = fcmp oeq double %113, 1.000000e+00
   br i1 %276, label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us584.preheader, label %.split.us
 
 _ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us584.preheader: ; preds = %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split
   store i32 1000, ptr %12, align 4, !tbaa !81
   br label %.split.us
 
-.split.us.loopexit797:                            ; preds = %173
+.split.us.loopexit846:                            ; preds = %180
   %277 = fcmp oeq double %63, %70
   br label %.split.us
 
-.split.us:                                        ; preds = %266, %.split.us.loopexit797, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split, %.split.split.us, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us584.preheader
-  %278 = phi i1 [ %248, %.split.split.us ], [ %274, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader ], [ %274, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us584.preheader ], [ %274, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split ], [ %277, %.split.us.loopexit797 ], [ %110, %266 ]
-  %279 = phi i32 [ %245, %.split.split.us ], [ 1000, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader ], [ 0, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us584.preheader ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split ], [ %174, %.split.us.loopexit797 ], [ %267, %266 ]
-  %280 = phi i32 [ %246, %.split.split.us ], [ 0, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader ], [ 1000, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us584.preheader ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split ], [ %175, %.split.us.loopexit797 ], [ %268, %266 ]
+.split.us:                                        ; preds = %272, %.split.us.loopexit846, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split, %.split.split.us, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us584.preheader
+  %278 = phi i1 [ %254, %.split.split.us ], [ %114, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader ], [ %114, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us584.preheader ], [ %114, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split ], [ %277, %.split.us.loopexit846 ], [ %117, %272 ]
+  %279 = phi i32 [ %251, %.split.split.us ], [ 1000, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader ], [ 0, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us584.preheader ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split ], [ %181, %.split.us.loopexit846 ], [ %273, %272 ]
+  %280 = phi i32 [ %252, %.split.split.us ], [ 0, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us582.preheader ], [ 1000, %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.us584.preheader ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.split ], [ %182, %.split.us.loopexit846 ], [ %274, %272 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %281 = add nsw i32 %279, %280
@@ -38972,13 +38972,13 @@ _ZN7testing15AssertionResultD2Ev.exit246:         ; preds = %971, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-thread-pre-split795:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit286
-  %.pr796 = load i32, ptr %918, align 8, !tbaa !104
+thread-pre-split749:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit286
+  %.pr750 = load i32, ptr %918, align 8, !tbaa !104
   br label %981
 
-981:                                              ; preds = %thread-pre-split795, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit478
-  %982 = phi i32 [ %.pr796, %thread-pre-split795 ], [ 4, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit478 ]
-  %.0597 = phi i32 [ %1072, %thread-pre-split795 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit478 ]
+981:                                              ; preds = %thread-pre-split749, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit478
+  %982 = phi i32 [ %.pr750, %thread-pre-split749 ], [ 4, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit478 ]
+  %.0597 = phi i32 [ %1072, %thread-pre-split749 ], [ 0, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit478 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   switch i32 %982, label %999 [
     i32 0, label %983
@@ -39266,7 +39266,7 @@ _ZN7testing15AssertionResultD2Ev.exit286:         ; preds = %1064, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %1072 = add nuw nsw i32 %.0597, 1
   %exitcond649.not = icmp eq i32 %1072, 1000
-  br i1 %exitcond649.not, label %980, label %thread-pre-split795, !llvm.loop !1161
+  br i1 %exitcond649.not, label %980, label %thread-pre-split749, !llvm.loop !1161
 
 1073:                                             ; preds = %_ZN7testing7MessageD2Ev.exit281, %_ZN7testing7MessageD2Ev.exit268
   %.pn94.pn.pn = phi { ptr, i32 } [ %.pn94.pn, %_ZN7testing7MessageD2Ev.exit281 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit268 ]

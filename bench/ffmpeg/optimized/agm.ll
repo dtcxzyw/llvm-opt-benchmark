@@ -1884,10 +1884,10 @@ define internal fastcc void @decode_runlen(ptr noundef readonly captures(none) %
   br label %45
 
 45:                                               ; preds = %.lr.ph156, %fill_pixels.exit61.thread
-  %46 = phi i64 [ %23, %.lr.ph156 ], [ %277, %fill_pixels.exit61.thread ]
-  %47 = phi i64 [ %21, %.lr.ph156 ], [ %275, %fill_pixels.exit61.thread ]
-  %.promoted = phi ptr [ %20, %.lr.ph156 ], [ %274, %fill_pixels.exit61.thread ]
-  %48 = phi ptr [ %19, %.lr.ph156 ], [ %273, %fill_pixels.exit61.thread ]
+  %46 = phi i64 [ %23, %.lr.ph156 ], [ %309, %fill_pixels.exit61.thread ]
+  %47 = phi i64 [ %21, %.lr.ph156 ], [ %307, %fill_pixels.exit61.thread ]
+  %.promoted = phi ptr [ %20, %.lr.ph156 ], [ %306, %fill_pixels.exit61.thread ]
+  %48 = phi ptr [ %19, %.lr.ph156 ], [ %305, %fill_pixels.exit61.thread ]
   %.074155 = phi i32 [ 0, %.lr.ph156 ], [ %.2, %fill_pixels.exit61.thread ]
   %.075154 = phi i32 [ 0, %.lr.ph156 ], [ %.277, %fill_pixels.exit61.thread ]
   %.080153 = phi i32 [ 0, %.lr.ph156 ], [ %.282, %fill_pixels.exit61.thread ]
@@ -1943,16 +1943,8 @@ bytestream2_get_byte.exit:                        ; preds = %60, %61
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, 4
   br i1 %exitcond164.not, label %.preheader, label %55, !llvm.loop !115
 
-.lr.ph:                                           ; preds = %.preheader, %fill_pixels.exit
-  %.037142 = phi i32 [ %66, %fill_pixels.exit ], [ %51, %.preheader ]
-  %.1141 = phi i32 [ %.3, %fill_pixels.exit ], [ %.074155, %.preheader ]
-  %.176140 = phi i32 [ %.378, %fill_pixels.exit ], [ %.075154, %.preheader ]
-  %.181139 = phi i32 [ %.383, %fill_pixels.exit ], [ %.080153, %.preheader ]
-  %.186138 = phi ptr [ %.388, %fill_pixels.exit ], [ %.085152, %.preheader ]
-  %.191137 = phi ptr [ %.393, %fill_pixels.exit ], [ %.090151, %.preheader ]
-  %.196136 = phi ptr [ %.398, %fill_pixels.exit ], [ %.095150, %.preheader ]
-  %.1101135 = phi ptr [ %.3103, %fill_pixels.exit ], [ %.0100149, %.preheader ]
-  %66 = add nsw i32 %.037142, -1
+.lr.ph:                                           ; preds = %.preheader
+  %66 = add nsw i32 %51, -1
   %67 = load i32, ptr %8, align 8, !tbaa !72
   %68 = load i32, ptr %12, align 4, !tbaa !72
   %69 = load i32, ptr %16, align 8, !tbaa !72
@@ -1960,341 +1952,404 @@ bytestream2_get_byte.exit:                        ; preds = %60, %61
   %71 = sdiv i32 %70, 2
   %72 = load i32, ptr %6, align 4, !tbaa !43
   %73 = sdiv i32 %72, 2
-  %74 = load i8, ptr %4, align 1, !tbaa !52
-  switch i32 %.1141, label %default.unreachable [
-    i32 0, label %75
-    i32 1, label %95
-    i32 2, label %130
+  switch i32 %.074155, label %default.unreachable [
+    i32 0, label %fill_pixels.exit.jt1
+    i32 1, label %91
+    i32 2, label %122
   ]
 
-75:                                               ; preds = %.lr.ph
-  %76 = shl nsw i32 %.176140, 1
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %.1101135, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !52
-  %80 = add i8 %79, %74
-  store i8 %80, ptr %78, align 1, !tbaa !52
-  %81 = load i8, ptr %42, align 1, !tbaa !52
-  %82 = or disjoint i32 %76, 1
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i8, ptr %.1101135, i64 %83
-  %85 = load i8, ptr %84, align 1, !tbaa !52
-  %86 = add i8 %85, %81
-  store i8 %86, ptr %84, align 1, !tbaa !52
-  %87 = load i8, ptr %43, align 1, !tbaa !52
-  %88 = getelementptr inbounds i8, ptr %.196136, i64 %77
-  %89 = load i8, ptr %88, align 1, !tbaa !52
-  %90 = add i8 %89, %87
-  store i8 %90, ptr %88, align 1, !tbaa !52
-  %91 = load i8, ptr %44, align 1, !tbaa !52
-  %92 = getelementptr inbounds i8, ptr %.196136, i64 %83
-  %93 = load i8, ptr %92, align 1, !tbaa !52
-  %94 = add i8 %93, %91
-  store i8 %94, ptr %92, align 1, !tbaa !52
-  br label %fill_pixels.exit
+.lr.ph.jt0:                                       ; preds = %fill_pixels.exit.jt0
+  %74 = add nsw i32 %128, -1
+  br label %fill_pixels.exit.jt1
 
-95:                                               ; preds = %.lr.ph
-  %96 = sext i32 %.176140 to i64
-  %97 = getelementptr inbounds i8, ptr %.191137, i64 %96
-  %98 = load i8, ptr %97, align 1, !tbaa !52
-  %99 = add i8 %98, %74
-  store i8 %99, ptr %97, align 1, !tbaa !52
-  %100 = load i8, ptr %42, align 1, !tbaa !52
-  %101 = getelementptr inbounds i8, ptr %.186138, i64 %96
-  %102 = load i8, ptr %101, align 1, !tbaa !52
-  %103 = add i8 %102, %100
-  store i8 %103, ptr %101, align 1, !tbaa !52
-  %104 = add nsw i32 %.176140, 1
-  %.not114.i = icmp slt i32 %104, %71
-  br i1 %.not114.i, label %119, label %105
+.lr.ph.jt2:                                       ; preds = %fill_pixels.exit.jt2
+  %75 = add nsw i32 %97, -1
+  %76 = load i32, ptr %8, align 8, !tbaa !72
+  %77 = load i32, ptr %12, align 4, !tbaa !72
+  %78 = load i32, ptr %16, align 8, !tbaa !72
+  %79 = load i32, ptr %41, align 8, !tbaa !42
+  %80 = sdiv i32 %79, 2
+  %81 = load i32, ptr %6, align 4, !tbaa !43
+  %82 = sdiv i32 %81, 2
+  br label %122
 
-105:                                              ; preds = %95
-  %106 = add nsw i32 %.181139, 1
-  %.not115.i = icmp slt i32 %106, %73
-  br i1 %.not115.i, label %107, label %fill_pixels.exit61
+.lr.ph.jt1:                                       ; preds = %fill_pixels.exit.jt1
+  %83 = add nsw i32 %175, -1
+  %84 = load i32, ptr %8, align 8, !tbaa !72
+  %85 = load i32, ptr %12, align 4, !tbaa !72
+  %86 = load i32, ptr %16, align 8, !tbaa !72
+  %87 = load i32, ptr %41, align 8, !tbaa !42
+  %88 = sdiv i32 %87, 2
+  %89 = load i32, ptr %6, align 4, !tbaa !43
+  %90 = sdiv i32 %89, 2
+  br label %91
 
-107:                                              ; preds = %105
-  %108 = shl nsw i32 %67, 1
-  %109 = sext i32 %108 to i64
-  %110 = sub nsw i64 0, %109
-  %111 = getelementptr inbounds i8, ptr %.1101135, i64 %110
-  %112 = getelementptr inbounds i8, ptr %.196136, i64 %110
-  %113 = sext i32 %68 to i64
-  %114 = sub nsw i64 0, %113
-  %115 = getelementptr inbounds i8, ptr %.191137, i64 %114
-  %116 = sext i32 %69 to i64
+91:                                               ; preds = %.lr.ph.jt1, %.lr.ph
+  %92 = phi i32 [ %90, %.lr.ph.jt1 ], [ %73, %.lr.ph ]
+  %93 = phi i32 [ %88, %.lr.ph.jt1 ], [ %71, %.lr.ph ]
+  %94 = phi i32 [ %86, %.lr.ph.jt1 ], [ %69, %.lr.ph ]
+  %95 = phi i32 [ %85, %.lr.ph.jt1 ], [ %68, %.lr.ph ]
+  %96 = phi i32 [ %84, %.lr.ph.jt1 ], [ %67, %.lr.ph ]
+  %97 = phi i32 [ %83, %.lr.ph.jt1 ], [ %66, %.lr.ph ]
+  %.1101135200 = phi ptr [ %.1101135199, %.lr.ph.jt1 ], [ %.0100149, %.lr.ph ]
+  %.196136197 = phi ptr [ %.196136196, %.lr.ph.jt1 ], [ %.095150, %.lr.ph ]
+  %.191137194 = phi ptr [ %.191137193, %.lr.ph.jt1 ], [ %.090151, %.lr.ph ]
+  %.186138191 = phi ptr [ %.186138190, %.lr.ph.jt1 ], [ %.085152, %.lr.ph ]
+  %.181139188 = phi i32 [ %.181139187, %.lr.ph.jt1 ], [ %.080153, %.lr.ph ]
+  %.176140185 = phi i32 [ %.176140184, %.lr.ph.jt1 ], [ %.075154, %.lr.ph ]
+  %.037142182 = phi i32 [ %175, %.lr.ph.jt1 ], [ %51, %.lr.ph ]
+  %98 = load i8, ptr %4, align 1, !tbaa !52
+  %99 = sext i32 %.176140185 to i64
+  %100 = getelementptr inbounds i8, ptr %.191137194, i64 %99
+  %101 = load i8, ptr %100, align 1, !tbaa !52
+  %102 = add i8 %101, %98
+  store i8 %102, ptr %100, align 1, !tbaa !52
+  %103 = load i8, ptr %42, align 1, !tbaa !52
+  %104 = getelementptr inbounds i8, ptr %.186138191, i64 %99
+  %105 = load i8, ptr %104, align 1, !tbaa !52
+  %106 = add i8 %105, %103
+  store i8 %106, ptr %104, align 1, !tbaa !52
+  %107 = add nsw i32 %.176140185, 1
+  %.not114.i = icmp slt i32 %107, %93
+  br i1 %.not114.i, label %fill_pixels.exit.jt2, label %108
+
+108:                                              ; preds = %91
+  %109 = add nsw i32 %.181139188, 1
+  %.not115.i = icmp slt i32 %109, %92
+  br i1 %.not115.i, label %110, label %fill_pixels.exit61
+
+110:                                              ; preds = %108
+  %111 = shl nsw i32 %96, 1
+  %112 = sext i32 %111 to i64
+  %113 = sub nsw i64 0, %112
+  %114 = getelementptr inbounds i8, ptr %.1101135200, i64 %113
+  %115 = getelementptr inbounds i8, ptr %.196136197, i64 %113
+  %116 = sext i32 %95 to i64
   %117 = sub nsw i64 0, %116
-  %118 = getelementptr inbounds i8, ptr %.186138, i64 %117
-  br label %119
+  %118 = getelementptr inbounds i8, ptr %.191137194, i64 %117
+  %119 = sext i32 %94 to i64
+  %120 = sub nsw i64 0, %119
+  %121 = getelementptr inbounds i8, ptr %.186138191, i64 %120
+  br label %fill_pixels.exit.jt2
 
-119:                                              ; preds = %107, %95
-  %.1104.i = phi ptr [ %111, %107 ], [ %.1101135, %95 ]
-  %.1101.i = phi ptr [ %112, %107 ], [ %.196136, %95 ]
-  %.198.i = phi ptr [ %115, %107 ], [ %.191137, %95 ]
-  %.195.i = phi ptr [ %118, %107 ], [ %.186138, %95 ]
-  %.192.i = phi i32 [ 0, %107 ], [ %104, %95 ]
-  %.1.i = phi i32 [ %106, %107 ], [ %.181139, %95 ]
-  %120 = load i8, ptr %43, align 1, !tbaa !52
-  %121 = shl nsw i32 %.192.i, 1
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr %.1104.i, i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !52
-  %125 = add i8 %124, %120
-  store i8 %125, ptr %123, align 1, !tbaa !52
-  %126 = load i8, ptr %44, align 1, !tbaa !52
-  %127 = getelementptr i8, ptr %123, i64 1
-  %128 = load i8, ptr %127, align 1, !tbaa !52
-  %129 = add i8 %128, %126
-  store i8 %129, ptr %127, align 1, !tbaa !52
-  br label %fill_pixels.exit
+122:                                              ; preds = %.lr.ph.jt2, %.lr.ph
+  %123 = phi i32 [ %82, %.lr.ph.jt2 ], [ %73, %.lr.ph ]
+  %124 = phi i32 [ %80, %.lr.ph.jt2 ], [ %71, %.lr.ph ]
+  %125 = phi i32 [ %78, %.lr.ph.jt2 ], [ %69, %.lr.ph ]
+  %126 = phi i32 [ %77, %.lr.ph.jt2 ], [ %68, %.lr.ph ]
+  %127 = phi i32 [ %76, %.lr.ph.jt2 ], [ %67, %.lr.ph ]
+  %128 = phi i32 [ %75, %.lr.ph.jt2 ], [ %66, %.lr.ph ]
+  %.1101135198 = phi ptr [ %.1104.i, %.lr.ph.jt2 ], [ %.0100149, %.lr.ph ]
+  %.196136195 = phi ptr [ %.1101.i, %.lr.ph.jt2 ], [ %.095150, %.lr.ph ]
+  %.191137192 = phi ptr [ %.198.i, %.lr.ph.jt2 ], [ %.090151, %.lr.ph ]
+  %.186138189 = phi ptr [ %.195.i, %.lr.ph.jt2 ], [ %.085152, %.lr.ph ]
+  %.181139186 = phi i32 [ %.1.i, %.lr.ph.jt2 ], [ %.080153, %.lr.ph ]
+  %.176140183 = phi i32 [ %.192.i, %.lr.ph.jt2 ], [ %.075154, %.lr.ph ]
+  %.037142180 = phi i32 [ %97, %.lr.ph.jt2 ], [ %51, %.lr.ph ]
+  %129 = load i8, ptr %4, align 1, !tbaa !52
+  %130 = shl nsw i32 %.176140183, 1
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i8, ptr %.196136195, i64 %131
+  %133 = load i8, ptr %132, align 1, !tbaa !52
+  %134 = add i8 %133, %129
+  store i8 %134, ptr %132, align 1, !tbaa !52
+  %135 = load i8, ptr %42, align 1, !tbaa !52
+  %136 = getelementptr i8, ptr %132, i64 1
+  %137 = load i8, ptr %136, align 1, !tbaa !52
+  %138 = add i8 %137, %135
+  store i8 %138, ptr %136, align 1, !tbaa !52
+  %139 = load i8, ptr %43, align 1, !tbaa !52
+  %140 = sext i32 %.176140183 to i64
+  %141 = getelementptr inbounds i8, ptr %.191137192, i64 %140
+  %142 = load i8, ptr %141, align 1, !tbaa !52
+  %143 = add i8 %142, %139
+  store i8 %143, ptr %141, align 1, !tbaa !52
+  %144 = load i8, ptr %44, align 1, !tbaa !52
+  %145 = getelementptr inbounds i8, ptr %.186138189, i64 %140
+  %146 = load i8, ptr %145, align 1, !tbaa !52
+  %147 = add i8 %146, %144
+  store i8 %147, ptr %145, align 1, !tbaa !52
+  %148 = add nsw i32 %.176140183, 1
+  %.not.i = icmp slt i32 %148, %124
+  br i1 %.not.i, label %fill_pixels.exit.jt0, label %149
 
-130:                                              ; preds = %.lr.ph
-  %131 = shl nsw i32 %.176140, 1
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i8, ptr %.196136, i64 %132
-  %134 = load i8, ptr %133, align 1, !tbaa !52
-  %135 = add i8 %134, %74
-  store i8 %135, ptr %133, align 1, !tbaa !52
-  %136 = load i8, ptr %42, align 1, !tbaa !52
-  %137 = getelementptr i8, ptr %133, i64 1
-  %138 = load i8, ptr %137, align 1, !tbaa !52
-  %139 = add i8 %138, %136
-  store i8 %139, ptr %137, align 1, !tbaa !52
-  %140 = load i8, ptr %43, align 1, !tbaa !52
-  %141 = sext i32 %.176140 to i64
-  %142 = getelementptr inbounds i8, ptr %.191137, i64 %141
-  %143 = load i8, ptr %142, align 1, !tbaa !52
-  %144 = add i8 %143, %140
-  store i8 %144, ptr %142, align 1, !tbaa !52
-  %145 = load i8, ptr %44, align 1, !tbaa !52
-  %146 = getelementptr inbounds i8, ptr %.186138, i64 %141
-  %147 = load i8, ptr %146, align 1, !tbaa !52
-  %148 = add i8 %147, %145
-  store i8 %148, ptr %146, align 1, !tbaa !52
-  %149 = add nsw i32 %.176140, 1
-  %.not.i = icmp slt i32 %149, %71
-  br i1 %.not.i, label %fill_pixels.exit, label %150
+149:                                              ; preds = %122
+  %150 = add nsw i32 %.181139186, 1
+  %.not113.i = icmp slt i32 %150, %123
+  br i1 %.not113.i, label %151, label %fill_pixels.exit61
 
-150:                                              ; preds = %130
-  %151 = add nsw i32 %.181139, 1
-  %.not113.i = icmp slt i32 %151, %73
-  br i1 %.not113.i, label %152, label %fill_pixels.exit61
+151:                                              ; preds = %149
+  %152 = shl nsw i32 %127, 1
+  %153 = sext i32 %152 to i64
+  %154 = sub nsw i64 0, %153
+  %155 = getelementptr inbounds i8, ptr %.1101135198, i64 %154
+  %156 = getelementptr inbounds i8, ptr %.196136195, i64 %154
+  %157 = sext i32 %126 to i64
+  %158 = sub nsw i64 0, %157
+  %159 = getelementptr inbounds i8, ptr %.191137192, i64 %158
+  %160 = sext i32 %125 to i64
+  %161 = sub nsw i64 0, %160
+  %162 = getelementptr inbounds i8, ptr %.186138189, i64 %161
+  br label %fill_pixels.exit.jt0
 
-152:                                              ; preds = %150
-  %153 = shl nsw i32 %67, 1
-  %154 = sext i32 %153 to i64
-  %155 = sub nsw i64 0, %154
-  %156 = getelementptr inbounds i8, ptr %.1101135, i64 %155
-  %157 = getelementptr inbounds i8, ptr %.196136, i64 %155
-  %158 = sext i32 %68 to i64
-  %159 = sub nsw i64 0, %158
-  %160 = getelementptr inbounds i8, ptr %.191137, i64 %159
-  %161 = sext i32 %69 to i64
-  %162 = sub nsw i64 0, %161
-  %163 = getelementptr inbounds i8, ptr %.186138, i64 %162
-  br label %fill_pixels.exit
-
-default.unreachable:                              ; preds = %165, %.lr.ph
+default.unreachable:                              ; preds = %197, %.lr.ph
   unreachable
 
-fill_pixels.exit:                                 ; preds = %75, %119, %130, %152
-  %.3103 = phi ptr [ %.1101135, %75 ], [ %.1104.i, %119 ], [ %156, %152 ], [ %.1101135, %130 ]
-  %.398 = phi ptr [ %.196136, %75 ], [ %.1101.i, %119 ], [ %157, %152 ], [ %.196136, %130 ]
-  %.393 = phi ptr [ %.191137, %75 ], [ %.198.i, %119 ], [ %160, %152 ], [ %.191137, %130 ]
-  %.388 = phi ptr [ %.186138, %75 ], [ %.195.i, %119 ], [ %163, %152 ], [ %.186138, %130 ]
-  %.383 = phi i32 [ %.181139, %75 ], [ %.1.i, %119 ], [ %151, %152 ], [ %.181139, %130 ]
-  %.378 = phi i32 [ %.176140, %75 ], [ %.192.i, %119 ], [ 0, %152 ], [ %149, %130 ]
-  %.3 = phi i32 [ 1, %75 ], [ 2, %119 ], [ 0, %152 ], [ 0, %130 ]
-  %164 = icmp sgt i32 %.037142, 1
-  br i1 %164, label %.lr.ph, label %fill_pixels.exit61.thread, !llvm.loop !116
+fill_pixels.exit.jt0:                             ; preds = %122, %151
+  %.3103.jt0 = phi ptr [ %155, %151 ], [ %.1101135198, %122 ]
+  %.398.jt0 = phi ptr [ %156, %151 ], [ %.196136195, %122 ]
+  %.393.jt0 = phi ptr [ %159, %151 ], [ %.191137192, %122 ]
+  %.388.jt0 = phi ptr [ %162, %151 ], [ %.186138189, %122 ]
+  %.383.jt0 = phi i32 [ %150, %151 ], [ %.181139186, %122 ]
+  %.378.jt0 = phi i32 [ 0, %151 ], [ %148, %122 ]
+  %163 = icmp sgt i32 %.037142180, 1
+  br i1 %163, label %.lr.ph.jt0, label %fill_pixels.exit61.thread, !llvm.loop !116
 
-165:                                              ; preds = %bytestream2_get_byte.exit40
-  %166 = load i32, ptr %8, align 8, !tbaa !72
-  %167 = load i32, ptr %12, align 4, !tbaa !72
-  %168 = load i32, ptr %16, align 8, !tbaa !72
-  %169 = load i32, ptr %41, align 8, !tbaa !42
-  %170 = sdiv i32 %169, 2
-  %171 = load i32, ptr %6, align 4, !tbaa !43
-  %172 = sdiv i32 %171, 2
-  %173 = load i8, ptr %4, align 1, !tbaa !52
+fill_pixels.exit.jt2:                             ; preds = %91, %110
+  %.1104.i = phi ptr [ %114, %110 ], [ %.1101135200, %91 ]
+  %.1101.i = phi ptr [ %115, %110 ], [ %.196136197, %91 ]
+  %.198.i = phi ptr [ %118, %110 ], [ %.191137194, %91 ]
+  %.195.i = phi ptr [ %121, %110 ], [ %.186138191, %91 ]
+  %.192.i = phi i32 [ 0, %110 ], [ %107, %91 ]
+  %.1.i = phi i32 [ %109, %110 ], [ %.181139188, %91 ]
+  %164 = load i8, ptr %43, align 1, !tbaa !52
+  %165 = shl nsw i32 %.192.i, 1
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds i8, ptr %.1104.i, i64 %166
+  %168 = load i8, ptr %167, align 1, !tbaa !52
+  %169 = add i8 %168, %164
+  store i8 %169, ptr %167, align 1, !tbaa !52
+  %170 = load i8, ptr %44, align 1, !tbaa !52
+  %171 = getelementptr i8, ptr %167, i64 1
+  %172 = load i8, ptr %171, align 1, !tbaa !52
+  %173 = add i8 %172, %170
+  store i8 %173, ptr %171, align 1, !tbaa !52
+  %174 = icmp sgt i32 %.037142182, 1
+  br i1 %174, label %.lr.ph.jt2, label %fill_pixels.exit61.thread, !llvm.loop !116
+
+fill_pixels.exit.jt1:                             ; preds = %.lr.ph, %.lr.ph.jt0
+  %175 = phi i32 [ %74, %.lr.ph.jt0 ], [ %66, %.lr.ph ]
+  %.1101135199 = phi ptr [ %.3103.jt0, %.lr.ph.jt0 ], [ %.0100149, %.lr.ph ]
+  %.196136196 = phi ptr [ %.398.jt0, %.lr.ph.jt0 ], [ %.095150, %.lr.ph ]
+  %.191137193 = phi ptr [ %.393.jt0, %.lr.ph.jt0 ], [ %.090151, %.lr.ph ]
+  %.186138190 = phi ptr [ %.388.jt0, %.lr.ph.jt0 ], [ %.085152, %.lr.ph ]
+  %.181139187 = phi i32 [ %.383.jt0, %.lr.ph.jt0 ], [ %.080153, %.lr.ph ]
+  %.176140184 = phi i32 [ %.378.jt0, %.lr.ph.jt0 ], [ %.075154, %.lr.ph ]
+  %.037142181 = phi i32 [ %128, %.lr.ph.jt0 ], [ %51, %.lr.ph ]
+  %176 = load i8, ptr %4, align 1, !tbaa !52
+  %177 = shl nsw i32 %.176140184, 1
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds i8, ptr %.1101135199, i64 %178
+  %180 = load i8, ptr %179, align 1, !tbaa !52
+  %181 = add i8 %180, %176
+  store i8 %181, ptr %179, align 1, !tbaa !52
+  %182 = load i8, ptr %42, align 1, !tbaa !52
+  %183 = or disjoint i32 %177, 1
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr inbounds i8, ptr %.1101135199, i64 %184
+  %186 = load i8, ptr %185, align 1, !tbaa !52
+  %187 = add i8 %186, %182
+  store i8 %187, ptr %185, align 1, !tbaa !52
+  %188 = load i8, ptr %43, align 1, !tbaa !52
+  %189 = getelementptr inbounds i8, ptr %.196136196, i64 %178
+  %190 = load i8, ptr %189, align 1, !tbaa !52
+  %191 = add i8 %190, %188
+  store i8 %191, ptr %189, align 1, !tbaa !52
+  %192 = load i8, ptr %44, align 1, !tbaa !52
+  %193 = getelementptr inbounds i8, ptr %.196136196, i64 %184
+  %194 = load i8, ptr %193, align 1, !tbaa !52
+  %195 = add i8 %194, %192
+  store i8 %195, ptr %193, align 1, !tbaa !52
+  %196 = icmp sgt i32 %.037142181, 1
+  br i1 %196, label %.lr.ph.jt1, label %fill_pixels.exit61.thread, !llvm.loop !116
+
+197:                                              ; preds = %bytestream2_get_byte.exit40
+  %198 = load i32, ptr %8, align 8, !tbaa !72
+  %199 = load i32, ptr %12, align 4, !tbaa !72
+  %200 = load i32, ptr %16, align 8, !tbaa !72
+  %201 = load i32, ptr %41, align 8, !tbaa !42
+  %202 = sdiv i32 %201, 2
+  %203 = load i32, ptr %6, align 4, !tbaa !43
+  %204 = sdiv i32 %203, 2
+  %205 = load i8, ptr %4, align 1, !tbaa !52
   switch i32 %.074155, label %default.unreachable [
-    i32 0, label %174
-    i32 1, label %194
-    i32 2, label %229
+    i32 0, label %206
+    i32 1, label %226
+    i32 2, label %261
   ]
 
-174:                                              ; preds = %165
-  %175 = shl nsw i32 %.075154, 1
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds i8, ptr %.0100149, i64 %176
-  %178 = load i8, ptr %177, align 1, !tbaa !52
-  %179 = add i8 %178, %173
-  store i8 %179, ptr %177, align 1, !tbaa !52
-  %180 = load i8, ptr %42, align 1, !tbaa !52
-  %181 = or disjoint i32 %175, 1
-  %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds i8, ptr %.0100149, i64 %182
-  %184 = load i8, ptr %183, align 1, !tbaa !52
-  %185 = add i8 %184, %180
-  store i8 %185, ptr %183, align 1, !tbaa !52
-  %186 = load i8, ptr %43, align 1, !tbaa !52
-  %187 = getelementptr inbounds i8, ptr %.095150, i64 %176
-  %188 = load i8, ptr %187, align 1, !tbaa !52
-  %189 = add i8 %188, %186
-  store i8 %189, ptr %187, align 1, !tbaa !52
-  %190 = load i8, ptr %44, align 1, !tbaa !52
-  %191 = getelementptr inbounds i8, ptr %.095150, i64 %182
-  %192 = load i8, ptr %191, align 1, !tbaa !52
-  %193 = add i8 %192, %190
-  store i8 %193, ptr %191, align 1, !tbaa !52
-  br label %fill_pixels.exit61.thread
-
-194:                                              ; preds = %165
-  %195 = sext i32 %.075154 to i64
-  %196 = getelementptr inbounds i8, ptr %.090151, i64 %195
-  %197 = load i8, ptr %196, align 1, !tbaa !52
-  %198 = add i8 %197, %173
-  store i8 %198, ptr %196, align 1, !tbaa !52
-  %199 = load i8, ptr %42, align 1, !tbaa !52
-  %200 = getelementptr inbounds i8, ptr %.085152, i64 %195
-  %201 = load i8, ptr %200, align 1, !tbaa !52
-  %202 = add i8 %201, %199
-  store i8 %202, ptr %200, align 1, !tbaa !52
-  %203 = add nsw i32 %.075154, 1
-  %.not114.i53 = icmp slt i32 %203, %170
-  br i1 %.not114.i53, label %218, label %204
-
-204:                                              ; preds = %194
-  %205 = add nsw i32 %.080153, 1
-  %.not115.i54 = icmp slt i32 %205, %172
-  br i1 %.not115.i54, label %206, label %fill_pixels.exit61
-
-206:                                              ; preds = %204
-  %207 = shl nsw i32 %166, 1
+206:                                              ; preds = %197
+  %207 = shl nsw i32 %.075154, 1
   %208 = sext i32 %207 to i64
-  %209 = sub nsw i64 0, %208
-  %210 = getelementptr inbounds i8, ptr %.0100149, i64 %209
-  %211 = getelementptr inbounds i8, ptr %.095150, i64 %209
-  %212 = sext i32 %167 to i64
-  %213 = sub nsw i64 0, %212
-  %214 = getelementptr inbounds i8, ptr %.090151, i64 %213
-  %215 = sext i32 %168 to i64
-  %216 = sub nsw i64 0, %215
-  %217 = getelementptr inbounds i8, ptr %.085152, i64 %216
-  br label %218
-
-218:                                              ; preds = %206, %194
-  %.1104.i55 = phi ptr [ %210, %206 ], [ %.0100149, %194 ]
-  %.1101.i56 = phi ptr [ %211, %206 ], [ %.095150, %194 ]
-  %.198.i57 = phi ptr [ %214, %206 ], [ %.090151, %194 ]
-  %.195.i58 = phi ptr [ %217, %206 ], [ %.085152, %194 ]
-  %.192.i59 = phi i32 [ 0, %206 ], [ %203, %194 ]
-  %.1.i60 = phi i32 [ %205, %206 ], [ %.080153, %194 ]
-  %219 = load i8, ptr %43, align 1, !tbaa !52
-  %220 = shl nsw i32 %.192.i59, 1
-  %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds i8, ptr %.1104.i55, i64 %221
-  %223 = load i8, ptr %222, align 1, !tbaa !52
-  %224 = add i8 %223, %219
-  store i8 %224, ptr %222, align 1, !tbaa !52
-  %225 = load i8, ptr %44, align 1, !tbaa !52
-  %226 = getelementptr i8, ptr %222, i64 1
-  %227 = load i8, ptr %226, align 1, !tbaa !52
-  %228 = add i8 %227, %225
-  store i8 %228, ptr %226, align 1, !tbaa !52
+  %209 = getelementptr inbounds i8, ptr %.0100149, i64 %208
+  %210 = load i8, ptr %209, align 1, !tbaa !52
+  %211 = add i8 %210, %205
+  store i8 %211, ptr %209, align 1, !tbaa !52
+  %212 = load i8, ptr %42, align 1, !tbaa !52
+  %213 = or disjoint i32 %207, 1
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr inbounds i8, ptr %.0100149, i64 %214
+  %216 = load i8, ptr %215, align 1, !tbaa !52
+  %217 = add i8 %216, %212
+  store i8 %217, ptr %215, align 1, !tbaa !52
+  %218 = load i8, ptr %43, align 1, !tbaa !52
+  %219 = getelementptr inbounds i8, ptr %.095150, i64 %208
+  %220 = load i8, ptr %219, align 1, !tbaa !52
+  %221 = add i8 %220, %218
+  store i8 %221, ptr %219, align 1, !tbaa !52
+  %222 = load i8, ptr %44, align 1, !tbaa !52
+  %223 = getelementptr inbounds i8, ptr %.095150, i64 %214
+  %224 = load i8, ptr %223, align 1, !tbaa !52
+  %225 = add i8 %224, %222
+  store i8 %225, ptr %223, align 1, !tbaa !52
   br label %fill_pixels.exit61.thread
 
-229:                                              ; preds = %165
-  %230 = shl nsw i32 %.075154, 1
-  %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds i8, ptr %.095150, i64 %231
+226:                                              ; preds = %197
+  %227 = sext i32 %.075154 to i64
+  %228 = getelementptr inbounds i8, ptr %.090151, i64 %227
+  %229 = load i8, ptr %228, align 1, !tbaa !52
+  %230 = add i8 %229, %205
+  store i8 %230, ptr %228, align 1, !tbaa !52
+  %231 = load i8, ptr %42, align 1, !tbaa !52
+  %232 = getelementptr inbounds i8, ptr %.085152, i64 %227
   %233 = load i8, ptr %232, align 1, !tbaa !52
-  %234 = add i8 %233, %173
+  %234 = add i8 %233, %231
   store i8 %234, ptr %232, align 1, !tbaa !52
-  %235 = load i8, ptr %42, align 1, !tbaa !52
-  %236 = getelementptr i8, ptr %232, i64 1
-  %237 = load i8, ptr %236, align 1, !tbaa !52
-  %238 = add i8 %237, %235
-  store i8 %238, ptr %236, align 1, !tbaa !52
-  %239 = load i8, ptr %43, align 1, !tbaa !52
-  %240 = sext i32 %.075154 to i64
-  %241 = getelementptr inbounds i8, ptr %.090151, i64 %240
-  %242 = load i8, ptr %241, align 1, !tbaa !52
-  %243 = add i8 %242, %239
-  store i8 %243, ptr %241, align 1, !tbaa !52
-  %244 = load i8, ptr %44, align 1, !tbaa !52
-  %245 = getelementptr inbounds i8, ptr %.085152, i64 %240
-  %246 = load i8, ptr %245, align 1, !tbaa !52
-  %247 = add i8 %246, %244
-  store i8 %247, ptr %245, align 1, !tbaa !52
-  %248 = add nsw i32 %.075154, 1
-  %.not.i43 = icmp slt i32 %248, %170
-  br i1 %.not.i43, label %fill_pixels.exit61.thread, label %249
+  %235 = add nsw i32 %.075154, 1
+  %.not114.i53 = icmp slt i32 %235, %202
+  br i1 %.not114.i53, label %250, label %236
 
-249:                                              ; preds = %229
-  %250 = add nsw i32 %.080153, 1
-  %.not113.i44 = icmp slt i32 %250, %172
-  br i1 %.not113.i44, label %251, label %fill_pixels.exit61
+236:                                              ; preds = %226
+  %237 = add nsw i32 %.080153, 1
+  %.not115.i54 = icmp slt i32 %237, %204
+  br i1 %.not115.i54, label %238, label %fill_pixels.exit61
 
-251:                                              ; preds = %249
-  %252 = shl nsw i32 %166, 1
+238:                                              ; preds = %236
+  %239 = shl nsw i32 %198, 1
+  %240 = sext i32 %239 to i64
+  %241 = sub nsw i64 0, %240
+  %242 = getelementptr inbounds i8, ptr %.0100149, i64 %241
+  %243 = getelementptr inbounds i8, ptr %.095150, i64 %241
+  %244 = sext i32 %199 to i64
+  %245 = sub nsw i64 0, %244
+  %246 = getelementptr inbounds i8, ptr %.090151, i64 %245
+  %247 = sext i32 %200 to i64
+  %248 = sub nsw i64 0, %247
+  %249 = getelementptr inbounds i8, ptr %.085152, i64 %248
+  br label %250
+
+250:                                              ; preds = %238, %226
+  %.1104.i55 = phi ptr [ %242, %238 ], [ %.0100149, %226 ]
+  %.1101.i56 = phi ptr [ %243, %238 ], [ %.095150, %226 ]
+  %.198.i57 = phi ptr [ %246, %238 ], [ %.090151, %226 ]
+  %.195.i58 = phi ptr [ %249, %238 ], [ %.085152, %226 ]
+  %.192.i59 = phi i32 [ 0, %238 ], [ %235, %226 ]
+  %.1.i60 = phi i32 [ %237, %238 ], [ %.080153, %226 ]
+  %251 = load i8, ptr %43, align 1, !tbaa !52
+  %252 = shl nsw i32 %.192.i59, 1
   %253 = sext i32 %252 to i64
-  %254 = sub nsw i64 0, %253
-  %255 = getelementptr inbounds i8, ptr %.0100149, i64 %254
-  %256 = getelementptr inbounds i8, ptr %.095150, i64 %254
-  %257 = sext i32 %167 to i64
-  %258 = sub nsw i64 0, %257
-  %259 = getelementptr inbounds i8, ptr %.090151, i64 %258
-  %260 = sext i32 %168 to i64
-  %261 = sub nsw i64 0, %260
-  %262 = getelementptr inbounds i8, ptr %.085152, i64 %261
+  %254 = getelementptr inbounds i8, ptr %.1104.i55, i64 %253
+  %255 = load i8, ptr %254, align 1, !tbaa !52
+  %256 = add i8 %255, %251
+  store i8 %256, ptr %254, align 1, !tbaa !52
+  %257 = load i8, ptr %44, align 1, !tbaa !52
+  %258 = getelementptr i8, ptr %254, i64 1
+  %259 = load i8, ptr %258, align 1, !tbaa !52
+  %260 = add i8 %259, %257
+  store i8 %260, ptr %258, align 1, !tbaa !52
+  br label %fill_pixels.exit61.thread
+
+261:                                              ; preds = %197
+  %262 = shl nsw i32 %.075154, 1
+  %263 = sext i32 %262 to i64
+  %264 = getelementptr inbounds i8, ptr %.095150, i64 %263
+  %265 = load i8, ptr %264, align 1, !tbaa !52
+  %266 = add i8 %265, %205
+  store i8 %266, ptr %264, align 1, !tbaa !52
+  %267 = load i8, ptr %42, align 1, !tbaa !52
+  %268 = getelementptr i8, ptr %264, i64 1
+  %269 = load i8, ptr %268, align 1, !tbaa !52
+  %270 = add i8 %269, %267
+  store i8 %270, ptr %268, align 1, !tbaa !52
+  %271 = load i8, ptr %43, align 1, !tbaa !52
+  %272 = sext i32 %.075154 to i64
+  %273 = getelementptr inbounds i8, ptr %.090151, i64 %272
+  %274 = load i8, ptr %273, align 1, !tbaa !52
+  %275 = add i8 %274, %271
+  store i8 %275, ptr %273, align 1, !tbaa !52
+  %276 = load i8, ptr %44, align 1, !tbaa !52
+  %277 = getelementptr inbounds i8, ptr %.085152, i64 %272
+  %278 = load i8, ptr %277, align 1, !tbaa !52
+  %279 = add i8 %278, %276
+  store i8 %279, ptr %277, align 1, !tbaa !52
+  %280 = add nsw i32 %.075154, 1
+  %.not.i43 = icmp slt i32 %280, %202
+  br i1 %.not.i43, label %fill_pixels.exit61.thread, label %281
+
+281:                                              ; preds = %261
+  %282 = add nsw i32 %.080153, 1
+  %.not113.i44 = icmp slt i32 %282, %204
+  br i1 %.not113.i44, label %283, label %fill_pixels.exit61
+
+283:                                              ; preds = %281
+  %284 = shl nsw i32 %198, 1
+  %285 = sext i32 %284 to i64
+  %286 = sub nsw i64 0, %285
+  %287 = getelementptr inbounds i8, ptr %.0100149, i64 %286
+  %288 = getelementptr inbounds i8, ptr %.095150, i64 %286
+  %289 = sext i32 %199 to i64
+  %290 = sub nsw i64 0, %289
+  %291 = getelementptr inbounds i8, ptr %.090151, i64 %290
+  %292 = sext i32 %200 to i64
+  %293 = sub nsw i64 0, %292
+  %294 = getelementptr inbounds i8, ptr %.085152, i64 %293
   br label %fill_pixels.exit61.thread
 
 .preheader123:                                    ; preds = %.preheader123.preheader, %bytestream2_get_byte.exit40
   %indvars.iv = phi i64 [ %indvars.iv.next, %bytestream2_get_byte.exit40 ], [ 0, %.preheader123.preheader ]
-  %263 = phi ptr [ %271, %bytestream2_get_byte.exit40 ], [ %.promoted, %.preheader123.preheader ]
-  %264 = ptrtoint ptr %263 to i64
-  %265 = sub i64 %47, %264
-  %266 = icmp slt i64 %265, 1
-  br i1 %266, label %267, label %268
+  %295 = phi ptr [ %303, %bytestream2_get_byte.exit40 ], [ %.promoted, %.preheader123.preheader ]
+  %296 = ptrtoint ptr %295 to i64
+  %297 = sub i64 %47, %296
+  %298 = icmp slt i64 %297, 1
+  br i1 %298, label %299, label %300
 
-267:                                              ; preds = %.preheader123
+299:                                              ; preds = %.preheader123
   store ptr %48, ptr %1, align 8, !tbaa !53
   br label %bytestream2_get_byte.exit40
 
-268:                                              ; preds = %.preheader123
-  %269 = getelementptr inbounds nuw i8, ptr %263, i64 1
-  store ptr %269, ptr %1, align 8, !tbaa !51
-  %270 = load i8, ptr %263, align 1, !tbaa !52
+300:                                              ; preds = %.preheader123
+  %301 = getelementptr inbounds nuw i8, ptr %295, i64 1
+  store ptr %301, ptr %1, align 8, !tbaa !51
+  %302 = load i8, ptr %295, align 1, !tbaa !52
   br label %bytestream2_get_byte.exit40
 
-bytestream2_get_byte.exit40:                      ; preds = %267, %268
-  %271 = phi ptr [ %48, %267 ], [ %269, %268 ]
-  %.0.i39 = phi i8 [ 0, %267 ], [ %270, %268 ]
-  %272 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  store i8 %.0.i39, ptr %272, align 1, !tbaa !52
+bytestream2_get_byte.exit40:                      ; preds = %299, %300
+  %303 = phi ptr [ %48, %299 ], [ %301, %300 ]
+  %.0.i39 = phi i8 [ 0, %299 ], [ %302, %300 ]
+  %304 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  store i8 %.0.i39, ptr %304, align 1, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %165, label %.preheader123, !llvm.loop !117
+  br i1 %exitcond.not, label %197, label %.preheader123, !llvm.loop !117
 
-fill_pixels.exit61.thread:                        ; preds = %fill_pixels.exit, %.preheader, %174, %218, %229, %251
-  %.2102 = phi ptr [ %.0100149, %229 ], [ %255, %251 ], [ %.1104.i55, %218 ], [ %.0100149, %174 ], [ %.0100149, %.preheader ], [ %.3103, %fill_pixels.exit ]
-  %.297 = phi ptr [ %.095150, %229 ], [ %256, %251 ], [ %.1101.i56, %218 ], [ %.095150, %174 ], [ %.095150, %.preheader ], [ %.398, %fill_pixels.exit ]
-  %.292 = phi ptr [ %.090151, %229 ], [ %259, %251 ], [ %.198.i57, %218 ], [ %.090151, %174 ], [ %.090151, %.preheader ], [ %.393, %fill_pixels.exit ]
-  %.287 = phi ptr [ %.085152, %229 ], [ %262, %251 ], [ %.195.i58, %218 ], [ %.085152, %174 ], [ %.085152, %.preheader ], [ %.388, %fill_pixels.exit ]
-  %.282 = phi i32 [ %.080153, %229 ], [ %250, %251 ], [ %.1.i60, %218 ], [ %.080153, %174 ], [ %.080153, %.preheader ], [ %.383, %fill_pixels.exit ]
-  %.277 = phi i32 [ %248, %229 ], [ 0, %251 ], [ %.192.i59, %218 ], [ %.075154, %174 ], [ %.075154, %.preheader ], [ %.378, %fill_pixels.exit ]
-  %.2 = phi i32 [ 0, %229 ], [ 0, %251 ], [ 2, %218 ], [ 1, %174 ], [ %.074155, %.preheader ], [ %.3, %fill_pixels.exit ]
-  %273 = load ptr, ptr %18, align 8, !tbaa !50
-  %274 = load ptr, ptr %1, align 8, !tbaa !53
-  %275 = ptrtoint ptr %273 to i64
-  %276 = ptrtoint ptr %274 to i64
-  %277 = sub i64 %275, %276
-  %278 = trunc i64 %277 to i32
-  %279 = icmp sgt i32 %278, 0
-  br i1 %279, label %45, label %fill_pixels.exit61, !llvm.loop !118
+fill_pixels.exit61.thread:                        ; preds = %fill_pixels.exit.jt1, %fill_pixels.exit.jt2, %fill_pixels.exit.jt0, %.preheader, %206, %250, %261, %283
+  %.2102 = phi ptr [ %.0100149, %261 ], [ %287, %283 ], [ %.1104.i55, %250 ], [ %.0100149, %206 ], [ %.0100149, %.preheader ], [ %.3103.jt0, %fill_pixels.exit.jt0 ], [ %.1104.i, %fill_pixels.exit.jt2 ], [ %.1101135199, %fill_pixels.exit.jt1 ]
+  %.297 = phi ptr [ %.095150, %261 ], [ %288, %283 ], [ %.1101.i56, %250 ], [ %.095150, %206 ], [ %.095150, %.preheader ], [ %.398.jt0, %fill_pixels.exit.jt0 ], [ %.1101.i, %fill_pixels.exit.jt2 ], [ %.196136196, %fill_pixels.exit.jt1 ]
+  %.292 = phi ptr [ %.090151, %261 ], [ %291, %283 ], [ %.198.i57, %250 ], [ %.090151, %206 ], [ %.090151, %.preheader ], [ %.393.jt0, %fill_pixels.exit.jt0 ], [ %.198.i, %fill_pixels.exit.jt2 ], [ %.191137193, %fill_pixels.exit.jt1 ]
+  %.287 = phi ptr [ %.085152, %261 ], [ %294, %283 ], [ %.195.i58, %250 ], [ %.085152, %206 ], [ %.085152, %.preheader ], [ %.388.jt0, %fill_pixels.exit.jt0 ], [ %.195.i, %fill_pixels.exit.jt2 ], [ %.186138190, %fill_pixels.exit.jt1 ]
+  %.282 = phi i32 [ %.080153, %261 ], [ %282, %283 ], [ %.1.i60, %250 ], [ %.080153, %206 ], [ %.080153, %.preheader ], [ %.383.jt0, %fill_pixels.exit.jt0 ], [ %.1.i, %fill_pixels.exit.jt2 ], [ %.181139187, %fill_pixels.exit.jt1 ]
+  %.277 = phi i32 [ %280, %261 ], [ 0, %283 ], [ %.192.i59, %250 ], [ %.075154, %206 ], [ %.075154, %.preheader ], [ %.378.jt0, %fill_pixels.exit.jt0 ], [ %.192.i, %fill_pixels.exit.jt2 ], [ %.176140184, %fill_pixels.exit.jt1 ]
+  %.2 = phi i32 [ 0, %261 ], [ 0, %283 ], [ 2, %250 ], [ 1, %206 ], [ %.074155, %.preheader ], [ 0, %fill_pixels.exit.jt0 ], [ 2, %fill_pixels.exit.jt2 ], [ 1, %fill_pixels.exit.jt1 ]
+  %305 = load ptr, ptr %18, align 8, !tbaa !50
+  %306 = load ptr, ptr %1, align 8, !tbaa !53
+  %307 = ptrtoint ptr %305 to i64
+  %308 = ptrtoint ptr %306 to i64
+  %309 = sub i64 %307, %308
+  %310 = trunc i64 %309 to i32
+  %311 = icmp sgt i32 %310, 0
+  br i1 %311, label %45, label %fill_pixels.exit61, !llvm.loop !118
 
-fill_pixels.exit61:                               ; preds = %fill_pixels.exit61.thread, %204, %249, %150, %105, %3
+fill_pixels.exit61:                               ; preds = %fill_pixels.exit61.thread, %236, %281, %149, %108, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

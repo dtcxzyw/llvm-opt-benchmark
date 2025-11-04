@@ -2478,7 +2478,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit686: ; preds = %_Z
   %778 = call i32 @SSL_get_error(ptr noundef %747, i32 noundef %776) #20
   %779 = load ptr, ptr @stderr, align 8, !tbaa !17
   call void @_Z13PrintSSLErrorP8_IO_FILEPKcii(ptr noundef %779, ptr noundef nonnull @.str.29, i32 noundef %778, i32 noundef %776) #20
-  br label %_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit
+  br label %_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit.jt3
 
 780:                                              ; preds = %775
   %781 = load ptr, ptr @stderr, align 8, !tbaa !17
@@ -2518,30 +2518,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit689: ; preds = %78
 795:                                              ; preds = %792, %790
   %.354.in = phi i1 [ %791, %790 ], [ %794, %792 ]
   %.not.i690 = icmp eq ptr %784, null
-  br i1 %.not.i690, label %_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit, label %796
+  br i1 %.not.i690, label %_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit.jt3, label %796
 
 796:                                              ; preds = %795
   %797 = call i32 @BIO_free(ptr noundef nonnull %784) #20
-  br label %_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit
+  br label %_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit.jt3
 
-_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit: ; preds = %796, %795, %777
-  %.253.shrunk = phi i1 [ false, %777 ], [ %.354.in, %795 ], [ %.354.in, %796 ]
-  %.949 = phi i32 [ 3, %777 ], [ 0, %795 ], [ 0, %796 ]
-  %.not.i691 = icmp eq ptr %747, null
-  br i1 %.not.i691, label %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit, label %798
+_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit.jt3: ; preds = %796, %795, %777
+  %.253.shrunk.jt3 = phi i1 [ false, %777 ], [ %.354.in, %795 ], [ %.354.in, %796 ]
+  %.not.i691.jt3 = icmp eq ptr %747, null
+  br i1 %.not.i691.jt3, label %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit.jt3, label %798
 
-798:                                              ; preds = %_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit
+798:                                              ; preds = %_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit.jt3
   call void @SSL_free(ptr noundef nonnull %747) #20
-  br label %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit
+  br label %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit.jt3
 
-_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit: ; preds = %798, %_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit
+_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit.jt3: ; preds = %798, %_ZNSt10unique_ptrI6bio_stN4bssl8internal7DeleterEED2Ev.exit.jt3
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  switch i32 %.949, label %.loopexit [
-    i32 0, label %._crit_edge.i.i692
-    i32 3, label %._crit_edge.i.i692
-  ]
-
-._crit_edge.i.i692:                               ; preds = %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit, %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store ptr %740, ptr %52, align 8, !tbaa !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %740, ptr noundef nonnull align 1 dereferenceable(5) @.str.32, i64 5, i1 false)
@@ -2551,9 +2544,9 @@ _ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit: ; preds = %798, %_Z
   %.not10.i.i.i694 = icmp eq ptr %799, null
   br i1 %.not10.i.i.i694, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726.thread, label %.lr.ph.i.i.i695
 
-.lr.ph.i.i.i695:                                  ; preds = %._crit_edge.i.i692, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i701
-  %.012.i.i.i696 = phi ptr [ %.1.i.i.i706, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i701 ], [ %799, %._crit_edge.i.i692 ]
-  %.0811.i.i.i697 = phi ptr [ %.19.i.i.i703, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i701 ], [ %55, %._crit_edge.i.i692 ]
+.lr.ph.i.i.i695:                                  ; preds = %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit.jt3, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i701
+  %.012.i.i.i696 = phi ptr [ %.1.i.i.i706, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i701 ], [ %799, %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit.jt3 ]
+  %.0811.i.i.i697 = phi ptr [ %.19.i.i.i703, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i701 ], [ %55, %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit.jt3 ]
   %800 = getelementptr inbounds nuw i8, ptr %.012.i.i.i696, i64 40
   %801 = load i64, ptr %800, align 8, !tbaa !22
   %802 = icmp eq i64 %801, 0
@@ -2611,7 +2604,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i715: ; preds = %_ZNSt
   %.0.i6.i.i.i.i.i718 = trunc nsw i64 %.08.i.i.i.i.i.i717 to i32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i708, %._crit_edge.i.i692
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i708, %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit.jt3
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %.loopexit
 
@@ -2621,8 +2614,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br i1 %815, label %.loopexit, label %743, !llvm.loop !46
 
-.loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726, %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726.thread, %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit651
-  %.15 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit651 ], [ false, %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit.thread ], [ %.253.shrunk, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726.thread ], [ %.253.shrunk, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726 ], [ false, %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit ]
+.loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726.thread, %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit651
+  %.15 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit651 ], [ false, %_ZNSt10unique_ptrI6ssl_stN4bssl8internal7DeleterEED2Ev.exit.thread ], [ %.253.shrunk.jt3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726.thread ], [ %.253.shrunk.jt3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726 ]
   call void @_ZN8ListenerD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %46) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %816

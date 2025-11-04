@@ -9470,12 +9470,12 @@ define internal fastcc ptr @wrap_strftime(ptr noundef readonly captures(none) %0
   br label %20
 
 20:                                               ; preds = %.lr.ph, %.backedge
-  %.1115287 = phi ptr [ null, %.lr.ph ], [ %.3373, %.backedge ]
-  %.1119286 = phi ptr [ null, %.lr.ph ], [ %.2120372, %.backedge ]
-  %.0124285 = phi i64 [ 0, %.lr.ph ], [ %.1125371, %.backedge ]
-  %.0129284 = phi i64 [ 0, %.lr.ph ], [ %.1130370, %.backedge ]
-  %.1133283 = phi ptr [ null, %.lr.ph ], [ %.2134369, %.backedge ]
-  %.1139282 = phi ptr [ null, %.lr.ph ], [ %.2140368, %.backedge ]
+  %.1115287 = phi ptr [ null, %.lr.ph ], [ %.3.jt3, %.backedge ]
+  %.1119286 = phi ptr [ null, %.lr.ph ], [ %.2120.jt3, %.backedge ]
+  %.0124285 = phi i64 [ 0, %.lr.ph ], [ %.1125.jt3, %.backedge ]
+  %.0129284 = phi i64 [ 0, %.lr.ph ], [ %.1130.jt3, %.backedge ]
+  %.1133283 = phi ptr [ null, %.lr.ph ], [ %.2134.jt3, %.backedge ]
+  %.1139282 = phi ptr [ null, %.lr.ph ], [ %.2140.jt3, %.backedge ]
   %21 = call i64 @PyUnicode_FindChar(ptr noundef nonnull %1, i32 noundef 37, i64 noundef %.0129284, i64 noundef %.val, i32 noundef 1) #18
   %22 = icmp slt i64 %21, 0
   br i1 %22, label %._crit_edge, label %23
@@ -9997,7 +9997,7 @@ Py_DECREF.exit175:                                ; preds = %199, %202, %205
   %211 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %7, i64 noundef 28, ptr noundef nonnull %210, i64 noundef %.0112) #18
   %212 = call i32 @PyUnicodeWriter_WriteSubstring(ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %.0124285, i64 noundef %21) #18
   %213 = icmp slt i32 %212, 0
-  br i1 %213, label %.thread.thread375, label %214
+  br i1 %213, label %.thread.jt2, label %214
 
 214:                                              ; preds = %209
   %215 = sext i32 %211 to i64
@@ -10005,7 +10005,11 @@ Py_DECREF.exit175:                                ; preds = %199, %202, %205
   %spec.select = select i1 %172, i64 %216, i64 %215
   %217 = call i32 @PyUnicodeWriter_WriteUTF8(ptr noundef nonnull %11, ptr noundef nonnull %7, i64 noundef %spec.select) #18
   %218 = icmp slt i32 %217, 0
-  br i1 %218, label %.thread.thread375, label %.thread
+  br i1 %218, label %.thread.jt2, label %..si.unfold.false.jt3
+
+..si.unfold.false.jt3:                            ; preds = %214
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %.backedge
 
 make_Zreplacement.exit.thread227:                 ; preds = %121, %119, %137, %98, %make_Zreplacement.exit, %147, %make_freplacement.exit, %86, %80, %83, %51, %53
   %.3141 = phi ptr [ %.1139282, %53 ], [ %.1139282, %51 ], [ %.1139282, %83 ], [ %.1139282, %80 ], [ %.1139282, %make_Zreplacement.exit ], [ %.1139282, %86 ], [ %167, %make_freplacement.exit ], [ %.1139282, %147 ], [ %.1139282, %98 ], [ %.1139282, %137 ], [ %.1139282, %119 ], [ %.1139282, %121 ]
@@ -10023,38 +10027,34 @@ make_Zreplacement.exit.thread227:                 ; preds = %121, %119, %137, %9
   %223 = icmp slt i32 %222, 0
   br i1 %223, label %.thread239, label %.backedge
 
-.thread.thread375:                                ; preds = %209, %214
+.thread.jt2:                                      ; preds = %209, %214
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread239
 
-.thread:                                          ; preds = %214
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.backedge
-
-.backedge:                                        ; preds = %PyUnicode_READ_CHAR.exit203, %56, %221, %169, %186, %.thread
-  %.3373 = phi ptr [ %.1115287, %.thread ], [ %.1115287, %PyUnicode_READ_CHAR.exit203 ], [ %.1115287, %56 ], [ %.4, %221 ], [ %.1115287, %169 ], [ %.1115287, %186 ]
-  %.2120372 = phi ptr [ %.1119286, %.thread ], [ %.1119286, %PyUnicode_READ_CHAR.exit203 ], [ %.1119286, %56 ], [ %.3121, %221 ], [ %.1119286, %169 ], [ %.1119286, %186 ]
-  %.1125371 = phi i64 [ %50, %.thread ], [ %.0124285, %PyUnicode_READ_CHAR.exit203 ], [ %.0124285, %56 ], [ %.2131, %221 ], [ %.0124285, %169 ], [ %.0124285, %186 ]
-  %.1130370 = phi i64 [ %50, %.thread ], [ %50, %PyUnicode_READ_CHAR.exit203 ], [ %50, %56 ], [ %.2131, %221 ], [ %50, %169 ], [ %50, %186 ]
-  %.2134369 = phi ptr [ %.1133283, %.thread ], [ %.1133283, %PyUnicode_READ_CHAR.exit203 ], [ %.1133283, %56 ], [ %.3135, %221 ], [ %.1133283, %169 ], [ %.1133283, %186 ]
-  %.2140368 = phi ptr [ %.1139282, %.thread ], [ %.1139282, %PyUnicode_READ_CHAR.exit203 ], [ %.1139282, %56 ], [ %.3141, %221 ], [ %.1139282, %169 ], [ %.1139282, %186 ]
-  %.not = icmp eq i64 %.1130370, %.val
+.backedge:                                        ; preds = %..si.unfold.false.jt3, %186, %169, %221, %56, %PyUnicode_READ_CHAR.exit203
+  %.2140.jt3 = phi ptr [ %.1139282, %186 ], [ %.1139282, %169 ], [ %.3141, %221 ], [ %.1139282, %56 ], [ %.1139282, %PyUnicode_READ_CHAR.exit203 ], [ %.1139282, %..si.unfold.false.jt3 ]
+  %.2134.jt3 = phi ptr [ %.1133283, %186 ], [ %.1133283, %169 ], [ %.3135, %221 ], [ %.1133283, %56 ], [ %.1133283, %PyUnicode_READ_CHAR.exit203 ], [ %.1133283, %..si.unfold.false.jt3 ]
+  %.1130.jt3 = phi i64 [ %50, %186 ], [ %50, %169 ], [ %.2131, %221 ], [ %50, %56 ], [ %50, %PyUnicode_READ_CHAR.exit203 ], [ %50, %..si.unfold.false.jt3 ]
+  %.1125.jt3 = phi i64 [ %.0124285, %186 ], [ %.0124285, %169 ], [ %.2131, %221 ], [ %.0124285, %56 ], [ %.0124285, %PyUnicode_READ_CHAR.exit203 ], [ %50, %..si.unfold.false.jt3 ]
+  %.2120.jt3 = phi ptr [ %.1119286, %186 ], [ %.1119286, %169 ], [ %.3121, %221 ], [ %.1119286, %56 ], [ %.1119286, %PyUnicode_READ_CHAR.exit203 ], [ %.1119286, %..si.unfold.false.jt3 ]
+  %.3.jt3 = phi ptr [ %.1115287, %186 ], [ %.1115287, %169 ], [ %.4, %221 ], [ %.1115287, %56 ], [ %.1115287, %PyUnicode_READ_CHAR.exit203 ], [ %.1115287, %..si.unfold.false.jt3 ]
+  %.not = icmp eq i64 %.1130.jt3, %.val
   br i1 %.not, label %._crit_edge, label %20, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.backedge, %20, %23
-  %.1139.lcssa = phi ptr [ %.2140368, %.backedge ], [ %.1139282, %20 ], [ %.1139282, %23 ]
-  %.1133.lcssa = phi ptr [ %.2134369, %.backedge ], [ %.1133283, %20 ], [ %.1133283, %23 ]
-  %.0124.lcssa = phi i64 [ %.1125371, %.backedge ], [ %.0124285, %20 ], [ %.0124285, %23 ]
-  %.1119.lcssa = phi ptr [ %.2120372, %.backedge ], [ %.1119286, %20 ], [ %.1119286, %23 ]
-  %.1115.lcssa = phi ptr [ %.3373, %.backedge ], [ %.1115287, %20 ], [ %.1115287, %23 ]
+  %.1139.lcssa = phi ptr [ %.2140.jt3, %.backedge ], [ %.1139282, %20 ], [ %.1139282, %23 ]
+  %.1133.lcssa = phi ptr [ %.2134.jt3, %.backedge ], [ %.1133283, %20 ], [ %.1133283, %23 ]
+  %.0124.lcssa = phi i64 [ %.1125.jt3, %.backedge ], [ %.0124285, %20 ], [ %.0124285, %23 ]
+  %.1119.lcssa = phi ptr [ %.2120.jt3, %.backedge ], [ %.1119286, %20 ], [ %.1119286, %23 ]
+  %.1115.lcssa = phi ptr [ %.3.jt3, %.backedge ], [ %.1115287, %20 ], [ %.1115287, %23 ]
   %224 = icmp eq i64 %.0124.lcssa, 0
   br i1 %224, label %._crit_edge.thread, label %229
 
 ._crit_edge.thread:                               ; preds = %13, %._crit_edge
-  %.1115.lcssa390 = phi ptr [ %.1115.lcssa, %._crit_edge ], [ null, %13 ]
-  %.1119.lcssa388 = phi ptr [ %.1119.lcssa, %._crit_edge ], [ null, %13 ]
-  %.1133.lcssa386 = phi ptr [ %.1133.lcssa, %._crit_edge ], [ null, %13 ]
-  %.1139.lcssa384 = phi ptr [ %.1139.lcssa, %._crit_edge ], [ null, %13 ]
+  %.1115.lcssa373 = phi ptr [ %.1115.lcssa, %._crit_edge ], [ null, %13 ]
+  %.1119.lcssa371 = phi ptr [ %.1119.lcssa, %._crit_edge ], [ null, %13 ]
+  %.1133.lcssa369 = phi ptr [ %.1133.lcssa, %._crit_edge ], [ null, %13 ]
+  %.1139.lcssa367 = phi ptr [ %.1139.lcssa, %._crit_edge ], [ null, %13 ]
   call void @PyUnicodeWriter_Discard(ptr noundef nonnull %11) #18
   %225 = load i32, ptr %1, align 8, !tbaa !15
   %226 = icmp slt i32 %225, 0
@@ -10076,10 +10076,10 @@ make_Zreplacement.exit.thread227:                 ; preds = %121, %119, %137, %9
   br i1 %234, label %Py_DECREF.exit, label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %227, %._crit_edge.thread, %232
-  %.1115.lcssa389 = phi ptr [ %.1115.lcssa, %232 ], [ %.1115.lcssa390, %._crit_edge.thread ], [ %.1115.lcssa390, %227 ]
-  %.1119.lcssa387 = phi ptr [ %.1119.lcssa, %232 ], [ %.1119.lcssa388, %._crit_edge.thread ], [ %.1119.lcssa388, %227 ]
-  %.1133.lcssa385 = phi ptr [ %.1133.lcssa, %232 ], [ %.1133.lcssa386, %._crit_edge.thread ], [ %.1133.lcssa386, %227 ]
-  %.1139.lcssa383 = phi ptr [ %.1139.lcssa, %232 ], [ %.1139.lcssa384, %._crit_edge.thread ], [ %.1139.lcssa384, %227 ]
+  %.1115.lcssa372 = phi ptr [ %.1115.lcssa, %232 ], [ %.1115.lcssa373, %._crit_edge.thread ], [ %.1115.lcssa373, %227 ]
+  %.1119.lcssa370 = phi ptr [ %.1119.lcssa, %232 ], [ %.1119.lcssa371, %._crit_edge.thread ], [ %.1119.lcssa371, %227 ]
+  %.1133.lcssa368 = phi ptr [ %.1133.lcssa, %232 ], [ %.1133.lcssa369, %._crit_edge.thread ], [ %.1133.lcssa369, %227 ]
+  %.1139.lcssa366 = phi ptr [ %.1139.lcssa, %232 ], [ %.1139.lcssa367, %._crit_edge.thread ], [ %.1139.lcssa367, %227 ]
   %.0 = phi ptr [ %233, %232 ], [ %1, %._crit_edge.thread ], [ %1, %227 ]
   %235 = call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef nonnull %8, ptr noundef nonnull %.0, ptr noundef nonnull %2, ptr noundef null) #18
   %236 = load i32, ptr %.0, align 8, !tbaa !15
@@ -10097,10 +10097,10 @@ _Py_NewRef.exit:                                  ; preds = %227, %._crit_edge.t
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %240, %237, %_Py_NewRef.exit, %232, %.thread239
-  %.5143 = phi ptr [ %.0138, %.thread239 ], [ %.1139.lcssa, %232 ], [ %.1139.lcssa383, %_Py_NewRef.exit ], [ %.1139.lcssa383, %237 ], [ %.1139.lcssa383, %240 ]
-  %.5137 = phi ptr [ %.0132, %.thread239 ], [ %.1133.lcssa, %232 ], [ %.1133.lcssa385, %_Py_NewRef.exit ], [ %.1133.lcssa385, %237 ], [ %.1133.lcssa385, %240 ]
-  %.5123 = phi ptr [ %.0118, %.thread239 ], [ %.1119.lcssa, %232 ], [ %.1119.lcssa387, %_Py_NewRef.exit ], [ %.1119.lcssa387, %237 ], [ %.1119.lcssa387, %240 ]
-  %.5 = phi ptr [ %.0114, %.thread239 ], [ %.1115.lcssa, %232 ], [ %.1115.lcssa389, %_Py_NewRef.exit ], [ %.1115.lcssa389, %237 ], [ %.1115.lcssa389, %240 ]
+  %.5143 = phi ptr [ %.0138, %.thread239 ], [ %.1139.lcssa, %232 ], [ %.1139.lcssa366, %_Py_NewRef.exit ], [ %.1139.lcssa366, %237 ], [ %.1139.lcssa366, %240 ]
+  %.5137 = phi ptr [ %.0132, %.thread239 ], [ %.1133.lcssa, %232 ], [ %.1133.lcssa368, %_Py_NewRef.exit ], [ %.1133.lcssa368, %237 ], [ %.1133.lcssa368, %240 ]
+  %.5123 = phi ptr [ %.0118, %.thread239 ], [ %.1119.lcssa, %232 ], [ %.1119.lcssa370, %_Py_NewRef.exit ], [ %.1119.lcssa370, %237 ], [ %.1119.lcssa370, %240 ]
+  %.5 = phi ptr [ %.0114, %.thread239 ], [ %.1115.lcssa, %232 ], [ %.1115.lcssa372, %_Py_NewRef.exit ], [ %.1115.lcssa372, %237 ], [ %.1115.lcssa372, %240 ]
   %.0111 = phi ptr [ null, %.thread239 ], [ null, %232 ], [ %235, %_Py_NewRef.exit ], [ %235, %237 ], [ %235, %240 ]
   %.not.i211 = icmp eq ptr %.5143, null
   br i1 %.not.i211, label %Py_XDECREF.exit, label %241
@@ -10192,11 +10192,11 @@ Py_XDECREF.exit221:                               ; preds = %264, %261, %259, %P
   call void @_Py_Dealloc(ptr noundef nonnull %8) #18
   br label %Py_XDECREF.exit224
 
-.thread239:                                       ; preds = %221, %207, %Py_DECREF.exit177, %188, %Py_DECREF.exit26.i, %get_tzinfo_member.exit.i, %make_Zreplacement.exit.thread227, %184, %173, %make_freplacement.exit, %83, %53, %.thread.thread375, %144, %call_tzname.exit.thread.i, %make_Zreplacement.exit.thread229, %229, %10
-  %.0138 = phi ptr [ null, %10 ], [ %.1139.lcssa, %229 ], [ %.1139282, %make_Zreplacement.exit.thread229 ], [ %.1139282, %call_tzname.exit.thread.i ], [ %.1139282, %144 ], [ %.1139282, %.thread.thread375 ], [ %.3141, %221 ], [ %.1139282, %207 ], [ %.1139282, %Py_DECREF.exit177 ], [ %.1139282, %188 ], [ %.1139282, %Py_DECREF.exit26.i ], [ %.1139282, %get_tzinfo_member.exit.i ], [ %.1139282, %53 ], [ %.1139282, %83 ], [ null, %make_freplacement.exit ], [ %.1139282, %184 ], [ %.1139282, %173 ], [ %.3141, %make_Zreplacement.exit.thread227 ]
-  %.0132 = phi ptr [ null, %10 ], [ %.1133.lcssa, %229 ], [ null, %make_Zreplacement.exit.thread229 ], [ null, %call_tzname.exit.thread.i ], [ null, %144 ], [ %.1133283, %.thread.thread375 ], [ %.3135, %221 ], [ %.1133283, %207 ], [ %.1133283, %Py_DECREF.exit177 ], [ %.1133283, %188 ], [ null, %Py_DECREF.exit26.i ], [ null, %get_tzinfo_member.exit.i ], [ %.1133283, %53 ], [ %.1133283, %83 ], [ %.1133283, %make_freplacement.exit ], [ %.1133283, %184 ], [ %.1133283, %173 ], [ %.3135, %make_Zreplacement.exit.thread227 ]
-  %.0118 = phi ptr [ null, %10 ], [ %.1119.lcssa, %229 ], [ %.1119286, %make_Zreplacement.exit.thread229 ], [ %.1119286, %call_tzname.exit.thread.i ], [ %.1119286, %144 ], [ %.1119286, %.thread.thread375 ], [ %.3121, %221 ], [ %.1119286, %207 ], [ %.1119286, %Py_DECREF.exit177 ], [ %.1119286, %188 ], [ %.1119286, %Py_DECREF.exit26.i ], [ %.1119286, %get_tzinfo_member.exit.i ], [ %.1119286, %53 ], [ null, %83 ], [ %.1119286, %make_freplacement.exit ], [ %.1119286, %184 ], [ %.1119286, %173 ], [ %.3121, %make_Zreplacement.exit.thread227 ]
-  %.0114 = phi ptr [ null, %10 ], [ %.1115.lcssa, %229 ], [ %.1115287, %make_Zreplacement.exit.thread229 ], [ %.1115287, %call_tzname.exit.thread.i ], [ %.1115287, %144 ], [ %.1115287, %.thread.thread375 ], [ %.4, %221 ], [ %.1115287, %207 ], [ %.1115287, %Py_DECREF.exit177 ], [ %.1115287, %188 ], [ %.1115287, %Py_DECREF.exit26.i ], [ %.1115287, %get_tzinfo_member.exit.i ], [ null, %53 ], [ %.1115287, %83 ], [ %.1115287, %make_freplacement.exit ], [ %.1115287, %184 ], [ %.1115287, %173 ], [ %.4, %make_Zreplacement.exit.thread227 ]
+.thread239:                                       ; preds = %221, %207, %Py_DECREF.exit177, %188, %Py_DECREF.exit26.i, %get_tzinfo_member.exit.i, %make_Zreplacement.exit.thread227, %184, %173, %make_freplacement.exit, %83, %53, %.thread.jt2, %144, %call_tzname.exit.thread.i, %make_Zreplacement.exit.thread229, %229, %10
+  %.0138 = phi ptr [ null, %10 ], [ %.1139.lcssa, %229 ], [ %.1139282, %make_Zreplacement.exit.thread229 ], [ %.1139282, %call_tzname.exit.thread.i ], [ %.1139282, %144 ], [ %.1139282, %.thread.jt2 ], [ %.3141, %221 ], [ %.1139282, %207 ], [ %.1139282, %Py_DECREF.exit177 ], [ %.1139282, %188 ], [ %.1139282, %Py_DECREF.exit26.i ], [ %.1139282, %get_tzinfo_member.exit.i ], [ %.1139282, %53 ], [ %.1139282, %83 ], [ null, %make_freplacement.exit ], [ %.1139282, %184 ], [ %.1139282, %173 ], [ %.3141, %make_Zreplacement.exit.thread227 ]
+  %.0132 = phi ptr [ null, %10 ], [ %.1133.lcssa, %229 ], [ null, %make_Zreplacement.exit.thread229 ], [ null, %call_tzname.exit.thread.i ], [ null, %144 ], [ %.1133283, %.thread.jt2 ], [ %.3135, %221 ], [ %.1133283, %207 ], [ %.1133283, %Py_DECREF.exit177 ], [ %.1133283, %188 ], [ null, %Py_DECREF.exit26.i ], [ null, %get_tzinfo_member.exit.i ], [ %.1133283, %53 ], [ %.1133283, %83 ], [ %.1133283, %make_freplacement.exit ], [ %.1133283, %184 ], [ %.1133283, %173 ], [ %.3135, %make_Zreplacement.exit.thread227 ]
+  %.0118 = phi ptr [ null, %10 ], [ %.1119.lcssa, %229 ], [ %.1119286, %make_Zreplacement.exit.thread229 ], [ %.1119286, %call_tzname.exit.thread.i ], [ %.1119286, %144 ], [ %.1119286, %.thread.jt2 ], [ %.3121, %221 ], [ %.1119286, %207 ], [ %.1119286, %Py_DECREF.exit177 ], [ %.1119286, %188 ], [ %.1119286, %Py_DECREF.exit26.i ], [ %.1119286, %get_tzinfo_member.exit.i ], [ %.1119286, %53 ], [ null, %83 ], [ %.1119286, %make_freplacement.exit ], [ %.1119286, %184 ], [ %.1119286, %173 ], [ %.3121, %make_Zreplacement.exit.thread227 ]
+  %.0114 = phi ptr [ null, %10 ], [ %.1115.lcssa, %229 ], [ %.1115287, %make_Zreplacement.exit.thread229 ], [ %.1115287, %call_tzname.exit.thread.i ], [ %.1115287, %144 ], [ %.1115287, %.thread.jt2 ], [ %.4, %221 ], [ %.1115287, %207 ], [ %.1115287, %Py_DECREF.exit177 ], [ %.1115287, %188 ], [ %.1115287, %Py_DECREF.exit26.i ], [ %.1115287, %get_tzinfo_member.exit.i ], [ null, %53 ], [ %.1115287, %83 ], [ %.1115287, %make_freplacement.exit ], [ %.1115287, %184 ], [ %.1115287, %173 ], [ %.4, %make_Zreplacement.exit.thread227 ]
   call void @PyUnicodeWriter_Discard(ptr noundef %11) #18
   br label %Py_DECREF.exit
 

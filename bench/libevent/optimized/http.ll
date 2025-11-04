@@ -9692,7 +9692,7 @@ evhttp_handle_chunked_read.exit.thread80:         ; preds = %27
 
 33:                                               ; preds = %30
   call void @event_mm_free_(ptr noundef nonnull %28) #18
-  br label %.thread111.i
+  br label %..si.unfold.false.jt2.i
 
 34:                                               ; preds = %30
   %35 = tail call ptr @__ctype_b_loc() #19
@@ -9772,7 +9772,11 @@ switch.early.test.i:                              ; preds = %34
   store i64 %60, ptr %19, align 8
   store i64 %47, ptr %14, align 8
   %69 = icmp eq i64 %47, 0
-  br i1 %69, label %88, label %.thread111.i
+  br i1 %69, label %88, label %..si.unfold.false.jt2.i
+
+..si.unfold.false.jt2.i:                          ; preds = %68, %33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %.backedge.i
 
 70:                                               ; preds = %24
   %71 = icmp samesign ult i64 %22, %25
@@ -9802,11 +9806,7 @@ switch.early.test.i:                              ; preds = %34
   %.not65.i = icmp eq i32 %85, 0
   br i1 %.not65.i, label %.backedge.i, label %98
 
-.thread111.i:                                     ; preds = %68, %33
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.backedge.i
-
-.backedge.i:                                      ; preds = %.thread111.i, %76, %72
+.backedge.i:                                      ; preds = %76, %72, %..si.unfold.false.jt2.i
   %86 = call i64 @evbuffer_get_length(ptr noundef nonnull %6) #18
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %evhttp_handle_chunked_read.exit.thread, label %21
@@ -9815,7 +9815,7 @@ evhttp_handle_chunked_read.exit.thread75.sink.split: ; preds = %.critedge75.i, %
   call void @event_mm_free_(ptr noundef nonnull %28) #18
   br label %evhttp_handle_chunked_read.exit.thread75
 
-evhttp_handle_chunked_read.exit.thread75:         ; preds = %53, %55, %evhttp_handle_chunked_read.exit.thread75.sink.split
+evhttp_handle_chunked_read.exit.thread75:         ; preds = %55, %53, %evhttp_handle_chunked_read.exit.thread75.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %evhttp_handle_chunked_read.exit.thread70
 
@@ -9846,7 +9846,7 @@ evhttp_handle_chunked_read.exit.thread70:         ; preds = %21, %10, %evhttp_ha
   call void @evhttp_connection_fail_(ptr noundef %0, i32 noundef 2)
   br label %evhttp_read_trailer.exit
 
-97:                                               ; preds = %65, %67
+97:                                               ; preds = %67, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @evhttp_connection_fail_(ptr noundef %0, i32 noundef 5)
   br label %evhttp_read_trailer.exit

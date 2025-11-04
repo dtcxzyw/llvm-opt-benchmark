@@ -12222,7 +12222,7 @@ _ZN11hb_vector_tIjLb0EED2Ev.exit79:               ; preds = %103, %_ZN11hb_vecto
   %.sroa.12.2 = phi i32 [ %101, %_ZN11hb_vector_tIjLb0EED2Ev.exit ], [ %131, %_ZN11hb_vector_tIjLb0EED2Ev.exit79 ]
   %.sroa.20.2 = phi ptr [ %102, %_ZN11hb_vector_tIjLb0EED2Ev.exit ], [ %130, %_ZN11hb_vector_tIjLb0EED2Ev.exit79 ]
   %134 = icmp slt i32 %.sroa.0.2, 0
-  br i1 %134, label %.thread150, label %135
+  br i1 %134, label %_ZN11hb_vector_tIjLb0EED2Ev.exit84.jt1, label %135
 
 135:                                              ; preds = %133
   %.not169 = icmp eq i32 %.sroa.12.2, 0
@@ -12388,27 +12388,21 @@ _ZN11hb_vector_tI9hb_pair_tIjS_IjLb0EEELb0EE4pushEv.exit: ; preds = %_ZN11hb_vec
   br label %196
 
 196:                                              ; preds = %135, %_ZN11hb_vector_tI9hb_pair_tIjS_IjLb0EEELb0EE4pushEv.exit
-  %.sroa.0.3 = phi i32 [ %192, %_ZN11hb_vector_tI9hb_pair_tIjS_IjLb0EEELb0EE4pushEv.exit ], [ %.sroa.0.2, %135 ]
-  %.sroa.20.3 = phi ptr [ %195, %_ZN11hb_vector_tI9hb_pair_tIjS_IjLb0EEELb0EE4pushEv.exit ], [ %.sroa.20.2, %135 ]
-  %.357 = phi i32 [ 0, %_ZN11hb_vector_tI9hb_pair_tIjS_IjLb0EEELb0EE4pushEv.exit ], [ 4, %135 ]
-  %.not.i.i83 = icmp eq i32 %.sroa.0.3, 0
-  br i1 %.not.i.i83, label %_ZN11hb_vector_tIjLb0EED2Ev.exit84, label %.thread150
+  %.sroa.0.3.jt0 = phi i32 [ %192, %_ZN11hb_vector_tI9hb_pair_tIjS_IjLb0EEELb0EE4pushEv.exit ], [ %.sroa.0.2, %135 ]
+  %.sroa.20.3.jt0 = phi ptr [ %195, %_ZN11hb_vector_tI9hb_pair_tIjS_IjLb0EEELb0EE4pushEv.exit ], [ %.sroa.20.2, %135 ]
+  %.not.i.i83.jt0 = icmp eq i32 %.sroa.0.3.jt0, 0
+  br i1 %.not.i.i83.jt0, label %_ZN11hb_vector_tIjLb0EED2Ev.exit84.thread, label %.thread150.jt0
 
-.thread150:                                       ; preds = %133, %196
-  %.357156 = phi i32 [ %.357, %196 ], [ 1, %133 ]
-  %.sroa.20.3155 = phi ptr [ %.sroa.20.3, %196 ], [ %.sroa.20.2, %133 ]
-  call void @free(ptr noundef %.sroa.20.3155) #18
-  br label %_ZN11hb_vector_tIjLb0EED2Ev.exit84
+.thread150.jt0:                                   ; preds = %196
+  call void @free(ptr noundef %.sroa.20.3.jt0) #18
+  br label %_ZN11hb_vector_tIjLb0EED2Ev.exit84.thread
 
-_ZN11hb_vector_tIjLb0EED2Ev.exit84:               ; preds = %.thread150, %196
-  %.256 = phi i32 [ %.357, %196 ], [ %.357156, %.thread150 ]
-  switch i32 %.256, label %.loopexit [
-    i32 0, label %_ZN11hb_vector_tIjLb0EED2Ev.exit84.thread
-    i32 4, label %_ZN11hb_vector_tIjLb0EED2Ev.exit84.thread
-  ]
+_ZN11hb_vector_tIjLb0EED2Ev.exit84.jt1:           ; preds = %133
+  call void @free(ptr noundef %.sroa.20.2) #18
+  br label %.loopexit
 
-_ZN11hb_vector_tIjLb0EED2Ev.exit84.thread:        ; preds = %99, %_ZNK5graph16ExtensionFormat1IN2OT6Layout9GSUB_impl14ExtensionSubstEE18get_subtable_indexERNS_7graph_tEj.exit, %50, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit, %_ZN11hb_vector_tIjLb0EED2Ev.exit84, %_ZN11hb_vector_tIjLb0EED2Ev.exit84
-  %.453165 = phi i32 [ %.251, %_ZN11hb_vector_tIjLb0EED2Ev.exit84 ], [ %.251, %_ZN11hb_vector_tIjLb0EED2Ev.exit84 ], [ %98, %_ZNK5graph16ExtensionFormat1IN2OT6Layout9GSUB_impl14ExtensionSubstEE18get_subtable_indexERNS_7graph_tEj.exit ], [ %.049182, %50 ], [ %.049182, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit ], [ %.251, %99 ]
+_ZN11hb_vector_tIjLb0EED2Ev.exit84.thread:        ; preds = %196, %.thread150.jt0, %99, %_ZNK5graph16ExtensionFormat1IN2OT6Layout9GSUB_impl14ExtensionSubstEE18get_subtable_indexERNS_7graph_tEj.exit, %50, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit
+  %.453165 = phi i32 [ %98, %_ZNK5graph16ExtensionFormat1IN2OT6Layout9GSUB_impl14ExtensionSubstEE18get_subtable_indexERNS_7graph_tEj.exit ], [ %.049182, %50 ], [ %.049182, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit ], [ %.251, %99 ], [ %.251, %.thread150.jt0 ], [ %.251, %196 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %197 = load i16, ptr %13, align 1, !tbaa !127
   %198 = call noundef i16 @llvm.bswap.i16(i16 %197)
@@ -12425,8 +12419,8 @@ _ZN11hb_vector_tIjLb0EED2Ev.exit84.thread:        ; preds = %99, %_ZNK5graph16Ex
   %202 = call noundef zeroext i1 @_ZN5graph6Lookup14add_sub_tablesERNS_24gsubgpos_graph_context_tEjjR11hb_vector_tI9hb_pair_tIjS3_IjLb0EEELb0EE(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2, i32 noundef %.453165, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN11hb_vector_tIjLb0EED2Ev.exit84, %.thread166, %201
-  %.5.ph = phi i1 [ true, %.thread166 ], [ %202, %201 ], [ false, %_ZN11hb_vector_tIjLb0EED2Ev.exit84 ]
+.loopexit:                                        ; preds = %_ZN11hb_vector_tIjLb0EED2Ev.exit84.jt1, %.thread166, %201
+  %.5.ph = phi i1 [ false, %_ZN11hb_vector_tIjLb0EED2Ev.exit84.jt1 ], [ true, %.thread166 ], [ %202, %201 ]
   %.pr = load i32, ptr %4, align 8, !tbaa !398
   %.not.i.i85 = icmp eq i32 %.pr, 0
   br i1 %.not.i.i85, label %_ZN11hb_vector_tI9hb_pair_tIjS_IjLb0EEELb0EED2Ev.exit, label %203

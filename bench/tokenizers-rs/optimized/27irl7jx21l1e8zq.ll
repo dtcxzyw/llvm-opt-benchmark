@@ -4097,10 +4097,10 @@ define internal fastcc { ptr, ptr } @_ZN10rayon_core8registry12WorkerThread14tak
   br i1 %60, label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hf877cabc444f1b81E.exit", label %.preheader
 
 "_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hf877cabc444f1b81E.exit.sink.split": ; preds = %54, %24
-  %.sink23 = phi i64 [ %28, %24 ], [ %44, %54 ]
+  %.sink29 = phi i64 [ %28, %24 ], [ %44, %54 ]
   %.sroa.7.0.i.ph = phi ptr [ %34, %24 ], [ %50, %54 ]
   %.sroa.0.0.i.ph = phi ptr [ %33, %24 ], [ %49, %54 ]
-  %63 = lshr i64 %.sink23, 1
+  %63 = lshr i64 %.sink29, 1
   tail call fastcc void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize17h760de99829bb41b9E"(ptr noundef nonnull align 8 %2, i64 noundef %63)
   br label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hf877cabc444f1b81E.exit"
 
@@ -4112,166 +4112,176 @@ define internal fastcc { ptr, ptr } @_ZN10rayon_core8registry12WorkerThread14tak
 
 .preheader:                                       ; preds = %58, %1, %52, %37, %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hf877cabc444f1b81E.exit"
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  br label %66
+  br label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2"
 
-default.unreachable20:                            ; preds = %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit"
-  unreachable
-
-.loopexit:                                        ; preds = %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit", %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread", %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hf877cabc444f1b81E.exit"
-  %.sroa.0.1.pn = phi ptr [ %.sroa.0.0.i, %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hf877cabc444f1b81E.exit" ], [ %.sroa.6.211, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread" ], [ null, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit" ]
-  %.sroa.4.1.pn = phi ptr [ %.sroa.7.0.i, %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hf877cabc444f1b81E.exit" ], [ %.sroa.8.210, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread" ], [ undef, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit" ]
+.loopexit:                                        ; preds = %121, %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i.jt0", %138, %128, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread", %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hf877cabc444f1b81E.exit"
+  %.sroa.0.1.pn = phi ptr [ %.sroa.0.0.i, %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hf877cabc444f1b81E.exit" ], [ %106, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread" ], [ null, %128 ], [ null, %138 ], [ null, %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i.jt0" ], [ null, %121 ]
+  %.sroa.4.1.pn = phi ptr [ %.sroa.7.0.i, %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hf877cabc444f1b81E.exit" ], [ %107, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread" ], [ undef, %128 ], [ undef, %138 ], [ undef, %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i.jt0" ], [ undef, %121 ]
   %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.pn, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.4.1.pn, 1
   ret { ptr, ptr } %.merged
 
-66:                                               ; preds = %.preheader, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit"
-  %.sroa.8.0 = phi ptr [ %.sroa.8.2, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit" ], [ undef, %.preheader ]
-  %.sroa.6.0 = phi ptr [ %.sroa.6.2, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit" ], [ undef, %.preheader ]
+"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2": ; preds = %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2.backedge", %.preheader
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
-  %67 = load ptr, ptr %65, align 8, !alias.scope !428, !noalias !431, !nonnull !4, !noundef !4
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 128
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 256
-  %70 = load atomic i64, ptr %69 acquire, align 8, !noalias !433
-  %71 = load i64, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h149d929d29bb6d16E, align 8, !range !434, !noalias !435, !noundef !4
-  %trunc.i.i.i.i.i = trunc nuw i64 %71 to i1
+  %66 = load ptr, ptr %65, align 8, !alias.scope !428, !noalias !431, !nonnull !4, !noundef !4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 128
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 256
+  %69 = load atomic i64, ptr %68 acquire, align 8, !noalias !433
+  %70 = load i64, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h149d929d29bb6d16E, align 8, !range !434, !noalias !435, !noundef !4
+  %trunc.i.i.i.i.i = trunc nuw i64 %70 to i1
   br i1 %trunc.i.i.i.i.i, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.i.i", label %_ZN15crossbeam_epoch7default6HANDLE7__getit17ha71e03dcb99e996bE.exit.i.i.i
 
-_ZN15crossbeam_epoch7default6HANDLE7__getit17ha71e03dcb99e996bE.exit.i.i.i: ; preds = %66
-  %72 = tail call noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h8dc581fbfd44c61bE.llvm.13080012565599917794"(ptr noundef nonnull align 8 @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h149d929d29bb6d16E, ptr noalias noundef align 8 dereferenceable_or_null(16) null), !noalias !433
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.thread.i.i", label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.i.i"
+_ZN15crossbeam_epoch7default6HANDLE7__getit17ha71e03dcb99e996bE.exit.i.i.i: ; preds = %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2"
+  %71 = tail call noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h8dc581fbfd44c61bE.llvm.13080012565599917794"(ptr noundef nonnull align 8 @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h149d929d29bb6d16E, ptr noalias noundef align 8 dereferenceable_or_null(16) null), !noalias !433
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.thread.i.i", label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.i.i"
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.i.i": ; preds = %_ZN15crossbeam_epoch7default6HANDLE7__getit17ha71e03dcb99e996bE.exit.i.i.i, %66
-  %.0.i.i2.i.i.i = phi ptr [ %72, %_ZN15crossbeam_epoch7default6HANDLE7__getit17ha71e03dcb99e996bE.exit.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h149d929d29bb6d16E, i64 8), %66 ]
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.i.i": ; preds = %_ZN15crossbeam_epoch7default6HANDLE7__getit17ha71e03dcb99e996bE.exit.i.i.i, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2"
+  %.0.i.i2.i.i.i = phi ptr [ %71, %_ZN15crossbeam_epoch7default6HANDLE7__getit17ha71e03dcb99e996bE.exit.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17h149d929d29bb6d16E, i64 8), %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2" ]
   %.val.i.i.i = load ptr, ptr %.0.i.i2.i.i.i, align 8, !noalias !433, !noundef !4
-  %74 = getelementptr i8, ptr %.val.i.i.i, i64 2072
-  %.val.val.i.i.i = load i64, ptr %74, align 8, !noalias !433, !noundef !4
+  %73 = getelementptr i8, ptr %.val.i.i.i, i64 2072
+  %.val.val.i.i.i = load i64, ptr %73, align 8, !noalias !433, !noundef !4
   br label %_ZN15crossbeam_epoch7default11with_handle17heda210d7efa7c90aE.exit.i
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.thread.i.i": ; preds = %_ZN15crossbeam_epoch7default6HANDLE7__getit17ha71e03dcb99e996bE.exit.i.i.i
-  %75 = tail call noundef align 8 dereferenceable(8) ptr @_ZN15crossbeam_epoch7default9collector17h5ee8c4789dba1d70E(), !noalias !433
-  %76 = tail call noundef ptr @_ZN15crossbeam_epoch9collector9Collector8register17hee7b92f9b718439aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %75), !noalias !433
-  %77 = getelementptr i8, ptr %76, i64 2072
-  %.val.val.i5.i.i = load i64, ptr %77, align 8, !noalias !433, !noundef !4
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 2080
-  %79 = load i64, ptr %78, align 8, !noalias !440, !noundef !4
-  %80 = add i64 %79, -1
-  store i64 %80, ptr %78, align 8, !noalias !440
-  %81 = icmp eq i64 %.val.val.i5.i.i, 0
-  %82 = icmp eq i64 %79, 1
-  %or.cond.i.i.i1.i.i.i = and i1 %81, %82
+  %74 = tail call noundef align 8 dereferenceable(8) ptr @_ZN15crossbeam_epoch7default9collector17h5ee8c4789dba1d70E(), !noalias !433
+  %75 = tail call noundef ptr @_ZN15crossbeam_epoch9collector9Collector8register17hee7b92f9b718439aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %74), !noalias !433
+  %76 = getelementptr i8, ptr %75, i64 2072
+  %.val.val.i5.i.i = load i64, ptr %76, align 8, !noalias !433, !noundef !4
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 2080
+  %78 = load i64, ptr %77, align 8, !noalias !440, !noundef !4
+  %79 = add i64 %78, -1
+  store i64 %79, ptr %77, align 8, !noalias !440
+  %80 = icmp eq i64 %.val.val.i5.i.i, 0
+  %81 = icmp eq i64 %78, 1
+  %or.cond.i.i.i1.i.i.i = and i1 %80, %81
   br i1 %or.cond.i.i.i1.i.i.i, label %_ZN15crossbeam_epoch7default11with_handle17heda210d7efa7c90aE.exit.thread.i, label %_ZN15crossbeam_epoch7default11with_handle17heda210d7efa7c90aE.exit.i
 
 _ZN15crossbeam_epoch7default11with_handle17heda210d7efa7c90aE.exit.thread.i: ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.thread.i.i"
-  tail call void @_ZN15crossbeam_epoch8internal5Local8finalize17hcabd4bd89844112bE(ptr noundef nonnull align 128 %76), !noalias !440
-  br label %84
+  tail call void @_ZN15crossbeam_epoch8internal5Local8finalize17hcabd4bd89844112bE(ptr noundef nonnull align 128 %75), !noalias !440
+  br label %83
 
 _ZN15crossbeam_epoch7default11with_handle17heda210d7efa7c90aE.exit.i: ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.thread.i.i", %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.i.i"
   %.0.in.i.i = phi i64 [ %.val.val.i.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.i.i" ], [ %.val.val.i5.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h41dc283ab0345d30E.exit.thread.i.i" ]
   %.0.i.not.i = icmp eq i64 %.0.in.i.i, 0
-  br i1 %.0.i.not.i, label %84, label %83
+  br i1 %.0.i.not.i, label %83, label %82
 
-83:                                               ; preds = %_ZN15crossbeam_epoch7default11with_handle17heda210d7efa7c90aE.exit.i
+82:                                               ; preds = %_ZN15crossbeam_epoch7default11with_handle17heda210d7efa7c90aE.exit.i
   fence seq_cst
-  br label %84
+  br label %83
 
-84:                                               ; preds = %83, %_ZN15crossbeam_epoch7default11with_handle17heda210d7efa7c90aE.exit.i, %_ZN15crossbeam_epoch7default11with_handle17heda210d7efa7c90aE.exit.thread.i
-  %85 = tail call fastcc noundef ptr @_ZN15crossbeam_epoch7default11with_handle17hae94d8e15df77df4E(), !noalias !433
-  %86 = getelementptr inbounds nuw i8, ptr %67, i64 264
-  %87 = load atomic i64, ptr %86 acquire, align 8, !noalias !433
-  %88 = sub i64 %87, %70
-  %89 = icmp slt i64 %88, 1
-  br i1 %89, label %120, label %90
+83:                                               ; preds = %82, %_ZN15crossbeam_epoch7default11with_handle17heda210d7efa7c90aE.exit.i, %_ZN15crossbeam_epoch7default11with_handle17heda210d7efa7c90aE.exit.thread.i
+  %84 = tail call fastcc noundef ptr @_ZN15crossbeam_epoch7default11with_handle17hae94d8e15df77df4E(), !noalias !433
+  %85 = getelementptr inbounds nuw i8, ptr %66, i64 264
+  %86 = load atomic i64, ptr %85 acquire, align 8, !noalias !433
+  %87 = sub i64 %86, %69
+  %88 = icmp slt i64 %87, 1
+  br i1 %88, label %121, label %89
 
-90:                                               ; preds = %84
-  %91 = load atomic i64, ptr %68 acquire, align 8, !noalias !433
-  %92 = and i64 %91, -8
-  %93 = inttoptr i64 %92 to ptr
+89:                                               ; preds = %83
+  %90 = load atomic i64, ptr %67 acquire, align 8, !noalias !433
+  %91 = and i64 %90, -8
+  %92 = inttoptr i64 %91 to ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !445)
-  %94 = load ptr, ptr %93, align 8, !alias.scope !445, !noalias !433, !noundef !4
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %96 = load i64, ptr %95, align 8, !alias.scope !445, !noalias !433, !noundef !4
-  %97 = add i64 %96, -1
-  %98 = and i64 %97, %70
-  %99 = getelementptr inbounds { ptr, ptr }, ptr %94, i64 %98
-  %100 = load volatile { [2 x i64] }, ptr %99, align 8, !noalias !448
-  %.fca.0.0.extract.i.i3 = extractvalue { [2 x i64] } %100, 0, 0
-  %.fca.0.1.extract.i.i4 = extractvalue { [2 x i64] } %100, 0, 1
-  %101 = inttoptr i64 %.fca.0.0.extract.i.i3 to ptr
-  %102 = inttoptr i64 %.fca.0.1.extract.i.i4 to ptr
-  %103 = load atomic i64, ptr %68 acquire, align 8, !noalias !433
-  %.not.i5 = icmp eq i64 %103, %91
-  br i1 %.not.i5, label %104, label %120
+  %93 = load ptr, ptr %92, align 8, !alias.scope !445, !noalias !433, !noundef !4
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %95 = load i64, ptr %94, align 8, !alias.scope !445, !noalias !433, !noundef !4
+  %96 = add i64 %95, -1
+  %97 = and i64 %96, %69
+  %98 = getelementptr inbounds { ptr, ptr }, ptr %93, i64 %97
+  %99 = load volatile { [2 x i64] }, ptr %98, align 8, !noalias !448
+  %100 = load atomic i64, ptr %67 acquire, align 8, !noalias !433
+  %.not.i5 = icmp eq i64 %100, %90
+  br i1 %.not.i5, label %101, label %119
 
-104:                                              ; preds = %90
-  %105 = add i64 %70, 1
-  %106 = cmpxchg ptr %69, i64 %70, i64 %105 seq_cst monotonic, align 8, !noalias !433
-  %107 = extractvalue { i64, i1 } %106, 1
-  br i1 %107, label %108, label %120
+101:                                              ; preds = %89
+  %102 = add i64 %69, 1
+  %103 = cmpxchg ptr %68, i64 %69, i64 %102 seq_cst monotonic, align 8, !noalias !433
+  %104 = extractvalue { i64, i1 } %103, 1
+  br i1 %104, label %105, label %119
 
-108:                                              ; preds = %104
-  %109 = icmp eq ptr %85, null
-  br i1 %109, label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread", label %110
+105:                                              ; preds = %101
+  %.fca.0.0.extract.i.i3.le = extractvalue { [2 x i64] } %99, 0, 0
+  %.fca.0.1.extract.i.i4.le = extractvalue { [2 x i64] } %99, 0, 1
+  %106 = inttoptr i64 %.fca.0.0.extract.i.i3.le to ptr
+  %107 = inttoptr i64 %.fca.0.1.extract.i.i4.le to ptr
+  %108 = icmp eq ptr %84, null
+  br i1 %108, label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread", label %109
 
-110:                                              ; preds = %108
-  %111 = getelementptr inbounds nuw i8, ptr %85, i64 2072
-  %112 = load i64, ptr %111, align 8, !noalias !433, !noundef !4
-  %113 = add i64 %112, -1
-  store i64 %113, ptr %111, align 8, !noalias !433
-  %114 = icmp eq i64 %112, 1
-  br i1 %114, label %115, label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread"
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %84, i64 2072
+  %111 = load i64, ptr %110, align 8, !noalias !433, !noundef !4
+  %112 = add i64 %111, -1
+  store i64 %112, ptr %110, align 8, !noalias !433
+  %113 = icmp eq i64 %111, 1
+  br i1 %113, label %114, label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread"
 
-115:                                              ; preds = %110
-  %116 = getelementptr inbounds nuw i8, ptr %85, i64 2176
-  store atomic i64 0, ptr %116 release, align 8, !noalias !433
-  %117 = getelementptr inbounds nuw i8, ptr %85, i64 2080
-  %118 = load i64, ptr %117, align 8, !noalias !433, !noundef !4
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i", label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread"
+114:                                              ; preds = %109
+  %115 = getelementptr inbounds nuw i8, ptr %84, i64 2176
+  store atomic i64 0, ptr %115 release, align 8, !noalias !433
+  %116 = getelementptr inbounds nuw i8, ptr %84, i64 2080
+  %117 = load i64, ptr %116, align 8, !noalias !433, !noundef !4
+  %118 = icmp eq i64 %117, 0
+  br i1 %118, label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt1", label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread"
 
-"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i": ; preds = %127, %115
-  %.sroa.8.1 = phi ptr [ %.sroa.8.0, %127 ], [ %102, %115 ]
-  %.sroa.6.1 = phi ptr [ %.sroa.6.0, %127 ], [ %101, %115 ]
-  %.sroa.0.0 = phi i64 [ %storemerge.i, %127 ], [ 1, %115 ]
-  tail call void @_ZN15crossbeam_epoch8internal5Local8finalize17hcabd4bd89844112bE(ptr noundef nonnull align 128 %85), !noalias !433
-  br label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit"
+"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i.jt2": ; preds = %133
+  tail call void @_ZN15crossbeam_epoch8internal5Local8finalize17hcabd4bd89844112bE(ptr noundef nonnull align 128 %84), !noalias !433
+  br label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2.backedge"
 
-120:                                              ; preds = %104, %90, %84
-  %storemerge.i = phi i64 [ 0, %84 ], [ 2, %104 ], [ 2, %90 ]
-  %121 = icmp eq ptr %85, null
-  br i1 %121, label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit", label %122
+"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i.jt0": ; preds = %138
+  tail call void @_ZN15crossbeam_epoch8internal5Local8finalize17hcabd4bd89844112bE(ptr noundef nonnull align 128 %84), !noalias !433
+  br label %.loopexit
 
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds nuw i8, ptr %85, i64 2072
-  %124 = load i64, ptr %123, align 8, !noalias !433, !noundef !4
-  %125 = add i64 %124, -1
-  store i64 %125, ptr %123, align 8, !noalias !433
-  %126 = icmp eq i64 %124, 1
-  br i1 %126, label %127, label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit"
+119:                                              ; preds = %89, %101
+  %120 = icmp eq ptr %84, null
+  br i1 %120, label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2.backedge", label %123
 
-127:                                              ; preds = %122
-  %128 = getelementptr inbounds nuw i8, ptr %85, i64 2176
-  store atomic i64 0, ptr %128 release, align 8, !noalias !433
-  %129 = getelementptr inbounds nuw i8, ptr %85, i64 2080
+121:                                              ; preds = %83
+  %122 = icmp eq ptr %84, null
+  br i1 %122, label %.loopexit, label %128
+
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds nuw i8, ptr %84, i64 2072
+  %125 = load i64, ptr %124, align 8, !noalias !433, !noundef !4
+  %126 = add i64 %125, -1
+  store i64 %126, ptr %124, align 8, !noalias !433
+  %127 = icmp eq i64 %125, 1
+  br i1 %127, label %133, label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2.backedge"
+
+"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2.backedge": ; preds = %123, %133, %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i.jt2", %119
+  br label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2"
+
+128:                                              ; preds = %121
+  %129 = getelementptr inbounds nuw i8, ptr %84, i64 2072
   %130 = load i64, ptr %129, align 8, !noalias !433, !noundef !4
-  %131 = icmp eq i64 %130, 0
-  br i1 %131, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i", label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit"
+  %131 = add i64 %130, -1
+  store i64 %131, ptr %129, align 8, !noalias !433
+  %132 = icmp eq i64 %130, 1
+  br i1 %132, label %138, label %.loopexit
 
-"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i", %120, %122, %127
-  %.sroa.8.2 = phi ptr [ %.sroa.8.0, %120 ], [ %.sroa.8.1, %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i" ], [ %.sroa.8.0, %127 ], [ %.sroa.8.0, %122 ]
-  %.sroa.6.2 = phi ptr [ %.sroa.6.0, %120 ], [ %.sroa.6.1, %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i" ], [ %.sroa.6.0, %127 ], [ %.sroa.6.0, %122 ]
-  %.sroa.0.16 = phi i64 [ %storemerge.i, %120 ], [ %.sroa.0.0, %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i" ], [ %storemerge.i, %127 ], [ %storemerge.i, %122 ]
-  switch i64 %.sroa.0.16, label %default.unreachable20 [
-    i64 0, label %.loopexit
-    i64 1, label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread"
-    i64 2, label %66
-  ]
+133:                                              ; preds = %123
+  %134 = getelementptr inbounds nuw i8, ptr %84, i64 2176
+  store atomic i64 0, ptr %134 release, align 8, !noalias !433
+  %135 = getelementptr inbounds nuw i8, ptr %84, i64 2080
+  %136 = load i64, ptr %135, align 8, !noalias !433, !noundef !4
+  %137 = icmp eq i64 %136, 0
+  br i1 %137, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i.jt2", label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt2.backedge"
 
-"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread": ; preds = %110, %115, %108, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit"
-  %.sroa.6.211 = phi ptr [ %.sroa.6.2, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit" ], [ %101, %108 ], [ %101, %115 ], [ %101, %110 ]
-  %.sroa.8.210 = phi ptr [ %.sroa.8.2, %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit" ], [ %102, %108 ], [ %102, %115 ], [ %102, %110 ]
-  %132 = icmp ne ptr %.sroa.6.211, null
-  tail call void @llvm.assume(i1 %132)
+138:                                              ; preds = %128
+  %139 = getelementptr inbounds nuw i8, ptr %84, i64 2176
+  store atomic i64 0, ptr %139 release, align 8, !noalias !433
+  %140 = getelementptr inbounds nuw i8, ptr %84, i64 2080
+  %141 = load i64, ptr %140, align 8, !noalias !433, !noundef !4
+  %142 = icmp eq i64 %141, 0
+  br i1 %142, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h456348041b1d06ddE.exit.sink.split.i.jt0", label %.loopexit
+
+"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt1": ; preds = %114
+  tail call void @_ZN15crossbeam_epoch8internal5Local8finalize17hcabd4bd89844112bE(ptr noundef nonnull align 128 %84), !noalias !433
+  br label %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread"
+
+"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.thread": ; preds = %"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h1329fec9b8dc0408E.exit.jt1", %109, %114, %105
+  %143 = icmp ne i64 %.fca.0.0.extract.i.i3.le, 0
+  tail call void @llvm.assume(i1 %143)
   br label %.loopexit
 }
 

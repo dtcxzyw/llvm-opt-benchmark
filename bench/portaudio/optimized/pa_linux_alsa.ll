@@ -6073,7 +6073,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
 46:                                               ; preds = %.lr.ph, %.backedge179
   %47 = phi i32 [ %17, %.lr.ph ], [ %133, %.backedge179 ]
   %48 = phi i32 [ %12, %.lr.ph ], [ %131, %.backedge179 ]
-  %.080192 = phi i32 [ 0, %.lr.ph ], [ %.181.ph, %.backedge179 ]
+  %.080192 = phi i32 [ 0, %.lr.ph ], [ %.181.jt6, %.backedge179 ]
   tail call void @pthread_testcancel() #25
   %.not102 = icmp eq i32 %47, 0
   br i1 %.not102, label %55, label %49
@@ -6263,7 +6263,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
   br label %.preheader
 
 .backedge179:                                     ; preds = %85, %118, %126, %123, %111, %.thread163
-  %.181.ph = phi i32 [ %.282, %.thread163 ], [ %.282, %111 ], [ %.282, %123 ], [ %.282, %126 ], [ %.282, %118 ], [ %.080192, %85 ]
+  %.181.jt6 = phi i32 [ %.080192, %85 ], [ %.282, %118 ], [ %.282, %126 ], [ %.282, %123 ], [ %.282, %111 ], [ %.282, %.thread163 ]
   %131 = load i32, ptr %4, align 4, !tbaa !3
   %132 = icmp ne i32 %131, 0
   %133 = load i32, ptr %5, align 4
@@ -6342,7 +6342,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
   %168 = load i32, ptr @paUtilErr_, align 4, !tbaa !3
   br label %.preheader
 
-.preheader:                                       ; preds = %129, %121, %106, %100, %86, %37, %35, %153, %151, %155, %158, %161, %25, %167
+.preheader:                                       ; preds = %106, %100, %121, %129, %86, %37, %35, %153, %151, %155, %158, %161, %25, %167
   %.079.ph.ph = phi i32 [ %107, %106 ], [ %101, %100 ], [ %122, %121 ], [ %130, %129 ], [ %87, %86 ], [ 0, %161 ], [ 0, %158 ], [ 0, %155 ], [ 0, %151 ], [ 0, %153 ], [ 0, %35 ], [ 0, %37 ], [ %168, %167 ], [ %26, %25 ]
   %.pr = load i32, ptr %7, align 4, !tbaa !3
   %.not121 = icmp eq i32 %.pr, 0
@@ -6353,32 +6353,32 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
 .preheader.split.us:                              ; preds = %.preheader
   %171 = load i64, ptr %1, align 8, !tbaa !108
   %.not122.us198 = icmp eq i64 %171, 0
-  br i1 %.not122.us198, label %.loopexit, label %.lr.ph200.preheader
+  br i1 %.not122.us198, label %.critedge, label %.lr.ph200.preheader
 
 .lr.ph200.preheader:                              ; preds = %.preheader.split.us
   %172 = load i32, ptr %169, align 8, !tbaa !240
-  %.not123.us235 = icmp eq i32 %172, 0
-  br i1 %.not123.us235, label %.lr.ph237, label %.loopexit
+  %.not123.us230 = icmp eq i32 %172, 0
+  br i1 %.not123.us230, label %.lr.ph232, label %.critedge
 
 .lr.ph200:                                        ; preds = %.backedge.us
   %173 = load i32, ptr %169, align 8, !tbaa !240
   %.not123.us = icmp eq i32 %173, 0
-  br i1 %.not123.us, label %.lr.ph237, label %.loopexit
+  br i1 %.not123.us, label %.lr.ph232, label %.critedge
 
-.lr.ph237:                                        ; preds = %.lr.ph200.preheader, %.lr.ph200
-  %.079.us199236 = phi i32 [ -9986, %.lr.ph200 ], [ %.079.ph.ph, %.lr.ph200.preheader ]
+.lr.ph232:                                        ; preds = %.lr.ph200.preheader, %.lr.ph200
+  %.079.us199231 = phi i32 [ -9986, %.lr.ph200 ], [ %.079.ph.ph, %.lr.ph200.preheader ]
   %174 = load i32, ptr %170, align 8, !tbaa !241
   %.not124.us = icmp eq i32 %174, 0
-  br i1 %.not124.us, label %.backedge.us, label %.loopexit, !prof !9
+  br i1 %.not124.us, label %.backedge.us, label %.critedge, !prof !9
 
-.backedge.us:                                     ; preds = %.lr.ph237
+.backedge.us:                                     ; preds = %.lr.ph232
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.183) #25
   %175 = load i64, ptr %1, align 8, !tbaa !108
   %.not122.us = icmp eq i64 %175, 0
-  br i1 %.not122.us, label %.loopexit, label %.lr.ph200
+  br i1 %.not122.us, label %.critedge, label %.lr.ph200
 
 .preheader.split:                                 ; preds = %108, %58, %49, %95, %._crit_edge, %27, %.preheader
-  %.079.ph233 = phi i32 [ %.079.ph.ph, %.preheader ], [ 0, %95 ], [ 0, %27 ], [ 0, %._crit_edge ], [ 0, %49 ], [ 0, %58 ], [ 0, %108 ]
+  %.079.ph228 = phi i32 [ %.079.ph.ph, %.preheader ], [ 0, %95 ], [ 0, %27 ], [ 0, %._crit_edge ], [ 0, %49 ], [ 0, %58 ], [ 0, %108 ]
   %176 = phi i32 [ %.pr, %.preheader ], [ 1, %95 ], [ %28, %27 ], [ %.pr.pre, %._crit_edge ], [ %109, %108 ], [ 1, %58 ], [ 1, %49 ]
   %177 = tail call fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef nonnull %0)
   store i32 %177, ptr @paUtilErr_, align 4, !tbaa !3
@@ -6394,13 +6394,13 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
   br i1 %181, label %.backedge, label %._crit_edge195, !prof !256
 
 ._crit_edge195:                                   ; preds = %.backedge, %.preheader.split
-  %.079.lcssa = phi i32 [ %.079.ph233, %.preheader.split ], [ %179, %.backedge ]
+  %.079.lcssa = phi i32 [ %.079.ph228, %.preheader.split ], [ %179, %.backedge ]
   store i64 0, ptr %1, align 8, !tbaa !108
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %.backedge.us, %.lr.ph200, %.lr.ph237, %.lr.ph200.preheader, %._crit_edge195, %.preheader.split.us
-  %182 = phi i32 [ %176, %._crit_edge195 ], [ 0, %.preheader.split.us ], [ %.pr, %.lr.ph200.preheader ], [ %.pr, %.lr.ph237 ], [ %.pr, %.lr.ph200 ], [ %.pr, %.backedge.us ]
-  %.079182 = phi i32 [ %.079.lcssa, %._crit_edge195 ], [ %.079.ph.ph, %.preheader.split.us ], [ %.079.ph.ph, %.lr.ph200.preheader ], [ -9986, %.backedge.us ], [ -9986, %.lr.ph200 ], [ %.079.us199236, %.lr.ph237 ]
+.critedge:                                        ; preds = %.lr.ph232, %.lr.ph200, %.backedge.us, %.lr.ph200.preheader, %.preheader.split.us, %._crit_edge195
+  %182 = phi i32 [ %176, %._crit_edge195 ], [ 0, %.preheader.split.us ], [ %.pr, %.lr.ph200.preheader ], [ %.pr, %.backedge.us ], [ %.pr, %.lr.ph200 ], [ %.pr, %.lr.ph232 ]
+  %.079182 = phi i32 [ %.079.lcssa, %._crit_edge195 ], [ %.079.ph.ph, %.preheader.split.us ], [ %.079.ph.ph, %.lr.ph200.preheader ], [ %.079.us199231, %.lr.ph232 ], [ -9986, %.lr.ph200 ], [ -9986, %.backedge.us ]
   store i32 %182, ptr %2, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

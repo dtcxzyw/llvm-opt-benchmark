@@ -104,9 +104,9 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br label %35
 
 35:                                               ; preds = %30, %34
-  %.sink257 = phi i32 [ 0, %34 ], [ 1, %30 ]
+  %.sink249 = phi i32 [ 0, %34 ], [ 1, %30 ]
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 %.sink257, ptr %36, align 4, !tbaa !29
+  store i32 %.sink249, ptr %36, align 4, !tbaa !29
   %37 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #5
   %.not179 = icmp eq ptr %37, null
   br i1 %.not179, label %.critedge, label %38
@@ -190,11 +190,11 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 156
   %.not184 = icmp sgt i16 %79, -1
   %82 = sub nuw nsw i32 65536, %80
-  %spec.select262 = select i1 %.not184, i32 %80, i32 %82
-  %spec.select263 = select i1 %.not184, i32 8, i32 16
-  store i32 %spec.select262, ptr %81, align 4, !tbaa !52
+  %spec.select254 = select i1 %.not184, i32 %80, i32 %82
+  %spec.select255 = select i1 %.not184, i32 8, i32 16
+  store i32 %spec.select254, ptr %81, align 4, !tbaa !52
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 56
-  store i32 %spec.select263, ptr %83, align 8, !tbaa !53
+  store i32 %spec.select255, ptr %83, align 8, !tbaa !53
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 863
   %85 = load i8, ptr %84, align 1, !tbaa !12
   %.not185 = icmp sgt i8 %85, -1
@@ -206,7 +206,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br i1 %.not186, label %90, label %88
 
 88:                                               ; preds = %86
-  %89 = shl nuw nsw i32 %spec.select262, 1
+  %89 = shl nuw nsw i32 %spec.select254, 1
   store i32 %89, ptr %81, align 4, !tbaa !52
   br label %90
 
@@ -327,9 +327,9 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br label %157
 
 157:                                              ; preds = %.lr.ph, %200
-  %.1158212 = phi i64 [ %.0157216, %.lr.ph ], [ %.2159.ph, %200 ]
-  %.1161211 = phi i32 [ %.0160215, %.lr.ph ], [ %.2162.ph, %200 ]
-  %.0164210 = phi i64 [ %156, %.lr.ph ], [ %.1165.ph, %200 ]
+  %.1158212 = phi i64 [ %.0157216, %.lr.ph ], [ %.2159.jt0, %200 ]
+  %.1161211 = phi i32 [ %.0160215, %.lr.ph ], [ %.2162.jt0, %200 ]
+  %.0164210 = phi i64 [ %156, %.lr.ph ], [ %.1165.jt0, %200 ]
   %.0169209 = phi i32 [ 0, %.lr.ph ], [ %201, %200 ]
   %158 = call i32 @avio_read(ptr noundef %9, ptr noundef nonnull %3, i32 noundef 16) #5
   %.not192 = icmp eq i32 %158, 16
@@ -418,9 +418,9 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br label %200
 
 200:                                              ; preds = %197, %166
-  %.1165.ph = phi i64 [ %.0164210, %166 ], [ %199, %197 ]
-  %.2162.ph = phi i32 [ %.1161211, %166 ], [ %.3163, %197 ]
-  %.2159.ph = phi i64 [ %.1158212, %166 ], [ %.3, %197 ]
+  %.1165.jt0 = phi i64 [ %199, %197 ], [ %.0164210, %166 ]
+  %.2162.jt0 = phi i32 [ %.3163, %197 ], [ %.1161211, %166 ]
+  %.2159.jt0 = phi i64 [ %.3, %197 ], [ %.1158212, %166 ]
   %201 = add nuw nsw i32 %.0169209, 1
   %202 = load i32, ptr %125, align 4, !tbaa !58
   %203 = icmp ult i32 %201, %202
@@ -433,8 +433,8 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph217.split
   %204 = phi i32 [ %150, %.lr.ph217.split ], [ %.pre, %._crit_edge.loopexit ]
   %205 = phi i32 [ 0, %.lr.ph217.split ], [ %202, %._crit_edge.loopexit ]
-  %.1161.lcssa = phi i32 [ %.0160215, %.lr.ph217.split ], [ %.2162.ph, %._crit_edge.loopexit ]
-  %.1158.lcssa = phi i64 [ %.0157216, %.lr.ph217.split ], [ %.2159.ph, %._crit_edge.loopexit ]
+  %.1161.lcssa = phi i32 [ %.0160215, %.lr.ph217.split ], [ %.2162.jt0, %._crit_edge.loopexit ]
+  %.1158.lcssa = phi i64 [ %.0157216, %.lr.ph217.split ], [ %.2159.jt0, %._crit_edge.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %206 = zext i32 %204 to i64
   %207 = icmp samesign ult i64 %indvars.iv.next, %206
@@ -447,7 +447,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   store i32 %.0160.lcssa, ptr %121, align 8, !tbaa !57
   br label %.loopexit
 
-.loopexit:                                        ; preds = %165, %159, %142, %115, %._crit_edge218
+.loopexit:                                        ; preds = %159, %165, %142, %115, %._crit_edge218
   %.0167 = phi i32 [ 0, %._crit_edge218 ], [ -12, %115 ], [ -5, %142 ], [ %spec.store.select, %159 ], [ -1094995529, %165 ]
   call void @av_freep(ptr noundef nonnull %2) #5
   br label %.critedge

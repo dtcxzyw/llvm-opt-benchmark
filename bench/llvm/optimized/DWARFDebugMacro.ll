@@ -899,7 +899,7 @@ _ZN4llvm20filter_iterator_baseIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteI
 
 62:                                               ; preds = %.lr.ph101, %.backedge
   %63 = phi i64 [ %55, %.lr.ph101 ], [ %209, %.backedge ]
-  %.0100 = phi ptr [ null, %.lr.ph101 ], [ %.2131, %.backedge ]
+  %.0100 = phi ptr [ null, %.lr.ph101 ], [ %.2.jt0, %.backedge ]
   %.not = icmp eq ptr %.0100, null
   br i1 %.not, label %64, label %_ZN4llvm5ErrorD2Ev.exit
 
@@ -1169,24 +1169,24 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %.pre111 = load i8, ptr %59, align 8
   br label %182
 
-182:                                              ; preds = %176, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+182:                                              ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, %176
   %183 = phi i8 [ %.pre111, %176 ], [ %172, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ]
   %184 = trunc i8 %183 to i1
-  br i1 %184, label %185, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56
+  br i1 %184, label %185, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56.jt6
 
 185:                                              ; preds = %182
   %186 = load ptr, ptr %17, align 8, !tbaa !111
-  %.not.i.i55 = icmp eq ptr %186, null
-  br i1 %.not.i.i55, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
+  %.not.i.i55.jt6 = icmp eq ptr %186, null
+  br i1 %.not.i.i55.jt6, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56.jt6, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt6
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %185
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt6: ; preds = %185
   %187 = load ptr, ptr %186, align 8, !tbaa !16
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8
   call void %189(ptr noundef nonnull align 8 dereferenceable(8) %186) #17
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56.jt6
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56: ; preds = %185, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %182
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56.jt6: ; preds = %185, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt6, %182
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %173, label %.critedge, label %208
 
@@ -1220,11 +1220,11 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56: ;
   store ptr %206, ptr %207, align 8, !tbaa !24
   br label %208
 
-208:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56, %202, %195, %190, %110, %102
+208:                                              ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56.jt6, %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit, %202, %195, %190, %110, %102
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit, %208
-  %.2131 = phi ptr [ null, %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit ], [ %.1, %208 ]
+.backedge:                                        ; preds = %208, %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit
+  %.2.jt0 = phi ptr [ %.1, %208 ], [ null, %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit ]
   %209 = load i64, ptr %9, align 8, !tbaa !36
   %210 = load i64, ptr %20, align 8, !tbaa !80
   %211 = icmp ugt i64 %210, %209
@@ -1234,7 +1234,7 @@ _ZN4llvm5ErrorD2Ev.exit58:                        ; preds = %.backedge, %.loopex
   store ptr null, ptr %0, align 8, !tbaa !87
   br label %.critedge
 
-.critedge:                                        ; preds = %79, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56, %.thread, %_ZN4llvm5ErrorD2Ev.exit51, %_ZN4llvm5ErrorD2Ev.exit50, %_ZN4llvm5ErrorD2Ev.exit49, %_ZN4llvm5ErrorD2Ev.exit58
+.critedge:                                        ; preds = %79, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56.jt6, %.thread, %_ZN4llvm5ErrorD2Ev.exit51, %_ZN4llvm5ErrorD2Ev.exit50, %_ZN4llvm5ErrorD2Ev.exit49, %_ZN4llvm5ErrorD2Ev.exit58
   %212 = load ptr, ptr %10, align 8, !tbaa !91
   %213 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %214 = load i32, ptr %213, align 8, !tbaa !94

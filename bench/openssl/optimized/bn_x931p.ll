@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_X931_derive_prime_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noundef i32 @BN_X931_derive_prime_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = tail call i32 @BN_is_odd(ptr noundef %6) #2
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.loopexit, label %11
@@ -124,19 +124,19 @@ define range(i32 0, 2) i32 @BN_X931_derive_prime_ex(ptr noundef %0, ptr noundef 
 
 60:                                               ; preds = %57
   %.not100 = icmp eq i32 %58, 0
-  br i1 %.not100, label %61, label %63
+  br i1 %.not100, label %61, label %.loopexit113
 
 61:                                               ; preds = %60, %55
   %62 = tail call i32 @BN_add(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %21) #2
   %.not101 = icmp eq i32 %62, 0
   br i1 %.not101, label %.thread106, label %.preheader
 
-63:                                               ; preds = %60
-  %64 = tail call i32 @BN_GENCB_call(ptr noundef %8, i32 noundef 3, i32 noundef 0) #2
+.loopexit113:                                     ; preds = %60
+  %63 = tail call i32 @BN_GENCB_call(ptr noundef %8, i32 noundef 3, i32 noundef 0) #2
   br label %.thread106
 
-.thread106:                                       ; preds = %61, %57, %53, %51, %.preheader, %47, %45, %43, %38, %36, %34, %32, %30, %28, %26, %24, %19, %63
-  %.079 = phi i32 [ 0, %19 ], [ 1, %63 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %26 ], [ 0, %24 ], [ 0, %.preheader ], [ 0, %51 ], [ 0, %53 ], [ 0, %57 ], [ 0, %61 ]
+.thread106:                                       ; preds = %61, %57, %53, %51, %.preheader, %47, %45, %43, %38, %36, %34, %32, %30, %28, %26, %24, %19, %.loopexit113
+  %.079 = phi i32 [ 0, %19 ], [ 1, %.loopexit113 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %26 ], [ 0, %24 ], [ 0, %.preheader ], [ 0, %51 ], [ 0, %53 ], [ 0, %57 ], [ 0, %61 ]
   tail call void @BN_CTX_end(ptr noundef %7) #2
   br label %.loopexit
 
@@ -319,10 +319,12 @@ define range(i32 0, 2) i32 @BN_X931_generate_prime_ex(ptr noundef %0, ptr nounde
 
 24:                                               ; preds = %22
   %25 = tail call i32 @BN_X931_derive_prime_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef nonnull %.022, ptr noundef nonnull %.023, ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  %.not27 = icmp ne i32 %25, 0
+  %spec.select = zext i1 %.not27 to i32
   br label %26
 
 26:                                               ; preds = %24, %22, %20, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %22 ], [ 0, %20 ], [ %25, %24 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %22 ], [ 0, %20 ], [ %spec.select, %24 ]
   tail call void @BN_CTX_end(ptr noundef %7) #2
   ret i32 %.0
 }

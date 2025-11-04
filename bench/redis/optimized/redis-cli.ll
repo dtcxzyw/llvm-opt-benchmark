@@ -2431,10 +2431,10 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
   %.5270 = phi i32 [ %.4269561, %.lr.ph564 ], [ %.7272424, %229 ]
   %198 = icmp slt i32 %.0293, %87
   %199 = icmp ne i32 %.2298, 0
-  %or.cond3.not813 = select i1 %198, i1 %199, i1 false
+  %or.cond3.not805 = select i1 %198, i1 %199, i1 false
   %200 = icmp sgt i32 %.5270, 0
-  %or.cond751 = select i1 %or.cond3.not813, i1 %200, i1 false
-  br i1 %or.cond751, label %.lr.ph556.preheader, label %.thread426
+  %or.cond743 = select i1 %or.cond3.not805, i1 %200, i1 false
+  br i1 %or.cond743, label %.lr.ph556.preheader, label %.thread426
 
 .lr.ph556.preheader:                              ; preds = %197
   %wide.trip.count668 = zext nneg i32 %.5270 to i64
@@ -2787,13 +2787,13 @@ clusterManagerShowNodes.exit:                     ; preds = %.lr.ph.i384, %clust
 
 confirmWithYes.exit.thread434:                    ; preds = %340
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %466
+  br label %465
 
 confirmWithYes.exit:                              ; preds = %340
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.230, ptr noundef nonnull dereferenceable(4) %3, i64 4)
   %.not5.i.not = icmp eq i32 %bcmp.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not5.i.not, label %confirmWithYes.exit.thread, label %466
+  br i1 %.not5.i.not, label %confirmWithYes.exit.thread, label %465
 
 confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowNodes.exit, %confirmWithYes.exit
   %349 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
@@ -2849,7 +2849,7 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
 
 .thread437:                                       ; preds = %363, %361
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %466
+  br label %465
 
 371:                                              ; preds = %370, %368
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2932,9 +2932,9 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   %.pre692 = load i32, ptr %.phi.trans.insert691, align 8, !tbaa !77
   %407 = add nsw i32 %.pre692, 10000
   %408 = icmp eq i32 %405, %407
-  %or.cond810 = select i1 %406, i1 true, i1 %408
+  %or.cond802 = select i1 %406, i1 true, i1 %408
   %409 = load ptr, ptr %388, align 8, !tbaa !82
-  br i1 %or.cond810, label %._crit_edge690, label %411
+  br i1 %or.cond802, label %._crit_edge690, label %411
 
 ._crit_edge690:                                   ; preds = %403
   %410 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %409, ptr noundef nonnull @.str.181, ptr noundef nonnull %11, i32 noundef %.pre692) #33
@@ -3014,7 +3014,7 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
 441:                                              ; preds = %438
   %442 = load ptr, ptr %12, align 8, !tbaa !24
   %.not337 = icmp eq ptr %442, null
-  br i1 %.not337, label %465, label %443
+  br i1 %.not337, label %.thread, label %443
 
 443:                                              ; preds = %441
   %444 = getelementptr inbounds nuw i8, ptr %433, i64 16
@@ -3023,7 +3023,7 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   %447 = load i32, ptr %446, align 8, !tbaa !77
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %445, i32 noundef %447, ptr noundef nonnull %442)
   call void @zfree(ptr noundef nonnull %442) #33
-  br label %465
+  br label %.thread
 
 448:                                              ; preds = %438, %436
   %449 = load ptr, ptr %12, align 8, !tbaa !24
@@ -3034,11 +3034,16 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   call void @zfree(ptr noundef nonnull %449) #33
   br label %451
 
-451:                                              ; preds = %448, %450
+451:                                              ; preds = %450, %448
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.backedge
 
-.backedge:                                        ; preds = %.lr.ph589, %451
+.thread:                                          ; preds = %441, %443
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br label %465
+
+.backedge:                                        ; preds = %451, %.lr.ph589
   %452 = call ptr @listNext(ptr noundef nonnull %9) #33
   %.not330 = icmp eq ptr %452, null
   br i1 %.not330, label %._crit_edge590, label %.lr.ph589, !llvm.loop !120
@@ -3083,40 +3088,35 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
 .thread453:                                       ; preds = %463, %._crit_edge596, %398, %418, %.thread440
   %.7246.ph = phi i32 [ 0, %._crit_edge596 ], [ 1, %463 ], [ 0, %398 ], [ 0, %418 ], [ 0, %.thread440 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %466
+  br label %465
 
-465:                                              ; preds = %443, %441
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %466
-
-466:                                              ; preds = %465, %.thread453, %.thread437, %confirmWithYes.exit.thread434, %confirmWithYes.exit
-  %.2241 = phi i32 [ 0, %465 ], [ 1, %confirmWithYes.exit ], [ 1, %confirmWithYes.exit.thread434 ], [ 0, %.thread437 ], [ %.7246.ph, %.thread453 ]
+465:                                              ; preds = %.thread, %.thread453, %.thread437, %confirmWithYes.exit.thread434, %confirmWithYes.exit
+  %.2241 = phi i32 [ 1, %confirmWithYes.exit ], [ 1, %confirmWithYes.exit.thread434 ], [ 0, %.thread437 ], [ %.7246.ph, %.thread453 ], [ 0, %.thread ]
   call void @zfree(ptr noundef %96) #33
   call void @zfree(ptr noundef %98) #33
-  br i1 %155, label %.lr.ph600.preheader, label %.loopexit750
+  br i1 %155, label %.lr.ph600.preheader, label %._crit_edge601
 
-.lr.ph600.preheader:                              ; preds = %466
+.lr.ph600.preheader:                              ; preds = %465
   %wide.trip.count684 = and i64 %85, 2147483647
   br label %.lr.ph600
 
 .lr.ph600:                                        ; preds = %.lr.ph600.preheader, %.lr.ph600
   %indvars.iv681 = phi i64 [ 0, %.lr.ph600.preheader ], [ %indvars.iv.next682, %.lr.ph600 ]
-  %467 = getelementptr inbounds nuw %struct.clusterManagerNodeArray, ptr %100, i64 %indvars.iv681
-  %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
-  %469 = load ptr, ptr %468, align 8, !tbaa !99
-  call void @zfree(ptr noundef %469) #33
+  %466 = getelementptr inbounds nuw %struct.clusterManagerNodeArray, ptr %100, i64 %indvars.iv681
+  %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
+  %468 = load ptr, ptr %467, align 8, !tbaa !99
+  call void @zfree(ptr noundef %468) #33
   %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 1
   %exitcond685.not = icmp eq i64 %indvars.iv.next682, %wide.trip.count684
-  br i1 %exitcond685.not, label %.loopexit750, label %.lr.ph600, !llvm.loop !122
+  br i1 %exitcond685.not, label %._crit_edge601, label %.lr.ph600, !llvm.loop !122
 
-.loopexit750:                                     ; preds = %.lr.ph600, %466
+._crit_edge601:                                   ; preds = %.lr.ph600, %465
   call void @zfree(ptr noundef %100) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
-.critedge:                                        ; preds = %21, %41, %82, %91, %.loopexit750
-  %.4 = phi i32 [ 0, %82 ], [ 0, %91 ], [ %.2241, %.loopexit750 ], [ 0, %41 ], [ 0, %21 ]
+.critedge:                                        ; preds = %21, %41, %82, %91, %._crit_edge601
+  %.4 = phi i32 [ 0, %82 ], [ 0, %91 ], [ %.2241, %._crit_edge601 ], [ 0, %41 ], [ 0, %21 ]
   ret i32 %.4
 }
 
@@ -4282,19 +4282,19 @@ clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManager
   %176 = and i32 %175, 32
   %.not187 = icmp eq i32 %176, 0
   %177 = icmp sgt i32 %.0145.lcssa, 1
-  br i1 %177, label %.lr.ph371, label %.loopexit
+  br i1 %177, label %.lr.ph367, label %.loopexit
 
-.lr.ph371:                                        ; preds = %.loopexit246
+.lr.ph367:                                        ; preds = %.loopexit246
   %178 = add nsw i32 %.0145.lcssa, -1
   br label %179
 
-179:                                              ; preds = %.lr.ph371, %234
-  %.0147370 = phi i32 [ %178, %.lr.ph371 ], [ %.2149, %234 ]
-  %.0150369 = phi i32 [ 0, %.lr.ph371 ], [ %spec.select202, %234 ]
-  %180 = zext nneg i32 %.0150369 to i64
+179:                                              ; preds = %.lr.ph367, %234
+  %.0147366 = phi i32 [ %178, %.lr.ph367 ], [ %.2149, %234 ]
+  %.0150365 = phi i32 [ 0, %.lr.ph367 ], [ %spec.select202, %234 ]
+  %180 = zext nneg i32 %.0150365 to i64
   %181 = getelementptr inbounds nuw ptr, ptr %101, i64 %180
   %182 = load ptr, ptr %181, align 8, !tbaa !92
-  %183 = sext i32 %.0147370 to i64
+  %183 = sext i32 %.0147366 to i64
   %184 = getelementptr inbounds ptr, ptr %101, i64 %183
   %185 = load ptr, ptr %184, align 8, !tbaa !92
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 16516
@@ -4425,15 +4425,15 @@ clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManager
   %239 = load i32, ptr %186, align 4, !tbaa !81
   %240 = icmp eq i32 %239, 0
   %241 = zext i1 %240 to i32
-  %spec.select202 = add nuw nsw i32 %.0150369, %241
+  %spec.select202 = add nuw nsw i32 %.0150365, %241
   %242 = icmp eq i32 %237, %192
   %243 = sext i1 %242 to i32
-  %.2149 = add nsw i32 %.0147370, %243
+  %.2149 = add nsw i32 %.0147366, %243
   %244 = icmp slt i32 %spec.select202, %.2149
   br i1 %244, label %179, label %.loopexit
 
-.loopexit:                                        ; preds = %234, %233, %.loopexit246, %._crit_edge, %._crit_edge272.thread, %109
-  %.4137 = phi i32 [ 1, %._crit_edge ], [ 0, %109 ], [ 1, %._crit_edge272.thread ], [ 1, %.loopexit246 ], [ 0, %233 ], [ 1, %234 ]
+.loopexit:                                        ; preds = %233, %234, %.loopexit246, %._crit_edge, %._crit_edge272.thread, %109
+  %.4137 = phi i32 [ 1, %._crit_edge ], [ 0, %109 ], [ 1, %._crit_edge272.thread ], [ 1, %.loopexit246 ], [ 1, %234 ], [ 0, %233 ]
   %.not198 = icmp eq ptr %70, null
   br i1 %.not198, label %246, label %245
 

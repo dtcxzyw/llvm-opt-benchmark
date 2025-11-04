@@ -352,6 +352,8 @@ if.end6:                                          ; preds = %if.else, %if.then
   %y.i9.i = getelementptr inbounds nuw i8, ptr %p, i64 40
   %arrayidx103 = getelementptr inbounds nuw i8, ptr %p, i64 48
   %agg.tmp102.sroa.2.0.arrayidx103.sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 56
+  %arrayidx55.jt0 = getelementptr inbounds nuw i8, ptr %p, i64 16
+  %y.i55.jt0 = getelementptr inbounds nuw i8, ptr %p, i64 24
   br label %do.body.i35
 
 do.body.i35:                                      ; preds = %do.body.i35.backedge, %if.end6
@@ -410,12 +412,12 @@ do.body.i42:                                      ; preds = %if.end12, %do.body.
     i32 10, label %do.body.i42.backedge
     i32 9, label %do.body.i42.backedge
     i32 35, label %sw.bb
-    i32 59, label %FINISH_EDGE
+    i32 59, label %FINISH_EDGE.jt0
     i32 40, label %READ_CONTROL_POINTS
     i32 67, label %sw.epilog.loopexit
     i32 99, label %sw.epilog.loopexit
-    i32 77, label %sw.epilog.loopexit153
-    i32 109, label %sw.epilog.loopexit153
+    i32 77, label %sw.epilog.loopexit157
+    i32 109, label %sw.epilog.loopexit157
     i32 89, label %sw.epilog
     i32 121, label %sw.epilog
     i32 87, label %sw.bb40
@@ -454,11 +456,11 @@ sw.default:                                       ; preds = %do.body.i42
 sw.epilog.loopexit:                               ; preds = %do.body.i42, %do.body.i42
   br label %sw.epilog
 
-sw.epilog.loopexit153:                            ; preds = %do.body.i42, %do.body.i42
+sw.epilog.loopexit157:                            ; preds = %do.body.i42, %do.body.i42
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %do.body.i42, %do.body.i42, %sw.epilog.loopexit153, %sw.epilog.loopexit, %sw.bb40
-  %color.2 = phi i32 [ 7, %sw.bb40 ], [ 6, %sw.epilog.loopexit ], [ 5, %sw.epilog.loopexit153 ], [ 3, %do.body.i42 ], [ 3, %do.body.i42 ]
+sw.epilog:                                        ; preds = %do.body.i42, %do.body.i42, %sw.epilog.loopexit157, %sw.epilog.loopexit, %sw.bb40
+  %color.2 = phi i32 [ 7, %sw.bb40 ], [ 6, %sw.epilog.loopexit ], [ 5, %sw.epilog.loopexit157 ], [ 3, %do.body.i42 ], [ 3, %do.body.i42 ]
   store i8 1, ptr %colorsSpecified, align 1
   br label %do.body.i47
 
@@ -469,7 +471,7 @@ do.body.i47:                                      ; preds = %do.body.i47.backedg
     i32 13, label %do.body.i47.backedge
     i32 10, label %do.body.i47.backedge
     i32 9, label %do.body.i47.backedge
-    i32 59, label %FINISH_EDGE
+    i32 59, label %FINISH_EDGE.jt0
     i32 40, label %READ_CONTROL_POINTS
   ]
 
@@ -546,20 +548,33 @@ do.body.i51:                                      ; preds = %do.body.i51.backedg
 do.body.i51.backedge:                             ; preds = %do.body.i51, %do.body.i51, %do.body.i51, %do.body.i51
   br label %do.body.i51
 
-FINISH_EDGE:                                      ; preds = %do.body.i42, %do.body.i47, %do.body.i51
-  %controlPoints.0 = phi i32 [ %retval.0.i, %do.body.i51 ], [ 0, %do.body.i47 ], [ 0, %do.body.i42 ]
-  %color.0 = phi i32 [ %color.1, %do.body.i51 ], [ %color.2, %do.body.i47 ], [ 7, %do.body.i42 ]
-  %2 = zext nneg i32 %controlPoints.0 to i64
+FINISH_EDGE:                                      ; preds = %do.body.i51
+  %2 = zext nneg i32 %retval.0.i to i64
   %3 = getelementptr inbounds nuw %"struct.msdfgen::Vector2", ptr %p, i64 %2
   %arrayidx55 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %y.i55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %call.i56 = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx55, ptr noundef nonnull %y.i55)
-  switch i32 %call.i56, label %do.body.i57 [
+  switch i32 %call.i56, label %do.body.i57.preheader [
     i32 2, label %if.end71
     i32 1, label %return
   ]
 
-do.body.i57:                                      ; preds = %FINISH_EDGE, %do.body.i57.backedge
+FINISH_EDGE.jt0:                                  ; preds = %do.body.i42, %do.body.i47
+  %color.0.jt0 = phi i32 [ %color.2, %do.body.i47 ], [ 7, %do.body.i42 ]
+  %call.i56.jt0 = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx55.jt0, ptr noundef nonnull %y.i55.jt0)
+  switch i32 %call.i56.jt0, label %do.body.i57.preheader [
+    i32 2, label %sw.bb72
+    i32 1, label %return
+  ]
+
+do.body.i57.preheader:                            ; preds = %FINISH_EDGE.jt0, %FINISH_EDGE
+  %y.i55113 = phi ptr [ %y.i55.jt0, %FINISH_EDGE.jt0 ], [ %y.i55, %FINISH_EDGE ]
+  %arrayidx55112 = phi ptr [ %arrayidx55.jt0, %FINISH_EDGE.jt0 ], [ %arrayidx55, %FINISH_EDGE ]
+  %color.0109 = phi i32 [ %color.0.jt0, %FINISH_EDGE.jt0 ], [ %color.1, %FINISH_EDGE ]
+  %controlPoints.0107 = phi i32 [ 0, %FINISH_EDGE.jt0 ], [ %retval.0.i, %FINISH_EDGE ]
+  br label %do.body.i57
+
+do.body.i57:                                      ; preds = %do.body.i57.backedge, %do.body.i57.preheader
   %call.i58 = call i32 @fgetc(ptr noundef %input)
   switch i32 %call.i58, label %return [
     i32 32, label %do.body.i57.backedge
@@ -573,23 +588,26 @@ do.body.i57.backedge:                             ; preds = %do.body.i57, %do.bo
   br label %do.body.i57
 
 if.then64:                                        ; preds = %do.body.i57
-  store double %start.sroa.0.0.copyload, ptr %arrayidx55, align 16
-  store double %start.sroa.5.0.copyload, ptr %y.i55, align 8
+  store double %start.sroa.0.0.copyload, ptr %arrayidx55112, align 16
+  store double %start.sroa.5.0.copyload, ptr %y.i55113, align 8
   br label %if.end71
 
 if.end71:                                         ; preds = %FINISH_EDGE, %if.then64
-  %agg.tmp74.sroa.0.0.copyload = load double, ptr %p, align 16
-  %agg.tmp74.sroa.2.0.copyload = load double, ptr %start.sroa.5.0.p.sroa_idx, align 8
-  %agg.tmp76.sroa.0.0.copyload = load double, ptr %arrayidx14, align 16
-  %agg.tmp76.sroa.2.0.copyload = load double, ptr %y.i39, align 8
-  switch i32 %controlPoints.0, label %default.unreachable [
+  %color.0110 = phi i32 [ %color.1, %FINISH_EDGE ], [ %color.0109, %if.then64 ]
+  %controlPoints.0108 = phi i32 [ %retval.0.i, %FINISH_EDGE ], [ %controlPoints.0107, %if.then64 ]
+  switch i32 %controlPoints.0108, label %default.unreachable [
     i32 0, label %sw.bb72
     i32 1, label %sw.bb82
     i32 2, label %sw.bb94
   ]
 
-sw.bb72:                                          ; preds = %if.end71
-  %call.i61 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, i32 noundef %color.0)
+sw.bb72:                                          ; preds = %FINISH_EDGE.jt0, %if.end71
+  %color.0111 = phi i32 [ %color.0110, %if.end71 ], [ %color.0.jt0, %FINISH_EDGE.jt0 ]
+  %agg.tmp74.sroa.0.0.copyload = load double, ptr %p, align 16
+  %agg.tmp74.sroa.2.0.copyload = load double, ptr %start.sroa.5.0.p.sroa_idx, align 8
+  %agg.tmp76.sroa.0.0.copyload = load double, ptr %arrayidx14, align 16
+  %agg.tmp76.sroa.2.0.copyload = load double, ptr %y.i39, align 8
+  %call.i61 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, i32 noundef %color.0111)
   store ptr %call.i61, ptr %ref.tmp73, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp73)
           to label %invoke.cont79 unwind label %lpad78
@@ -605,9 +623,13 @@ lpad78:                                           ; preds = %sw.bb72
   br label %eh.resume
 
 sw.bb82:                                          ; preds = %if.end71
+  %agg.tmp84.sroa.0.0.copyload = load double, ptr %p, align 16
+  %agg.tmp84.sroa.2.0.copyload = load double, ptr %start.sroa.5.0.p.sroa_idx, align 8
+  %agg.tmp86.sroa.0.0.copyload = load double, ptr %arrayidx14, align 16
+  %agg.tmp86.sroa.2.0.copyload = load double, ptr %y.i39, align 8
   %agg.tmp88.sroa.0.0.copyload = load double, ptr %arrayidx3.i, align 16
   %agg.tmp88.sroa.2.0.copyload = load double, ptr %y.i9.i, align 8
-  %call.i62 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, double %agg.tmp88.sroa.0.0.copyload, double %agg.tmp88.sroa.2.0.copyload, i32 noundef %color.0)
+  %call.i62 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %agg.tmp84.sroa.0.0.copyload, double %agg.tmp84.sroa.2.0.copyload, double %agg.tmp86.sroa.0.0.copyload, double %agg.tmp86.sroa.2.0.copyload, double %agg.tmp88.sroa.0.0.copyload, double %agg.tmp88.sroa.2.0.copyload, i32 noundef %color.0110)
   store ptr %call.i62, ptr %ref.tmp83, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp83)
           to label %invoke.cont91 unwind label %lpad90
@@ -623,11 +645,15 @@ lpad90:                                           ; preds = %sw.bb82
   br label %eh.resume
 
 sw.bb94:                                          ; preds = %if.end71
+  %agg.tmp96.sroa.0.0.copyload = load double, ptr %p, align 16
+  %agg.tmp96.sroa.2.0.copyload = load double, ptr %start.sroa.5.0.p.sroa_idx, align 8
+  %agg.tmp98.sroa.0.0.copyload = load double, ptr %arrayidx14, align 16
+  %agg.tmp98.sroa.2.0.copyload = load double, ptr %y.i39, align 8
   %agg.tmp100.sroa.0.0.copyload = load double, ptr %arrayidx3.i, align 16
   %agg.tmp100.sroa.2.0.copyload = load double, ptr %y.i9.i, align 8
   %agg.tmp102.sroa.0.0.copyload = load double, ptr %arrayidx103, align 16
   %agg.tmp102.sroa.2.0.copyload = load double, ptr %agg.tmp102.sroa.2.0.arrayidx103.sroa_idx, align 8
-  %call.i63 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, double %agg.tmp100.sroa.0.0.copyload, double %agg.tmp100.sroa.2.0.copyload, double %agg.tmp102.sroa.0.0.copyload, double %agg.tmp102.sroa.2.0.copyload, i32 noundef %color.0)
+  %call.i63 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %agg.tmp96.sroa.0.0.copyload, double %agg.tmp96.sroa.2.0.copyload, double %agg.tmp98.sroa.0.0.copyload, double %agg.tmp98.sroa.2.0.copyload, double %agg.tmp100.sroa.0.0.copyload, double %agg.tmp100.sroa.2.0.copyload, double %agg.tmp102.sroa.0.0.copyload, double %agg.tmp102.sroa.2.0.copyload, i32 noundef %color.0110)
   store ptr %call.i63, ptr %ref.tmp95, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95)
           to label %invoke.cont105 unwind label %lpad104
@@ -642,8 +668,8 @@ lpad104:                                          ; preds = %sw.bb94
           cleanup
   br label %eh.resume
 
-return:                                           ; preds = %sw.epilog.i, %READ_CONTROL_POINTS, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38, %FINISH_EDGE, %if.end12, %do.body.i47, %do.body.i.i, %do.body.i11.i, %do.body.i15.i, %do.body.i51, %do.body.i57, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit, %if.else, %sw.default
-  %retval.0 = phi i1 [ %cmp41, %sw.default ], [ %cmp5, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit ], [ false, %if.else ], [ false, %do.body.i57 ], [ false, %do.body.i51 ], [ false, %do.body.i15.i ], [ false, %do.body.i11.i ], [ false, %do.body.i.i ], [ false, %do.body.i47 ], [ %cmp9.not, %if.end12 ], [ %cmp9.not, %FINISH_EDGE ], [ %cmp9.not, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38 ], [ %cmp9.not, %READ_CONTROL_POINTS ], [ %cmp9.not, %sw.epilog.i ]
+return:                                           ; preds = %sw.epilog.i, %READ_CONTROL_POINTS, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38, %FINISH_EDGE, %if.end12, %FINISH_EDGE.jt0, %do.body.i47, %do.body.i.i, %do.body.i11.i, %do.body.i15.i, %do.body.i51, %do.body.i57, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit, %if.else, %sw.default
+  %retval.0 = phi i1 [ %cmp41, %sw.default ], [ %cmp5, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit ], [ false, %if.else ], [ false, %do.body.i57 ], [ false, %do.body.i51 ], [ false, %do.body.i15.i ], [ false, %do.body.i11.i ], [ false, %do.body.i.i ], [ false, %do.body.i47 ], [ %cmp9.not, %FINISH_EDGE.jt0 ], [ %cmp9.not, %if.end12 ], [ %cmp9.not, %FINISH_EDGE ], [ %cmp9.not, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38 ], [ %cmp9.not, %READ_CONTROL_POINTS ], [ %cmp9.not, %sw.epilog.i ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad104, %lpad90, %lpad78, %lpad32, %lpad

@@ -314,7 +314,7 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   %28 = icmp eq i32 %27, 0
   br label %32
 
-29:                                               ; preds = %127
+29:                                               ; preds = %129
   %30 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %8, i32 noundef 0) #8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %.loopexit28, !prof !24
@@ -337,7 +337,7 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 4
   br label %46
 
-46:                                               ; preds = %127, %35
+46:                                               ; preds = %129, %35
   call void @_raw_spin_lock(ptr noundef nonnull %40) #8
   br i1 %41, label %48, label %47
 
@@ -383,73 +383,88 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   %68 = add i32 %67, 1
   store i32 %68, ptr %66, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !27
-  br i1 %26, label %69, label %100, !prof !16
+  br i1 %26, label %69, label %.thread22.jt4294967282, !prof !16
 
 69:                                               ; preds = %62
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !28
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (20*32+ 2)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09lfence\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !29
-  switch i32 %16, label %96 [
+  switch i32 %16, label %91 [
     i32 0, label %70
-    i32 1, label %75
-    i32 2, label %80
-    i32 3, label %85
-    i32 4, label %91
+    i32 1, label %74
+    i32 2, label %78
+    i32 3, label %82
+    i32 4, label %87
   ]
 
 70:                                               ; preds = %69
   %71 = call { i32, i32 } asm sideeffect "1:\09xchgl $0, $2\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,=r,=*m,0,1,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %63, i32 0, ptr elementtype(i32) %2) #8, !srcloc !30
   %72 = extractvalue { i32, i32 } %71, 1
   %73 = icmp eq i32 %72, 0
-  %74 = extractvalue { i32, i32 } %71, 0
-  br i1 %73, label %97, label %99
+  br i1 %73, label %.split.loop.exit197, label %99
 
-75:                                               ; preds = %69
-  %76 = call { i32, i32 } asm sideeffect "1:\09.pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $2\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,=r,=*m,0,1,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %63, i32 0, ptr elementtype(i32) %2) #8, !srcloc !31
-  %77 = extractvalue { i32, i32 } %76, 1
-  %78 = icmp eq i32 %77, 0
-  %79 = extractvalue { i32, i32 } %76, 0
-  br i1 %78, label %97, label %99
+74:                                               ; preds = %69
+  %75 = call { i32, i32 } asm sideeffect "1:\09.pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $2\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,=r,=*m,0,1,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %63, i32 0, ptr elementtype(i32) %2) #8, !srcloc !31
+  %76 = extractvalue { i32, i32 } %75, 1
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %.split.loop.exit189, label %99
 
-80:                                               ; preds = %69
-  %81 = call { i32, i32, i32 } asm sideeffect "1:\09movl\09$2, $0\0A2:\09movl\09$0, $3\0A\09orl $4, $3\0A3:\09.pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $2\0A\09jnz\092b\0A4:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (3b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=&{ax},=&r,=*m,=&r,r,1,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %63, i32 0, ptr elementtype(i32) %2) #8, !srcloc !32
-  %82 = extractvalue { i32, i32, i32 } %81, 1
-  %83 = icmp eq i32 %82, 0
-  %84 = extractvalue { i32, i32, i32 } %81, 0
-  br i1 %83, label %97, label %99
+78:                                               ; preds = %69
+  %79 = call { i32, i32, i32 } asm sideeffect "1:\09movl\09$2, $0\0A2:\09movl\09$0, $3\0A\09orl $4, $3\0A3:\09.pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $2\0A\09jnz\092b\0A4:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (3b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=&{ax},=&r,=*m,=&r,r,1,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %63, i32 0, ptr elementtype(i32) %2) #8, !srcloc !32
+  %80 = extractvalue { i32, i32, i32 } %79, 1
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %.split.loop.exit181, label %99
 
-85:                                               ; preds = %69
-  %86 = xor i32 %63, -1
-  %87 = call { i32, i32, i32 } asm sideeffect "1:\09movl\09$2, $0\0A2:\09movl\09$0, $3\0A\09andl $4, $3\0A3:\09.pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $2\0A\09jnz\092b\0A4:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (3b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=&{ax},=&r,=*m,=&r,r,1,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %86, i32 0, ptr elementtype(i32) %2) #8, !srcloc !33
-  %88 = extractvalue { i32, i32, i32 } %87, 1
-  %89 = icmp eq i32 %88, 0
-  %90 = extractvalue { i32, i32, i32 } %87, 0
-  br i1 %89, label %97, label %99
+82:                                               ; preds = %69
+  %83 = xor i32 %63, -1
+  %84 = call { i32, i32, i32 } asm sideeffect "1:\09movl\09$2, $0\0A2:\09movl\09$0, $3\0A\09andl $4, $3\0A3:\09.pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $2\0A\09jnz\092b\0A4:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (3b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=&{ax},=&r,=*m,=&r,r,1,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %83, i32 0, ptr elementtype(i32) %2) #8, !srcloc !33
+  %85 = extractvalue { i32, i32, i32 } %84, 1
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %.split.loop.exit173, label %99
+
+87:                                               ; preds = %69
+  %88 = call { i32, i32, i32 } asm sideeffect "1:\09movl\09$2, $0\0A2:\09movl\09$0, $3\0A\09xorl $4, $3\0A3:\09.pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $2\0A\09jnz\092b\0A4:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (3b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=&{ax},=&r,=*m,=&r,r,1,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %63, i32 0, ptr elementtype(i32) %2) #8, !srcloc !34
+  %89 = extractvalue { i32, i32, i32 } %88, 1
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %.split.loop.exit, label %99
 
 91:                                               ; preds = %69
-  %92 = call { i32, i32, i32 } asm sideeffect "1:\09movl\09$2, $0\0A2:\09movl\09$0, $3\0A\09xorl $4, $3\0A3:\09.pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $2\0A\09jnz\092b\0A4:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (3b) - .\0A .long (4b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$1, type=(17 $| ((-14) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=&{ax},=&r,=*m,=&r,r,1,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %63, i32 0, ptr elementtype(i32) %2) #8, !srcloc !34
-  %93 = extractvalue { i32, i32, i32 } %92, 1
-  %94 = icmp eq i32 %93, 0
-  %95 = extractvalue { i32, i32, i32 } %92, 0
-  br i1 %94, label %97, label %99
-
-96:                                               ; preds = %69
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !35
   br label %100
 
-97:                                               ; preds = %91, %85, %80, %75, %70
-  %98 = phi i32 [ %95, %91 ], [ %90, %85 ], [ %84, %80 ], [ %79, %75 ], [ %74, %70 ]
+.split.loop.exit:                                 ; preds = %87
+  %92 = extractvalue { i32, i32, i32 } %88, 0
+  br label %97
+
+.split.loop.exit173:                              ; preds = %82
+  %93 = extractvalue { i32, i32, i32 } %84, 0
+  br label %97
+
+.split.loop.exit181:                              ; preds = %78
+  %94 = extractvalue { i32, i32, i32 } %79, 0
+  br label %97
+
+.split.loop.exit189:                              ; preds = %74
+  %95 = extractvalue { i32, i32 } %75, 0
+  br label %97
+
+.split.loop.exit197:                              ; preds = %70
+  %96 = extractvalue { i32, i32 } %71, 0
+  br label %97
+
+97:                                               ; preds = %.split.loop.exit197, %.split.loop.exit189, %.split.loop.exit181, %.split.loop.exit173, %.split.loop.exit
+  %98 = phi i32 [ %92, %.split.loop.exit ], [ %93, %.split.loop.exit173 ], [ %94, %.split.loop.exit181 ], [ %95, %.split.loop.exit189 ], [ %96, %.split.loop.exit197 ]
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !35
   br label %100
 
-99:                                               ; preds = %91, %85, %80, %75, %70
+99:                                               ; preds = %87, %82, %78, %74, %70
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !35
-  br label %100
+  br label %.thread22.jt4294967282
 
-100:                                              ; preds = %99, %97, %96, %62
-  %101 = phi i32 [ 0, %96 ], [ %98, %97 ], [ 0, %99 ], [ 0, %62 ]
-  %102 = phi i1 [ false, %96 ], [ true, %97 ], [ false, %99 ], [ false, %62 ]
-  %103 = phi i1 [ true, %96 ], [ false, %97 ], [ true, %99 ], [ true, %62 ]
-  %104 = phi i32 [ -38, %96 ], [ 0, %97 ], [ -14, %99 ], [ -14, %62 ]
+100:                                              ; preds = %97, %91
+  %101 = phi i32 [ 0, %91 ], [ %98, %97 ]
+  %102 = phi i1 [ false, %91 ], [ true, %97 ]
+  %103 = phi i1 [ true, %91 ], [ false, %97 ]
+  %104 = phi i32 [ -38, %91 ], [ 0, %97 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !36
   %105 = load i32, ptr %66, align 4
   %106 = add i32 %105, -1
@@ -457,7 +472,7 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %102, label %107, label %120
 
 107:                                              ; preds = %100
-  switch i32 %18, label %.thread22 [
+  switch i32 %18, label %.thread22.jt4294967258 [
     i32 0, label %108
     i32 1, label %110
     i32 2, label %112
@@ -491,191 +506,197 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.thread
 
 120:                                              ; preds = %100
-  br i1 %103, label %.thread22, label %.thread, !prof !37
+  br i1 %103, label %.thread22.jt4294967258, label %.thread, !prof !37
 
-.thread22:                                        ; preds = %107, %120
-  %121 = phi i32 [ %104, %120 ], [ -38, %107 ]
+.thread22.jt4294967282:                           ; preds = %62, %99
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !36
+  %121 = load i32, ptr %66, align 4
+  %122 = add i32 %121, -1
+  store i32 %122, ptr %66, align 4
   call void @_raw_spin_unlock(ptr noundef nonnull %44) #8
-  br i1 %41, label %123, label %122
+  br i1 %41, label %126, label %124
 
-122:                                              ; preds = %.thread22
+.thread22.jt4294967258:                           ; preds = %107, %120
+  %123 = phi i32 [ -38, %107 ], [ %104, %120 ]
+  call void @_raw_spin_unlock(ptr noundef nonnull %44) #8
+  br i1 %41, label %.loopexit28, label %125
+
+124:                                              ; preds = %.thread22.jt4294967282
   call void @_raw_spin_unlock(ptr noundef nonnull %45) #8
-  br label %123
+  br label %126
 
-123:                                              ; preds = %122, %.thread22
-  switch i32 %121, label %.loopexit28 [
-    i32 -14, label %124
-    i32 -11, label %127
-  ]
+125:                                              ; preds = %.thread22.jt4294967258
+  call void @_raw_spin_unlock(ptr noundef nonnull %45) #8
+  br label %.loopexit28
 
-124:                                              ; preds = %123
-  %125 = call i32 @fault_in_user_writeable(ptr noundef %2) #8
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %.loopexit28
+126:                                              ; preds = %.thread22.jt4294967282, %124
+  %127 = call i32 @fault_in_user_writeable(ptr noundef %2) #8
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %.loopexit28
 
-127:                                              ; preds = %124, %123
-  %128 = call i32 @__SCT__cond_resched() #8
+129:                                              ; preds = %126
+  %130 = call i32 @__SCT__cond_resched() #8
   br i1 %28, label %46, label %29
 
 .thread:                                          ; preds = %120, %108, %110, %112, %114, %116, %118
   %.shrunk = phi i1 [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ false, %120 ]
-  %129 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp eq ptr %130, %129
-  br i1 %131, label %.loopexit26, label %132
+  %131 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = icmp eq ptr %132, %131
+  br i1 %133, label %.loopexit26, label %134
 
-132:                                              ; preds = %.thread
-  %133 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %134 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  br label %135
+134:                                              ; preds = %.thread
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  br label %137
 
-135:                                              ; preds = %.critedge, %132
-  %136 = phi ptr [ %130, %132 ], [ %139, %.critedge ]
-  %137 = phi i32 [ 0, %132 ], [ %168, %.critedge ]
-  %138 = getelementptr i8, ptr %136, i64 -24
-  %139 = load ptr, ptr %136, align 8
-  %140 = getelementptr i8, ptr %136, i64 48
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %.critedge, label %142
+137:                                              ; preds = %.critedge, %134
+  %138 = phi ptr [ %132, %134 ], [ %141, %.critedge ]
+  %139 = phi i32 [ 0, %134 ], [ %170, %.critedge ]
+  %140 = getelementptr i8, ptr %138, i64 -24
+  %141 = load ptr, ptr %138, align 8
+  %142 = getelementptr i8, ptr %138, i64 48
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %.critedge, label %144
 
-142:                                              ; preds = %135
-  %143 = getelementptr i8, ptr %136, i64 56
-  %144 = load i64, ptr %143, align 8
-  %145 = load i64, ptr %133, align 8
-  %146 = icmp eq i64 %144, %145
-  br i1 %146, label %147, label %.critedge
+144:                                              ; preds = %137
+  %145 = getelementptr i8, ptr %138, i64 56
+  %146 = load i64, ptr %145, align 8
+  %147 = load i64, ptr %135, align 8
+  %148 = icmp eq i64 %146, %147
+  br i1 %148, label %149, label %.critedge
 
-147:                                              ; preds = %142
-  %148 = load i64, ptr %140, align 8
-  %149 = load i64, ptr %8, align 8
-  %150 = icmp eq i64 %148, %149
-  br i1 %150, label %151, label %.critedge
+149:                                              ; preds = %144
+  %150 = load i64, ptr %142, align 8
+  %151 = load i64, ptr %8, align 8
+  %152 = icmp eq i64 %150, %151
+  br i1 %152, label %153, label %.critedge
 
-151:                                              ; preds = %147
-  %152 = getelementptr i8, ptr %136, i64 64
-  %153 = load i32, ptr %152, align 8
-  %154 = load i32, ptr %134, align 8
-  %.not = icmp eq i32 %153, %154
-  br i1 %.not, label %155, label %.critedge
+153:                                              ; preds = %149
+  %154 = getelementptr i8, ptr %138, i64 64
+  %155 = load i32, ptr %154, align 8
+  %156 = load i32, ptr %136, align 8
+  %.not = icmp eq i32 %155, %156
+  br i1 %.not, label %157, label %.critedge
 
-155:                                              ; preds = %151
-  %156 = getelementptr i8, ptr %136, i64 72
-  %157 = load ptr, ptr %156, align 8
-  %158 = icmp eq ptr %157, null
-  br i1 %158, label %159, label %.loopexit
+157:                                              ; preds = %153
+  %158 = getelementptr i8, ptr %138, i64 72
+  %159 = load ptr, ptr %158, align 8
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %161, label %.loopexit
 
-159:                                              ; preds = %155
-  %160 = getelementptr i8, ptr %136, i64 80
-  %161 = load ptr, ptr %160, align 8
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %163, label %.loopexit
+161:                                              ; preds = %157
+  %162 = getelementptr i8, ptr %138, i64 80
+  %163 = load ptr, ptr %162, align 8
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %165, label %.loopexit
 
-163:                                              ; preds = %159
-  %164 = getelementptr i8, ptr %136, i64 32
-  %165 = load ptr, ptr %164, align 8
-  call void %165(ptr noundef nonnull %10, ptr noundef %138) #8
-  %166 = add i32 %137, 1
-  %167 = icmp slt i32 %166, %3
-  br i1 %167, label %.critedge, label %.loopexit26
+165:                                              ; preds = %161
+  %166 = getelementptr i8, ptr %138, i64 32
+  %167 = load ptr, ptr %166, align 8
+  call void %167(ptr noundef nonnull %10, ptr noundef %140) #8
+  %168 = add i32 %139, 1
+  %169 = icmp slt i32 %168, %3
+  br i1 %169, label %.critedge, label %.loopexit26
 
-.critedge:                                        ; preds = %147, %142, %135, %163, %151
-  %168 = phi i32 [ %166, %163 ], [ %137, %151 ], [ %137, %135 ], [ %137, %142 ], [ %137, %147 ]
-  %169 = icmp eq ptr %139, %129
-  br i1 %169, label %.loopexit26, label %135, !llvm.loop !38
+.critedge:                                        ; preds = %149, %144, %137, %165, %153
+  %170 = phi i32 [ %168, %165 ], [ %139, %153 ], [ %139, %137 ], [ %139, %144 ], [ %139, %149 ]
+  %171 = icmp eq ptr %141, %131
+  br i1 %171, label %.loopexit26, label %137, !llvm.loop !38
 
-.loopexit26:                                      ; preds = %.critedge, %163, %.thread
-  %170 = phi i32 [ 0, %.thread ], [ %166, %163 ], [ %168, %.critedge ]
-  br i1 %.shrunk, label %171, label %.loopexit
+.loopexit26:                                      ; preds = %.critedge, %165, %.thread
+  %172 = phi i32 [ 0, %.thread ], [ %168, %165 ], [ %170, %.critedge ]
+  br i1 %.shrunk, label %173, label %.loopexit
 
-171:                                              ; preds = %.loopexit26
-  %172 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %173 = load ptr, ptr %172, align 8
-  %174 = icmp eq ptr %173, %172
-  br i1 %174, label %.loopexit24, label %175
+173:                                              ; preds = %.loopexit26
+  %174 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = icmp eq ptr %175, %174
+  br i1 %176, label %.loopexit24, label %177
 
-175:                                              ; preds = %171
-  %176 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %177 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  br label %178
+177:                                              ; preds = %173
+  %178 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  br label %180
 
-178:                                              ; preds = %.critedge21, %175
-  %179 = phi ptr [ %173, %175 ], [ %182, %.critedge21 ]
-  %180 = phi i32 [ 0, %175 ], [ %211, %.critedge21 ]
-  %181 = getelementptr i8, ptr %179, i64 -24
-  %182 = load ptr, ptr %179, align 8
-  %183 = getelementptr i8, ptr %179, i64 48
-  %184 = icmp eq ptr %183, null
-  br i1 %184, label %.critedge21, label %185
+180:                                              ; preds = %.critedge21, %177
+  %181 = phi ptr [ %175, %177 ], [ %184, %.critedge21 ]
+  %182 = phi i32 [ 0, %177 ], [ %213, %.critedge21 ]
+  %183 = getelementptr i8, ptr %181, i64 -24
+  %184 = load ptr, ptr %181, align 8
+  %185 = getelementptr i8, ptr %181, i64 48
+  %186 = icmp eq ptr %185, null
+  br i1 %186, label %.critedge21, label %187
 
-185:                                              ; preds = %178
-  %186 = getelementptr i8, ptr %179, i64 56
-  %187 = load i64, ptr %186, align 8
-  %188 = load i64, ptr %176, align 8
-  %189 = icmp eq i64 %187, %188
-  br i1 %189, label %190, label %.critedge21
+187:                                              ; preds = %180
+  %188 = getelementptr i8, ptr %181, i64 56
+  %189 = load i64, ptr %188, align 8
+  %190 = load i64, ptr %178, align 8
+  %191 = icmp eq i64 %189, %190
+  br i1 %191, label %192, label %.critedge21
 
-190:                                              ; preds = %185
-  %191 = load i64, ptr %183, align 8
-  %192 = load i64, ptr %9, align 8
-  %193 = icmp eq i64 %191, %192
-  br i1 %193, label %194, label %.critedge21
+192:                                              ; preds = %187
+  %193 = load i64, ptr %185, align 8
+  %194 = load i64, ptr %9, align 8
+  %195 = icmp eq i64 %193, %194
+  br i1 %195, label %196, label %.critedge21
 
-194:                                              ; preds = %190
-  %195 = getelementptr i8, ptr %179, i64 64
-  %196 = load i32, ptr %195, align 8
-  %197 = load i32, ptr %177, align 8
-  %.not23 = icmp eq i32 %196, %197
-  br i1 %.not23, label %198, label %.critedge21
+196:                                              ; preds = %192
+  %197 = getelementptr i8, ptr %181, i64 64
+  %198 = load i32, ptr %197, align 8
+  %199 = load i32, ptr %179, align 8
+  %.not23 = icmp eq i32 %198, %199
+  br i1 %.not23, label %200, label %.critedge21
 
-198:                                              ; preds = %194
-  %199 = getelementptr i8, ptr %179, i64 72
-  %200 = load ptr, ptr %199, align 8
-  %201 = icmp eq ptr %200, null
-  br i1 %201, label %202, label %.loopexit
+200:                                              ; preds = %196
+  %201 = getelementptr i8, ptr %181, i64 72
+  %202 = load ptr, ptr %201, align 8
+  %203 = icmp eq ptr %202, null
+  br i1 %203, label %204, label %.loopexit
 
-202:                                              ; preds = %198
-  %203 = getelementptr i8, ptr %179, i64 80
-  %204 = load ptr, ptr %203, align 8
-  %205 = icmp eq ptr %204, null
-  br i1 %205, label %206, label %.loopexit
+204:                                              ; preds = %200
+  %205 = getelementptr i8, ptr %181, i64 80
+  %206 = load ptr, ptr %205, align 8
+  %207 = icmp eq ptr %206, null
+  br i1 %207, label %208, label %.loopexit
 
-206:                                              ; preds = %202
-  %207 = getelementptr i8, ptr %179, i64 32
-  %208 = load ptr, ptr %207, align 8
-  call void %208(ptr noundef nonnull %10, ptr noundef %181) #8
-  %209 = add i32 %180, 1
-  %210 = icmp slt i32 %209, %4
-  br i1 %210, label %.critedge21, label %.loopexit24
+208:                                              ; preds = %204
+  %209 = getelementptr i8, ptr %181, i64 32
+  %210 = load ptr, ptr %209, align 8
+  call void %210(ptr noundef nonnull %10, ptr noundef %183) #8
+  %211 = add i32 %182, 1
+  %212 = icmp slt i32 %211, %4
+  br i1 %212, label %.critedge21, label %.loopexit24
 
-.critedge21:                                      ; preds = %190, %185, %178, %206, %194
-  %211 = phi i32 [ %209, %206 ], [ %180, %194 ], [ %180, %178 ], [ %180, %185 ], [ %180, %190 ]
-  %212 = icmp eq ptr %182, %172
-  br i1 %212, label %.loopexit24, label %178, !llvm.loop !39
+.critedge21:                                      ; preds = %192, %187, %180, %208, %196
+  %213 = phi i32 [ %211, %208 ], [ %182, %196 ], [ %182, %180 ], [ %182, %187 ], [ %182, %192 ]
+  %214 = icmp eq ptr %184, %174
+  br i1 %214, label %.loopexit24, label %180, !llvm.loop !39
 
-.loopexit24:                                      ; preds = %.critedge21, %206, %171
-  %213 = phi i32 [ 0, %171 ], [ %209, %206 ], [ %211, %.critedge21 ]
-  %214 = add i32 %213, %170
+.loopexit24:                                      ; preds = %.critedge21, %208, %173
+  %215 = phi i32 [ 0, %173 ], [ %211, %208 ], [ %213, %.critedge21 ]
+  %216 = add i32 %215, %172
   br label %.loopexit
 
-.loopexit:                                        ; preds = %159, %155, %202, %198, %.loopexit24, %.loopexit26
-  %215 = phi i32 [ %214, %.loopexit24 ], [ %170, %.loopexit26 ], [ -22, %198 ], [ -22, %202 ], [ -22, %155 ], [ -22, %159 ]
+.loopexit:                                        ; preds = %161, %157, %204, %200, %.loopexit24, %.loopexit26
+  %217 = phi i32 [ %216, %.loopexit24 ], [ %172, %.loopexit26 ], [ -22, %200 ], [ -22, %204 ], [ -22, %157 ], [ -22, %161 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %44) #8
-  br i1 %41, label %217, label %216
+  br i1 %41, label %219, label %218
 
-216:                                              ; preds = %.loopexit
+218:                                              ; preds = %.loopexit
   call void @_raw_spin_unlock(ptr noundef nonnull %45) #8
-  br label %217
+  br label %219
 
-217:                                              ; preds = %216, %.loopexit
+219:                                              ; preds = %218, %.loopexit
   call void @wake_up_q(ptr noundef nonnull %10) #8
   br label %.loopexit28
 
-.loopexit28:                                      ; preds = %32, %29, %124, %123, %217, %6
-  %218 = phi i32 [ %215, %217 ], [ %12, %6 ], [ %125, %124 ], [ %121, %123 ], [ %30, %29 ], [ %33, %32 ]
+.loopexit28:                                      ; preds = %32, %29, %126, %125, %.thread22.jt4294967258, %219, %6
+  %220 = phi i32 [ %217, %219 ], [ %12, %6 ], [ %123, %125 ], [ %123, %.thread22.jt4294967258 ], [ %127, %126 ], [ %30, %29 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i32 %218
+  ret i32 %220
 }
 
 ; Function Attrs: null_pointer_is_valid

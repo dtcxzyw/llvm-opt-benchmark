@@ -5396,7 +5396,7 @@ define dso_local void @_ZN4llvm8coverage15CoverageMapping18loadFunctionRecordERK
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %67, ptr noundef nonnull align 8 dereferenceable(34) %39) #30, !noalias !309
   call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !309
   store ptr %63, ptr %0, align 8, !tbaa !107, !alias.scope !306
-  br label %1322
+  br label %1347
 
 68:                                               ; preds = %4
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -5734,7 +5734,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i:            ; preds = %_ZSt6fill_nIPmmmET_
 
 _ZN4llvm5ErrorD2Ev.exit125:                       ; preds = %.critedge, %194
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  br label %1311
+  br label %1336
 
 _ZNSt6vectorImSaImEE14_M_fill_assignEmRKm.exit:   ; preds = %191, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i, %173, %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i
   %.pr = load ptr, ptr %42, align 8, !tbaa !107
@@ -6161,7 +6161,7 @@ _ZN4llvm15SmallVectorImplImEaSEOS1_.exit:         ; preds = %_ZN4llvm15SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit147:                       ; preds = %.critedge109, %354
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  br label %1307
+  br label %1332
 
 358:                                              ; preds = %351, %_ZN4llvm15SmallVectorImplImEaSEOS1_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
@@ -6291,7 +6291,7 @@ _ZN4llvm15SmallVectorImplImEaSEOS1_.exit229:      ; preds = %_ZN4llvm15SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit149:                       ; preds = %405
   store ptr null, ptr %0, align 8, !tbaa !107
-  br label %1307
+  br label %1332
 
 408:                                              ; preds = %405, %401, %_ZN4llvm15SmallVectorImplImEaSEOS1_.exit229
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
@@ -6390,7 +6390,7 @@ _ZN4llvm8coverage14FunctionRecordC2ENS_9StringRefENS_8ArrayRefIS2_EE.exit: ; pre
   br label %456
 
 456:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread
-  %.095394 = phi ptr [ %432, %.lr.ph ], [ %1232, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread ]
+  %.095394 = phi ptr [ %432, %.lr.ph ], [ %1257, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread ]
   %457 = getelementptr inbounds nuw i8, ptr %.095394, i64 52
   %458 = load i32, ptr %457, align 4, !tbaa !370
   %459 = icmp eq i32 %458, 5
@@ -6475,7 +6475,7 @@ _ZN4llvm5ErrorD2Ev.exit153:                       ; preds = %492, %488
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   store ptr null, ptr %0, align 8, !tbaa !107
-  br label %1224
+  br label %1246
 
 _ZN4llvm5ErrorD2Ev.exit154:                       ; preds = %484, %_ZN4llvm8ExpectedIlE9takeErrorEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
@@ -6514,7 +6514,7 @@ _ZN4llvm5ErrorD2Ev.exit162:                       ; preds = %503, %499
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   store ptr null, ptr %0, align 8, !tbaa !107
-  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
+  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt1
 
 _ZN4llvm5ErrorD2Ev.exit163:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit154, %_ZN4llvm8ExpectedIlE9takeErrorEv.exit157
   %507 = phi i64 [ %.pre430, %_ZN4llvm5ErrorD2Ev.exit154 ], [ 0, %_ZN4llvm8ExpectedIlE9takeErrorEv.exit157 ]
@@ -6751,7 +6751,7 @@ _ZNSt6vectorIN4llvm8coverage13CountedRegionESaIS2_EE17_M_realloc_insertIJRNS1_20
 _ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmm.exit: ; preds = %_ZNSt6vectorIN4llvm8coverage13CountedRegionESaIS2_EE17_M_realloc_insertIJRNS1_20CounterMappingRegionERmS8_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %558, %_ZNSt6vectorIN4llvm8coverage13CountedRegionESaIS2_EE12emplace_backIJRNS1_20CounterMappingRegionERmS8_EEERS2_DpOT_.exit247
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9329)
   %588 = load i32, ptr %457, align 4, !tbaa !370
-  switch i32 %588, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit [
+  switch i32 %588, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0 [
     i32 1, label %589
     i32 6, label %940
   ]
@@ -6868,7 +6868,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordEx
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbERKjDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.526") align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %643, ptr noundef nonnull align 4 dereferenceable(4) %644, ptr noundef nonnull align 1 dereferenceable(1) %26), !noalias !442
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !442
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !442
-  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
+  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0
 
 .loopexit173.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i.i
   %645 = getelementptr inbounds nuw i8, ptr %.029193.i.i.i.i.i.i.i, i64 144
@@ -6954,7 +6954,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordEx
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbERKjDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.526") align 8 %25, ptr noundef nonnull align 8 dereferenceable(24) %688, ptr noundef nonnull align 4 dereferenceable(4) %689, ptr noundef nonnull align 1 dereferenceable(1) %24), !noalias !445
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !445
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !445
-  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
+  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0
 
 .loopexit172.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i38.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i42.i.i.i.i.i.i.i, %.critedge.i.i.i.i36.i.i.i.i.i.i.i
   %690 = getelementptr inbounds nuw i8, ptr %.029193.i.i.i.i.i.i.i, i64 288
@@ -7040,7 +7040,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordEx
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbERKjDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.526") align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %733, ptr noundef nonnull align 4 dereferenceable(4) %734, ptr noundef nonnull align 1 dereferenceable(1) %22), !noalias !448
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !448
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !448
-  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
+  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0
 
 .loopexit171.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i59.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i63.i.i.i.i.i.i.i, %.critedge.i.i.i.i57.i.i.i.i.i.i.i
   %735 = getelementptr inbounds nuw i8, ptr %.029193.i.i.i.i.i.i.i, i64 432
@@ -7126,7 +7126,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordEx
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbERKjDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.526") align 8 %21, ptr noundef nonnull align 8 dereferenceable(24) %778, ptr noundef nonnull align 4 dereferenceable(4) %779, ptr noundef nonnull align 1 dereferenceable(1) %20), !noalias !451
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !451
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !451
-  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
+  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0
 
 .loopexit170.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i80.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i84.i.i.i.i.i.i.i, %.critedge.i.i.i.i78.i.i.i.i.i.i.i
   %780 = getelementptr inbounds nuw i8, ptr %.029193.i.i.i.i.i.i.i, i64 576
@@ -7142,7 +7142,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordEx
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %589
   %.pre-phi211.i.i.i.i.i.i.i = phi i64 [ %783, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %590, %589 ]
   %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val121, %589 ]
-  switch i64 %.pre-phi211.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit [
+  switch i64 %.pre-phi211.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0 [
     i64 3, label %784
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge206.i.i.i.i.i.i.i
@@ -7254,7 +7254,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordEx
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbERKjDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.526") align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %834, ptr noundef nonnull align 4 dereferenceable(4) %835, ptr noundef nonnull align 1 dereferenceable(1) %18), !noalias !455
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !455
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !455
-  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
+  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0
 
 .loopexit169.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i101.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i105.i.i.i.i.i.i.i, %.critedge.i.i.i.i99.i.i.i.i.i.i.i
   %836 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 144
@@ -7356,7 +7356,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordEx
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbERKjDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.526") align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %886, ptr noundef nonnull align 4 dereferenceable(4) %887, ptr noundef nonnull align 1 dereferenceable(1) %16), !noalias !458
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !458
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !458
-  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
+  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i.i.i122.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i126.i.i.i.i.i.i.i, %.critedge.i.i.i.i120.i.i.i.i.i.i.i
   %888 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i, i64 144
@@ -7415,7 +7415,7 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i.i156.i.i.i.i.i.i.i: ; preds = %
   %918 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i.i, i64 136
   %919 = load i32, ptr %918, align 8, !tbaa !440
   %920 = icmp eq i32 %919, 0
-  br i1 %920, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit, label %921
+  br i1 %920, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0, label %921
 
 921:                                              ; preds = %.critedge.i.i.i.i141.i.i.i.i.i.i.i
   %922 = mul i32 %890, 37
@@ -7432,7 +7432,7 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i.i156.i.i.i.i.i.i.i: ; preds = %
   %.01730.i.i.i.i.i.i.i.i144.i.i.i.i.i.i.i = phi i32 [ %.017.i.i.i.i.i.i.i.i146.i.i.i.i.i.i.i, %930 ], [ %.01728.i.i.i.i.i.i.i.i142.i.i.i.i.i.i.i, %921 ]
   %.01529.i.i.i.i.i.i.i.i145.i.i.i.i.i.i.i = phi i32 [ %931, %930 ], [ 1, %921 ]
   %929 = icmp eq i32 %928, -1
-  br i1 %929, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit, label %930, !prof !39
+  br i1 %929, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0, label %930, !prof !39
 
 930:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i143.i.i.i.i.i.i.i
   %931 = add i32 %.01529.i.i.i.i.i.i.i.i145.i.i.i.i.i.i.i, 1
@@ -7448,7 +7448,7 @@ _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8cove
   %.pn.i.i.i.i.i148.i.i.i.i.i.i.i = phi i64 [ %924, %921 ], [ %933, %930 ]
   %937 = zext i32 %919 to i64
   %.not.i.i.i149.i.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i.i.i148.i.i.i.i.i.i.i, %937
-  br i1 %.not.i.i.i149.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i149.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i147.i.i.i.i.i.i.i, %911
   %938 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i.i, i64 120
@@ -7458,7 +7458,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordEx
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbERKjDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.526") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %938, ptr noundef nonnull align 4 dereferenceable(4) %939, ptr noundef nonnull align 1 dereferenceable(1) %14), !noalias !461
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !461
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !461
-  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
+  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0
 
 940:                                              ; preds = %_ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmm.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
@@ -7974,7 +7974,7 @@ _ZNSt4pairIPKN4llvm8coverage20CounterMappingRegionENS0_11SmallVectorIS4_Lj6EEEED
 _ZN12_GLOBAL__N_120MCDCDecisionRecorder13processBranchERKN4llvm8coverage20CounterMappingRegionE.exit: ; preds = %.loopexit.i, %940, %1078, %_ZNSt4pairIPKN4llvm8coverage20CounterMappingRegionENS0_11SmallVectorIS4_Lj6EEEED2Ev.exit.i
   %1180 = load i8, ptr %443, align 8, !tbaa !474, !range !14, !noundef !15
   %1181 = trunc nuw i8 %1180 to i1
-  br i1 %1181, label %1182, label %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit
+  br i1 %1181, label %1182, label %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt0
 
 1182:                                             ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder13processBranchERKN4llvm8coverage20CounterMappingRegionE.exit
   %1183 = load ptr, ptr %56, align 8, !tbaa !480
@@ -8002,21 +8002,14 @@ _ZN4llvm8ExpectedINS_8coverage10MCDCRecordEE9takeErrorEv.exit: ; preds = %1182
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   %1192 = load ptr, ptr %8, align 8, !tbaa !107
   %1193 = icmp eq ptr %1192, null
-  br i1 %1193, label %_ZN4llvm5ErrorD2Ev.exit183, label %1194
+  br i1 %1193, label %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit.jt1, label %1194
 
 1194:                                             ; preds = %1190
   %1195 = load ptr, ptr %1192, align 8, !tbaa !109
   %1196 = getelementptr inbounds nuw i8, ptr %1195, i64 8
   %1197 = load ptr, ptr %1196, align 8
   call void %1197(ptr noundef nonnull align 8 dereferenceable(8) %1192) #30
-  br label %_ZN4llvm5ErrorD2Ev.exit183
-
-_ZN4llvm5ErrorD2Ev.exit183:                       ; preds = %1194, %1190
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store ptr null, ptr %0, align 8, !tbaa !107
-  br label %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit
+  br label %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit.jt1
 
 _ZN4llvm5ErrorD2Ev.exit184:                       ; preds = %1182, %_ZN4llvm8ExpectedINS_8coverage10MCDCRecordEE9takeErrorEv.exit
   %1198 = load ptr, ptr %453, align 8, !tbaa !490
@@ -8029,212 +8022,302 @@ _ZN4llvm5ErrorD2Ev.exit184:                       ; preds = %1182, %_ZN4llvm8Exp
   %1201 = load ptr, ptr %453, align 8, !tbaa !490
   %1202 = getelementptr inbounds nuw i8, ptr %1201, i64 448
   store ptr %1202, ptr %453, align 8, !tbaa !490
-  br label %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit
+  br label %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit.jt0
 
 1203:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit184
   call void @_ZNSt6vectorIN4llvm8coverage10MCDCRecordESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %455, ptr %1198, ptr noundef nonnull align 8 dereferenceable(448) %57)
-  br label %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit
+  br label %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit.jt0
 
-_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit: ; preds = %1203, %1200, %_ZN4llvm5ErrorD2Ev.exit183
-  %.12 = phi i32 [ 1, %_ZN4llvm5ErrorD2Ev.exit183 ], [ 0, %1200 ], [ 0, %1203 ]
+_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit.jt0: ; preds = %1203, %1200
   %1204 = load i8, ptr %452, align 8
   %1205 = trunc i8 %1204 to i1
-  br i1 %1205, label %1207, label %1206
+  br i1 %1205, label %1210, label %1208
 
-1206:                                             ; preds = %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit
+_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit.jt1: ; preds = %1190, %1194
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  store ptr null, ptr %0, align 8, !tbaa !107
+  %1206 = load i8, ptr %452, align 8
+  %1207 = trunc i8 %1206 to i1
+  br i1 %1207, label %1212, label %1209
+
+1208:                                             ; preds = %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit.jt0
   call void @_ZN4llvm8coverage10MCDCRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(449) %57) #30
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt0
 
-1207:                                             ; preds = %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit
-  %1208 = load ptr, ptr %57, align 8, !tbaa !105
-  %.not.i.i186 = icmp eq ptr %1208, null
-  br i1 %.not.i.i186, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
+1209:                                             ; preds = %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit.jt1
+  call void @_ZN4llvm8coverage10MCDCRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(449) %57) #30
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt1
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %1207
-  %1209 = load ptr, ptr %1208, align 8, !tbaa !109
-  %1210 = getelementptr inbounds nuw i8, ptr %1209, i64 8
-  %1211 = load ptr, ptr %1210, align 8
-  call void %1211(ptr noundef nonnull align 8 dereferenceable(8) %1208) #30
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187
+1210:                                             ; preds = %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit.jt0
+  %1211 = load ptr, ptr %57, align 8, !tbaa !105
+  %.not.i.i186.jt0 = icmp eq ptr %1211, null
+  br i1 %.not.i.i186.jt0, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt0, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt0
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187: ; preds = %1207, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %1206
+1212:                                             ; preds = %_ZN4llvm8coverage14FunctionRecord14pushMCDCRecordEONS0_10MCDCRecordE.exit.jt1
+  %1213 = load ptr, ptr %57, align 8, !tbaa !105
+  %.not.i.i186.jt1 = icmp eq ptr %1213, null
+  br i1 %.not.i.i186.jt1, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt1, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt1
+
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt0: ; preds = %1210
+  %1214 = load ptr, ptr %1211, align 8, !tbaa !109
+  %1215 = getelementptr inbounds nuw i8, ptr %1214, i64 8
+  %1216 = load ptr, ptr %1215, align 8
+  call void %1216(ptr noundef nonnull align 8 dereferenceable(8) %1211) #30
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt0
+
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt1: ; preds = %1212
+  %1217 = load ptr, ptr %1213, align 8, !tbaa !109
+  %1218 = getelementptr inbounds nuw i8, ptr %1217, i64 8
+  %1219 = load ptr, ptr %1218, align 8
+  call void %1219(ptr noundef nonnull align 8 dereferenceable(8) %1213) #30
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt1
+
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt0: ; preds = %1210, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt0, %1208
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  %.pre432 = load i8, ptr %443, align 8, !tbaa !474, !range !14
-  %1212 = trunc nuw i8 %.pre432 to i1
-  br i1 %1212, label %1213, label %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit
+  %.pre432.jt0 = load i8, ptr %443, align 8, !tbaa !474, !range !14
+  %1220 = trunc nuw i8 %.pre432.jt0 to i1
+  br i1 %1220, label %1222, label %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt0
 
-1213:                                             ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt1: ; preds = %1212, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt1, %1209
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  %.pre432.jt1 = load i8, ptr %443, align 8, !tbaa !474, !range !14
+  %1221 = trunc nuw i8 %.pre432.jt1 to i1
+  br i1 %1221, label %1225, label %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt1
+
+1222:                                             ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt0
   store i8 0, ptr %443, align 8, !tbaa !474
-  %1214 = load ptr, ptr %448, align 8, !tbaa !50
-  %1215 = icmp eq ptr %1214, %449
-  br i1 %1215, label %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit, label %1216
+  %1223 = load ptr, ptr %448, align 8, !tbaa !50
+  %1224 = icmp eq ptr %1223, %449
+  br i1 %1224, label %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt0, label %1228
 
-1216:                                             ; preds = %1213
-  call void @free(ptr noundef %1214) #30
-  br label %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit
+1225:                                             ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt1
+  store i8 0, ptr %443, align 8, !tbaa !474
+  %1226 = load ptr, ptr %448, align 8, !tbaa !50
+  %1227 = icmp eq ptr %1226, %449
+  br i1 %1227, label %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt1, label %1229
 
-_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder13processBranchERKN4llvm8coverage20CounterMappingRegionE.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187, %1213, %1216
-  %.10573 = phi i32 [ %.12, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187 ], [ %.12, %1213 ], [ %.12, %1216 ], [ 3, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder13processBranchERKN4llvm8coverage20CounterMappingRegionE.exit ]
+1228:                                             ; preds = %1222
+  call void @free(ptr noundef %1223) #30
+  br label %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt0
+
+1229:                                             ; preds = %1225
+  call void @free(ptr noundef %1226) #30
+  br label %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt1
+
+_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt0: ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder13processBranchERKN4llvm8coverage20CounterMappingRegionE.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt0, %1228, %1222
+  %.10.jt0575 = phi i32 [ 0, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt0 ], [ 0, %1228 ], [ 0, %1222 ], [ 3, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder13processBranchERKN4llvm8coverage20CounterMappingRegionE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
+  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0
 
-_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i143.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i147.i.i.i.i.i.i.i, %.critedge.i.i.i.i141.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit140.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit119.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit98.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit77.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit56.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit.i.i.i.i.i.i.i, %_ZN4llvm5ErrorD2Ev.exit162, %_ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmm.exit, %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit
-  %.9 = phi i32 [ %.10573, %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit ], [ 1, %_ZN4llvm5ErrorD2Ev.exit162 ], [ 3, %_ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmm.exit ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit56.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit77.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit98.i.i.i.i.i.i.i ], [ 3, %._crit_edge.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit119.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit140.i.i.i.i.i.i.i ], [ 3, %.critedge.i.i.i.i141.i.i.i.i.i.i.i ], [ 3, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i147.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i ], [ 3, %.lr.ph.i.i.i.i.i.i.i.i143.i.i.i.i.i.i.i ]
-  %1217 = load i8, ptr %436, align 8
-  %1218 = trunc i8 %1217 to i1
-  br i1 %1218, label %1219, label %_ZN4llvm8ExpectedIlED2Ev.exit
+_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt1: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i187.jt1, %1229, %1225
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt1
 
-1219:                                             ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
-  %1220 = load ptr, ptr %55, align 8, !tbaa !105
-  %.not.i.i188 = icmp eq ptr %1220, null
-  br i1 %.not.i.i188, label %_ZN4llvm8ExpectedIlED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i189
+_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0: ; preds = %.lr.ph.i.i.i.i.i.i.i.i143.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i147.i.i.i.i.i.i.i, %.critedge.i.i.i.i141.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit140.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit119.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit98.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit77.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit56.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit.i.i.i.i.i.i.i, %_ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmm.exit, %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt0
+  %.9.jt0 = phi i32 [ 3, %_ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmm.exit ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit56.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit77.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit98.i.i.i.i.i.i.i ], [ 3, %._crit_edge.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit119.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit140.i.i.i.i.i.i.i ], [ 3, %.critedge.i.i.i.i141.i.i.i.i.i.i.i ], [ 3, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i.i147.i.i.i.i.i.i.i ], [ 3, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.exit161.i.i.i.i.i.i.i ], [ %.10.jt0575, %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt0 ], [ 3, %.lr.ph.i.i.i.i.i.i.i.i143.i.i.i.i.i.i.i ]
+  %1230 = load i8, ptr %436, align 8
+  %1231 = trunc i8 %1230 to i1
+  br i1 %1231, label %1234, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i190.jt0
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i189: ; preds = %1219
-  %1221 = load ptr, ptr %1220, align 8, !tbaa !109
-  %1222 = getelementptr inbounds nuw i8, ptr %1221, i64 8
-  %1223 = load ptr, ptr %1222, align 8
-  call void %1223(ptr noundef nonnull align 8 dereferenceable(8) %1220) #30
-  br label %_ZN4llvm8ExpectedIlED2Ev.exit
+_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt1: ; preds = %_ZN4llvm5ErrorD2Ev.exit162, %_ZNSt14_Optional_baseISt4pairIPKN4llvm8coverage20CounterMappingRegionENS1_11SmallVectorIS5_Lj6EEEELb0ELb0EED2Ev.exit.jt1
+  %1232 = load i8, ptr %436, align 8
+  %1233 = trunc i8 %1232 to i1
+  br i1 %1233, label %1236, label %_ZN4llvm8ExpectedIlED2Ev.exit.jt1
 
-_ZN4llvm8ExpectedIlED2Ev.exit:                    ; preds = %1219, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i189, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
+1234:                                             ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0
+  %1235 = load ptr, ptr %55, align 8, !tbaa !105
+  %.not.i.i188.jt0 = icmp eq ptr %1235, null
+  br i1 %.not.i.i188.jt0, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i190.jt0, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i189.jt0
+
+1236:                                             ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt1
+  %1237 = load ptr, ptr %55, align 8, !tbaa !105
+  %.not.i.i188.jt1 = icmp eq ptr %1237, null
+  br i1 %.not.i.i188.jt1, label %_ZN4llvm8ExpectedIlED2Ev.exit.jt1, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i189.jt1
+
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i189.jt0: ; preds = %1234
+  %1238 = load ptr, ptr %1235, align 8, !tbaa !109
+  %1239 = getelementptr inbounds nuw i8, ptr %1238, i64 8
+  %1240 = load ptr, ptr %1239, align 8
+  call void %1240(ptr noundef nonnull align 8 dereferenceable(8) %1235) #30
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i190.jt0
+
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i189.jt1: ; preds = %1236
+  %1241 = load ptr, ptr %1237, align 8, !tbaa !109
+  %1242 = getelementptr inbounds nuw i8, ptr %1241, i64 8
+  %1243 = load ptr, ptr %1242, align 8
+  call void %1243(ptr noundef nonnull align 8 dereferenceable(8) %1237) #30
+  br label %_ZN4llvm8ExpectedIlED2Ev.exit.jt1
+
+_ZN4llvm8ExpectedIlED2Ev.exit.jt1:                ; preds = %1236, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i189.jt1, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt1
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  br label %1224
+  br label %1246
 
-1224:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit153, %_ZN4llvm8ExpectedIlED2Ev.exit
-  %.7 = phi i32 [ %.9, %_ZN4llvm8ExpectedIlED2Ev.exit ], [ 1, %_ZN4llvm5ErrorD2Ev.exit153 ]
-  %1225 = load i8, ptr %435, align 8
-  %1226 = trunc i8 %1225 to i1
-  br i1 %1226, label %1227, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i190.jt0: ; preds = %1234, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i189.jt0, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  %1244 = load i8, ptr %435, align 8
+  %1245 = trunc i8 %1244 to i1
+  br i1 %1245, label %1249, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit
 
-1227:                                             ; preds = %1224
-  %1228 = load ptr, ptr %54, align 8, !tbaa !105
-  %.not.i.i191 = icmp eq ptr %1228, null
-  br i1 %.not.i.i191, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i192
+1246:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit153, %_ZN4llvm8ExpectedIlED2Ev.exit.jt1
+  %1247 = load i8, ptr %435, align 8
+  %1248 = trunc i8 %1247 to i1
+  br i1 %1248, label %1251, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread576
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i192: ; preds = %1227
-  %1229 = load ptr, ptr %1228, align 8, !tbaa !109
-  %1230 = getelementptr inbounds nuw i8, ptr %1229, i64 8
-  %1231 = load ptr, ptr %1230, align 8
-  call void %1231(ptr noundef nonnull align 8 dereferenceable(8) %1228) #30
+_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread576: ; preds = %1246
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  br label %.loopexit
+
+1249:                                             ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i190.jt0
+  %1250 = load ptr, ptr %54, align 8, !tbaa !105
+  %.not.i.i191.jt0 = icmp eq ptr %1250, null
+  br i1 %.not.i.i191.jt0, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i192
+
+1251:                                             ; preds = %1246
+  %1252 = load ptr, ptr %54, align 8, !tbaa !105
+  %.not.i.i191.jt1 = icmp eq ptr %1252, null
+  br i1 %.not.i.i191.jt1, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.jt1, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i192
+
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i192: ; preds = %1249, %1251
+  %1253 = phi ptr [ %1250, %1249 ], [ %1252, %1251 ]
+  %.7573 = phi i32 [ %.9.jt0, %1249 ], [ 1, %1251 ]
+  %1254 = load ptr, ptr %1253, align 8, !tbaa !109
+  %1255 = getelementptr inbounds nuw i8, ptr %1254, i64 8
+  %1256 = load ptr, ptr %1255, align 8
+  call void %1256(ptr noundef nonnull align 8 dereferenceable(8) %1253) #30
   br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit
 
-_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit: ; preds = %1227, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i192, %1224
+_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i190.jt0, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i192
+  %.7572 = phi i32 [ %.9.jt0, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i190.jt0 ], [ %.7573, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  switch i32 %.7, label %.loopexit [
+  switch i32 %.7572, label %.loopexit [
     i32 0, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread
     i32 3, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread
   ]
 
-_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread: ; preds = %464, %463, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit
-  %1232 = getelementptr inbounds nuw i8, ptr %.095394, i64 56
-  %.not102 = icmp eq ptr %1232, %434
+_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0: ; preds = %1249
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread
+
+_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.jt1: ; preds = %1251
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  br label %.loopexit
+
+_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread: ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.jt0, %464, %463, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit
+  %1257 = getelementptr inbounds nuw i8, ptr %.095394, i64 56
+  %.not102 = icmp eq ptr %1257, %434
   br i1 %.not102, label %._crit_edge, label %456
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread, %_ZN4llvm8coverage14FunctionRecordC2ENS_9StringRefENS_8ArrayRefIS2_EE.exit
-  %1233 = load ptr, ptr %69, align 8, !tbaa !324
-  %1234 = load i64, ptr %70, align 8, !tbaa !321
-  %1235 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1233, i64 %1234
-  %1236 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_9StringRefEEENS_9hash_codeET_S7_(ptr noundef %1233, ptr noundef %1235)
+  %1258 = load ptr, ptr %69, align 8, !tbaa !324
+  %1259 = load i64, ptr %70, align 8, !tbaa !321
+  %1260 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1258, i64 %1259
+  %1261 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_9StringRefEEENS_9hash_codeET_S7_(ptr noundef %1258, ptr noundef %1260)
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
-  store i64 %1236, ptr %58, align 8, !tbaa !10
-  %1237 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_8DenseSetImNS_12DenseMapInfoImvEEEES4_NS_6detail12DenseMapPairImS5_EEEEmS5_S4_S8_EixEOm(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %58)
+  store i64 %1261, ptr %58, align 8, !tbaa !10
+  %1262 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_8DenseSetImNS_12DenseMapInfoImvEEEES4_NS_6detail12DenseMapPairImS5_EEEEmS5_S4_S8_EixEOm(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %58)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  %1238 = call i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %.sroa.0302.0, i64 %.sroa.9.0) #30
-  store i64 %1238, ptr %59, align 8, !tbaa !10
+  %1263 = call i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %.sroa.0302.0, i64 %.sroa.9.0) #30
+  store i64 %1263, ptr %59, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !492
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !492
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorImS3_S5_S7_Lb0EEEbEOmDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.661") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1237, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 1 dereferenceable(1) %5), !noalias !492
-  %1239 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %1240 = load i8, ptr %1239, align 8, !tbaa !12, !range !14, !noalias !492, !noundef !15
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorImS3_S5_S7_Lb0EEEbEOmDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.661") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1262, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 1 dereferenceable(1) %5), !noalias !492
+  %1264 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %1265 = load i8, ptr %1264, align 8, !tbaa !12, !range !14, !noalias !492, !noundef !15
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !492
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !492
-  %1241 = trunc nuw i8 %1240 to i1
+  %1266 = trunc nuw i8 %1265 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  br i1 %1241, label %1242, label %.loopexit.sink.split
+  br i1 %1266, label %1267, label %_ZN4llvm5ErrorD2Ev.exit195
 
-1242:                                             ; preds = %._crit_edge
-  %1243 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %1244 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNSt6vectorIN4llvm8coverage14FunctionRecordESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1243, ptr noundef nonnull align 8 dereferenceable(136) %53)
-  %1245 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %1246 = load ptr, ptr %1245, align 8, !tbaa !495
-  %1247 = load ptr, ptr %1243, align 8, !tbaa !497
-  %1248 = ptrtoint ptr %1246 to i64
-  %1249 = ptrtoint ptr %1247 to i64
-  %1250 = sub i64 %1248, %1249
-  %1251 = sdiv exact i64 %1250, 136
-  %1252 = trunc i64 %1251 to i32
-  %1253 = add i32 %1252, -1
-  %1254 = load ptr, ptr %69, align 8, !tbaa !324
-  %1255 = load i64, ptr %70, align 8, !tbaa !321
-  %.idx408 = shl nuw nsw i64 %1255, 4
-  %1256 = getelementptr inbounds nuw i8, ptr %1254, i64 %.idx408
-  %.not104404 = icmp eq i64 %1255, 0
-  br i1 %.not104404, label %.loopexit.sink.split, label %.lr.ph407
+_ZN4llvm5ErrorD2Ev.exit195:                       ; preds = %._crit_edge
+  store ptr null, ptr %0, align 8, !tbaa !107
+  br label %.loopexit
 
-.lr.ph407:                                        ; preds = %1242
-  %1257 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  br label %1258
+1267:                                             ; preds = %._crit_edge
+  %1268 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %1269 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNSt6vectorIN4llvm8coverage14FunctionRecordESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1268, ptr noundef nonnull align 8 dereferenceable(136) %53)
+  %1270 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %1271 = load ptr, ptr %1270, align 8, !tbaa !495
+  %1272 = load ptr, ptr %1268, align 8, !tbaa !497
+  %1273 = ptrtoint ptr %1271 to i64
+  %1274 = ptrtoint ptr %1272 to i64
+  %1275 = sub i64 %1273, %1274
+  %1276 = sdiv exact i64 %1275, 136
+  %1277 = trunc i64 %1276 to i32
+  %1278 = add i32 %1277, -1
+  %1279 = load ptr, ptr %69, align 8, !tbaa !324
+  %1280 = load i64, ptr %70, align 8, !tbaa !321
+  %.idx408 = shl nuw nsw i64 %1280, 4
+  %1281 = getelementptr inbounds nuw i8, ptr %1279, i64 %.idx408
+  %.not104404 = icmp eq i64 %1280, 0
+  br i1 %.not104404, label %_ZN4llvm5ErrorD2Ev.exit196, label %.lr.ph407
 
-1258:                                             ; preds = %.lr.ph407, %1282
-  %.096405 = phi ptr [ %1254, %.lr.ph407 ], [ %1283, %1282 ]
+.lr.ph407:                                        ; preds = %1267
+  %1282 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  br label %1283
+
+_ZN4llvm5ErrorD2Ev.exit196:                       ; preds = %1307, %1267
+  store ptr null, ptr %0, align 8, !tbaa !107
+  br label %.loopexit
+
+1283:                                             ; preds = %.lr.ph407, %1307
+  %.096405 = phi ptr [ %1279, %.lr.ph407 ], [ %1308, %1307 ]
   %.sroa.011.0.copyload = load ptr, ptr %.096405, align 8, !tbaa !305
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.096405, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
-  %1259 = call i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %.sroa.011.0.copyload, i64 %.sroa.4.0.copyload) #30
-  store i64 %1259, ptr %60, align 8, !tbaa !10
-  %1260 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorIjLj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_EixEOm(ptr noundef nonnull align 1 dereferenceable(1) %1257, ptr noundef nonnull align 8 dereferenceable(8) %60)
+  %1284 = call i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %.sroa.011.0.copyload, i64 %.sroa.4.0.copyload) #30
+  store i64 %1284, ptr %60, align 8, !tbaa !10
+  %1285 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorIjLj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_EixEOm(ptr noundef nonnull align 1 dereferenceable(1) %1282, ptr noundef nonnull align 8 dereferenceable(8) %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  %1261 = getelementptr inbounds nuw i8, ptr %1260, i64 8
-  %1262 = load i32, ptr %1261, align 8, !tbaa !47
-  %.not.i197 = icmp eq i32 %1262, 0
-  br i1 %.not.i197, label %1269, label %1263
+  %1286 = getelementptr inbounds nuw i8, ptr %1285, i64 8
+  %1287 = load i32, ptr %1286, align 8, !tbaa !47
+  %.not.i197 = icmp eq i32 %1287, 0
+  br i1 %.not.i197, label %1294, label %1288
 
-1263:                                             ; preds = %1258
-  %1264 = load ptr, ptr %1260, align 8, !tbaa !50
-  %1265 = zext i32 %1262 to i64
-  %1266 = getelementptr inbounds nuw i32, ptr %1264, i64 %1265
-  %1267 = getelementptr inbounds i8, ptr %1266, i64 -4
-  %1268 = load i32, ptr %1267, align 4, !tbaa !22
-  %.not105 = icmp eq i32 %1268, %1253
-  br i1 %.not105, label %1282, label %1269
+1288:                                             ; preds = %1283
+  %1289 = load ptr, ptr %1285, align 8, !tbaa !50
+  %1290 = zext i32 %1287 to i64
+  %1291 = getelementptr inbounds nuw i32, ptr %1289, i64 %1290
+  %1292 = getelementptr inbounds i8, ptr %1291, i64 -4
+  %1293 = load i32, ptr %1292, align 4, !tbaa !22
+  %.not105 = icmp eq i32 %1293, %1278
+  br i1 %.not105, label %1307, label %1294
 
-1269:                                             ; preds = %1263, %1258
-  %1270 = getelementptr inbounds nuw i8, ptr %1260, i64 12
-  %1271 = load i32, ptr %1270, align 4, !tbaa !49
-  %.not.i.i.not.i = icmp ult i32 %1262, %1271
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, label %1272, !prof !39
+1294:                                             ; preds = %1288, %1283
+  %1295 = getelementptr inbounds nuw i8, ptr %1285, i64 12
+  %1296 = load i32, ptr %1295, align 4, !tbaa !49
+  %.not.i.i.not.i = icmp ult i32 %1287, %1296
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, label %1297, !prof !39
 
-1272:                                             ; preds = %1269
-  %1273 = zext i32 %1262 to i64
-  %1274 = add nuw nsw i64 %1273, 1
-  %1275 = getelementptr inbounds nuw i8, ptr %1260, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1260, ptr noundef nonnull %1275, i64 noundef %1274, i64 noundef 4) #30
-  %.pre.i198 = load i32, ptr %1261, align 8, !tbaa !47
+1297:                                             ; preds = %1294
+  %1298 = zext i32 %1287 to i64
+  %1299 = add nuw nsw i64 %1298, 1
+  %1300 = getelementptr inbounds nuw i8, ptr %1285, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1285, ptr noundef nonnull %1300, i64 noundef %1299, i64 noundef 4) #30
+  %.pre.i198 = load i32, ptr %1286, align 8, !tbaa !47
   br label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %1269, %1272
-  %1276 = phi i32 [ %1262, %1269 ], [ %.pre.i198, %1272 ]
-  %1277 = load ptr, ptr %1260, align 8, !tbaa !50
-  %1278 = zext i32 %1276 to i64
-  %1279 = getelementptr inbounds nuw i32, ptr %1277, i64 %1278
-  store i32 %1253, ptr %1279, align 1
-  %1280 = load i32, ptr %1261, align 8, !tbaa !47
-  %1281 = add i32 %1280, 1
-  store i32 %1281, ptr %1261, align 8, !tbaa !47
-  br label %1282
+_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %1294, %1297
+  %1301 = phi i32 [ %1287, %1294 ], [ %.pre.i198, %1297 ]
+  %1302 = load ptr, ptr %1285, align 8, !tbaa !50
+  %1303 = zext i32 %1301 to i64
+  %1304 = getelementptr inbounds nuw i32, ptr %1302, i64 %1303
+  store i32 %1278, ptr %1304, align 1
+  %1305 = load i32, ptr %1286, align 8, !tbaa !47
+  %1306 = add i32 %1305, 1
+  store i32 %1306, ptr %1286, align 8, !tbaa !47
+  br label %1307
 
-1282:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %1263
-  %1283 = getelementptr inbounds nuw i8, ptr %.096405, i64 16
-  %.not104 = icmp eq ptr %1283, %1256
-  br i1 %.not104, label %.loopexit.sink.split, label %1258
+1307:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %1288
+  %1308 = getelementptr inbounds nuw i8, ptr %.096405, i64 16
+  %.not104 = icmp eq ptr %1308, %1281
+  br i1 %.not104, label %_ZN4llvm5ErrorD2Ev.exit196, label %1283
 
-.loopexit.sink.split:                             ; preds = %1282, %1242, %._crit_edge
-  store ptr null, ptr %0, align 8, !tbaa !107
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit, %.loopexit.sink.split
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.jt1, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder16registerDecisionERKN4llvm8coverage20CounterMappingRegionE.exit.thread576, %_ZN4llvm5ErrorD2Ev.exit195, %_ZN4llvm5ErrorD2Ev.exit196
   call void @_ZN4llvm8coverage14FunctionRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %53) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %.val.i.i199 = load ptr, ptr %52, align 8, !tbaa !50
@@ -8243,40 +8326,40 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %1269, %127
   br i1 %.not4.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.loopexit
-  %1284 = zext i32 %.val2.i.i to i64
-  %.idx.i.i = mul nuw nsw i64 %1284, 144
-  %1285 = getelementptr inbounds nuw i8, ptr %.val.i.i199, i64 %.idx.i.i
+  %1309 = zext i32 %.val2.i.i to i64
+  %.idx.i.i = mul nuw nsw i64 %1309, 144
+  %1310 = getelementptr inbounds nuw i8, ptr %.val.i.i199, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
-  %.05.i.i.i = phi ptr [ %1286, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordD2Ev.exit.i.i.i ], [ %1285, %.lr.ph.i.preheader.i.i ]
-  %1286 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -144
-  %1287 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -24
-  %1288 = load ptr, ptr %1287, align 8, !tbaa !439
-  %1289 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -8
-  %1290 = load i32, ptr %1289, align 8, !tbaa !440
-  %1291 = zext i32 %1290 to i64
-  %1292 = shl nuw nsw i64 %1291, 2
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %1288, i64 noundef %1292, i64 noundef 4) #30
-  %1293 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -48
-  %1294 = load ptr, ptr %1293, align 8, !tbaa !467
-  %1295 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -32
-  %1296 = load i32, ptr %1295, align 8, !tbaa !468
-  %1297 = zext i32 %1296 to i64
-  %1298 = shl nuw nsw i64 %1297, 1
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %1294, i64 noundef %1298, i64 noundef 2) #30
-  %1299 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -112
-  %1300 = load ptr, ptr %1299, align 8, !tbaa !50
-  %1301 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -96
-  %1302 = icmp eq ptr %1300, %1301
-  br i1 %1302, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordD2Ev.exit.i.i.i, label %1303
+  %.05.i.i.i = phi ptr [ %1311, %_ZN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordD2Ev.exit.i.i.i ], [ %1310, %.lr.ph.i.preheader.i.i ]
+  %1311 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -144
+  %1312 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -24
+  %1313 = load ptr, ptr %1312, align 8, !tbaa !439
+  %1314 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -8
+  %1315 = load i32, ptr %1314, align 8, !tbaa !440
+  %1316 = zext i32 %1315 to i64
+  %1317 = shl nuw nsw i64 %1316, 2
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %1313, i64 noundef %1317, i64 noundef 4) #30
+  %1318 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -48
+  %1319 = load ptr, ptr %1318, align 8, !tbaa !467
+  %1320 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -32
+  %1321 = load i32, ptr %1320, align 8, !tbaa !468
+  %1322 = zext i32 %1321 to i64
+  %1323 = shl nuw nsw i64 %1322, 1
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %1319, i64 noundef %1323, i64 noundef 2) #30
+  %1324 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -112
+  %1325 = load ptr, ptr %1324, align 8, !tbaa !50
+  %1326 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -96
+  %1327 = icmp eq ptr %1325, %1326
+  br i1 %1327, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordD2Ev.exit.i.i.i, label %1328
 
-1303:                                             ; preds = %.lr.ph.i.i.i
-  call void @free(ptr noundef %1300) #30
+1328:                                             ; preds = %.lr.ph.i.i.i
+  call void @free(ptr noundef %1325) #30
   br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordD2Ev.exit.i.i.i
 
-_ZN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordD2Ev.exit.i.i.i: ; preds = %1303, %.lr.ph.i.i.i
-  %.not.i.i.i200 = icmp eq ptr %.val.i.i199, %1286
+_ZN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordD2Ev.exit.i.i.i: ; preds = %1328, %.lr.ph.i.i.i
+  %.not.i.i.i200 = icmp eq ptr %.val.i.i199, %1311
   br i1 %.not.i.i.i200, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !498
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i: ; preds = %_ZN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordD2Ev.exit.i.i.i
@@ -8284,60 +8367,60 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14Decisio
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i, %.loopexit
-  %1304 = phi ptr [ %.pre.i.i201, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i ], [ %.val.i.i199, %.loopexit ]
-  %1305 = icmp eq ptr %1304, %409
-  br i1 %1305, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorderD2Ev.exit, label %1306
+  %1329 = phi ptr [ %.pre.i.i201, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i ], [ %.val.i.i199, %.loopexit ]
+  %1330 = icmp eq ptr %1329, %409
+  br i1 %1330, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorderD2Ev.exit, label %1331
 
-1306:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.i.i
-  call void @free(ptr noundef %1304) #30
+1331:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.i.i
+  call void @free(ptr noundef %1329) #30
   br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorderD2Ev.exit
 
-_ZN12_GLOBAL__N_120MCDCDecisionRecorderD2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.i.i, %1306
+_ZN12_GLOBAL__N_120MCDCDecisionRecorderD2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecordELb0EE13destroy_rangeEPS3_S5_.exit.i.i, %1331
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  br label %1307
+  br label %1332
 
-1307:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit147, %_ZN12_GLOBAL__N_120MCDCDecisionRecorderD2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit149
-  %1308 = load ptr, ptr %46, align 8, !tbaa !50
-  %1309 = icmp eq ptr %1308, %215
-  br i1 %1309, label %_ZN4llvm9BitVectorD2Ev.exit202, label %1310
+1332:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit147, %_ZN12_GLOBAL__N_120MCDCDecisionRecorderD2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit149
+  %1333 = load ptr, ptr %46, align 8, !tbaa !50
+  %1334 = icmp eq ptr %1333, %215
+  br i1 %1334, label %_ZN4llvm9BitVectorD2Ev.exit202, label %1335
 
-1310:                                             ; preds = %1307
-  call void @free(ptr noundef %1308) #30
+1335:                                             ; preds = %1332
+  call void @free(ptr noundef %1333) #30
   br label %_ZN4llvm9BitVectorD2Ev.exit202
 
-_ZN4llvm9BitVectorD2Ev.exit202:                   ; preds = %1307, %1310
+_ZN4llvm9BitVectorD2Ev.exit202:                   ; preds = %1332, %1335
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  br label %1311
+  br label %1336
 
-1311:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit125, %_ZN4llvm9BitVectorD2Ev.exit202
-  %1312 = load ptr, ptr %41, align 8, !tbaa !351
-  %.not.i.i.i203 = icmp eq ptr %1312, null
-  br i1 %.not.i.i.i203, label %_ZNSt6vectorImSaImEED2Ev.exit, label %1313
+1336:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit125, %_ZN4llvm9BitVectorD2Ev.exit202
+  %1337 = load ptr, ptr %41, align 8, !tbaa !351
+  %.not.i.i.i203 = icmp eq ptr %1337, null
+  br i1 %.not.i.i.i203, label %_ZNSt6vectorImSaImEED2Ev.exit, label %1338
 
-1313:                                             ; preds = %1311
-  %1314 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %1315 = load ptr, ptr %1314, align 8, !tbaa !349
-  %1316 = ptrtoint ptr %1315 to i64
-  %1317 = ptrtoint ptr %1312 to i64
-  %1318 = sub i64 %1316, %1317
-  call void @_ZdlPvm(ptr noundef nonnull %1312, i64 noundef %1318) #29
+1338:                                             ; preds = %1336
+  %1339 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %1340 = load ptr, ptr %1339, align 8, !tbaa !349
+  %1341 = ptrtoint ptr %1340 to i64
+  %1342 = ptrtoint ptr %1337 to i64
+  %1343 = sub i64 %1341, %1342
+  call void @_ZdlPvm(ptr noundef nonnull %1337, i64 noundef %1343) #29
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %1311, %1313
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %1336, %1338
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  %1319 = load ptr, ptr %81, align 8, !tbaa !50
-  %1320 = icmp eq ptr %1319, %82
-  br i1 %1320, label %_ZN4llvm8coverage21CounterMappingContextD2Ev.exit, label %1321
+  %1344 = load ptr, ptr %81, align 8, !tbaa !50
+  %1345 = icmp eq ptr %1344, %82
+  br i1 %1345, label %_ZN4llvm8coverage21CounterMappingContextD2Ev.exit, label %1346
 
-1321:                                             ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
-  call void @free(ptr noundef %1319) #30
+1346:                                             ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
+  call void @free(ptr noundef %1344) #30
   br label %_ZN4llvm8coverage21CounterMappingContextD2Ev.exit
 
-_ZN4llvm8coverage21CounterMappingContextD2Ev.exit: ; preds = %_ZNSt6vectorImSaImEED2Ev.exit, %1321
+_ZN4llvm8coverage21CounterMappingContextD2Ev.exit: ; preds = %_ZNSt6vectorImSaImEED2Ev.exit, %1346
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  br label %1322
+  br label %1347
 
-1322:                                             ; preds = %_ZN4llvm8coverage21CounterMappingContextD2Ev.exit, %62
+1347:                                             ; preds = %_ZN4llvm8coverage21CounterMappingContextD2Ev.exit, %62
   ret void
 }
 

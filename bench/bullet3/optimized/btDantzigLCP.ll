@@ -4772,9 +4772,7 @@ _ZNK5btLCP12AiC_times_qCEiPf.exit585:             ; preds = %._crit_edge.i.i571,
   %598 = load float, ptr %461, align 4, !tbaa !4
   %599 = fsub float %595, %598
   %600 = fcmp olt float %599, %593
-  %.0294 = select i1 %600, float %599, float %593
-  %.0292 = select i1 %600, i32 3, i32 1
-  br label %609
+  br i1 %600, label %609, label %.0292.si.unfold.false
 
 601:                                              ; preds = %_ZNK5btLCP12AiC_times_qCEiPf.exit585
   %602 = load float, ptr %442, align 4, !tbaa !4
@@ -4786,13 +4784,17 @@ _ZNK5btLCP12AiC_times_qCEiPf.exit585:             ; preds = %._crit_edge.i.i571,
   %606 = fsub float %602, %605
   %607 = fneg float %606
   %608 = fcmp ogt float %593, %607
-  %.2296 = select i1 %608, float %607, float %593
-  %.2 = select i1 %608, i32 2, i32 1
+  br i1 %608, label %609, label %.2.si.unfold.false
+
+.2.si.unfold.false:                               ; preds = %604
   br label %609
 
-609:                                              ; preds = %601, %604, %594, %597
-  %.1295 = phi float [ %.0294, %597 ], [ %593, %594 ], [ %.2296, %604 ], [ %593, %601 ]
-  %.1293 = phi i32 [ %.0292, %597 ], [ 1, %594 ], [ %.2, %604 ], [ 1, %601 ]
+.0292.si.unfold.false:                            ; preds = %597
+  br label %609
+
+609:                                              ; preds = %597, %.0292.si.unfold.false, %604, %.2.si.unfold.false, %601, %594
+  %.1295 = phi float [ %599, %597 ], [ %593, %594 ], [ %607, %604 ], [ %593, %601 ], [ %593, %.2.si.unfold.false ], [ %593, %.0292.si.unfold.false ]
+  %.1293 = phi i32 [ 3, %597 ], [ 1, %594 ], [ 2, %604 ], [ 1, %601 ], [ 1, %.2.si.unfold.false ], [ 1, %.0292.si.unfold.false ]
   br i1 %502, label %.lr.ph658, label %.preheader
 
 .lr.ph658:                                        ; preds = %609
@@ -4847,15 +4849,15 @@ _ZNK5btLCP12AiC_times_qCEiPf.exit585:             ; preds = %._crit_edge.i.i571,
   %635 = fdiv float %634, %618
   %636 = fcmp olt float %635, %.3297655
   %637 = trunc nsw i64 %613 to i32
-  %.3309 = select i1 %636, i32 %637, i32 %.0306654
-  %.6300 = select i1 %636, float %635, float %.3297655
-  %.6 = select i1 %636, i32 4, i32 %.3656
+  br i1 %636, label %638, label %.6.si.unfold.false
+
+.6.si.unfold.false:                               ; preds = %631
   br label %638
 
-638:                                              ; preds = %619, %621, %631, %627
-  %.2308 = phi i32 [ %.0306654, %627 ], [ %.3309, %631 ], [ %.0306654, %621 ], [ %.0306654, %619 ]
-  %.5299 = phi float [ %.3297655, %627 ], [ %.6300, %631 ], [ %.3297655, %621 ], [ %.3297655, %619 ]
-  %.5 = phi i32 [ %.3656, %627 ], [ %.6, %631 ], [ %.3656, %621 ], [ %.3656, %619 ]
+638:                                              ; preds = %631, %.6.si.unfold.false, %619, %621, %627
+  %.2308 = phi i32 [ %.0306654, %627 ], [ %637, %631 ], [ %.0306654, %621 ], [ %.0306654, %619 ], [ %.0306654, %.6.si.unfold.false ]
+  %.5299 = phi float [ %.3297655, %627 ], [ %635, %631 ], [ %.3297655, %621 ], [ %.3297655, %619 ], [ %.3297655, %.6.si.unfold.false ]
+  %.5 = phi i32 [ %.3656, %627 ], [ 4, %631 ], [ %.3656, %621 ], [ %.3656, %619 ], [ %.3656, %.6.si.unfold.false ]
   %indvars.iv.next711 = add nuw nsw i64 %indvars.iv710, 1
   %exitcond714.not = icmp eq i64 %indvars.iv.next711, %wide.trip.count713
   br i1 %exitcond714.not, label %.preheader, label %612, !llvm.loop !133
@@ -4890,15 +4892,15 @@ _ZNK5btLCP12AiC_times_qCEiPf.exit585:             ; preds = %._crit_edge.i.i571,
   %651 = fdiv float %650, %641
   %652 = fcmp olt float %651, %.7301662
   %653 = trunc nsw i64 %indvars.iv715 to i32
-  %.6312 = select i1 %652, i32 %653, i32 %.4310661
-  %.9303 = select i1 %652, float %651, float %.7301662
-  %.9 = select i1 %652, i32 5, i32 %.7663
+  br i1 %652, label %654, label %.9.si.unfold.false
+
+.9.si.unfold.false:                               ; preds = %647
   br label %654
 
-654:                                              ; preds = %647, %643, %.lr.ph665
-  %.5311 = phi i32 [ %.6312, %647 ], [ %.4310661, %643 ], [ %.4310661, %.lr.ph665 ]
-  %.8302 = phi float [ %.9303, %647 ], [ %.7301662, %643 ], [ %.7301662, %.lr.ph665 ]
-  %.8 = phi i32 [ %.9, %647 ], [ %.7663, %643 ], [ %.7663, %.lr.ph665 ]
+654:                                              ; preds = %647, %.9.si.unfold.false, %643, %.lr.ph665
+  %.5311 = phi i32 [ %653, %647 ], [ %.4310661, %643 ], [ %.4310661, %.lr.ph665 ], [ %.4310661, %.9.si.unfold.false ]
+  %.8302 = phi float [ %651, %647 ], [ %.7301662, %643 ], [ %.7301662, %.lr.ph665 ], [ %.7301662, %.9.si.unfold.false ]
+  %.8 = phi i32 [ 5, %647 ], [ %.7663, %643 ], [ %.7663, %.lr.ph665 ], [ %.7663, %.9.si.unfold.false ]
   %655 = fcmp ogt float %641, 0.000000e+00
   br i1 %655, label %656, label %667
 
@@ -4915,15 +4917,15 @@ _ZNK5btLCP12AiC_times_qCEiPf.exit585:             ; preds = %._crit_edge.i.i571,
   %664 = fdiv float %663, %641
   %665 = fcmp olt float %664, %.8302
   %666 = trunc nsw i64 %indvars.iv715 to i32
-  %.8314 = select i1 %665, i32 %666, i32 %.5311
-  %.11305 = select i1 %665, float %664, float %.8302
-  %.11 = select i1 %665, i32 6, i32 %.8
+  br i1 %665, label %667, label %.11.si.unfold.false
+
+.11.si.unfold.false:                              ; preds = %660
   br label %667
 
-667:                                              ; preds = %660, %656, %654
-  %.7313 = phi i32 [ %.8314, %660 ], [ %.5311, %656 ], [ %.5311, %654 ]
-  %.10304 = phi float [ %.11305, %660 ], [ %.8302, %656 ], [ %.8302, %654 ]
-  %.10 = phi i32 [ %.11, %660 ], [ %.8, %656 ], [ %.8, %654 ]
+667:                                              ; preds = %660, %.11.si.unfold.false, %656, %654
+  %.7313 = phi i32 [ %666, %660 ], [ %.5311, %656 ], [ %.5311, %654 ], [ %.5311, %.11.si.unfold.false ]
+  %.10304 = phi float [ %664, %660 ], [ %.8302, %656 ], [ %.8302, %654 ], [ %.8302, %.11.si.unfold.false ]
+  %.10 = phi i32 [ 6, %660 ], [ %.8, %656 ], [ %.8, %654 ], [ %.8, %.11.si.unfold.false ]
   %indvars.iv.next716 = add nsw i64 %indvars.iv715, 1
   %exitcond719.not = icmp eq i64 %indvars.iv.next716, %500
   br i1 %exitcond719.not, label %._crit_edge, label %.lr.ph665, !llvm.loop !134
@@ -5064,8 +5066,8 @@ default.unreachable793:                           ; preds = %_ZN5btLCP24pN_pluse
   %indvars.iv.next705 = add nsw i64 %indvars.iv704, 1
   %lftr.wideiv720 = trunc i64 %indvars.iv.next705 to i32
   %exitcond721.not = icmp eq i32 %0, %lftr.wideiv720
-  %or.cond819 = select i1 %718, i1 true, i1 %exitcond721.not
-  br i1 %or.cond819, label %.thread616._crit_edge, label %356, !llvm.loop !135
+  %or.cond820 = select i1 %718, i1 true, i1 %exitcond721.not
+  br i1 %or.cond820, label %.thread616._crit_edge, label %356, !llvm.loop !135
 
 .thread616._crit_edge:                            ; preds = %.thread616, %_ZN20btAlignedObjectArrayIbE6resizeEiRKb.exit
   %719 = getelementptr inbounds nuw i8, ptr %11, i64 104

@@ -14516,14 +14516,8 @@ declare i32 @_ZN4llvm8FastISel16fastEmitInst_riiEjPKNS_19TargetRegisterClassEjmm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel16emitLogicalOp_riEjN4llvm3MVTEjm(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef range(i32 186, 189) %1, i16 %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
-  br label %tailrecurse
-
-tailrecurse:                                      ; preds = %120, %5
-  %.tr70 = phi i32 [ %1, %5 ], [ 186, %120 ]
-  %.tr71 = phi i16 [ %2, %5 ], [ 7, %120 ]
-  %.tr72 = phi i32 [ %3, %5 ], [ %118, %120 ]
-  %.tr73 = phi i64 [ %4, %5 ], [ %122, %120 ]
-  switch i16 %.tr71, label %.critedge [
+tailrecurse:
+  switch i16 %2, label %.critedge [
     i16 2, label %.split17
     i16 5, label %.split17
     i16 6, label %.split17
@@ -14531,223 +14525,231 @@ tailrecurse:                                      ; preds = %120, %5
     i16 8, label %.split
   ]
 
-.split17:                                         ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
-  %6 = zext nneg i32 %.tr70 to i64
-  %7 = getelementptr [2 x i32], ptr @_ZZN12_GLOBAL__N_115AArch64FastISel16emitLogicalOp_riEjN4llvm3MVTEjmE8OpcTable, i64 %6
-  %8 = getelementptr i8, ptr %7, i64 -1488
-  %9 = load i32, ptr %8, align 8, !tbaa !278
-  %10 = add i64 %.tr73, -4294967295
-  %or.cond67 = icmp ult i64 %10, -4294967294
+tailrecurse.jt7:                                  ; preds = %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit
+  %5 = icmp eq i16 %.tr7186, 5
+  %6 = select i1 %5, i64 255, i64 65535
+  br label %.split17
+
+.split17:                                         ; preds = %tailrecurse.jt7, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+  %.tr7390 = phi i64 [ %6, %tailrecurse.jt7 ], [ %4, %tailrecurse ], [ %4, %tailrecurse ], [ %4, %tailrecurse ], [ %4, %tailrecurse ]
+  %.tr7287 = phi i32 [ %119, %tailrecurse.jt7 ], [ %3, %tailrecurse ], [ %3, %tailrecurse ], [ %3, %tailrecurse ], [ %3, %tailrecurse ]
+  %.tr7184 = phi i16 [ 7, %tailrecurse.jt7 ], [ %2, %tailrecurse ], [ %2, %tailrecurse ], [ %2, %tailrecurse ], [ %2, %tailrecurse ]
+  %.tr7081 = phi i32 [ 186, %tailrecurse.jt7 ], [ %1, %tailrecurse ], [ %1, %tailrecurse ], [ %1, %tailrecurse ], [ %1, %tailrecurse ]
+  %7 = zext nneg i32 %.tr7081 to i64
+  %8 = getelementptr [2 x i32], ptr @_ZZN12_GLOBAL__N_115AArch64FastISel16emitLogicalOp_riEjN4llvm3MVTEjmE8OpcTable, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -1488
+  %10 = load i32, ptr %9, align 8, !tbaa !278
+  %11 = add i64 %.tr7390, -4294967295
+  %or.cond67 = icmp ult i64 %11, -4294967294
   br i1 %or.cond67, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %.split17, %.preheader
   %.045.i.i = phi i32 [ %.146.i.i, %.preheader ], [ 32, %.split17 ]
-  %11 = lshr i32 %.045.i.i, 1
-  %12 = zext nneg i32 %11 to i64
-  %notmask.i.i = shl nsw i64 -1, %12
-  %13 = xor i64 %notmask.i.i, -1
-  %14 = lshr i64 %.tr73, %12
-  %15 = xor i64 %14, %.tr73
-  %16 = and i64 %15, %13
-  %.not53.i.i = icmp eq i64 %16, 0
-  %17 = and i32 %.045.i.i, -2
-  %.146.i.i = select i1 %.not53.i.i, i32 %11, i32 %17
-  %18 = icmp ugt i32 %.146.i.i, 2
-  %or.cond54.i.i = and i1 %.not53.i.i, %18
-  br i1 %or.cond54.i.i, label %.preheader, label %19, !llvm.loop !1125
+  %12 = lshr i32 %.045.i.i, 1
+  %13 = zext nneg i32 %12 to i64
+  %notmask.i.i = shl nsw i64 -1, %13
+  %14 = xor i64 %notmask.i.i, -1
+  %15 = lshr i64 %.tr7390, %13
+  %16 = xor i64 %15, %.tr7390
+  %17 = and i64 %16, %14
+  %.not53.i.i = icmp eq i64 %17, 0
+  %18 = and i32 %.045.i.i, -2
+  %.146.i.i = select i1 %.not53.i.i, i32 %12, i32 %18
+  %19 = icmp ugt i32 %.146.i.i, 2
+  %or.cond54.i.i = and i1 %.not53.i.i, %19
+  br i1 %or.cond54.i.i, label %.preheader, label %20, !llvm.loop !1125
 
-19:                                               ; preds = %.preheader
-  %20 = sub i32 64, %.146.i.i
-  %21 = zext nneg i32 %20 to i64
-  %22 = lshr i64 -1, %21
-  %23 = and i64 %22, %.tr73
-  %.not.i.i.i = icmp eq i64 %23, 0
+20:                                               ; preds = %.preheader
+  %21 = sub i32 64, %.146.i.i
+  %22 = zext nneg i32 %21 to i64
+  %23 = lshr i64 -1, %22
+  %24 = and i64 %23, %.tr7390
+  %.not.i.i.i = icmp eq i64 %24, 0
   br i1 %.not.i.i.i, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i, label %_ZN4llvm16isShiftedMask_64Em.exit.i.i
 
-_ZN4llvm16isShiftedMask_64Em.exit.i.i:            ; preds = %19
-  %24 = add nsw i64 %23, -1
-  %25 = or i64 %24, %23
-  %26 = add nuw nsw i64 %25, 1
-  %27 = and i64 %26, %25
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.thread, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i
+_ZN4llvm16isShiftedMask_64Em.exit.i.i:            ; preds = %20
+  %25 = add nsw i64 %24, -1
+  %26 = or i64 %25, %24
+  %27 = add nuw nsw i64 %26, 1
+  %28 = and i64 %27, %26
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %.thread, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i
 
-_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i:     ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i, %19
-  %.not57.i.i = xor i64 %.tr73, -1
-  %29 = and i64 %22, %.not57.i.i
-  %.not.i55.i.i = icmp eq i64 %29, 0
+_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i:     ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i, %20
+  %.not57.i.i = xor i64 %.tr7390, -1
+  %30 = and i64 %23, %.not57.i.i
+  %.not.i55.i.i = icmp eq i64 %30, 0
   br i1 %.not.i55.i.i, label %.critedge, label %_ZN4llvm16isShiftedMask_64Em.exit56.i.i
 
 _ZN4llvm16isShiftedMask_64Em.exit56.i.i:          ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i
-  %30 = add i64 %29, -1
-  %31 = or i64 %30, %29
-  %32 = add i64 %31, 1
-  %33 = and i64 %32, %31
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.thread, label %.critedge
+  %31 = add i64 %30, -1
+  %32 = or i64 %31, %30
+  %33 = add i64 %32, 1
+  %34 = and i64 %33, %32
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %.thread, label %.critedge
 
 .split:                                           ; preds = %tailrecurse
-  %35 = zext nneg i32 %.tr70 to i64
-  %36 = getelementptr [2 x i32], ptr @_ZZN12_GLOBAL__N_115AArch64FastISel16emitLogicalOp_riEjN4llvm3MVTEjmE8OpcTable, i64 %35
-  %37 = getelementptr i8, ptr %36, i64 -1484
-  %38 = load i32, ptr %37, align 4, !tbaa !278
-  %39 = add i64 %.tr73, 1
-  %or.cond.i.i18 = icmp ult i64 %39, 2
+  %36 = zext nneg i32 %1 to i64
+  %37 = getelementptr [2 x i32], ptr @_ZZN12_GLOBAL__N_115AArch64FastISel16emitLogicalOp_riEjN4llvm3MVTEjmE8OpcTable, i64 %36
+  %38 = getelementptr i8, ptr %37, i64 -1484
+  %39 = load i32, ptr %38, align 4, !tbaa !278
+  %40 = add i64 %4, 1
+  %or.cond.i.i18 = icmp ult i64 %40, 2
   br i1 %or.cond.i.i18, label %.critedge, label %.preheader74
 
 .preheader74:                                     ; preds = %.split, %.preheader74
   %.045.i.i19 = phi i32 [ %.146.i.i22, %.preheader74 ], [ 64, %.split ]
-  %40 = lshr i32 %.045.i.i19, 1
-  %41 = zext nneg i32 %40 to i64
-  %notmask.i.i20 = shl nsw i64 -1, %41
-  %42 = xor i64 %notmask.i.i20, -1
-  %43 = lshr i64 %.tr73, %41
-  %44 = xor i64 %43, %.tr73
-  %45 = and i64 %44, %42
-  %.not53.i.i21 = icmp eq i64 %45, 0
-  %46 = and i32 %.045.i.i19, -2
-  %.146.i.i22 = select i1 %.not53.i.i21, i32 %40, i32 %46
-  %47 = icmp ugt i32 %.146.i.i22, 2
-  %or.cond54.i.i23 = and i1 %.not53.i.i21, %47
-  br i1 %or.cond54.i.i23, label %.preheader74, label %48, !llvm.loop !1125
+  %41 = lshr i32 %.045.i.i19, 1
+  %42 = zext nneg i32 %41 to i64
+  %notmask.i.i20 = shl nsw i64 -1, %42
+  %43 = xor i64 %notmask.i.i20, -1
+  %44 = lshr i64 %4, %42
+  %45 = xor i64 %44, %4
+  %46 = and i64 %45, %43
+  %.not53.i.i21 = icmp eq i64 %46, 0
+  %47 = and i32 %.045.i.i19, -2
+  %.146.i.i22 = select i1 %.not53.i.i21, i32 %41, i32 %47
+  %48 = icmp ugt i32 %.146.i.i22, 2
+  %or.cond54.i.i23 = and i1 %.not53.i.i21, %48
+  br i1 %or.cond54.i.i23, label %.preheader74, label %49, !llvm.loop !1125
 
-48:                                               ; preds = %.preheader74
-  %49 = sub i32 64, %.146.i.i22
-  %50 = zext nneg i32 %49 to i64
-  %51 = lshr i64 -1, %50
-  %52 = and i64 %51, %.tr73
-  %.not.i.i.i24 = icmp eq i64 %52, 0
+49:                                               ; preds = %.preheader74
+  %50 = sub i32 64, %.146.i.i22
+  %51 = zext nneg i32 %50 to i64
+  %52 = lshr i64 -1, %51
+  %53 = and i64 %52, %4
+  %.not.i.i.i24 = icmp eq i64 %53, 0
   br i1 %.not.i.i.i24, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i26, label %_ZN4llvm16isShiftedMask_64Em.exit.i.i25
 
-_ZN4llvm16isShiftedMask_64Em.exit.i.i25:          ; preds = %48
-  %53 = add i64 %52, -1
-  %54 = or i64 %53, %52
-  %55 = add i64 %54, 1
-  %56 = and i64 %55, %54
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %.thread, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i26
+_ZN4llvm16isShiftedMask_64Em.exit.i.i25:          ; preds = %49
+  %54 = add i64 %53, -1
+  %55 = or i64 %54, %53
+  %56 = add i64 %55, 1
+  %57 = and i64 %56, %55
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %.thread, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i26
 
-_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i26:   ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i25, %48
-  %.not57.i.i27 = xor i64 %.tr73, -1
-  %58 = and i64 %51, %.not57.i.i27
-  %.not.i55.i.i28 = icmp eq i64 %58, 0
+_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i26:   ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i25, %49
+  %.not57.i.i27 = xor i64 %4, -1
+  %59 = and i64 %52, %.not57.i.i27
+  %.not.i55.i.i28 = icmp eq i64 %59, 0
   br i1 %.not.i55.i.i28, label %.critedge, label %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29
 
 _ZN4llvm16isShiftedMask_64Em.exit56.i.i29:        ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i26
-  %59 = add i64 %58, -1
-  %60 = or i64 %59, %58
-  %61 = add i64 %60, 1
-  %62 = and i64 %61, %60
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %.thread, label %.critedge
+  %60 = add i64 %59, -1
+  %61 = or i64 %60, %59
+  %62 = add i64 %61, 1
+  %63 = and i64 %62, %61
+  %64 = icmp eq i64 %63, 0
+  br i1 %64, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %_ZN4llvm16isShiftedMask_64Em.exit56.i.i, %_ZN4llvm16isShiftedMask_64Em.exit.i.i, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29, %_ZN4llvm16isShiftedMask_64Em.exit.i.i25
-  %.01366 = phi ptr [ @_ZN4llvm7AArch6415GPR64spRegClassE, %_ZN4llvm16isShiftedMask_64Em.exit.i.i25 ], [ @_ZN4llvm7AArch6415GPR64spRegClassE, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ @_ZN4llvm7AArch6415GPR32spRegClassE, %_ZN4llvm16isShiftedMask_64Em.exit.i.i ], [ @_ZN4llvm7AArch6415GPR32spRegClassE, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ]
-  %.01464 = phi i32 [ 64, %_ZN4llvm16isShiftedMask_64Em.exit.i.i25 ], [ 64, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ 32, %_ZN4llvm16isShiftedMask_64Em.exit.i.i ], [ 32, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ]
-  %.01563 = phi i32 [ %38, %_ZN4llvm16isShiftedMask_64Em.exit.i.i25 ], [ %38, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ %9, %_ZN4llvm16isShiftedMask_64Em.exit.i.i ], [ %9, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ]
-  br label %64
+  %.tr7391 = phi i64 [ %4, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ %4, %_ZN4llvm16isShiftedMask_64Em.exit.i.i25 ], [ %.tr7390, %_ZN4llvm16isShiftedMask_64Em.exit.i.i ], [ %.tr7390, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ]
+  %.tr7289 = phi i32 [ %3, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ %3, %_ZN4llvm16isShiftedMask_64Em.exit.i.i25 ], [ %.tr7287, %_ZN4llvm16isShiftedMask_64Em.exit.i.i ], [ %.tr7287, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ]
+  %.tr7186 = phi i16 [ 8, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ 8, %_ZN4llvm16isShiftedMask_64Em.exit.i.i25 ], [ %.tr7184, %_ZN4llvm16isShiftedMask_64Em.exit.i.i ], [ %.tr7184, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ]
+  %.tr7083 = phi i32 [ %1, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ %1, %_ZN4llvm16isShiftedMask_64Em.exit.i.i25 ], [ %.tr7081, %_ZN4llvm16isShiftedMask_64Em.exit.i.i ], [ %.tr7081, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ]
+  %.01366 = phi ptr [ @_ZN4llvm7AArch6415GPR64spRegClassE, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ @_ZN4llvm7AArch6415GPR64spRegClassE, %_ZN4llvm16isShiftedMask_64Em.exit.i.i25 ], [ @_ZN4llvm7AArch6415GPR32spRegClassE, %_ZN4llvm16isShiftedMask_64Em.exit.i.i ], [ @_ZN4llvm7AArch6415GPR32spRegClassE, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ]
+  %.01464 = phi i32 [ 64, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ 64, %_ZN4llvm16isShiftedMask_64Em.exit.i.i25 ], [ 32, %_ZN4llvm16isShiftedMask_64Em.exit.i.i ], [ 32, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ]
+  %.01563 = phi i32 [ %39, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ %39, %_ZN4llvm16isShiftedMask_64Em.exit.i.i25 ], [ %10, %_ZN4llvm16isShiftedMask_64Em.exit.i.i ], [ %10, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ]
+  br label %65
 
-64:                                               ; preds = %64, %.thread
-  %.045.i.i34 = phi i32 [ %.01464, %.thread ], [ %.146.i.i37, %64 ]
-  %65 = lshr i32 %.045.i.i34, 1
-  %66 = zext nneg i32 %65 to i64
-  %notmask.i.i35 = shl nsw i64 -1, %66
-  %67 = xor i64 %notmask.i.i35, -1
-  %68 = lshr i64 %.tr73, %66
-  %69 = xor i64 %68, %.tr73
-  %70 = and i64 %69, %67
-  %.not53.i.i36 = icmp eq i64 %70, 0
-  %71 = and i32 %.045.i.i34, -2
-  %.146.i.i37 = select i1 %.not53.i.i36, i32 %65, i32 %71
-  %72 = icmp ugt i32 %.146.i.i37, 2
-  %or.cond54.i.i38 = and i1 %.not53.i.i36, %72
-  br i1 %or.cond54.i.i38, label %64, label %73, !llvm.loop !1125
+65:                                               ; preds = %65, %.thread
+  %.045.i.i34 = phi i32 [ %.01464, %.thread ], [ %.146.i.i37, %65 ]
+  %66 = lshr i32 %.045.i.i34, 1
+  %67 = zext nneg i32 %66 to i64
+  %notmask.i.i35 = shl nsw i64 -1, %67
+  %68 = xor i64 %notmask.i.i35, -1
+  %69 = lshr i64 %.tr7391, %67
+  %70 = xor i64 %69, %.tr7391
+  %71 = and i64 %70, %68
+  %.not53.i.i36 = icmp eq i64 %71, 0
+  %72 = and i32 %.045.i.i34, -2
+  %.146.i.i37 = select i1 %.not53.i.i36, i32 %66, i32 %72
+  %73 = icmp ugt i32 %.146.i.i37, 2
+  %or.cond54.i.i38 = and i1 %.not53.i.i36, %73
+  br i1 %or.cond54.i.i38, label %65, label %74, !llvm.loop !1125
 
-73:                                               ; preds = %64
+74:                                               ; preds = %65
   %.neg59.i.i = add i32 %.146.i.i37, -64
-  %74 = sub i32 64, %.146.i.i37
-  %75 = zext nneg i32 %74 to i64
-  %76 = lshr i64 -1, %75
-  %77 = and i64 %76, %.tr73
-  %.not.i.i.i39 = icmp eq i64 %77, 0
+  %75 = sub i32 64, %.146.i.i37
+  %76 = zext nneg i32 %75 to i64
+  %77 = lshr i64 -1, %76
+  %78 = and i64 %77, %.tr7391
+  %.not.i.i.i39 = icmp eq i64 %78, 0
   br i1 %.not.i.i.i39, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i41, label %_ZN4llvm16isShiftedMask_64Em.exit.i.i40
 
-_ZN4llvm16isShiftedMask_64Em.exit.i.i40:          ; preds = %73
-  %78 = add i64 %77, -1
-  %79 = or i64 %78, %77
-  %80 = add i64 %79, 1
-  %81 = and i64 %80, %79
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %83, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i41
+_ZN4llvm16isShiftedMask_64Em.exit.i.i40:          ; preds = %74
+  %79 = add i64 %78, -1
+  %80 = or i64 %79, %78
+  %81 = add i64 %80, 1
+  %82 = and i64 %81, %80
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %84, label %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i41
 
-83:                                               ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i40
-  %84 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %77, i1 true)
-  %85 = trunc nuw nsw i64 %84 to i32
-  %86 = lshr exact i64 %77, %84
-  %87 = xor i64 %86, -1
-  %88 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %87, i1 false)
-  %89 = trunc nuw nsw i64 %88 to i32
-  br label %104
+84:                                               ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i40
+  %85 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %78, i1 true)
+  %86 = trunc nuw nsw i64 %85 to i32
+  %87 = lshr exact i64 %78, %85
+  %88 = xor i64 %87, -1
+  %89 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %88, i1 false)
+  %90 = trunc nuw nsw i64 %89 to i32
+  br label %105
 
-_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i41:   ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i40, %73
-  %.not57.i.i42 = xor i64 %.tr73, -1
-  %90 = and i64 %76, %.not57.i.i42
-  %.not.i55.i.i43 = icmp eq i64 %90, 0
+_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i41:   ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i40, %74
+  %.not57.i.i42 = xor i64 %.tr7391, -1
+  %91 = and i64 %77, %.not57.i.i42
+  %.not.i55.i.i43 = icmp eq i64 %91, 0
   br i1 %.not.i55.i.i43, label %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit, label %_ZN4llvm16isShiftedMask_64Em.exit56.i.i44
 
 _ZN4llvm16isShiftedMask_64Em.exit56.i.i44:        ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i41
-  %91 = add i64 %90, -1
-  %92 = or i64 %91, %90
-  %93 = add i64 %92, 1
-  %94 = and i64 %93, %92
-  %95 = icmp eq i64 %94, 0
-  br i1 %95, label %96, label %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit
+  %92 = add i64 %91, -1
+  %93 = or i64 %92, %91
+  %94 = add i64 %93, 1
+  %95 = and i64 %94, %93
+  %96 = icmp eq i64 %95, 0
+  br i1 %96, label %97, label %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit
 
-96:                                               ; preds = %_ZN4llvm16isShiftedMask_64Em.exit56.i.i44
-  %97 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %90, i1 true)
-  %98 = trunc nuw nsw i64 %97 to i32
-  %99 = sub nuw nsw i32 64, %98
-  %100 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %90, i1 true)
-  %101 = trunc nuw nsw i64 %100 to i32
-  %102 = add i32 %.neg59.i.i, %101
-  %103 = add i32 %102, %98
-  br label %104
+97:                                               ; preds = %_ZN4llvm16isShiftedMask_64Em.exit56.i.i44
+  %98 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %91, i1 true)
+  %99 = trunc nuw nsw i64 %98 to i32
+  %100 = sub nuw nsw i32 64, %99
+  %101 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %91, i1 true)
+  %102 = trunc nuw nsw i64 %101 to i32
+  %103 = add i32 %.neg59.i.i, %102
+  %104 = add i32 %103, %99
+  br label %105
 
-104:                                              ; preds = %96, %83
-  %.049.i.i = phi i32 [ %85, %83 ], [ %99, %96 ]
-  %.048.i.i = phi i32 [ %89, %83 ], [ %103, %96 ]
-  %105 = sub i32 %.146.i.i37, %.049.i.i
-  %106 = add i32 %.146.i.i37, 67108863
-  %107 = and i32 %105, %106
+105:                                              ; preds = %97, %84
+  %.049.i.i = phi i32 [ %86, %84 ], [ %100, %97 ]
+  %.048.i.i = phi i32 [ %90, %84 ], [ %104, %97 ]
+  %106 = sub i32 %.146.i.i37, %.049.i.i
+  %107 = add i32 %.146.i.i37, 67108863
+  %108 = and i32 %106, %107
   %.neg.i.i = mul i32 %.146.i.i37, -2
-  %108 = add i32 %.048.i.i, -1
-  %109 = or i32 %108, %.neg.i.i
-  %110 = shl i32 %109, 6
-  %111 = and i32 %110, 4096
-  %112 = xor i32 %111, 4096
-  %113 = shl i32 %107, 6
-  %114 = and i32 %109, 63
-  %115 = or disjoint i32 %114, %113
-  %116 = or i32 %112, %115
-  %117 = zext i32 %116 to i64
+  %109 = add i32 %.048.i.i, -1
+  %110 = or i32 %109, %.neg.i.i
+  %111 = shl i32 %110, 6
+  %112 = and i32 %111, 4096
+  %113 = xor i32 %112, 4096
+  %114 = shl i32 %108, 6
+  %115 = and i32 %110, 63
+  %116 = or disjoint i32 %115, %114
+  %117 = or i32 %113, %116
+  %118 = zext i32 %117 to i64
   br label %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit
 
-_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit: ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i41, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i44, %104
-  %.0.i = phi i64 [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i41 ], [ %117, %104 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i44 ]
-  %118 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_riEjPKNS_19TargetRegisterClassEjm(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %.01563, ptr noundef nonnull %.01366, i32 noundef %.tr72, i64 noundef %.0.i) #22
-  %119 = add nsw i16 %.tr71, -7
-  %or.cond68 = icmp ult i16 %119, -2
-  %.not = icmp eq i32 %.tr70, 186
+_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit: ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i41, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i44, %105
+  %.0.i = phi i64 [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i41 ], [ %118, %105 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i44 ]
+  %119 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_riEjPKNS_19TargetRegisterClassEjm(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %.01563, ptr noundef nonnull %.01366, i32 noundef %.tr7289, i64 noundef %.0.i) #22
+  %120 = add nsw i16 %.tr7186, -7
+  %or.cond68 = icmp ult i16 %120, -2
+  %.not = icmp eq i32 %.tr7083, 186
   %or.cond69 = or i1 %.not, %or.cond68
-  br i1 %or.cond69, label %.critedge, label %120
-
-120:                                              ; preds = %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit
-  %121 = icmp eq i16 %.tr71, 5
-  %122 = select i1 %121, i64 255, i64 65535
-  br label %tailrecurse
+  br i1 %or.cond69, label %.critedge, label %tailrecurse.jt7
 
 .critedge:                                        ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i26, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29, %.split, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i, %.split17, %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit, %tailrecurse
-  %.0 = phi i32 [ 0, %tailrecurse ], [ %118, %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit ], [ 0, %.split17 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i ], [ 0, %.split ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i26 ]
+  %.0 = phi i32 [ 0, %tailrecurse ], [ %119, %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit ], [ 0, %.split17 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i ], [ 0, %.split ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i29 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i26 ]
   ret i32 %.0
 }
 

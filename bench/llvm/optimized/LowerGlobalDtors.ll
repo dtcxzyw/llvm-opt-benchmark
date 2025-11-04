@@ -734,15 +734,15 @@ _ZNK4llvm8Function6getArgEj.exit:                 ; preds = %204, %208
   br label %291
 
 ._crit_edge396:                                   ; preds = %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, %282
-  %.sroa.0414.2 = phi ptr [ %.sroa.0414.0, %282 ], [ %.sroa.0414.3527, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
-  %.sroa.0449.2 = phi ptr [ %.sroa.0449.0, %282 ], [ %.sroa.0449.3517, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
+  %.sroa.0414.2 = phi ptr [ %.sroa.0414.0, %282 ], [ %.sroa.0414.3520, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
+  %.sroa.0449.2 = phi ptr [ %.sroa.0449.0, %282 ], [ %.sroa.0449.3510, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
   %290 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0333.0398) #19
   %.not382 = icmp eq ptr %290, %91
   br i1 %.not382, label %._crit_edge401, label %282
 
 291:                                              ; preds = %.lr.ph395, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit
-  %.sroa.0414.1 = phi ptr [ %.sroa.0414.0, %.lr.ph395 ], [ %.sroa.0414.3527, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
-  %.sroa.0449.1 = phi ptr [ %.sroa.0449.0, %.lr.ph395 ], [ %.sroa.0449.3517, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
+  %.sroa.0414.1 = phi ptr [ %.sroa.0414.0, %.lr.ph395 ], [ %.sroa.0414.3520, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
+  %.sroa.0449.1 = phi ptr [ %.sroa.0449.0, %.lr.ph395 ], [ %.sroa.0449.3510, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
   %.0121393 = phi i64 [ 0, %.lr.ph395 ], [ %293, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
   %.sroa.0329.0392 = phi ptr [ %284, %.lr.ph395 ], [ %428, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
   %292 = load ptr, ptr %.sroa.0329.0392, align 8, !tbaa !79
@@ -775,7 +775,7 @@ _ZNK4llvm8Function6getArgEj.exit:                 ; preds = %204, %208
   br label %_ZN4llvmplERKNS_5TwineES2_.exit162
 
 _ZN4llvmplERKNS_5TwineES2_.exit162:               ; preds = %294, %295
-  %.sroa.0449.3517 = phi ptr [ %.sroa.0449.1, %294 ], [ %297, %295 ]
+  %.sroa.0449.3510 = phi ptr [ %.sroa.0449.1, %294 ], [ %297, %295 ]
   %298 = phi i8 [ 1, %294 ], [ 2, %295 ]
   store i8 3, ptr %222, align 8, !tbaa !226
   store i8 %298, ptr %223, align 1, !tbaa !226
@@ -862,14 +862,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit207:               ; preds = %_ZN4llvmplERKNS_5Tw
   %319 = icmp eq i8 %318, 0
   %320 = icmp eq i8 %.014.i.i196.sink, 0
   %or.cond = select i1 %319, i1 true, i1 %320
-  br i1 %or.cond, label %.thread520, label %321
+  br i1 %or.cond, label %.thread513, label %321
 
 _ZN4llvmplERKNS_5TwineES2_.exit207.thread:        ; preds = %308
   store i8 0, ptr %233, align 8, !tbaa !212, !alias.scope !247
   store i8 1, ptr %234, align 1, !tbaa !215, !alias.scope !247
-  br label %.thread520
+  br label %.thread513
 
-.thread520:                                       ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit207.thread, %_ZN4llvmplERKNS_5TwineES2_.exit207
+.thread513:                                       ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit207.thread, %_ZN4llvmplERKNS_5TwineES2_.exit207
   store i8 0, ptr %237, align 8, !tbaa !212, !alias.scope !254
   store i8 1, ptr %238, align 1, !tbaa !215, !alias.scope !254
   br label %_ZN4llvmplERKNS_5TwineES2_.exit222
@@ -911,7 +911,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit207.thread:        ; preds = %308
   store i8 %.0.i.i217, ptr %238, align 1, !tbaa !215, !alias.scope !254
   br label %_ZN4llvmplERKNS_5TwineES2_.exit222
 
-_ZN4llvmplERKNS_5TwineES2_.exit222:               ; preds = %.thread520, %323, %326, %327
+_ZN4llvmplERKNS_5TwineES2_.exit222:               ; preds = %.thread513, %323, %326, %327
   %330 = call noundef ptr @_ZN4llvm4UsernwEmNS0_26HungOffOperandsAllocMarkerE(i64 noundef 136) #16
   call void @_ZN4llvm8FunctionC1EPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(136) %330, ptr noundef %192, i32 noundef 8, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(34) %20, ptr noundef nonnull %0) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -990,7 +990,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit222:               ; preds = %.thread520, %323, %
   br label %_ZN4llvmplERKNS_5TwineES2_.exit252
 
 _ZN4llvmplERKNS_5TwineES2_.exit252:               ; preds = %346, %347
-  %.sroa.0414.3527 = phi ptr [ %.sroa.0414.1, %346 ], [ %349, %347 ]
+  %.sroa.0414.3520 = phi ptr [ %.sroa.0414.1, %346 ], [ %349, %347 ]
   %350 = phi i8 [ 1, %346 ], [ 2, %347 ]
   store i8 3, ptr %247, align 8, !tbaa !226
   store i8 %350, ptr %248, align 1, !tbaa !226
@@ -1067,24 +1067,24 @@ _ZN4llvmplERKNS_5TwineES2_.exit282:               ; preds = %357, %358
 
 _ZN4llvmplERKNS_5TwineES2_.exit297:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit282, %366, %365
   %.014.i.i286.sink = phi i8 [ %.014.i.i286, %366 ], [ 5, %365 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit282 ]
-  %.sink532 = phi i8 [ 5, %366 ], [ 1, %365 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit282 ]
+  %.sink525 = phi i8 [ 5, %366 ], [ 1, %365 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit282 ]
   %369 = phi i1 [ false, %366 ], [ true, %365 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit282 ]
   store i8 %.014.i.i286.sink, ptr %258, align 8, !tbaa !226
-  store i8 %.sink532, ptr %259, align 1, !tbaa !226
+  store i8 %.sink525, ptr %259, align 1, !tbaa !226
   call void @llvm.experimental.noalias.scope.decl(metadata !305)
   call void @llvm.experimental.noalias.scope.decl(metadata !308)
   %370 = load i8, ptr %254, align 8, !tbaa !212, !noalias !311
   %371 = icmp eq i8 %370, 0
   %372 = icmp eq i8 %.014.i.i286.sink, 0
-  %or.cond533 = select i1 %371, i1 true, i1 %372
-  br i1 %or.cond533, label %.thread530, label %373
+  %or.cond526 = select i1 %371, i1 true, i1 %372
+  br i1 %or.cond526, label %.thread523, label %373
 
 _ZN4llvmplERKNS_5TwineES2_.exit297.thread:        ; preds = %360
   store i8 0, ptr %258, align 8, !tbaa !212, !alias.scope !304
   store i8 1, ptr %259, align 1, !tbaa !215, !alias.scope !304
-  br label %.thread530
+  br label %.thread523
 
-.thread530:                                       ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit297.thread, %_ZN4llvmplERKNS_5TwineES2_.exit297
+.thread523:                                       ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit297.thread, %_ZN4llvmplERKNS_5TwineES2_.exit297
   store i8 0, ptr %262, align 8, !tbaa !212, !alias.scope !311
   store i8 1, ptr %263, align 1, !tbaa !215, !alias.scope !311
   br label %_ZN4llvmplERKNS_5TwineES2_.exit312
@@ -1126,7 +1126,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit297.thread:        ; preds = %360
   store i8 %.0.i.i307, ptr %263, align 1, !tbaa !215, !alias.scope !311
   br label %_ZN4llvmplERKNS_5TwineES2_.exit312
 
-_ZN4llvmplERKNS_5TwineES2_.exit312:               ; preds = %.thread530, %375, %378, %379
+_ZN4llvmplERKNS_5TwineES2_.exit312:               ; preds = %.thread523, %375, %378, %379
   %382 = call noundef ptr @_ZN4llvm4UsernwEmNS0_26HungOffOperandsAllocMarkerE(i64 noundef 136) #16
   call void @_ZN4llvm8FunctionC1EPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(136) %382, ptr noundef %333, i32 noundef 8, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(34) %30, ptr noundef nonnull %0) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %36)

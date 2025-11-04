@@ -142,7 +142,7 @@ sub_0.lr.ph:                                      ; preds = %31
   br label %.loopexit
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
-  %45 = phi ptr [ %34, %sub_0.lr.ph ], [ %74, %.backedge ]
+  %45 = phi ptr [ %34, %sub_0.lr.ph ], [ %75, %.backedge ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 19
   %47 = load i8, ptr %46, align 1
   %.not = icmp eq i8 %47, 46
@@ -217,59 +217,50 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
   store ptr @.str.3, ptr %70, align 8, !tbaa !23
   %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i25, 1
   %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.next.i.i26, 8
-  br i1 %exitcond.not.i.i27, label %.loopexit.loopexit, label %69, !llvm.loop !25
+  br i1 %exitcond.not.i.i27, label %91, label %69, !llvm.loop !25
 
 71:                                               ; preds = %62
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef 2048)
   %72 = call noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef nonnull %9, ptr noundef %1, i1 noundef zeroext %2)
-  br i1 %72, label %76, label %.thread42
+  br i1 %72, label %77, label %73
 
-.thread42:                                        ; preds = %71
+73:                                               ; preds = %71
   call void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.backedge
 
-.backedge:                                        ; preds = %60, %.tail, %.tail30, %.thread42
+.backedge:                                        ; preds = %60, %.tail, %.tail30, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %73 = load ptr, ptr %33, align 8, !tbaa !12
-  %74 = call ptr @readdir64(ptr noundef %73)
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread28, label %sub_0, !llvm.loop !21
+  %74 = load ptr, ptr %33, align 8, !tbaa !12
+  %75 = call ptr @readdir64(ptr noundef %74)
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %.thread28, label %sub_0, !llvm.loop !21
 
-76:                                               ; preds = %71
+77:                                               ; preds = %71
   call void @_Z8wcsncpyzPwPKwm(ptr noundef %1, ptr noundef nonnull %9, i64 noundef 2048)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8232
-  store i32 0, ptr %77, align 8, !tbaa !30
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8200
-  %79 = load i32, ptr %78, align 8, !tbaa !31
-  %80 = call noundef zeroext i1 @_Z5IsDirj(i32 noundef %79)
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8204
-  %82 = zext i1 %80 to i8
-  store i8 %82, ptr %81, align 4, !tbaa !32
-  %83 = load i32, ptr %78, align 8, !tbaa !31
-  %84 = call noundef zeroext i1 @_Z6IsLinkj(i32 noundef %83)
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8205
-  %86 = zext i1 %84 to i8
-  store i8 %86, ptr %85, align 1, !tbaa !33
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8232
+  store i32 0, ptr %78, align 8, !tbaa !30
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8200
+  %80 = load i32, ptr %79, align 8, !tbaa !31
+  %81 = call noundef zeroext i1 @_Z5IsDirj(i32 noundef %80)
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8204
+  %83 = zext i1 %81 to i8
+  store i8 %83, ptr %82, align 4, !tbaa !32
+  %84 = load i32, ptr %79, align 8, !tbaa !31
+  %85 = call noundef zeroext i1 @_Z6IsLinkj(i32 noundef %84)
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8205
+  %87 = zext i1 %85 to i8
+  store i8 %87, ptr %86, align 1, !tbaa !33
   store i8 0, ptr %14, align 8, !tbaa !7
-  %87 = call noundef ptr @_Z11PointToNamePKw(ptr noundef %1)
-  %88 = call i32 @wcscmp(ptr noundef %87, ptr noundef nonnull @.str) #11
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %93, label %90
+  %88 = call noundef ptr @_Z11PointToNamePKw(ptr noundef %1)
+  %89 = call i32 @wcscmp(ptr noundef %88, ptr noundef nonnull @.str) #11
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %95, label %92
 
-90:                                               ; preds = %76
-  %91 = call i32 @wcscmp(ptr noundef %87, ptr noundef nonnull @.str.4) #11
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %.loopexit
-
-93:                                               ; preds = %90, %76
-  %94 = call noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull align 8 dereferenceable(8208) %0, ptr noundef nonnull %1, i1 noundef zeroext false)
-  br label %.loopexit
-
-.loopexit.loopexit:                               ; preds = %69
+91:                                               ; preds = %69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 40, i1 false)
   store i32 86, ptr %41, align 8, !tbaa !26
   store ptr %9, ptr %4, align 8, !tbaa !23
@@ -282,8 +273,17 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.thread28, %26, %93, %90, %3
-  %.0 = phi i1 [ false, %26 ], [ false, %3 ], [ %94, %93 ], [ true, %90 ], [ false, %.thread28 ], [ false, %.loopexit.loopexit ]
+92:                                               ; preds = %77
+  %93 = call i32 @wcscmp(ptr noundef %88, ptr noundef nonnull @.str.4) #11
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %.loopexit
+
+95:                                               ; preds = %92, %77
+  %96 = call noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull align 8 dereferenceable(8208) %0, ptr noundef nonnull %1, i1 noundef zeroext false)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %91, %.thread28, %26, %95, %92, %3
+  %.0 = phi i1 [ false, %26 ], [ false, %3 ], [ %96, %95 ], [ true, %92 ], [ false, %.thread28 ], [ false, %91 ]
   ret i1 %.0
 }
 

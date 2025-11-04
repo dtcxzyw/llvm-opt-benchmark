@@ -77881,22 +77881,22 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines16LinePreprocessor3new17h8
   %108 = getelementptr inbounds nuw i8, ptr %19, i64 48
   br label %109
 
-109:                                              ; preds = %.lr.ph, %502
-  %110 = phi i8 [ %85, %.lr.ph ], [ %503, %502 ]
-  %.sroa.614.0176 = phi i1 [ false, %.lr.ph ], [ true, %502 ]
-  %.sroa.513.0175 = phi i8 [ undef, %.lr.ph ], [ %.sroa.4487.0.copyload, %502 ]
-  %.sroa.2.0174 = phi i32 [ undef, %.lr.ph ], [ %.sroa.24.0.copyload, %502 ]
-  %.sroa.1.0173 = phi i64 [ undef, %.lr.ph ], [ %.sroa.13.0.copyload, %502 ]
-  %.sroa.49.0172 = phi i64 [ undef, %.lr.ph ], [ %.sroa.49.1, %502 ]
-  %.sroa.07.0171 = phi i1 [ false, %.lr.ph ], [ %.sroa.07.1, %502 ]
-  %.sroa.0.0170 = phi i64 [ 2, %.lr.ph ], [ %.sroa.0.1, %502 ]
-  %.sroa.8.0169 = phi i64 [ undef, %.lr.ph ], [ %.sroa.8.1, %502 ]
-  %.sroa.11.0168 = phi i64 [ 2, %.lr.ph ], [ %.sroa.11.1, %502 ]
-  %.sroa.17.0167 = phi i64 [ undef, %.lr.ph ], [ %.sroa.17.1, %502 ]
-  %.sroa.20.0166 = phi i32 [ 0, %.lr.ph ], [ %.sroa.20.2, %502 ]
-  %.sroa.27.0165 = phi i1 [ false, %.lr.ph ], [ %.sroa.27.1, %502 ]
-  %.sroa.30.0164 = phi i8 [ 0, %.lr.ph ], [ %spec.select107, %502 ]
-  %.sroa.41.0163 = phi i8 [ 7, %.lr.ph ], [ %.sroa.41.1, %502 ]
+109:                                              ; preds = %.lr.ph, %501
+  %110 = phi i8 [ %85, %.lr.ph ], [ %502, %501 ]
+  %.sroa.614.0176 = phi i1 [ false, %.lr.ph ], [ true, %501 ]
+  %.sroa.513.0175 = phi i8 [ undef, %.lr.ph ], [ %.sroa.4487.0.copyload, %501 ]
+  %.sroa.2.0174 = phi i32 [ undef, %.lr.ph ], [ %.sroa.24.0.copyload, %501 ]
+  %.sroa.1.0173 = phi i64 [ undef, %.lr.ph ], [ %.sroa.13.0.copyload, %501 ]
+  %.sroa.49.0172 = phi i64 [ undef, %.lr.ph ], [ %.sroa.49.1, %501 ]
+  %.sroa.07.0171 = phi i1 [ false, %.lr.ph ], [ %.sroa.07.1, %501 ]
+  %.sroa.0.0170 = phi i64 [ 2, %.lr.ph ], [ %.sroa.0.1, %501 ]
+  %.sroa.8.0169 = phi i64 [ undef, %.lr.ph ], [ %.sroa.8.1, %501 ]
+  %.sroa.11.0168 = phi i64 [ 2, %.lr.ph ], [ %.sroa.11.1, %501 ]
+  %.sroa.17.0167 = phi i64 [ undef, %.lr.ph ], [ %.sroa.17.1, %501 ]
+  %.sroa.20.0166 = phi i32 [ 0, %.lr.ph ], [ %.sroa.20.2, %501 ]
+  %.sroa.27.0165 = phi i1 [ false, %.lr.ph ], [ %.sroa.27.1, %501 ]
+  %.sroa.30.0164 = phi i8 [ 0, %.lr.ph ], [ %spec.select107, %501 ]
+  %.sroa.41.0163 = phi i8 [ 7, %.lr.ph ], [ %.sroa.41.1, %501 ]
   %.sroa.056.0.copyload = load i32, ptr %66, align 8
   %.sroa.762.0.copyload = load i32, ptr %.sroa.762.0..sroa_idx, align 4
   %.sroa.13.0.copyload = load i64, ptr %.sroa.13.0..sroa_idx, align 8
@@ -77923,7 +77923,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines16LinePreprocessor3new17h8
     i64 2, label %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines6Status6update17hc5da92f59b924a0aE.exit
   ]
 
-._crit_edge:                                      ; preds = %502, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines16LinePreprocessor3new17h8f2c3225ecdfa27eE.exit
+._crit_edge:                                      ; preds = %501, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines16LinePreprocessor3new17h8f2c3225ecdfa27eE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   ret void
@@ -77941,16 +77941,16 @@ default.unreachable207:                           ; preds = %_ZN11ruff_linter5ru
 
 118:                                              ; preds = %115
   %119 = trunc nuw i8 %.sroa.4487.0.copyload to i1
-  %..i = select i1 %119, i64 1, i64 2
+  %spec.select233 = select i1 %119, i64 1, i64 2
   br label %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines6Status6update17hc5da92f59b924a0aE.exit
 
 120:                                              ; preds = %116
   %121 = icmp ugt i64 %.sroa.13.0.copyload, %.sroa.17.0167
-  %.2.i = select i1 %121, i64 0, i64 2
+  %spec.select234 = select i1 %121, i64 0, i64 2
   br label %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines6Status6update17hc5da92f59b924a0aE.exit
 
-_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines6Status6update17hc5da92f59b924a0aE.exit: ; preds = %118, %120, %109, %115, %116
-  %.sroa.11.3 = phi i64 [ 0, %115 ], [ 1, %116 ], [ %.sroa.11.0168, %109 ], [ %..i, %118 ], [ %.2.i, %120 ]
+_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines6Status6update17hc5da92f59b924a0aE.exit: ; preds = %120, %118, %109, %115, %116
+  %.sroa.11.3 = phi i64 [ 0, %115 ], [ 1, %116 ], [ %.sroa.11.0168, %109 ], [ %spec.select234, %120 ], [ %spec.select233, %118 ]
   switch i64 %.sroa.0.0170, label %default.unreachable207 [
     i64 0, label %122
     i64 1, label %123
@@ -79184,10 +79184,10 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check
     i8 0, label %492
     i8 1, label %494
     i8 2, label %495
-    i8 3, label %498
+    i8 3, label %spec.select104.si.unfold.false
     i8 4, label %494
     i8 5, label %494
-    i8 6, label %500
+    i8 6, label %499
   ]
 
 default.unreachable:                              ; preds = %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit
@@ -79195,12 +79195,12 @@ default.unreachable:                              ; preds = %_ZN11ruff_linter5ru
 
 492:                                              ; preds = %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit
   %493 = icmp eq i64 %.sroa.11.3, 2
-  %spec.select103 = select i1 %493, i64 %.sroa.13.0.copyload, i64 %.sroa.17.0167
-  %spec.select104 = select i1 %493, i64 0, i64 %.sroa.11.3
-  br label %498
+  %spec.select235 = select i1 %493, i64 %.sroa.13.0.copyload, i64 %.sroa.17.0167
+  %spec.select236 = select i1 %493, i64 0, i64 %.sroa.11.3
+  br label %spec.select104.si.unfold.false
 
 494:                                              ; preds = %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit
-  br label %498
+  br label %spec.select104.si.unfold.false
 
 495:                                              ; preds = %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit
   %496 = icmp eq i64 %.sroa.0.3, 2
@@ -79208,36 +79208,36 @@ default.unreachable:                              ; preds = %_ZN11ruff_linter5ru
   %spec.select106 = select i1 %496, i64 0, i64 %.sroa.0.3
   %497 = icmp eq i8 %.sroa.3579.0.copyload, 63
   %. = select i1 %497, i8 3, i8 2
-  br label %498
+  br label %spec.select104.si.unfold.false
 
-498:                                              ; preds = %492, %495, %500, %494, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit
-  %.sroa.30.2 = phi i8 [ %.sroa.39.0.copyload, %494 ], [ %., %495 ], [ %spec.select, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit ], [ 0, %500 ], [ 0, %492 ]
-  %.sroa.17.1 = phi i64 [ %.sroa.17.0167, %494 ], [ %.sroa.17.0167, %495 ], [ %.sroa.17.0167, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit ], [ %.sroa.17.0167, %500 ], [ %spec.select103, %492 ]
-  %.sroa.11.1 = phi i64 [ %.sroa.11.3, %494 ], [ %.sroa.11.3, %495 ], [ %.sroa.11.3, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit ], [ %.sroa.11.3, %500 ], [ %spec.select104, %492 ]
-  %.sroa.8.1 = phi i64 [ %.sroa.8.0169, %494 ], [ %spec.select105, %495 ], [ %.sroa.8.0169, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit ], [ %.sroa.8.0169, %500 ], [ %.sroa.8.0169, %492 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.3, %494 ], [ %spec.select106, %495 ], [ %.sroa.0.3, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit ], [ %.sroa.0.3, %500 ], [ %.sroa.0.3, %492 ]
-  %499 = trunc nuw i8 %110 to i1
-  %spec.select107 = select i1 %499, i8 6, i8 %.sroa.30.2
-  br i1 %261, label %502, label %501
+spec.select104.si.unfold.false:                   ; preds = %492, %495, %499, %494, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit
+  %.sroa.30.2 = phi i8 [ %.sroa.39.0.copyload, %494 ], [ %., %495 ], [ %spec.select, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit ], [ 0, %499 ], [ 0, %492 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0167, %494 ], [ %.sroa.17.0167, %495 ], [ %.sroa.17.0167, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit ], [ %.sroa.17.0167, %499 ], [ %spec.select235, %492 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.3, %494 ], [ %.sroa.11.3, %495 ], [ %.sroa.11.3, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit ], [ %.sroa.11.3, %499 ], [ %spec.select236, %492 ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.0169, %494 ], [ %spec.select105, %495 ], [ %.sroa.8.0169, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit ], [ %.sroa.8.0169, %499 ], [ %.sroa.8.0169, %492 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.3, %494 ], [ %spec.select106, %495 ], [ %.sroa.0.3, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit ], [ %.sroa.0.3, %499 ], [ %.sroa.0.3, %492 ]
+  %498 = trunc nuw i8 %110 to i1
+  %spec.select107 = select i1 %498, i8 6, i8 %.sroa.30.2
+  br i1 %261, label %501, label %500
 
-500:                                              ; preds = %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit
-  br label %498
+499:                                              ; preds = %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit
+  br label %spec.select104.si.unfold.false
 
-501:                                              ; preds = %498
+500:                                              ; preds = %spec.select104.si.unfold.false
   %spec.select108 = select i1 %132, i8 %.sroa.39.0.copyload, i8 %.sroa.41.0163
-  br label %502
+  br label %501
 
-502:                                              ; preds = %501, %498
-  %.sroa.41.1 = phi i8 [ %.sroa.41.0163, %498 ], [ %spec.select108, %501 ]
-  %.sroa.27.1 = phi i1 [ %.sroa.27.0165, %498 ], [ true, %501 ]
-  %.sroa.20.2 = phi i32 [ %.sroa.20.1, %498 ], [ %.sroa.24.0.copyload, %501 ]
-  %.sroa.07.1 = phi i1 [ %.sroa.07.0171, %498 ], [ true, %501 ]
-  %.sroa.49.1 = phi i64 [ %.sroa.49.0172, %498 ], [ %.sroa.13.0.copyload, %501 ]
+501:                                              ; preds = %500, %spec.select104.si.unfold.false
+  %.sroa.41.1 = phi i8 [ %.sroa.41.0163, %spec.select104.si.unfold.false ], [ %spec.select108, %500 ]
+  %.sroa.27.1 = phi i1 [ %.sroa.27.0165, %spec.select104.si.unfold.false ], [ true, %500 ]
+  %.sroa.20.2 = phi i32 [ %.sroa.20.1, %spec.select104.si.unfold.false ], [ %.sroa.24.0.copyload, %500 ]
+  %.sroa.07.1 = phi i1 [ %.sroa.07.0171, %spec.select104.si.unfold.false ], [ true, %500 ]
+  %.sroa.49.1 = phi i64 [ %.sroa.49.0172, %spec.select104.si.unfold.false ], [ %.sroa.13.0.copyload, %500 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   call void @"_ZN128_$LT$ruff_linter..rules..pycodestyle..rules..blank_lines..LinePreprocessor$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3eb293b5102ad6d2E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %66, ptr noalias noundef nonnull align 8 dereferenceable(88) %67)
-  %503 = load i8, ptr %84, align 8, !range !273, !noundef !8
-  %.not = icmp eq i8 %503, 2
+  %502 = load i8, ptr %84, align 8, !range !273, !noundef !8
+  %.not = icmp eq i8 %502, 2
   br i1 %.not, label %._crit_edge, label %109
 }
 

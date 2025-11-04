@@ -886,7 +886,7 @@ declare ptr @llvm.stacksave.p0() #9
 declare void @llvm.stackrestore.p0(ptr) #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @clusterLoadConfig(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @clusterLoadConfig(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -1033,7 +1033,7 @@ define dso_local range(i32 -1, 1) i32 @clusterLoadConfig(ptr noundef %0) local_u
 
 ._crit_edge526:                                   ; preds = %74, %.preheader422
   %.lcssa452 = phi i32 [ %47, %.preheader422 ], [ %75, %74 ]
-  br label %.backedge.sink.split, !llvm.loop !67
+  br label %.sink.split, !llvm.loop !67
 
 78:                                               ; preds = %43
   %79 = icmp slt i32 %47, 8
@@ -1408,7 +1408,7 @@ sdslen.exit346:                                   ; preds = %.lr.ph, %247, %250,
   br i1 %or.cond, label %269, label %.preheader421
 
 269:                                              ; preds = %sdslen.exit346
-  br i1 %266, label %390, label %.sink.split
+  br i1 %266, label %390, label %.sink.split841
 
 270:                                              ; preds = %sdslen.exit348
   br i1 %.not532, label %.preheader421, label %.preheader420, !llvm.loop !74
@@ -1495,7 +1495,7 @@ sdslen.exit348:                                   ; preds = %.preheader421, %296
 
 .thread:                                          ; preds = %sdslen.exit348
   %316 = load i32, ptr %5, align 4, !tbaa !38
-  br label %.sink.split
+  br label %.sink.split841
 
 317:                                              ; preds = %.outer, %380
   %indvars.iv601 = phi i64 [ %indvars.iv.next602, %380 ], [ %indvars.iv601.ph, %.outer ]
@@ -1643,14 +1643,14 @@ sdslen.exit354:                                   ; preds = %346, %360, %363, %3
 
 381:                                              ; preds = %sdslen.exit354
   %382 = load i32, ptr %5, align 4, !tbaa !38
-  br label %.sink.split
+  br label %.sink.split841
 
 383:                                              ; preds = %380
   br i1 %272, label %384, label %.thread652
 
 384:                                              ; preds = %383
   %385 = load i32, ptr %5, align 4, !tbaa !38
-  br label %.sink.split
+  br label %.sink.split841
 
 .thread652:                                       ; preds = %.thread643, %383
   %.5276649657 = phi i32 [ %.3274503.ph, %383 ], [ %349, %.thread643 ]
@@ -1664,12 +1664,12 @@ sdslen.exit354:                                   ; preds = %346, %360, %363, %3
   %389 = icmp slt i64 %indvars.iv.next605, %388
   br i1 %389, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !79
 
-.sink.split:                                      ; preds = %269, %.thread, %381, %384
+.sink.split841:                                   ; preds = %269, %.thread, %381, %384
   %.sink = phi i32 [ %385, %384 ], [ %382, %381 ], [ %316, %.thread ], [ %267, %269 ]
   call void @sdsfreesplitres(ptr noundef nonnull %265, i32 noundef %.sink) #33
   br label %390
 
-390:                                              ; preds = %.sink.split, %269
+390:                                              ; preds = %.sink.split841, %269
   %391 = load i32, ptr %4, align 4, !tbaa !38
   call void @sdsfreesplitres(ptr noundef nonnull %178, i32 noundef %391) #33
   %392 = load i32, ptr %3, align 4, !tbaa !38
@@ -2162,7 +2162,7 @@ clusterNodeAddSlave.exit:                         ; preds = %577, %._crit_edge.i
   store i64 %625, ptr %626, align 8, !tbaa !89
   %627 = load i32, ptr %3, align 4, !tbaa !38
   %628 = icmp sgt i32 %627, 8
-  br i1 %628, label %.lr.ph521, label %.backedge.sink.split
+  br i1 %628, label %.lr.ph521, label %.sink.split
 
 .lr.ph521:                                        ; preds = %624, %.loopexit
   %indvars.iv610 = phi i64 [ %indvars.iv.next611, %.loopexit ], [ 8, %624 ]
@@ -2368,19 +2368,19 @@ clusterAddSlot.exit:                              ; preds = %.lr.ph518, %721
   %727 = load i32, ptr %3, align 4, !tbaa !38
   %728 = sext i32 %727 to i64
   %729 = icmp slt i64 %indvars.iv.next611, %728
-  br i1 %729, label %.lr.ph521, label %.backedge.sink.split, !llvm.loop !97
+  br i1 %729, label %.lr.ph521, label %.sink.split, !llvm.loop !97
 
 .thread417:                                       ; preds = %40, %48, %80, %107, %180, %399, %390, %528, %714, %643, %656
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %780
 
-.backedge.sink.split:                             ; preds = %.loopexit, %624, %._crit_edge526
-  %.lcssa452.sink = phi i32 [ %.lcssa452, %._crit_edge526 ], [ %627, %624 ], [ %727, %.loopexit ]
-  call void @sdsfreesplitres(ptr noundef nonnull %41, i32 noundef %.lcssa452.sink) #33
+.sink.split:                                      ; preds = %.loopexit, %624, %._crit_edge526
+  %.lcssa446.sink = phi i32 [ %.lcssa452, %._crit_edge526 ], [ %627, %624 ], [ %727, %.loopexit ]
+  call void @sdsfreesplitres(ptr noundef nonnull %41, i32 noundef %.lcssa446.sink) #33
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %.lr.ph530, %.lr.ph530
+.backedge:                                        ; preds = %.sink.split, %.lr.ph530, %.lr.ph530
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %730 = call ptr @fgets(ptr noundef nonnull %37, i32 noundef 2098176, ptr noundef nonnull %6)

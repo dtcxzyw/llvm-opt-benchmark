@@ -89,7 +89,7 @@ define internal range(i32 -2147483648, 1) i32 @au_read_header(ptr noundef %0) #1
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = tail call i32 @avio_rl32(ptr noundef %6) #6
   %.not = icmp eq i32 %7, 1684960046
-  br i1 %.not, label %8, label %111
+  br i1 %.not, label %8, label %133
 
 8:                                                ; preds = %1
   %9 = tail call i32 @avio_rb32(ptr noundef %6) #6
@@ -100,14 +100,14 @@ define internal range(i32 -2147483648, 1) i32 @au_read_header(ptr noundef %0) #1
 
 11:                                               ; preds = %8
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %10) #6
-  br label %111
+  br label %133
 
 12:                                               ; preds = %8
   %13 = tail call i32 @avio_rb32(ptr noundef %6) #6
   %14 = tail call i32 @avio_rb32(ptr noundef %6) #6
   %15 = tail call i32 @avio_rb32(ptr noundef %6) #6
   %16 = icmp sgt i32 %9, 24
-  br i1 %16, label %17, label %53
+  br i1 %16, label %17, label %75
 
 17:                                               ; preds = %12
   %18 = add nsw i32 %9, -24
@@ -121,240 +121,284 @@ define internal range(i32 -2147483648, 1) i32 @au_read_header(ptr noundef %0) #1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %21
 
-21:                                               ; preds = %50, %17
-  %.in.i = phi i32 [ %18, %17 ], [ %22, %50 ]
-  %.02433.i = phi i32 [ 0, %17 ], [ %.1.i, %50 ]
-  %22 = add nsw i32 %.in.i, -1
+21:                                               ; preds = %35, %17
+  %.in.i = phi i32 [ %18, %17 ], [ %36, %35 ]
+  %22 = phi i1 [ true, %17 ], [ false, %35 ]
   %23 = call i32 @avio_feof(ptr noundef %19) #6
-  %.not.i.not = icmp eq i32 %23, 0
-  br i1 %.not.i.not, label %24, label %au_read_annotation.exit
+  %.not.i = icmp eq i32 %23, 0
+  br i1 %.not.i, label %32, label %au_read_annotation.exit
 
-24:                                               ; preds = %21
-  %25 = call i32 @avio_r8(ptr noundef %19) #6
-  %26 = trunc i32 %25 to i8
-  switch i32 %.02433.i, label %default.unreachable [
-    i32 0, label %27
-    i32 1, label %33
-    i32 2, label %50
+24:                                               ; preds = %.loopexit
+  %25 = call i32 @avio_feof(ptr noundef %19) #6
+  %.not.jt2.i = icmp eq i32 %25, 0
+  br i1 %.not.jt2.i, label %35, label %au_read_annotation.exit
+
+26:                                               ; preds = %.si.unfold.false.jt0.i
+  %27 = call i32 @avio_feof(ptr noundef %19) #6
+  %.not.jt0.i = icmp eq i32 %27, 0
+  br i1 %.not.jt0.i, label %39, label %au_read_annotation.exit
+
+28:                                               ; preds = %.lr.ph, %66
+  %29 = phi i32 [ %44, %.lr.ph ], [ %30, %66 ]
+  %30 = add nsw i32 %29, -1
+  %31 = call i32 @avio_feof(ptr noundef %19) #6
+  %.not.jt1.i = icmp eq i32 %31, 0
+  br i1 %.not.jt1.i, label %42, label %au_read_annotation.exit
+
+32:                                               ; preds = %21
+  %33 = add nsw i32 %.in.i, -1
+  %34 = call i32 @avio_r8(ptr noundef %19) #6
+  br i1 %22, label %.preheader, label %.loopexit
+
+35:                                               ; preds = %24
+  %36 = add nsw i32 %69, -1
+  %37 = call i32 @avio_r8(ptr noundef %19) #6
+  %38 = icmp sgt i32 %69, 1
+  br i1 %38, label %21, label %au_read_annotation.exit, !llvm.loop !29
+
+39:                                               ; preds = %26
+  %40 = add nsw i32 %71, -1
+  %41 = call i32 @avio_r8(ptr noundef %19) #6
+  br label %.preheader
+
+42:                                               ; preds = %28
+  %43 = call i32 @avio_r8(ptr noundef %19) #6
+  %sext.i = shl i32 %43, 24
+  switch i32 %sext.i, label %66 [
+    i32 167772160, label %52
+    i32 0, label %52
   ]
 
-27:                                               ; preds = %24
-  switch i8 %26, label %32 [
-    i8 0, label %50
-    i8 61, label %28
+.preheader:                                       ; preds = %32, %39
+  %.in45.i = phi i32 [ %41, %39 ], [ %34, %32 ]
+  %44 = phi i32 [ %40, %39 ], [ %33, %32 ]
+  %.in38.i = phi i32 [ %71, %39 ], [ %.in.i, %32 ]
+  %45 = trunc i32 %.in45.i to i8
+  switch i8 %45, label %51 [
+    i8 0, label %.loopexit
+    i8 61, label %46
   ]
 
-28:                                               ; preds = %27
-  %29 = call i32 @av_bprint_finalize(ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %au_read_annotation.exit.thread, label %31
+46:                                               ; preds = %.preheader
+  %47 = call i32 @av_bprint_finalize(ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %au_read_annotation.exit.thread, label %49
 
-au_read_annotation.exit.thread:                   ; preds = %28
+au_read_annotation.exit.thread:                   ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %111
+  br label %133
 
-31:                                               ; preds = %28
+49:                                               ; preds = %46
   call void @av_bprint_init(ptr noundef nonnull %2, i32 noundef 64, i32 noundef -1) #6
-  br label %50
+  %50 = icmp sgt i32 %.in38.i, 1
+  br i1 %50, label %.lr.ph, label %.au_read_annotation.exit.loopexit_crit_edge, !llvm.loop !29
 
-32:                                               ; preds = %27
-  call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %26, i32 noundef 1) #6
-  br label %50
+.lr.ph:                                           ; preds = %49
+  br label %28, !llvm.loop !29
 
-33:                                               ; preds = %24
-  %sext.i = shl i32 %25, 24
-  %34 = icmp eq i32 %sext.i, 0
-  switch i32 %sext.i, label %49 [
-    i32 167772160, label %35
-    i32 0, label %35
-  ]
+51:                                               ; preds = %.preheader
+  call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %45, i32 noundef 1) #6
+  br label %.si.unfold.false.jt0.i
 
-35:                                               ; preds = %33, %33
-  %36 = call i32 @av_bprint_finalize(ptr noundef nonnull %2, ptr noundef nonnull %4) #6
-  %.not28.i = icmp eq i32 %36, 0
-  br i1 %.not28.i, label %38, label %37
+52:                                               ; preds = %42, %42
+  %53 = icmp eq i32 %sext.i, 0
+  %54 = call i32 @av_bprint_finalize(ptr noundef nonnull %2, ptr noundef nonnull %4) #6
+  %.not28.i = icmp eq i32 %54, 0
+  br i1 %.not28.i, label %56, label %55
 
-37:                                               ; preds = %35
+55:                                               ; preds = %52
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.11) #6
   br label %.loopexit.i
 
-38:                                               ; preds = %35
+56:                                               ; preds = %52
   call void @av_bprint_init(ptr noundef nonnull %2, i32 noundef 64, i32 noundef -1) #6
-  br label %40
+  br label %58
 
-39:                                               ; preds = %40
+57:                                               ; preds = %58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %.loopexit.i, label %40, !llvm.loop !29
+  br i1 %exitcond.not.i, label %.loopexit.i, label %58, !llvm.loop !31
 
-40:                                               ; preds = %39, %38
-  %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %39 ]
-  %41 = getelementptr inbounds nuw [7 x i8], ptr @au_read_annotation.keys, i64 %indvars.iv.i
-  %42 = load ptr, ptr %3, align 8, !tbaa !28
-  %43 = call i32 @av_strcasecmp(ptr noundef nonnull %41, ptr noundef %42) #6
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %39
+58:                                               ; preds = %57, %56
+  %indvars.iv.i = phi i64 [ 0, %56 ], [ %indvars.iv.next.i, %57 ]
+  %59 = getelementptr inbounds nuw [7 x i8], ptr @au_read_annotation.keys, i64 %indvars.iv.i
+  %60 = load ptr, ptr %3, align 8, !tbaa !28
+  %61 = call i32 @av_strcasecmp(ptr noundef nonnull %59, ptr noundef %60) #6
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %57
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %4, align 8, !tbaa !28
-  %47 = call i32 @av_dict_set(ptr noundef nonnull %20, ptr noundef nonnull %41, ptr noundef %46, i32 noundef 8) #6
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %4, align 8, !tbaa !28
+  %65 = call i32 @av_dict_set(ptr noundef nonnull %20, ptr noundef nonnull %59, ptr noundef %64, i32 noundef 8) #6
   store ptr null, ptr %4, align 8, !tbaa !28
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %39, %45, %37
+.loopexit.i:                                      ; preds = %57, %63, %55
   call void @av_freep(ptr noundef nonnull %3) #6
   call void @av_freep(ptr noundef nonnull %4) #6
-  %48 = select i1 %34, i32 2, i32 0
-  br label %50
+  br i1 %53, label %.loopexit, label %.si.unfold.false.jt0.i
 
-49:                                               ; preds = %33
-  call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %26, i32 noundef 1) #6
-  br label %50
+66:                                               ; preds = %42
+  %67 = trunc i32 %43 to i8
+  call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %67, i32 noundef 1) #6
+  %68 = icmp sgt i32 %29, 1
+  br i1 %68, label %28, label %.au_read_annotation.exit.loopexit_crit_edge107, !llvm.loop !29
 
-default.unreachable:                              ; preds = %24
-  unreachable
+.loopexit:                                        ; preds = %.loopexit.i, %.preheader, %32
+  %69 = phi i32 [ %33, %32 ], [ %30, %.loopexit.i ], [ %44, %.preheader ]
+  %.in40.i = phi i32 [ %.in.i, %32 ], [ %29, %.loopexit.i ], [ %.in38.i, %.preheader ]
+  %70 = icmp sgt i32 %.in40.i, 1
+  br i1 %70, label %24, label %au_read_annotation.exit, !llvm.loop !29
 
-50:                                               ; preds = %49, %.loopexit.i, %32, %31, %27, %24
-  %.1.i = phi i32 [ 1, %31 ], [ 0, %32 ], [ %48, %.loopexit.i ], [ 1, %49 ], [ %.02433.i, %24 ], [ 2, %27 ]
-  %51 = icmp sgt i32 %.in.i, 1
-  br i1 %51, label %21, label %au_read_annotation.exit, !llvm.loop !31
+.si.unfold.false.jt0.i:                           ; preds = %.loopexit.i, %51
+  %71 = phi i32 [ %44, %51 ], [ %30, %.loopexit.i ]
+  %.in42.i = phi i32 [ %.in38.i, %51 ], [ %29, %.loopexit.i ]
+  %72 = icmp sgt i32 %.in42.i, 1
+  br i1 %72, label %26, label %au_read_annotation.exit, !llvm.loop !29
 
-au_read_annotation.exit:                          ; preds = %21, %50
-  %.022.ph.i = phi i32 [ -541478725, %21 ], [ 0, %50 ]
-  %52 = call i32 @av_bprint_finalize(ptr noundef nonnull %2, ptr noundef null) #6
+.au_read_annotation.exit.loopexit_crit_edge:      ; preds = %49
+  br label %au_read_annotation.exit, !llvm.loop !29
+
+.au_read_annotation.exit.loopexit_crit_edge107:   ; preds = %66
+  br label %au_read_annotation.exit, !llvm.loop !29
+
+au_read_annotation.exit:                          ; preds = %21, %24, %35, %.loopexit, %26, %.si.unfold.false.jt0.i, %28, %.au_read_annotation.exit.loopexit_crit_edge, %.au_read_annotation.exit.loopexit_crit_edge107
+  %73 = phi i1 [ false, %.au_read_annotation.exit.loopexit_crit_edge107 ], [ false, %.au_read_annotation.exit.loopexit_crit_edge ], [ true, %28 ], [ %72, %.si.unfold.false.jt0.i ], [ %72, %26 ], [ false, %35 ], [ false, %.loopexit ], [ true, %21 ], [ true, %24 ]
+  %.022.ph.i = phi i32 [ 0, %.au_read_annotation.exit.loopexit_crit_edge107 ], [ 0, %.au_read_annotation.exit.loopexit_crit_edge ], [ -541478725, %28 ], [ -541478725, %26 ], [ 0, %.si.unfold.false.jt0.i ], [ 0, %35 ], [ 0, %.loopexit ], [ -541478725, %21 ], [ -541478725, %24 ]
+  %74 = call i32 @av_bprint_finalize(ptr noundef nonnull %2, ptr noundef null) #6
   call void @av_freep(ptr noundef nonnull %3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not.i.not, label %53, label %111
+  br i1 %73, label %133, label %75
 
-53:                                               ; preds = %au_read_annotation.exit, %12
-  %54 = call i32 @ff_codec_get_id(ptr noundef nonnull @codec_au_tags, i32 noundef %13) #6
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %57
+75:                                               ; preds = %au_read_annotation.exit, %12
+  %76 = call i32 @ff_codec_get_id(ptr noundef nonnull @codec_au_tags, i32 noundef %13) #6
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %79
 
-56:                                               ; preds = %53
+78:                                               ; preds = %75
   call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %13) #6
-  br label %111
+  br label %133
 
-57:                                               ; preds = %53
-  %58 = call i32 @av_get_bits_per_sample(i32 noundef %54) #6
-  %59 = icmp eq i32 %54, 69667
-  br i1 %59, label %60, label %70
+79:                                               ; preds = %75
+  %80 = call i32 @av_get_bits_per_sample(i32 noundef %76) #6
+  %81 = icmp eq i32 %76, 69667
+  br i1 %81, label %82, label %92
 
-60:                                               ; preds = %57
-  %61 = icmp eq i32 %13, 926037554
-  br i1 %61, label %72, label %62
+82:                                               ; preds = %79
+  %83 = icmp eq i32 %13, 926037554
+  br i1 %83, label %94, label %84
 
-62:                                               ; preds = %60
-  %63 = add i32 %13, -23
-  %or.cond3 = icmp ult i32 %63, 4
-  br i1 %or.cond3, label %65, label %64
+84:                                               ; preds = %82
+  %85 = add i32 %13, -23
+  %or.cond3 = icmp ult i32 %85, 4
+  br i1 %or.cond3, label %87, label %86
 
-64:                                               ; preds = %62
+86:                                               ; preds = %84
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 201) #6
   call void @abort() #7
   unreachable
 
-65:                                               ; preds = %62
-  %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw i8, ptr @__const.au_read_header.bpcss, i64 %66
-  %68 = load i8, ptr %67, align 1, !tbaa !12
-  %69 = zext i8 %68 to i32
-  br label %72
+87:                                               ; preds = %84
+  %88 = zext nneg i32 %85 to i64
+  %89 = getelementptr inbounds nuw i8, ptr @__const.au_read_header.bpcss, i64 %88
+  %90 = load i8, ptr %89, align 1, !tbaa !12
+  %91 = zext i8 %90 to i32
+  br label %94
 
-70:                                               ; preds = %57
-  %.not88 = icmp eq i32 %58, 0
-  br i1 %.not88, label %71, label %72
+92:                                               ; preds = %79
+  %.not88 = icmp eq i32 %80, 0
+  br i1 %.not88, label %93, label %94
 
-71:                                               ; preds = %70
+93:                                               ; preds = %92
   call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %0, ptr noundef nonnull @.str.8) #6
-  br label %111
+  br label %133
 
-72:                                               ; preds = %60, %70, %65
-  %.077 = phi i32 [ %69, %65 ], [ 0, %70 ], [ 0, %60 ]
-  %.076 = phi i32 [ %69, %65 ], [ %58, %70 ], [ 2, %60 ]
-  %73 = icmp eq i32 %15, 0
-  br i1 %73, label %77, label %74
+94:                                               ; preds = %82, %92, %87
+  %.077 = phi i32 [ %91, %87 ], [ 0, %92 ], [ 0, %82 ]
+  %.076 = phi i32 [ %91, %87 ], [ %80, %92 ], [ 2, %82 ]
+  %95 = icmp eq i32 %15, 0
+  br i1 %95, label %99, label %96
 
-74:                                               ; preds = %72
-  %75 = shl nsw i32 %.076, 7
-  %76 = sdiv i32 2147483647, %75
-  %.not89 = icmp ult i32 %15, %76
-  br i1 %.not89, label %78, label %77
+96:                                               ; preds = %94
+  %97 = shl nsw i32 %.076, 7
+  %98 = sdiv i32 2147483647, %97
+  %.not89 = icmp ult i32 %15, %98
+  br i1 %.not89, label %100, label %99
 
-77:                                               ; preds = %74, %72
+99:                                               ; preds = %96, %94
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.9, i32 noundef %15) #6
-  br label %111
+  br label %133
 
-78:                                               ; preds = %74
+100:                                              ; preds = %96
   %or.cond5 = icmp slt i32 %14, 1
-  br i1 %or.cond5, label %79, label %80
+  br i1 %or.cond5, label %101, label %102
 
-79:                                               ; preds = %78
+101:                                              ; preds = %100
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %14) #6
-  br label %111
+  br label %133
 
-80:                                               ; preds = %78
-  %81 = call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #6
-  %.not90 = icmp eq ptr %81, null
-  br i1 %.not90, label %111, label %82
+102:                                              ; preds = %100
+  %103 = call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #6
+  %.not90 = icmp eq ptr %103, null
+  br i1 %.not90, label %133, label %104
 
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !32
-  store i32 1, ptr %84, align 8, !tbaa !39
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i32 %13, ptr %85, align 8, !tbaa !42
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  store i32 %54, ptr %86, align 4, !tbaa !43
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 132
-  store i32 %15, ptr %87, align 4, !tbaa !44
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 152
-  store i32 %14, ptr %88, align 8, !tbaa !45
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 56
-  store i32 %.076, ptr %89, align 8, !tbaa !46
-  %90 = mul i32 %15, %14
-  %91 = mul i32 %90, %.076
-  %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  store i64 %92, ptr %93, align 8, !tbaa !47
+104:                                              ; preds = %102
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !32
+  store i32 1, ptr %106, align 8, !tbaa !39
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  store i32 %13, ptr %107, align 8, !tbaa !42
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  store i32 %76, ptr %108, align 4, !tbaa !43
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 132
+  store i32 %15, ptr %109, align 4, !tbaa !44
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 152
+  store i32 %14, ptr %110, align 8, !tbaa !45
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 56
+  store i32 %.076, ptr %111, align 8, !tbaa !46
+  %112 = mul i32 %15, %14
+  %113 = mul i32 %112, %.076
+  %114 = zext i32 %113 to i64
+  %115 = getelementptr inbounds nuw i8, ptr %106, i64 48
+  store i64 %114, ptr %115, align 8, !tbaa !47
   %.not91 = icmp eq i32 %.077, 0
-  br i1 %.not91, label %94, label %98
+  br i1 %.not91, label %116, label %120
 
-94:                                               ; preds = %82
-  %95 = mul i32 %.076, %15
-  %96 = lshr i32 %95, 3
-  %97 = call i32 @llvm.umax.i32(i32 %96, i32 1)
-  br label %98
+116:                                              ; preds = %104
+  %117 = mul i32 %.076, %15
+  %118 = lshr i32 %117, 3
+  %119 = call i32 @llvm.umax.i32(i32 %118, i32 1)
+  br label %120
 
-98:                                               ; preds = %82, %94
-  %99 = phi i32 [ %97, %94 ], [ %.077, %82 ]
-  %100 = getelementptr inbounds nuw i8, ptr %84, i64 156
-  store i32 %99, ptr %100, align 4, !tbaa !48
-  br i1 %.not87, label %109, label %101
+120:                                              ; preds = %104, %116
+  %121 = phi i32 [ %119, %116 ], [ %.077, %104 ]
+  %122 = getelementptr inbounds nuw i8, ptr %106, i64 156
+  store i32 %121, ptr %122, align 4, !tbaa !48
+  br i1 %.not87, label %131, label %123
 
-101:                                              ; preds = %98
-  %102 = zext nneg i32 %10 to i64
-  %103 = shl nuw nsw i64 %102, 3
-  %104 = zext i32 %15 to i64
-  %105 = sext i32 %.076 to i64
-  %106 = mul nsw i64 %105, %104
-  %107 = sdiv i64 %103, %106
-  %108 = getelementptr inbounds nuw i8, ptr %81, i64 48
-  store i64 %107, ptr %108, align 8, !tbaa !49
-  br label %109
+123:                                              ; preds = %120
+  %124 = zext nneg i32 %10 to i64
+  %125 = shl nuw nsw i64 %124, 3
+  %126 = zext i32 %15 to i64
+  %127 = sext i32 %.076 to i64
+  %128 = mul nsw i64 %127, %126
+  %129 = sdiv i64 %125, %128
+  %130 = getelementptr inbounds nuw i8, ptr %103, i64 48
+  store i64 %129, ptr %130, align 8, !tbaa !49
+  br label %131
 
-109:                                              ; preds = %101, %98
-  %110 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  store i64 0, ptr %110, align 8, !tbaa !50
-  call void @avpriv_set_pts_info(ptr noundef nonnull %81, i32 noundef 64, i32 noundef 1, i32 noundef %14) #6
-  br label %111
+131:                                              ; preds = %123, %120
+  %132 = getelementptr inbounds nuw i8, ptr %103, i64 40
+  store i64 0, ptr %132, align 8, !tbaa !50
+  call void @avpriv_set_pts_info(ptr noundef nonnull %103, i32 noundef 64, i32 noundef 1, i32 noundef %14) #6
+  br label %133
 
-111:                                              ; preds = %au_read_annotation.exit.thread, %80, %au_read_annotation.exit, %1, %109, %79, %77, %71, %56, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ -1163346256, %56 ], [ -1094995529, %77 ], [ -1094995529, %79 ], [ 0, %109 ], [ -1163346256, %71 ], [ -1094995529, %1 ], [ %.022.ph.i, %au_read_annotation.exit ], [ -12, %80 ], [ %29, %au_read_annotation.exit.thread ]
+133:                                              ; preds = %au_read_annotation.exit.thread, %102, %au_read_annotation.exit, %1, %131, %101, %99, %93, %78, %11
+  %.0 = phi i32 [ -1094995529, %11 ], [ -1163346256, %78 ], [ -1094995529, %99 ], [ -1094995529, %101 ], [ 0, %131 ], [ -1163346256, %93 ], [ -1094995529, %1 ], [ %.022.ph.i, %au_read_annotation.exit ], [ -12, %102 ], [ %47, %au_read_annotation.exit.thread ]
   ret i32 %.0
 }
 

@@ -198,178 +198,196 @@ define void @_ZN13yara_x_parser9tokenizer9Tokenizer10next_token17he544f075cb6758
   %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load i64, ptr %1, align 8, !range !4
-  br label %.backedge
-
-.backedge:                                        ; preds = %.backedge.backedge, %2
-  %19 = phi i64 [ %.pre, %2 ], [ %.be, %.backedge.backedge ]
-  switch i64 %19, label %default.unreachable141 [
-    i64 0, label %20
-    i64 1, label %22
-    i64 2, label %25
+  switch i64 %.pre, label %default.unreachable141 [
+    i64 0, label %27
+    i64 1, label %29
+    i64 2, label %32
   ]
 
-default.unreachable141:                           ; preds = %.backedge
+19:                                               ; preds = %309
+  %20 = load ptr, ptr %18, align 8, !nonnull !5, !align !6, !noundef !5
+  %21 = sub nuw i64 %313, %312
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %312
+  store i64 1, ptr %1, align 8
+  store ptr %22, ptr %13, align 8
+  store i64 %21, ptr %.sroa.619.0..sroa_idx, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
+  store i8 13, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8
+  br label %29
+
+23:                                               ; preds = %279
+  %24 = load ptr, ptr %18, align 8, !nonnull !5, !align !6, !noundef !5
+  %25 = sub nuw i64 %283, %282
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %282
+  store i64 0, ptr %1, align 8
+  store i64 84, ptr %13, align 8
+  store ptr %26, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8
+  store i64 %25, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  br label %27
+
+default.unreachable141:                           ; preds = %2
   unreachable
 
-20:                                               ; preds = %.backedge
-  %21 = load i64, ptr %14, align 8, !noundef !5
-  store i64 %21, ptr %15, align 8
+27:                                               ; preds = %23, %2
+  %28 = load i64, ptr %14, align 8, !noundef !5
+  store i64 %28, ptr %15, align 8
   tail call void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17h5bfc1a85b5dec45fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %13)
   %.sroa.0.0.copyload = load i64, ptr %13, align 8
   %.sroa.6.sroa.0.0.copyload = load ptr, ptr %.sroa.619.0..sroa_idx, align 8
   %.sroa.6.sroa.5.0.copyload = load i64, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8
-  switch i64 %.sroa.0.0.copyload, label %134 [
-    i64 84, label %27
-    i64 83, label %28
+  switch i64 %.sroa.0.0.copyload, label %141 [
+    i64 84, label %34
+    i64 83, label %35
   ]
 
-22:                                               ; preds = %.backedge
-  %23 = load i64, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !noundef !5
-  store i64 %23, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8
+29:                                               ; preds = %19, %2
+  %30 = load i64, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !noundef !5
+  store i64 %30, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8
   tail call void @"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex17hd17f7f3ebb69ebe4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
-  %24 = load i8, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !range !6, !noundef !5
-  switch i8 %24, label %switch.lookup [
-    i8 13, label %258
-    i8 12, label %259
+  %31 = load i8, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !range !7, !noundef !5
+  switch i8 %31, label %switch.lookup [
+    i8 13, label %265
+    i8 12, label %266
   ]
 
-25:                                               ; preds = %.backedge
-  %26 = load i64, ptr %14, align 8, !noundef !5
-  store i64 %26, ptr %15, align 8
+32:                                               ; preds = %2
+  %33 = load i64, ptr %14, align 8, !noundef !5
+  store i64 %33, ptr %15, align 8
   tail call void @"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex17hf8abd88e5dfbbc92E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %13)
   %.sroa.017.0.copyload = load i64, ptr %13, align 8
   %.sroa.619.sroa.0.0.copyload = load ptr, ptr %.sroa.619.0..sroa_idx, align 8
   %.sroa.619.sroa.5.0.copyload = load i64, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8
-  switch i64 %.sroa.017.0.copyload, label %288 [
-    i64 7, label %284
-    i64 6, label %285
+  switch i64 %.sroa.017.0.copyload, label %291 [
+    i64 7, label %287
+    i64 6, label %288
   ]
 
-27:                                               ; preds = %20
+34:                                               ; preds = %27
   store i8 82, ptr %0, align 4
-  br label %257
+  br label %264
 
-28:                                               ; preds = %20
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %29 = load i64, ptr %1, align 8, !range !4, !alias.scope !7, !noalias !10, !noundef !5
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %35, !prof !3
+35:                                               ; preds = %27
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  %36 = load i64, ptr %1, align 8, !range !4, !alias.scope !8, !noalias !11, !noundef !5
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %42, !prof !3
 
-31:                                               ; preds = %28
-  %32 = load i64, ptr %15, align 8, !alias.scope !7, !noalias !10, !noundef !5
-  %33 = load i64, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !alias.scope !7, !noalias !10, !noundef !5
-  %34 = icmp ult i64 %33, %32
-  br i1 %34, label %42, label %36, !prof !12
+38:                                               ; preds = %35
+  %39 = load i64, ptr %15, align 8, !alias.scope !8, !noalias !11, !noundef !5
+  %40 = load i64, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !alias.scope !8, !noalias !11, !noundef !5
+  %41 = icmp ult i64 %40, %39
+  br i1 %41, label %49, label %43, !prof !13
 
-35:                                               ; preds = %28
-  tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.36) #13, !noalias !13
+42:                                               ; preds = %35
+  tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.36) #13, !noalias !14
   unreachable
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !alias.scope !7, !noalias !10, !nonnull !5, !align !14, !noundef !5
-  %38 = sub nuw i64 %33, %32
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %32
-  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !13
-  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !13
-  store ptr %39, ptr %11, align 8, !noalias !13
-  %40 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %38, ptr %40, align 8, !noalias !13
-  call void @"_ZN87_$LT$core..str..lossy..Utf8Chunks$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2567ce1a3012070E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(16) %11), !noalias !13
-  %41 = load ptr, ptr %12, align 8, !noalias !13, !noundef !5
-  %.not.i = icmp eq ptr %41, null
-  br i1 %.not.i, label %47, label %43, !prof !12
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !alias.scope !8, !noalias !11, !nonnull !5, !align !6, !noundef !5
+  %45 = sub nuw i64 %40, %39
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %39
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !14
+  store ptr %46, ptr %11, align 8, !noalias !14
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %45, ptr %47, align 8, !noalias !14
+  call void @"_ZN87_$LT$core..str..lossy..Utf8Chunks$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2567ce1a3012070E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(16) %11), !noalias !14
+  %48 = load ptr, ptr %12, align 8, !noalias !14, !noundef !5
+  %.not.i = icmp eq ptr %48, null
+  br i1 %.not.i, label %54, label %50, !prof !13
 
-42:                                               ; preds = %31
-  tail call void @_ZN4core6option13unwrap_failed17hec54eb4737b382caE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.35) #13, !noalias !13
+49:                                               ; preds = %38
+  tail call void @_ZN4core6option13unwrap_failed17hec54eb4737b382caE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.35) #13, !noalias !14
   unreachable
 
-43:                                               ; preds = %36
-  %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %45 = load i64, ptr %44, align 8, !noalias !13, !noundef !5
-  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !13
-  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !13
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %48, label %53
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %52 = load i64, ptr %51, align 8, !noalias !14, !noundef !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !14
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %55, label %60
 
-47:                                               ; preds = %36
-  call void @_ZN4core6option13unwrap_failed17hec54eb4737b382caE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.33) #13, !noalias !13
+54:                                               ; preds = %43
+  call void @_ZN4core6option13unwrap_failed17hec54eb4737b382caE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.33) #13, !noalias !14
   unreachable
 
-48:                                               ; preds = %43
-  %49 = trunc i64 %32 to i32
-  %50 = add i32 %49, 1
-  %51 = load i64, ptr %16, align 8, !alias.scope !7, !noalias !10, !noundef !5
-  %52 = call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %49, i32 noundef %50, i64 noundef %51), !noalias !13
+55:                                               ; preds = %50
+  %56 = trunc i64 %39 to i32
+  %57 = add i32 %56, 1
+  %58 = load i64, ptr %16, align 8, !alias.scope !8, !noalias !11, !noundef !5
+  %59 = call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %56, i32 noundef %57, i64 noundef %58), !noalias !14
   br label %_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E.exit
 
-53:                                               ; preds = %43
-  %54 = getelementptr inbounds nuw i8, ptr %41, i64 %45
+60:                                               ; preds = %50
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 %52
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %121, %53
-  %55 = phi i64 [ %98, %121 ], [ 0, %53 ]
-  %56 = phi ptr [ %94, %121 ], [ %41, %53 ]
-  %57 = ptrtoint ptr %56 to i64
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  %59 = load i8, ptr %56, align 1, !noalias !15, !noundef !5
-  %60 = icmp sgt i8 %59, -1
-  br i1 %60, label %71, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i"
+.lr.ph.i.i.i.i:                                   ; preds = %128, %60
+  %62 = phi i64 [ %105, %128 ], [ 0, %60 ]
+  %63 = phi ptr [ %101, %128 ], [ %48, %60 ]
+  %64 = ptrtoint ptr %63 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 1
+  %66 = load i8, ptr %63, align 1, !noalias !15, !noundef !5
+  %67 = icmp sgt i8 %66, -1
+  br i1 %67, label %78, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
-  %61 = and i8 %59, 31
-  %62 = zext nneg i8 %61 to i32
-  %63 = icmp ne ptr %58, %54
-  call void @llvm.assume(i1 %63)
-  %64 = getelementptr inbounds nuw i8, ptr %56, i64 2
-  %65 = load i8, ptr %58, align 1, !noalias !15, !noundef !5
-  %66 = shl nuw nsw i32 %62, 6
-  %67 = and i8 %65, 63
-  %68 = zext nneg i8 %67 to i32
-  %69 = or disjoint i32 %66, %68
-  %70 = icmp samesign ugt i8 %59, -33
-  br i1 %70, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i", label %93
+  %68 = and i8 %66, 31
+  %69 = zext nneg i8 %68 to i32
+  %70 = icmp ne ptr %65, %61
+  call void @llvm.assume(i1 %70)
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 2
+  %72 = load i8, ptr %65, align 1, !noalias !15, !noundef !5
+  %73 = shl nuw nsw i32 %69, 6
+  %74 = and i8 %72, 63
+  %75 = zext nneg i8 %74 to i32
+  %76 = or disjoint i32 %73, %75
+  %77 = icmp samesign ugt i8 %66, -33
+  br i1 %77, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i", label %100
 
-71:                                               ; preds = %.lr.ph.i.i.i.i
-  %72 = zext nneg i8 %59 to i32
-  br label %93
+78:                                               ; preds = %.lr.ph.i.i.i.i
+  %79 = zext nneg i8 %66 to i32
+  br label %100
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i"
-  %73 = icmp ne ptr %64, %54
-  call void @llvm.assume(i1 %73)
-  %74 = getelementptr inbounds nuw i8, ptr %56, i64 3
-  %75 = load i8, ptr %64, align 1, !noalias !15, !noundef !5
-  %76 = shl nuw nsw i32 %68, 6
-  %77 = and i8 %75, 63
-  %78 = zext nneg i8 %77 to i32
-  %79 = or disjoint i32 %76, %78
-  %80 = shl nuw nsw i32 %62, 12
-  %81 = or disjoint i32 %79, %80
-  %82 = icmp samesign ugt i8 %59, -17
-  br i1 %82, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i", label %93
+  %80 = icmp ne ptr %71, %61
+  call void @llvm.assume(i1 %80)
+  %81 = getelementptr inbounds nuw i8, ptr %63, i64 3
+  %82 = load i8, ptr %71, align 1, !noalias !15, !noundef !5
+  %83 = shl nuw nsw i32 %75, 6
+  %84 = and i8 %82, 63
+  %85 = zext nneg i8 %84 to i32
+  %86 = or disjoint i32 %83, %85
+  %87 = shl nuw nsw i32 %69, 12
+  %88 = or disjoint i32 %86, %87
+  %89 = icmp samesign ugt i8 %66, -17
+  br i1 %89, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i", label %100
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i"
-  %83 = icmp ne ptr %74, %54
-  call void @llvm.assume(i1 %83)
-  %84 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %85 = load i8, ptr %74, align 1, !noalias !15, !noundef !5
-  %86 = shl nuw nsw i32 %62, 18
-  %87 = and i32 %86, 1835008
-  %88 = shl nuw nsw i32 %79, 6
-  %89 = and i8 %85, 63
-  %90 = zext nneg i8 %89 to i32
-  %91 = or disjoint i32 %88, %90
-  %92 = or disjoint i32 %91, %87
-  br label %93
+  %90 = icmp ne ptr %81, %61
+  call void @llvm.assume(i1 %90)
+  %91 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %92 = load i8, ptr %81, align 1, !noalias !15, !noundef !5
+  %93 = shl nuw nsw i32 %69, 18
+  %94 = and i32 %93, 1835008
+  %95 = shl nuw nsw i32 %86, 6
+  %96 = and i8 %92, 63
+  %97 = zext nneg i8 %96 to i32
+  %98 = or disjoint i32 %95, %97
+  %99 = or disjoint i32 %98, %94
+  br label %100
 
-93:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i", %71, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i"
-  %94 = phi ptr [ %64, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i" ], [ %74, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i" ], [ %84, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i" ], [ %58, %71 ]
-  %.sroa.4.0.i.ph.i.i.i.i.i.i = phi i32 [ %69, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i" ], [ %81, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i" ], [ %92, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i" ], [ %72, %71 ]
-  %95 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 1114112
-  call void @llvm.assume(i1 %95)
-  %96 = ptrtoint ptr %94 to i64
-  %97 = sub i64 %55, %57
-  %98 = add i64 %97, %96
-  switch i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, label %99 [
+100:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i", %78, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i"
+  %101 = phi ptr [ %71, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i" ], [ %81, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i" ], [ %91, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i" ], [ %65, %78 ]
+  %.sroa.4.0.i.ph.i.i.i.i.i.i = phi i32 [ %76, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit12.i.i.i.i.i.i.i" ], [ %88, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit14.i.i.i.i.i.i.i" ], [ %99, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73599854f19d3a2cE.exit16.i.i.i.i.i.i.i" ], [ %79, %78 ]
+  %102 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 1114112
+  call void @llvm.assume(i1 %102)
+  %103 = ptrtoint ptr %101 to i64
+  %104 = sub i64 %62, %64
+  %105 = add i64 %104, %103
+  switch i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, label %106 [
     i32 32, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i"
     i32 13, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i"
     i32 12, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i"
@@ -378,673 +396,647 @@ default.unreachable141:                           ; preds = %.backedge
     i32 9, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i"
   ]
 
-99:                                               ; preds = %93
-  %100 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 127
-  br i1 %100, label %101, label %121
+106:                                              ; preds = %100
+  %107 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 127
+  br i1 %107, label %108, label %128
 
-101:                                              ; preds = %99
-  %102 = lshr i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 8
-  switch i32 %102, label %121 [
-    i32 0, label %109
-    i32 22, label %103
-    i32 32, label %114
-    i32 48, label %106
+108:                                              ; preds = %106
+  %109 = lshr i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 8
+  switch i32 %109, label %128 [
+    i32 0, label %116
+    i32 22, label %110
+    i32 32, label %121
+    i32 48, label %113
   ]
 
-103:                                              ; preds = %101
-  %104 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 5760
-  %105 = zext i1 %104 to i8
+110:                                              ; preds = %108
+  %111 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 5760
+  %112 = zext i1 %111 to i8
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i"
 
-106:                                              ; preds = %101
-  %107 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 12288
-  %108 = zext i1 %107 to i8
+113:                                              ; preds = %108
+  %114 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 12288
+  %115 = zext i1 %114 to i8
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i"
 
-109:                                              ; preds = %101
-  %110 = and i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 255
-  %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h915b3a807ca953ecE, i64 %111
-  %113 = load i8, ptr %112, align 1, !noalias !31, !noundef !5
+116:                                              ; preds = %108
+  %117 = and i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 255
+  %118 = zext nneg i32 %117 to i64
+  %119 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h915b3a807ca953ecE, i64 %118
+  %120 = load i8, ptr %119, align 1, !noalias !31, !noundef !5
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i"
 
-114:                                              ; preds = %101
-  %115 = and i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 255
-  %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h915b3a807ca953ecE, i64 %116
-  %118 = load i8, ptr %117, align 1, !noalias !31, !noundef !5
-  %119 = lshr i8 %118, 1
+121:                                              ; preds = %108
+  %122 = and i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 255
+  %123 = zext nneg i32 %122 to i64
+  %124 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h915b3a807ca953ecE, i64 %123
+  %125 = load i8, ptr %124, align 1, !noalias !31, !noundef !5
+  %126 = lshr i8 %125, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i"
 
-"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i": ; preds = %114, %109, %106, %103
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i8 [ %113, %109 ], [ %105, %103 ], [ %119, %114 ], [ %108, %106 ]
-  %120 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i to i1
-  br i1 %120, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i", label %121
+"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i": ; preds = %121, %116, %113, %110
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i8 [ %120, %116 ], [ %112, %110 ], [ %126, %121 ], [ %115, %113 ]
+  %127 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i to i1
+  br i1 %127, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i", label %128
 
-121:                                              ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i", %101, %99
-  %122 = icmp eq ptr %94, %54
-  br i1 %122, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i", label %.lr.ph.i.i.i.i
+128:                                              ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i", %108, %106
+  %129 = icmp eq ptr %101, %61
+  br i1 %129, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i", label %.lr.ph.i.i.i.i
 
-"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i": ; preds = %121, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i", %93, %93, %93, %93, %93, %93
-  %.sroa.4.0.i.i = phi i64 [ %55, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i" ], [ %55, %93 ], [ %55, %93 ], [ %55, %93 ], [ %55, %93 ], [ %55, %93 ], [ %55, %93 ], [ %45, %121 ]
-  %123 = load i64, ptr %14, align 8, !alias.scope !7, !noalias !10, !noundef !5
-  %spec.select.i.i.i = call noundef i64 @llvm.usub.sat.i64(i64 %123, i64 %32)
-  %124 = call i64 @llvm.usub.sat.i64(i64 %.sroa.4.0.i.i, i64 %spec.select.i.i.i)
-  call void @"_ZN5logos5lexer18Lexer$LT$Token$GT$4bump17h58871244d728978dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %13, i64 noundef %124), !noalias !10
-  %125 = load i64, ptr %15, align 8, !alias.scope !7, !noalias !10, !noundef !5
-  %126 = load i64, ptr %14, align 8, !alias.scope !7, !noalias !10, !noundef !5
-  %127 = call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %125, i64 noundef %126), !noalias !10
-  %128 = extractvalue { i32, i32 } %127, 0
-  %129 = extractvalue { i32, i32 } %127, 1
-  %130 = load i64, ptr %16, align 8, !alias.scope !7, !noalias !10, !noundef !5
-  %131 = call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %128, i32 noundef %129, i64 noundef %130), !noalias !10
+"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i": ; preds = %128, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i", %100, %100, %100, %100, %100, %100
+  %.sroa.4.0.i.i = phi i64 [ %62, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h331f476aeefb0f8bE.exit.i.i.i.i.i" ], [ %62, %100 ], [ %62, %100 ], [ %62, %100 ], [ %62, %100 ], [ %62, %100 ], [ %62, %100 ], [ %52, %128 ]
+  %130 = load i64, ptr %14, align 8, !alias.scope !8, !noalias !11, !noundef !5
+  %spec.select.i.i.i = call noundef i64 @llvm.usub.sat.i64(i64 %130, i64 %39)
+  %131 = call i64 @llvm.usub.sat.i64(i64 %.sroa.4.0.i.i, i64 %spec.select.i.i.i)
+  call void @"_ZN5logos5lexer18Lexer$LT$Token$GT$4bump17h58871244d728978dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %13, i64 noundef %131), !noalias !11
+  %132 = load i64, ptr %15, align 8, !alias.scope !8, !noalias !11, !noundef !5
+  %133 = load i64, ptr %14, align 8, !alias.scope !8, !noalias !11, !noundef !5
+  %134 = call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %132, i64 noundef %133), !noalias !11
+  %135 = extractvalue { i32, i32 } %134, 0
+  %136 = extractvalue { i32, i32 } %134, 1
+  %137 = load i64, ptr %16, align 8, !alias.scope !8, !noalias !11, !noundef !5
+  %138 = call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %135, i32 noundef %136, i64 noundef %137), !noalias !11
   br label %_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E.exit
 
-_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E.exit: ; preds = %48, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i"
-  %.sink.i = phi { i32, i32 } [ %131, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i" ], [ %52, %48 ]
-  %storemerge.i = phi i8 [ 81, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i" ], [ 80, %48 ]
-  %132 = extractvalue { i32, i32 } %.sink.i, 0
-  %133 = extractvalue { i32, i32 } %.sink.i, 1
+_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E.exit: ; preds = %55, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i"
+  %.sink.i = phi { i32, i32 } [ %138, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i" ], [ %59, %55 ]
+  %storemerge.i = phi i8 [ 81, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E.exit.thread.i" ], [ 80, %55 ]
+  %139 = extractvalue { i32, i32 } %.sink.i, 0
+  %140 = extractvalue { i32, i32 } %.sink.i, 1
   store i8 %storemerge.i, ptr %0, align 4
   %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %132, ptr %.sroa.469.0..sroa_idx, align 4
+  store i32 %139, ptr %.sroa.469.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %133, ptr %.sroa.5.0..sroa_idx, align 4
-  br label %257
+  store i32 %140, ptr %.sroa.5.0..sroa_idx, align 4
+  br label %264
 
-134:                                              ; preds = %20
-  %135 = load i64, ptr %15, align 8, !noundef !5
-  %136 = load i64, ptr %14, align 8, !noundef !5
-  %137 = tail call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %135, i64 noundef %136)
-  %138 = extractvalue { i32, i32 } %137, 0
-  %139 = extractvalue { i32, i32 } %137, 1
-  %140 = load i64, ptr %16, align 8, !noundef !5
-  %141 = tail call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %138, i32 noundef %139, i64 noundef %140)
-  %142 = extractvalue { i32, i32 } %141, 0
-  %143 = extractvalue { i32, i32 } %141, 1
+141:                                              ; preds = %27
+  %142 = load i64, ptr %15, align 8, !noundef !5
+  %143 = load i64, ptr %14, align 8, !noundef !5
+  %144 = tail call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %142, i64 noundef %143)
+  %145 = extractvalue { i32, i32 } %144, 0
+  %146 = extractvalue { i32, i32 } %144, 1
+  %147 = load i64, ptr %16, align 8, !noundef !5
+  %148 = tail call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %145, i32 noundef %146, i64 noundef %147)
+  %149 = extractvalue { i32, i32 } %148, 0
+  %150 = extractvalue { i32, i32 } %148, 1
   switch i64 %.sroa.0.0.copyload, label %default.unreachable1.i [
     i64 0, label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
-    i64 1, label %144
-    i64 2, label %145
-    i64 3, label %146
-    i64 4, label %147
-    i64 5, label %148
-    i64 6, label %149
-    i64 7, label %150
-    i64 8, label %151
-    i64 9, label %152
-    i64 10, label %153
-    i64 11, label %154
-    i64 12, label %155
-    i64 13, label %156
-    i64 14, label %157
-    i64 15, label %158
-    i64 16, label %159
-    i64 17, label %160
-    i64 18, label %161
-    i64 19, label %162
-    i64 20, label %163
-    i64 21, label %164
-    i64 22, label %165
-    i64 23, label %166
-    i64 24, label %167
-    i64 25, label %168
-    i64 26, label %169
-    i64 27, label %170
-    i64 28, label %171
-    i64 29, label %172
-    i64 30, label %173
-    i64 31, label %174
-    i64 32, label %175
-    i64 33, label %176
-    i64 34, label %177
-    i64 35, label %178
-    i64 36, label %179
-    i64 37, label %180
-    i64 38, label %181
-    i64 39, label %182
-    i64 40, label %183
-    i64 41, label %184
-    i64 42, label %185
-    i64 43, label %186
-    i64 44, label %187
-    i64 45, label %188
-    i64 46, label %189
-    i64 47, label %190
-    i64 48, label %191
-    i64 49, label %192
-    i64 50, label %193
-    i64 51, label %194
-    i64 52, label %195
-    i64 53, label %196
-    i64 54, label %197
-    i64 55, label %198
-    i64 56, label %199
-    i64 57, label %200
-    i64 58, label %201
-    i64 59, label %202
-    i64 60, label %203
-    i64 61, label %204
-    i64 62, label %205
-    i64 63, label %206
-    i64 64, label %207
-    i64 65, label %208
-    i64 66, label %209
-    i64 67, label %210
-    i64 68, label %214
-    i64 69, label %218
-    i64 70, label %222
-    i64 71, label %226
-    i64 72, label %230
-    i64 73, label %234
-    i64 74, label %238
-    i64 75, label %238
-    i64 76, label %239
-    i64 77, label %240
-    i64 78, label %240
-    i64 79, label %241
-    i64 80, label %242
-    i64 81, label %242
-    i64 82, label %242
+    i64 1, label %151
+    i64 2, label %152
+    i64 3, label %153
+    i64 4, label %154
+    i64 5, label %155
+    i64 6, label %156
+    i64 7, label %157
+    i64 8, label %158
+    i64 9, label %159
+    i64 10, label %160
+    i64 11, label %161
+    i64 12, label %162
+    i64 13, label %163
+    i64 14, label %164
+    i64 15, label %165
+    i64 16, label %166
+    i64 17, label %167
+    i64 18, label %168
+    i64 19, label %169
+    i64 20, label %170
+    i64 21, label %171
+    i64 22, label %172
+    i64 23, label %173
+    i64 24, label %174
+    i64 25, label %175
+    i64 26, label %176
+    i64 27, label %177
+    i64 28, label %178
+    i64 29, label %179
+    i64 30, label %180
+    i64 31, label %181
+    i64 32, label %182
+    i64 33, label %183
+    i64 34, label %184
+    i64 35, label %185
+    i64 36, label %186
+    i64 37, label %187
+    i64 38, label %188
+    i64 39, label %189
+    i64 40, label %190
+    i64 41, label %191
+    i64 42, label %192
+    i64 43, label %193
+    i64 44, label %194
+    i64 45, label %195
+    i64 46, label %196
+    i64 47, label %197
+    i64 48, label %198
+    i64 49, label %199
+    i64 50, label %200
+    i64 51, label %201
+    i64 52, label %202
+    i64 53, label %203
+    i64 54, label %204
+    i64 55, label %205
+    i64 56, label %206
+    i64 57, label %207
+    i64 58, label %208
+    i64 59, label %209
+    i64 60, label %210
+    i64 61, label %211
+    i64 62, label %212
+    i64 63, label %213
+    i64 64, label %214
+    i64 65, label %215
+    i64 66, label %216
+    i64 67, label %217
+    i64 68, label %221
+    i64 69, label %225
+    i64 70, label %229
+    i64 71, label %233
+    i64 72, label %237
+    i64 73, label %241
+    i64 74, label %245
+    i64 75, label %245
+    i64 76, label %246
+    i64 77, label %247
+    i64 78, label %247
+    i64 79, label %248
+    i64 80, label %249
+    i64 81, label %249
+    i64 82, label %249
   ]
 
-default.unreachable1.i:                           ; preds = %134
+default.unreachable1.i:                           ; preds = %141
   unreachable
 
-144:                                              ; preds = %134
+151:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-145:                                              ; preds = %134
+152:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-146:                                              ; preds = %134
+153:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-147:                                              ; preds = %134
+154:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-148:                                              ; preds = %134
+155:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-149:                                              ; preds = %134
+156:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-150:                                              ; preds = %134
+157:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-151:                                              ; preds = %134
+158:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-152:                                              ; preds = %134
+159:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-153:                                              ; preds = %134
+160:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-154:                                              ; preds = %134
+161:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-155:                                              ; preds = %134
+162:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-156:                                              ; preds = %134
+163:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-157:                                              ; preds = %134
+164:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-158:                                              ; preds = %134
+165:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-159:                                              ; preds = %134
+166:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-160:                                              ; preds = %134
+167:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-161:                                              ; preds = %134
+168:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-162:                                              ; preds = %134
+169:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-163:                                              ; preds = %134
+170:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-164:                                              ; preds = %134
+171:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-165:                                              ; preds = %134
+172:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-166:                                              ; preds = %134
+173:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-167:                                              ; preds = %134
+174:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-168:                                              ; preds = %134
+175:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-169:                                              ; preds = %134
+176:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-170:                                              ; preds = %134
+177:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-171:                                              ; preds = %134
+178:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-172:                                              ; preds = %134
+179:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-173:                                              ; preds = %134
+180:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-174:                                              ; preds = %134
+181:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-175:                                              ; preds = %134
+182:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-176:                                              ; preds = %134
+183:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-177:                                              ; preds = %134
+184:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-178:                                              ; preds = %134
+185:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-179:                                              ; preds = %134
+186:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-180:                                              ; preds = %134
+187:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-181:                                              ; preds = %134
+188:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-182:                                              ; preds = %134
+189:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-183:                                              ; preds = %134
+190:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-184:                                              ; preds = %134
+191:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-185:                                              ; preds = %134
+192:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-186:                                              ; preds = %134
+193:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-187:                                              ; preds = %134
+194:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-188:                                              ; preds = %134
+195:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-189:                                              ; preds = %134
+196:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-190:                                              ; preds = %134
+197:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-191:                                              ; preds = %134
+198:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-192:                                              ; preds = %134
+199:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-193:                                              ; preds = %134
+200:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-194:                                              ; preds = %134
+201:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-195:                                              ; preds = %134
+202:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-196:                                              ; preds = %134
+203:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-197:                                              ; preds = %134
+204:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-198:                                              ; preds = %134
+205:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-199:                                              ; preds = %134
+206:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-200:                                              ; preds = %134
+207:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-201:                                              ; preds = %134
+208:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-202:                                              ; preds = %134
+209:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-203:                                              ; preds = %134
+210:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-204:                                              ; preds = %134
+211:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-205:                                              ; preds = %134
+212:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-206:                                              ; preds = %134
+213:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-207:                                              ; preds = %134
+214:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-208:                                              ; preds = %134
+215:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-209:                                              ; preds = %134
+216:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-210:                                              ; preds = %134
-  %211 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %211)
+217:                                              ; preds = %141
+  %218 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %218)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %212 = load i64, ptr %9, align 8, !range !37, !noalias !32, !noundef !5
-  %213 = trunc nuw i64 %212 to i1
-  br i1 %213, label %243, label %244, !prof !12
+  %219 = load i64, ptr %9, align 8, !range !37, !noalias !32, !noundef !5
+  %220 = trunc nuw i64 %219 to i1
+  br i1 %220, label %250, label %251, !prof !13
 
-214:                                              ; preds = %134
-  %215 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %215)
+221:                                              ; preds = %141
+  %222 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %222)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %216 = load i64, ptr %8, align 8, !range !37, !noalias !32, !noundef !5
-  %217 = trunc nuw i64 %216 to i1
-  br i1 %217, label %245, label %246, !prof !12
+  %223 = load i64, ptr %8, align 8, !range !37, !noalias !32, !noundef !5
+  %224 = trunc nuw i64 %223 to i1
+  br i1 %224, label %252, label %253, !prof !13
 
-218:                                              ; preds = %134
-  %219 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %219)
+225:                                              ; preds = %141
+  %226 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %226)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %220 = load i64, ptr %7, align 8, !range !37, !noalias !32, !noundef !5
-  %221 = trunc nuw i64 %220 to i1
-  br i1 %221, label %247, label %248, !prof !12
+  %227 = load i64, ptr %7, align 8, !range !37, !noalias !32, !noundef !5
+  %228 = trunc nuw i64 %227 to i1
+  br i1 %228, label %254, label %255, !prof !13
 
-222:                                              ; preds = %134
-  %223 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %223)
+229:                                              ; preds = %141
+  %230 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %230)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %224 = load i64, ptr %6, align 8, !range !37, !noalias !32, !noundef !5
-  %225 = trunc nuw i64 %224 to i1
-  br i1 %225, label %249, label %250, !prof !12
+  %231 = load i64, ptr %6, align 8, !range !37, !noalias !32, !noundef !5
+  %232 = trunc nuw i64 %231 to i1
+  br i1 %232, label %256, label %257, !prof !13
 
-226:                                              ; preds = %134
-  %227 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %227)
+233:                                              ; preds = %141
+  %234 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %234)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %228 = load i64, ptr %10, align 8, !range !37, !noalias !32, !noundef !5
-  %229 = trunc nuw i64 %228 to i1
-  br i1 %229, label %251, label %252, !prof !12
+  %235 = load i64, ptr %10, align 8, !range !37, !noalias !32, !noundef !5
+  %236 = trunc nuw i64 %235 to i1
+  br i1 %236, label %258, label %259, !prof !13
 
-230:                                              ; preds = %134
-  %231 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %231)
+237:                                              ; preds = %141
+  %238 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %238)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %232 = load i64, ptr %5, align 8, !range !37, !noalias !32, !noundef !5
-  %233 = trunc nuw i64 %232 to i1
-  br i1 %233, label %253, label %254, !prof !12
+  %239 = load i64, ptr %5, align 8, !range !37, !noalias !32, !noundef !5
+  %240 = trunc nuw i64 %239 to i1
+  br i1 %240, label %260, label %261, !prof !13
 
-234:                                              ; preds = %134
-  %235 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %235)
+241:                                              ; preds = %141
+  %242 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %242)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %236 = load i64, ptr %4, align 8, !range !37, !noalias !32, !noundef !5
-  %237 = trunc nuw i64 %236 to i1
-  br i1 %237, label %255, label %256, !prof !12
+  %243 = load i64, ptr %4, align 8, !range !37, !noalias !32, !noundef !5
+  %244 = trunc nuw i64 %243 to i1
+  br i1 %244, label %262, label %263, !prof !13
 
-238:                                              ; preds = %134, %134
+245:                                              ; preds = %141, %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-239:                                              ; preds = %134
+246:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-240:                                              ; preds = %134, %134
+247:                                              ; preds = %141, %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-241:                                              ; preds = %134
+248:                                              ; preds = %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-242:                                              ; preds = %134, %134, %134
+249:                                              ; preds = %141, %141, %141
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-243:                                              ; preds = %210
+250:                                              ; preds = %217
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.37) #13, !noalias !36
   unreachable
 
-244:                                              ; preds = %210
+251:                                              ; preds = %217
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-245:                                              ; preds = %214
+252:                                              ; preds = %221
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.38) #13, !noalias !36
   unreachable
 
-246:                                              ; preds = %214
+253:                                              ; preds = %221
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-247:                                              ; preds = %218
+254:                                              ; preds = %225
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.39) #13, !noalias !36
   unreachable
 
-248:                                              ; preds = %218
+255:                                              ; preds = %225
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-249:                                              ; preds = %222
+256:                                              ; preds = %229
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.40) #13, !noalias !36
   unreachable
 
-250:                                              ; preds = %222
+257:                                              ; preds = %229
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-251:                                              ; preds = %226
+258:                                              ; preds = %233
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.41) #13, !noalias !36
   unreachable
 
-252:                                              ; preds = %226
+259:                                              ; preds = %233
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-253:                                              ; preds = %230
+260:                                              ; preds = %237
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.42) #13, !noalias !36
   unreachable
 
-254:                                              ; preds = %230
+261:                                              ; preds = %237
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-255:                                              ; preds = %234
+262:                                              ; preds = %241
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.43) #13, !noalias !36
   unreachable
 
-256:                                              ; preds = %234
+263:                                              ; preds = %241
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit: ; preds = %134, %144, %145, %146, %147, %148, %149, %150, %151, %152, %153, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %171, %172, %173, %174, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %194, %195, %196, %197, %198, %199, %200, %201, %202, %203, %204, %205, %206, %207, %208, %209, %238, %239, %240, %241, %242, %244, %246, %248, %250, %252, %254, %256
-  %.sroa.066.0 = phi i8 [ 1, %144 ], [ 2, %145 ], [ 3, %146 ], [ 4, %147 ], [ 5, %148 ], [ 6, %149 ], [ 7, %150 ], [ 8, %151 ], [ 9, %152 ], [ 10, %153 ], [ 11, %154 ], [ 12, %155 ], [ 13, %156 ], [ 14, %157 ], [ 15, %158 ], [ 16, %159 ], [ 17, %160 ], [ 18, %161 ], [ 19, %162 ], [ 20, %163 ], [ 21, %164 ], [ 22, %165 ], [ 23, %166 ], [ 24, %167 ], [ 25, %168 ], [ 26, %169 ], [ 27, %170 ], [ 28, %171 ], [ 29, %172 ], [ 30, %173 ], [ 31, %174 ], [ 32, %175 ], [ 33, %176 ], [ 34, %177 ], [ 35, %178 ], [ 36, %179 ], [ 37, %180 ], [ 38, %181 ], [ 39, %182 ], [ 40, %183 ], [ 41, %184 ], [ 42, %185 ], [ 43, %186 ], [ 45, %187 ], [ 47, %188 ], [ 44, %189 ], [ 46, %190 ], [ 57, %191 ], [ 58, %192 ], [ 59, %193 ], [ 61, %194 ], [ 62, %195 ], [ 63, %196 ], [ 64, %197 ], [ 68, %198 ], [ 65, %199 ], [ 66, %200 ], [ 67, %201 ], [ 60, %202 ], [ 69, %203 ], [ 70, %204 ], [ 71, %205 ], [ 74, %206 ], [ 75, %207 ], [ 72, %208 ], [ 73, %209 ], [ 53, %244 ], [ 54, %246 ], [ 55, %248 ], [ 56, %250 ], [ 52, %252 ], [ 48, %254 ], [ 49, %256 ], [ 50, %238 ], [ 51, %239 ], [ 77, %240 ], [ 79, %241 ], [ 78, %242 ], [ 0, %134 ]
+_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit: ; preds = %141, %151, %152, %153, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %171, %172, %173, %174, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %194, %195, %196, %197, %198, %199, %200, %201, %202, %203, %204, %205, %206, %207, %208, %209, %210, %211, %212, %213, %214, %215, %216, %245, %246, %247, %248, %249, %251, %253, %255, %257, %259, %261, %263
+  %.sroa.066.0 = phi i8 [ 1, %151 ], [ 2, %152 ], [ 3, %153 ], [ 4, %154 ], [ 5, %155 ], [ 6, %156 ], [ 7, %157 ], [ 8, %158 ], [ 9, %159 ], [ 10, %160 ], [ 11, %161 ], [ 12, %162 ], [ 13, %163 ], [ 14, %164 ], [ 15, %165 ], [ 16, %166 ], [ 17, %167 ], [ 18, %168 ], [ 19, %169 ], [ 20, %170 ], [ 21, %171 ], [ 22, %172 ], [ 23, %173 ], [ 24, %174 ], [ 25, %175 ], [ 26, %176 ], [ 27, %177 ], [ 28, %178 ], [ 29, %179 ], [ 30, %180 ], [ 31, %181 ], [ 32, %182 ], [ 33, %183 ], [ 34, %184 ], [ 35, %185 ], [ 36, %186 ], [ 37, %187 ], [ 38, %188 ], [ 39, %189 ], [ 40, %190 ], [ 41, %191 ], [ 42, %192 ], [ 43, %193 ], [ 45, %194 ], [ 47, %195 ], [ 44, %196 ], [ 46, %197 ], [ 57, %198 ], [ 58, %199 ], [ 59, %200 ], [ 61, %201 ], [ 62, %202 ], [ 63, %203 ], [ 64, %204 ], [ 68, %205 ], [ 65, %206 ], [ 66, %207 ], [ 67, %208 ], [ 60, %209 ], [ 69, %210 ], [ 70, %211 ], [ 71, %212 ], [ 74, %213 ], [ 75, %214 ], [ 72, %215 ], [ 73, %216 ], [ 53, %251 ], [ 54, %253 ], [ 55, %255 ], [ 56, %257 ], [ 52, %259 ], [ 48, %261 ], [ 49, %263 ], [ 50, %245 ], [ 51, %246 ], [ 77, %247 ], [ 79, %248 ], [ 78, %249 ], [ 0, %141 ]
   store i8 %.sroa.066.0, ptr %0, align 4
   %.sroa.8267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %142, ptr %.sroa.8267.0..sroa_idx, align 4
+  store i32 %149, ptr %.sroa.8267.0..sroa_idx, align 4
   %.sroa.161.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %143, ptr %.sroa.161.0..sroa_idx, align 4
-  br label %257
+  store i32 %150, ptr %.sroa.161.0..sroa_idx, align 4
+  br label %264
 
-257:                                              ; preds = %284, %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit, %27, %_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E.exit, %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit, %258, %switch.lookup
+264:                                              ; preds = %287, %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit, %34, %_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E.exit, %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit, %265, %switch.lookup
   ret void
 
-258:                                              ; preds = %22
+265:                                              ; preds = %29
   store i8 82, ptr %0, align 4
-  br label %257
+  br label %264
 
-259:                                              ; preds = %22
-  %260 = load i64, ptr %1, align 8, !range !4, !noundef !5
-  %261 = icmp eq i64 %260, 1
-  br i1 %261, label %272, label %278, !prof !3
+266:                                              ; preds = %29
+  %267 = load i64, ptr %1, align 8, !range !4, !noundef !5
+  %268 = icmp eq i64 %267, 1
+  br i1 %268, label %279, label %285, !prof !3
 
-switch.lookup:                                    ; preds = %22
-  %262 = load i64, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8, !noundef !5
-  %263 = load i64, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !noundef !5
-  %264 = tail call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %262, i64 noundef %263)
-  %265 = extractvalue { i32, i32 } %264, 0
-  %266 = extractvalue { i32, i32 } %264, 1
-  %267 = load i64, ptr %16, align 8, !noundef !5
-  %268 = tail call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %265, i32 noundef %266, i64 noundef %267)
-  %269 = extractvalue { i32, i32 } %268, 0
-  %270 = extractvalue { i32, i32 } %268, 1
-  %271 = zext nneg i8 %24 to i64
-  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN13yara_x_parser9tokenizer9Tokenizer10next_token17he544f075cb6758cfE, i64 %271
+switch.lookup:                                    ; preds = %29
+  %269 = load i64, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8, !noundef !5
+  %270 = load i64, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !noundef !5
+  %271 = tail call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %269, i64 noundef %270)
+  %272 = extractvalue { i32, i32 } %271, 0
+  %273 = extractvalue { i32, i32 } %271, 1
+  %274 = load i64, ptr %16, align 8, !noundef !5
+  %275 = tail call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %272, i32 noundef %273, i64 noundef %274)
+  %276 = extractvalue { i32, i32 } %275, 0
+  %277 = extractvalue { i32, i32 } %275, 1
+  %278 = zext nneg i8 %31 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN13yara_x_parser9tokenizer9Tokenizer10next_token17he544f075cb6758cfE, i64 %278
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 %switch.load, ptr %0, align 4
   %.sroa.472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %269, ptr %.sroa.472.0..sroa_idx, align 4
+  store i32 %276, ptr %.sroa.472.0..sroa_idx, align 4
   %.sroa.573.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %270, ptr %.sroa.573.0..sroa_idx, align 4
-  br label %257
+  store i32 %277, ptr %.sroa.573.0..sroa_idx, align 4
+  br label %264
 
-272:                                              ; preds = %259
-  %273 = load i64, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8, !noundef !5
-  %274 = load i64, ptr %16, align 8, !noundef !5
-  %275 = add i64 %274, %273
-  store i64 %275, ptr %16, align 8
-  %276 = load i64, ptr %17, align 8, !noundef !5
-  %277 = icmp ugt i64 %275, %276
-  br i1 %277, label %283, label %279, !prof !12
+279:                                              ; preds = %266
+  %280 = load i64, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8, !noundef !5
+  %281 = load i64, ptr %16, align 8, !noundef !5
+  %282 = add i64 %281, %280
+  store i64 %282, ptr %16, align 8
+  %283 = load i64, ptr %17, align 8, !noundef !5
+  %284 = icmp ugt i64 %282, %283
+  br i1 %284, label %286, label %23, !prof !13
 
-278:                                              ; preds = %259
+285:                                              ; preds = %266
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.22) #13
   unreachable
 
-279:                                              ; preds = %272
-  %280 = load ptr, ptr %18, align 8, !nonnull !5, !align !14, !noundef !5
-  %281 = sub nuw i64 %276, %275
-  %282 = getelementptr inbounds nuw i8, ptr %280, i64 %275
-  store i64 0, ptr %1, align 8
-  store i64 84, ptr %13, align 8
-  store ptr %282, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8
-  store i64 %281, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  br label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %279, %313
-  %.be = phi i64 [ 0, %279 ], [ 1, %313 ]
-  br label %.backedge
-
-283:                                              ; preds = %272
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h1f1e39c09f57820bE(i64 noundef %275, i64 noundef %276, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.20) #13
+286:                                              ; preds = %279
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h1f1e39c09f57820bE(i64 noundef %282, i64 noundef %283, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.20) #13
   unreachable
 
-284:                                              ; preds = %25
+287:                                              ; preds = %32
   store i8 82, ptr %0, align 4
-  br label %257
+  br label %264
 
-285:                                              ; preds = %25
-  %286 = load i64, ptr %1, align 8, !range !4, !noundef !5
-  %287 = icmp eq i64 %286, 2
-  br i1 %287, label %306, label %312, !prof !3
+288:                                              ; preds = %32
+  %289 = load i64, ptr %1, align 8, !range !4, !noundef !5
+  %290 = icmp eq i64 %289, 2
+  br i1 %290, label %309, label %315, !prof !3
 
-288:                                              ; preds = %25
-  %289 = load i64, ptr %15, align 8, !noundef !5
-  %290 = load i64, ptr %14, align 8, !noundef !5
-  %291 = tail call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %289, i64 noundef %290)
-  %292 = extractvalue { i32, i32 } %291, 0
-  %293 = extractvalue { i32, i32 } %291, 1
-  %294 = load i64, ptr %16, align 8, !noundef !5
-  %295 = tail call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %292, i32 noundef %293, i64 noundef %294)
-  %296 = extractvalue { i32, i32 } %295, 0
-  %297 = extractvalue { i32, i32 } %295, 1
+291:                                              ; preds = %32
+  %292 = load i64, ptr %15, align 8, !noundef !5
+  %293 = load i64, ptr %14, align 8, !noundef !5
+  %294 = tail call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %292, i64 noundef %293)
+  %295 = extractvalue { i32, i32 } %294, 0
+  %296 = extractvalue { i32, i32 } %294, 1
+  %297 = load i64, ptr %16, align 8, !noundef !5
+  %298 = tail call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %295, i32 noundef %296, i64 noundef %297)
+  %299 = extractvalue { i32, i32 } %298, 0
+  %300 = extractvalue { i32, i32 } %298, 1
   switch i64 %.sroa.017.0.copyload, label %default.unreachable1.i53 [
     i64 0, label %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit
-    i64 1, label %298
-    i64 2, label %302
-    i64 3, label %303
-    i64 4, label %303
-    i64 5, label %303
+    i64 1, label %301
+    i64 2, label %305
+    i64 3, label %306
+    i64 4, label %306
+    i64 5, label %306
   ]
 
-default.unreachable1.i53:                         ; preds = %288
+default.unreachable1.i53:                         ; preds = %291
   unreachable
 
-298:                                              ; preds = %288
-  %299 = icmp ne ptr %.sroa.619.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %299)
+301:                                              ; preds = %291
+  %302 = icmp ne ptr %.sroa.619.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %302)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !38
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %.sroa.619.sroa.0.0.copyload, i64 noundef %.sroa.619.sroa.5.0.copyload), !noalias !38
-  %300 = load i64, ptr %3, align 8, !range !37, !noalias !38, !noundef !5
-  %301 = trunc nuw i64 %300 to i1
-  br i1 %301, label %304, label %305, !prof !12
+  %303 = load i64, ptr %3, align 8, !range !37, !noalias !38, !noundef !5
+  %304 = trunc nuw i64 %303 to i1
+  br i1 %304, label %307, label %308, !prof !13
 
-302:                                              ; preds = %288
+305:                                              ; preds = %291
   br label %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit
 
-303:                                              ; preds = %288, %288, %288
+306:                                              ; preds = %291, %291, %291
   br label %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit
 
-304:                                              ; preds = %298
+307:                                              ; preds = %301
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.44) #13, !noalias !38
   unreachable
 
-305:                                              ; preds = %298
+308:                                              ; preds = %301
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !38
   br label %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit
 
-_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit: ; preds = %288, %302, %303, %305
-  %.sroa.077.0 = phi i8 [ 49, %305 ], [ 79, %302 ], [ 78, %303 ], [ 65, %288 ]
+_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit: ; preds = %291, %305, %306, %308
+  %.sroa.077.0 = phi i8 [ 49, %308 ], [ 79, %305 ], [ 78, %306 ], [ 65, %291 ]
   store i8 %.sroa.077.0, ptr %0, align 4
   %.sroa.778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %296, ptr %.sroa.778.0..sroa_idx, align 4
+  store i32 %299, ptr %.sroa.778.0..sroa_idx, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %297, ptr %.sroa.11.0..sroa_idx, align 4
-  br label %257
+  store i32 %300, ptr %.sroa.11.0..sroa_idx, align 4
+  br label %264
 
-306:                                              ; preds = %285
-  %307 = load i64, ptr %15, align 8, !noundef !5
-  %308 = load i64, ptr %16, align 8, !noundef !5
-  %309 = add i64 %308, %307
-  store i64 %309, ptr %16, align 8
-  %310 = load i64, ptr %17, align 8, !noundef !5
-  %311 = icmp ugt i64 %309, %310
-  br i1 %311, label %317, label %313, !prof !12
+309:                                              ; preds = %288
+  %310 = load i64, ptr %15, align 8, !noundef !5
+  %311 = load i64, ptr %16, align 8, !noundef !5
+  %312 = add i64 %311, %310
+  store i64 %312, ptr %16, align 8
+  %313 = load i64, ptr %17, align 8, !noundef !5
+  %314 = icmp ugt i64 %312, %313
+  br i1 %314, label %316, label %19, !prof !13
 
-312:                                              ; preds = %285
+315:                                              ; preds = %288
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.24) #13
   unreachable
 
-313:                                              ; preds = %306
-  %314 = load ptr, ptr %18, align 8, !nonnull !5, !align !14, !noundef !5
-  %315 = sub nuw i64 %310, %309
-  %316 = getelementptr inbounds nuw i8, ptr %314, i64 %309
-  store i64 1, ptr %1, align 8
-  store ptr %316, ptr %13, align 8
-  store i64 %315, ptr %.sroa.619.0..sroa_idx, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
-  store i8 13, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8
-  br label %.backedge.backedge
-
-317:                                              ; preds = %306
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h1f1e39c09f57820bE(i64 noundef %309, i64 noundef %310, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.23) #13
+316:                                              ; preds = %309
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h1f1e39c09f57820bE(i64 noundef %312, i64 noundef %313, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.23) #13
   unreachable
 }
 
@@ -1067,7 +1059,7 @@ define void @_ZN13yara_x_parser9tokenizer9Tokenizer22enter_hex_pattern_mode17h9a
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i64, ptr %13, align 8, !noundef !5
   %15 = icmp ugt i64 %12, %14
-  br i1 %15, label %27, label %21, !prof !12
+  br i1 %15, label %27, label %21, !prof !13
 
 16:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1091,7 +1083,7 @@ define void @_ZN13yara_x_parser9tokenizer9Tokenizer22enter_hex_pattern_mode17h9a
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %23 = load ptr, ptr %22, align 8, !nonnull !5, !align !14, !noundef !5
+  %23 = load ptr, ptr %22, align 8, !nonnull !5, !align !6, !noundef !5
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = sub nuw i64 %14, %12
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 %12
@@ -1129,7 +1121,7 @@ define void @_ZN13yara_x_parser9tokenizer9Tokenizer19enter_hex_jump_mode17h06fab
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i64, ptr %13, align 8, !noundef !5
   %15 = icmp ugt i64 %12, %14
-  br i1 %15, label %27, label %21, !prof !12
+  br i1 %15, label %27, label %21, !prof !13
 
 16:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1153,7 +1145,7 @@ define void @_ZN13yara_x_parser9tokenizer9Tokenizer19enter_hex_jump_mode17h06fab
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %23 = load ptr, ptr %22, align 8, !nonnull !5, !align !14, !noundef !5
+  %23 = load ptr, ptr %22, align 8, !nonnull !5, !align !6, !noundef !5
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = sub nuw i64 %14, %12
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 %12
@@ -1187,7 +1179,7 @@ define void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !alias.scope !42, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !alias.scope !42, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = zext i8 %12 to i64
@@ -1657,7 +1649,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 .lr.ph.lr.ph:                                     ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !14, !noundef !5
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6, !noundef !5
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.lr.ph
@@ -1915,7 +1907,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !14, !noundef !5
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6, !noundef !5
   br label %8
 
 8:                                                ; preds = %.lr.ph, %tailrecurse
@@ -1942,7 +1934,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   %3 = load i64, ptr %2, align 8, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !nonnull !5, !align !14
+  %6 = load ptr, ptr %5, align 8, !nonnull !5, !align !6
   %.promoted = load i64, ptr %4, align 8
   %7 = add i64 %.promoted, 15
   %.not185 = icmp ult i64 %7, %3
@@ -2379,7 +2371,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !14, !noundef !5
+  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !6, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %5
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = zext i8 %11 to i64
@@ -2720,7 +2712,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !14, !noundef !5
+  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %6
   %13 = load i8, ptr %12, align 1, !noundef !5
   %14 = zext i8 %13 to i64
@@ -4285,7 +4277,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto995_at3_ctx872_x17h84e94bc016ccfe88E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4503,7 +4495,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex21goto1069_at1_ctx872_x17h2d19d04733c093e0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5004,7 +4996,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto929_at1_ctx872_x17h610eebb72615848fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5260,7 +5252,7 @@ default.unreachable29:                            ; preds = %15
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto942_at1_ctx872_x17ha9b6918fc4dfeca9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5526,7 +5518,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto904_at1_ctx872_x17h81845154133fffa9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5675,7 +5667,7 @@ default.unreachable15:                            ; preds = %15
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex16goto873_ctx872_x17h530ffb76cc4168c6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5935,7 +5927,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !14, !noundef !5
+  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %6
   %13 = load i8, ptr %12, align 1, !noundef !5
   %14 = zext i8 %13 to i64
@@ -6311,7 +6303,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !14, !noundef !5
+  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %5
   %13 = load i8, ptr %12, align 1, !noundef !5
   %14 = zext i8 %13 to i64
@@ -6709,7 +6701,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = icmp eq i8 %12, 101
@@ -6771,7 +6763,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = icmp eq i8 %12, 117
@@ -7196,7 +7188,7 @@ default.unreachable:                              ; preds = %161, %99, %48, %27
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1474_ctx872_x17h8b4ccbed69e6866dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8216,7 +8208,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !14, !noundef !5
+  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !6, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %5
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = icmp eq i8 %11, 111
@@ -11082,7 +11074,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !14, !noundef !5
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6, !noundef !5
   br label %8
 
 "_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1195_at1_ctx1185_x17h6681fb2b77b34ff0E.exit": ; preds = %tailrecurse.backedge, %37, %40, %30, %33, %24, %21, %18, %15, %8, %1
@@ -11173,7 +11165,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !14, !noundef !5
+  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !6, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %5
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = icmp eq i8 %11, 116
@@ -15304,7 +15296,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !14, !noundef !5
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6, !noundef !5
   br label %8
 
 8:                                                ; preds = %.lr.ph, %tailrecurse
@@ -15328,7 +15320,7 @@ tailrecurse:                                      ; preds = %8
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1074_ctx1073_x17h7d68d1dc3209294dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -15677,7 +15669,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1079_at1_ctx1087_x17h6e9d3c3ce397ce63E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -16245,7 +16237,7 @@ tailrecurse.i109.i:                               ; preds = %242
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1209_ctx1087_x17hc7c05db4e80c292fE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -16349,7 +16341,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1208_ctx1087_x17h5afdab73012074b4E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -16453,7 +16445,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1214_ctx1087_x17hf642553fb0303e0bE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -16644,7 +16636,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1215_ctx1087_x17hee7e3d5f41833f0bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -17007,7 +16999,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1437_ctx872_x17hb87e2c5582bd0ceeE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -17600,7 +17592,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %6
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = icmp eq i8 %12, -96
@@ -17707,7 +17699,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %6
   %12 = load i8, ptr %11, align 1, !noundef !5
   switch i8 %12, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1193_at217hb05fbf5e752d74faE.exit.sink.split" [
@@ -17921,7 +17913,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = icmp eq i8 %12, 111
@@ -18355,7 +18347,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = zext i8 %12 to i64
@@ -19177,7 +19169,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = icmp eq i8 %12, 97
@@ -19347,7 +19339,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto149_at2_ctx68_x17hf91f03e82f19ae53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -19495,7 +19487,7 @@ default.unreachable15:                            ; preds = %15
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto221_at2_ctx68_x17he26931e43ef5d263E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -19754,7 +19746,7 @@ default.unreachable29:                            ; preds = %15
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto239_at2_ctx68_x17h6b805a432dd0e1e6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -20030,7 +20022,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto263_at2_ctx68_x17h0bacee7f93e5ade9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -20258,7 +20250,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto117_at2_ctx68_x17h0f63356c0d72a201E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -20433,7 +20425,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto134_at2_ctx68_x17h7861bc50f284d4f3E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -20487,7 +20479,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex14goto69_ctx68_x17h1bffc19b5a817979E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -20942,7 +20934,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = zext i8 %12 to i64
@@ -21138,7 +21130,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = zext i8 %12 to i64
@@ -21319,7 +21311,7 @@ default.unreachable33:                            ; preds = %8
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1325_ctx872_x17h1ab231e71b548c9cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -21347,7 +21339,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   %16 = load i8, ptr %15, align 1, !noundef !5
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr @anon.ce7b099076f5f0a3137313ced7301b35.90, i64 %17
-  %19 = load i8, ptr %18, align 1, !range !6, !noundef !5
+  %19 = load i8, ptr %18, align 1, !range !7, !noundef !5
   switch i8 %19, label %default.unreachable48 [
     i8 0, label %20
     i8 1, label %25
@@ -22651,7 +22643,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = zext i8 %12 to i64
@@ -22832,7 +22824,7 @@ default.unreachable33:                            ; preds = %8
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1389_ctx872_x17h785deaaec7bf274aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -27184,7 +27176,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !14, !noundef !5
+  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %5
   %13 = load i8, ptr %12, align 1, !noundef !5
   %14 = zext i8 %13 to i64
@@ -27581,7 +27573,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !14, !noundef !5
+  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !6, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %5
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = icmp eq i8 %11, 110
@@ -30523,7 +30515,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !14, !noundef !5
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6, !noundef !5
   br label %8
 
 8:                                                ; preds = %.lr.ph, %tailrecurse
@@ -30856,7 +30848,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !14, !noundef !5
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6, !noundef !5
   br label %8
 
 8:                                                ; preds = %.lr.ph, %tailrecurse
@@ -30880,7 +30872,7 @@ tailrecurse:                                      ; preds = %8
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1088_ctx1087_x17ha96f91354e054296E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -31316,7 +31308,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1201_ctx1087_x17hd9384c9c11c94c61E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -32836,7 +32828,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1248_ctx872_x17h7d04b9dbf8d675d0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -32864,7 +32856,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   %16 = load i8, ptr %15, align 1, !noundef !5
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr @anon.ce7b099076f5f0a3137313ced7301b35.113, i64 %17
-  %19 = load i8, ptr %18, align 1, !range !6, !noundef !5
+  %19 = load i8, ptr %18, align 1, !range !7, !noundef !5
   switch i8 %19, label %default.unreachable91 [
     i8 0, label %20
     i8 1, label %25
@@ -34412,7 +34404,7 @@ default.unreachable91:                            ; preds = %535, %409, %379, %2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1397_ctx872_x17h6aad70012251dbe1E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -36234,7 +36226,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto794_at3_ctx671_x17h5d245223a1c4717fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -36371,7 +36363,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto868_at1_ctx671_x17hbab7ea09dee1cbf7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -36913,7 +36905,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto741_at1_ctx671_x17he0a34e2654f62fe6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -37138,7 +37130,7 @@ default.unreachable25:                            ; preds = %15
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto728_at1_ctx671_x17h316a99527ecb6258E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -37394,7 +37386,7 @@ default.unreachable29:                            ; preds = %15
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex16goto672_ctx671_x17h72afac7a8ea4c185E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -37636,7 +37628,7 @@ tailrecurse.backedge:                             ; preds = %26, %.lr.ph, %92, %
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1502_ctx671_x17he8ba4bd51f52cb4cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -38109,7 +38101,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto335_at2_ctx269_x17hcde1a5425255ca55E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -38245,7 +38237,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto318_at2_ctx269_x17hae39e71eaec294ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -38339,7 +38331,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto350_at2_ctx269_x17hd21498ecb17afc98E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -38487,7 +38479,7 @@ default.unreachable15:                            ; preds = %15
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto422_at2_ctx269_x17hc234d8d3794e6fe2E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -38746,7 +38738,7 @@ default.unreachable29:                            ; preds = %15
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto440_at2_ctx269_x17hb41f7609f92a48bcE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -39022,7 +39014,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto464_at2_ctx269_x17hf375847771e4445aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -39250,7 +39242,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex16goto270_ctx269_x17h0896425f53ef4161E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -39705,7 +39697,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !14, !noundef !5
+  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %5
   %13 = load i8, ptr %12, align 1, !noundef !5
   %14 = zext i8 %13 to i64
@@ -40103,7 +40095,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = icmp eq i8 %12, 108
@@ -40158,7 +40150,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 .lr.ph.lr.ph:                                     ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !14, !noundef !5
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6, !noundef !5
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.lr.ph
@@ -40392,7 +40384,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !14, !noundef !5
+  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %6
   %13 = load i8, ptr %12, align 1, !noundef !5
   %14 = zext i8 %13 to i64
@@ -40959,7 +40951,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !14, !noundef !5
+  %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !6, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %5
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = icmp eq i8 %11, 105
@@ -42612,7 +42604,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = icmp eq i8 %12, 111
@@ -45921,7 +45913,7 @@ default.unreachable:                              ; preds = %1486, %1424, %1373,
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto536_at2_ctx470_x17hec5a37b4b8d4f4a9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -46179,7 +46171,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto519_at2_ctx470_x17h35298feaf2994c87E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -46321,7 +46313,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto641_at2_ctx470_x17hd7f780adeabbf661E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -46549,7 +46541,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto551_at2_ctx470_x17h27cc494a8cbe5224E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -46697,7 +46689,7 @@ default.unreachable15:                            ; preds = %15
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto623_at2_ctx470_x17hfa81780a6f18a48fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -47004,7 +46996,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto665_at2_ctx470_x17h5af2e0fe779ba86cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -47184,7 +47176,7 @@ default.unreachable19:                            ; preds = %15
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex16goto471_ctx470_x17h0b5e7b61140280e4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
+  %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -47639,7 +47631,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !14, !noundef !5
+  %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %5
   %13 = load i8, ptr %12, align 1, !noundef !5
   %14 = zext i8 %13 to i64
@@ -48037,7 +48029,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = icmp eq i8 %12, 114
@@ -48103,12 +48095,12 @@ define void @"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$log
   br label %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex6goto5117hfac03c85aa30ae4cE.exit"
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %0, align 8, !alias.scope !9167, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %0, align 8, !alias.scope !9167, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noundef !5
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr @anon.ce7b099076f5f0a3137313ced7301b35.156, i64 %13
-  %15 = load i8, ptr %14, align 1, !range !6, !noalias !9167, !noundef !5
+  %15 = load i8, ptr %14, align 1, !range !7, !noalias !9167, !noundef !5
   switch i8 %15, label %default.unreachable [
     i8 0, label %16
     i8 1, label %19
@@ -49725,7 +49717,7 @@ define internal fastcc void @"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToke
   br i1 %5, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %6 = load ptr, ptr %0, align 8, !nonnull !5, !align !14, !noundef !5
+  %6 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   br label %7
 
 7:                                                ; preds = %.lr.ph, %tailrecurse
@@ -49751,7 +49743,7 @@ define internal fastcc void @"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToke
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !14
+  %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !6
   %.promoted = load i64, ptr %4, align 8
   %6 = add i64 %.promoted, 15
   %.not185 = icmp ult i64 %6, %3
@@ -50205,7 +50197,7 @@ define internal fastcc void @"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToke
   ret void
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %0, align 8, !nonnull !5, !align !14, !noundef !5
+  %9 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %5
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = zext i8 %11 to i64
@@ -50557,7 +50549,7 @@ define void @"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos.
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !alias.scope !9591, !nonnull !5, !align !14, !noundef !5
+  %10 = load ptr, ptr %9, align 8, !alias.scope !9591, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %12 = load i8, ptr %11, align 1, !noalias !9591, !noundef !5
   %13 = zext i8 %12 to i64
@@ -51656,7 +51648,7 @@ define internal fastcc void @"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %2, align 8, !nonnull !5, !align !14
+  %6 = load ptr, ptr %2, align 8, !nonnull !5, !align !6
   %.promoted = load i64, ptr %5, align 8
   %7 = add i64 %.promoted, 15
   %.not135 = icmp ult i64 %7, %4
@@ -51953,16 +51945,16 @@ attributes #14 = { "function-inline-cost-multiplier"="2" }
 !3 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !4 = !{i64 0, i64 3}
 !5 = !{}
-!6 = !{i8 0, i8 14}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E: argument 1"}
-!9 = distinct !{!9, !"_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E"}
-!10 = !{!11}
-!11 = distinct !{!11, !9, !"_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E: argument 0"}
-!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!13 = !{!11, !8}
-!14 = !{i64 1}
-!15 = !{!16, !18, !20, !22, !23, !25, !26, !28, !29, !11, !8}
+!6 = !{i64 1}
+!7 = !{i8 0, i8 14}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E: argument 1"}
+!10 = distinct !{!10, !"_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E"}
+!11 = !{!12}
+!12 = distinct !{!12, !10, !"_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E: argument 0"}
+!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!14 = !{!12, !9}
+!15 = !{!16, !18, !20, !22, !23, !25, !26, !28, !29, !12, !9}
 !16 = distinct !{!16, !17, !"_ZN4core3str11validations15next_code_point17h34a57f08401f8946E: argument 0"}
 !17 = distinct !{!17, !"_ZN4core3str11validations15next_code_point17h34a57f08401f8946E"}
 !18 = distinct !{!18, !19, !"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b2cf280e9f0b9ccE: argument 0"}
@@ -51978,7 +51970,7 @@ attributes #14 = { "function-inline-cost-multiplier"="2" }
 !28 = distinct !{!28, !27, !"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he034c35b90c281aeE: argument 1"}
 !29 = distinct !{!29, !30, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E: argument 0"}
 !30 = distinct !{!30, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h2919f4203d915c10E"}
-!31 = !{!20, !22, !23, !25, !26, !28, !29, !11, !8}
+!31 = !{!20, !22, !23, !25, !26, !28, !29, !12, !9}
 !32 = !{!33, !35}
 !33 = distinct !{!33, !34, !"_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E: argument 0"}
 !34 = distinct !{!34, !"_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E"}

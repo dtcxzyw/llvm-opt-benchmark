@@ -133,8 +133,8 @@ $_ZN5nlsat14simple_checker3impD2Ev = comdat any
 @.str.5 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/z3/z3/src/nlsat/nlsat_simple_checker.cpp\00", align 1
 @.str.6 = private unnamed_addr constant [29 x i8] c"UNEXPECTED CODE WAS REACHED.\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_nlsat_simple_checker.cpp, ptr null }]
-@switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.2 = private unnamed_addr constant [5 x i32] [i32 2, i32 1, i32 poison, i32 5, i32 4], align 4
-@switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3 = private unnamed_addr constant [5 x i32] [i32 5, i32 4, i32 poison, i32 5, i32 4], align 4
+@switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb = private unnamed_addr constant [5 x i32] [i32 2, i32 1, i32 poison, i32 5, i32 4], align 4
+@switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.1 = private unnamed_addr constant [5 x i32] [i32 5, i32 4, i32 poison, i32 5, i32 4], align 4
 
 @_ZN5nlsat14simple_checkerC1ERN10polynomial7managerERN17algebraic_numbers7managerERK10ptr_vectorINS_6clauseEER7svectorIN3sat7literalEjERKS7_INS_4atomEERKj = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN5nlsat14simple_checkerC2ERN10polynomial7managerERN17algebraic_numbers7managerERK10ptr_vectorINS_6clauseEER7svectorIN3sat7literalEjERKS7_INS_4atomEERKj
 @_ZN5nlsat14simple_checkerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5nlsat14simple_checkerD2Ev
@@ -3024,11 +3024,11 @@ _ZN5nlsat14simple_checker3imp12to_sign_kindENS_4atom4kindE.exit: ; preds = %3, %
 
 19:                                               ; preds = %17
   %.not.i = icmp eq i32 %16, 0
-  %spec.store.select.i = select i1 %.not.i, i32 0, i32 2
+  %spec.select = select i1 %.not.i, i32 0, i32 2
   br label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit
 
-_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit: ; preds = %9, %17, %19
-  %.0.i62 = phi i32 [ %spec.store.select.i, %19 ], [ %16, %9 ], [ 5, %17 ]
+_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit: ; preds = %19, %9, %17
+  %.0.i62 = phi i32 [ %16, %9 ], [ 5, %17 ], [ %spec.select, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8, !tbaa !109
   %.not90 = icmp ugt i32 %21, 1
@@ -3051,7 +3051,7 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
 
 22:                                               ; preds = %.critedge.us, %.lr.ph.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge.us ], [ 1, %.lr.ph.split.us ]
-  %.07291.us = phi i32 [ %.2.us, %.critedge.us ], [ %.0.i62, %.lr.ph.split.us ]
+  %.07291.us = phi i32 [ %.278.us155, %.critedge.us ], [ %.0.i62, %.lr.ph.split.us ]
   %23 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !111
   %25 = ptrtoint ptr %24 to i64
@@ -3060,197 +3060,269 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
   %28 = and i64 %25, 7
   %.not88.us = icmp eq i64 %28, 0
   %29 = tail call noundef i32 @_ZN5nlsat14simple_checker3imp13get_poly_signEPKN10polynomial10polynomialE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %27)
-  br i1 %.not88.us, label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us, label %30
+  br i1 %.not88.us, label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us, label %46
 
-30:                                               ; preds = %22
-  %31 = add i32 %29, -3
-  %or.cond3.i64.us = icmp ult i32 %31, 3
-  br i1 %or.cond3.i64.us, label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us, label %32
+30:                                               ; preds = %.critedge.us.jt2
+  %31 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next.jt2
+  %32 = load ptr, ptr %31, align 8, !tbaa !111
+  %33 = ptrtoint ptr %32 to i64
+  %34 = and i64 %33, -8
+  %35 = inttoptr i64 %34 to ptr
+  %36 = and i64 %33, 7
+  %.not88.us.jt2 = icmp eq i64 %36, 0
+  %37 = tail call noundef i32 @_ZN5nlsat14simple_checker3imp13get_poly_signEPKN10polynomial10polynomialE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %35)
+  br i1 %.not88.us.jt2, label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt2, label %48
 
-32:                                               ; preds = %30
+38:                                               ; preds = %.critedge.us.jt1
+  %39 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next.jt1
+  %40 = load ptr, ptr %39, align 8, !tbaa !111
+  %41 = ptrtoint ptr %40 to i64
+  %42 = and i64 %41, -8
+  %43 = inttoptr i64 %42 to ptr
+  %44 = and i64 %41, 7
+  %.not88.us.jt1 = icmp eq i64 %44, 0
+  %45 = tail call noundef i32 @_ZN5nlsat14simple_checker3imp13get_poly_signEPKN10polynomial10polynomialE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %43)
+  br i1 %.not88.us.jt1, label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt1, label %50
+
+46:                                               ; preds = %22
+  %47 = add i32 %29, -3
+  %or.cond3.i64.us = icmp ult i32 %47, 3
+  br i1 %or.cond3.i64.us, label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us, label %52
+
+48:                                               ; preds = %30
+  %49 = add i32 %37, -3
+  %or.cond3.i64.us.jt2 = icmp ult i32 %49, 3
+  br i1 %or.cond3.i64.us.jt2, label %.thread.us.jt2, label %53
+
+50:                                               ; preds = %38
+  %51 = add i32 %45, -3
+  %or.cond3.i64.us.jt1 = icmp ult i32 %51, 3
+  br i1 %or.cond3.i64.us.jt1, label %.thread.us.jt1, label %54
+
+52:                                               ; preds = %46
   %.not.i65.us = icmp eq i32 %29, 0
   %spec.store.select.i66.us = select i1 %.not.i65.us, i32 0, i32 2
   br label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us
 
-_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us: ; preds = %30
-  %33 = icmp eq i32 %.07291.us, 0
-  br i1 %33, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.thread.us
+53:                                               ; preds = %48
+  %.not.i65.us.jt2 = icmp eq i32 %37, 0
+  br i1 %.not.i65.us.jt2, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.thread.us.jt2
 
-_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us: ; preds = %32, %22
-  %.0.i63.us = phi i32 [ %spec.store.select.i66.us, %32 ], [ %29, %22 ]
-  %34 = icmp eq i32 %.07291.us, 0
-  br i1 %34, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %35
+54:                                               ; preds = %50
+  %.not.i65.us.jt1 = icmp eq i32 %45, 0
+  br i1 %.not.i65.us.jt1, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.thread.us.jt1
 
-35:                                               ; preds = %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us
-  %36 = icmp eq i32 %.0.i63.us, 0
-  br i1 %36, label %.sink.split.i.us, label %.thread.us
+_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us: ; preds = %46
+  %55 = icmp eq i32 %.07291.us, 0
+  br i1 %55, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.thread.us
 
-.thread.us:                                       ; preds = %35, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us
-  %.0.i637476.us = phi i32 [ %.0.i63.us, %35 ], [ 5, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us ]
-  %37 = icmp eq i32 %.07291.us, 3
-  br i1 %37, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %38
+_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us: ; preds = %52, %22
+  %.0.i63.us = phi i32 [ %spec.store.select.i66.us, %52 ], [ %29, %22 ]
+  %56 = icmp eq i32 %.07291.us, 0
+  %57 = icmp eq i32 %.0.i63.us, 0
+  %or.cond213 = or i1 %56, %57
+  br i1 %or.cond213, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.thread.us
 
-38:                                               ; preds = %.thread.us
-  switch i32 %.0.i637476.us, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us [
-    i32 3, label %.sink.split.i.us
-    i32 1, label %43
-    i32 5, label %41
-    i32 4, label %39
+_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt2: ; preds = %30
+  %58 = icmp eq i32 %37, 0
+  br i1 %58, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.thread.us.jt2
+
+_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt1: ; preds = %38
+  %59 = icmp eq i32 %45, 0
+  br i1 %59, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.thread.us.jt1
+
+.thread.us:                                       ; preds = %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us
+  %.0.i637476.us = phi i32 [ 5, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us ], [ %.0.i63.us, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us ]
+  %60 = icmp eq i32 %.07291.us, 3
+  br i1 %60, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %61
+
+61:                                               ; preds = %.thread.us
+  switch i32 %.0.i637476.us, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us [
+    i32 3, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
+    i32 1, label %.preheader.preheader
+    i32 5, label %.loopexit
+    i32 4, label %62
   ]
 
-39:                                               ; preds = %38
-  %switch.tableidx = add i32 %.07291.us, -1
-  %40 = icmp ult i32 %switch.tableidx, 5
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 27, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %40, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
+.preheader.preheader:                             ; preds = %61, %.thread.us.jt1
+  %.07291.us114.ph = phi i32 [ %.sink.i.us.jt1, %.thread.us.jt1 ], [ %.07291.us, %61 ]
+  %indvars.iv107.ph = phi i64 [ %indvars.iv.next.jt1, %.thread.us.jt1 ], [ %indvars.iv, %61 ]
+  br label %.preheader
 
-41:                                               ; preds = %38
-  switch i32 %.07291.us, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us [
-    i32 1, label %.sink.split.i.us
-    i32 2, label %42
+.thread.us.jt2:                                   ; preds = %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt2, %48, %53
+  %.0.i637476.us.jt2 = phi i32 [ %37, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt2 ], [ 5, %48 ], [ 2, %53 ]
+  switch i32 %.0.i637476.us.jt2, label %.critedge.us [
+    i32 3, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
+    i32 1, label %.preheader
+    i32 5, label %.loopexit
+    i32 4, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
   ]
 
-42:                                               ; preds = %41
-  br label %.sink.split.i.us
+.thread.us.jt1:                                   ; preds = %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt1, %50, %54
+  %.0.i637476.us.jt1 = phi i32 [ %45, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt1 ], [ 5, %50 ], [ 2, %54 ]
+  switch i32 %.0.i637476.us.jt1, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us [
+    i32 3, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
+    i32 1, label %.preheader.preheader
+    i32 5, label %.loopexit
+    i32 4, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
+  ]
 
-43:                                               ; preds = %38
-  %switch.tableidx108 = add i32 %.07291.us, -1
-  %44 = icmp ult i32 %switch.tableidx108, 5
-  %switch.maskindex112 = trunc i32 %switch.tableidx108 to i8
-  %switch.shifted113 = lshr i8 27, %switch.maskindex112
-  %switch.lobit114 = trunc i8 %switch.shifted113 to i1
-  %or.cond117 = select i1 %44, i1 %switch.lobit114, i1 false
-  br i1 %or.cond117, label %switch.lookup111, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
+62:                                               ; preds = %61
+  switch i32 %.07291.us, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us [
+    i32 5, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1
+    i32 2, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1
+    i32 4, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
+    i32 1, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
+    i32 3, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
+  ]
 
-switch.lookup:                                    ; preds = %39
-  %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 %45
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %.sink.split.i.us
+.loopexit:                                        ; preds = %.thread.us.jt2, %.thread.us.jt1, %61
+  %.07291.us115 = phi i32 [ %.sink.i.us.jt1, %.thread.us.jt1 ], [ %.07291.us, %61 ], [ 2, %.thread.us.jt2 ]
+  %indvars.iv108 = phi i64 [ %indvars.iv.next.jt1, %.thread.us.jt1 ], [ %indvars.iv, %61 ], [ %indvars.iv.next.jt2, %.thread.us.jt2 ]
+  switch i32 %.07291.us115, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us [
+    i32 1, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1
+    i32 2, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
+  ]
 
-switch.lookup111:                                 ; preds = %43
-  %46 = zext nneg i32 %switch.tableidx108 to i64
-  %switch.gep115 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.2, i64 %46
-  %switch.load116 = load i32, ptr %switch.gep115, align 4
-  br label %.sink.split.i.us
+.preheader:                                       ; preds = %.preheader.preheader, %.thread.us.jt2
+  %.07291.us114 = phi i32 [ 2, %.thread.us.jt2 ], [ %.07291.us114.ph, %.preheader.preheader ]
+  %indvars.iv107 = phi i64 [ %indvars.iv.next.jt2, %.thread.us.jt2 ], [ %indvars.iv107.ph, %.preheader.preheader ]
+  switch i32 %.07291.us114, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us [
+    i32 5, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1.loopexit
+    i32 2, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1
+    i32 4, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
+    i32 1, label %.critedge.us.jt2
+  ]
 
-.sink.split.i.us:                                 ; preds = %switch.lookup111, %switch.lookup, %42, %41, %38, %35
-  %.sink.i.us = phi i32 [ 5, %42 ], [ 0, %35 ], [ %.0.i637476.us, %38 ], [ 4, %41 ], [ %switch.load, %switch.lookup ], [ %switch.load116, %switch.lookup111 ]
-  br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
+_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us: ; preds = %.preheader, %61, %62, %.loopexit, %.thread.us.jt1
+  %indvars.iv104 = phi i64 [ %indvars.iv.next.jt1, %.thread.us.jt1 ], [ %indvars.iv108, %.loopexit ], [ %indvars.iv, %62 ], [ %indvars.iv, %61 ], [ %indvars.iv107, %.preheader ]
+  %.278.us = phi i32 [ %.sink.i.us.jt1, %.thread.us.jt1 ], [ %.07291.us115, %.loopexit ], [ %.07291.us, %62 ], [ %.07291.us, %61 ], [ %.07291.us114, %.preheader ]
+  %63 = and i32 %.278.us, -2
+  %switch = icmp eq i32 %63, 4
+  br i1 %switch, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.critedge.us
 
-_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us: ; preds = %43, %39, %.sink.split.i.us, %41, %38
-  %.2.us = phi i32 [ %.sink.i.us, %.sink.split.i.us ], [ %.07291.us, %38 ], [ %.07291.us, %43 ], [ %.07291.us, %41 ], [ %.07291.us, %39 ]
-  %47 = icmp ult i32 %.2.us, 6
-  %switch.maskindex120 = trunc i32 %.2.us to i8
-  %switch.shifted121 = lshr i8 57, %switch.maskindex120
-  %switch.lobit122 = trunc i8 %switch.shifted121 to i1
-  %or.cond150 = select i1 %47, i1 %switch.lobit122, i1 false
-  br i1 %or.cond150, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.critedge.us
+_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1.loopexit: ; preds = %.preheader
+  br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1
 
-.critedge.us:                                     ; preds = %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1: ; preds = %.preheader, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1.loopexit, %62, %62, %.loopexit
+  %indvars.iv112 = phi i64 [ %indvars.iv108, %.loopexit ], [ %indvars.iv, %62 ], [ %indvars.iv, %62 ], [ %indvars.iv107, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1.loopexit ], [ %indvars.iv107, %.preheader ]
+  %cond160 = phi i1 [ true, %.loopexit ], [ true, %62 ], [ true, %62 ], [ true, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1.loopexit ], [ false, %.preheader ]
+  %.sink.i.us.jt1 = phi i32 [ 4, %.loopexit ], [ 4, %62 ], [ 4, %62 ], [ 4, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1.loopexit ], [ 1, %.preheader ]
+  br i1 %cond160, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.critedge.us.jt1
+
+.critedge.us:                                     ; preds = %.thread.us.jt2, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us
+  %.278.us155 = phi i32 [ %.278.us, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us ], [ 2, %.thread.us.jt2 ]
+  %indvars.iv104154 = phi i64 [ %indvars.iv104, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us ], [ %indvars.iv.next.jt2, %.thread.us.jt2 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv104154, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge61, label %22, !llvm.loop !124
+
+.critedge.us.jt2:                                 ; preds = %.preheader
+  %indvars.iv.next.jt2 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond.not.jt2 = icmp eq i64 %indvars.iv.next.jt2, %wide.trip.count
+  br i1 %exitcond.not.jt2, label %.thread140, label %30, !llvm.loop !124
+
+.critedge.us.jt1:                                 ; preds = %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1
+  %indvars.iv.next.jt1 = add nuw nsw i64 %indvars.iv112, 1
+  %exitcond.not.jt1 = icmp eq i64 %indvars.iv.next.jt1, %wide.trip.count
+  br i1 %exitcond.not.jt1, label %.critedge61, label %38, !llvm.loop !124
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread
   %indvars.iv96 = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next97, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread ]
   %.07291 = phi i32 [ %.0.i62, %.lr.ph.split.preheader ], [ %.278, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread ]
-  %48 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv96
-  %49 = load ptr, ptr %48, align 8, !tbaa !111
-  %50 = ptrtoint ptr %49 to i64
-  %51 = and i64 %50, -8
-  %52 = inttoptr i64 %51 to ptr
-  %53 = and i64 %50, 7
-  %.not88 = icmp eq i64 %53, 0
-  %54 = tail call noundef i32 @_ZN5nlsat14simple_checker3imp13get_poly_signEPKN10polynomial10polynomialE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %52)
-  br i1 %.not88, label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67, label %55
+  %64 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv96
+  %65 = load ptr, ptr %64, align 8, !tbaa !111
+  %66 = ptrtoint ptr %65 to i64
+  %67 = and i64 %66, -8
+  %68 = inttoptr i64 %67 to ptr
+  %69 = and i64 %66, 7
+  %.not88 = icmp eq i64 %69, 0
+  %70 = tail call noundef i32 @_ZN5nlsat14simple_checker3imp13get_poly_signEPKN10polynomial10polynomialE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %68)
+  br i1 %.not88, label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67, label %71
 
-55:                                               ; preds = %.lr.ph.split
-  %56 = add i32 %54, -3
-  %or.cond3.i64 = icmp ult i32 %56, 3
-  br i1 %or.cond3.i64, label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread, label %57
+71:                                               ; preds = %.lr.ph.split
+  %72 = add i32 %70, -3
+  %or.cond3.i64 = icmp ult i32 %72, 3
+  br i1 %or.cond3.i64, label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread, label %73
 
-57:                                               ; preds = %55
-  %.not.i65 = icmp eq i32 %54, 0
+73:                                               ; preds = %71
+  %.not.i65 = icmp eq i32 %70, 0
   %spec.store.select.i66 = select i1 %.not.i65, i32 0, i32 2
   br label %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67
 
-_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67: ; preds = %.lr.ph.split, %57
-  %.0.i63 = phi i32 [ %spec.store.select.i66, %57 ], [ %54, %.lr.ph.split ]
-  %58 = icmp eq i32 %.07291, 0
-  br i1 %58, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread, label %60
+_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67: ; preds = %.lr.ph.split, %73
+  %.0.i63 = phi i32 [ %spec.store.select.i66, %73 ], [ %70, %.lr.ph.split ]
+  %74 = icmp eq i32 %.07291, 0
+  br i1 %74, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread, label %76
 
-_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread: ; preds = %55
-  %59 = icmp eq i32 %.07291, 0
-  br i1 %59, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread, label %.thread
+_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread: ; preds = %71
+  %75 = icmp eq i32 %.07291, 0
+  br i1 %75, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread, label %.thread
 
-60:                                               ; preds = %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67
-  %61 = icmp eq i32 %.0.i63, 0
-  br i1 %61, label %.sink.split.i, label %.thread
+76:                                               ; preds = %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67
+  %77 = icmp eq i32 %.0.i63, 0
+  br i1 %77, label %.sink.split.i, label %.thread
 
-.thread:                                          ; preds = %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread, %60
-  %.0.i637476 = phi i32 [ %.0.i63, %60 ], [ 5, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread ]
-  %62 = icmp eq i32 %.07291, 3
-  br i1 %62, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %63
+.thread:                                          ; preds = %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread, %76
+  %.0.i637476 = phi i32 [ %.0.i63, %76 ], [ 5, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread ]
+  %78 = icmp eq i32 %.07291, 3
+  br i1 %78, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %79
 
-63:                                               ; preds = %.thread
+79:                                               ; preds = %.thread
   switch i32 %.0.i637476, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit [
     i32 3, label %.sink.split.i
-    i32 1, label %64
-    i32 5, label %68
-    i32 4, label %66
+    i32 1, label %80
+    i32 5, label %84
+    i32 4, label %82
   ]
 
-64:                                               ; preds = %63
-  %switch.tableidx123 = add i32 %.07291, -1
-  %65 = icmp ult i32 %switch.tableidx123, 5
-  %switch.maskindex127 = trunc i32 %switch.tableidx123 to i8
-  %switch.shifted128 = lshr i8 27, %switch.maskindex127
-  %switch.lobit129 = trunc i8 %switch.shifted128 to i1
-  %or.cond141 = select i1 %65, i1 %switch.lobit129, i1 false
-  br i1 %or.cond141, label %switch.lookup126, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
+80:                                               ; preds = %79
+  %switch.tableidx = add i32 %.07291, -1
+  %81 = icmp ult i32 %switch.tableidx, 5
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 27, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %81, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
 
-66:                                               ; preds = %63
-  %switch.tableidx132 = add i32 %.07291, -1
-  %67 = icmp ult i32 %switch.tableidx132, 5
-  %switch.maskindex136 = trunc i32 %switch.tableidx132 to i8
-  %switch.shifted137 = lshr i8 27, %switch.maskindex136
-  %switch.lobit138 = trunc i8 %switch.shifted137 to i1
-  %or.cond142 = select i1 %67, i1 %switch.lobit138, i1 false
-  br i1 %or.cond142, label %switch.lookup135, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
+82:                                               ; preds = %79
+  %switch.tableidx196 = add i32 %.07291, -1
+  %83 = icmp ult i32 %switch.tableidx196, 5
+  %switch.maskindex200 = trunc i32 %switch.tableidx196 to i8
+  %switch.shifted201 = lshr i8 27, %switch.maskindex200
+  %switch.lobit202 = trunc i8 %switch.shifted201 to i1
+  %or.cond205 = select i1 %83, i1 %switch.lobit202, i1 false
+  br i1 %or.cond205, label %switch.lookup199, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
 
-68:                                               ; preds = %63
+84:                                               ; preds = %79
   switch i32 %.07291, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit [
     i32 1, label %.sink.split.i
-    i32 2, label %69
+    i32 2, label %85
   ]
 
-69:                                               ; preds = %68
+85:                                               ; preds = %84
   br label %.sink.split.i
 
-switch.lookup126:                                 ; preds = %64
-  %70 = zext nneg i32 %switch.tableidx123 to i64
-  %switch.gep130 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.2, i64 %70
-  %switch.load131 = load i32, ptr %switch.gep130, align 4
+switch.lookup:                                    ; preds = %80
+  %86 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb, i64 %86
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split.i
 
-switch.lookup135:                                 ; preds = %66
-  %71 = zext nneg i32 %switch.tableidx132 to i64
-  %switch.gep139 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 %71
-  %switch.load140 = load i32, ptr %switch.gep139, align 4
+switch.lookup199:                                 ; preds = %82
+  %87 = zext nneg i32 %switch.tableidx196 to i64
+  %switch.gep203 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.1, i64 %87
+  %switch.load204 = load i32, ptr %switch.gep203, align 4
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %switch.lookup135, %switch.lookup126, %69, %68, %63, %60
-  %.sink.i = phi i32 [ 5, %69 ], [ 0, %60 ], [ %.0.i637476, %63 ], [ 4, %68 ], [ %switch.load131, %switch.lookup126 ], [ %switch.load140, %switch.lookup135 ]
+.sink.split.i:                                    ; preds = %switch.lookup199, %switch.lookup, %85, %84, %79, %76
+  %.sink.i = phi i32 [ 5, %85 ], [ 0, %76 ], [ %.0.i637476, %79 ], [ 4, %84 ], [ %switch.load, %switch.lookup ], [ %switch.load204, %switch.lookup199 ]
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
 
-_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit: ; preds = %66, %64, %63, %68, %.sink.split.i
-  %.2 = phi i32 [ %.sink.i, %.sink.split.i ], [ %.07291, %63 ], [ %.07291, %64 ], [ %.07291, %68 ], [ %.07291, %66 ]
-  %72 = icmp eq i32 %.2, 3
-  br i1 %72, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread
+_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit: ; preds = %82, %80, %79, %84, %.sink.split.i
+  %.2 = phi i32 [ %.sink.i, %.sink.split.i ], [ %.07291, %79 ], [ %.07291, %80 ], [ %.07291, %84 ], [ %.07291, %82 ]
+  %88 = icmp eq i32 %.2, 3
+  br i1 %88, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread
 
 _ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread: ; preds = %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
   %.278 = phi i32 [ %.2, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit ], [ 0, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67 ], [ 0, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread ]
@@ -3258,61 +3330,61 @@ _ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread: ;
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
   br i1 %exitcond100.not, label %.critedge61, label %.lr.ph.split, !llvm.loop !124
 
-.critedge61:                                      ; preds = %.critedge.us, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit
-  %.072.lcssa = phi i32 [ %.0.i62, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit ], [ %.278, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread ], [ %.2.us, %.critedge.us ]
-  switch i32 %.072.lcssa, label %75 [
+.critedge61:                                      ; preds = %.critedge.us, %.critedge.us.jt1, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit
+  %.072.lcssa = phi i32 [ %.0.i62, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit ], [ %.278, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread ], [ %.278.us155, %.critedge.us ], [ %.sink.i.us.jt1, %.critedge.us.jt1 ]
+  switch i32 %.072.lcssa, label %91 [
     i32 3, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
-    i32 0, label %73
+    i32 0, label %89
   ]
 
-73:                                               ; preds = %.critedge61
-  %74 = add i32 %.053.fr, -1
-  %or.cond10 = icmp ult i32 %74, 2
+89:                                               ; preds = %.critedge61
+  %90 = add i32 %.053.fr, -1
+  %or.cond10 = icmp ult i32 %90, 2
   br i1 %or.cond10, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.thread85.thread
 
-75:                                               ; preds = %.critedge61
-  %76 = icmp eq i32 %.072.lcssa, 5
-  %77 = icmp eq i32 %.053.fr, 1
-  %or.cond12 = and i1 %77, %76
-  br i1 %or.cond12, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %78
+91:                                               ; preds = %.critedge61
+  %92 = icmp eq i32 %.072.lcssa, 5
+  %93 = icmp eq i32 %.053.fr, 1
+  %or.cond12 = and i1 %93, %92
+  br i1 %or.cond12, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %94
 
-78:                                               ; preds = %75
-  %79 = icmp eq i32 %.072.lcssa, 2
-  br i1 %79, label %80, label %82
+94:                                               ; preds = %91
+  %95 = icmp eq i32 %.072.lcssa, 2
+  br i1 %95, label %.thread140, label %97
 
-80:                                               ; preds = %78
-  %81 = icmp ult i32 %.053.fr, 5
-  br i1 %81, label %switch.lookup143, label %.thread85.thread
+.thread140:                                       ; preds = %.critedge.us.jt2, %94
+  %96 = icmp ult i32 %.053.fr, 5
+  br i1 %96, label %switch.lookup206, label %.thread85.thread
 
-82:                                               ; preds = %78
-  %83 = icmp eq i32 %.072.lcssa, 4
-  %84 = icmp eq i32 %.053.fr, 2
-  %or.cond18 = and i1 %84, %83
+97:                                               ; preds = %94
+  %98 = icmp eq i32 %.072.lcssa, 4
+  %99 = icmp eq i32 %.053.fr, 2
+  %or.cond18 = and i1 %99, %98
   br i1 %or.cond18, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80, label %.thread85
 
-.thread85:                                        ; preds = %82
-  %85 = icmp eq i32 %.072.lcssa, 1
-  %86 = icmp ult i32 %.053.fr, 6
-  %or.cond149 = and i1 %85, %86
-  br i1 %or.cond149, label %switch.lookup144, label %.thread85.thread
+.thread85:                                        ; preds = %97
+  %100 = icmp eq i32 %.072.lcssa, 1
+  %101 = icmp ult i32 %.053.fr, 6
+  %or.cond212 = and i1 %100, %101
+  br i1 %or.cond212, label %switch.lookup207, label %.thread85.thread
 
-.thread85.thread:                                 ; preds = %80, %73, %.thread85
+.thread85.thread:                                 ; preds = %.thread140, %89, %.thread85
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
 
-switch.lookup143:                                 ; preds = %80
+switch.lookup206:                                 ; preds = %.thread140
   %switch.cast = trunc nuw i32 %.053.fr to i5
   %switch.downshift = lshr i5 12, %switch.cast
   %switch.masked = trunc i5 %switch.downshift to i1
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
 
-switch.lookup144:                                 ; preds = %.thread85
-  %switch.cast145 = trunc nuw i32 %.053.fr to i6
-  %switch.downshift147 = lshr i6 26, %switch.cast145
-  %switch.masked148 = trunc i6 %switch.downshift147 to i1
+switch.lookup207:                                 ; preds = %.thread85
+  %switch.cast208 = trunc nuw i32 %.053.fr to i6
+  %switch.downshift210 = lshr i6 26, %switch.cast208
+  %switch.masked211 = trunc i6 %switch.downshift210 to i1
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80
 
-_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80: ; preds = %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us, %.thread.us, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit, %.thread, %switch.lookup144, %switch.lookup143, %.thread85.thread, %.critedge61, %73, %75, %82, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %.thread85.thread ], [ true, %.critedge61 ], [ false, %73 ], [ false, %75 ], [ false, %82 ], [ %switch.masked, %switch.lookup143 ], [ %switch.masked148, %switch.lookup144 ], [ true, %.thread ], [ true, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit ], [ true, %.thread.us ], [ true, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us ], [ true, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us ], [ true, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us ]
+_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread80: ; preds = %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt1, %54, %.thread.us.jt1, %.thread.us.jt1, %.loopexit, %61, %.thread.us, %62, %62, %62, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us, %.thread.us.jt2, %.thread.us.jt2, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt2, %53, %.preheader, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit, %.thread, %switch.lookup207, %switch.lookup206, %.thread85.thread, %.critedge61, %89, %91, %97, %7
+  %.0 = phi i1 [ true, %7 ], [ true, %.thread85.thread ], [ true, %.critedge61 ], [ false, %89 ], [ false, %91 ], [ false, %97 ], [ %switch.masked, %switch.lookup206 ], [ %switch.masked211, %switch.lookup207 ], [ true, %.thread ], [ true, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit ], [ true, %.preheader ], [ true, %53 ], [ true, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt2 ], [ true, %.thread.us.jt2 ], [ true, %.thread.us.jt2 ], [ true, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.thread.us ], [ true, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us ], [ true, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us ], [ true, %62 ], [ true, %62 ], [ true, %62 ], [ true, %.thread.us ], [ true, %61 ], [ true, %.loopexit ], [ true, %.thread.us.jt1 ], [ true, %.thread.us.jt1 ], [ true, %54 ], [ true, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit67.us.jt1 ], [ true, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread.us.jt1 ]
   ret i1 %.0
 }
 

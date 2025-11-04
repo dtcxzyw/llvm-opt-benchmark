@@ -3477,7 +3477,7 @@ st_add.exit.i.i:                                  ; preds = %st_left_shift.exit.
   %.057.i159 = phi i64 [ %133, %160 ], [ %2, %107 ]
   %.059.i158 = phi i32 [ %140, %160 ], [ %108, %107 ]
   %indvars.iv.i157 = phi i64 [ %indvars.iv.next.i, %160 ], [ 0, %107 ]
-  %indvars.iv135.i156 = phi i32 [ %indvars.iv.next136.i, %160 ], [ 1, %107 ]
+  %indvars.iv135.i156 = phi i32 [ %indvars.iv.next136.jt0.i, %160 ], [ 1, %107 ]
   %111 = sext i32 %.051.i161 to i64
   %112 = icmp sge i64 %indvars.iv.i157, %111
   %113 = icmp eq ptr %.054.i160, %10
@@ -3572,7 +3572,7 @@ st_add.exit.i.i.i:                                ; preds = %st_left_shift.exit.
 unpack_object_header.exit.thread.i:               ; preds = %.lr.ph.i.i.i
   %155 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.29) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.loopexit156.i
+  br label %.loopexit153.i
 
 unpack_object_header.exit.i:                      ; preds = %st_add.exit.i.i.i, %134
   %.1.i.ph.i.i = phi i64 [ 1, %134 ], [ %153, %st_add.exit.i.i.i ]
@@ -3580,20 +3580,20 @@ unpack_object_header.exit.i:                      ; preds = %st_add.exit.i.i.i, 
   store i64 %156, ptr %9, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %157 = icmp eq i8 %139, 0
-  br i1 %157, label %.loopexit156.i, label %160
+  br i1 %157, label %.loopexit153.i, label %160
 
-.loopexit156.i:                                   ; preds = %unpack_object_header.exit.i, %unpack_object_header.exit.thread.i
+.loopexit153.i:                                   ; preds = %unpack_object_header.exit.i, %unpack_object_header.exit.thread.i
   %158 = call fastcc i32 @retry_bad_packed_offset(ptr noundef %0, ptr noundef %1, i64 noundef %133)
   %159 = icmp sgt i32 %158, 0
   br i1 %159, label %.thread.i, label %.preheader.i
 
 160:                                              ; preds = %unpack_object_header.exit.i
-  %indvars.iv.next136.i = add nuw i32 %indvars.iv135.i156, 1
+  %indvars.iv.next136.jt0.i = add nuw i32 %indvars.iv135.i156, 1
   %161 = and i32 %140, 6
   %162 = icmp eq i32 %161, 6
   br i1 %162, label %.lr.ph, label %._crit_edge
 
-.preheader.i:                                     ; preds = %131, %.loopexit156.i
+.preheader.i:                                     ; preds = %131, %.loopexit153.i
   %163 = sext i32 %indvars.iv135.i156 to i64
   br label %168
 
@@ -3614,9 +3614,9 @@ unpack_object_header.exit.i:                      ; preds = %st_add.exit.i.i.i, 
   %166 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, i32 noundef %.059.i.lcssa, i64 noundef %.057.i.lcssa, ptr noundef nonnull %165) #21
   br label %.thread.i
 
-.thread.i:                                        ; preds = %170, %168, %164, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %.loopexit156.i
-  %.261.i = phi i32 [ -1, %164 ], [ %.059.i.lcssa, %._crit_edge ], [ %.059.i.lcssa, %._crit_edge ], [ %.059.i.lcssa, %._crit_edge ], [ %.059.i.lcssa, %._crit_edge ], [ %.059.i.lcssa, %._crit_edge ], [ %158, %.loopexit156.i ], [ %173, %170 ], [ -1, %168 ]
-  %.256.i = phi ptr [ %.054.i.lcssa, %164 ], [ %.054.i.lcssa, %._crit_edge ], [ %.054.i.lcssa, %._crit_edge ], [ %.054.i.lcssa, %._crit_edge ], [ %.054.i.lcssa, %._crit_edge ], [ %.054.i.lcssa, %._crit_edge ], [ %.155.i, %.loopexit156.i ], [ %.155.i, %168 ], [ %.155.i, %170 ]
+.thread.i:                                        ; preds = %170, %168, %164, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %.loopexit153.i
+  %.261.i = phi i32 [ -1, %164 ], [ %.059.i.lcssa, %._crit_edge ], [ %.059.i.lcssa, %._crit_edge ], [ %.059.i.lcssa, %._crit_edge ], [ %.059.i.lcssa, %._crit_edge ], [ %.059.i.lcssa, %._crit_edge ], [ %158, %.loopexit153.i ], [ %173, %170 ], [ -1, %168 ]
+  %.256.i = phi ptr [ %.054.i.lcssa, %164 ], [ %.054.i.lcssa, %._crit_edge ], [ %.054.i.lcssa, %._crit_edge ], [ %.054.i.lcssa, %._crit_edge ], [ %.054.i.lcssa, %._crit_edge ], [ %.054.i.lcssa, %._crit_edge ], [ %.155.i, %.loopexit153.i ], [ %.155.i, %168 ], [ %.155.i, %170 ]
   %.not73.i = icmp eq ptr %.256.i, %10
   br i1 %.not73.i, label %packed_to_object_type.exit, label %167
 

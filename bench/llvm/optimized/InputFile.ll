@@ -1083,7 +1083,7 @@ define dso_local void @_ZN4llvm3pdb11SymbolGroupC2EPNS0_9InputFileEj(ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 20, i1 false)
   store i32 32, ptr %12, align 4, !tbaa !125
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %125, label %13
+  br i1 %.not, label %146, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1094,7 +1094,7 @@ define dso_local void @_ZN4llvm3pdb11SymbolGroupC2EPNS0_9InputFileEj(ptr noundef
 
 17:                                               ; preds = %13
   tail call void @_ZN4llvm3pdb11SymbolGroup16initializeForPdbEj(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %2)
-  br label %125
+  br label %146
 
 18:                                               ; preds = %13
   store ptr @.str.3, ptr %6, align 8, !tbaa !40
@@ -1136,15 +1136,15 @@ define dso_local void @_ZN4llvm3pdb11SymbolGroupC2EPNS0_9InputFileEj(ptr noundef
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %44
 
-44:                                               ; preds = %.lr.ph, %118
-  %lhsv.i.i.i.i31 = phi i64 [ %25, %.lr.ph ], [ %lhsv.i.i.i.i, %118 ]
-  %45 = phi ptr [ %26, %.lr.ph ], [ %123, %118 ]
+44:                                               ; preds = %.lr.ph, %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt3
+  %lhsv.i.i.i.i31 = phi i64 [ %25, %.lr.ph ], [ %lhsv.i.i.i.i, %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt3 ]
+  %45 = phi ptr [ %26, %.lr.ph ], [ %144, %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %35, align 8, !tbaa !124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 32, i1 false)
   store i32 0, ptr %36, align 4, !tbaa !129
   %46 = call fastcc noundef zeroext i1 @_ZL15isDebugSSectionN4llvm6object10SectionRefERNS_14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS4_EEEE(i64 %lhsv.i.i.i.i31, ptr %45, ptr noundef nonnull align 8 dereferenceable(56) %5)
-  br i1 %46, label %47, label %95
+  br i1 %46, label %47, label %spec.select.si.unfold.false.jt3
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %37, align 8, !tbaa !130
@@ -1255,85 +1255,130 @@ _ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArray
   %93 = load ptr, ptr %38, align 8
   %94 = icmp ne ptr %93, null
   %or.cond27 = select i1 %92, i1 %94, i1 false
-  %spec.select = select i1 %or.cond27, i32 2, i32 0
-  br label %95
+  br i1 %or.cond27, label %95, label %spec.select.si.unfold.false.jt3
 
-95:                                               ; preds = %90, %44
-  %.0 = phi i32 [ 3, %44 ], [ %spec.select, %90 ]
+95:                                               ; preds = %90
   %96 = load ptr, ptr %41, align 8, !tbaa !68
-  %.not.i.i.i.i18 = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i18, label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit, label %97
+  %.not.i.i.i.i18.jt2 = icmp eq ptr %96, null
+  br i1 %.not.i.i.i.i18.jt2, label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt2, label %98
 
-97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %99 = load atomic i64, ptr %98 acquire, align 8
-  %100 = icmp eq i64 %99, 4294967297
-  %101 = trunc i64 %99 to i32
-  br i1 %100, label %102, label %110
+spec.select.si.unfold.false.jt3:                  ; preds = %90, %44
+  %97 = load ptr, ptr %41, align 8, !tbaa !68
+  %.not.i.i.i.i18.jt3 = icmp eq ptr %97, null
+  br i1 %.not.i.i.i.i18.jt3, label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt3, label %103
 
-102:                                              ; preds = %97
-  store i32 0, ptr %98, align 8, !tbaa !132
-  %103 = getelementptr inbounds nuw i8, ptr %96, i64 12
-  store i32 0, ptr %103, align 4, !tbaa !134
-  %104 = load ptr, ptr %96, align 8, !tbaa !8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %106 = load ptr, ptr %105, align 8
-  call void %106(ptr noundef nonnull align 8 dereferenceable(16) %96) #21
-  %107 = load ptr, ptr %96, align 8, !tbaa !8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  %109 = load ptr, ptr %108, align 8
-  call void %109(ptr noundef nonnull align 8 dereferenceable(16) %96) #21
-  br label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %100 = load atomic i64, ptr %99 acquire, align 8
+  %101 = icmp eq i64 %100, 4294967297
+  %102 = trunc i64 %100 to i32
+  br i1 %101, label %108, label %124
 
-110:                                              ; preds = %97
-  %111 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35
-  %.not.i.i.i.i.i = icmp eq i8 %111, 0
-  br i1 %.not.i.i.i.i.i, label %114, label %112
+103:                                              ; preds = %spec.select.si.unfold.false.jt3
+  %104 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %105 = load atomic i64, ptr %104 acquire, align 8
+  %106 = icmp eq i64 %105, 4294967297
+  %107 = trunc i64 %105 to i32
+  br i1 %106, label %116, label %126
 
-112:                                              ; preds = %110
-  %113 = add nsw i32 %101, -1
-  store i32 %113, ptr %98, align 4, !tbaa !131
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+108:                                              ; preds = %98
+  store i32 0, ptr %99, align 8, !tbaa !132
+  %109 = getelementptr inbounds nuw i8, ptr %96, i64 12
+  store i32 0, ptr %109, align 4, !tbaa !134
+  %110 = load ptr, ptr %96, align 8, !tbaa !8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %112 = load ptr, ptr %111, align 8
+  call void %112(ptr noundef nonnull align 8 dereferenceable(16) %96) #21
+  %113 = load ptr, ptr %96, align 8, !tbaa !8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %115 = load ptr, ptr %114, align 8
+  call void %115(ptr noundef nonnull align 8 dereferenceable(16) %96) #21
+  br label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt2
 
-114:                                              ; preds = %110
-  %115 = atomicrmw volatile add ptr %98, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+116:                                              ; preds = %103
+  store i32 0, ptr %104, align 8, !tbaa !132
+  %117 = getelementptr inbounds nuw i8, ptr %97, i64 12
+  store i32 0, ptr %117, align 4, !tbaa !134
+  %118 = load ptr, ptr %97, align 8, !tbaa !8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %120 = load ptr, ptr %119, align 8
+  call void %120(ptr noundef nonnull align 8 dereferenceable(16) %97) #21
+  %121 = load ptr, ptr %97, align 8, !tbaa !8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
+  %123 = load ptr, ptr %122, align 8
+  call void %123(ptr noundef nonnull align 8 dereferenceable(16) %97) #21
+  br label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt3
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %114, %112
-  %.0.i.i.i.i.i.i = phi i32 [ %101, %112 ], [ %115, %114 ]
-  %116 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %116, label %117, label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit, !prof !135
+124:                                              ; preds = %98
+  %125 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35
+  %.not.i.i.i.i.i.jt2 = icmp eq i8 %125, 0
+  br i1 %.not.i.i.i.i.i.jt2, label %132, label %128
 
-117:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+126:                                              ; preds = %103
+  %127 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35
+  %.not.i.i.i.i.i.jt3 = icmp eq i8 %127, 0
+  br i1 %.not.i.i.i.i.i.jt3, label %134, label %130
+
+128:                                              ; preds = %124
+  %129 = add nsw i32 %102, -1
+  store i32 %129, ptr %99, align 4, !tbaa !131
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.jt2
+
+130:                                              ; preds = %126
+  %131 = add nsw i32 %107, -1
+  store i32 %131, ptr %104, align 4, !tbaa !131
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.jt3
+
+132:                                              ; preds = %124
+  %133 = atomicrmw volatile add ptr %99, i32 -1 acq_rel, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.jt2
+
+134:                                              ; preds = %126
+  %135 = atomicrmw volatile add ptr %104, i32 -1 acq_rel, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.jt3
+
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.jt2: ; preds = %128, %132
+  %.0.i.i.i.i.i.i.jt2 = phi i32 [ %133, %132 ], [ %102, %128 ]
+  %136 = icmp eq i32 %.0.i.i.i.i.i.i.jt2, 1
+  br i1 %136, label %138, label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt2, !prof !135
+
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.jt3: ; preds = %130, %134
+  %.0.i.i.i.i.i.i.jt3 = phi i32 [ %135, %134 ], [ %107, %130 ]
+  %137 = icmp eq i32 %.0.i.i.i.i.i.i.jt3, 1
+  br i1 %137, label %139, label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt3, !prof !135
+
+138:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.jt2
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %96) #21
-  br label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit
+  br label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt2
 
-_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit: ; preds = %95, %102, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %117
+139:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.jt3
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #21
+  br label %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt3
+
+_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt2: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.jt2, %138, %108, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  switch i32 %.0, label %._crit_edge [
-    i32 0, label %118
-    i32 3, label %118
-  ]
+  br label %._crit_edge
 
-118:                                              ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit, %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit
-  %119 = load ptr, ptr %33, align 8, !tbaa !136
-  %120 = load ptr, ptr %119, align 8, !tbaa !8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 136
-  %122 = load ptr, ptr %121, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(48) %119, ptr noundef nonnull align 8 dereferenceable(16) %4) #21
-  %123 = load ptr, ptr %33, align 8, !tbaa !136
-  %124 = icmp ne ptr %123, %32
+_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt3: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.jt3, %139, %116, %spec.select.si.unfold.false.jt3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %140 = load ptr, ptr %33, align 8, !tbaa !136
+  %141 = load ptr, ptr %140, align 8, !tbaa !8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 136
+  %143 = load ptr, ptr %142, align 8
+  call void %143(ptr noundef nonnull align 8 dereferenceable(48) %140, ptr noundef nonnull align 8 dereferenceable(16) %4) #21
+  %144 = load ptr, ptr %33, align 8, !tbaa !136
+  %145 = icmp ne ptr %144, %32
   %lhsv.i.i.i.i = load i64, ptr %4, align 8
   %.not.i.i.i.i = icmp ne i64 %lhsv.i.i.i.i, %31
-  %.not2.i = select i1 %124, i1 true, i1 %.not.i.i.i.i
+  %.not2.i = select i1 %145, i1 true, i1 %.not.i.i.i.i
   br i1 %.not2.i, label %44, label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit, %118, %18
+._crit_edge:                                      ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt3, %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.jt2, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4llvm3pdb11SymbolGroup18rebuildChecksumMapEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
-  br label %125
+  br label %146
 
-125:                                              ; preds = %3, %._crit_edge, %17
+146:                                              ; preds = %3, %._crit_edge, %17
   ret void
 }
 

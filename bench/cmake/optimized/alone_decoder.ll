@@ -78,179 +78,181 @@ define internal i32 @alone_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %10 = alloca [2 x %struct.lzma_filter_info_s], align 16
   %11 = load i64, ptr %6, align 8, !tbaa !15
   %12 = icmp ult i64 %11, %7
-  br i1 %12, label %.lr.ph, label %.critedge
+  br i1 %12, label %13, label %.critedge
 
-.lr.ph:                                           ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.pre = load i32, ptr %13, align 8, !tbaa !16
-  %25 = icmp eq i32 %.pre, 4
-  br i1 %25, label %.critedge4.thread, label %.lr.ph111
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.pre = load i32, ptr %14, align 8, !tbaa !16
+  %26 = icmp eq i32 %.pre, 4
+  br i1 %26, label %.critedge4.thread, label %.thread
 
-.lr.ph111:                                        ; preds = %.lr.ph, %97
-  %26 = phi i32 [ %98, %97 ], [ %.pre, %.lr.ph ]
-  %27 = load i64, ptr %3, align 8, !tbaa !15
-  %28 = icmp ult i64 %27, %4
-  br i1 %28, label %.critedge4, label %.critedge
+27:                                               ; preds = %94
+  store i32 4, ptr %14, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %.critedge4.thread
 
-.critedge4:                                       ; preds = %.lr.ph111
-  switch i32 %26, label %.critedge [
-    i32 0, label %29
-    i32 1, label %35
-    i32 2, label %67
+.thread:                                          ; preds = %13
+  %28 = load i64, ptr %3, align 8, !tbaa !15
+  %29 = icmp ult i64 %28, %4
+  br i1 %29, label %.critedge4, label %.critedge
+
+30:                                               ; preds = %.critedge4.jt1, %40
+  %.sink111 = phi i64 [ %28, %40 ], [ %41, %.critedge4.jt1 ]
+  %31 = add nuw i64 %.sink111, 1
+  store i64 %31, ptr %3, align 8, !tbaa !15
+  %32 = icmp ult i64 %31, %4
+  br i1 %32, label %.critedge4.jt1, label %.critedge
+
+33:                                               ; preds = %69, %.critedge4.jt2
+  %34 = load i64, ptr %3, align 8, !tbaa !15
+  %35 = icmp ult i64 %34, %4
+  br i1 %35, label %.critedge4.jt2, label %.critedge
+
+.critedge4:                                       ; preds = %.thread
+  switch i32 %.pre, label %.critedge [
+    i32 0, label %36
+    i32 1, label %.critedge4.jt1
+    i32 2, label %.critedge4.jt2
     i32 3, label %.critedge4._crit_edge
   ]
 
 .critedge4._crit_edge:                            ; preds = %.critedge4
-  %.pre106 = load i64, ptr %20, align 8, !tbaa !27
-  br label %86
+  %.pre106 = load i64, ptr %21, align 8, !tbaa !27
+  br label %90
 
-29:                                               ; preds = %.critedge4
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 %27
-  %31 = load i8, ptr %30, align 1, !tbaa !28
-  %32 = call zeroext i1 @lzma_lzma_lclppb_decode(ptr noundef nonnull %17, i8 noundef zeroext %31) #7
-  br i1 %32, label %.critedge, label %33
+36:                                               ; preds = %.critedge4
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %28
+  %38 = load i8, ptr %37, align 1, !tbaa !28
+  %39 = tail call zeroext i1 @lzma_lzma_lclppb_decode(ptr noundef nonnull %18, i8 noundef zeroext %38) #7
+  br i1 %39, label %.critedge, label %40
 
-33:                                               ; preds = %29
-  store i32 1, ptr %13, align 8, !tbaa !16
-  %34 = add nuw i64 %27, 1
-  store i64 %34, ptr %3, align 8, !tbaa !15
-  br label %97
+40:                                               ; preds = %36
+  store i32 1, ptr %14, align 8, !tbaa !16
+  br label %30
 
-35:                                               ; preds = %.critedge4
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %27
-  %37 = load i8, ptr %36, align 1, !tbaa !28
-  %38 = zext i8 %37 to i64
-  %39 = load i64, ptr %14, align 8, !tbaa !29
-  %40 = shl i64 %39, 3
-  %41 = shl i64 %38, %40
-  %42 = load i32, ptr %17, align 8, !tbaa !23
-  %43 = trunc i64 %41 to i32
-  %44 = or i32 %42, %43
-  store i32 %44, ptr %17, align 8, !tbaa !23
-  %45 = add i64 %39, 1
-  store i64 %45, ptr %14, align 8, !tbaa !29
-  %46 = icmp eq i64 %45, 4
-  br i1 %46, label %47, label %64
+.critedge4.jt1:                                   ; preds = %30, %.critedge4
+  %41 = phi i64 [ %28, %.critedge4 ], [ %31, %30 ]
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 %41
+  %43 = load i8, ptr %42, align 1, !tbaa !28
+  %44 = zext i8 %43 to i64
+  %45 = load i64, ptr %15, align 8, !tbaa !29
+  %46 = shl i64 %45, 3
+  %47 = shl i64 %44, %46
+  %48 = load i32, ptr %18, align 8, !tbaa !23
+  %49 = trunc i64 %47 to i32
+  %50 = or i32 %48, %49
+  store i32 %50, ptr %18, align 8, !tbaa !23
+  %51 = add i64 %45, 1
+  store i64 %51, ptr %15, align 8, !tbaa !29
+  %52 = icmp eq i64 %51, 4
+  br i1 %52, label %53, label %30
 
-47:                                               ; preds = %35
-  %48 = load i8, ptr %16, align 4, !tbaa !22, !range !30, !noundef !31
-  %49 = trunc nuw i8 %48 to i1
-  %.not87 = icmp ne i32 %44, -1
-  %or.cond93.not = select i1 %49, i1 %.not87, i1 false
-  br i1 %or.cond93.not, label %50, label %63
+53:                                               ; preds = %.critedge4.jt1
+  %54 = load i8, ptr %17, align 4, !tbaa !22, !range !30, !noundef !31
+  %55 = trunc nuw i8 %54 to i1
+  %.not87 = icmp ne i32 %50, -1
+  %or.cond93.not = select i1 %55, i1 %.not87, i1 false
+  br i1 %or.cond93.not, label %56, label %69
 
-50:                                               ; preds = %47
-  %51 = add i32 %44, -1
-  %52 = lshr i32 %51, 2
-  %53 = or i32 %52, %51
-  %54 = lshr i32 %53, 3
-  %55 = or i32 %54, %53
-  %56 = lshr i32 %55, 4
-  %57 = or i32 %56, %55
-  %58 = lshr i32 %57, 8
+56:                                               ; preds = %53
+  %57 = add i32 %50, -1
+  %58 = lshr i32 %57, 2
   %59 = or i32 %58, %57
-  %60 = lshr i32 %59, 16
+  %60 = lshr i32 %59, 3
   %61 = or i32 %60, %59
-  %62 = add i32 %61, 1
-  %.not88 = icmp eq i32 %62, %44
-  br i1 %.not88, label %63, label %.critedge
+  %62 = lshr i32 %61, 4
+  %63 = or i32 %62, %61
+  %64 = lshr i32 %63, 8
+  %65 = or i32 %64, %63
+  %66 = lshr i32 %65, 16
+  %67 = or i32 %66, %65
+  %68 = add i32 %67, 1
+  %.not88 = icmp eq i32 %68, %50
+  br i1 %.not88, label %69, label %.critedge
 
-63:                                               ; preds = %50, %47
-  store i64 0, ptr %14, align 8, !tbaa !29
-  store i32 2, ptr %13, align 8, !tbaa !16
-  br label %64
+69:                                               ; preds = %53, %56
+  store i64 0, ptr %15, align 8, !tbaa !29
+  store i32 2, ptr %14, align 8, !tbaa !16
+  %70 = add nuw i64 %41, 1
+  store i64 %70, ptr %3, align 8, !tbaa !15
+  br label %33
 
-64:                                               ; preds = %63, %35
-  %65 = phi i32 [ 2, %63 ], [ 1, %35 ]
-  %66 = add nuw i64 %27, 1
-  store i64 %66, ptr %3, align 8, !tbaa !15
-  br label %97
+.critedge4.jt2:                                   ; preds = %33, %.critedge4
+  %71 = phi i64 [ %28, %.critedge4 ], [ %34, %33 ]
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 %71
+  %73 = load i8, ptr %72, align 1, !tbaa !28
+  %74 = zext i8 %73 to i64
+  %75 = load i64, ptr %15, align 8, !tbaa !29
+  %76 = shl i64 %75, 3
+  %77 = shl i64 %74, %76
+  %78 = load i64, ptr %16, align 8, !tbaa !32
+  %79 = or i64 %77, %78
+  store i64 %79, ptr %16, align 8, !tbaa !32
+  %80 = add nuw i64 %71, 1
+  store i64 %80, ptr %3, align 8, !tbaa !15
+  %81 = add i64 %75, 1
+  store i64 %81, ptr %15, align 8, !tbaa !29
+  %82 = icmp ult i64 %81, 8
+  br i1 %82, label %33, label %83
 
-67:                                               ; preds = %.critedge4
-  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %27
-  %69 = load i8, ptr %68, align 1, !tbaa !28
-  %70 = zext i8 %69 to i64
-  %71 = load i64, ptr %14, align 8, !tbaa !29
-  %72 = shl i64 %71, 3
-  %73 = shl i64 %70, %72
-  %74 = load i64, ptr %15, align 8, !tbaa !32
-  %75 = or i64 %73, %74
-  store i64 %75, ptr %15, align 8, !tbaa !32
-  %76 = add nuw i64 %27, 1
-  store i64 %76, ptr %3, align 8, !tbaa !15
-  %77 = add i64 %71, 1
-  store i64 %77, ptr %14, align 8, !tbaa !29
-  %78 = icmp ult i64 %77, 8
-  br i1 %78, label %97, label %79
+83:                                               ; preds = %.critedge4.jt2
+  %84 = load i8, ptr %17, align 4, !tbaa !22, !range !30, !noundef !31
+  %85 = trunc nuw i8 %84 to i1
+  %86 = add i64 %79, -274877906944
+  %or.cond = icmp ult i64 %86, -274877906945
+  %or.cond94 = select i1 %85, i1 %or.cond, i1 false
+  br i1 %or.cond94, label %.critedge, label %87
 
-79:                                               ; preds = %67
-  %80 = load i8, ptr %16, align 4, !tbaa !22, !range !30, !noundef !31
-  %81 = trunc nuw i8 %80 to i1
-  %82 = add i64 %75, -274877906944
-  %or.cond = icmp ult i64 %82, -274877906945
-  %or.cond94 = select i1 %81, i1 %or.cond, i1 false
-  br i1 %or.cond94, label %.critedge, label %83
+87:                                               ; preds = %83
+  store i32 1, ptr %19, align 8, !tbaa !33
+  store i64 %79, ptr %20, align 4
+  %88 = tail call i64 @lzma_lzma_decoder_memusage(ptr noundef nonnull %18) #7
+  %89 = add i64 %88, 32768
+  store i64 %89, ptr %21, align 8, !tbaa !27
+  store i64 0, ptr %15, align 8, !tbaa !29
+  store i32 3, ptr %14, align 8, !tbaa !16
+  br label %90
 
-83:                                               ; preds = %79
-  store i32 1, ptr %18, align 8, !tbaa !33
-  store i64 %75, ptr %19, align 4
-  %84 = call i64 @lzma_lzma_decoder_memusage(ptr noundef nonnull %17) #7
-  %85 = add i64 %84, 32768
-  store i64 %85, ptr %20, align 8, !tbaa !27
-  store i64 0, ptr %14, align 8, !tbaa !29
-  store i32 3, ptr %13, align 8, !tbaa !16
-  br label %86
+90:                                               ; preds = %.critedge4._crit_edge, %87
+  %91 = phi i64 [ %.pre106, %.critedge4._crit_edge ], [ %89, %87 ]
+  %92 = load i64, ptr %22, align 8, !tbaa !26
+  %93 = icmp ugt i64 %91, %92
+  br i1 %93, label %.critedge, label %94
 
-86:                                               ; preds = %.critedge4._crit_edge, %83
-  %87 = phi i64 [ %.pre106, %.critedge4._crit_edge ], [ %85, %83 ]
-  %88 = load i64, ptr %21, align 8, !tbaa !26
-  %89 = icmp ugt i64 %87, %88
-  br i1 %89, label %.critedge, label %90
-
-90:                                               ; preds = %86
+94:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 4611686018427387906, ptr %10, align 16, !tbaa !34
-  store ptr @lzma_lzma_decoder_init, ptr %22, align 8, !tbaa !36
-  store ptr %17, ptr %23, align 16, !tbaa !37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
-  %91 = call i32 @lzma_next_filter_init(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %10) #7
-  %.not86 = icmp eq i32 %91, 0
-  br i1 %.not86, label %92, label %.critedge91
+  store ptr @lzma_lzma_decoder_init, ptr %23, align 8, !tbaa !36
+  store ptr %18, ptr %24, align 16, !tbaa !37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  %95 = call i32 @lzma_next_filter_init(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %10) #7
+  %.not86 = icmp eq i32 %95, 0
+  br i1 %.not86, label %27, label %.critedge91
 
-92:                                               ; preds = %90
-  store i32 4, ptr %13, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %97
-
-.critedge4.thread:                                ; preds = %97, %.lr.ph
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !38
-  %95 = load ptr, ptr %0, align 8, !tbaa !39
-  %96 = call i32 %94(ptr noundef %95, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7, i32 noundef %8) #7
+.critedge4.thread:                                ; preds = %27, %13
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %97 = load ptr, ptr %96, align 8, !tbaa !38
+  %98 = load ptr, ptr %0, align 8, !tbaa !39
+  %99 = call i32 %97(ptr noundef %98, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7, i32 noundef %8) #7
   br label %.critedge
 
-97:                                               ; preds = %92, %67, %64, %33
-  %98 = phi i32 [ 4, %92 ], [ 2, %67 ], [ %65, %64 ], [ 1, %33 ]
-  %99 = icmp eq i32 %98, 4
-  br i1 %99, label %.critedge4.thread, label %.lr.ph111
-
-.critedge91:                                      ; preds = %90
+.critedge91:                                      ; preds = %94
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
-.critedge:                                        ; preds = %50, %29, %86, %.critedge4, %.lr.ph111, %79, %9, %.critedge91, %.critedge4.thread
-  %.1 = phi i32 [ %96, %.critedge4.thread ], [ %91, %.critedge91 ], [ 0, %9 ], [ 7, %79 ], [ 0, %.lr.ph111 ], [ 11, %.critedge4 ], [ 6, %86 ], [ 7, %29 ], [ 7, %50 ]
+.critedge:                                        ; preds = %30, %33, %56, %36, %90, %.critedge4, %.thread, %83, %9, %.critedge91, %.critedge4.thread
+  %.1 = phi i32 [ %99, %.critedge4.thread ], [ %95, %.critedge91 ], [ 0, %9 ], [ 7, %56 ], [ 7, %36 ], [ 6, %90 ], [ 11, %.critedge4 ], [ 0, %.thread ], [ 7, %83 ], [ 0, %33 ], [ 0, %30 ]
   ret i32 %.1
 }
 

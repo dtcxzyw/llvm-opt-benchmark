@@ -1518,7 +1518,7 @@ ifilter_has_all_input_formats.exit:               ; preds = %54, %.loopexit117
   br label %70
 
 70:                                               ; preds = %.backedge, %ifilter_has_all_input_formats.exit
-  %.2 = phi i32 [ 0, %ifilter_has_all_input_formats.exit ], [ %.3, %.backedge ]
+  %.2 = phi i32 [ 0, %ifilter_has_all_input_formats.exit ], [ %.3.jt3, %.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %71 = load i32, ptr %64, align 8, !tbaa !206
   store i32 %71, ptr %11, align 4, !tbaa !118
@@ -1862,12 +1862,12 @@ av_ts_make_string.exit.i:                         ; preds = %237, %236
   br label %.thread170
 
 .thread170:                                       ; preds = %.thread170.sink.split, %.thread.i
-  %.sink202 = phi i32 [ %225, %.thread.i ], [ %244, %.thread170.sink.split ]
+  %.sink197 = phi i32 [ %225, %.thread.i ], [ %244, %.thread170.sink.split ]
   %245 = phi ptr [ %224, %.thread.i ], [ %243, %.thread170.sink.split ]
   %.2179.i177 = phi i32 [ %.2178.i, %.thread.i ], [ %.2179.i177.ph, %.thread170.sink.split ]
   %.not148.i175 = phi i1 [ true, %.thread.i ], [ %.not148.i175.ph, %.thread170.sink.split ]
   %246 = phi i32 [ %.2178.i, %.thread.i ], [ 0, %.thread170.sink.split ]
-  %247 = and i32 %.sink202, 2
+  %247 = and i32 %.sink197, 2
   %.not147.i = icmp eq i32 %247, 0
   %.3.i = select i1 %.not147.i, i32 %246, i32 %.2179.i177
   %248 = getelementptr inbounds nuw i8, ptr %137, i64 240
@@ -2510,13 +2510,13 @@ send_eof.exit:                                    ; preds = %.lr.ph.i.i101, %541
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
-.backedge:                                        ; preds = %send_command.exit, %551, %570
-  %.3 = phi i32 [ %.2, %send_command.exit ], [ -541478725, %551 ], [ 0, %570 ]
+.backedge:                                        ; preds = %570, %551, %send_command.exit
+  %.3.jt3 = phi i32 [ %.2, %send_command.exit ], [ -541478725, %551 ], [ 0, %570 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %70
 
-.preheader:                                       ; preds = %76, %567, %563, %562
-  %.3.ph186 = phi i32 [ -541478725, %562 ], [ -541478725, %563 ], [ -541478725, %567 ], [ %.2, %76 ]
+.preheader:                                       ; preds = %562, %563, %567, %76
+  %.3.jt4 = phi i32 [ %.2, %76 ], [ -541478725, %567 ], [ -541478725, %563 ], [ -541478725, %562 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %575 = load i32, ptr %22, align 8, !tbaa !96
@@ -2526,7 +2526,7 @@ send_eof.exit:                                    ; preds = %.lr.ph.i.i101, %541
 .lr.ph:                                           ; preds = %.preheader, %589
   %576 = phi i32 [ %590, %589 ], [ %575, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %589 ], [ 0, %.preheader ]
-  %.5122 = phi i32 [ %.7.ph, %589 ], [ %.3.ph186, %.preheader ]
+  %.5122 = phi i32 [ %.7.ph, %589 ], [ %.3.jt4, %.preheader ]
   %577 = load ptr, ptr %26, align 8, !tbaa !202
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 %indvars.iv
   %579 = load i8, ptr %578, align 1, !tbaa !166
@@ -2557,7 +2557,7 @@ send_eof.exit:                                    ; preds = %.lr.ph.i.i101, %541
   br i1 %592, label %.lr.ph, label %.loopexit, !llvm.loop !261
 
 .loopexit:                                        ; preds = %583, %589, %.preheader, %.thread, %fg_thread_init.exit.thread, %62
-  %.071 = phi i32 [ %60, %62 ], [ -12, %fg_thread_init.exit.thread ], [ %.3.ph, %.thread ], [ %.3.ph186, %.preheader ], [ %587, %583 ], [ %.7.ph, %589 ]
+  %.071 = phi i32 [ %60, %62 ], [ -12, %fg_thread_init.exit.thread ], [ %.3.ph, %.thread ], [ %.3.jt4, %.preheader ], [ %587, %583 ], [ %.7.ph, %589 ]
   %593 = load i32, ptr @print_graphs, align 4, !tbaa !118
   %594 = icmp ne i32 %593, 0
   %595 = load ptr, ptr @print_graphs_file, align 8
@@ -2570,7 +2570,7 @@ send_eof.exit:                                    ; preds = %.lr.ph.i.i101, %541
   %599 = call i32 @print_filtergraph(ptr noundef %0, ptr noundef %598) #17
   br label %.loopexit116
 
-.loopexit116:                                     ; preds = %597, %.loopexit
+.loopexit116:                                     ; preds = %.loopexit, %597
   %600 = icmp eq i32 %.071, -541478725
   %spec.store.select = select i1 %600, i32 0, i32 %.071
   call fastcc void @fg_thread_uninit(ptr noundef %9)

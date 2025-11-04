@@ -3413,8 +3413,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVENS_11SmallVectorINS_14WeakTrackin
   br label %47
 
 47:                                               ; preds = %.lr.ph32, %.backedge
-  %48 = phi i32 [ %39, %.lr.ph32 ], [ %84, %.backedge ]
-  %.131 = phi ptr [ undef, %.lr.ph32 ], [ %.446, %.backedge ]
+  %48 = phi i32 [ %39, %.lr.ph32 ], [ %86, %.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !247)
   %49 = load ptr, ptr %37, align 8, !tbaa !62, !noalias !247
@@ -3493,7 +3492,7 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit:               ; preds = %_ZN4llvm15SmallVect
   %72 = load ptr, ptr %46, align 8, !tbaa !40
   %73 = call noundef zeroext i1 @_ZN4llvm15ScalarEvolution19canReuseInstructionEPKNS_4SCEVEPNS_11InstructionERNS_15SmallVectorImplIS5_EE(ptr noundef nonnull align 8 dereferenceable(1344) %72, ptr noundef %1, ptr noundef nonnull %66, ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   %.pre35 = load ptr, ptr %5, align 8, !tbaa !62
-  br i1 %73, label %74, label %.loopexit, !llvm.loop !250
+  br i1 %73, label %74, label %.loopexit.jt2, !llvm.loop !250
 
 74:                                               ; preds = %71
   %75 = load i32, ptr %44, align 8, !tbaa !64
@@ -3501,7 +3500,7 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit:               ; preds = %_ZN4llvm15SmallVect
   %.idx = shl nuw nsw i64 %76, 3
   %77 = getelementptr inbounds nuw i8, ptr %.pre35, i64 %.idx
   %.not2428 = icmp eq i32 %75, 0
-  br i1 %.not2428, label %.loopexit, label %.lr.ph
+  br i1 %.not2428, label %.loopexit.jt1, label %.lr.ph
 
 .lr.ph:                                           ; preds = %74, %.lr.ph
   %.02229 = phi ptr [ %79, %.lr.ph ], [ %.pre35, %74 ]
@@ -3515,30 +3514,40 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit:               ; preds = %_ZN4llvm15SmallVect
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %.pre = load ptr, ptr %5, align 8, !tbaa !62
-  br label %.loopexit
+  br label %.loopexit.jt1
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %74, %71
-  %80 = phi ptr [ %.pre35, %71 ], [ %.pre35, %74 ], [ %.pre, %.loopexit.loopexit ]
-  %.3 = phi ptr [ %.131, %71 ], [ %66, %74 ], [ %66, %.loopexit.loopexit ]
+.loopexit.jt1:                                    ; preds = %.loopexit.loopexit, %74
+  %80 = phi ptr [ %.pre35, %74 ], [ %.pre, %.loopexit.loopexit ]
   %81 = icmp eq ptr %80, %43
-  br i1 %81, label %83, label %82
+  br i1 %81, label %85, label %83
 
-82:                                               ; preds = %.loopexit
+.loopexit.jt2:                                    ; preds = %71
+  %82 = icmp eq ptr %.pre35, %43
+  br i1 %82, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj6EED2Ev.exit.jt2, label %84
+
+83:                                               ; preds = %.loopexit.jt1
   call void @free(ptr noundef %80) #18
-  br label %83
+  br label %85
 
-83:                                               ; preds = %82, %.loopexit
+84:                                               ; preds = %.loopexit.jt2
+  call void @free(ptr noundef %.pre35) #18
+  br label %_ZN4llvm11SmallVectorIPNS_11InstructionELj6EED2Ev.exit.jt2
+
+_ZN4llvm11SmallVectorIPNS_11InstructionELj6EED2Ev.exit.jt2: ; preds = %84, %.loopexit.jt2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %73, label %.loopexit27, label %.backedge
+  br label %.backedge
 
-.backedge:                                        ; preds = %83, %_ZN4llvm15ValueHandleBaseD2Ev.exit, %68
-  %.446 = phi ptr [ %.3, %83 ], [ %.131, %68 ], [ %.131, %_ZN4llvm15ValueHandleBaseD2Ev.exit ]
-  %84 = load i32, ptr %38, align 8, !tbaa !64
-  %.not.i = icmp eq i32 %84, 0
+85:                                               ; preds = %.loopexit.jt1, %83
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %.loopexit27
+
+.backedge:                                        ; preds = %_ZN4llvm11SmallVectorIPNS_11InstructionELj6EED2Ev.exit.jt2, %68, %_ZN4llvm15ValueHandleBaseD2Ev.exit
+  %86 = load i32, ptr %38, align 8, !tbaa !64
+  %.not.i = icmp eq i32 %86, 0
   br i1 %.not.i, label %.loopexit27, label %47, !llvm.loop !250
 
-.loopexit27:                                      ; preds = %83, %.backedge, %36, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVENS_11SmallVectorINS_14WeakTrackingVHELj2EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit
-  %.0 = phi ptr [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVENS_11SmallVectorINS_14WeakTrackingVHELj2EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit ], [ null, %36 ], [ null, %.backedge ], [ %.3, %83 ]
+.loopexit27:                                      ; preds = %.backedge, %85, %36, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVENS_11SmallVectorINS_14WeakTrackingVHELj2EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit
+  %.0 = phi ptr [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVENS_11SmallVectorINS_14WeakTrackingVHELj2EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit ], [ null, %36 ], [ %66, %85 ], [ null, %.backedge ]
   ret ptr %.0
 }
 

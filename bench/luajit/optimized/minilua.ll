@@ -4707,8 +4707,8 @@ define internal fastcc void @luaD_call(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %1727, %1504, %96, %71, %79, %87, %99, %110, %116, %126, %164, %luaC_step.exit19, %239, %442, %luaC_step.exit23, %524, %711, %735, %1096, %1116, %1140, %luaV_tonumber.exit58.thread, %1400, %1506, %luaC_step.exit72, %149, %144, %132, %279, %274, %306, %301, %333, %328, %360, %355, %390, %382, %417, %412, %430, %426, %469, %456, %451, %1159, %1205, %1262, %1260, %1258, %1423, %.backedge, %157, %158, %1445, %1713
-  %.0707.i.be = phi ptr [ %64, %1713 ], [ %.11718.i, %1445 ], [ %64, %158 ], [ %64, %157 ], [ %64, %.backedge ], [ %.11718.i, %1423 ], [ %64, %1258 ], [ %64, %1260 ], [ %1266, %1262 ], [ %64, %1205 ], [ %64, %1159 ], [ %64, %451 ], [ %64, %456 ], [ %64, %469 ], [ %64, %426 ], [ %64, %430 ], [ %64, %412 ], [ %64, %417 ], [ %64, %382 ], [ %64, %390 ], [ %64, %355 ], [ %64, %360 ], [ %64, %328 ], [ %64, %333 ], [ %64, %301 ], [ %64, %306 ], [ %64, %274 ], [ %64, %279 ], [ %64, %132 ], [ %64, %144 ], [ %64, %149 ], [ %.12719.i.lcssa, %luaC_step.exit72 ], [ %64, %1506 ], [ %1401, %1400 ], [ %1360, %luaV_tonumber.exit58.thread ], [ %1141, %1140 ], [ %1117, %1116 ], [ %1098, %1096 ], [ %737, %735 ], [ %713, %711 ], [ %528, %524 ], [ %64, %luaC_step.exit23 ], [ %64, %442 ], [ %64, %239 ], [ %64, %luaC_step.exit19 ], [ %64, %164 ], [ %64, %126 ], [ %64, %116 ], [ %64, %110 ], [ %64, %99 ], [ %spec.select.i, %87 ], [ %64, %79 ], [ %64, %71 ], [ %64, %96 ], [ %.11718.i, %1504 ], [ %64, %1727 ]
-  %.0703.i.be = phi ptr [ %.12.i, %1713 ], [ %.0703.i, %1445 ], [ %.0703.i, %158 ], [ %.0703.i, %157 ], [ %.0703.i, %.backedge ], [ %.0703.i, %1423 ], [ %.0703.i, %1258 ], [ %.0703.i, %1260 ], [ %.0703.i, %1262 ], [ %1206, %1205 ], [ %1160, %1159 ], [ %.0703.i, %451 ], [ %.0703.i, %456 ], [ %470, %469 ], [ %.0703.i, %426 ], [ %431, %430 ], [ %.0703.i, %412 ], [ %418, %417 ], [ %.0703.i, %382 ], [ %391, %390 ], [ %.0703.i, %355 ], [ %361, %360 ], [ %.0703.i, %328 ], [ %334, %333 ], [ %.0703.i, %301 ], [ %307, %306 ], [ %.0703.i, %274 ], [ %280, %279 ], [ %.0703.i, %132 ], [ %.0703.i, %144 ], [ %.0703.i, %149 ], [ %1678, %luaC_step.exit72 ], [ %.0703.i, %1506 ], [ %1382, %1400 ], [ %.0703.i, %luaV_tonumber.exit58.thread ], [ %.0703.i, %1140 ], [ %.0703.i, %1116 ], [ %1097, %1096 ], [ %736, %735 ], [ %712, %711 ], [ %.0703.i, %524 ], [ %516, %luaC_step.exit23 ], [ %.0703.i, %442 ], [ %253, %239 ], [ %238, %luaC_step.exit19 ], [ %177, %164 ], [ %131, %126 ], [ %125, %116 ], [ %115, %110 ], [ %.0703.i, %99 ], [ %.0703.i, %87 ], [ %.0703.i, %79 ], [ %.0703.i, %71 ], [ %.0703.i, %96 ], [ %.0703.i, %1504 ], [ %.12.i, %1727 ]
+  %.0707.i.be = phi ptr [ %64, %71 ], [ %64, %79 ], [ %spec.select.i, %87 ], [ %64, %99 ], [ %64, %110 ], [ %64, %116 ], [ %64, %126 ], [ %64, %164 ], [ %64, %luaC_step.exit19 ], [ %64, %239 ], [ %64, %442 ], [ %64, %luaC_step.exit23 ], [ %528, %524 ], [ %713, %711 ], [ %737, %735 ], [ %1098, %1096 ], [ %1117, %1116 ], [ %1141, %1140 ], [ %1360, %luaV_tonumber.exit58.thread ], [ %1401, %1400 ], [ %64, %1506 ], [ %.12719.i.lcssa, %luaC_step.exit72 ], [ %64, %149 ], [ %64, %144 ], [ %64, %132 ], [ %64, %279 ], [ %64, %274 ], [ %64, %306 ], [ %64, %301 ], [ %64, %333 ], [ %64, %328 ], [ %64, %360 ], [ %64, %355 ], [ %64, %390 ], [ %64, %382 ], [ %64, %417 ], [ %64, %412 ], [ %64, %430 ], [ %64, %426 ], [ %64, %469 ], [ %64, %456 ], [ %64, %451 ], [ %64, %1159 ], [ %64, %1205 ], [ %1266, %1262 ], [ %64, %1260 ], [ %64, %1258 ], [ %.11718.i, %1423 ], [ %64, %.backedge ], [ %64, %157 ], [ %64, %158 ], [ %.11718.i, %1445 ], [ %64, %1713 ], [ %64, %96 ], [ %.11718.i, %1504 ], [ %64, %1727 ]
+  %.0703.i.be = phi ptr [ %.0703.i, %71 ], [ %.0703.i, %79 ], [ %.0703.i, %87 ], [ %.0703.i, %99 ], [ %115, %110 ], [ %125, %116 ], [ %131, %126 ], [ %177, %164 ], [ %238, %luaC_step.exit19 ], [ %253, %239 ], [ %.0703.i, %442 ], [ %516, %luaC_step.exit23 ], [ %.0703.i, %524 ], [ %712, %711 ], [ %736, %735 ], [ %1097, %1096 ], [ %.0703.i, %1116 ], [ %.0703.i, %1140 ], [ %.0703.i, %luaV_tonumber.exit58.thread ], [ %1382, %1400 ], [ %.0703.i, %1506 ], [ %1678, %luaC_step.exit72 ], [ %.0703.i, %149 ], [ %.0703.i, %144 ], [ %.0703.i, %132 ], [ %280, %279 ], [ %.0703.i, %274 ], [ %307, %306 ], [ %.0703.i, %301 ], [ %334, %333 ], [ %.0703.i, %328 ], [ %361, %360 ], [ %.0703.i, %355 ], [ %391, %390 ], [ %.0703.i, %382 ], [ %418, %417 ], [ %.0703.i, %412 ], [ %431, %430 ], [ %.0703.i, %426 ], [ %470, %469 ], [ %.0703.i, %456 ], [ %.0703.i, %451 ], [ %1160, %1159 ], [ %1206, %1205 ], [ %.0703.i, %1262 ], [ %.0703.i, %1260 ], [ %.0703.i, %1258 ], [ %.0703.i, %1423 ], [ %.0703.i, %.backedge ], [ %.0703.i, %157 ], [ %.0703.i, %158 ], [ %.0703.i, %1445 ], [ %.12.i, %1713 ], [ %.0703.i, %96 ], [ %.0703.i, %1504 ], [ %.12.i, %1727 ]
   br label %.backedge
 
 79:                                               ; preds = %.backedge
@@ -5357,8 +5357,8 @@ luaG_typeerror.exit:                              ; preds = %462
   %473 = lshr i32 %65, 14
   %474 = and i32 %473, 511
   store ptr %64, ptr %40, align 8, !tbaa !142
-  %reass.sub483 = sub nsw i32 %474, %472
-  %475 = add nsw i32 %reass.sub483, 1
+  %reass.sub476 = sub nsw i32 %474, %472
+  %475 = add nsw i32 %reass.sub476, 1
   tail call fastcc void @luaV_concat(ptr noundef %0, i32 noundef %475, i32 noundef %474)
   %476 = load ptr, ptr %46, align 8, !tbaa !29
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 120
@@ -5423,8 +5423,8 @@ luaG_typeerror.exit:                              ; preds = %462
   br label %luaC_step.exit23.sink.split
 
 luaC_step.exit23.sink.split:                      ; preds = %502, %505, %508
-  %.sink377 = phi i64 [ %515, %508 ], [ %507, %505 ], [ %504, %502 ]
-  store i64 %.sink377, ptr %479, align 8, !tbaa !66
+  %.sink370 = phi i64 [ %515, %508 ], [ %507, %505 ], [ %504, %502 ]
+  store i64 %.sink370, ptr %479, align 8, !tbaa !66
   br label %luaC_step.exit23
 
 luaC_step.exit23:                                 ; preds = %luaC_step.exit23.sink.split, %471
@@ -5518,11 +5518,11 @@ luaC_step.exit23:                                 ; preds = %luaC_step.exit23.si
   br label %luaV_equalval.exit
 
 572:                                              ; preds = %564, %560
-  %.sink383 = phi ptr [ %561, %560 ], [ %565, %564 ]
-  %.sink381 = phi ptr [ %562, %560 ], [ %566, %564 ]
-  %573 = getelementptr inbounds nuw i8, ptr %.sink383, i64 16
+  %.sink376 = phi ptr [ %561, %560 ], [ %565, %564 ]
+  %.sink374 = phi ptr [ %562, %560 ], [ %566, %564 ]
+  %573 = getelementptr inbounds nuw i8, ptr %.sink376, i64 16
   %574 = load ptr, ptr %573, align 8, !tbaa !46
-  %575 = getelementptr inbounds nuw i8, ptr %.sink381, i64 16
+  %575 = getelementptr inbounds nuw i8, ptr %.sink374, i64 16
   %576 = load ptr, ptr %575, align 8, !tbaa !46
   %577 = icmp eq ptr %574, null
   br i1 %577, label %luaV_equalval.exit, label %578
@@ -5531,8 +5531,8 @@ luaC_step.exit23:                                 ; preds = %luaC_step.exit23.si
   %579 = getelementptr inbounds nuw i8, ptr %574, i64 10
   %580 = load i8, ptr %579, align 2, !tbaa !129
   %581 = and i8 %580, 16
-  %.not.i391 = icmp eq i8 %581, 0
-  br i1 %.not.i391, label %582, label %luaV_equalval.exit
+  %.not.i384 = icmp eq i8 %581, 0
+  br i1 %.not.i384, label %582, label %luaV_equalval.exit
 
 582:                                              ; preds = %578
   %583 = load ptr, ptr %46, align 8, !tbaa !29
@@ -5545,8 +5545,8 @@ luaC_step.exit23:                                 ; preds = %luaC_step.exit23.si
   %588 = getelementptr inbounds nuw i8, ptr %585, i64 12
   %589 = load i32, ptr %588, align 4, !tbaa !46
   %590 = zext nneg i8 %.val.i.i to i64
-  %notmask.i.i.i393 = shl nsw i64 -1, %590
-  %591 = trunc i64 %notmask.i.i.i393 to i32
+  %notmask.i.i.i386 = shl nsw i64 -1, %590
+  %591 = trunc i64 %notmask.i.i.i386 to i32
   %592 = xor i32 %591, -1
   %593 = and i32 %589, %592
   %594 = sext i32 %593 to i64
@@ -5645,8 +5645,8 @@ luaH_getstr.exit.i33.i:                           ; preds = %636, %632
   br label %luaV_equalval.exit
 
 luaT_gettm.exit36.i:                              ; preds = %luaH_getstr.exit.i33.i
-  %.not.i.i394 = icmp eq i32 %608, %640
-  br i1 %.not.i.i394, label %644, label %luaV_equalval.exit
+  %.not.i.i387 = icmp eq i32 %608, %640
+  br i1 %.not.i.i387, label %644, label %luaV_equalval.exit
 
 644:                                              ; preds = %luaT_gettm.exit36.i
   switch i32 %608, label %653 [
@@ -5719,16 +5719,16 @@ get_compTM.exit:                                  ; preds = %645, %649, %653, %l
 
 luaD_growstack.exit.sink.split.i:                 ; preds = %get_compTM.exit
   %681 = load i32, ptr %45, align 8, !tbaa !31
-  %.not.i.i395 = icmp slt i32 %681, 3
+  %.not.i.i388 = icmp slt i32 %681, 3
   %682 = add nsw i32 %681, 3
   %683 = shl nuw nsw i32 %681, 1
-  %.sink.i = select i1 %.not.i.i395, i32 %682, i32 %683
+  %.sink.i = select i1 %.not.i.i388, i32 %682, i32 %683
   tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink.i)
-  %.pre563 = load ptr, ptr %44, align 8, !tbaa !62
+  %.pre556 = load ptr, ptr %44, align 8, !tbaa !62
   br label %callTMres.exit
 
 callTMres.exit:                                   ; preds = %get_compTM.exit, %luaD_growstack.exit.sink.split.i
-  %684 = phi ptr [ %676, %get_compTM.exit ], [ %.pre563, %luaD_growstack.exit.sink.split.i ]
+  %684 = phi ptr [ %676, %get_compTM.exit ], [ %.pre556, %luaD_growstack.exit.sink.split.i ]
   %685 = ptrtoint ptr %660 to i64
   %686 = ptrtoint ptr %661 to i64
   %687 = sub i64 %685, %686
@@ -6089,7 +6089,7 @@ luaT_gettmbyobj.exit101:                          ; preds = %871, %875, %852
   br i1 %890, label %.luaO_rawequalObj.exit92.thread120_crit_edge, label %luaO_rawequalObj.exit92.thread
 
 .luaO_rawequalObj.exit92.thread120_crit_edge:     ; preds = %887
-  %.pre559 = load i64, ptr %836, align 8, !tbaa !46
+  %.pre552 = load i64, ptr %836, align 8, !tbaa !46
   br label %luaO_rawequalObj.exit92.thread120
 
 891:                                              ; preds = %881
@@ -6107,7 +6107,7 @@ luaO_rawequalObj.exit92:                          ; preds = %881
   br i1 %898, label %luaO_rawequalObj.exit92.thread120, label %luaO_rawequalObj.exit92.thread
 
 luaO_rawequalObj.exit92.thread120:                ; preds = %.luaO_rawequalObj.exit92.thread120_crit_edge, %882, %891, %luaO_rawequalObj.exit92
-  %900 = phi i64 [ %.pre559, %.luaO_rawequalObj.exit92.thread120_crit_edge ], [ %886, %882 ], [ %895, %891 ], [ %899, %luaO_rawequalObj.exit92 ]
+  %900 = phi i64 [ %.pre552, %.luaO_rawequalObj.exit92.thread120_crit_edge ], [ %886, %882 ], [ %895, %891 ], [ %899, %luaO_rawequalObj.exit92 ]
   %901 = load ptr, ptr %44, align 8, !tbaa !62
   %902 = load ptr, ptr %51, align 8, !tbaa !30
   store i64 %900, ptr %901, align 8, !tbaa !46
@@ -6134,20 +6134,20 @@ luaO_rawequalObj.exit92.thread120:                ; preds = %.luaO_rawequalObj.e
   %918 = ptrtoint ptr %916 to i64
   %919 = sub i64 %917, %918
   %920 = icmp slt i64 %919, 49
-  br i1 %920, label %luaD_growstack.exit.sink.split.i396, label %callTMres.exit399
+  br i1 %920, label %luaD_growstack.exit.sink.split.i389, label %callTMres.exit392
 
-luaD_growstack.exit.sink.split.i396:              ; preds = %luaO_rawequalObj.exit92.thread120
+luaD_growstack.exit.sink.split.i389:              ; preds = %luaO_rawequalObj.exit92.thread120
   %921 = load i32, ptr %45, align 8, !tbaa !31
-  %.not.i.i397 = icmp slt i32 %921, 3
+  %.not.i.i390 = icmp slt i32 %921, 3
   %922 = add nsw i32 %921, 3
   %923 = shl nuw nsw i32 %921, 1
-  %.sink.i398 = select i1 %.not.i.i397, i32 %922, i32 %923
-  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink.i398)
-  %.pre560 = load ptr, ptr %44, align 8, !tbaa !62
-  br label %callTMres.exit399
+  %.sink.i391 = select i1 %.not.i.i390, i32 %922, i32 %923
+  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink.i391)
+  %.pre553 = load ptr, ptr %44, align 8, !tbaa !62
+  br label %callTMres.exit392
 
-callTMres.exit399:                                ; preds = %luaO_rawequalObj.exit92.thread120, %luaD_growstack.exit.sink.split.i396
-  %924 = phi ptr [ %916, %luaO_rawequalObj.exit92.thread120 ], [ %.pre560, %luaD_growstack.exit.sink.split.i396 ]
+callTMres.exit392:                                ; preds = %luaO_rawequalObj.exit92.thread120, %luaD_growstack.exit.sink.split.i389
+  %924 = phi ptr [ %916, %luaO_rawequalObj.exit92.thread120 ], [ %.pre553, %luaD_growstack.exit.sink.split.i389 ]
   %925 = ptrtoint ptr %901 to i64
   %926 = ptrtoint ptr %902 to i64
   %927 = sub i64 %925, %926
@@ -6173,12 +6173,12 @@ callTMres.exit399:                                ; preds = %luaO_rawequalObj.ex
     i32 1, label %940
   ]
 
-940:                                              ; preds = %callTMres.exit399
+940:                                              ; preds = %callTMres.exit392
   %941 = load i32, ptr %937, align 8, !tbaa !46
   %942 = icmp ne i32 %941, 0
   br label %lessequal.exit
 
-.fold.split.i.i:                                  ; preds = %callTMres.exit399
+.fold.split.i.i:                                  ; preds = %callTMres.exit392
   br label %lessequal.exit
 
 luaO_rawequalObj.exit92.thread:                   ; preds = %887, %882, %891, %luaT_gettmbyobj.exit101, %luaT_gettmbyobj.exit110, %luaO_rawequalObj.exit92
@@ -6350,7 +6350,7 @@ luaT_gettmbyobj.exit:                             ; preds = %1015, %1019, %996
   br i1 %1034, label %.luaO_rawequalObj.exit.thread129_crit_edge, label %luaO_rawequalObj.exit.thread
 
 .luaO_rawequalObj.exit.thread129_crit_edge:       ; preds = %1031
-  %.pre561 = load i64, ptr %980, align 8, !tbaa !46
+  %.pre554 = load i64, ptr %980, align 8, !tbaa !46
   br label %luaO_rawequalObj.exit.thread129
 
 1035:                                             ; preds = %1025
@@ -6368,7 +6368,7 @@ luaO_rawequalObj.exit:                            ; preds = %1025
   br i1 %1042, label %luaO_rawequalObj.exit.thread129, label %luaO_rawequalObj.exit.thread
 
 luaO_rawequalObj.exit.thread129:                  ; preds = %.luaO_rawequalObj.exit.thread129_crit_edge, %1026, %1035, %luaO_rawequalObj.exit
-  %1044 = phi i64 [ %.pre561, %.luaO_rawequalObj.exit.thread129_crit_edge ], [ %1030, %1026 ], [ %1039, %1035 ], [ %1043, %luaO_rawequalObj.exit ]
+  %1044 = phi i64 [ %.pre554, %.luaO_rawequalObj.exit.thread129_crit_edge ], [ %1030, %1026 ], [ %1039, %1035 ], [ %1043, %luaO_rawequalObj.exit ]
   %1045 = load ptr, ptr %44, align 8, !tbaa !62
   %1046 = load ptr, ptr %51, align 8, !tbaa !30
   store i64 %1044, ptr %1045, align 8, !tbaa !46
@@ -6395,20 +6395,20 @@ luaO_rawequalObj.exit.thread129:                  ; preds = %.luaO_rawequalObj.e
   %1062 = ptrtoint ptr %1060 to i64
   %1063 = sub i64 %1061, %1062
   %1064 = icmp slt i64 %1063, 49
-  br i1 %1064, label %luaD_growstack.exit.sink.split.i400, label %callTMres.exit403
+  br i1 %1064, label %luaD_growstack.exit.sink.split.i393, label %callTMres.exit396
 
-luaD_growstack.exit.sink.split.i400:              ; preds = %luaO_rawequalObj.exit.thread129
+luaD_growstack.exit.sink.split.i393:              ; preds = %luaO_rawequalObj.exit.thread129
   %1065 = load i32, ptr %45, align 8, !tbaa !31
-  %.not.i.i401 = icmp slt i32 %1065, 3
+  %.not.i.i394 = icmp slt i32 %1065, 3
   %1066 = add nsw i32 %1065, 3
   %1067 = shl nuw nsw i32 %1065, 1
-  %.sink.i402 = select i1 %.not.i.i401, i32 %1066, i32 %1067
-  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink.i402)
-  %.pre562 = load ptr, ptr %44, align 8, !tbaa !62
-  br label %callTMres.exit403
+  %.sink.i395 = select i1 %.not.i.i394, i32 %1066, i32 %1067
+  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink.i395)
+  %.pre555 = load ptr, ptr %44, align 8, !tbaa !62
+  br label %callTMres.exit396
 
-callTMres.exit403:                                ; preds = %luaO_rawequalObj.exit.thread129, %luaD_growstack.exit.sink.split.i400
-  %1068 = phi ptr [ %1060, %luaO_rawequalObj.exit.thread129 ], [ %.pre562, %luaD_growstack.exit.sink.split.i400 ]
+callTMres.exit396:                                ; preds = %luaO_rawequalObj.exit.thread129, %luaD_growstack.exit.sink.split.i393
+  %1068 = phi ptr [ %1060, %luaO_rawequalObj.exit.thread129 ], [ %.pre555, %luaD_growstack.exit.sink.split.i393 ]
   %1069 = ptrtoint ptr %1045 to i64
   %1070 = ptrtoint ptr %1046 to i64
   %1071 = sub i64 %1069, %1070
@@ -6434,12 +6434,12 @@ callTMres.exit403:                                ; preds = %luaO_rawequalObj.ex
     i32 1, label %1084
   ]
 
-1084:                                             ; preds = %callTMres.exit403
+1084:                                             ; preds = %callTMres.exit396
   %1085 = load i32, ptr %1081, align 8, !tbaa !46
   %.not149 = icmp eq i32 %1085, 0
   br label %lessequal.exit
 
-.fold.split.i31.i:                                ; preds = %callTMres.exit403
+.fold.split.i31.i:                                ; preds = %callTMres.exit396
   br label %lessequal.exit
 
 luaO_rawequalObj.exit.thread:                     ; preds = %luaO_rawequalObj.exit, %luaT_gettmbyobj.exit88, %luaT_gettmbyobj.exit, %1035, %1026, %1031
@@ -6449,8 +6449,8 @@ luaO_rawequalObj.exit.thread:                     ; preds = %luaO_rawequalObj.ex
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.45, ptr noundef nonnull %1088)
   unreachable
 
-lessequal.exit:                                   ; preds = %.fold.split.i31.i, %1084, %callTMres.exit403, %callTMres.exit399, %940, %.fold.split.i.i, %770, %l_strcmp.exit.i
-  %.0.i27.shrunk = phi i1 [ %773, %770 ], [ %798, %l_strcmp.exit.i ], [ false, %callTMres.exit399 ], [ %942, %940 ], [ true, %.fold.split.i.i ], [ true, %callTMres.exit403 ], [ %.not149, %1084 ], [ false, %.fold.split.i31.i ]
+lessequal.exit:                                   ; preds = %.fold.split.i31.i, %1084, %callTMres.exit396, %callTMres.exit392, %940, %.fold.split.i.i, %770, %l_strcmp.exit.i
+  %.0.i27.shrunk = phi i1 [ %773, %770 ], [ %798, %l_strcmp.exit.i ], [ false, %callTMres.exit392 ], [ %942, %940 ], [ true, %.fold.split.i.i ], [ true, %callTMres.exit396 ], [ %.not149, %1084 ], [ false, %.fold.split.i31.i ]
   %.0.i27 = zext i1 %.0.i27.shrunk to i32
   %1089 = icmp eq i32 %67, %.0.i27
   br i1 %1089, label %1090, label %1096
@@ -6772,11 +6772,11 @@ luaD_poscall.exit.thread:                         ; preds = %1216
   br i1 %.not759.i, label %.loopexit.outer.backedge, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %1245
-  %.pre558 = load ptr, ptr %41, align 8, !tbaa !83
+  %.pre551 = load ptr, ptr %41, align 8, !tbaa !83
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %luaD_poscall.exit.thread
-  %1246 = phi ptr [ %.pre558, %..thread_crit_edge ], [ %1218, %luaD_poscall.exit.thread ]
+  %1246 = phi ptr [ %.pre551, %..thread_crit_edge ], [ %1218, %luaD_poscall.exit.thread ]
   %1247 = phi i32 [ %1241, %..thread_crit_edge ], [ %1243, %luaD_poscall.exit.thread ]
   %1248 = getelementptr inbounds nuw i8, ptr %1246, i64 16
   %1249 = load ptr, ptr %1248, align 8, !tbaa !119
@@ -6979,7 +6979,7 @@ luaV_tonumber.exit46.thread:                      ; preds = %luaV_tonumber.exit.
   ]
 
 luaV_tonumber.exit46.thread.luaV_tonumber.exit58.thread_crit_edge: ; preds = %luaV_tonumber.exit46.thread
-  %.pre557 = load double, ptr %1272, align 8, !tbaa !46
+  %.pre550 = load double, ptr %1272, align 8, !tbaa !46
   br label %luaV_tonumber.exit58.thread
 
 1329:                                             ; preds = %luaV_tonumber.exit46.thread
@@ -7051,7 +7051,7 @@ luaV_tonumber.exit58:                             ; preds = %luaO_str2d.exit.i53
   unreachable
 
 luaV_tonumber.exit58.thread:                      ; preds = %luaV_tonumber.exit46.thread.luaV_tonumber.exit58.thread_crit_edge, %1353
-  %1354 = phi double [ %.pre557, %luaV_tonumber.exit46.thread.luaV_tonumber.exit58.thread_crit_edge ], [ %.010.i49, %1353 ]
+  %1354 = phi double [ %.pre550, %luaV_tonumber.exit46.thread.luaV_tonumber.exit58.thread_crit_edge ], [ %.010.i49, %1353 ]
   %1355 = load double, ptr %69, align 8, !tbaa !46
   %1356 = fsub double %1355, %1354
   store double %1356, ptr %69, align 8, !tbaa !46
@@ -7631,8 +7631,8 @@ luaF_findupval.exit:                              ; preds = %luaM_realloc_.exit1
   br label %luaC_step.exit72.sink.split
 
 luaC_step.exit72.sink.split:                      ; preds = %1664, %1667, %1670
-  %.sink385 = phi i64 [ %1677, %1670 ], [ %1669, %1667 ], [ %1666, %1664 ]
-  store i64 %.sink385, ptr %1641, align 8, !tbaa !66
+  %.sink378 = phi i64 [ %1677, %1670 ], [ %1669, %1667 ], [ %1666, %1664 ]
+  store i64 %.sink378, ptr %1641, align 8, !tbaa !66
   br label %luaC_step.exit72
 
 luaC_step.exit72:                                 ; preds = %luaC_step.exit72.sink.split, %._crit_edge
@@ -7677,8 +7677,8 @@ luaD_growstack.exit.sink.split:                   ; preds = %1698
   %.not.i73 = icmp sgt i32 %1696, %1706
   %1707 = add nsw i32 %1706, %1696
   %1708 = shl nsw i32 %1706, 1
-  %.sink386 = select i1 %.not.i73, i32 %1707, i32 %1708
-  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink386)
+  %.sink379 = select i1 %.not.i73, i32 %1707, i32 %1708
+  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink379)
   br label %luaD_growstack.exit
 
 luaD_growstack.exit:                              ; preds = %luaD_growstack.exit.sink.split, %1698
@@ -7719,10 +7719,10 @@ luaD_growstack.exit:                              ; preds = %luaD_growstack.exit
   br label %1727
 
 1727:                                             ; preds = %1717, %1719
-  %.sink387 = phi i32 [ %1726, %1719 ], [ 0, %1717 ]
+  %.sink380 = phi i32 [ %1726, %1719 ], [ 0, %1717 ]
   %1728 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.0720.i, i64 %indvars.iv
   %1729 = getelementptr inbounds nuw i8, ptr %1728, i64 8
-  store i32 %.sink387, ptr %1729, align 8, !tbaa !69
+  store i32 %.sink380, ptr %1729, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.backedge.backedge, label %1717, !llvm.loop !189
@@ -7795,8 +7795,8 @@ luaV_execute.exit:                                ; preds = %luaD_poscall.exit, 
   br label %luaC_step.exit.sink.split
 
 luaC_step.exit.sink.split:                        ; preds = %1759, %1762, %1765
-  %.sink390 = phi i64 [ %1772, %1765 ], [ %1764, %1762 ], [ %1761, %1759 ]
-  store i64 %.sink390, ptr %1736, align 8, !tbaa !66
+  %.sink383 = phi i64 [ %1772, %1765 ], [ %1764, %1762 ], [ %1761, %1759 ]
+  store i64 %.sink383, ptr %1736, align 8, !tbaa !66
   br label %luaC_step.exit
 
 luaC_step.exit:                                   ; preds = %luaC_step.exit.sink.split, %luaV_execute.exit

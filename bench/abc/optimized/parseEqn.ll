@@ -51,7 +51,7 @@ define ptr @Parse_FormulaParserEqn(ptr noundef captures(none) %0, ptr noundef %1
 
 14:                                               ; preds = %13
   %15 = tail call i64 @fwrite(ptr nonnull @.str, i64 82, i64 1, ptr %0)
-  br label %135
+  br label %137
 
 16:                                               ; preds = %13
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
@@ -66,140 +66,211 @@ define ptr @Parse_FormulaParserEqn(ptr noundef captures(none) %0, ptr noundef %1
   br label %26
 
 26:                                               ; preds = %.loopexit, %16
-  %.1152 = phi ptr [ %19, %16 ], [ %120, %.loopexit ]
+  %.1152 = phi ptr [ %19, %16 ], [ %123, %.loopexit ]
   %.0147 = phi i32 [ 1, %16 ], [ %.2, %.loopexit ]
   %27 = load i8, ptr %.1152, align 1, !tbaa !3
-  switch i8 %27, label %.preheader220 [
-    i8 0, label %121
+  switch i8 %27, label %.preheader220.preheader [
+    i8 0, label %.loopexit341
     i8 32, label %.loopexit
     i8 9, label %.loopexit
     i8 13, label %.loopexit
     i8 10, label %.loopexit
-    i8 48, label %28
-    i8 49, label %35
-    i8 33, label %39
-    i8 42, label %41
-    i8 94, label %41
-    i8 43, label %41
-    i8 40, label %45
-    i8 41, label %49
+    i8 48, label %.loopexit343
+    i8 49, label %.loopexit344
+    i8 33, label %41
+    i8 42, label %44
+    i8 94, label %44
+    i8 43, label %44
+    i8 40, label %.loopexit345
+    i8 41, label %.loopexit346
   ]
 
-28:                                               ; preds = %26
+.preheader340.sink.split:                         ; preds = %.preheader340, %.loopexit345
+  %.sink421 = phi i32 [ 1, %.loopexit345 ], [ 10, %.preheader340 ]
+  %.2153.jt1.ph = phi ptr [ %.1152318, %.loopexit345 ], [ %28, %.preheader340 ]
+  tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %.sink421) #9
+  br label %.preheader340
+
+.preheader340:                                    ; preds = %.preheader340.sink.split, %94
+  %.2153.jt1 = phi ptr [ %.1152, %94 ], [ %.2153.jt1.ph, %.preheader340.sink.split ]
+  %28 = getelementptr inbounds nuw i8, ptr %.2153.jt1, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !3
+  switch i8 %29, label %.preheader220.preheader [
+    i8 0, label %.loopexit341
+    i8 32, label %.loopexit
+    i8 9, label %.loopexit
+    i8 13, label %.loopexit
+    i8 10, label %.loopexit
+    i8 48, label %.loopexit343
+    i8 49, label %.loopexit344
+    i8 33, label %.preheader340.sink.split
+    i8 42, label %.thread336
+    i8 94, label %.thread336
+    i8 43, label %.thread336
+    i8 40, label %.loopexit345
+    i8 41, label %.loopexit346
+  ]
+
+.loopexit.loopexit:                               ; preds = %100, %99, %.preheader219
+  %30 = getelementptr inbounds nuw i8, ptr %.3154.jt2, i64 1
+  %31 = load i8, ptr %30, align 1, !tbaa !3
+  switch i8 %31, label %.preheader220.preheader [
+    i8 0, label %.loopexit341
+    i8 32, label %.loopexit
+    i8 9, label %.loopexit
+    i8 13, label %.loopexit
+    i8 10, label %.loopexit
+    i8 48, label %.loopexit343
+    i8 49, label %.thread326
+    i8 33, label %43
+    i8 42, label %.thread330
+    i8 94, label %.thread330
+    i8 43, label %.thread330
+    i8 40, label %.loopexit345
+    i8 41, label %.loopexit346
+  ]
+
+.thread326:                                       ; preds = %.loopexit.loopexit
+  %.val196329 = load ptr, ptr %23, align 8, !tbaa !8
+  tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %.val196329) #9
+  br label %.loopexit350
+
+.preheader220.preheader:                          ; preds = %.preheader340, %.loopexit.loopexit, %26
+  %32 = phi i8 [ %31, %.loopexit.loopexit ], [ %27, %26 ], [ %29, %.preheader340 ]
+  %.0147321 = phi i32 [ 2, %.loopexit.loopexit ], [ %.0147, %26 ], [ 1, %.preheader340 ]
+  %.1152314 = phi ptr [ %30, %.loopexit.loopexit ], [ %.1152, %26 ], [ %28, %.preheader340 ]
+  br label %.preheader220
+
+.loopexit343:                                     ; preds = %.preheader340, %.loopexit.loopexit, %26
+  %.0147322 = phi i32 [ 2, %.loopexit.loopexit ], [ %.0147, %26 ], [ 1, %.preheader340 ]
+  %.1152315 = phi ptr [ %30, %.loopexit.loopexit ], [ %.1152, %26 ], [ %28, %.preheader340 ]
   %.val = load ptr, ptr %23, align 8, !tbaa !8
-  %29 = ptrtoint ptr %.val to i64
-  %30 = xor i64 %29, 1
-  %31 = inttoptr i64 %30 to ptr
-  tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %31) #9
-  %32 = icmp eq i32 %.0147, 2
-  br i1 %32, label %33, label %.preheader219
-
-33:                                               ; preds = %28
-  %34 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 65, i64 1, ptr %0)
-  br label %.thread216
-
-35:                                               ; preds = %26
-  %.val196 = load ptr, ptr %23, align 8, !tbaa !8
-  tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %.val196) #9
-  %36 = icmp eq i32 %.0147, 2
+  %33 = ptrtoint ptr %.val to i64
+  %34 = xor i64 %33, 1
+  %35 = inttoptr i64 %34 to ptr
+  tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %35) #9
+  %36 = icmp eq i32 %.0147322, 2
   br i1 %36, label %37, label %.preheader219
 
-37:                                               ; preds = %35
-  %38 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 65, i64 1, ptr %0)
+37:                                               ; preds = %.loopexit343
+  %38 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 65, i64 1, ptr %0)
   br label %.thread216
 
-39:                                               ; preds = %26
-  %40 = icmp eq i32 %.0147, 2
-  br i1 %40, label %.thread321, label %92
+.loopexit344:                                     ; preds = %.preheader340, %26
+  %.0147323 = phi i32 [ %.0147, %26 ], [ 1, %.preheader340 ]
+  %.1152316 = phi ptr [ %.1152, %26 ], [ %28, %.preheader340 ]
+  %.val196 = load ptr, ptr %23, align 8, !tbaa !8
+  tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %.val196) #9
+  %39 = icmp eq i32 %.0147323, 2
+  br i1 %39, label %.loopexit350, label %.preheader219
 
-.thread321:                                       ; preds = %39
+.loopexit350:                                     ; preds = %.loopexit344, %.thread326
+  %40 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 65, i64 1, ptr %0)
+  br label %.thread216
+
+41:                                               ; preds = %26
+  %42 = icmp eq i32 %.0147, 2
+  br i1 %42, label %43, label %94
+
+43:                                               ; preds = %41, %.loopexit.loopexit
+  %.1152320 = phi ptr [ %.1152, %41 ], [ %30, %.loopexit.loopexit ]
   tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef 9) #9
   br label %.preheader.sink.split
 
-41:                                               ; preds = %26, %26, %26
+44:                                               ; preds = %26, %26, %26
   %.not176 = icmp eq i32 %.0147, 2
-  br i1 %.not176, label %44, label %42
+  br i1 %.not176, label %.thread330, label %.thread336
 
-42:                                               ; preds = %41
-  %43 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 72, i64 1, ptr %0)
+.thread336:                                       ; preds = %44, %.preheader340, %.preheader340, %.preheader340
+  %45 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 72, i64 1, ptr %0)
   br label %.thread216
 
-44:                                               ; preds = %41
-  %switch.selectcmp = icmp eq i8 %27, 43
-  %switch.select = select i1 %switch.selectcmp, i32 7, i32 8
-  %switch.selectcmp353 = icmp eq i8 %27, 42
-  %switch.select354 = select i1 %switch.selectcmp353, i32 9, i32 %switch.select
-  br label %.preheader.sink.split
-
-45:                                               ; preds = %26
-  %46 = icmp eq i32 %.0147, 2
-  br i1 %46, label %47, label %.loopexit.sink.split
-
-47:                                               ; preds = %45
-  %48 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 87, i64 1, ptr %0)
-  br label %.thread216
-
-49:                                               ; preds = %26
-  %50 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
-  %.not173 = icmp eq i32 %50, 0
-  br i1 %.not173, label %.preheader221, label %67
-
-.preheader221:                                    ; preds = %49, %Parse_ParserPerformTopOp.exit
-  %51 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
-  %.not174 = icmp eq i32 %51, 0
-  br i1 %.not174, label %53, label %.thread
-
-.thread:                                          ; preds = %.preheader221
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 58, i64 1, ptr %0)
-  br label %.thread216
-
-53:                                               ; preds = %.preheader221
-  %54 = tail call i32 @Parse_StackOpPop(ptr noundef %22) #9
-  %55 = icmp eq i32 %54, 1
-  br i1 %55, label %.preheader219, label %56
-
-56:                                               ; preds = %53
-  %57 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
-  %58 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
-  switch i32 %54, label %Parse_ParserPerformTopOp.exit.thread [
-    i32 9, label %59
-    i32 7, label %61
-    i32 8, label %63
+.thread330:                                       ; preds = %.loopexit.loopexit, %.loopexit.loopexit, %.loopexit.loopexit, %44
+  %.1152317334 = phi ptr [ %.1152, %44 ], [ %30, %.loopexit.loopexit ], [ %30, %.loopexit.loopexit ], [ %30, %.loopexit.loopexit ]
+  %46 = phi i8 [ %27, %44 ], [ %31, %.loopexit.loopexit ], [ %31, %.loopexit.loopexit ], [ %31, %.loopexit.loopexit ]
+  switch i8 %46, label %48 [
+    i8 42, label %.preheader.sink.split
+    i8 43, label %47
   ]
 
-59:                                               ; preds = %56
-  %60 = tail call ptr @Hop_And(ptr noundef %3, ptr noundef %58, ptr noundef %57) #9
-  br label %Parse_ParserPerformTopOp.exit
+47:                                               ; preds = %.thread330
+  br label %.preheader.sink.split
 
-61:                                               ; preds = %56
-  %62 = tail call ptr @Hop_Or(ptr noundef %3, ptr noundef %58, ptr noundef %57) #9
-  br label %Parse_ParserPerformTopOp.exit
+48:                                               ; preds = %.thread330
+  br label %.preheader.sink.split
 
-63:                                               ; preds = %56
-  %64 = tail call ptr @Hop_Exor(ptr noundef %3, ptr noundef %58, ptr noundef %57) #9
-  br label %Parse_ParserPerformTopOp.exit
+.loopexit345:                                     ; preds = %.preheader340, %.loopexit.loopexit, %26
+  %.0147325 = phi i32 [ 2, %.loopexit.loopexit ], [ %.0147, %26 ], [ 1, %.preheader340 ]
+  %.1152318 = phi ptr [ %30, %.loopexit.loopexit ], [ %.1152, %26 ], [ %28, %.preheader340 ]
+  %49 = icmp eq i32 %.0147325, 2
+  br i1 %49, label %50, label %.preheader340.sink.split
 
-Parse_ParserPerformTopOp.exit:                    ; preds = %59, %61, %63
-  %.0.i = phi ptr [ %60, %59 ], [ %62, %61 ], [ %64, %63 ]
-  tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %.0.i) #9
-  %65 = icmp eq ptr %.0.i, null
-  br i1 %65, label %Parse_ParserPerformTopOp.exit.thread, label %.preheader221
-
-Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPerformTopOp.exit
-  tail call void @Parse_StackFnFree(ptr noundef %21) #9
-  tail call void @Parse_StackOpFree(ptr noundef %22) #9
-  %66 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 44, i64 1, ptr %0)
-  tail call void @free(ptr noundef %19) #9
-  br label %135
-
-67:                                               ; preds = %49
-  %68 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 58, i64 1, ptr %0)
+50:                                               ; preds = %.loopexit345
+  %51 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 87, i64 1, ptr %0)
   br label %.thread216
 
-.preheader220:                                    ; preds = %26, %72
-  %69 = phi i8 [ %.pre, %72 ], [ %27, %26 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %72 ], [ 0, %26 ]
-  switch i8 %69, label %72 [
+.loopexit346:                                     ; preds = %.preheader340, %.loopexit.loopexit, %26
+  %.1152319 = phi ptr [ %30, %.loopexit.loopexit ], [ %.1152, %26 ], [ %28, %.preheader340 ]
+  %52 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
+  %.not173 = icmp eq i32 %52, 0
+  br i1 %.not173, label %.preheader221, label %69
+
+.preheader221:                                    ; preds = %.loopexit346, %Parse_ParserPerformTopOp.exit
+  %53 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
+  %.not174 = icmp eq i32 %53, 0
+  br i1 %.not174, label %55, label %.thread
+
+.thread:                                          ; preds = %.preheader221
+  %54 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 58, i64 1, ptr %0)
+  br label %.thread216
+
+55:                                               ; preds = %.preheader221
+  %56 = tail call i32 @Parse_StackOpPop(ptr noundef %22) #9
+  %57 = icmp eq i32 %56, 1
+  br i1 %57, label %.preheader219, label %58
+
+58:                                               ; preds = %55
+  %59 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
+  %60 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
+  switch i32 %56, label %Parse_ParserPerformTopOp.exit.thread [
+    i32 9, label %61
+    i32 7, label %63
+    i32 8, label %65
+  ]
+
+61:                                               ; preds = %58
+  %62 = tail call ptr @Hop_And(ptr noundef %3, ptr noundef %60, ptr noundef %59) #9
+  br label %Parse_ParserPerformTopOp.exit
+
+63:                                               ; preds = %58
+  %64 = tail call ptr @Hop_Or(ptr noundef %3, ptr noundef %60, ptr noundef %59) #9
+  br label %Parse_ParserPerformTopOp.exit
+
+65:                                               ; preds = %58
+  %66 = tail call ptr @Hop_Exor(ptr noundef %3, ptr noundef %60, ptr noundef %59) #9
+  br label %Parse_ParserPerformTopOp.exit
+
+Parse_ParserPerformTopOp.exit:                    ; preds = %61, %63, %65
+  %.0.i = phi ptr [ %62, %61 ], [ %64, %63 ], [ %66, %65 ]
+  tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %.0.i) #9
+  %67 = icmp eq ptr %.0.i, null
+  br i1 %67, label %Parse_ParserPerformTopOp.exit.thread, label %.preheader221
+
+Parse_ParserPerformTopOp.exit.thread:             ; preds = %58, %Parse_ParserPerformTopOp.exit
+  tail call void @Parse_StackFnFree(ptr noundef %21) #9
+  tail call void @Parse_StackOpFree(ptr noundef %22) #9
+  %68 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 44, i64 1, ptr %0)
+  tail call void @free(ptr noundef %19) #9
+  br label %137
+
+69:                                               ; preds = %.loopexit346
+  %70 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 58, i64 1, ptr %0)
+  br label %.thread216
+
+.preheader220:                                    ; preds = %.preheader220.preheader, %74
+  %71 = phi i8 [ %32, %.preheader220.preheader ], [ %.pre, %74 ]
+  %indvars.iv = phi i64 [ 0, %.preheader220.preheader ], [ %indvars.iv.next, %74 ]
+  switch i8 %71, label %74 [
     i8 0, label %.critedge.loopexit
     i8 32, label %.critedge.loopexit
     i8 9, label %.critedge.loopexit
@@ -209,27 +280,27 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
     i8 43, label %.critedge.loopexit
     i8 94, label %.critedge.loopexit
     i8 41, label %.critedge.loopexit
-    i8 33, label %70
-    i8 40, label %70
+    i8 33, label %72
+    i8 40, label %72
   ]
 
-70:                                               ; preds = %.preheader220, %.preheader220
-  %71 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 96, i64 1, ptr %0)
+72:                                               ; preds = %.preheader220, %.preheader220
+  %73 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 96, i64 1, ptr %0)
   br label %.critedge
 
-72:                                               ; preds = %.preheader220
+74:                                               ; preds = %.preheader220
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1152, i64 %indvars.iv.next
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1152314, i64 %indvars.iv.next
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !3
   br label %.preheader220, !llvm.loop !17
 
 .critedge.loopexit:                               ; preds = %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220
-  %73 = icmp eq i32 %.0147, 2
+  %75 = icmp eq i32 %.0147321, 2
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %70
-  %.6 = phi i1 [ false, %70 ], [ %73, %.critedge.loopexit ]
-  %74 = getelementptr inbounds nuw i8, ptr %.1152, i64 %indvars.iv
+.critedge:                                        ; preds = %.critedge.loopexit, %72
+  %.6 = phi i1 [ false, %72 ], [ %75, %.critedge.loopexit ]
+  %76 = getelementptr inbounds nuw i8, ptr %.1152314, i64 %indvars.iv
   %.val197 = load i32, ptr %24, align 4, !tbaa !18
   %.not187257 = icmp sgt i32 %.val197, 0
   br i1 %.not187257, label %.lr.ph, label %.critedge2
@@ -237,186 +308,190 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
 .lr.ph:                                           ; preds = %.critedge
   %.val198 = load ptr, ptr %25, align 8, !tbaa !20
   %wide.trip.count = zext nneg i32 %.val197 to i64
-  br label %75
+  br label %77
 
-75:                                               ; preds = %.lr.ph, %83
-  %indvars.iv304 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next305, %83 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %.val198, i64 %indvars.iv304
-  %77 = load ptr, ptr %76, align 8, !tbaa !21
-  %78 = tail call i32 @strncmp(ptr noundef nonnull %.1152, ptr noundef %77, i64 noundef %indvars.iv) #7
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %83
+77:                                               ; preds = %.lr.ph, %85
+  %indvars.iv304 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next305, %85 ]
+  %78 = getelementptr inbounds nuw ptr, ptr %.val198, i64 %indvars.iv304
+  %79 = load ptr, ptr %78, align 8, !tbaa !21
+  %80 = tail call i32 @strncmp(ptr noundef nonnull %.1152314, ptr noundef %79, i64 noundef %indvars.iv) #7
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %85
 
-80:                                               ; preds = %75
-  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #7
-  %82 = icmp eq i64 %81, %indvars.iv
-  br i1 %82, label %85, label %83
+82:                                               ; preds = %77
+  %83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #7
+  %84 = icmp eq i64 %83, %indvars.iv
+  br i1 %84, label %87, label %85
 
-83:                                               ; preds = %75, %80
+85:                                               ; preds = %77, %82
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %75, !llvm.loop !22
+  br i1 %exitcond.not, label %.critedge2, label %77, !llvm.loop !22
 
-.critedge2:                                       ; preds = %.critedge, %83
-  %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %.1152) #9
+.critedge2:                                       ; preds = %.critedge, %85
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %.1152314) #9
   br label %.thread216
 
-85:                                               ; preds = %80
-  %86 = getelementptr i8, ptr %74, i64 -1
-  br i1 %.6, label %87, label %89
+87:                                               ; preds = %82
+  %88 = getelementptr i8, ptr %76, i64 -1
+  br i1 %.6, label %89, label %91
 
-87:                                               ; preds = %85
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %86) #9
+89:                                               ; preds = %87
+  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %88) #9
   br label %.thread216
 
-89:                                               ; preds = %85
-  %90 = trunc nuw nsw i64 %indvars.iv304 to i32
-  %91 = tail call ptr @Hop_IthVar(ptr noundef %3, i32 noundef %90) #9
-  tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %91) #9
+91:                                               ; preds = %87
+  %92 = trunc nuw nsw i64 %indvars.iv304 to i32
+  %93 = tail call ptr @Hop_IthVar(ptr noundef %3, i32 noundef %92) #9
+  tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %93) #9
   br label %.preheader219
 
-92:                                               ; preds = %39
+94:                                               ; preds = %41
   tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef 10) #9
   %cond = icmp eq i32 %.0147, 1
-  br i1 %cond, label %.loopexit, label %.preheader
+  br i1 %cond, label %.preheader340, label %.preheader
 
-.preheader219:                                    ; preds = %53, %35, %28, %89
-  %.3154314 = phi ptr [ %.1152, %35 ], [ %.1152, %28 ], [ %86, %89 ], [ %.1152, %53 ]
-  %93 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
-  %.not190260 = icmp eq i32 %93, 0
-  br i1 %.not190260, label %.lr.ph261, label %.loopexit
+.preheader219:                                    ; preds = %55, %.loopexit344, %.loopexit343, %91
+  %.3154.jt2 = phi ptr [ %88, %91 ], [ %.1152315, %.loopexit343 ], [ %.1152316, %.loopexit344 ], [ %.1152319, %55 ]
+  %95 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
+  %.not190260 = icmp eq i32 %95, 0
+  br i1 %.not190260, label %.lr.ph261, label %.loopexit.loopexit
 
-.preheader.sink.split:                            ; preds = %44, %.thread321
-  %.sink = phi i32 [ 10, %.thread321 ], [ %switch.select354, %44 ]
+.preheader.sink.split:                            ; preds = %.thread330, %48, %47, %43
+  %.sink = phi i32 [ 10, %43 ], [ 7, %47 ], [ 8, %48 ], [ 9, %.thread330 ]
+  %.3154311.ph = phi ptr [ %.1152320, %43 ], [ %.1152317334, %47 ], [ %.1152317334, %48 ], [ %.1152317334, %.thread330 ]
   tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %.sink) #9
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.sink.split, %92
-  %.3320 = phi i32 [ %.0147, %92 ], [ 3, %.preheader.sink.split ]
-  %94 = tail call i32 @Parse_StackOpPop(ptr noundef %22) #9
-  %95 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
-  %.not188262 = icmp eq i32 %95, 0
+.preheader:                                       ; preds = %.preheader.sink.split, %94
+  %.3313 = phi i32 [ %.0147, %94 ], [ 3, %.preheader.sink.split ]
+  %.3154311 = phi ptr [ %.1152, %94 ], [ %.3154311.ph, %.preheader.sink.split ]
+  %96 = tail call i32 @Parse_StackOpPop(ptr noundef %22) #9
+  %97 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
+  %.not188262 = icmp eq i32 %97, 0
   br i1 %.not188262, label %.lr.ph263, label %.loopexit.sink.split
 
-.lr.ph261:                                        ; preds = %.preheader219, %97
-  %96 = tail call i32 @Parse_StackOpPop(ptr noundef %22) #9
-  %.not191 = icmp eq i32 %96, 10
-  br i1 %.not191, label %97, label %.loopexit.sink.split
+.lr.ph261:                                        ; preds = %.preheader219, %100
+  %98 = tail call i32 @Parse_StackOpPop(ptr noundef %22) #9
+  %.not191 = icmp eq i32 %98, 10
+  br i1 %.not191, label %100, label %99
 
-97:                                               ; preds = %.lr.ph261
-  %98 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
-  %99 = ptrtoint ptr %98 to i64
-  %100 = xor i64 %99, 1
-  %101 = inttoptr i64 %100 to ptr
-  tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %101) #9
-  %102 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
-  %.not190 = icmp eq i32 %102, 0
-  br i1 %.not190, label %.lr.ph261, label %.loopexit
+99:                                               ; preds = %.lr.ph261
+  tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %98) #9
+  br label %.loopexit.loopexit
 
-.lr.ph263:                                        ; preds = %.preheader, %116
-  %103 = phi i32 [ %117, %116 ], [ %94, %.preheader ]
-  %104 = tail call i32 @Parse_StackOpPop(ptr noundef %22) #9
-  %.not189 = icmp slt i32 %104, %103
-  br i1 %.not189, label %119, label %105
+100:                                              ; preds = %.lr.ph261
+  %101 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
+  %102 = ptrtoint ptr %101 to i64
+  %103 = xor i64 %102, 1
+  %104 = inttoptr i64 %103 to ptr
+  tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %104) #9
+  %105 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
+  %.not190 = icmp eq i32 %105, 0
+  br i1 %.not190, label %.lr.ph261, label %.loopexit.loopexit
 
-105:                                              ; preds = %.lr.ph263
-  %106 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
-  %107 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
-  switch i32 %104, label %Parse_ParserPerformTopOp.exit201.thread [
-    i32 9, label %108
-    i32 7, label %110
-    i32 8, label %112
+.lr.ph263:                                        ; preds = %.preheader, %119
+  %106 = phi i32 [ %120, %119 ], [ %96, %.preheader ]
+  %107 = tail call i32 @Parse_StackOpPop(ptr noundef %22) #9
+  %.not189 = icmp slt i32 %107, %106
+  br i1 %.not189, label %122, label %108
+
+108:                                              ; preds = %.lr.ph263
+  %109 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
+  %110 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
+  switch i32 %107, label %Parse_ParserPerformTopOp.exit201.thread [
+    i32 9, label %111
+    i32 7, label %113
+    i32 8, label %115
   ]
 
-108:                                              ; preds = %105
-  %109 = tail call ptr @Hop_And(ptr noundef %3, ptr noundef %107, ptr noundef %106) #9
+111:                                              ; preds = %108
+  %112 = tail call ptr @Hop_And(ptr noundef %3, ptr noundef %110, ptr noundef %109) #9
   br label %Parse_ParserPerformTopOp.exit201
 
-110:                                              ; preds = %105
-  %111 = tail call ptr @Hop_Or(ptr noundef %3, ptr noundef %107, ptr noundef %106) #9
+113:                                              ; preds = %108
+  %114 = tail call ptr @Hop_Or(ptr noundef %3, ptr noundef %110, ptr noundef %109) #9
   br label %Parse_ParserPerformTopOp.exit201
 
-112:                                              ; preds = %105
-  %113 = tail call ptr @Hop_Exor(ptr noundef %3, ptr noundef %107, ptr noundef %106) #9
+115:                                              ; preds = %108
+  %116 = tail call ptr @Hop_Exor(ptr noundef %3, ptr noundef %110, ptr noundef %109) #9
   br label %Parse_ParserPerformTopOp.exit201
 
-Parse_ParserPerformTopOp.exit201:                 ; preds = %108, %110, %112
-  %.0.i199 = phi ptr [ %109, %108 ], [ %111, %110 ], [ %113, %112 ]
+Parse_ParserPerformTopOp.exit201:                 ; preds = %111, %113, %115
+  %.0.i199 = phi ptr [ %112, %111 ], [ %114, %113 ], [ %116, %115 ]
   tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %.0.i199) #9
-  %114 = icmp eq ptr %.0.i199, null
-  br i1 %114, label %Parse_ParserPerformTopOp.exit201.thread, label %116
+  %117 = icmp eq ptr %.0.i199, null
+  br i1 %117, label %Parse_ParserPerformTopOp.exit201.thread, label %119
 
-Parse_ParserPerformTopOp.exit201.thread:          ; preds = %105, %Parse_ParserPerformTopOp.exit201
-  %115 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 44, i64 1, ptr %0)
+Parse_ParserPerformTopOp.exit201.thread:          ; preds = %108, %Parse_ParserPerformTopOp.exit201
+  %118 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 44, i64 1, ptr %0)
   tail call void @free(ptr noundef %19) #9
   tail call void @Parse_StackFnFree(ptr noundef %21) #9
   tail call void @Parse_StackOpFree(ptr noundef %22) #9
-  br label %135
+  br label %137
 
-116:                                              ; preds = %Parse_ParserPerformTopOp.exit201
-  tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %103) #9
-  %117 = tail call i32 @Parse_StackOpPop(ptr noundef %22) #9
-  %118 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
-  %.not188 = icmp eq i32 %118, 0
+119:                                              ; preds = %Parse_ParserPerformTopOp.exit201
+  tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %106) #9
+  %120 = tail call i32 @Parse_StackOpPop(ptr noundef %22) #9
+  %121 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
+  %.not188 = icmp eq i32 %121, 0
   br i1 %.not188, label %.lr.ph263, label %.loopexit.sink.split
 
-119:                                              ; preds = %.lr.ph263
-  tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %104) #9
+122:                                              ; preds = %.lr.ph263
+  tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %107) #9
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %116, %.lr.ph261, %.preheader, %45, %119
-  %.sink352 = phi i32 [ %103, %119 ], [ 1, %45 ], [ %94, %.preheader ], [ %96, %.lr.ph261 ], [ %117, %116 ]
-  %.2153.ph = phi ptr [ %.1152, %119 ], [ %.1152, %45 ], [ %.1152, %.preheader ], [ %.3154314, %.lr.ph261 ], [ %.1152, %116 ]
-  %.2.ph = phi i32 [ %.3320, %119 ], [ 1, %45 ], [ %.3320, %.preheader ], [ 2, %.lr.ph261 ], [ %.3320, %116 ]
-  tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %.sink352) #9
+.loopexit.sink.split:                             ; preds = %119, %.preheader, %122
+  %.lcssa376.sink = phi i32 [ %106, %122 ], [ %96, %.preheader ], [ %120, %119 ]
+  tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %.lcssa376.sink) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %97, %.loopexit.sink.split, %92, %.preheader219, %26, %26, %26, %26
-  %.2153 = phi ptr [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %92 ], [ %.3154314, %.preheader219 ], [ %.2153.ph, %.loopexit.sink.split ], [ %.3154314, %97 ]
-  %.2 = phi i32 [ %.0147, %26 ], [ %.0147, %26 ], [ %.0147, %26 ], [ %.0147, %26 ], [ 1, %92 ], [ 2, %.preheader219 ], [ %.2.ph, %.loopexit.sink.split ], [ 2, %97 ]
-  %120 = getelementptr inbounds nuw i8, ptr %.2153, i64 1
+.loopexit:                                        ; preds = %.preheader340, %.preheader340, %.preheader340, %.preheader340, %.loopexit.sink.split, %.loopexit.loopexit, %.loopexit.loopexit, %.loopexit.loopexit, %.loopexit.loopexit, %26, %26, %26, %26
+  %.2153 = phi ptr [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %30, %.loopexit.loopexit ], [ %30, %.loopexit.loopexit ], [ %30, %.loopexit.loopexit ], [ %30, %.loopexit.loopexit ], [ %.3154311, %.loopexit.sink.split ], [ %28, %.preheader340 ], [ %28, %.preheader340 ], [ %28, %.preheader340 ], [ %28, %.preheader340 ]
+  %.2 = phi i32 [ %.0147, %26 ], [ %.0147, %26 ], [ %.0147, %26 ], [ %.0147, %26 ], [ 2, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit ], [ %.3313, %.loopexit.sink.split ], [ 1, %.preheader340 ], [ 1, %.preheader340 ], [ 1, %.preheader340 ], [ 1, %.preheader340 ]
+  %123 = getelementptr inbounds nuw i8, ptr %.2153, i64 1
   br label %26, !llvm.loop !23
 
-121:                                              ; preds = %26
-  %122 = tail call i32 @Parse_StackFnIsEmpty(ptr noundef %21) #9
-  %.not193 = icmp eq i32 %122, 0
-  br i1 %.not193, label %123, label %133
+.loopexit341:                                     ; preds = %26, %.loopexit.loopexit, %.preheader340
+  %124 = tail call i32 @Parse_StackFnIsEmpty(ptr noundef %21) #9
+  %.not193 = icmp eq i32 %124, 0
+  br i1 %.not193, label %125, label %135
 
-123:                                              ; preds = %121
-  %124 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
-  %125 = tail call i32 @Parse_StackFnIsEmpty(ptr noundef %21) #9
-  %.not194 = icmp eq i32 %125, 0
-  br i1 %.not194, label %131, label %126
+125:                                              ; preds = %.loopexit341
+  %126 = tail call ptr @Parse_StackFnPop(ptr noundef %21) #9
+  %127 = tail call i32 @Parse_StackFnIsEmpty(ptr noundef %21) #9
+  %.not194 = icmp eq i32 %127, 0
+  br i1 %.not194, label %133, label %128
 
-126:                                              ; preds = %123
-  %127 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
-  %.not195 = icmp eq i32 %127, 0
-  br i1 %.not195, label %129, label %128
+128:                                              ; preds = %125
+  %129 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
+  %.not195 = icmp eq i32 %129, 0
+  br i1 %.not195, label %131, label %130
 
-128:                                              ; preds = %126
+130:                                              ; preds = %128
   tail call void @Parse_StackFnFree(ptr noundef %21) #9
   tail call void @Parse_StackOpFree(ptr noundef %22) #9
   tail call void @free(ptr noundef %19) #9
-  br label %135
+  br label %137
 
-129:                                              ; preds = %126
-  %130 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 67, i64 1, ptr %0)
+131:                                              ; preds = %128
+  %132 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 67, i64 1, ptr %0)
   br label %.thread216
 
-131:                                              ; preds = %123
-  %132 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 66, i64 1, ptr %0)
+133:                                              ; preds = %125
+  %134 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 66, i64 1, ptr %0)
   br label %.thread216
 
-133:                                              ; preds = %121
-  %134 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 52, i64 1, ptr %0)
+135:                                              ; preds = %.loopexit341
+  %136 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 52, i64 1, ptr %0)
   br label %.thread216
 
-.thread216:                                       ; preds = %.thread, %67, %47, %42, %37, %33, %.critedge2, %87, %129, %131, %133
+.thread216:                                       ; preds = %.thread, %69, %50, %.thread336, %.loopexit350, %37, %.critedge2, %89, %131, %133, %135
   tail call void @free(ptr noundef %19) #9
-  br label %135
+  br label %137
 
-135:                                              ; preds = %.thread216, %128, %Parse_ParserPerformTopOp.exit201.thread, %Parse_ParserPerformTopOp.exit.thread, %14
-  %.0146 = phi ptr [ null, %14 ], [ null, %.thread216 ], [ %124, %128 ], [ null, %Parse_ParserPerformTopOp.exit201.thread ], [ null, %Parse_ParserPerformTopOp.exit.thread ]
+137:                                              ; preds = %.thread216, %130, %Parse_ParserPerformTopOp.exit201.thread, %Parse_ParserPerformTopOp.exit.thread, %14
+  %.0146 = phi ptr [ null, %14 ], [ null, %.thread216 ], [ %126, %130 ], [ null, %Parse_ParserPerformTopOp.exit201.thread ], [ null, %Parse_ParserPerformTopOp.exit.thread ]
   ret ptr %.0146
 }
 

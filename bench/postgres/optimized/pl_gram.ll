@@ -6082,300 +6082,455 @@ define internal fastcc noundef ptr @make_execsql_stmt(i32 noundef range(i32 275,
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 3
   %24 = icmp eq i32 %0, 328
-  br label %.outer.outer
+  br label %.loopexit
 
-.outer.outer:                                     ; preds = %77, %20
-  %.0123.ph.ph = phi i32 [ %26, %77 ], [ %0, %20 ]
-  %.0121.ph.ph = phi i8 [ 1, %77 ], [ 0, %20 ]
-  %.0119.ph.ph = phi i32 [ %78, %77 ], [ -1, %20 ]
-  %.0117.ph.ph = phi i32 [ %.1118, %77 ], [ -1, %20 ]
-  %.0115.ph.ph = phi i32 [ %spec.select, %77 ], [ 0, %20 ]
-  %.0113.ph.ph = phi i32 [ %.1114136, %77 ], [ 0, %20 ]
-  %.0111.ph.ph = phi i1 [ %.1112, %77 ], [ false, %20 ]
-  %.0.ph.ph = phi i32 [ %.1, %77 ], [ 1, %20 ]
-  %25 = trunc nuw i8 %.0121.ph.ph to i1
-  br label %.outer
+.outer.jt332:                                     ; preds = %switch.early.test.jt332
+  %25 = load i32, ptr %4, align 4
+  store i32 0, ptr @plpgsql_IdentifierLookup, align 4
+  call fastcc void @read_into_target(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  store i32 2, ptr @plpgsql_IdentifierLookup, align 4
+  br label %.backedge.preheader
 
-.outer:                                           ; preds = %72, %.outer.outer
-  %.0123.ph = phi i32 [ %.0123.ph.ph, %.outer.outer ], [ %26, %72 ]
-  %.0117.ph = phi i32 [ %.0117.ph.ph, %.outer.outer ], [ %.1118, %72 ]
-  %.0115.ph = phi i32 [ %.0115.ph.ph, %.outer.outer ], [ %spec.select, %72 ]
-  %.0113.ph = phi i32 [ %.0113.ph.ph, %.outer.outer ], [ %.1114136, %72 ]
-  %.0111.ph = phi i1 [ %.0111.ph.ph, %.outer.outer ], [ %.1112, %72 ]
-  %.0.ph = phi i32 [ %.0.ph.ph, %.outer.outer ], [ %.1, %72 ]
-  br label %.backedge
+.loopexit.backedge:                               ; preds = %119, %120
+  %.0123.ph.be = phi i32 [ %29, %120 ], [ %87, %119 ]
+  %.0121.ph.be = phi i8 [ %.0121.ph200.ph, %120 ], [ %.0121.ph202, %119 ]
+  %.0119.ph.be = phi i32 [ %.0119.ph206.ph, %120 ], [ %.0119.ph208, %119 ]
+  %.0117.ph.be = phi i32 [ %40, %120 ], [ %.1118220, %119 ]
+  %.0115.ph.be = phi i32 [ %spec.select.jt332, %120 ], [ %spec.select, %119 ]
+  %.0113.ph.be = phi i32 [ %.1114136.jt332, %120 ], [ %.1114136, %119 ]
+  %.0111.ph.be = phi i1 [ %.2.jt332, %120 ], [ %.1112, %119 ]
+  %.0.ph.be = phi i32 [ %95, %120 ], [ %.1, %119 ]
+  br label %.loopexit
 
-.backedge:                                        ; preds = %.backedge.backedge, %.outer
-  %.0123 = phi i32 [ %.0123.ph, %.outer ], [ 332, %.backedge.backedge ]
-  %.0117 = phi i32 [ %.0117.ph, %.outer ], [ %.1118, %.backedge.backedge ]
-  %.0115 = phi i32 [ %.0115.ph, %.outer ], [ %spec.select, %.backedge.backedge ]
-  %.0113 = phi i32 [ %.0113.ph, %.outer ], [ %.1114136, %.backedge.backedge ]
-  %.0111 = phi i1 [ %.0111.ph, %.outer ], [ %.1112, %.backedge.backedge ]
-  %.0 = phi i32 [ %.0.ph, %.outer ], [ %.1, %.backedge.backedge ]
-  %26 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #11
-  %27 = icmp slt i32 %.0117, 0
-  %or.cond = select i1 %25, i1 %27, i1 false
-  br i1 %or.cond, label %28, label %30
+.loopexit:                                        ; preds = %.loopexit.backedge, %20
+  %.0123.ph = phi i32 [ %0, %20 ], [ %.0123.ph.be, %.loopexit.backedge ]
+  %.0121.ph = phi i8 [ 0, %20 ], [ %.0121.ph.be, %.loopexit.backedge ]
+  %.0119.ph = phi i32 [ -1, %20 ], [ %.0119.ph.be, %.loopexit.backedge ]
+  %.0117.ph = phi i32 [ -1, %20 ], [ %.0117.ph.be, %.loopexit.backedge ]
+  %.0115.ph = phi i32 [ 0, %20 ], [ %.0115.ph.be, %.loopexit.backedge ]
+  %.0113.ph = phi i32 [ 0, %20 ], [ %.0113.ph.be, %.loopexit.backedge ]
+  %.0111.ph = phi i1 [ false, %20 ], [ %.0111.ph.be, %.loopexit.backedge ]
+  %.0.ph = phi i32 [ 1, %20 ], [ %.0.ph.be, %.loopexit.backedge ]
+  %26 = trunc nuw i8 %.0121.ph to i1
+  %27 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #11
+  %28 = icmp slt i32 %.0117.ph, 0
+  %or.cond = select i1 %26, i1 %28, i1 false
+  br i1 %or.cond, label %31, label %.loopexit237.preheader
 
-28:                                               ; preds = %.backedge
-  %29 = load i32, ptr %4, align 4
-  br label %30
+.backedge:                                        ; preds = %.backedge.preheader, %122
+  %.0117.jt332 = phi i32 [ %40, %122 ], [ %.0117.jt332.ph, %.backedge.preheader ]
+  %.0115.jt332 = phi i32 [ %spec.select.jt332, %122 ], [ %.0115.jt332.ph, %.backedge.preheader ]
+  %.0113.jt332 = phi i32 [ %.1114136.jt332, %122 ], [ %.0113.jt332.ph, %.backedge.preheader ]
+  %.0111.jt332 = phi i1 [ %.2.jt332, %122 ], [ %.0111.jt332.ph, %.backedge.preheader ]
+  %.0.jt332 = phi i32 [ %95, %122 ], [ %.0.jt332.ph, %.backedge.preheader ]
+  %29 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #11
+  %30 = icmp slt i32 %.0117.jt332, 0
+  %or.cond.jt332 = select i1 %.ph, i1 %30, i1 false
+  br i1 %or.cond.jt332, label %39, label %.loopexit237
 
-30:                                               ; preds = %28, %.backedge
-  %.1118 = phi i32 [ %29, %28 ], [ %.0117, %.backedge ]
-  %31 = load i8, ptr %12, align 4
-  %32 = icmp eq i8 %31, 99
-  %33 = sext i32 %.0 to i64
-  %34 = icmp ult i32 %.0, 4
-  %or.cond4 = select i1 %32, i1 %34, i1 false
-  br i1 %or.cond4, label %35, label %57
+31:                                               ; preds = %.loopexit
+  %32 = load i32, ptr %4, align 4
+  br label %.loopexit237.preheader
 
-35:                                               ; preds = %30
-  switch i32 %26, label %.critedge131 [
+.loopexit237.preheader:                           ; preds = %.loopexit, %31
+  %.ph253 = phi i1 [ true, %31 ], [ %26, %.loopexit ]
+  %.0121.ph201.ph = phi i8 [ 1, %31 ], [ %.0121.ph, %.loopexit ]
+  %.1118.ph = phi i32 [ %32, %31 ], [ %.0117.ph, %.loopexit ]
+  br label %.loopexit237
+
+.loopexit237:                                     ; preds = %.backedge, %.loopexit237.preheader
+  %33 = phi i32 [ %27, %.loopexit237.preheader ], [ %29, %.backedge ]
+  %.0219 = phi i32 [ %.0.ph, %.loopexit237.preheader ], [ %.0.jt332, %.backedge ]
+  %.0111218 = phi i1 [ %.0111.ph, %.loopexit237.preheader ], [ %.0111.jt332, %.backedge ]
+  %.0113216 = phi i32 [ %.0113.ph, %.loopexit237.preheader ], [ %.0113.jt332, %.backedge ]
+  %.0115214 = phi i32 [ %.0115.ph, %.loopexit237.preheader ], [ %.0115.jt332, %.backedge ]
+  %.0123212 = phi i32 [ %.0123.ph, %.loopexit237.preheader ], [ 332, %.backedge ]
+  %34 = phi i1 [ %.ph253, %.loopexit237.preheader ], [ %.ph, %.backedge ]
+  %.0119.ph207 = phi i32 [ %.0119.ph, %.loopexit237.preheader ], [ %.0119.ph206.ph, %.backedge ]
+  %.0121.ph201 = phi i8 [ %.0121.ph201.ph, %.loopexit237.preheader ], [ %.0121.ph200.ph, %.backedge ]
+  %.1118 = phi i32 [ %.1118.ph, %.loopexit237.preheader ], [ %.0117.jt332, %.backedge ]
+  %35 = load i8, ptr %12, align 4
+  %36 = icmp eq i8 %35, 99
+  %37 = sext i32 %.0219 to i64
+  %38 = icmp ult i32 %.0219, 4
+  %or.cond4 = select i1 %36, i1 %38, i1 false
+  br i1 %or.cond4, label %45, label %.preheader.preheader
+
+39:                                               ; preds = %.backedge
+  %40 = load i32, ptr %4, align 4
+  %41 = load i8, ptr %12, align 4
+  %42 = icmp eq i8 %41, 99
+  %43 = sext i32 %.0.jt332 to i64
+  %44 = icmp ult i32 %.0.jt332, 4
+  %or.cond4.jt332 = select i1 %42, i1 %44, i1 false
+  br i1 %or.cond4.jt332, label %46, label %.preheader
+
+45:                                               ; preds = %.loopexit237
+  switch i32 %33, label %.critedge131 [
     i32 348, label %.critedge131.sink.split
-    i32 275, label %36
+    i32 275, label %47
   ]
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %3, align 8
-  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(8) @.str.93) #12
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.critedge131.sink.split, label %40
+46:                                               ; preds = %39
+  switch i32 %29, label %.critedge131.jt332 [
+    i32 348, label %.critedge131.jt332.sink.split
+    i32 275, label %51
+  ]
 
-40:                                               ; preds = %36
-  %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(9) @.str.94) #12
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.critedge131.sink.split, label %.critedge130
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %3, align 8
+  %49 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(8) @.str.93) #12
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %.critedge131.sink.split, label %55
 
-.critedge130:                                     ; preds = %40
-  %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(10) @.str.95) #12
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.critedge131.sink.split, label %.critedge131
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %3, align 8
+  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(8) @.str.93) #12
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %.critedge131.jt332.sink.split, label %58
 
-.critedge131.sink.split:                          ; preds = %.critedge130, %40, %36, %35
-  %.sink = phi i8 [ 111, %35 ], [ 114, %36 ], [ 102, %40 ], [ 102, %.critedge130 ]
-  %45 = getelementptr inbounds nuw i8, ptr %12, i64 %33
-  store i8 %.sink, ptr %45, align 1
+55:                                               ; preds = %47
+  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(9) @.str.94) #12
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %.critedge131.sink.split, label %.critedge130
+
+58:                                               ; preds = %51
+  %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(9) @.str.94) #12
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %.critedge131.jt332.sink.split, label %.critedge130.jt332
+
+.critedge130:                                     ; preds = %55
+  %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(10) @.str.95) #12
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %.critedge131.sink.split, label %.critedge131
+
+.critedge130.jt332:                               ; preds = %58
+  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(10) @.str.95) #12
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %.critedge131.jt332.sink.split, label %.critedge131.jt332
+
+.critedge131.sink.split:                          ; preds = %.critedge130, %55, %47, %45
+  %.sink = phi i8 [ 111, %45 ], [ 114, %47 ], [ 102, %55 ], [ 102, %.critedge130 ]
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 %37
+  store i8 %.sink, ptr %65, align 1
   br label %.critedge131
 
-.critedge131:                                     ; preds = %.critedge131.sink.split, %35, %.critedge130
-  %46 = load i8, ptr %21, align 1
-  %47 = icmp eq i8 %46, 102
-  br i1 %47, label %54, label %48
+.critedge131:                                     ; preds = %.critedge131.sink.split, %45, %.critedge130
+  %66 = load i8, ptr %21, align 1
+  %67 = icmp eq i8 %66, 102
+  br i1 %67, label %83, label %71
 
-48:                                               ; preds = %.critedge131
-  %49 = icmp eq i8 %46, 111
-  %50 = load i8, ptr %22, align 2
-  %51 = icmp eq i8 %50, 114
-  %or.cond8 = select i1 %49, i1 %51, i1 false
-  %52 = load i8, ptr %23, align 1
-  %53 = icmp eq i8 %52, 102
-  %or.cond12 = select i1 %or.cond8, i1 %53, i1 false
-  br i1 %or.cond12, label %54, label %55
+.critedge131.jt332.sink.split:                    ; preds = %.critedge130.jt332, %58, %51, %46
+  %.sink241 = phi i8 [ 111, %46 ], [ 114, %51 ], [ 102, %58 ], [ 102, %.critedge130.jt332 ]
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 %43
+  store i8 %.sink241, ptr %68, align 1
+  br label %.critedge131.jt332
 
-54:                                               ; preds = %48, %.critedge131
-  br label %55
+.critedge131.jt332:                               ; preds = %.critedge131.jt332.sink.split, %.critedge130.jt332, %46
+  %69 = load i8, ptr %21, align 1
+  %70 = icmp eq i8 %69, 102
+  br i1 %70, label %84, label %77
 
-55:                                               ; preds = %54, %48
-  %.2 = phi i1 [ true, %54 ], [ %.0111, %48 ]
-  %56 = add nuw nsw i32 %.0, 1
-  br label %57
+71:                                               ; preds = %.critedge131
+  %72 = icmp eq i8 %66, 111
+  %73 = load i8, ptr %22, align 2
+  %74 = icmp eq i8 %73, 114
+  %or.cond8 = select i1 %72, i1 %74, i1 false
+  %75 = load i8, ptr %23, align 1
+  %76 = icmp eq i8 %75, 102
+  %or.cond12 = select i1 %or.cond8, i1 %76, i1 false
+  br i1 %or.cond12, label %83, label %85
 
-57:                                               ; preds = %55, %30
-  %.1112 = phi i1 [ %.2, %55 ], [ %.0111, %30 ]
-  %.1 = phi i32 [ %56, %55 ], [ %.0, %30 ]
-  %58 = icmp eq i32 %26, 40
-  %59 = icmp eq i32 %26, 41
-  %60 = icmp sgt i32 %.0115, 0
-  %or.cond14 = select i1 %59, i1 %60, i1 false
-  %61 = sext i1 %or.cond14 to i32
-  %.sink229 = select i1 %58, i32 1, i32 %61
-  %spec.select = add i32 %.0115, %.sink229
-  %62 = icmp eq i32 %spec.select, 0
-  %or.cond16 = select i1 %.1112, i1 %62, i1 false
-  br i1 %or.cond16, label %63, label %69
+77:                                               ; preds = %.critedge131.jt332
+  %78 = icmp eq i8 %69, 111
+  %79 = load i8, ptr %22, align 2
+  %80 = icmp eq i8 %79, 114
+  %or.cond8.jt332 = select i1 %78, i1 %80, i1 false
+  %81 = load i8, ptr %23, align 1
+  %82 = icmp eq i8 %81, 102
+  %or.cond12.jt332 = select i1 %or.cond8.jt332, i1 %82, i1 false
+  br i1 %or.cond12.jt332, label %84, label %94
 
-63:                                               ; preds = %57
-  switch i32 %26, label %65 [
+83:                                               ; preds = %71, %.critedge131
+  br label %85
+
+84:                                               ; preds = %77, %.critedge131.jt332
+  br label %94
+
+85:                                               ; preds = %83, %71
+  %.2 = phi i1 [ true, %83 ], [ %.0111218, %71 ]
+  %86 = add nuw nsw i32 %.0219, 1
+  br label %.preheader.preheader
+
+.preheader.preheader:                             ; preds = %.loopexit237, %85
+  %.1112.ph = phi i1 [ %.2, %85 ], [ %.0111218, %.loopexit237 ]
+  %.1.ph = phi i32 [ %86, %85 ], [ %.0219, %.loopexit237 ]
+  br label %.preheader
+
+.preheader:                                       ; preds = %39, %.preheader.preheader
+  %.1118220 = phi i32 [ %.1118, %.preheader.preheader ], [ %40, %39 ]
+  %87 = phi i32 [ %33, %.preheader.preheader ], [ %29, %39 ]
+  %.0113217 = phi i32 [ %.0113216, %.preheader.preheader ], [ %.0113.jt332, %39 ]
+  %.0115215 = phi i32 [ %.0115214, %.preheader.preheader ], [ %.0115.jt332, %39 ]
+  %.0123213 = phi i32 [ %.0123212, %.preheader.preheader ], [ 332, %39 ]
+  %88 = phi i1 [ %34, %.preheader.preheader ], [ %.ph, %39 ]
+  %.0119.ph208 = phi i32 [ %.0119.ph207, %.preheader.preheader ], [ %.0119.ph206.ph, %39 ]
+  %.0121.ph202 = phi i8 [ %.0121.ph201, %.preheader.preheader ], [ %.0121.ph200.ph, %39 ]
+  %.1112 = phi i1 [ %.1112.ph, %.preheader.preheader ], [ %.0111.jt332, %39 ]
+  %.1 = phi i32 [ %.1.ph, %.preheader.preheader ], [ %.0.jt332, %39 ]
+  %89 = icmp eq i32 %87, 40
+  %90 = icmp eq i32 %87, 41
+  %91 = icmp sgt i32 %.0115215, 0
+  %or.cond14 = select i1 %90, i1 %91, i1 false
+  %92 = sext i1 %or.cond14 to i32
+  %.sink243 = select i1 %89, i32 1, i32 %92
+  %spec.select = add i32 %.0115215, %.sink243
+  %93 = icmp eq i32 %spec.select, 0
+  %or.cond16 = select i1 %.1112, i1 %93, i1 false
+  br i1 %or.cond16, label %101, label %113
+
+94:                                               ; preds = %84, %77
+  %.2.jt332 = phi i1 [ true, %84 ], [ %.0111.jt332, %77 ]
+  %95 = add nuw nsw i32 %.0.jt332, 1
+  %96 = icmp eq i32 %29, 40
+  %97 = icmp eq i32 %29, 41
+  %98 = icmp sgt i32 %.0115.jt332, 0
+  %or.cond14.jt332 = select i1 %97, i1 %98, i1 false
+  %99 = sext i1 %or.cond14.jt332 to i32
+  %.sink244 = select i1 %96, i32 1, i32 %99
+  %spec.select.jt332 = add i32 %.0115.jt332, %.sink244
+  %100 = icmp eq i32 %spec.select.jt332, 0
+  %or.cond16.jt332 = select i1 %.2.jt332, i1 %100, i1 false
+  br i1 %or.cond16.jt332, label %102, label %116
+
+101:                                              ; preds = %.preheader
+  switch i32 %87, label %105 [
     i32 290, label %.thread
     i32 287, label %.thread
   ]
 
-.thread:                                          ; preds = %63, %63
-  %64 = add i32 %.0113, 1
-  br label %72
-
-65:                                               ; preds = %63
-  %66 = icmp eq i32 %26, 313
-  %67 = icmp sgt i32 %.0113, 0
-  %or.cond20 = select i1 %66, i1 %67, i1 false
-  %68 = sext i1 %or.cond20 to i32
-  %spec.select132 = add nsw i32 %.0113, %68
-  br label %69
-
-69:                                               ; preds = %65, %57
-  %.1114 = phi i32 [ %.0113, %57 ], [ %spec.select132, %65 ]
-  %70 = icmp eq i32 %26, 59
-  %or.cond22 = select i1 %70, i1 %62, i1 false
-  %71 = icmp eq i32 %.1114, 0
-  %or.cond24 = select i1 %or.cond22, i1 %71, i1 false
-  br i1 %or.cond24, label %79, label %72
-
-72:                                               ; preds = %.thread, %69
-  %.1114136 = phi i32 [ %64, %.thread ], [ %.1114, %69 ]
-  switch i32 %26, label %.outer [
-    i32 0, label %73
-    i32 332, label %74
+102:                                              ; preds = %94
+  switch i32 %29, label %109 [
+    i32 290, label %.thread.jt332
+    i32 287, label %.thread.jt332
   ]
 
-73:                                               ; preds = %72
+.thread:                                          ; preds = %101, %101
+  %103 = add i32 %.0113217, 1
+  br label %119
+
+.thread.jt332:                                    ; preds = %102, %102
+  %104 = add i32 %.0113.jt332, 1
+  br label %120
+
+105:                                              ; preds = %101
+  %106 = icmp eq i32 %87, 313
+  %107 = icmp sgt i32 %.0113217, 0
+  %or.cond20 = select i1 %106, i1 %107, i1 false
+  %108 = sext i1 %or.cond20 to i32
+  %spec.select132 = add nsw i32 %.0113217, %108
+  br label %113
+
+109:                                              ; preds = %102
+  %110 = icmp eq i32 %29, 313
+  %111 = icmp sgt i32 %.0113.jt332, 0
+  %or.cond20.jt332 = select i1 %110, i1 %111, i1 false
+  %112 = sext i1 %or.cond20.jt332 to i32
+  %spec.select132.jt332 = add nsw i32 %.0113.jt332, %112
+  br label %116
+
+113:                                              ; preds = %105, %.preheader
+  %.1114 = phi i32 [ %.0113217, %.preheader ], [ %spec.select132, %105 ]
+  %114 = icmp eq i32 %87, 59
+  %or.cond22 = select i1 %114, i1 %93, i1 false
+  %115 = icmp eq i32 %.1114, 0
+  %or.cond24 = select i1 %or.cond22, i1 %115, i1 false
+  br i1 %or.cond24, label %.loopexit248, label %119
+
+116:                                              ; preds = %94, %109
+  %.1114.jt332 = phi i32 [ %.0113.jt332, %94 ], [ %spec.select132.jt332, %109 ]
+  %117 = icmp eq i32 %29, 59
+  %or.cond22.jt332 = select i1 %117, i1 %100, i1 false
+  %118 = icmp eq i32 %.1114.jt332, 0
+  %or.cond24.jt332 = select i1 %or.cond22.jt332, i1 %118, i1 false
+  br i1 %or.cond24.jt332, label %.loopexit248, label %120
+
+119:                                              ; preds = %.thread, %113
+  %.1114136 = phi i32 [ %103, %.thread ], [ %.1114, %113 ]
+  switch i32 %87, label %.loopexit.backedge [
+    i32 0, label %.loopexit249
+    i32 332, label %121
+  ]
+
+120:                                              ; preds = %.thread.jt332, %116
+  %.1114136.jt332 = phi i32 [ %.1114.jt332, %116 ], [ %104, %.thread.jt332 ]
+  switch i32 %29, label %.loopexit.backedge [
+    i32 0, label %.loopexit249
+    i32 332, label %122
+  ]
+
+.loopexit249:                                     ; preds = %119, %120
   call void @plpgsql_yyerror(ptr noundef nonnull %4, ptr noundef null, ptr noundef %5, ptr noundef nonnull @.str.48) #14
   unreachable
 
-74:                                               ; preds = %72
-  br i1 %24, label %.backedge.backedge, label %switch.early.test
+121:                                              ; preds = %119
+  br i1 %24, label %.backedge.preheader, label %switch.early.test
 
-.backedge.backedge:                               ; preds = %74, %switch.early.test, %switch.early.test
+.backedge.preheader:                              ; preds = %.outer.jt332, %121, %switch.early.test, %switch.early.test
+  %.ph = phi i1 [ %88, %switch.early.test ], [ %88, %switch.early.test ], [ %88, %121 ], [ true, %.outer.jt332 ]
+  %.0119.ph206.ph = phi i32 [ %.0119.ph208, %switch.early.test ], [ %.0119.ph208, %switch.early.test ], [ %.0119.ph208, %121 ], [ %25, %.outer.jt332 ]
+  %.0121.ph200.ph = phi i8 [ %.0121.ph202, %switch.early.test ], [ %.0121.ph202, %switch.early.test ], [ %.0121.ph202, %121 ], [ 1, %.outer.jt332 ]
+  %.0117.jt332.ph = phi i32 [ %.1118220, %switch.early.test ], [ %.1118220, %switch.early.test ], [ %.1118220, %121 ], [ %.1118223, %.outer.jt332 ]
+  %.0115.jt332.ph = phi i32 [ %spec.select, %switch.early.test ], [ %spec.select, %switch.early.test ], [ %spec.select, %121 ], [ %.1116233, %.outer.jt332 ]
+  %.0113.jt332.ph = phi i32 [ %.1114136, %switch.early.test ], [ %.1114136, %switch.early.test ], [ %.1114136, %121 ], [ %.1114136236, %.outer.jt332 ]
+  %.0111.jt332.ph = phi i1 [ %.1112, %switch.early.test ], [ %.1112, %switch.early.test ], [ %.1112, %121 ], [ %.1112227, %.outer.jt332 ]
+  %.0.jt332.ph = phi i32 [ %.1, %switch.early.test ], [ %.1, %switch.early.test ], [ %.1, %121 ], [ %.1230, %.outer.jt332 ]
   br label %.backedge
 
-switch.early.test:                                ; preds = %74
-  switch i32 %.0123, label %75 [
-    i32 337, label %.backedge.backedge
-    i32 331, label %.backedge.backedge
+122:                                              ; preds = %120
+  br i1 %24, label %.backedge, label %switch.early.test.jt332
+
+switch.early.test:                                ; preds = %121
+  switch i32 %.0123213, label %switch.early.test.jt332 [
+    i32 337, label %.backedge.preheader
+    i32 331, label %.backedge.preheader
   ]
 
-75:                                               ; preds = %switch.early.test
-  br i1 %25, label %76, label %77
+switch.early.test.jt332:                          ; preds = %122, %switch.early.test
+  %.1114136236 = phi i32 [ %.1114136, %switch.early.test ], [ %.1114136.jt332, %122 ]
+  %.1116233 = phi i32 [ %spec.select, %switch.early.test ], [ %spec.select.jt332, %122 ]
+  %.1230 = phi i32 [ %.1, %switch.early.test ], [ %95, %122 ]
+  %.1112227 = phi i1 [ %.1112, %switch.early.test ], [ %.2.jt332, %122 ]
+  %.1118223 = phi i32 [ %.1118220, %switch.early.test ], [ %40, %122 ]
+  %123 = phi i1 [ %88, %switch.early.test ], [ %.ph, %122 ]
+  br i1 %123, label %124, label %.outer.jt332
 
-76:                                               ; preds = %75
+124:                                              ; preds = %switch.early.test.jt332
   call void @plpgsql_yyerror(ptr noundef nonnull %4, ptr noundef null, ptr noundef %5, ptr noundef nonnull @.str.96) #14
   unreachable
 
-77:                                               ; preds = %75
-  %78 = load i32, ptr %4, align 4
-  store i32 0, ptr @plpgsql_IdentifierLookup, align 4
-  call fastcc void @read_into_target(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  store i32 2, ptr @plpgsql_IdentifierLookup, align 4
-  br label %.outer.outer
-
-79:                                               ; preds = %69
+.loopexit248:                                     ; preds = %113, %116
+  %.1118224 = phi i32 [ %40, %116 ], [ %.1118220, %113 ]
+  %125 = phi i1 [ %.ph, %116 ], [ %88, %113 ]
+  %.0119.ph211 = phi i32 [ %.0119.ph206.ph, %116 ], [ %.0119.ph208, %113 ]
+  %.0121.ph205 = phi i8 [ %.0121.ph200.ph, %116 ], [ %.0121.ph202, %113 ]
   store i32 %13, ptr @plpgsql_IdentifierLookup, align 4
-  br i1 %25, label %80, label %82
+  br i1 %125, label %126, label %128
 
-80:                                               ; preds = %79
-  call void @plpgsql_append_source_text(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %.0119.ph.ph, ptr noundef %5) #11
-  %81 = sub i32 %.1118, %.0119.ph.ph
-  call void @appendStringInfoSpaces(ptr noundef nonnull %9, i32 noundef %81) #11
-  br label %82
+126:                                              ; preds = %.loopexit248
+  call void @plpgsql_append_source_text(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %.0119.ph211, ptr noundef %5) #11
+  %127 = sub i32 %.1118224, %.0119.ph211
+  call void @appendStringInfoSpaces(ptr noundef nonnull %9, i32 noundef %127) #11
+  br label %128
 
-82:                                               ; preds = %79, %80
-  %.sink230 = phi i32 [ %.1118, %80 ], [ %1, %79 ]
-  %83 = load i32, ptr %4, align 4
-  call void @plpgsql_append_source_text(ptr noundef nonnull %9, i32 noundef %.sink230, i32 noundef %83, ptr noundef %5) #11
-  %84 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %85 = load i32, ptr %84, align 8
-  %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph, label %.critedge
+128:                                              ; preds = %.loopexit248, %126
+  %.sink245 = phi i32 [ %.1118224, %126 ], [ %1, %.loopexit248 ]
+  %129 = load i32, ptr %4, align 4
+  call void @plpgsql_append_source_text(ptr noundef nonnull %9, i32 noundef %.sink245, i32 noundef %129, ptr noundef %5) #11
+  %130 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %131 = load i32, ptr %130, align 8
+  %132 = icmp sgt i32 %131, 0
+  br i1 %132, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %82, %94
-  %87 = phi i32 [ %100, %94 ], [ %85, %82 ]
-  %88 = load ptr, ptr %9, align 8
-  %89 = zext nneg i32 %87 to i64
-  %90 = getelementptr i8, ptr %88, i64 %89
-  %91 = getelementptr i8, ptr %90, i64 -1
-  %92 = load i8, ptr %91, align 1
-  %93 = call zeroext i1 @scanner_isspace(i8 noundef signext %92) #11
-  br i1 %93, label %94, label %.critedge
+.lr.ph:                                           ; preds = %128, %140
+  %133 = phi i32 [ %146, %140 ], [ %131, %128 ]
+  %134 = load ptr, ptr %9, align 8
+  %135 = zext nneg i32 %133 to i64
+  %136 = getelementptr i8, ptr %134, i64 %135
+  %137 = getelementptr i8, ptr %136, i64 -1
+  %138 = load i8, ptr %137, align 1
+  %139 = call zeroext i1 @scanner_isspace(i8 noundef signext %138) #11
+  br i1 %139, label %140, label %.critedge
 
-94:                                               ; preds = %.lr.ph
-  %95 = load ptr, ptr %9, align 8
-  %96 = load i32, ptr %84, align 8
-  %97 = add i32 %96, -1
-  store i32 %97, ptr %84, align 8
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %95, i64 %98
-  store i8 0, ptr %99, align 1
-  %100 = load i32, ptr %84, align 8
-  %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %.lr.ph, label %.critedge, !llvm.loop !20
+140:                                              ; preds = %.lr.ph
+  %141 = load ptr, ptr %9, align 8
+  %142 = load i32, ptr %130, align 8
+  %143 = add i32 %142, -1
+  store i32 %143, ptr %130, align 8
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds i8, ptr %141, i64 %144
+  store i8 0, ptr %145, align 1
+  %146 = load i32, ptr %130, align 8
+  %147 = icmp sgt i32 %146, 0
+  br i1 %147, label %.lr.ph, label %.critedge, !llvm.loop !20
 
-.critedge:                                        ; preds = %.lr.ph, %94, %82
-  %102 = load ptr, ptr %9, align 8
-  %103 = call ptr @palloc0(i64 noundef 128) #11
-  %104 = call ptr @pstrdup(ptr noundef %102) #11
-  store ptr %104, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  store i32 0, ptr %105, align 8
-  %106 = load ptr, ptr @plpgsql_curr_compile, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  store ptr %106, ptr %107, align 8
-  %108 = call ptr @plpgsql_ns_top() #11
-  %109 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  store ptr %108, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  store i32 -1, ptr %110, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %103, i64 36
-  store i8 0, ptr %111, align 4
-  %112 = load ptr, ptr %9, align 8
-  call void @pfree(ptr noundef %112) #11
-  %113 = load ptr, ptr %103, align 8
-  %114 = load i32, ptr %105, align 8
+.critedge:                                        ; preds = %.lr.ph, %140, %128
+  %148 = load ptr, ptr %9, align 8
+  %149 = call ptr @palloc0(i64 noundef 128) #11
+  %150 = call ptr @pstrdup(ptr noundef %148) #11
+  store ptr %150, ptr %149, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  store i32 0, ptr %151, align 8
+  %152 = load ptr, ptr @plpgsql_curr_compile, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  store ptr %152, ptr %153, align 8
+  %154 = call ptr @plpgsql_ns_top() #11
+  %155 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  store ptr %154, ptr %155, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %149, i64 32
+  store i32 -1, ptr %156, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %149, i64 36
+  store i8 0, ptr %157, align 4
+  %158 = load ptr, ptr %9, align 8
+  call void @pfree(ptr noundef %158) #11
+  %159 = load ptr, ptr %149, align 8
+  %160 = load i32, ptr %151, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %115 = load i8, ptr @plpgsql_check_syntax, align 1, !range !3, !noundef !4
-  %116 = trunc nuw i8 %115 to i1
-  br i1 %116, label %117, label %check_sql_expr.exit
+  %161 = load i8, ptr @plpgsql_check_syntax, align 1, !range !3, !noundef !4
+  %162 = trunc nuw i8 %161 to i1
+  br i1 %162, label %163, label %check_sql_expr.exit
 
-117:                                              ; preds = %.critedge
+163:                                              ; preds = %.critedge
   store i32 %1, ptr %7, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %5, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @plpgsql_sql_error_callback, ptr %119, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %7, ptr %120, align 8
-  %121 = load ptr, ptr @error_context_stack, align 8
-  store ptr %121, ptr %8, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %5, ptr %164, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @plpgsql_sql_error_callback, ptr %165, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %7, ptr %166, align 8
+  %167 = load ptr, ptr @error_context_stack, align 8
+  store ptr %167, ptr %8, align 8
   store ptr %8, ptr @error_context_stack, align 8
-  %122 = load ptr, ptr @plpgsql_compile_tmp_cxt, align 8
-  %123 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %122, ptr @CurrentMemoryContext, align 8
-  %124 = call ptr @raw_parser(ptr noundef %113, i32 noundef %114) #11
-  store ptr %123, ptr @CurrentMemoryContext, align 8
-  %125 = load ptr, ptr %8, align 8
-  store ptr %125, ptr @error_context_stack, align 8
+  %168 = load ptr, ptr @plpgsql_compile_tmp_cxt, align 8
+  %169 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %168, ptr @CurrentMemoryContext, align 8
+  %170 = call ptr @raw_parser(ptr noundef %159, i32 noundef %160) #11
+  store ptr %169, ptr @CurrentMemoryContext, align 8
+  %171 = load ptr, ptr %8, align 8
+  store ptr %171, ptr @error_context_stack, align 8
   br label %check_sql_expr.exit
 
-check_sql_expr.exit:                              ; preds = %.critedge, %117
+check_sql_expr.exit:                              ; preds = %.critedge, %163
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %126 = call ptr @palloc0(i64 noundef 40) #11
-  store i32 16, ptr %126, align 8
-  %127 = call i32 @plpgsql_location_to_lineno(i32 noundef %1, ptr noundef %5) #11
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  store i32 %127, ptr %128, align 4
-  %129 = load ptr, ptr @plpgsql_curr_compile, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 528
-  %131 = load i32, ptr %130, align 8
-  %132 = add i32 %131, 1
-  store i32 %132, ptr %130, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store i32 %132, ptr %133, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  store ptr %103, ptr %134, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %126, i64 26
-  store i8 %.0121.ph.ph, ptr %135, align 2
-  %136 = load i8, ptr %11, align 1, !range !3, !noundef !4
-  %137 = getelementptr inbounds nuw i8, ptr %126, i64 27
-  store i8 %136, ptr %137, align 1
-  %138 = load ptr, ptr %10, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %126, i64 32
-  store ptr %138, ptr %139, align 8
+  %172 = call ptr @palloc0(i64 noundef 40) #11
+  store i32 16, ptr %172, align 8
+  %173 = call i32 @plpgsql_location_to_lineno(i32 noundef %1, ptr noundef %5) #11
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 4
+  store i32 %173, ptr %174, align 4
+  %175 = load ptr, ptr @plpgsql_curr_compile, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 528
+  %177 = load i32, ptr %176, align 8
+  %178 = add i32 %177, 1
+  store i32 %178, ptr %176, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  store i32 %178, ptr %179, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %172, i64 16
+  store ptr %149, ptr %180, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %172, i64 26
+  store i8 %.0121.ph205, ptr %181, align 2
+  %182 = load i8, ptr %11, align 1, !range !3, !noundef !4
+  %183 = getelementptr inbounds nuw i8, ptr %172, i64 27
+  store i8 %182, ptr %183, align 1
+  %184 = load ptr, ptr %10, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %172, i64 32
+  store ptr %184, ptr %185, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret ptr %126
+  ret ptr %172
 }
 
 ; Function Attrs: nounwind uwtable

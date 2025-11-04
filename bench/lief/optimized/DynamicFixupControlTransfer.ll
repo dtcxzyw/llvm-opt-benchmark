@@ -913,7 +913,7 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16: ; preds
   call void @_ZN6spdlog6logger4log_IJRA6_KcRKiEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %75, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %5, i32 noundef 1, ptr nonnull @.str.3, i64 12, ptr noundef nonnull align 1 dereferenceable(6) @__FUNCTION__._ZN4LIEF2PE27DynamicFixupControlTransfer5parseERNS0_6ParserERNS_10SpanStreamE, ptr noundef nonnull align 4 dereferenceable(4) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %_ZNK4LIEF12BinaryStream4readINS_2PE7details7reloc_tEEEN2tl8expectedIT_11lief_errorsEEv.exit.thread
+  br label %.loopexit
 
 76:                                               ; preds = %66
   %77 = load ptr, ptr %26, align 8, !tbaa !74, !noalias !63
@@ -928,7 +928,7 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16: ; preds
   store i64 %71, ptr %17, align 8, !tbaa !52
   %79 = call noundef i64 @_ZNK4LIEF10SpanStream4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #22
   %.not = icmp eq i64 %79, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit.thread.jt0, label %.lr.ph
 
 .lr.ph:                                           ; preds = %76, %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit
   %80 = load i64, ptr %27, align 8, !tbaa !52
@@ -942,7 +942,7 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %86 = and i64 %84, 4294967296
   %.not.i = icmp eq i64 %86, 0
-  br i1 %.not.i, label %_ZNK4LIEF12BinaryStream4readINS_2PE7details7reloc_tEEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, label %87
+  br i1 %.not.i, label %.loopexit, label %87
 
 87:                                               ; preds = %.lr.ph
   %88 = add i64 %80, 4
@@ -1045,13 +1045,17 @@ _ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push
   %125 = load ptr, ptr %124, align 8
   %126 = call noundef i64 %125(ptr noundef nonnull align 8 dereferenceable(24) %12) #22
   %127 = icmp ult i64 %122, %126
-  br i1 %127, label %.lr.ph, label %.loopexit
+  br i1 %127, label %.lr.ph, label %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit.thread.jt0
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit, %76
+_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit.thread.jt0: ; preds = %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16, %.loopexit
+.loopexit:                                        ; preds = %.lr.ph, %73
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %.critedge
+
+.backedge:                                        ; preds = %_ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push_backEOS3_.exit.thread.jt0, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16
   %128 = load i64, ptr %17, align 8, !tbaa !52
   %129 = load ptr, ptr %2, align 8, !tbaa !24
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
@@ -1060,11 +1064,7 @@ _ZNSt6vectorIN4LIEF2PE27DynamicFixupControlTransfer13reloc_entry_tESaIS3_EE9push
   %133 = icmp ult i64 %128, %132
   br i1 %133, label %35, label %.critedge, !llvm.loop !61
 
-_ZNK4LIEF12BinaryStream4readINS_2PE7details7reloc_tEEEN2tl8expectedIT_11lief_errorsEEv.exit.thread: ; preds = %.lr.ph, %73
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.critedge
-
-.critedge:                                        ; preds = %.backedge, %_ZNK4LIEF12BinaryStream4readINS_2PE7details7reloc_tEEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, %3, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16.thread
+.critedge:                                        ; preds = %.backedge, %.loopexit, %3, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16.thread
   ret void
 }
 

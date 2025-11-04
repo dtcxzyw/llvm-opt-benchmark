@@ -2150,8 +2150,8 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint8getInfo1EPN17btTypedC
   br label %.sink.split
 
 .sink.split:                                      ; preds = %15, %19
-  %.sink35 = phi i32 [ 1, %19 ], [ 2, %15 ]
-  %20 = add nsw i32 %16, %.sink35
+  %.sink34 = phi i32 [ 1, %19 ], [ 2, %15 ]
+  %20 = add nsw i32 %16, %.sink34
   store i32 %20, ptr %1, align 4, !tbaa !97
   br label %21
 
@@ -2185,8 +2185,8 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint8getInfo1EPN17btTypedC
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.preheader, label %15, !llvm.loop !102
 
-37:                                               ; preds = %.preheader, %78
-  %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %78 ]
+37:                                               ; preds = %.preheader, %76
+  %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %76 ]
   %38 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv29
   %39 = load float, ptr %38, align 4, !tbaa !10
   %40 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %14, i64 %indvars.iv29
@@ -2200,69 +2200,69 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint8getInfo1EPN17btTypedC
   %47 = load float, ptr %42, align 4, !tbaa !17
   %48 = fcmp ogt float %46, %47
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 72
-  br i1 %48, label %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit, label %50
+  br i1 %48, label %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt0, label %50
 
 50:                                               ; preds = %37
   %51 = fcmp oeq float %46, %47
   %52 = fsub float %44, %46
   store float %52, ptr %49, align 8, !tbaa !95
-  br i1 %51, label %60, label %54
+  br i1 %51, label %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt3, label %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt4
 
-_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit: ; preds = %37
-  %53 = getelementptr inbounds nuw i8, ptr %40, i64 84
-  store i32 0, ptr %53, align 4, !tbaa !94
-  store float 0.000000e+00, ptr %49, align 8, !tbaa !95
-  br label %64
+_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt4: ; preds = %50
+  %53 = fsub float %44, %47
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 76
+  store float %53, ptr %54, align 4, !tbaa !96
+  %55 = getelementptr inbounds nuw i8, ptr %40, i64 84
+  store i32 4, ptr %55, align 4, !tbaa !94
+  %56 = load i32, ptr %1, align 4, !tbaa !97
+  %57 = add nsw i32 %56, 2
+  store i32 %57, ptr %1, align 4, !tbaa !97
+  br label %62
 
-54:                                               ; preds = %50
-  %55 = fsub float %44, %47
-  %56 = getelementptr inbounds nuw i8, ptr %40, i64 76
-  store float %55, ptr %56, align 4, !tbaa !96
-  %57 = getelementptr inbounds nuw i8, ptr %40, i64 84
-  store i32 4, ptr %57, align 4, !tbaa !94
-  %58 = load i32, ptr %1, align 4, !tbaa !97
-  %59 = add nsw i32 %58, 2
-  store i32 %59, ptr %1, align 4, !tbaa !97
-  br label %64
+_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt3: ; preds = %50
+  %58 = getelementptr inbounds nuw i8, ptr %40, i64 84
+  store i32 3, ptr %58, align 4, !tbaa !94
+  %59 = load i32, ptr %1, align 4, !tbaa !97
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %1, align 4, !tbaa !97
+  br label %62
 
-60:                                               ; preds = %50
+_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt0: ; preds = %37
   %61 = getelementptr inbounds nuw i8, ptr %40, i64 84
-  store i32 3, ptr %61, align 4, !tbaa !94
-  %62 = load i32, ptr %1, align 4, !tbaa !97
-  %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %1, align 4, !tbaa !97
-  br label %64
+  store i32 0, ptr %61, align 4, !tbaa !94
+  store float 0.000000e+00, ptr %49, align 8, !tbaa !95
+  br label %62
 
-64:                                               ; preds = %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit, %60, %54
-  %65 = getelementptr inbounds nuw i8, ptr %40, i64 28
-  %66 = load i8, ptr %65, align 4, !tbaa !23, !range !100, !noundef !101
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %68, label %71
+62:                                               ; preds = %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt0, %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt3, %_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi.exit.jt4
+  %63 = getelementptr inbounds nuw i8, ptr %40, i64 28
+  %64 = load i8, ptr %63, align 4, !tbaa !23, !range !100, !noundef !101
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %66, label %69
 
-68:                                               ; preds = %64
-  %69 = load i32, ptr %1, align 4, !tbaa !97
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %1, align 4, !tbaa !97
-  br label %71
+66:                                               ; preds = %62
+  %67 = load i32, ptr %1, align 4, !tbaa !97
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %1, align 4, !tbaa !97
+  br label %69
 
-71:                                               ; preds = %68, %64
-  %72 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  %73 = load i8, ptr %72, align 8, !tbaa !28, !range !100, !noundef !101
-  %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %75, label %78
+69:                                               ; preds = %66, %62
+  %70 = getelementptr inbounds nuw i8, ptr %40, i64 48
+  %71 = load i8, ptr %70, align 8, !tbaa !28, !range !100, !noundef !101
+  %72 = trunc nuw i8 %71 to i1
+  br i1 %72, label %73, label %76
 
-75:                                               ; preds = %71
-  %76 = load i32, ptr %1, align 4, !tbaa !97
-  %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %1, align 4, !tbaa !97
-  br label %78
+73:                                               ; preds = %69
+  %74 = load i32, ptr %1, align 4, !tbaa !97
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %1, align 4, !tbaa !97
+  br label %76
 
-78:                                               ; preds = %71, %75
+76:                                               ; preds = %69, %73
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 3
-  br i1 %exitcond32.not, label %79, label %37, !llvm.loop !103
+  br i1 %exitcond32.not, label %77, label %37, !llvm.loop !103
 
-79:                                               ; preds = %78
+77:                                               ; preds = %76
   ret void
 }
 

@@ -106,7 +106,7 @@ bits_init8_le.exit.thread:                        ; preds = %32, %bits_init8_le.
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit107
 
-.loopexit:                                        ; preds = %130, %.critedge.thread
+.loopexit:                                        ; preds = %133, %.critedge.thread
   br label %56, !llvm.loop !30
 
 56:                                               ; preds = %.preheader, %.loopexit
@@ -169,27 +169,27 @@ bits_init8_le.exit.thread:                        ; preds = %32, %bits_init8_le.
   %.not83129 = icmp sgt i32 %80, %75
   br i1 %.not83129, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.critedge.thread, %130
-  %81 = phi i32 [ %131, %130 ], [ %75, %.critedge.thread ]
-  %82 = phi i32 [ %133, %130 ], [ %76, %.critedge.thread ]
+.lr.ph:                                           ; preds = %.critedge.thread, %133
+  %81 = phi i32 [ %134, %133 ], [ %75, %.critedge.thread ]
+  %82 = phi i32 [ %136, %133 ], [ %76, %.critedge.thread ]
   %83 = load ptr, ptr %14, align 8, !tbaa !34
   %84 = sext i32 %82 to i64
   %85 = getelementptr inbounds i8, ptr %83, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !23
   %87 = icmp eq i8 %86, -1
-  br i1 %87, label %88, label %130
+  br i1 %87, label %88, label %133
 
 88:                                               ; preds = %.lr.ph
   %89 = getelementptr i8, ptr %85, i64 1
   %90 = load i8, ptr %89, align 1, !tbaa !23
   %91 = icmp eq i8 %90, -96
-  br i1 %91, label %92, label %130
+  br i1 %91, label %92, label %133
 
 92:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %93 = sub nsw i32 %81, %82
   %94 = icmp ugt i32 %93, 268435455
-  br i1 %94, label %.loopexit106.loopexit, label %95
+  br i1 %94, label %bits_init8_le.exit100.thread.jt1, label %95
 
 95:                                               ; preds = %92
   %96 = shl nuw nsw i32 %93, 3
@@ -218,7 +218,7 @@ bits_init8_le.exit100:                            ; preds = %99, %95
   %103 = select i1 %.not84, ptr %27, ptr %13
   %104 = call i32 @ff_tak_decode_frame_header(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %103, i32 noundef 127) #4
   %.not85 = icmp eq i32 %104, 0
-  br i1 %.not85, label %105, label %bits_init8_le.exit100.thread._crit_edge
+  br i1 %.not85, label %105, label %bits_init8_le.exit100.thread.jt0
 
 105:                                              ; preds = %bits_init8_le.exit100
   %106 = load ptr, ptr %14, align 8, !tbaa !34
@@ -237,12 +237,12 @@ bits_init8_le.exit100:                            ; preds = %99, %95
   %118 = sdiv i32 %117, 8
   %119 = call i32 @ff_tak_check_crc(ptr noundef %109, i32 noundef %118) #4
   %.not86 = icmp eq i32 %119, 0
-  br i1 %.not86, label %120, label %bits_init8_le.exit100.thread._crit_edge
+  br i1 %.not86, label %120, label %bits_init8_le.exit100.thread.jt0
 
 120:                                              ; preds = %105
   %121 = load i32, ptr %26, align 8, !tbaa !35
   %.not87 = icmp eq i32 %121, 0
-  br i1 %.not87, label %122, label %.loopexit105.loopexit
+  br i1 %.not87, label %122, label %bits_init8_le.exit100.thread.jt2
 
 122:                                              ; preds = %120
   store i32 1, ptr %26, align 8, !tbaa !35
@@ -261,36 +261,40 @@ bits_init8_le.exit100:                            ; preds = %99, %95
   %129 = lshr i32 %128, 1
   %.lobit = and i32 %129, 1
   store i32 %.lobit, ptr %31, align 8, !tbaa !37
-  br label %bits_init8_le.exit100.thread._crit_edge
+  br label %bits_init8_le.exit100.thread.jt0
 
-bits_init8_le.exit100.thread._crit_edge:          ; preds = %126, %105, %bits_init8_le.exit100
+bits_init8_le.exit100.thread.jt1:                 ; preds = %92
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  br label %.loopexit106
+
+bits_init8_le.exit100.thread.jt0:                 ; preds = %bits_init8_le.exit100, %105, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.pre149 = load i32, ptr %19, align 8, !tbaa !32
   %.pre150 = load i32, ptr %20, align 8, !tbaa !33
-  br label %130
+  br label %133
 
-130:                                              ; preds = %bits_init8_le.exit100.thread._crit_edge, %.lr.ph, %88
-  %131 = phi i32 [ %.pre150, %bits_init8_le.exit100.thread._crit_edge ], [ %81, %88 ], [ %81, %.lr.ph ]
-  %132 = phi i32 [ %.pre149, %bits_init8_le.exit100.thread._crit_edge ], [ %82, %88 ], [ %82, %.lr.ph ]
-  %133 = add nsw i32 %132, 1
-  store i32 %133, ptr %19, align 8, !tbaa !32
-  %134 = add nsw i32 %133, %15
-  %.not83 = icmp sgt i32 %134, %131
-  br i1 %.not83, label %.loopexit, label %.lr.ph, !llvm.loop !38
-
-.loopexit105.loopexit:                            ; preds = %120
+bits_init8_le.exit100.thread.jt2:                 ; preds = %120
   store i32 0, ptr %26, align 8, !tbaa !35
-  %135 = load i32, ptr %19, align 8, !tbaa !32
-  %136 = load i32, ptr %20, align 8, !tbaa !33
-  %137 = sub nsw i32 %135, %136
+  %130 = load i32, ptr %19, align 8, !tbaa !32
+  %131 = load i32, ptr %20, align 8, !tbaa !33
+  %132 = sub nsw i32 %130, %131
   store i32 0, ptr %19, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit105
 
-.loopexit105:                                     ; preds = %62, %.loopexit105.loopexit
-  %138 = phi i32 [ %77, %.loopexit105.loopexit ], [ %57, %62 ]
-  %.374 = phi i32 [ %137, %.loopexit105.loopexit ], [ -100, %62 ]
-  %.4 = phi i32 [ %.170, %.loopexit105.loopexit ], [ %.069, %62 ]
+133:                                              ; preds = %bits_init8_le.exit100.thread.jt0, %.lr.ph, %88
+  %134 = phi i32 [ %.pre150, %bits_init8_le.exit100.thread.jt0 ], [ %81, %88 ], [ %81, %.lr.ph ]
+  %135 = phi i32 [ %.pre149, %bits_init8_le.exit100.thread.jt0 ], [ %82, %88 ], [ %82, %.lr.ph ]
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %19, align 8, !tbaa !32
+  %137 = add nsw i32 %136, %15
+  %.not83 = icmp sgt i32 %137, %134
+  br i1 %.not83, label %.loopexit, label %.lr.ph, !llvm.loop !38
+
+.loopexit105:                                     ; preds = %62, %bits_init8_le.exit100.thread.jt2
+  %138 = phi i32 [ %77, %bits_init8_le.exit100.thread.jt2 ], [ %57, %62 ]
+  %.374 = phi i32 [ %132, %bits_init8_le.exit100.thread.jt2 ], [ -100, %62 ]
+  %.4 = phi i32 [ %.170, %bits_init8_le.exit100.thread.jt2 ], [ %.069, %62 ]
   %139 = icmp ne i32 %.4, 0
   %140 = icmp eq i32 %138, 0
   %or.cond.not91 = select i1 %139, i1 %140, i1 false
@@ -326,13 +330,9 @@ bits_init8_le.exit100.thread._crit_edge:          ; preds = %126, %105, %bits_in
   store i32 %153, ptr %3, align 4, !tbaa !9
   br label %.loopexit107
 
-.loopexit106.loopexit:                            ; preds = %92
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.loopexit106
-
-.loopexit106:                                     ; preds = %..loopexit106_crit_edge, %.loopexit106.loopexit, %74, %.loopexit105
-  %154 = phi i32 [ 0, %.loopexit105 ], [ %.pre151, %..loopexit106_crit_edge ], [ %57, %74 ], [ %77, %.loopexit106.loopexit ]
-  %.3 = phi i32 [ %.4, %.loopexit105 ], [ %.4, %..loopexit106_crit_edge ], [ %.069, %74 ], [ %.170, %.loopexit106.loopexit ]
+.loopexit106:                                     ; preds = %bits_init8_le.exit100.thread.jt1, %..loopexit106_crit_edge, %74, %.loopexit105
+  %154 = phi i32 [ 0, %.loopexit105 ], [ %.pre151, %..loopexit106_crit_edge ], [ %57, %74 ], [ %77, %bits_init8_le.exit100.thread.jt1 ]
+  %.3 = phi i32 [ %.4, %.loopexit105 ], [ %.4, %..loopexit106_crit_edge ], [ %.069, %74 ], [ %.170, %bits_init8_le.exit100.thread.jt1 ]
   store ptr null, ptr %2, align 8, !tbaa !4
   store i32 0, ptr %3, align 4, !tbaa !9
   %155 = add nsw i32 %154, %.3

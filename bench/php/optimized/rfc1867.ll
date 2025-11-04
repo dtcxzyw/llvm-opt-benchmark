@@ -447,17 +447,17 @@ multipart_buffer_new.exit:                        ; preds = %148, %152
   br label %192
 
 192:                                              ; preds = %.backedge, %165
-  %.1402 = phi i64 [ %spec.select, %165 ], [ %.2403747, %.backedge ]
-  %.0395 = phi i64 [ %45, %165 ], [ %.1396748, %.backedge ]
-  %.0390 = phi i32 [ 0, %165 ], [ %.1391749, %.backedge ]
-  %.0383 = phi i64 [ 0, %165 ], [ %.1384750, %.backedge ]
-  %.0370 = phi i32 [ 0, %165 ], [ %.1371751, %.backedge ]
-  %.0362 = phi i32 [ 0, %165 ], [ %.1363752, %.backedge ]
-  %.0356 = phi i64 [ 0, %165 ], [ %.1357753, %.backedge ]
-  %.0337 = phi i64 [ 0, %165 ], [ %.1338754, %.backedge ]
-  %.1324 = phi ptr [ null, %165 ], [ %.2325755, %.backedge ]
-  %.1318 = phi ptr [ null, %165 ], [ %.2319756, %.backedge ]
-  %.1315 = phi ptr [ null, %165 ], [ %.2316757, %.backedge ]
+  %.1402 = phi i64 [ %spec.select, %165 ], [ %.2403.jt0, %.backedge ]
+  %.0395 = phi i64 [ %45, %165 ], [ %.1396.jt0, %.backedge ]
+  %.0390 = phi i32 [ 0, %165 ], [ %.1391.jt0, %.backedge ]
+  %.0383 = phi i64 [ 0, %165 ], [ %.1384.jt0, %.backedge ]
+  %.0370 = phi i32 [ 0, %165 ], [ %.1371.jt0, %.backedge ]
+  %.0362 = phi i32 [ 0, %165 ], [ %.1363.jt0, %.backedge ]
+  %.0356 = phi i64 [ 0, %165 ], [ %.1357.jt0, %.backedge ]
+  %.0337 = phi i64 [ 0, %165 ], [ %.1338.jt0, %.backedge ]
+  %.1324 = phi ptr [ null, %165 ], [ %.2325.jt0, %.backedge ]
+  %.1318 = phi ptr [ null, %165 ], [ %.2319.jt0, %.backedge ]
+  %.1315 = phi ptr [ null, %165 ], [ %.2316.jt0, %.backedge ]
   %193 = load i32, ptr %145, align 4, !tbaa !56
   %194 = icmp eq i32 %193, 0
   br i1 %194, label %195, label %multipart_buffer_eof.exit.thread
@@ -751,11 +751,11 @@ php_mime_get_hdr_value.exit:                      ; preds = %.lr.ph.i512
 307:                                              ; preds = %306
   %308 = load ptr, ptr @zend_ce_request_parse_body_exception, align 8, !tbaa !45
   %309 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %308, i64 noundef 0, ptr noundef nonnull @.str.9, i32 noundef %89) #21
-  br label %689
+  br label %690
 
 310:                                              ; preds = %306
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, i32 noundef %89) #21
-  br label %689
+  br label %690
 
 .preheader642:                                    ; preds = %.lr.ph, %.preheader643
   %311 = phi i8 [ %301, %.preheader643 ], [ %315, %.lr.ph ]
@@ -1109,7 +1109,7 @@ safe_php_register_variable.exit:                  ; preds = %419, %414, %427, %4
   %.4360 = phi i64 [ %.5361, %436 ], [ %.0356, %.thread557 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread759
+  br label %689
 
 439:                                              ; preds = %.critedge.thread, %.critedge
   %440 = phi i1 [ false, %.critedge.thread ], [ %378, %.critedge ]
@@ -1157,11 +1157,11 @@ safe_php_register_variable.exit:                  ; preds = %419, %414, %427, %4
 .thread576:                                       ; preds = %.thread572, %457
   %458 = load ptr, ptr @zend_ce_request_parse_body_exception, align 8, !tbaa !45
   %459 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %458, i64 noundef 0, ptr noundef nonnull @.str.16) #21
-  br label %689
+  br label %690
 
 .thread567:                                       ; preds = %.thread559, %457
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16) #21
-  br label %689
+  br label %690
 
 460:                                              ; preds = %.thread572, %.thread559, %449
   %.4366565 = phi i32 [ 1, %.thread559 ], [ %.4366, %449 ], [ 1, %.thread572 ]
@@ -1242,7 +1242,7 @@ safe_php_register_variable.exit:                  ; preds = %419, %414, %427, %4
   %484 = load ptr, ptr %14, align 8, !tbaa !62
   call void @_efree(ptr noundef %484) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br label %.thread759
+  br label %689
 
 485:                                              ; preds = %481
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -1259,7 +1259,7 @@ safe_php_register_variable.exit:                  ; preds = %419, %414, %427, %4
   call void @_efree(ptr noundef %.3355) #21
   %487 = load ptr, ptr %14, align 8, !tbaa !62
   call void @_efree(ptr noundef %487) #21
-  br label %.thread759
+  br label %689
 
 488:                                              ; preds = %485, %486
   %489 = load ptr, ptr %14, align 8, !tbaa !62
@@ -1341,8 +1341,8 @@ safe_php_register_variable.exit:                  ; preds = %419, %414, %427, %4
   %.pr = load i64, ptr %15, align 8, !tbaa !63
   %519 = add i64 %.pr, %.0345.ph
   %520 = icmp sgt i64 %519, %.0356
-  %or.cond804 = select i1 %.not476, i1 %520, i1 false
-  br i1 %or.cond804, label %528, label %thread-pre-split
+  %or.cond768 = select i1 %.not476, i1 %520, i1 false
+  br i1 %or.cond768, label %528, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %518
   %.not477 = icmp eq i64 %.pr, 0
@@ -1754,47 +1754,47 @@ register_http_post_files_variable_ex.exit523:     ; preds = %685, %688
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @_efree(ptr noundef nonnull %.3355) #21
-  br label %.thread759
+  br label %689
 
-.thread759:                                       ; preds = %438, %.thread600, %register_http_post_files_variable_ex.exit523, %.thread597
-  %.3398.ph = phi i64 [ %.4399563, %.thread597 ], [ %.5400, %register_http_post_files_variable_ex.exit523 ], [ %.4399563, %.thread600 ], [ %.0395, %438 ]
-  %.3393.ph = phi i32 [ %.0390, %.thread597 ], [ %.4394, %register_http_post_files_variable_ex.exit523 ], [ %.0390, %.thread600 ], [ %.0390, %438 ]
-  %.3386.ph = phi i64 [ %.0383, %.thread597 ], [ %.0383, %register_http_post_files_variable_ex.exit523 ], [ %.0383, %.thread600 ], [ %402, %438 ]
-  %.3373.ph = phi i32 [ %.4374, %.thread597 ], [ %.4374, %register_http_post_files_variable_ex.exit523 ], [ %.4374, %.thread600 ], [ %.0370, %438 ]
-  %.3365.ph = phi i32 [ 0, %.thread597 ], [ 0, %register_http_post_files_variable_ex.exit523 ], [ 1, %.thread600 ], [ %.0362, %438 ]
-  %.3359.ph = phi i64 [ %.0356, %.thread597 ], [ %.0356, %register_http_post_files_variable_ex.exit523 ], [ %.0356, %.thread600 ], [ %.4360, %438 ]
-  %.3340.ph = phi i64 [ %.0337, %.thread597 ], [ %.4341, %register_http_post_files_variable_ex.exit523 ], [ %.0337, %.thread600 ], [ %.0337, %438 ]
-  %.4327.ph = phi ptr [ %.1324, %.thread597 ], [ %.5328, %register_http_post_files_variable_ex.exit523 ], [ %.1324, %.thread600 ], [ %.1324, %438 ]
-  %.4321.ph = phi ptr [ %.1318, %.thread597 ], [ %.5322, %register_http_post_files_variable_ex.exit523 ], [ %.1318, %.thread600 ], [ %.1318, %438 ]
-  %.4.ph = phi ptr [ %.1315, %.thread597 ], [ %.5, %register_http_post_files_variable_ex.exit523 ], [ %.1315, %.thread600 ], [ %.1315, %438 ]
+689:                                              ; preds = %.thread597, %register_http_post_files_variable_ex.exit523, %.thread600, %438
+  %.3398.jt0 = phi i64 [ %.0395, %438 ], [ %.4399563, %.thread600 ], [ %.5400, %register_http_post_files_variable_ex.exit523 ], [ %.4399563, %.thread597 ]
+  %.3393.jt0 = phi i32 [ %.0390, %438 ], [ %.0390, %.thread600 ], [ %.4394, %register_http_post_files_variable_ex.exit523 ], [ %.0390, %.thread597 ]
+  %.3386.jt0 = phi i64 [ %402, %438 ], [ %.0383, %.thread600 ], [ %.0383, %register_http_post_files_variable_ex.exit523 ], [ %.0383, %.thread597 ]
+  %.3373.jt0 = phi i32 [ %.0370, %438 ], [ %.4374, %.thread600 ], [ %.4374, %register_http_post_files_variable_ex.exit523 ], [ %.4374, %.thread597 ]
+  %.3365.jt0 = phi i32 [ %.0362, %438 ], [ 1, %.thread600 ], [ 0, %register_http_post_files_variable_ex.exit523 ], [ 0, %.thread597 ]
+  %.3359.jt0 = phi i64 [ %.4360, %438 ], [ %.0356, %.thread600 ], [ %.0356, %register_http_post_files_variable_ex.exit523 ], [ %.0356, %.thread597 ]
+  %.3340.jt0 = phi i64 [ %.0337, %438 ], [ %.0337, %.thread600 ], [ %.4341, %register_http_post_files_variable_ex.exit523 ], [ %.0337, %.thread597 ]
+  %.4327.jt0 = phi ptr [ %.1324, %438 ], [ %.1324, %.thread600 ], [ %.5328, %register_http_post_files_variable_ex.exit523 ], [ %.1324, %.thread597 ]
+  %.4321.jt0 = phi ptr [ %.1318, %438 ], [ %.1318, %.thread600 ], [ %.5322, %register_http_post_files_variable_ex.exit523 ], [ %.1318, %.thread597 ]
+  %.4.jt0 = phi ptr [ %.1315, %438 ], [ %.1315, %.thread600 ], [ %.5, %register_http_post_files_variable_ex.exit523 ], [ %.1315, %.thread597 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
-689:                                              ; preds = %310, %307, %.thread567, %.thread576
+690:                                              ; preds = %310, %307, %.thread567, %.thread576
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %multipart_buffer_eof.exit.thread540.sink.split
 
-.backedge:                                        ; preds = %php_mime_get_hdr_value.exit.thread, %php_mime_get_hdr_value.exit, %.thread759
-  %.2316757 = phi ptr [ %.4.ph, %.thread759 ], [ %.1315, %php_mime_get_hdr_value.exit ], [ %.1315, %php_mime_get_hdr_value.exit.thread ]
-  %.2319756 = phi ptr [ %.4321.ph, %.thread759 ], [ %.1318, %php_mime_get_hdr_value.exit ], [ %.1318, %php_mime_get_hdr_value.exit.thread ]
-  %.2325755 = phi ptr [ %.4327.ph, %.thread759 ], [ %.1324, %php_mime_get_hdr_value.exit ], [ %.1324, %php_mime_get_hdr_value.exit.thread ]
-  %.1338754 = phi i64 [ %.3340.ph, %.thread759 ], [ %.0337, %php_mime_get_hdr_value.exit ], [ %.0337, %php_mime_get_hdr_value.exit.thread ]
-  %.1357753 = phi i64 [ %.3359.ph, %.thread759 ], [ %.0356, %php_mime_get_hdr_value.exit ], [ %.0356, %php_mime_get_hdr_value.exit.thread ]
-  %.1363752 = phi i32 [ %.3365.ph, %.thread759 ], [ %.0362, %php_mime_get_hdr_value.exit ], [ %.0362, %php_mime_get_hdr_value.exit.thread ]
-  %.1371751 = phi i32 [ %.3373.ph, %.thread759 ], [ %.0370, %php_mime_get_hdr_value.exit ], [ %.0370, %php_mime_get_hdr_value.exit.thread ]
-  %.1384750 = phi i64 [ %.3386.ph, %.thread759 ], [ %.0383, %php_mime_get_hdr_value.exit ], [ %.0383, %php_mime_get_hdr_value.exit.thread ]
-  %.1391749 = phi i32 [ %.3393.ph, %.thread759 ], [ %.0390, %php_mime_get_hdr_value.exit ], [ %.0390, %php_mime_get_hdr_value.exit.thread ]
-  %.1396748 = phi i64 [ %.3398.ph, %.thread759 ], [ %.0395, %php_mime_get_hdr_value.exit ], [ %.0395, %php_mime_get_hdr_value.exit.thread ]
-  %.2403747 = phi i64 [ %297, %.thread759 ], [ %.1402, %php_mime_get_hdr_value.exit ], [ %.1402, %php_mime_get_hdr_value.exit.thread ]
+.backedge:                                        ; preds = %php_mime_get_hdr_value.exit.thread, %689, %php_mime_get_hdr_value.exit
+  %.2403.jt0 = phi i64 [ %.1402, %php_mime_get_hdr_value.exit ], [ %.1402, %php_mime_get_hdr_value.exit.thread ], [ %297, %689 ]
+  %.1396.jt0 = phi i64 [ %.0395, %php_mime_get_hdr_value.exit ], [ %.0395, %php_mime_get_hdr_value.exit.thread ], [ %.3398.jt0, %689 ]
+  %.1391.jt0 = phi i32 [ %.0390, %php_mime_get_hdr_value.exit ], [ %.0390, %php_mime_get_hdr_value.exit.thread ], [ %.3393.jt0, %689 ]
+  %.1384.jt0 = phi i64 [ %.0383, %php_mime_get_hdr_value.exit ], [ %.0383, %php_mime_get_hdr_value.exit.thread ], [ %.3386.jt0, %689 ]
+  %.1371.jt0 = phi i32 [ %.0370, %php_mime_get_hdr_value.exit ], [ %.0370, %php_mime_get_hdr_value.exit.thread ], [ %.3373.jt0, %689 ]
+  %.1363.jt0 = phi i32 [ %.0362, %php_mime_get_hdr_value.exit ], [ %.0362, %php_mime_get_hdr_value.exit.thread ], [ %.3365.jt0, %689 ]
+  %.1357.jt0 = phi i64 [ %.0356, %php_mime_get_hdr_value.exit ], [ %.0356, %php_mime_get_hdr_value.exit.thread ], [ %.3359.jt0, %689 ]
+  %.1338.jt0 = phi i64 [ %.0337, %php_mime_get_hdr_value.exit ], [ %.0337, %php_mime_get_hdr_value.exit.thread ], [ %.3340.jt0, %689 ]
+  %.2325.jt0 = phi ptr [ %.1324, %php_mime_get_hdr_value.exit ], [ %.1324, %php_mime_get_hdr_value.exit.thread ], [ %.4327.jt0, %689 ]
+  %.2319.jt0 = phi ptr [ %.1318, %php_mime_get_hdr_value.exit ], [ %.1318, %php_mime_get_hdr_value.exit.thread ], [ %.4321.jt0, %689 ]
+  %.2316.jt0 = phi ptr [ %.1315, %php_mime_get_hdr_value.exit ], [ %.1315, %php_mime_get_hdr_value.exit.thread ], [ %.4.jt0, %689 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %192
 
-multipart_buffer_eof.exit.thread540.sink.split:   ; preds = %.thread627, %689
+multipart_buffer_eof.exit.thread540.sink.split:   ; preds = %.thread627, %690
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1805,76 +1805,76 @@ multipart_buffer_eof.exit.thread540:              ; preds = %195, %multipart_buf
   %.0323 = phi ptr [ null, %161 ], [ %.1324, %multipart_buffer_eof.exit.thread540.sink.split ], [ %.1324, %multipart_buffer_eof.exit ], [ %.1324, %195 ]
   %.0317 = phi ptr [ null, %161 ], [ %.1318, %multipart_buffer_eof.exit.thread540.sink.split ], [ %.1318, %multipart_buffer_eof.exit ], [ %.1318, %195 ]
   %.0314 = phi ptr [ null, %161 ], [ %.1315, %multipart_buffer_eof.exit.thread540.sink.split ], [ %.1315, %multipart_buffer_eof.exit ], [ %.1315, %195 ]
-  %690 = load ptr, ptr @php_rfc1867_callback, align 8, !tbaa !40
-  %.not495 = icmp eq ptr %690, null
-  br i1 %.not495, label %694, label %691
+  %691 = load ptr, ptr @php_rfc1867_callback, align 8, !tbaa !40
+  %.not495 = icmp eq ptr %691, null
+  br i1 %.not495, label %695, label %692
 
-691:                                              ; preds = %multipart_buffer_eof.exit.thread540
+692:                                              ; preds = %multipart_buffer_eof.exit.thread540
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %692 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !61
-  store i64 %692, ptr %35, align 8, !tbaa !107
-  %693 = call i32 %690(i32 noundef 5, ptr noundef nonnull %35, ptr noundef nonnull %10) #21
+  %693 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !61
+  store i64 %693, ptr %35, align 8, !tbaa !107
+  %694 = call i32 %691(i32 noundef 5, ptr noundef nonnull %35, ptr noundef nonnull %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br label %694
+  br label %695
 
-694:                                              ; preds = %691, %multipart_buffer_eof.exit.thread540
+695:                                              ; preds = %692, %multipart_buffer_eof.exit.thread540
   %.not496 = icmp eq ptr %.0317, null
-  br i1 %.not496, label %696, label %695
+  br i1 %.not496, label %697, label %696
 
-695:                                              ; preds = %694
+696:                                              ; preds = %695
   call void @_efree(ptr noundef nonnull %.0317) #21
-  br label %696
+  br label %697
 
-696:                                              ; preds = %695, %694
+697:                                              ; preds = %696, %695
   %.not497 = icmp eq ptr %.0323, null
-  br i1 %.not497, label %698, label %697
+  br i1 %.not497, label %699, label %698
 
-697:                                              ; preds = %696
+698:                                              ; preds = %697
   call void @_efree(ptr noundef nonnull %.0323) #21
-  br label %698
+  br label %699
 
-698:                                              ; preds = %697, %696
+699:                                              ; preds = %698, %697
   %.not498 = icmp eq ptr %.0314, null
-  br i1 %.not498, label %700, label %699
+  br i1 %.not498, label %701, label %700
 
-699:                                              ; preds = %698
+700:                                              ; preds = %699
   call void @_efree(ptr noundef nonnull %.0314) #21
-  br label %700
+  br label %701
 
-700:                                              ; preds = %699, %698
+701:                                              ; preds = %700, %699
   call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @core_globals, i64 224)) #21
   call void @zend_llist_destroy(ptr noundef nonnull %9) #21
-  %701 = load ptr, ptr %139, align 8, !tbaa !109
-  %.not499 = icmp eq ptr %701, null
-  br i1 %.not499, label %703, label %702
+  %702 = load ptr, ptr %139, align 8, !tbaa !109
+  %.not499 = icmp eq ptr %702, null
+  br i1 %.not499, label %704, label %703
 
-702:                                              ; preds = %700
-  call void @_efree(ptr noundef nonnull %701) #21
-  br label %703
+703:                                              ; preds = %701
+  call void @_efree(ptr noundef nonnull %702) #21
+  br label %704
 
-703:                                              ; preds = %702, %700
-  %704 = load ptr, ptr %137, align 8, !tbaa !64
-  %.not500 = icmp eq ptr %704, null
-  br i1 %.not500, label %706, label %705
+704:                                              ; preds = %703, %701
+  %705 = load ptr, ptr %137, align 8, !tbaa !64
+  %.not500 = icmp eq ptr %705, null
+  br i1 %.not500, label %707, label %706
 
-705:                                              ; preds = %703
-  call void @_efree(ptr noundef nonnull %704) #21
-  br label %706
+706:                                              ; preds = %704
+  call void @_efree(ptr noundef nonnull %705) #21
+  br label %707
 
-706:                                              ; preds = %705, %703
-  %707 = load ptr, ptr %131, align 8, !tbaa !49
-  %.not501 = icmp eq ptr %707, null
-  br i1 %.not501, label %709, label %708
+707:                                              ; preds = %706, %704
+  %708 = load ptr, ptr %131, align 8, !tbaa !49
+  %.not501 = icmp eq ptr %708, null
+  br i1 %.not501, label %710, label %709
 
-708:                                              ; preds = %706
-  call void @_efree(ptr noundef nonnull %707) #21
-  br label %709
+709:                                              ; preds = %707
+  call void @_efree(ptr noundef nonnull %708) #21
+  br label %710
 
-709:                                              ; preds = %706, %708
+710:                                              ; preds = %707, %709
   call void @_efree(ptr noundef nonnull %131) #21
   br label %.loopexit
 
-.loopexit:                                        ; preds = %128, %709, %106, %103, %118, %115, %82, %85
+.loopexit:                                        ; preds = %128, %710, %106, %103, %118, %115, %82, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

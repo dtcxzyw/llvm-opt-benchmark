@@ -1661,17 +1661,17 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
 
 59:                                               ; preds = %.noexc70
   store i32 7, ptr %4, align 4, !tbaa !14
-  br label %107
+  br label %108
 
 60:                                               ; preds = %58, %55
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %112
 
 ._crit_edge.thread:                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %8, i8 0, i64 3, i1 false)
-  br label %95
+  br label %96
 
 .lr.ph:                                           ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1682,8 +1682,8 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   br label %65
 
 65:                                               ; preds = %.lr.ph, %.backedge
-  %.04095 = phi i32 [ 0, %.lr.ph ], [ %.141115, %.backedge ]
-  %.04294 = phi i32 [ 0, %.lr.ph ], [ %.244114, %.backedge ]
+  %.04095 = phi i32 [ 0, %.lr.ph ], [ %.141.jt0, %.backedge ]
+  %.04294 = phi i32 [ 0, %.lr.ph ], [ %.244.jt0, %.backedge ]
   %66 = add nsw i32 %.04095, 1
   %67 = sext i32 %.04095 to i64
   %68 = getelementptr inbounds i8, ptr %10, i64 %67
@@ -1694,7 +1694,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
 71:                                               ; preds = %75
   %72 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %107
 
 73:                                               ; preds = %65
   %74 = icmp eq i32 %66, %53
@@ -1727,13 +1727,13 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
 88:                                               ; preds = %76
   store i32 10, ptr %4, align 4, !tbaa !14
   invoke void (i32, ptr, ...) @error(i32 noundef %64, ptr noundef nonnull @.str.33)
-          to label %.thread88.loopexit unwind label %89
+          to label %94 unwind label %89
 
 89:                                               ; preds = %88
   %90 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %106
+  br label %107
 
 91:                                               ; preds = %76
   %92 = add nsw i32 %.04294, 1
@@ -1741,91 +1741,91 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.backedge
 
-.backedge:                                        ; preds = %65, %91
-  %.141115 = phi i32 [ %93, %91 ], [ %66, %65 ]
-  %.244114 = phi i32 [ %92, %91 ], [ %.04294, %65 ]
-  %.not61 = icmp slt i32 %.141115, %53
-  br i1 %.not61, label %65, label %._crit_edge, !llvm.loop !63
-
-._crit_edge:                                      ; preds = %.backedge
-  %94 = icmp eq i32 %.244114, 0
-  br i1 %94, label %95, label %102
-
-95:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.sroa.0.0108120 = phi ptr [ null, %._crit_edge.thread ], [ %57, %._crit_edge ]
-  invoke void (i32, ptr, ...) @warning(i32 noundef %2, ptr noundef nonnull @.str.34)
-          to label %96 unwind label %100
-
-96:                                               ; preds = %95
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %98 = load ptr, ptr %97, align 8, !tbaa !37
-  %99 = invoke ptr @bin_open(ptr noundef %98, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.35, ptr noundef %3, ptr noundef nonnull %4)
-          to label %.thread88 unwind label %100
-
-100:                                              ; preds = %102, %96, %95
-  %.sroa.0.0108121 = phi ptr [ %57, %102 ], [ %.sroa.0.0108120, %96 ], [ %.sroa.0.0108120, %95 ]
-  %101 = landingpad { ptr, i32 }
-          cleanup
-  br label %106
-
-102:                                              ; preds = %._crit_edge
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %104 = load ptr, ptr %103, align 8, !tbaa !37
-  %105 = invoke ptr @bin_open(ptr noundef %104, ptr noundef %1, i32 noundef %.244114, ptr noundef nonnull %57, ptr noundef null, ptr noundef %3, ptr noundef nonnull %4)
-          to label %.thread88 unwind label %100
-
-.thread88.loopexit:                               ; preds = %88
+94:                                               ; preds = %88
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread88
 
-.thread88:                                        ; preds = %.thread88.loopexit, %75, %102, %96
-  %.sroa.0.0107 = phi ptr [ %.sroa.0.0108120, %96 ], [ %57, %102 ], [ %57, %75 ], [ %57, %.thread88.loopexit ]
-  %.6 = phi ptr [ %99, %96 ], [ %105, %102 ], [ null, %75 ], [ null, %.thread88.loopexit ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+.backedge:                                        ; preds = %91, %65
+  %.244.jt0 = phi i32 [ %.04294, %65 ], [ %92, %91 ]
+  %.141.jt0 = phi i32 [ %66, %65 ], [ %93, %91 ]
+  %.not61 = icmp slt i32 %.141.jt0, %53
+  br i1 %.not61, label %65, label %._crit_edge, !llvm.loop !63
+
+._crit_edge:                                      ; preds = %.backedge
+  %95 = icmp eq i32 %.244.jt0, 0
+  br i1 %95, label %96, label %103
+
+96:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.sroa.0.0109116 = phi ptr [ null, %._crit_edge.thread ], [ %57, %._crit_edge ]
+  invoke void (i32, ptr, ...) @warning(i32 noundef %2, ptr noundef nonnull @.str.34)
+          to label %97 unwind label %101
+
+97:                                               ; preds = %96
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %99 = load ptr, ptr %98, align 8, !tbaa !37
+  %100 = invoke ptr @bin_open(ptr noundef %99, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.35, ptr noundef %3, ptr noundef nonnull %4)
+          to label %.thread88 unwind label %101
+
+101:                                              ; preds = %103, %97, %96
+  %.sroa.0.0109117 = phi ptr [ %57, %103 ], [ %.sroa.0.0109116, %97 ], [ %.sroa.0.0109116, %96 ]
+  %102 = landingpad { ptr, i32 }
+          cleanup
   br label %107
 
-106:                                              ; preds = %71, %89, %100
-  %.sroa.0.0110 = phi ptr [ %.sroa.0.0108121, %100 ], [ %57, %71 ], [ %57, %89 ]
-  %.pn62 = phi { ptr, i32 } [ %101, %100 ], [ %72, %71 ], [ %90, %89 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %111
+103:                                              ; preds = %._crit_edge
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %105 = load ptr, ptr %104, align 8, !tbaa !37
+  %106 = invoke ptr @bin_open(ptr noundef %105, ptr noundef %1, i32 noundef %.244.jt0, ptr noundef nonnull %57, ptr noundef null, ptr noundef %3, ptr noundef nonnull %4)
+          to label %.thread88 unwind label %101
 
-107:                                              ; preds = %.thread88, %59
+.thread88:                                        ; preds = %94, %75, %103, %97
+  %.sroa.0.0107 = phi ptr [ %.sroa.0.0109116, %97 ], [ %57, %103 ], [ %57, %75 ], [ %57, %94 ]
+  %.6 = phi ptr [ %100, %97 ], [ %106, %103 ], [ null, %75 ], [ null, %94 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %108
+
+107:                                              ; preds = %71, %89, %101
+  %.sroa.0.0113 = phi ptr [ %.sroa.0.0109117, %101 ], [ %57, %71 ], [ %57, %89 ]
+  %.pn62 = phi { ptr, i32 } [ %102, %101 ], [ %72, %71 ], [ %90, %89 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %112
+
+108:                                              ; preds = %.thread88, %59
   %.sroa.0.1 = phi ptr [ null, %59 ], [ %.sroa.0.0107, %.thread88 ]
   %.1 = phi ptr [ null, %59 ], [ %.6, %.thread88 ]
   invoke void @uprv_free_77(ptr noundef %.sroa.0.1)
-          to label %_ZN6icu_7711LocalMemoryIhED2Ev.exit unwind label %108
+          to label %_ZN6icu_7711LocalMemoryIhED2Ev.exit unwind label %109
 
-108:                                              ; preds = %107
-  %109 = landingpad { ptr, i32 }
+109:                                              ; preds = %108
+  %110 = landingpad { ptr, i32 }
           catch ptr null
-  %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #23
+  %111 = extractvalue { ptr, i32 } %110, 0
+  call void @__clang_call_terminate(ptr %111) #23
   unreachable
 
-111:                                              ; preds = %106, %60
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0110, %106 ], [ null, %60 ]
-  %.pn62.pn = phi { ptr, i32 } [ %.pn62, %106 ], [ %61, %60 ]
+112:                                              ; preds = %107, %60
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0113, %107 ], [ null, %60 ]
+  %.pn62.pn = phi { ptr, i32 } [ %.pn62, %107 ], [ %61, %60 ]
   invoke void @uprv_free_77(ptr noundef %.sroa.0.2)
-          to label %_ZN6icu_7711LocalMemoryIhED2Ev.exit72 unwind label %112
+          to label %_ZN6icu_7711LocalMemoryIhED2Ev.exit72 unwind label %113
 
-112:                                              ; preds = %111
-  %113 = landingpad { ptr, i32 }
+113:                                              ; preds = %112
+  %114 = landingpad { ptr, i32 }
           catch ptr null
-  %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #23
+  %115 = extractvalue { ptr, i32 } %114, 0
+  call void @__clang_call_terminate(ptr %115) #23
   unreachable
 
-_ZN6icu_7711LocalMemoryIhED2Ev.exit:              ; preds = %.noexc68, %107, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit, %5, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %5 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ %.1, %107 ], [ null, %.noexc68 ]
+_ZN6icu_7711LocalMemoryIhED2Ev.exit:              ; preds = %.noexc68, %108, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit, %5, %11
+  %.0 = phi ptr [ null, %11 ], [ null, %5 ], [ null, %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit ], [ %.1, %108 ], [ null, %.noexc68 ]
   invoke void @uprv_free_77(ptr noundef %10)
-          to label %_ZN6icu_7711LocalMemoryIcED2Ev.exit unwind label %115
+          to label %_ZN6icu_7711LocalMemoryIcED2Ev.exit unwind label %116
 
-115:                                              ; preds = %_ZN6icu_7711LocalMemoryIhED2Ev.exit
-  %116 = landingpad { ptr, i32 }
+116:                                              ; preds = %_ZN6icu_7711LocalMemoryIhED2Ev.exit
+  %117 = landingpad { ptr, i32 }
           catch ptr null
-  %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #23
+  %118 = extractvalue { ptr, i32 } %117, 0
+  call void @__clang_call_terminate(ptr %118) #23
   unreachable
 
 _ZN6icu_7711LocalMemoryIcED2Ev.exit:              ; preds = %_ZN6icu_7711LocalMemoryIhED2Ev.exit
@@ -1833,16 +1833,16 @@ _ZN6icu_7711LocalMemoryIcED2Ev.exit:              ; preds = %_ZN6icu_7711LocalMe
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 
-_ZN6icu_7711LocalMemoryIhED2Ev.exit72:            ; preds = %111, %14
-  %.pn62.pn.pn.pn = phi { ptr, i32 } [ %15, %14 ], [ %.pn62.pn, %111 ]
+_ZN6icu_7711LocalMemoryIhED2Ev.exit72:            ; preds = %112, %14
+  %.pn62.pn.pn.pn = phi { ptr, i32 } [ %15, %14 ], [ %.pn62.pn, %112 ]
   invoke void @uprv_free_77(ptr noundef nonnull %10)
-          to label %_ZN6icu_7711LocalMemoryIcED2Ev.exit73 unwind label %118
+          to label %_ZN6icu_7711LocalMemoryIcED2Ev.exit73 unwind label %119
 
-118:                                              ; preds = %_ZN6icu_7711LocalMemoryIhED2Ev.exit72
-  %119 = landingpad { ptr, i32 }
+119:                                              ; preds = %_ZN6icu_7711LocalMemoryIhED2Ev.exit72
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #23
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #23
   unreachable
 
 _ZN6icu_7711LocalMemoryIcED2Ev.exit73:            ; preds = %_ZN6icu_7711LocalMemoryIhED2Ev.exit72

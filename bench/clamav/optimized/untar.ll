@@ -128,11 +128,11 @@ fmap_need_off_once_len.exit:                      ; preds = %.backedge, %24
 48:                                               ; preds = %41
   %49 = call i32 @cli_unlink(ptr noundef nonnull %7) #11
   %.not164 = icmp eq i32 %49, 0
-  br i1 %.not164, label %50, label %.thread240.loopexit
+  br i1 %.not164, label %50, label %.loopexit
 
 50:                                               ; preds = %48, %41
   %.not165 = icmp eq i32 %43, 0
-  br i1 %.not165, label %51, label %.thread240.loopexit
+  br i1 %.not165, label %51, label %.loopexit
 
 51:                                               ; preds = %50, %39
   %.2150 = phi i32 [ %.0148, %39 ], [ -1, %50 ]
@@ -143,11 +143,11 @@ fmap_need_off_once_len.exit:                      ; preds = %.backedge, %24
 54:                                               ; preds = %51
   %55 = call i32 @cli_checklimits(ptr noundef nonnull @.str.3, ptr noundef nonnull %2, i64 noundef 0, i64 noundef 0, i64 noundef 0) #11
   %.not166 = icmp eq i32 %55, 0
-  br i1 %.not166, label %56, label %.thread240.loopexit
+  br i1 %.not166, label %56, label %.loopexit
 
 56:                                               ; preds = %54
   %57 = icmp ult i64 %storemerge.i, 512
-  br i1 %57, label %.thread240.loopexit, label %58
+  br i1 %57, label %.loopexit, label %58
 
 58:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -203,11 +203,11 @@ testchecksum.exit:                                ; preds = %73
 testchecksum.exit.thread:                         ; preds = %58, %testchecksum.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #11
   %77 = icmp eq i32 %.0138, 0
-  br i1 %77, label %78, label %.thread309
+  br i1 %77, label %78, label %.thread214.jt0
 
 78:                                               ; preds = %testchecksum.exit.thread
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #11
-  br label %.thread309
+  br label %.thread214.jt0
 
 79:                                               ; preds = %testchecksum.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7, i32 noundef %.0.i.i) #11
@@ -223,7 +223,7 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
 
 82:                                               ; preds = %80
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %10) #11
-  br label %.thread240.loopexit
+  br label %.loopexit
 
 83:                                               ; preds = %80, %79
   %spec.select.sroa.sel191 = getelementptr inbounds nuw i8, ptr %.0.i, i64 156
@@ -233,13 +233,13 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
     i8 0, label %87
     i8 55, label %87
     i8 77, label %87
-    i8 49, label %.thread309
-    i8 53, label %.thread309
-    i8 50, label %.thread309
-    i8 51, label %.thread309
-    i8 52, label %.thread309
-    i8 54, label %.thread309
-    i8 86, label %.thread309
+    i8 49, label %.thread214.jt0
+    i8 53, label %.thread214.jt0
+    i8 50, label %.thread214.jt0
+    i8 51, label %.thread214.jt0
+    i8 52, label %.thread214.jt0
+    i8 54, label %.thread214.jt0
+    i8 86, label %.thread214.jt0
     i8 75, label %89
     i8 76, label %89
     i8 78, label %89
@@ -312,20 +312,20 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
 
 107:                                              ; preds = %.thread206
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14) #11
-  br label %.thread240.loopexit
+  br label %.loopexit
 
 108:                                              ; preds = %.thread206
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15) #11
   %109 = and i64 %105, 2147483647
   %110 = add i64 %109, %38
-  br label %.thread309
+  br label %.thread214.jt0
 
 111:                                              ; preds = %99
   %112 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %spec.select, i64 noundef 100) #11
   store i8 0, ptr %19, align 4, !tbaa !46
   %113 = call i32 @cli_matchmeta(ptr noundef nonnull %2, ptr noundef nonnull %8, i64 noundef %96, i64 noundef %96, i32 noundef 0, i32 noundef %.3131.ph, i32 noundef 0) #11
   %114 = icmp eq i32 %113, 1
-  br i1 %114, label %.thread240.loopexit, label %115
+  br i1 %114, label %.loopexit, label %115
 
 115:                                              ; preds = %111
   %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 4096, ptr noundef nonnull @.str.16, ptr noundef %0, i32 noundef %.3131.ph) #11
@@ -341,13 +341,23 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
   %122 = call ptr @cli_strerror(i32 noundef %121, ptr noundef nonnull %12, i64 noundef 128) #11
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %7, ptr noundef %122) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.thread240.loopexit
+  br label %.loopexit
+
+.thread214.jt0:                                   ; preds = %78, %testchecksum.exit.thread, %108, %83, %83, %83, %83, %83, %83, %83
+  %.2140.ph.jt0 = phi i32 [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %108 ], [ 1, %testchecksum.exit.thread ], [ 1, %78 ]
+  %.2135.ph.jt0 = phi i32 [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.3136211, %108 ], [ %.0133, %testchecksum.exit.thread ], [ %.0133, %78 ]
+  %.2130.ph.jt0 = phi i32 [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.3131.ph, %108 ], [ %.0128, %testchecksum.exit.thread ], [ %.0128, %78 ]
+  %.2125.ph.jt0 = phi i64 [ %38, %83 ], [ %38, %83 ], [ %38, %83 ], [ %38, %83 ], [ %38, %83 ], [ %38, %83 ], [ %38, %83 ], [ %110, %108 ], [ %38, %testchecksum.exit.thread ], [ %38, %78 ]
+  %.2109.ph.jt0 = phi i64 [ %.0107, %83 ], [ %.0107, %83 ], [ %.0107, %83 ], [ %.0107, %83 ], [ %.0107, %83 ], [ %.0107, %83 ], [ %.0107, %83 ], [ %.3110212, %108 ], [ %.0107, %testchecksum.exit.thread ], [ %.0107, %78 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %.backedge.backedge
 
 123:                                              ; preds = %115
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %7) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread
+  br label %144
 
 124:                                              ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -393,7 +403,7 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
 .thread234:                                       ; preds = %138, %134, %.thread230
   %.5112.ph = phi i64 [ 0, %.thread230 ], [ %135, %134 ], [ 0, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.thread
+  br label %144
 
 139:                                              ; preds = %.thread225
   %140 = tail call ptr @__errno_location() #12
@@ -404,35 +414,25 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread240
 
-.thread:                                          ; preds = %123, %.thread234
+144:                                              ; preds = %.thread234, %123
   %.4152 = phi i32 [ %117, %123 ], [ %.0148, %.thread234 ]
   %.4142 = phi i32 [ 0, %123 ], [ %.0138, %.thread234 ]
   %.4137 = phi i32 [ %.3136, %123 ], [ %.0133, %.thread234 ]
   %.4132 = phi i32 [ %.3131.ph, %123 ], [ %.0128, %.thread234 ]
   %.2121 = phi i64 [ 0, %123 ], [ %.3122228, %.thread234 ]
   %.4111 = phi i64 [ %96, %123 ], [ %.5112.ph, %.thread234 ]
-  %144 = icmp ne i64 %.4111, 0
+  %145 = icmp ne i64 %.4111, 0
   br label %.backedge.backedge
 
-.thread309:                                       ; preds = %83, %83, %83, %83, %83, %83, %83, %108, %testchecksum.exit.thread, %78
-  %.2140.ph.ph = phi i32 [ 1, %78 ], [ 1, %testchecksum.exit.thread ], [ 0, %108 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ]
-  %.2135.ph.ph = phi i32 [ %.0133, %78 ], [ %.0133, %testchecksum.exit.thread ], [ %.3136211, %108 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ]
-  %.2130.ph.ph = phi i32 [ %.0128, %78 ], [ %.0128, %testchecksum.exit.thread ], [ %.3131.ph, %108 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ]
-  %.2125.ph.ph = phi i64 [ %38, %78 ], [ %38, %testchecksum.exit.thread ], [ %110, %108 ], [ %38, %83 ], [ %38, %83 ], [ %38, %83 ], [ %38, %83 ], [ %38, %83 ], [ %38, %83 ], [ %38, %83 ]
-  %.2109.ph.ph = phi i64 [ %.0107, %78 ], [ %.0107, %testchecksum.exit.thread ], [ %.3110212, %108 ], [ %.0107, %83 ], [ %.0107, %83 ], [ %.0107, %83 ], [ %.0107, %83 ], [ %.0107, %83 ], [ %.0107, %83 ], [ %.0107, %83 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %.thread309, %.thread
-  %.0148.be = phi i32 [ %.4152, %.thread ], [ %.2150, %.thread309 ]
-  %.0143.be = phi i1 [ %144, %.thread ], [ false, %.thread309 ]
-  %.0138.be = phi i32 [ %.4142, %.thread ], [ %.2140.ph.ph, %.thread309 ]
-  %.0133.be = phi i32 [ %.4137, %.thread ], [ %.2135.ph.ph, %.thread309 ]
-  %.0128.be = phi i32 [ %.4132, %.thread ], [ %.2130.ph.ph, %.thread309 ]
-  %.0123.be = phi i64 [ %38, %.thread ], [ %.2125.ph.ph, %.thread309 ]
-  %.0119.be = phi i64 [ %.2121, %.thread ], [ 0, %.thread309 ]
-  %.0107.be = phi i64 [ %.4111, %.thread ], [ %.2109.ph.ph, %.thread309 ]
+.backedge.backedge:                               ; preds = %144, %.thread214.jt0
+  %.0148.be = phi i32 [ %.4152, %144 ], [ %.2150, %.thread214.jt0 ]
+  %.0143.be = phi i1 [ %145, %144 ], [ false, %.thread214.jt0 ]
+  %.0138.be = phi i32 [ %.4142, %144 ], [ %.2140.ph.jt0, %.thread214.jt0 ]
+  %.0133.be = phi i32 [ %.4137, %144 ], [ %.2135.ph.jt0, %.thread214.jt0 ]
+  %.0128.be = phi i32 [ %.4132, %144 ], [ %.2130.ph.jt0, %.thread214.jt0 ]
+  %.0123.be = phi i64 [ %38, %144 ], [ %.2125.ph.jt0, %.thread214.jt0 ]
+  %.0119.be = phi i64 [ %.2121, %144 ], [ 0, %.thread214.jt0 ]
+  %.0107.be = phi i64 [ %.4111, %144 ], [ %.2109.ph.jt0, %.thread214.jt0 ]
   br label %.backedge
 
 .thread251.thread:                                ; preds = %51
@@ -440,13 +440,19 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %156
 
-.thread251:                                       ; preds = %fmap_need_off_once_len.exit
-  %145 = icmp sgt i32 %.0148, -1
-  br i1 %145, label %146, label %156
+.loopexit:                                        ; preds = %111, %56, %54, %50, %48, %107, %119, %82
+  %.2.ph.jt1 = phi i32 [ 0, %107 ], [ 17, %119 ], [ 26, %82 ], [ 10, %48 ], [ %43, %50 ], [ %55, %54 ], [ 0, %56 ], [ 1, %111 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %.thread240
 
-146:                                              ; preds = %.thread251
+.thread251:                                       ; preds = %fmap_need_off_once_len.exit
+  %146 = icmp sgt i32 %.0148, -1
+  br i1 %146, label %.thread251.thread280, label %156
+
+.thread251.thread280:                             ; preds = %.thread251
   %147 = call i64 @lseek(i32 noundef %.0148, i64 noundef 0, i32 noundef 0) #11
-  %148 = call i32 @cli_magic_scan_desc(i32 noundef %.0148, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef 0) #11
+  %148 = call i32 @cli_magic_scan_desc(i32 noundef %.0148, ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull %8, i32 noundef 0) #11
   %149 = call i32 @close(i32 noundef %.0148) #11
   %150 = load ptr, ptr %15, align 8, !tbaa !26
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
@@ -454,26 +460,20 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
   %.not176 = icmp eq i32 %152, 0
   br i1 %.not176, label %153, label %155
 
-153:                                              ; preds = %146
+153:                                              ; preds = %.thread251.thread280
   %154 = call i32 @cli_unlink(ptr noundef nonnull %7) #11
   %.not177 = icmp eq i32 %154, 0
   br i1 %.not177, label %155, label %.thread240
 
-155:                                              ; preds = %153, %146
+155:                                              ; preds = %153, %.thread251.thread280
   %.not178 = icmp eq i32 %148, 0
   br i1 %.not178, label %156, label %.thread240
 
 156:                                              ; preds = %.thread251.thread, %155, %.thread251
   br label %.thread240
 
-.thread240.loopexit:                              ; preds = %111, %56, %54, %50, %48, %107, %119, %82
-  %.2.ph.ph = phi i32 [ 26, %82 ], [ 17, %119 ], [ 0, %107 ], [ 1, %111 ], [ 0, %56 ], [ %55, %54 ], [ %43, %50 ], [ 10, %48 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread240
-
-.thread240:                                       ; preds = %.thread240.loopexit, %36, %139, %155, %153, %156
-  %.6 = phi i32 [ 0, %156 ], [ 10, %153 ], [ %148, %155 ], [ 12, %36 ], [ 14, %139 ], [ %.2.ph.ph, %.thread240.loopexit ]
+.thread240:                                       ; preds = %.loopexit, %36, %139, %155, %153, %156
+  %.6 = phi i32 [ 0, %156 ], [ 10, %153 ], [ %148, %155 ], [ 12, %36 ], [ 14, %139 ], [ %.2.ph.jt1, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

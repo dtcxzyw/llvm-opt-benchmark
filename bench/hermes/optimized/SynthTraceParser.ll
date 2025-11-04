@@ -11476,27 +11476,7 @@ if.end:                                           ; preds = %for.inc.i
 for.cond.preheader:                               ; preds = %if.end
   %shr = lshr i32 %radix, 1
   %conv23 = zext nneg i32 %shr to i64
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
-  %result.1 = phi double [ 0.000000e+00, %for.cond.preheader ], [ %result.1.be, %for.cond.backedge ]
-  %lowestExponentBit.0 = phi i8 [ 0, %for.cond.preheader ], [ %lowestExponentBit.0.be, %for.cond.backedge ]
-  %curMode.0 = phi i32 [ 0, %for.cond.preheader ], [ %curMode.0.be, %for.cond.backedge ]
-  %itr.0 = phi ptr [ %str.coerce0, %for.cond.preheader ], [ %itr.1, %for.cond.backedge ]
-  %lastMantissaBit.0 = phi i8 [ 0, %for.cond.preheader ], [ %lastMantissaBit.0.be, %for.cond.backedge ]
-  %bitMask.0 = phi i64 [ 0, %for.cond.preheader ], [ %shr27, %for.cond.backedge ]
-  %curDigit.0 = phi i64 [ 0, %for.cond.preheader ], [ %curDigit.1, %for.cond.backedge ]
-  %expFactor.0 = phi double [ 0.000000e+00, %for.cond.preheader ], [ %expFactor.0.be, %for.cond.backedge ]
-  %remainingMantissa.0 = phi i64 [ 53, %for.cond.preheader ], [ %remainingMantissa.0.be, %for.cond.backedge ]
-  %cmp6 = icmp eq i64 %bitMask.0, 0
-  br i1 %cmp6, label %if.then7, label %if.end24
-
-if.then7:                                         ; preds = %for.cond
-  %cmp8 = icmp eq ptr %itr.0, %add.ptr.i.i
-  br i1 %cmp8, label %for.end, label %if.end10
-
-if.end10:                                         ; preds = %if.then7
-  %4 = load i8, ptr %itr.0, align 1
+  %4 = load i8, ptr %str.coerce0, align 1
   %5 = or i8 %4, 32
   %6 = add i8 %4, -48
   %or.cond = icmp ult i8 %6, 10
@@ -11505,87 +11485,195 @@ if.end10:                                         ; preds = %if.then7
   %conv19 = sext i8 %5 to i64
   %add = add nsw i64 %conv19, -87
   %curDigit.2 = select i1 %or.cond, i64 %conv18, i64 %add
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %itr.0, i64 1
-  br label %if.end24
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %str.coerce0, i64 1
+  %and.le = and i64 %curDigit.2, %conv23
+  %cmp2582.not143 = icmp eq i64 %and.le, 0
+  %shr2788144 = lshr i64 %conv23, 1
+  br i1 %cmp2582.not143, label %for.cond.jt0, label %for.cond.jt1.preheader
 
-if.end24:                                         ; preds = %if.end10, %for.cond
-  %itr.1 = phi ptr [ %incdec.ptr, %if.end10 ], [ %itr.0, %for.cond ]
-  %bitMask.1 = phi i64 [ %conv23, %if.end10 ], [ %bitMask.0, %for.cond ]
-  %curDigit.1 = phi i64 [ %curDigit.2, %if.end10 ], [ %curDigit.0, %for.cond ]
-  %and = and i64 %curDigit.1, %bitMask.1
-  %cmp25 = icmp ne i64 %and, 0
-  %frombool26 = zext i1 %cmp25 to i8
-  %shr27 = lshr i64 %bitMask.1, 1
-  switch i32 %curMode.0, label %for.cond.backedge [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb31
-    i32 2, label %sw.bb42
-    i32 3, label %sw.bb45
-    i32 4, label %sw.bb50
-  ]
+for.cond.jt4:                                     ; preds = %if.end24.jt3, %if.end24.jt4
+  %shr2792 = phi i64 [ %shr27.jt4, %if.end24.jt4 ], [ %shr27.jt3, %if.end24.jt3 ]
+  %itr.171 = phi ptr [ %itr.1.jt4, %if.end24.jt4 ], [ %itr.1.jt3, %if.end24.jt3 ]
+  %expFactor.1.jt4 = phi double [ %mul51, %if.end24.jt4 ], [ %mul4995, %if.end24.jt3 ]
+  %cmp6.jt4 = icmp eq i64 %shr2792, 0
+  br i1 %cmp6.jt4, label %if.then7.jt4, label %if.end24.jt4
 
-sw.bb:                                            ; preds = %if.end24
-  br i1 %cmp25, label %if.then29, label %for.cond.backedge
+for.cond.jt3:                                     ; preds = %if.end24.jt3, %if.end24.jt2
+  %shr2793 = phi i64 [ %shr27.jt2, %if.end24.jt2 ], [ %shr27.jt3, %if.end24.jt3 ]
+  %curDigit.180 = phi i64 [ %curDigit.1.jt2, %if.end24.jt2 ], [ %curDigit.1.jt3, %if.end24.jt3 ]
+  %itr.172 = phi ptr [ %itr.1.jt2, %if.end24.jt2 ], [ %itr.1.jt3, %if.end24.jt3 ]
+  %expFactor.1.jt3 = phi double [ 2.000000e+00, %if.end24.jt2 ], [ %mul4995, %if.end24.jt3 ]
+  %cmp6.jt3 = icmp eq i64 %shr2793, 0
+  br i1 %cmp6.jt3, label %if.then7.jt3, label %if.end24.jt3
 
-if.then29:                                        ; preds = %sw.bb
-  %dec = add i64 %remainingMantissa.0, -1
-  br label %for.cond.backedge
+for.cond.jt2:                                     ; preds = %if.end24.jt1
+  %cmp6.jt2 = icmp ult i64 %bitMask.1.jt1, 2
+  br i1 %cmp6.jt2, label %if.then7.jt2, label %if.end24.jt2
 
-sw.bb31:                                          ; preds = %if.end24
-  %mul = fmul double %result.1, 2.000000e+00
-  %conv34 = uitofp i1 %cmp25 to double
+for.cond.jt0:                                     ; preds = %for.cond.preheader, %if.end24.jt0
+  %shr2788148 = phi i64 [ %shr2788, %if.end24.jt0 ], [ %shr2788144, %for.cond.preheader ]
+  %itr.167147 = phi ptr [ %itr.1.jt0, %if.end24.jt0 ], [ %incdec.ptr, %for.cond.preheader ]
+  %curDigit.175146 = phi i64 [ %curDigit.1.jt0, %if.end24.jt0 ], [ %curDigit.2, %for.cond.preheader ]
+  %shr2788.in145 = phi i64 [ %bitMask.1.jt0, %if.end24.jt0 ], [ %conv23, %for.cond.preheader ]
+  %cmp6.jt0 = icmp ult i64 %shr2788.in145, 2
+  br i1 %cmp6.jt0, label %if.then7.jt0, label %if.end24.jt0
+
+for.cond.jt1:                                     ; preds = %for.cond.jt1.preheader, %if.end24.jt1
+  %shr2794 = phi i64 [ %shr27.jt1, %if.end24.jt1 ], [ %shr2794.ph, %for.cond.jt1.preheader ]
+  %curDigit.181 = phi i64 [ %curDigit.1.jt1, %if.end24.jt1 ], [ %curDigit.181.ph, %for.cond.jt1.preheader ]
+  %itr.173 = phi ptr [ %itr.1.jt1, %if.end24.jt1 ], [ %itr.173.ph, %for.cond.jt1.preheader ]
+  %result.2.jt1 = phi double [ %add35, %if.end24.jt1 ], [ 1.000000e+00, %for.cond.jt1.preheader ]
+  %remainingMantissa.1.jt1 = phi i64 [ %dec36, %if.end24.jt1 ], [ 52, %for.cond.jt1.preheader ]
+  %cmp6.jt1 = icmp eq i64 %shr2794, 0
+  br i1 %cmp6.jt1, label %if.then7.jt1, label %if.end24.jt1
+
+if.then7.jt4:                                     ; preds = %for.cond.jt4
+  %cmp8.jt4 = icmp eq ptr %itr.171, %add.ptr.i.i
+  br i1 %cmp8.jt4, label %sw.bb60, label %if.end10.jt4
+
+if.then7.jt3:                                     ; preds = %for.cond.jt3
+  %cmp8.jt3 = icmp eq ptr %itr.172, %add.ptr.i.i
+  br i1 %cmp8.jt3, label %sw.bb53, label %if.end10.jt3
+
+if.then7.jt2:                                     ; preds = %for.cond.jt2
+  %cmp8.jt2 = icmp eq ptr %itr.1.jt1, %add.ptr.i.i
+  br i1 %cmp8.jt2, label %return, label %if.end10.jt2
+
+if.then7.jt0:                                     ; preds = %for.cond.jt0
+  %cmp8.jt0 = icmp eq ptr %itr.167147, %add.ptr.i.i
+  br i1 %cmp8.jt0, label %return, label %if.end10.jt0
+
+if.then7.jt1:                                     ; preds = %for.cond.jt1
+  %cmp8.jt1 = icmp eq ptr %itr.173, %add.ptr.i.i
+  br i1 %cmp8.jt1, label %return, label %if.end10.jt1
+
+if.end10.jt4:                                     ; preds = %if.then7.jt4
+  %incdec.ptr.jt4 = getelementptr inbounds nuw i8, ptr %itr.171, i64 1
+  br label %if.end24.jt4
+
+if.end10.jt3:                                     ; preds = %if.then7.jt3
+  %8 = load i8, ptr %itr.172, align 1
+  %9 = or i8 %8, 32
+  %10 = add i8 %8, -48
+  %or.cond.jt3 = icmp ult i8 %10, 10
+  %11 = and i8 %8, 15
+  %conv18.jt3 = zext nneg i8 %11 to i64
+  %conv19.jt3 = sext i8 %9 to i64
+  %add.jt3 = add nsw i64 %conv19.jt3, -87
+  %curDigit.2.jt3 = select i1 %or.cond.jt3, i64 %conv18.jt3, i64 %add.jt3
+  %incdec.ptr.jt3 = getelementptr inbounds nuw i8, ptr %itr.172, i64 1
+  br label %if.end24.jt3
+
+if.end10.jt2:                                     ; preds = %if.then7.jt2
+  %12 = load i8, ptr %itr.1.jt1, align 1
+  %13 = or i8 %12, 32
+  %14 = add i8 %12, -48
+  %or.cond.jt2 = icmp ult i8 %14, 10
+  %15 = and i8 %12, 15
+  %conv18.jt2 = zext nneg i8 %15 to i64
+  %conv19.jt2 = sext i8 %13 to i64
+  %add.jt2 = add nsw i64 %conv19.jt2, -87
+  %curDigit.2.jt2 = select i1 %or.cond.jt2, i64 %conv18.jt2, i64 %add.jt2
+  %incdec.ptr.jt2 = getelementptr inbounds nuw i8, ptr %itr.1.jt1, i64 1
+  br label %if.end24.jt2
+
+if.end10.jt0:                                     ; preds = %if.then7.jt0
+  %16 = load i8, ptr %itr.167147, align 1
+  %17 = or i8 %16, 32
+  %18 = add i8 %16, -48
+  %or.cond.jt0 = icmp ult i8 %18, 10
+  %19 = and i8 %16, 15
+  %conv18.jt0 = zext nneg i8 %19 to i64
+  %conv19.jt0 = sext i8 %17 to i64
+  %add.jt0 = add nsw i64 %conv19.jt0, -87
+  %curDigit.2.jt0 = select i1 %or.cond.jt0, i64 %conv18.jt0, i64 %add.jt0
+  %incdec.ptr.jt0 = getelementptr inbounds nuw i8, ptr %itr.167147, i64 1
+  br label %if.end24.jt0
+
+if.end10.jt1:                                     ; preds = %if.then7.jt1
+  %20 = load i8, ptr %itr.173, align 1
+  %21 = or i8 %20, 32
+  %22 = add i8 %20, -48
+  %or.cond.jt1 = icmp ult i8 %22, 10
+  %23 = and i8 %20, 15
+  %conv18.jt1 = zext nneg i8 %23 to i64
+  %conv19.jt1 = sext i8 %21 to i64
+  %add.jt1 = add nsw i64 %conv19.jt1, -87
+  %curDigit.2.jt1 = select i1 %or.cond.jt1, i64 %conv18.jt1, i64 %add.jt1
+  %incdec.ptr.jt1 = getelementptr inbounds nuw i8, ptr %itr.173, i64 1
+  br label %if.end24.jt1
+
+if.end24.jt4:                                     ; preds = %for.cond.jt4, %if.end10.jt4
+  %itr.1.jt4 = phi ptr [ %itr.171, %for.cond.jt4 ], [ %incdec.ptr.jt4, %if.end10.jt4 ]
+  %bitMask.1.jt4 = phi i64 [ %shr2792, %for.cond.jt4 ], [ %conv23, %if.end10.jt4 ]
+  %shr27.jt4 = lshr i64 %bitMask.1.jt4, 1
+  %mul51 = fmul double %expFactor.1.jt4, 2.000000e+00
+  br label %for.cond.jt4
+
+if.end24.jt3:                                     ; preds = %for.cond.jt3, %if.end10.jt3
+  %itr.1.jt3 = phi ptr [ %itr.172, %for.cond.jt3 ], [ %incdec.ptr.jt3, %if.end10.jt3 ]
+  %bitMask.1.jt3 = phi i64 [ %shr2793, %for.cond.jt3 ], [ %conv23, %if.end10.jt3 ]
+  %curDigit.1.jt3 = phi i64 [ %curDigit.180, %for.cond.jt3 ], [ %curDigit.2.jt3, %if.end10.jt3 ]
+  %and.jt3 = and i64 %curDigit.1.jt3, %bitMask.1.jt3
+  %cmp25.jt3.not = icmp eq i64 %and.jt3, 0
+  %shr27.jt3 = lshr i64 %bitMask.1.jt3, 1
+  %mul4995 = fmul double %expFactor.1.jt3, 2.000000e+00
+  br i1 %cmp25.jt3.not, label %for.cond.jt3, label %for.cond.jt4
+
+if.end24.jt2:                                     ; preds = %for.cond.jt2, %if.end10.jt2
+  %itr.1.jt2 = phi ptr [ %itr.1.jt1, %for.cond.jt2 ], [ %incdec.ptr.jt2, %if.end10.jt2 ]
+  %bitMask.1.jt2 = phi i64 [ %shr27.jt1, %for.cond.jt2 ], [ %conv23, %if.end10.jt2 ]
+  %curDigit.1.jt2 = phi i64 [ %curDigit.1.jt1, %for.cond.jt2 ], [ %curDigit.2.jt2, %if.end10.jt2 ]
+  %and.jt2 = and i64 %curDigit.1.jt2, %bitMask.1.jt2
+  %cmp25.jt2 = icmp ne i64 %and.jt2, 0
+  %shr27.jt2 = lshr i64 %bitMask.1.jt2, 1
+  br label %for.cond.jt3
+
+if.end24.jt0:                                     ; preds = %for.cond.jt0, %if.end10.jt0
+  %itr.1.jt0 = phi ptr [ %itr.167147, %for.cond.jt0 ], [ %incdec.ptr.jt0, %if.end10.jt0 ]
+  %bitMask.1.jt0 = phi i64 [ %shr2788148, %for.cond.jt0 ], [ %conv23, %if.end10.jt0 ]
+  %curDigit.1.jt0 = phi i64 [ %curDigit.175146, %for.cond.jt0 ], [ %curDigit.2.jt0, %if.end10.jt0 ]
+  %and.jt0 = and i64 %curDigit.1.jt0, %bitMask.1.jt0
+  %cmp2582.not = icmp eq i64 %and.jt0, 0
+  %shr2788 = lshr i64 %bitMask.1.jt0, 1
+  br i1 %cmp2582.not, label %for.cond.jt0, label %for.cond.jt1.preheader
+
+for.cond.jt1.preheader:                           ; preds = %if.end24.jt0, %for.cond.preheader
+  %shr2794.ph = phi i64 [ %shr2788144, %for.cond.preheader ], [ %shr2788, %if.end24.jt0 ]
+  %curDigit.181.ph = phi i64 [ %curDigit.2, %for.cond.preheader ], [ %curDigit.1.jt0, %if.end24.jt0 ]
+  %itr.173.ph = phi ptr [ %incdec.ptr, %for.cond.preheader ], [ %itr.1.jt0, %if.end24.jt0 ]
+  br label %for.cond.jt1
+
+if.end24.jt1:                                     ; preds = %for.cond.jt1, %if.end10.jt1
+  %itr.1.jt1 = phi ptr [ %itr.173, %for.cond.jt1 ], [ %incdec.ptr.jt1, %if.end10.jt1 ]
+  %bitMask.1.jt1 = phi i64 [ %shr2794, %for.cond.jt1 ], [ %conv23, %if.end10.jt1 ]
+  %curDigit.1.jt1 = phi i64 [ %curDigit.181, %for.cond.jt1 ], [ %curDigit.2.jt1, %if.end10.jt1 ]
+  %and.jt1 = and i64 %curDigit.1.jt1, %bitMask.1.jt1
+  %cmp25.jt1 = icmp ne i64 %and.jt1, 0
+  %shr27.jt1 = lshr i64 %bitMask.1.jt1, 1
+  %mul = fmul double %result.2.jt1, 2.000000e+00
+  %conv34 = uitofp i1 %cmp25.jt1 to double
   %add35 = fadd double %mul, %conv34
-  %dec36 = add i64 %remainingMantissa.0, -1
+  %dec36 = add i64 %remainingMantissa.1.jt1, -1
   %cmp37 = icmp eq i64 %dec36, 0
-  br i1 %cmp37, label %if.then38, label %for.cond.backedge
+  br i1 %cmp37, label %for.cond.jt2, label %for.cond.jt1
 
-for.cond.backedge:                                ; preds = %sw.bb31, %if.then38, %sw.bb, %if.then29, %sw.bb50, %sw.bb45, %sw.bb42, %if.end24
-  %result.1.be = phi double [ %result.1, %if.end24 ], [ 1.000000e+00, %if.then29 ], [ %result.1, %sw.bb ], [ %add35, %if.then38 ], [ %add35, %sw.bb31 ], [ %result.1, %sw.bb42 ], [ %result.1, %sw.bb45 ], [ %result.1, %sw.bb50 ]
-  %lowestExponentBit.0.be = phi i8 [ %lowestExponentBit.0, %if.end24 ], [ %lowestExponentBit.0, %if.then29 ], [ %lowestExponentBit.0, %sw.bb ], [ %lowestExponentBit.0, %if.then38 ], [ %lowestExponentBit.0, %sw.bb31 ], [ %frombool26, %sw.bb42 ], [ %lowestExponentBit.0, %sw.bb45 ], [ %lowestExponentBit.0, %sw.bb50 ]
-  %curMode.0.be = phi i32 [ %curMode.0, %if.end24 ], [ 1, %if.then29 ], [ 0, %sw.bb ], [ 2, %if.then38 ], [ 1, %sw.bb31 ], [ 3, %sw.bb42 ], [ %spec.select, %sw.bb45 ], [ 4, %sw.bb50 ]
-  %lastMantissaBit.0.be = phi i8 [ %lastMantissaBit.0, %if.end24 ], [ %lastMantissaBit.0, %if.then29 ], [ %lastMantissaBit.0, %sw.bb ], [ %frombool26, %if.then38 ], [ %lastMantissaBit.0, %sw.bb31 ], [ %lastMantissaBit.0, %sw.bb42 ], [ %lastMantissaBit.0, %sw.bb45 ], [ %lastMantissaBit.0, %sw.bb50 ]
-  %expFactor.0.be = phi double [ %expFactor.0, %if.end24 ], [ %expFactor.0, %if.then29 ], [ %expFactor.0, %sw.bb ], [ %expFactor.0, %if.then38 ], [ %expFactor.0, %sw.bb31 ], [ 2.000000e+00, %sw.bb42 ], [ %mul49, %sw.bb45 ], [ %mul51, %sw.bb50 ]
-  %remainingMantissa.0.be = phi i64 [ %remainingMantissa.0, %if.end24 ], [ %dec, %if.then29 ], [ %remainingMantissa.0, %sw.bb ], [ 0, %if.then38 ], [ %dec36, %sw.bb31 ], [ %remainingMantissa.0, %sw.bb42 ], [ %remainingMantissa.0, %sw.bb45 ], [ %remainingMantissa.0, %sw.bb50 ]
-  br label %for.cond, !llvm.loop !259
-
-if.then38:                                        ; preds = %sw.bb31
-  br label %for.cond.backedge
-
-sw.bb42:                                          ; preds = %if.end24
-  br label %for.cond.backedge
-
-sw.bb45:                                          ; preds = %if.end24
-  %spec.select = select i1 %cmp25, i32 4, i32 3
-  %mul49 = fmul double %expFactor.0, 2.000000e+00
-  br label %for.cond.backedge
-
-sw.bb50:                                          ; preds = %if.end24
-  %mul51 = fmul double %expFactor.0, 2.000000e+00
-  br label %for.cond.backedge
-
-for.end:                                          ; preds = %if.then7
-  switch i32 %curMode.0, label %return [
-    i32 4, label %sw.bb60
-    i32 3, label %sw.bb53
-  ]
-
-sw.bb53:                                          ; preds = %for.end
-  %tobool54 = trunc nuw i8 %lowestExponentBit.0 to i1
-  %8 = uitofp nneg i8 %lastMantissaBit.0 to double
-  %conv57 = select i1 %tobool54, double %8, double 0.000000e+00
-  %add58 = fadd double %result.1, %conv57
-  %mul59 = fmul double %expFactor.0, %add58
+sw.bb53:                                          ; preds = %if.then7.jt3
+  %24 = uitofp i1 %cmp25.jt1 to double
+  %conv57 = select i1 %cmp25.jt2, double %24, double 0.000000e+00
+  %add58 = fadd double %add35, %conv57
+  %mul59 = fmul double %expFactor.1.jt3, %add58
   br label %return
 
-sw.bb60:                                          ; preds = %for.end
-  %conv63 = uitofp nneg i8 %lowestExponentBit.0 to double
-  %add64 = fadd double %result.1, %conv63
-  %mul65 = fmul double %add64, %expFactor.0
+sw.bb60:                                          ; preds = %if.then7.jt4
+  %conv63 = uitofp i1 %cmp25.jt2 to double
+  %add64 = fadd double %add35, %conv63
+  %mul65 = fmul double %add64, %expFactor.1.jt4
   br label %return
 
-return:                                           ; preds = %if.else.i, %entry, %if.end, %sw.bb60, %sw.bb53, %for.end
-  %retval.sroa.0.0 = phi double [ %add.i.i, %if.end ], [ %result.1, %for.end ], [ %mul65, %sw.bb60 ], [ %mul59, %sw.bb53 ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %if.else.i ]
-  %retval.sroa.3.0 = phi i8 [ 1, %if.end ], [ 1, %for.end ], [ 1, %sw.bb60 ], [ 1, %sw.bb53 ], [ 1, %entry ], [ 0, %if.else.i ]
+return:                                           ; preds = %if.else.i, %if.then7.jt0, %if.then7.jt1, %if.then7.jt2, %entry, %if.end, %sw.bb60, %sw.bb53
+  %retval.sroa.0.0 = phi double [ %add.i.i, %if.end ], [ %mul65, %sw.bb60 ], [ %mul59, %sw.bb53 ], [ 0.000000e+00, %entry ], [ %add35, %if.then7.jt2 ], [ %result.2.jt1, %if.then7.jt1 ], [ 0.000000e+00, %if.then7.jt0 ], [ 0.000000e+00, %if.else.i ]
+  %retval.sroa.3.0 = phi i8 [ 1, %if.end ], [ 1, %sw.bb60 ], [ 1, %sw.bb53 ], [ 1, %entry ], [ 1, %if.then7.jt2 ], [ 1, %if.then7.jt1 ], [ 1, %if.then7.jt0 ], [ 0, %if.else.i ]
   %.fca.0.insert = insertvalue { double, i8 } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { double, i8 } %.fca.1.insert
@@ -11669,7 +11757,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace17GetPropertyRecord4defsEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !260
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !259
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %value_, align 8
   %.off.i.i = add i32 %0, -4
@@ -11763,35 +11851,35 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace17SetPropertyRecord4usesEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !262)
   %objID_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i64, ptr %objID_.i, align 8, !noalias !263
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !263
-  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !263
+  %0 = load i64, ptr %objID_.i, align 8, !noalias !262
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !262
+  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !262
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !263
-  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !263
+  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !262
+  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !262
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !263
+  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !262
   %propID_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load i32, ptr %propID_.i, align 8, !noalias !263
+  %1 = load i32, ptr %propID_.i, align 8, !noalias !262
   %.off.i.i.i = add i32 %1, -4
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 5
   br i1 %switch.i.i.i, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i, label %_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv.exit
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %entry
   %val_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %2 = load i64, ptr %val_.i.i.i, align 8, !noalias !263
-  %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !263
+  %2 = load i64, ptr %val_.i.i.i, align 8, !noalias !262
+  %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !262
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 8
-  store i64 %2, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !263
-  store i64 %0, ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !263
+  store i64 %2, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !262
+  store i64 %0, ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !262
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #19, !noalias !263
-  store ptr %call5.i.i.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !263
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !263
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !263
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #19, !noalias !262
+  store ptr %call5.i.i.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !262
+  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !262
+  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !262
   br label %_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv.exit
 
 _ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv.exit: ; preds = %entry, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i
@@ -11871,7 +11959,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace15ArrayReadRecord4defsEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !266
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !265
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %value_, align 8
   %.off.i.i = add i32 %0, -4
@@ -11937,17 +12025,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace16ArrayWriteRecord4usesEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
   %objID_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i64, ptr %objID_.i, align 8, !noalias !269
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !269
-  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !269
+  %0 = load i64, ptr %objID_.i, align 8, !noalias !268
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !268
+  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !268
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !269
-  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !269
+  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !268
+  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !268
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !269
+  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !268
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i32, ptr %value_, align 8
   %.off.i.i = add i32 %1, -4
@@ -12017,17 +12105,17 @@ entry:
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace20CallFromNativeRecord4usesEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %objs = alloca %"class.std::vector.165", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
   %functionID_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i64, ptr %functionID_.i, align 8, !noalias !272
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !272
-  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !272
+  %0 = load i64, ptr %functionID_.i, align 8, !noalias !271
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16, !noalias !271
+  store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !271
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !272
-  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !272
+  store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !271
+  store i64 %0, ptr %call5.i.i.i.i.i.i, align 8, !noalias !271
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !272
+  store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !271
   call void @_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord16getArgTrackedIDsEv(ptr nonnull sret(%"class.std::vector.165") align 8 %objs, ptr noundef nonnull align 8 dereferenceable(64) %this)
   %1 = load ptr, ptr %objs, align 8
   %_M_finish.i1 = getelementptr inbounds nuw i8, ptr %objs, i64 8
@@ -12426,7 +12514,7 @@ entry:
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace18CallToNativeRecord4defsEv(ptr noalias sret(%"class.std::vector.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %objs = alloca %"class.std::vector.165", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !275
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !274
   call void @_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord16getArgTrackedIDsEv(ptr nonnull sret(%"class.std::vector.165") align 8 %objs, ptr noundef nonnull align 8 dereferenceable(64) %this)
   %0 = load ptr, ptr %objs, align 8
   %_M_finish.i1 = getelementptr inbounds nuw i8, ptr %objs, i64 8
@@ -12529,7 +12617,7 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorINSt7_
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !278
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !277
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -12545,7 +12633,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__
   %incdec.ptr.i.i.i15 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %incdec.ptr1.i.i.i16 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
-  br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !278
+  br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !277
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19: ; preds = %for.body.i.i.i12, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %__cur.0.lcssa.i.i.i18 = phi ptr [ %incdec.ptr, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %incdec.ptr1.i.i.i16, %for.body.i.i.i12 ]
@@ -12931,23 +13019,22 @@ attributes #20 = { nounwind willreturn memory(read) }
 !256 = !{!257}
 !257 = distinct !{!257, !255, !"_ZSt19__relocate_object_aISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EES8_SaIS8_EEvPT_PT0_RT1_: %__orig"}
 !258 = distinct !{!258, !8}
-!259 = distinct !{!259, !8}
-!260 = !{!261}
-!261 = distinct !{!261, !262, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
-!262 = distinct !{!262, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
-!263 = !{!264}
-!264 = distinct !{!264, !265, !"_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv: %agg.result"}
-!265 = distinct !{!265, !"_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv"}
-!266 = !{!267}
-!267 = distinct !{!267, !268, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
-!268 = distinct !{!268, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
-!269 = !{!270}
-!270 = distinct !{!270, !271, !"_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv: %agg.result"}
-!271 = distinct !{!271, !"_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv"}
-!272 = !{!273}
-!273 = distinct !{!273, !274, !"_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord4usesEv: %agg.result"}
-!274 = distinct !{!274, !"_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord4usesEv"}
-!275 = !{!276}
-!276 = distinct !{!276, !277, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
-!277 = distinct !{!277, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
-!278 = distinct !{!278, !8}
+!259 = !{!260}
+!260 = distinct !{!260, !261, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
+!261 = distinct !{!261, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
+!262 = !{!263}
+!263 = distinct !{!263, !264, !"_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv: %agg.result"}
+!264 = distinct !{!264, !"_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv"}
+!265 = !{!266}
+!266 = distinct !{!266, !267, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
+!267 = distinct !{!267, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
+!268 = !{!269}
+!269 = distinct !{!269, !270, !"_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv: %agg.result"}
+!270 = distinct !{!270, !"_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv"}
+!271 = !{!272}
+!272 = distinct !{!272, !273, !"_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord4usesEv: %agg.result"}
+!273 = distinct !{!273, !"_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord4usesEv"}
+!274 = !{!275}
+!275 = distinct !{!275, !276, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv: %agg.result"}
+!276 = distinct !{!276, !"_ZNK8facebook6hermes7tracing10SynthTrace6Record4defsEv"}
+!277 = distinct !{!277, !8}

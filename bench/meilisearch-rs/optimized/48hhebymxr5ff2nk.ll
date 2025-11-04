@@ -158428,7 +158428,7 @@ define hidden void @"_ZN213_$LT$meilisearch..routes..indexes..documents.._..$LT$
   call void @llvm.experimental.noalias.scope.decl(metadata !27625)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !27628
   invoke fastcc void @"_ZN96_$LT$actix_router..path..PathIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b714098751042ceE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
-          to label %.noexc unwind label %.loopexit
+          to label %.noexc unwind label %.loopexit.loopexit
 
 .noexc:                                           ; preds = %19
   %20 = load ptr, ptr %8, align 8, !noalias !27628, !noundef !4
@@ -158444,7 +158444,7 @@ define hidden void @"_ZN213_$LT$meilisearch..routes..indexes..documents.._..$LT$
   store i64 %.sroa.216.0.copyload.i.i, ptr %.sroa.7.0..sroa_idx4.i.i, align 8, !alias.scope !27631, !noalias !27632
   store ptr %.sroa.3.0.copyload.i.i, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !27631, !noalias !27632
   store i64 %.sroa.417.0.copyload.i.i, ptr %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !27631, !noalias !27632
-  switch i64 %.sroa.216.0.copyload.i.i, label %.thread165 [
+  switch i64 %.sroa.216.0.copyload.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit4.thread.i.i.i.i.i.i.thread" [
     i64 9, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.i.i.i.i.i.i"
     i64 11, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit4.i.i.i.i.i.i"
   ]
@@ -158452,22 +158452,22 @@ define hidden void @"_ZN213_$LT$meilisearch..routes..indexes..documents.._..$LT$
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.i.i.i.i.i.i": ; preds = %22
   %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(9) %20, ptr noundef nonnull dereferenceable(9) @anon.3fd1218b2f406ad1341fef897d5dd3d9.525.llvm.8666068179502612882, i64 9), !alias.scope !27633, !noalias !27637
   %23 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %23, label %29, label %.thread165
+  br i1 %23, label %29, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit4.thread.i.i.i.i.i.i.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit4.i.i.i.i.i.i": ; preds = %22
   %bcmp.i3.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(11) %20, ptr noundef nonnull dereferenceable(11) @anon.3fd1218b2f406ad1341fef897d5dd3d9.958.llvm.8666068179502612882, i64 11), !alias.scope !27646, !noalias !27637
   %24 = icmp eq i32 %bcmp.i3.i.i.i.i.i.i, 0
-  br i1 %24, label %32, label %.thread165
+  br i1 %24, label %32, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit4.thread.i.i.i.i.i.i.thread"
 
-25:                                               ; preds = %.loopexit, %.loopexit.split-lp, %96, %57
-  %.sroa.088.2.ph = phi i8 [ 1, %57 ], [ 0, %96 ], [ 1, %.loopexit ], [ %.sroa.088.1.ph, %.loopexit.split-lp ]
-  %.pn.ph = phi { ptr, i32 } [ %58, %57 ], [ %97, %96 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+25:                                               ; preds = %.loopexit.loopexit, %.loopexit.split-lp, %96, %57
+  %.sroa.088.2.ph = phi i8 [ 1, %57 ], [ 0, %96 ], [ 1, %.loopexit.loopexit ], [ %.sroa.088.1.ph, %.loopexit.split-lp ]
+  %.pn.ph = phi { ptr, i32 } [ %58, %57 ], [ %97, %96 ], [ %lpad.loopexit194, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.pr = load i64, ptr %12, align 8
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %134, label %151
 
-.loopexit:                                        ; preds = %19, %37, %61
-  %lpad.loopexit = landingpad { ptr, i32 }
+.loopexit.loopexit:                               ; preds = %61, %37, %19
+  %lpad.loopexit194 = landingpad { ptr, i32 }
           cleanup
   br label %25
 
@@ -158495,11 +158495,11 @@ define hidden void @"_ZN213_$LT$meilisearch..routes..indexes..documents.._..$LT$
   %34 = icmp eq i64 %33, -9223372036854775808
   br i1 %34, label %61, label %59
 
-.thread165:                                       ; preds = %22, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.i.i.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit4.i.i.i.i.i.i"
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit4.thread.i.i.i.i.i.i.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit4.i.i.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.i.i.i.i.i.i", %22
   store ptr null, ptr %14, align 8, !alias.scope !27650
   br label %.backedge
 
-.backedge:                                        ; preds = %.thread165, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit142", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
+.backedge:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit4.thread.i.i.i.i.i.i.thread", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit142", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.exit"
   br label %19
 
 35:                                               ; preds = %29
@@ -158512,7 +158512,7 @@ define hidden void @"_ZN213_$LT$meilisearch..routes..indexes..documents.._..$LT$
   %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !27655, !noalias !27660
   store ptr null, ptr %14, align 8, !alias.scope !27655, !noalias !27660
   invoke void @"_ZN67_$LT$actix_router..de..Value$u20$as$u20$serde..de..Deserializer$GT$15deserialize_str17hc7d025776848525bE.llvm.18177661807337663391"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %.sroa.51.0.copyload.i.i, i64 noundef %.sroa.6.0.copyload.i.i)
-          to label %_ZN5serde2de9MapAccess10next_value17hacc156d6409d38acE.exit unwind label %.loopexit
+          to label %_ZN5serde2de9MapAccess10next_value17hacc156d6409d38acE.exit unwind label %.loopexit.loopexit
 
 38:                                               ; preds = %35
   %39 = extractvalue { ptr, i64 } %36, 0
@@ -158594,7 +158594,7 @@ _ZN5serde2de9MapAccess10next_value17hacc156d6409d38acE.exit: ; preds = %37
   %.sroa.6.0.copyload.i.i136 = load i64, ptr %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx4.sroa_idx.i.i, align 8, !alias.scope !27675, !noalias !27680
   store ptr null, ptr %14, align 8, !alias.scope !27675, !noalias !27680
   invoke void @"_ZN67_$LT$actix_router..de..Value$u20$as$u20$serde..de..Deserializer$GT$15deserialize_str17hc7d025776848525bE.llvm.18177661807337663391"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %.sroa.51.0.copyload.i.i134, i64 noundef %.sroa.6.0.copyload.i.i136)
-          to label %_ZN5serde2de9MapAccess10next_value17hacc156d6409d38acE.exit139 unwind label %.loopexit
+          to label %_ZN5serde2de9MapAccess10next_value17hacc156d6409d38acE.exit139 unwind label %.loopexit.loopexit
 
 62:                                               ; preds = %59
   %63 = extractvalue { ptr, i64 } %60, 0

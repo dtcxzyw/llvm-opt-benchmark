@@ -3399,32 +3399,32 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
 204:                                              ; preds = %195
   %205 = add i64 %.0176376, %201
   %.not227 = icmp eq i32 %193, 0
-  br i1 %.not227, label %ole2_read_block.exit.thread, label %206
+  br i1 %.not227, label %ole2_read_block.exit.thread.jt0, label %206
 
 206:                                              ; preds = %204
   %207 = zext i32 %.1166.lcssa to i64
   %208 = getelementptr inbounds nuw i8, ptr %50, i64 %207
   %209 = zext nneg i32 %193 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %208, i64 %209, i1 false)
-  br label %ole2_read_block.exit.thread
+  br label %ole2_read_block.exit.thread.jt0
 
-ole2_read_block.exit.thread:                      ; preds = %204, %206
+ole2_read_block.exit.thread.jt0:                  ; preds = %204, %206
   %210 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull %0, i32 noundef %.0193372)
   br label %211
 
-211:                                              ; preds = %ole2_read_block.exit.thread, %ole2_get_next_sbat_block.exit
-  %.1194 = phi i32 [ %.011.i, %ole2_get_next_sbat_block.exit ], [ %210, %ole2_read_block.exit.thread ]
-  %.1192 = phi i64 [ %102, %ole2_get_next_sbat_block.exit ], [ %.0191373, %ole2_read_block.exit.thread ]
-  %.1184 = phi i32 [ %.0183374, %ole2_get_next_sbat_block.exit ], [ %192, %ole2_read_block.exit.thread ]
-  %.1180 = phi i64 [ %.0179375, %ole2_get_next_sbat_block.exit ], [ %.3182417, %ole2_read_block.exit.thread ]
-  %.1177 = phi i64 [ %.0176376, %ole2_get_next_sbat_block.exit ], [ %205, %ole2_read_block.exit.thread ]
-  %.1174 = phi i32 [ %.0173377, %ole2_get_next_sbat_block.exit ], [ %193, %ole2_read_block.exit.thread ]
-  %.1171 = phi i32 [ %.0170378, %ole2_get_next_sbat_block.exit ], [ %193, %ole2_read_block.exit.thread ]
+211:                                              ; preds = %ole2_read_block.exit.thread.jt0, %ole2_get_next_sbat_block.exit
+  %.1194 = phi i32 [ %.011.i, %ole2_get_next_sbat_block.exit ], [ %210, %ole2_read_block.exit.thread.jt0 ]
+  %.1192 = phi i64 [ %102, %ole2_get_next_sbat_block.exit ], [ %.0191373, %ole2_read_block.exit.thread.jt0 ]
+  %.1184 = phi i32 [ %.0183374, %ole2_get_next_sbat_block.exit ], [ %192, %ole2_read_block.exit.thread.jt0 ]
+  %.1180 = phi i64 [ %.0179375, %ole2_get_next_sbat_block.exit ], [ %.3182417, %ole2_read_block.exit.thread.jt0 ]
+  %.1177 = phi i64 [ %.0176376, %ole2_get_next_sbat_block.exit ], [ %205, %ole2_read_block.exit.thread.jt0 ]
+  %.1174 = phi i32 [ %.0173377, %ole2_get_next_sbat_block.exit ], [ %193, %ole2_read_block.exit.thread.jt0 ]
+  %.1171 = phi i32 [ %.0170378, %ole2_get_next_sbat_block.exit ], [ %193, %ole2_read_block.exit.thread.jt0 ]
   %212 = zext i32 %.1184 to i64
   %213 = icmp ugt i64 %.1192, %212
   br i1 %213, label %65, label %.loopexit
 
-.loopexit:                                        ; preds = %171, %157, %.thread.i, %142, %211, %74, %.preheader, %82, %73, %69
+.loopexit:                                        ; preds = %211, %74, %171, %157, %.thread.i, %142, %.preheader, %82, %73, %69
   %214 = tail call fastcc i32 @likely_mso_stream(i32 noundef %28)
   %215 = tail call i64 @lseek(i32 noundef %28, i64 noundef 0, i32 noundef 0) #22
   %216 = icmp eq i64 %215, -1
@@ -3531,11 +3531,11 @@ ole2_read_block.exit.thread:                      ; preds = %204, %206
   %261 = zext i1 %260 to i32
   br label %.loopexit359
 
-.loopexit359:                                     ; preds = %._crit_edge, %83, %203, %.loopexit, %52, %43, %64, %259
-  %.6 = phi ptr [ %.5, %259 ], [ %.0197, %64 ], [ %.0197, %43 ], [ %.0197, %52 ], [ %.0197, %.loopexit ], [ %.0197, %203 ], [ %.0197, %83 ], [ %.0197, %._crit_edge ]
-  %.0189 = phi ptr [ %56, %259 ], [ null, %64 ], [ null, %43 ], [ null, %52 ], [ %56, %.loopexit ], [ %56, %203 ], [ %56, %83 ], [ %56, %._crit_edge ]
-  %.0188 = phi ptr [ %53, %259 ], [ %53, %64 ], [ null, %43 ], [ null, %52 ], [ %53, %.loopexit ], [ %53, %203 ], [ %53, %83 ], [ %53, %._crit_edge ]
-  %.1169 = phi i32 [ %261, %259 ], [ 22, %64 ], [ 20, %43 ], [ 20, %52 ], [ 13, %.loopexit ], [ 22, %203 ], [ 22, %83 ], [ 22, %._crit_edge ]
+.loopexit359:                                     ; preds = %83, %._crit_edge, %203, %.loopexit, %52, %43, %64, %259
+  %.6 = phi ptr [ %.5, %259 ], [ %.0197, %64 ], [ %.0197, %43 ], [ %.0197, %52 ], [ %.0197, %.loopexit ], [ %.0197, %203 ], [ %.0197, %._crit_edge ], [ %.0197, %83 ]
+  %.0189 = phi ptr [ %56, %259 ], [ null, %64 ], [ null, %43 ], [ null, %52 ], [ %56, %.loopexit ], [ %56, %203 ], [ %56, %._crit_edge ], [ %56, %83 ]
+  %.0188 = phi ptr [ %53, %259 ], [ %53, %64 ], [ null, %43 ], [ null, %52 ], [ %53, %.loopexit ], [ %53, %203 ], [ %53, %._crit_edge ], [ %53, %83 ]
+  %.1169 = phi i32 [ %261, %259 ], [ 22, %64 ], [ 20, %43 ], [ 20, %52 ], [ 13, %.loopexit ], [ 22, %203 ], [ 22, %._crit_edge ], [ 22, %83 ]
   %.not238 = icmp eq ptr %.6, null
   br i1 %.not238, label %.thread261, label %.thread279
 

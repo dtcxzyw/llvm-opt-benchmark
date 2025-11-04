@@ -7373,10 +7373,9 @@ define linkonce_odr hidden noundef i32 @_ZN17algebraic_numbers7manager3imp12eval
   %61 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br label %62
 
-62:                                               ; preds = %.backedge, %3
-  %63 = phi i8 [ undef, %3 ], [ %.pre347, %.backedge ]
-  %64 = phi i8 [ undef, %3 ], [ %.pre, %.backedge ]
-  %.0 = phi i32 [ undef, %3 ], [ %.3365, %.backedge ]
+62:                                               ; preds = %.thread187.jt0, %3
+  %63 = phi i8 [ undef, %3 ], [ %.pre347, %.thread187.jt0 ]
+  %64 = phi i8 [ undef, %3 ], [ %.pre, %.thread187.jt0 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN17algebraic_numbers7manager3imp13opt_var2basicE, i64 16), ptr %4, align 8, !tbaa !96
   store ptr %0, ptr %20, align 8, !tbaa !98
@@ -7607,16 +7606,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %.preheader, %161
           to label %156 unwind label %159
 
 156:                                              ; preds = %154
-  br i1 %155, label %161, label %.thread187.thread
-
-.thread187.thread:                                ; preds = %156
-  call void @_ZN22basic_interval_managerI12mpbq_managerLb0EE15scoped_intervalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #29
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.backedge
+  br i1 %155, label %161, label %.thread187.jt0
 
 157:                                              ; preds = %134
   %158 = landingpad { ptr, i32 }
@@ -7886,7 +7876,7 @@ _ZN12mpbq_manager5div2kER4mpbqj.exit171:          ; preds = %260, %_ZN12mpbq_man
           to label %265 unwind label %270
 
 265:                                              ; preds = %263
-  br i1 %264, label %.thread187, label %272
+  br i1 %264, label %.thread187.jt1, label %272
 
 266:                                              ; preds = %.critedge200
   %267 = landingpad { ptr, i32 }
@@ -7974,7 +7964,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit173:               ; preds = %272, %291
 304:                                              ; preds = %298
   %305 = icmp sgt i32 %299, -1
   %306 = select i1 %305, i32 1, i32 -1
-  br label %.loopexit
+  br label %.loopexit.jt1
 
 307:                                              ; preds = %312, %309, %296, %.critedge201.preheader
   %308 = landingpad { ptr, i32 }
@@ -7993,7 +7983,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit173:               ; preds = %272, %291
           to label %314 unwind label %307
 
 314:                                              ; preds = %312
-  br i1 %313, label %.loopexit, label %315
+  br i1 %313, label %.loopexit.jt1, label %315
 
 315:                                              ; preds = %314, %311
   %316 = load ptr, ptr %32, align 8, !tbaa !101
@@ -8031,19 +8021,35 @@ _ZN6vectorIjLb0EjE3endEv.exit176:                 ; preds = %315
           to label %332 unwind label %333
 
 332:                                              ; preds = %330
-  br i1 %331, label %323, label %.loopexit
+  br i1 %331, label %323, label %335
 
 333:                                              ; preds = %330, %.lr.ph
   %334 = landingpad { ptr, i32 }
           cleanup
   br label %336
 
-.loopexit:                                        ; preds = %314, %332, %304
-  %335 = phi i1 [ false, %304 ], [ true, %332 ], [ false, %314 ]
-  %.5 = phi i32 [ %306, %304 ], [ %.0, %332 ], [ 0, %314 ]
+.loopexit.jt1:                                    ; preds = %314, %304
+  %.5.jt1 = phi i32 [ %306, %304 ], [ 0, %314 ]
   call void @_ZN17scoped_ptr_vectorIN17algebraic_numbers7manager3imp14save_intervalsEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %.thread187
+  br label %.thread187.jt1
+
+335:                                              ; preds = %332
+  call void @_ZN17scoped_ptr_vectorIN17algebraic_numbers7manager3imp14save_intervalsEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @_ZN15_scoped_numeralI12mpbq_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @_ZN15_scoped_numeralI12mpbq_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %.thread187.jt0
 
 .thread193:                                       ; preds = %89, %98
   %.2.ph = phi i32 [ %100, %98 ], [ 0, %89 ]
@@ -8062,9 +8068,19 @@ _ZN6vectorIjLb0EjE3endEv.exit176:                 ; preds = %315
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit205
 
-.thread187:                                       ; preds = %.loopexit, %265
-  %.5127 = phi i1 [ %335, %.loopexit ], [ false, %265 ]
-  %.4 = phi i32 [ %.5, %.loopexit ], [ 0, %265 ]
+.thread187.jt0:                                   ; preds = %156, %335
+  call void @_ZN22basic_interval_managerI12mpbq_managerLb0EE15scoped_intervalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %.pre = load i8, ptr %24, align 4
+  %.pre347 = load i8, ptr %27, align 4
+  br label %62, !llvm.loop !151
+
+.thread187.jt1:                                   ; preds = %265, %.loopexit.jt1
+  %.4.jt1 = phi i32 [ %.5.jt1, %.loopexit.jt1 ], [ 0, %265 ]
   call void @_ZN15_scoped_numeralI12mpbq_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN15_scoped_numeralI12mpbq_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #29
@@ -8083,13 +8099,7 @@ _ZN6vectorIjLb0EjE3endEv.exit176:                 ; preds = %315
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.5127, label %.backedge, label %.loopexit205
-
-.backedge:                                        ; preds = %.thread187, %.thread187.thread
-  %.3365 = phi i32 [ %.0, %.thread187.thread ], [ %.4, %.thread187 ]
-  %.pre = load i8, ptr %24, align 4
-  %.pre347 = load i8, ptr %27, align 4
-  br label %62, !llvm.loop !151
+  br label %.loopexit205
 
 336:                                              ; preds = %333, %307, %294
   %.pn145 = phi { ptr, i32 } [ %295, %294 ], [ %308, %307 ], [ %334, %333 ]
@@ -8147,8 +8157,8 @@ _ZN6vectorIjLb0EjE3endEv.exit176:                 ; preds = %315
   %.merged = phi { ptr, i32 } [ %.pn163, %343 ], [ %77, %76 ]
   resume { ptr, i32 } %.merged
 
-.loopexit205:                                     ; preds = %.thread187, %.thread197, %.thread193, %.thread188
-  %.1191 = phi i32 [ %71, %.thread188 ], [ %.2.ph, %.thread193 ], [ %.3.ph, %.thread197 ], [ %.4, %.thread187 ]
+.loopexit205:                                     ; preds = %.thread187.jt1, %.thread197, %.thread193, %.thread188
+  %.1191 = phi i32 [ %71, %.thread188 ], [ %.2.ph, %.thread193 ], [ %.3.ph, %.thread197 ], [ %.4.jt1, %.thread187.jt1 ]
   ret i32 %.1191
 }
 

@@ -3312,8 +3312,8 @@ parser_lex_magic_comment_emacs_marker.exit266.i:  ; preds = %160, %.lr.ph.i.i, %
   br i1 %183, label %.preheader314.i, label %parser_lex_magic_comment.exit.thread3035
 
 .preheader314.i:                                  ; preds = %parser_lex_magic_comment_emacs_marker.exit266.i, %.backedge.i
-  %.0211372.i = phi i1 [ %.2213445.i, %.backedge.i ], [ true, %parser_lex_magic_comment_emacs_marker.exit266.i ]
-  %.0225371.i = phi ptr [ %.4229444.i, %.backedge.i ], [ %.0216.i, %parser_lex_magic_comment_emacs_marker.exit266.i ]
+  %.0211372.i = phi i1 [ %.2213.jt2.i, %.backedge.i ], [ true, %parser_lex_magic_comment_emacs_marker.exit266.i ]
+  %.0225371.i = phi ptr [ %.4229.jt2.i, %.backedge.i ], [ %.0216.i, %parser_lex_magic_comment_emacs_marker.exit266.i ]
   br label %184
 
 184:                                              ; preds = %.critedge2.i, %.preheader314.i
@@ -3900,7 +3900,7 @@ pm_parser_scope_shareable_constant_set.exit.i:    ; preds = %400, %395, %389, %3
   call void @pm_string_free(ptr noundef nonnull %3) #31
   %406 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #34
   %.not250.i = icmp eq ptr %406, null
-  br i1 %.not250.i, label %.thread446.i, label %407
+  br i1 %.not250.i, label %.thread.jt2.i, label %407
 
 407:                                              ; preds = %pm_parser_scope_shareable_constant_set.exit.i
   %408 = getelementptr inbounds nuw i8, ptr %406, i64 8
@@ -3913,9 +3913,9 @@ pm_parser_scope_shareable_constant_set.exit.i:    ; preds = %400, %395, %389, %3
   %412 = getelementptr inbounds nuw i8, ptr %406, i64 28
   store i32 %280, ptr %412, align 4, !tbaa !191
   call void @pm_list_append(ptr noundef nonnull %42, ptr noundef nonnull %406) #31
-  br label %.thread446.i
+  br label %.thread.jt2.i
 
-.thread446.i:                                     ; preds = %407, %pm_parser_scope_shareable_constant_set.exit.i
+.thread.jt2.i:                                    ; preds = %407, %pm_parser_scope_shareable_constant_set.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.backedge.i
 
@@ -3923,14 +3923,14 @@ pm_parser_scope_shareable_constant_set.exit.i:    ; preds = %400, %395, %389, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.0211372.i, label %parser_lex_magic_comment.exit.thread3035, label %parser_lex_magic_comment.exit.thread
 
-.backedge.i:                                      ; preds = %.thread446.i, %205
-  %.2213445.i = phi i1 [ %.5291.i, %.thread446.i ], [ %.0211372.i, %205 ]
-  %.4229444.i = phi ptr [ %.11.i, %.thread446.i ], [ %.3228.lcssa.i, %205 ]
-  %414 = icmp ult ptr %.4229444.i, %.0217.i
+.backedge.i:                                      ; preds = %.thread.jt2.i, %205
+  %.4229.jt2.i = phi ptr [ %.3228.lcssa.i, %205 ], [ %.11.i, %.thread.jt2.i ]
+  %.2213.jt2.i = phi i1 [ %.0211372.i, %205 ], [ %.5291.i, %.thread.jt2.i ]
+  %414 = icmp ult ptr %.4229.jt2.i, %.0217.i
   br i1 %414, label %.preheader314.i, label %parser_lex_magic_comment.exit, !llvm.loop !192
 
 parser_lex_magic_comment.exit:                    ; preds = %.critedge6.i, %.critedge8.i, %.backedge.i
-  %.0.i = phi i1 [ %.0211372.i, %.critedge8.i ], [ %.0211372.i, %.critedge6.i ], [ %.2213445.i, %.backedge.i ]
+  %.0.i = phi i1 [ %.0211372.i, %.critedge8.i ], [ %.0211372.i, %.critedge6.i ], [ %.2213.jt2.i, %.backedge.i ]
   br i1 %.0.i, label %parser_lex_magic_comment.exit.thread3035, label %parser_lex_magic_comment.exit.thread
 
 parser_lex_magic_comment.exit.thread:             ; preds = %180, %.lr.ph.i260.i, %205, %.critedge18.i, %parser_lex_magic_comment_emacs_marker.exit.i, %parser_lex_callback.exit2106, %413, %parser_lex_magic_comment.exit

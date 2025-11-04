@@ -1248,7 +1248,7 @@ _ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit: ; pred
   %65 = ptrtoint ptr %22 to i64
   br label %66
 
-66:                                               ; preds = %237, %51
+66:                                               ; preds = %_ZN4llvm8ExpectedIbED2Ev.exit.jt3, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 0, ptr %18, align 8, !tbaa !109
   store i64 0, ptr %52, align 8, !tbaa !35
@@ -1282,7 +1282,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %73, %_ZNSt10unique_
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %229
+  br label %spec.select.si.unfold.false.jt1
 
 77:                                               ; preds = %66
   %78 = load i8, ptr %19, align 8, !tbaa !120, !range !87, !noundef !88
@@ -1293,13 +1293,12 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %73, %_ZNSt10unique_
   %81 = load i32, ptr %24, align 8
   %82 = icmp eq i32 %81, 1
   %or.cond = select i1 %3, i1 %82, i1 false
-  %spec.select = select i1 %or.cond, i32 2, i32 1
-  br label %229
+  br i1 %or.cond, label %229, label %spec.select.si.unfold.false.jt1
 
 83:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.16)
   %84 = load i8, ptr %18, align 8, !tbaa !109
-  switch i8 %84, label %.loopexit [
+  switch i8 %84, label %.loopexit.jt1 [
     i8 2, label %99
     i8 0, label %85
     i8 1, label %88
@@ -1494,7 +1493,7 @@ _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.thread.i: ; preds = %_ZNK4llvm7msgpack7
   %165 = getelementptr inbounds nuw %struct.StackLevel, ptr %162, i64 %164
   %166 = getelementptr inbounds i8, ptr %165, i64 -32
   store ptr %154, ptr %166, align 8, !tbaa !125
-  br label %.loopexit
+  br label %.loopexit141
 
 167:                                              ; preds = %142
   store ptr null, ptr %148, align 8, !tbaa !125
@@ -1557,7 +1556,7 @@ _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit39.thread: ; preds = %176, %_ZNK4llvm7ms
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %189 = icmp sgt i32 %188, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  br i1 %189, label %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit39.thread._crit_edge, label %.loopexit
+  br i1 %189, label %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit39.thread._crit_edge, label %.loopexit.jt1
 
 _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit39.thread._crit_edge: ; preds = %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit39.thread
   %.pre = load ptr, ptr %.029, align 8, !tbaa !3
@@ -1634,7 +1633,7 @@ _ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit46: ; pr
 216:                                              ; preds = %191, %_ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit46
   %.pr = phi i32 [ %.pr.pre, %191 ], [ %215, %_ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit46 ]
   %.not.i47121 = icmp eq i32 %.pr, 0
-  br i1 %.not.i47121, label %.loopexit, label %.lr.ph
+  br i1 %.not.i47121, label %.loopexit141, label %.lr.ph
 
 .lr.ph:                                           ; preds = %216
   %217 = load ptr, ptr %15, align 8, !tbaa !99
@@ -1647,7 +1646,7 @@ _ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit46: ; pr
   %221 = getelementptr inbounds i8, ptr %220, i64 -32
   %222 = load ptr, ptr %221, align 8, !tbaa !125
   %.not = icmp eq ptr %222, null
-  br i1 %.not, label %223, label %.loopexit
+  br i1 %.not, label %223, label %.loopexit141
 
 223:                                              ; preds = %219
   %224 = getelementptr inbounds i8, ptr %220, i64 -48
@@ -1655,66 +1654,86 @@ _ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit46: ; pr
   %226 = getelementptr inbounds i8, ptr %220, i64 -40
   %227 = load i64, ptr %226, align 8, !tbaa !106
   %.not31 = icmp eq i64 %225, %227
-  br i1 %.not31, label %228, label %.loopexit
+  br i1 %.not31, label %228, label %.loopexit141
 
 228:                                              ; preds = %223
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
   store i32 %indvars, ptr %24, align 8, !tbaa !102
   %.not.i47 = icmp eq i32 %indvars, 0
-  br i1 %.not.i47, label %.loopexit, label %219, !llvm.loop !127
+  br i1 %.not.i47, label %.loopexit141, label %219, !llvm.loop !127
 
-.loopexit:                                        ; preds = %223, %219, %228, %216, %.thread, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit39.thread, %83
-  %.124 = phi i32 [ 1, %83 ], [ 1, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit39.thread ], [ 3, %.thread ], [ 0, %216 ], [ 0, %228 ], [ 0, %219 ], [ 0, %223 ]
+.loopexit.jt1:                                    ; preds = %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit39.thread, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16)
-  br label %229
+  br label %spec.select.si.unfold.false.jt1
 
-229:                                              ; preds = %80, %.loopexit, %_ZN4llvm5ErrorD2Ev.exit
-  %.023 = phi i32 [ %.124, %.loopexit ], [ 1, %_ZN4llvm5ErrorD2Ev.exit ], [ %spec.select, %80 ]
+229:                                              ; preds = %80
   %230 = load i8, ptr %53, align 8
   %231 = trunc i8 %230 to i1
-  br i1 %231, label %232, label %_ZN4llvm8ExpectedIbED2Ev.exit
+  %232 = load ptr, ptr %19, align 8
+  %.not.i.i48.jt2 = icmp ne ptr %232, null
+  %or.cond147.not = select i1 %231, i1 %.not.i.i48.jt2, i1 false
+  br i1 %or.cond147.not, label %.loopexit120.sink.split.sink.split, label %.loopexit120.sink.split
 
-232:                                              ; preds = %229
-  %233 = load ptr, ptr %19, align 8, !tbaa !111
-  %.not.i.i48 = icmp eq ptr %233, null
-  br i1 %.not.i.i48, label %_ZN4llvm8ExpectedIbED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
+.loopexit141:                                     ; preds = %228, %219, %223, %.thread, %216
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16)
+  %233 = load i8, ptr %53, align 8
+  %234 = trunc i8 %233 to i1
+  br i1 %234, label %238, label %_ZN4llvm8ExpectedIbED2Ev.exit.jt3
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %232
-  %234 = load ptr, ptr %233, align 8, !tbaa !118
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %236 = load ptr, ptr %235, align 8
-  call void %236(ptr noundef nonnull align 8 dereferenceable(8) %233) #21
-  br label %_ZN4llvm8ExpectedIbED2Ev.exit
+spec.select.si.unfold.false.jt1:                  ; preds = %80, %_ZN4llvm5ErrorD2Ev.exit, %.loopexit.jt1
+  %235 = load i8, ptr %53, align 8
+  %236 = trunc i8 %235 to i1
+  %237 = load ptr, ptr %19, align 8
+  %.not.i.i48.jt1 = icmp ne ptr %237, null
+  %or.cond149.not = select i1 %236, i1 %.not.i.i48.jt1, i1 false
+  br i1 %or.cond149.not, label %.loopexit120.sink.split.sink.split, label %.loopexit120.sink.split
 
-_ZN4llvm8ExpectedIbED2Ev.exit:                    ; preds = %232, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %229
+238:                                              ; preds = %.loopexit141
+  %239 = load ptr, ptr %19, align 8, !tbaa !111
+  %.not.i.i48.jt3 = icmp eq ptr %239, null
+  br i1 %.not.i.i48.jt3, label %_ZN4llvm8ExpectedIbED2Ev.exit.jt3, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt3
+
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt3: ; preds = %238
+  %240 = load ptr, ptr %239, align 8, !tbaa !118
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  %242 = load ptr, ptr %241, align 8
+  call void %242(ptr noundef nonnull align 8 dereferenceable(8) %239) #21
+  br label %_ZN4llvm8ExpectedIbED2Ev.exit.jt3
+
+_ZN4llvm8ExpectedIbED2Ev.exit.jt3:                ; preds = %238, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.jt3, %.loopexit141
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  switch i32 %.023, label %.loopexit120.loopexit [
-    i32 0, label %237
-    i32 2, label %.loopexit120
-    i32 3, label %237
-  ]
-
-237:                                              ; preds = %_ZN4llvm8ExpectedIbED2Ev.exit, %_ZN4llvm8ExpectedIbED2Ev.exit
-  %238 = load i32, ptr %24, align 8, !tbaa !102
-  %.not.i50 = icmp eq i32 %238, 0
+  %243 = load i32, ptr %24, align 8, !tbaa !102
+  %.not.i50 = icmp eq i32 %243, 0
   br i1 %.not.i50, label %.loopexit120, label %66, !llvm.loop !128
 
-.loopexit120.loopexit:                            ; preds = %_ZN4llvm8ExpectedIbED2Ev.exit
+.loopexit120.sink.split.sink.split:               ; preds = %spec.select.si.unfold.false.jt1, %229
+  %.sink145 = phi ptr [ %232, %229 ], [ %237, %spec.select.si.unfold.false.jt1 ]
+  %.7.ph.ph = phi i1 [ true, %229 ], [ false, %spec.select.si.unfold.false.jt1 ]
+  %244 = load ptr, ptr %.sink145, align 8, !tbaa !118
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  %246 = load ptr, ptr %245, align 8
+  call void %246(ptr noundef nonnull align 8 dereferenceable(8) %.sink145) #21
+  br label %.loopexit120.sink.split
+
+.loopexit120.sink.split:                          ; preds = %.loopexit120.sink.split.sink.split, %spec.select.si.unfold.false.jt1, %229
+  %.7.ph = phi i1 [ true, %229 ], [ false, %spec.select.si.unfold.false.jt1 ], [ %.7.ph.ph, %.loopexit120.sink.split.sink.split ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit120
 
-.loopexit120:                                     ; preds = %_ZN4llvm8ExpectedIbED2Ev.exit, %237, %.loopexit120.loopexit
-  %.7 = phi i1 [ false, %.loopexit120.loopexit ], [ true, %237 ], [ true, %_ZN4llvm8ExpectedIbED2Ev.exit ]
-  %239 = load ptr, ptr %15, align 8, !tbaa !99
-  %240 = icmp eq ptr %239, %23
-  br i1 %240, label %_ZN4llvm11SmallVectorI10StackLevelLj4EED2Ev.exit, label %241
+.loopexit120:                                     ; preds = %_ZN4llvm8ExpectedIbED2Ev.exit.jt3, %.loopexit120.sink.split
+  %.7 = phi i1 [ %.7.ph, %.loopexit120.sink.split ], [ true, %_ZN4llvm8ExpectedIbED2Ev.exit.jt3 ]
+  %247 = load ptr, ptr %15, align 8, !tbaa !99
+  %248 = icmp eq ptr %247, %23
+  br i1 %248, label %_ZN4llvm11SmallVectorI10StackLevelLj4EED2Ev.exit, label %249
 
-241:                                              ; preds = %.loopexit120
-  call void @free(ptr noundef %239) #21
+249:                                              ; preds = %.loopexit120
+  call void @free(ptr noundef %247) #21
   br label %_ZN4llvm11SmallVectorI10StackLevelLj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorI10StackLevelLj4EED2Ev.exit: ; preds = %.loopexit120, %241
+_ZN4llvm11SmallVectorI10StackLevelLj4EED2Ev.exit: ; preds = %.loopexit120, %249
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i1 %.7

@@ -5246,7 +5246,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %21 = load ptr, ptr @ctx, align 8, !tbaa !17
   %22 = tail call ptr @SSL_new(ptr noundef %21) #14
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.loopexit317, label %24
+  br i1 %23, label %.thread307, label %24
 
 24:                                               ; preds = %20
   %.b244 = load i1, ptr @s_tlsextdebug, align 4
@@ -5756,7 +5756,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %253 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.529, i32 noundef %252)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %._crit_edge351, %400, %250, %256, %262, %184, %275, %273, %405, %410, %320, %.thread290, %.critedge
+.backedge.backedge:                               ; preds = %._crit_edge351, %400, %250, %256, %262, %184, %275, %273, %405, %410, %320, %.thread290, %.thread410.critedge
   br label %.backedge
 
 254:                                              ; preds = %226
@@ -6061,7 +6061,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 373:                                              ; preds = %.critedge4.thread.i
   %374 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %375 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %374, ptr noundef nonnull @.str.562) #14
-  br label %.critedge
+  br label %.thread410.critedge
 
 376:                                              ; preds = %.critedge4.thread.i
   %377 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -6083,7 +6083,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 
 .critedge4.thread84.i:                            ; preds = %.preheader.i, %358, %.critedge4.i
   call fastcc void @print_connection_info(ptr noundef nonnull %22)
-  br label %.critedge
+  br label %.thread410.critedge
 
 init_ssl_connection.exit:                         ; preds = %331, %.critedge73.i, %384
   %386 = call ptr @SSL_get_rbio(ptr noundef nonnull %22) #14
@@ -6094,7 +6094,7 @@ init_ssl_connection.exit:                         ; preds = %331, %.critedge73.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread303
 
-.critedge:                                        ; preds = %.critedge4.thread84.i, %373
+.thread410.critedge:                              ; preds = %.critedge4.thread84.i, %373
   %388 = call ptr @SSL_get_rbio(ptr noundef nonnull %22) #14
   call void @BIO_set_callback_arg(ptr noundef %388, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -6175,9 +6175,9 @@ init_ssl_connection.exit:                         ; preds = %331, %.critedge73.i
   %427 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %426, ptr noundef nonnull @.str.538) #14
   call void @do_ssl_shutdown(ptr noundef nonnull %22) #14
   call void @SSL_free(ptr noundef nonnull %22) #14
-  br label %.loopexit317
+  br label %.thread307
 
-.loopexit317:                                     ; preds = %.thread303, %20
+.thread307:                                       ; preds = %20, %.thread303
   %.0205306 = phi i32 [ %.0205305, %.thread303 ], [ -1, %20 ]
   %428 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %429 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %428, ptr noundef nonnull @.str.539) #14

@@ -2332,11 +2332,11 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF5MachO18ChainedBindingInfoESt14default_deleteI
 
 137:                                              ; preds = %132
   %138 = icmp samesign ugt i64 %123, 65535
-  %..i = select i1 %138, i32 12, i32 1
+  %spec.select = select i1 %138, i32 12, i32 1
   br label %_ZN4LIEF5MachO24DyldChainedFixupsCreator14pointer_formatERKNS0_6BinaryEm.exit
 
-_ZN4LIEF5MachO24DyldChainedFixupsCreator14pointer_formatERKNS0_6BinaryEm.exit: ; preds = %125, %128, %132, %137
-  %.0.i = phi i32 [ 0, %125 ], [ %..i, %137 ], [ 2, %132 ], [ 2, %128 ]
+_ZN4LIEF5MachO24DyldChainedFixupsCreator14pointer_formatERKNS0_6BinaryEm.exit: ; preds = %137, %125, %128, %132
+  %.0.i = phi i32 [ 0, %125 ], [ 2, %132 ], [ 2, %128 ], [ %spec.select, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   %139 = call i64 @_ZN4LIEF5MachO24DyldChainedFixupsCreator19process_relocationsERNS0_6BinaryENS0_23DYLD_CHAINED_PTR_FORMATE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(488) %1, i32 noundef %.0.i)
   %140 = and i64 %139, 4294967296

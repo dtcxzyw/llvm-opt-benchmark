@@ -1053,7 +1053,7 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16: ; preds
   call void @_ZN6spdlog6logger4log_IJRA6_KcRKiEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %85, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %6, i32 noundef 1, ptr nonnull @.str.4, i64 12, ptr noundef nonnull align 1 dereferenceable(6) @__FUNCTION__._ZN4LIEF2PE23DynamicFixupARM64Kernel5parseERNS0_6ParserERNS_10SpanStreamE, ptr noundef nonnull align 4 dereferenceable(4) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %_ZNK4LIEF12BinaryStream4readINS_2PE7details7reloc_tEEEN2tl8expectedIT_11lief_errorsEEv.exit.thread
+  br label %.loopexit
 
 86:                                               ; preds = %76
   %87 = load ptr, ptr %33, align 8, !tbaa !90, !noalias !79
@@ -1068,7 +1068,7 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16: ; preds
   store i64 %81, ptr %24, align 8, !tbaa !68
   %89 = call noundef i64 @_ZNK4LIEF10SpanStream4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #22
   %.not84 = icmp eq i64 %89, 0
-  br i1 %.not84, label %.loopexit, label %.lr.ph
+  br i1 %.not84, label %.thread.jt0, label %.lr.ph
 
 .lr.ph:                                           ; preds = %86, %139
   %90 = load i64, ptr %34, align 8, !tbaa !68
@@ -1082,7 +1082,7 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %96 = and i64 %94, 4294967296
   %.not.i = icmp eq i64 %96, 0
-  br i1 %.not.i, label %_ZNK4LIEF12BinaryStream4readINS_2PE7details7reloc_tEEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, label %97
+  br i1 %.not.i, label %.loopexit, label %97
 
 97:                                               ; preds = %.lr.ph
   %98 = add i64 %90, 4
@@ -1217,13 +1217,13 @@ _ZNSt6vectorIN4LIEF2PE23DynamicFixupARM64Kernel13reloc_entry_tESaIS3_EE17_M_real
   %150 = load ptr, ptr %149, align 8
   %151 = call noundef i64 %150(ptr noundef nonnull align 8 dereferenceable(24) %14) #22
   %152 = icmp ult i64 %147, %151
-  br i1 %152, label %.lr.ph, label %.loopexit
+  br i1 %152, label %.lr.ph, label %.thread.jt0
 
-.loopexit:                                        ; preds = %139, %86
+.thread.jt0:                                      ; preds = %139, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16, %.loopexit
+.backedge:                                        ; preds = %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16, %.thread.jt0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %153 = load i64, ptr %24, align 8, !tbaa !68
   %154 = load ptr, ptr %2, align 8, !tbaa !24
@@ -1233,11 +1233,11 @@ _ZNSt6vectorIN4LIEF2PE23DynamicFixupARM64Kernel13reloc_entry_tESaIS3_EE17_M_real
   %158 = icmp ult i64 %153, %157
   br i1 %158, label %42, label %.critedge, !llvm.loop !77
 
-_ZNK4LIEF12BinaryStream4readINS_2PE7details7reloc_tEEEN2tl8expectedIT_11lief_errorsEEv.exit.thread: ; preds = %.lr.ph, %83
+.loopexit:                                        ; preds = %.lr.ph, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16.thread, %_ZNK4LIEF12BinaryStream4readINS_2PE7details7reloc_tEEEN2tl8expectedIT_11lief_errorsEEv.exit.thread
+.critedge.sink.split:                             ; preds = %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit16.thread, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge
 

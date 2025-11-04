@@ -504,18 +504,18 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.backedge198.i, %92
-  %.lcssa = phi i32 [ %99, %92 ], [ %246, %.backedge198.i ]
+._crit_edge:                                      ; preds = %.backedge, %92
+  %.lcssa = phi i32 [ %99, %92 ], [ %105, %.backedge ]
   %101 = call ptr @g_strerror(i32 noundef %.lcssa) #16
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 96, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.50, ptr noundef %101)
   br label %sdj_dump_entries.exit.thread50
 
-.lr.ph:                                           ; preds = %92, %.backedge198.i
-  %102 = phi i32 [ %246, %.backedge198.i ], [ %99, %92 ]
+.lr.ph:                                           ; preds = %92, %.backedge
+  %102 = phi i32 [ %105, %.backedge ], [ %99, %92 ]
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %.thread188.i, label %105
+  br i1 %103, label %.critedge.i, label %107
 
-.thread188.i:                                     ; preds = %.lr.ph
+.critedge.i:                                      ; preds = %.lr.ph
   %104 = call i32 @sd_journal_wait(ptr noundef %93, i64 noundef -1)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -526,235 +526,9 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.backedge198.i
+  br label %.backedge
 
-105:                                              ; preds = %.lr.ph
-  %106 = call i32 @sd_journal_get_cursor(ptr noundef %93, ptr noundef nonnull %4)
-  %107 = icmp slt i32 %106, 0
-  br i1 %107, label %108, label %110
-
-108:                                              ; preds = %105
-  %109 = call ptr @g_strerror(i32 noundef %106) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 105, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.51, ptr noundef %109)
-  br label %sdj_dump_entries.exit.thread50
-
-110:                                              ; preds = %105
-  %111 = load ptr, ptr %4, align 8
-  %112 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %95, i64 noundef 262124, i32 noundef 2, i64 noundef 262136, ptr noundef nonnull @.str.52, ptr noundef %111)
-  %113 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %113) #15
-  %114 = call i32 @sd_journal_get_realtime_usec(ptr noundef %93, ptr noundef nonnull %5)
-  %115 = icmp slt i32 %114, 0
-  br i1 %115, label %116, label %118
-
-116:                                              ; preds = %110
-  %117 = call ptr @g_strerror(i32 noundef %114) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 113, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.53, ptr noundef %117)
-  br label %sdj_dump_entries.exit.thread50
-
-118:                                              ; preds = %110
-  %119 = add i32 %112, 8
-  %120 = zext i32 %119 to i64
-  %121 = getelementptr i8, ptr %94, i64 %120
-  %122 = sub i32 262124, %112
-  %123 = zext i32 %122 to i64
-  %124 = sub nsw i64 262144, %120
-  %125 = icmp ugt i32 %119, 262144
-  %126 = select i1 %125, i64 0, i64 %124
-  %127 = icmp ne i64 %126, -1
-  call void @llvm.assume(i1 %127)
-  %128 = load i64, ptr %5, align 8
-  %129 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %121, i64 noundef %123, i32 noundef 2, i64 noundef %126, ptr noundef nonnull @.str.54, i64 noundef %128)
-  %130 = call i32 @sd_journal_get_monotonic_usec(ptr noundef %93, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %131 = icmp slt i32 %130, 0
-  br i1 %131, label %132, label %134
-
-132:                                              ; preds = %118
-  %133 = call ptr @g_strerror(i32 noundef %130) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 120, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.55, ptr noundef %133)
-  br label %sdj_dump_entries.exit.thread50
-
-134:                                              ; preds = %118
-  %135 = add i32 %129, %119
-  %136 = load i64, ptr %7, align 8
-  %137 = load i64, ptr %97, align 8
-  %138 = call ptr @sd_id128_to_string(i64 %136, i64 %137, ptr noundef nonnull %96)
-  %139 = zext i32 %135 to i64
-  %140 = getelementptr i8, ptr %94, i64 %139
-  %141 = sub i32 262132, %135
-  %142 = zext i32 %141 to i64
-  %143 = sub nsw i64 262144, %139
-  %144 = icmp ugt i32 %135, 262144
-  %145 = select i1 %144, i64 0, i64 %143
-  %146 = icmp ne i64 %145, -1
-  call void @llvm.assume(i1 %146)
-  %147 = load i64, ptr %6, align 8
-  %148 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %140, i64 noundef %142, i32 noundef 2, i64 noundef %145, ptr noundef nonnull @.str.56, i64 noundef %147, ptr noundef nonnull %8)
-  %149 = add i32 %148, %135
-  call void @sd_journal_restart_data(ptr noundef %93)
-  %150 = call i32 @sd_journal_enumerate_available_data(ptr noundef %93, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %151 = icmp sgt i32 %150, 0
-  br i1 %151, label %.lr.ph.i, label %.thread.i
-
-.lr.ph.i:                                         ; preds = %134, %219
-  %.099149.i = phi i32 [ %.2101.i, %219 ], [ %149, %134 ]
-  %152 = load ptr, ptr %9, align 8
-  %153 = load i64, ptr %10, align 8
-  %154 = call ptr @memchr(ptr noundef %152, i32 noundef 61, i64 noundef %153) #17
-  %.not.i = icmp eq ptr %154, null
-  br i1 %.not.i, label %.thread118.i, label %155
-
-.thread118.i:                                     ; preds = %.lr.ph.i
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 130, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.57)
-  br label %sdj_dump_entries.exit.thread50
-
-155:                                              ; preds = %.lr.ph.i
-  %156 = call i32 @g_utf8_validate(ptr noundef %152, i64 noundef %153, ptr noundef null)
-  %.not114.i = icmp eq i32 %156, 0
-  %157 = load i64, ptr %10, align 8
-  br i1 %.not114.i, label %176, label %158
-
-158:                                              ; preds = %155
-  %159 = sub i32 262130, %.099149.i
-  %160 = zext i32 %159 to i64
-  %161 = icmp ugt i64 %157, %160
-  br i1 %161, label %.thread.i, label %162
-
-162:                                              ; preds = %158
-  %163 = zext i32 %.099149.i to i64
-  %164 = getelementptr i8, ptr %94, i64 %163
-  %165 = load ptr, ptr %9, align 8
-  %166 = sub nsw i64 262144, %163
-  %167 = icmp ugt i32 %.099149.i, 262144
-  %168 = select i1 %167, i64 0, i64 %166
-  %169 = icmp ne i64 %168, -1
-  call void @llvm.assume(i1 %169)
-  %170 = call ptr @__memcpy_chk(ptr noundef %164, ptr noundef %165, i64 noundef %157, i64 noundef %168) #15, !alias.scope !9
-  %171 = trunc nuw i64 %157 to i32
-  %172 = add i32 %.099149.i, %171
-  %173 = zext i32 %172 to i64
-  %174 = getelementptr i8, ptr %94, i64 %173
-  store i8 10, ptr %174, align 1
-  %175 = add i32 %172, 1
-  br label %219
-
-176:                                              ; preds = %155
-  %177 = sub i32 262121, %.099149.i
-  %178 = zext i32 %177 to i64
-  %179 = icmp ugt i64 %157, %178
-  br i1 %179, label %.thread.i, label %180
-
-180:                                              ; preds = %176
-  %181 = load ptr, ptr %9, align 8
-  %182 = ptrtoint ptr %154 to i64
-  %183 = ptrtoint ptr %181 to i64
-  %184 = sub i64 %182, %183
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %185 = xor i64 %184, -1
-  %186 = add i64 %157, %185
-  store i64 %186, ptr %13, align 8
-  %187 = zext i32 %.099149.i to i64
-  %188 = getelementptr i8, ptr %94, i64 %187
-  %189 = sub nsw i64 262144, %187
-  %190 = icmp ugt i32 %.099149.i, 262144
-  %191 = select i1 %190, i64 0, i64 %189
-  %192 = icmp ne i64 %191, -1
-  call void @llvm.assume(i1 %192)
-  %193 = call ptr @__memcpy_chk(ptr noundef %188, ptr noundef %181, i64 noundef %184, i64 noundef %191) #15, !alias.scope !13
-  %194 = trunc i64 %184 to i32
-  %195 = add i32 %.099149.i, %194
-  %196 = zext i32 %195 to i64
-  %197 = getelementptr i8, ptr %94, i64 %196
-  store i8 10, ptr %197, align 1
-  %198 = add i32 %195, 1
-  %199 = zext i32 %198 to i64
-  %200 = getelementptr i8, ptr %94, i64 %199
-  %201 = sub nsw i64 262144, %199
-  %202 = icmp ugt i32 %198, 262144
-  %203 = select i1 %202, i64 0, i64 %201
-  %204 = icmp ne i64 %203, -1
-  call void @llvm.assume(i1 %204)
-  %205 = call ptr @__memcpy_chk(ptr noundef %200, ptr noundef nonnull %13, i64 noundef 8, i64 noundef %203) #15, !alias.scope !17
-  %206 = add i32 %195, 9
-  %207 = zext i32 %206 to i64
-  %208 = getelementptr i8, ptr %94, i64 %207
-  %209 = getelementptr i8, ptr %181, i64 %184
-  %210 = getelementptr i8, ptr %209, i64 1
-  %211 = sub i64 %157, %184
-  %212 = sub nsw i64 262144, %207
-  %213 = icmp ugt i32 %206, 262144
-  %214 = select i1 %213, i64 0, i64 %212
-  %215 = icmp ne i64 %214, -1
-  call void @llvm.assume(i1 %215)
-  %216 = call ptr @__memcpy_chk(ptr noundef %208, ptr noundef %210, i64 noundef %211, i64 noundef %214) #15, !alias.scope !21
-  %217 = trunc i64 %211 to i32
-  %218 = add i32 %206, %217
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %219
-
-219:                                              ; preds = %180, %162
-  %.2101.i = phi i32 [ %175, %162 ], [ %218, %180 ]
-  %220 = call i32 @sd_journal_enumerate_available_data(ptr noundef %93, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %221 = icmp sgt i32 %220, 0
-  br i1 %221, label %.lr.ph.i, label %.thread.i
-
-.thread.i:                                        ; preds = %219, %176, %158, %134
-  %.099.lcssa.i = phi i32 [ %149, %134 ], [ %.2101.i, %219 ], [ %.099149.i, %158 ], [ %.099149.i, %176 ]
-  %222 = and i32 %.099.lcssa.i, 3
-  %.not115.i = icmp eq i32 %222, 0
-  br i1 %.not115.i, label %234, label %223
-
-223:                                              ; preds = %.thread.i
-  %224 = sub nuw nsw i32 4, %222
-  %225 = zext nneg i32 %224 to i64
-  %226 = zext i32 %.099.lcssa.i to i64
-  %227 = getelementptr i8, ptr %94, i64 %226
-  %228 = sub nsw i64 262144, %226
-  %229 = icmp ugt i32 %.099.lcssa.i, 262144
-  %230 = select i1 %229, i64 0, i64 %228
-  %231 = icmp ne i64 %230, -1
-  call void @llvm.assume(i1 %231)
-  %232 = call ptr @__memset_chk(ptr noundef %227, i32 noundef 0, i64 noundef range(i64 1, 4) %225, i64 noundef %230) #15
-  %233 = add i32 %224, %.099.lcssa.i
-  br label %234
-
-234:                                              ; preds = %223, %.thread.i
-  %.4.i = phi i32 [ %233, %223 ], [ %.099.lcssa.i, %.thread.i ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %235 = add i32 %.4.i, 4
-  store i32 %235, ptr %14, align 4
-  store i32 %235, ptr %98, align 1
-  %236 = zext i32 %.4.i to i64
-  %237 = getelementptr i8, ptr %94, i64 %236
-  %238 = sub nsw i64 262144, %236
-  %239 = icmp ugt i32 %.4.i, 262144
-  %240 = select i1 %239, i64 0, i64 %238
-  %241 = icmp ne i64 %240, -1
-  call void @llvm.assume(i1 %241)
-  %242 = call ptr @__memcpy_chk(ptr noundef %237, ptr noundef nonnull %14, i64 noundef 4, i64 noundef %240) #15, !alias.scope !25
-  %243 = call zeroext i1 @pcapng_write_block(ptr noundef nonnull %.033, ptr noundef %94, i32 noundef %235, ptr noundef nonnull %11, ptr noundef nonnull %12)
-  br i1 %243, label %.backedge.i, label %248
-
-.backedge.i:                                      ; preds = %234
-  %244 = call zeroext i1 @writecap_flush(ptr noundef nonnull %.033, ptr noundef nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %245 = icmp eq i32 %130, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %245, label %.backedge198.i, label %sdj_dump_entries.exit.thread
-
-sdj_dump_entries.exit.thread:                     ; preds = %.backedge.i
-  call void @g_free(ptr noundef %94)
-  br label %251
-
-.backedge198.i:                                   ; preds = %.backedge.i, %.thread188.i
+.backedge:                                        ; preds = %.critedge.i, %.backedge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -767,11 +541,237 @@ sdj_dump_entries.exit.thread:                     ; preds = %.backedge.i
   store i64 0, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 9, ptr %94, align 1
-  %246 = call i32 @sd_journal_next(ptr noundef %93)
-  %247 = icmp slt i32 %246, 0
-  br i1 %247, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  %105 = call i32 @sd_journal_next(ptr noundef %93)
+  %106 = icmp slt i32 %105, 0
+  br i1 %106, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-sdj_dump_entries.exit.thread50:                   ; preds = %._crit_edge, %108, %116, %132, %.thread118.i
+107:                                              ; preds = %.lr.ph
+  %108 = call i32 @sd_journal_get_cursor(ptr noundef %93, ptr noundef nonnull %4)
+  %109 = icmp slt i32 %108, 0
+  br i1 %109, label %110, label %112
+
+110:                                              ; preds = %107
+  %111 = call ptr @g_strerror(i32 noundef %108) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 105, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.51, ptr noundef %111)
+  br label %sdj_dump_entries.exit.thread50
+
+112:                                              ; preds = %107
+  %113 = load ptr, ptr %4, align 8
+  %114 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %95, i64 noundef 262124, i32 noundef 2, i64 noundef 262136, ptr noundef nonnull @.str.52, ptr noundef %113)
+  %115 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %115) #15
+  %116 = call i32 @sd_journal_get_realtime_usec(ptr noundef %93, ptr noundef nonnull %5)
+  %117 = icmp slt i32 %116, 0
+  br i1 %117, label %118, label %120
+
+118:                                              ; preds = %112
+  %119 = call ptr @g_strerror(i32 noundef %116) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 113, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.53, ptr noundef %119)
+  br label %sdj_dump_entries.exit.thread50
+
+120:                                              ; preds = %112
+  %121 = add i32 %114, 8
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr i8, ptr %94, i64 %122
+  %124 = sub i32 262124, %114
+  %125 = zext i32 %124 to i64
+  %126 = sub nsw i64 262144, %122
+  %127 = icmp ugt i32 %121, 262144
+  %128 = select i1 %127, i64 0, i64 %126
+  %129 = icmp ne i64 %128, -1
+  call void @llvm.assume(i1 %129)
+  %130 = load i64, ptr %5, align 8
+  %131 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %123, i64 noundef %125, i32 noundef 2, i64 noundef %128, ptr noundef nonnull @.str.54, i64 noundef %130)
+  %132 = call i32 @sd_journal_get_monotonic_usec(ptr noundef %93, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %133 = icmp slt i32 %132, 0
+  br i1 %133, label %134, label %136
+
+134:                                              ; preds = %120
+  %135 = call ptr @g_strerror(i32 noundef %132) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 120, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.55, ptr noundef %135)
+  br label %sdj_dump_entries.exit.thread50
+
+136:                                              ; preds = %120
+  %137 = add i32 %131, %121
+  %138 = load i64, ptr %7, align 8
+  %139 = load i64, ptr %97, align 8
+  %140 = call ptr @sd_id128_to_string(i64 %138, i64 %139, ptr noundef nonnull %96)
+  %141 = zext i32 %137 to i64
+  %142 = getelementptr i8, ptr %94, i64 %141
+  %143 = sub i32 262132, %137
+  %144 = zext i32 %143 to i64
+  %145 = sub nsw i64 262144, %141
+  %146 = icmp ugt i32 %137, 262144
+  %147 = select i1 %146, i64 0, i64 %145
+  %148 = icmp ne i64 %147, -1
+  call void @llvm.assume(i1 %148)
+  %149 = load i64, ptr %6, align 8
+  %150 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %142, i64 noundef %144, i32 noundef 2, i64 noundef %147, ptr noundef nonnull @.str.56, i64 noundef %149, ptr noundef nonnull %8)
+  %151 = add i32 %150, %137
+  call void @sd_journal_restart_data(ptr noundef %93)
+  %152 = call i32 @sd_journal_enumerate_available_data(ptr noundef %93, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %153 = icmp sgt i32 %152, 0
+  br i1 %153, label %.lr.ph.i, label %.thread.i
+
+.lr.ph.i:                                         ; preds = %136, %221
+  %.099149.i = phi i32 [ %.2101.i, %221 ], [ %151, %136 ]
+  %154 = load ptr, ptr %9, align 8
+  %155 = load i64, ptr %10, align 8
+  %156 = call ptr @memchr(ptr noundef %154, i32 noundef 61, i64 noundef %155) #17
+  %.not.i = icmp eq ptr %156, null
+  br i1 %.not.i, label %.thread118.i, label %157
+
+.thread118.i:                                     ; preds = %.lr.ph.i
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 130, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.57)
+  br label %sdj_dump_entries.exit.thread50
+
+157:                                              ; preds = %.lr.ph.i
+  %158 = call i32 @g_utf8_validate(ptr noundef %154, i64 noundef %155, ptr noundef null)
+  %.not114.i = icmp eq i32 %158, 0
+  %159 = load i64, ptr %10, align 8
+  br i1 %.not114.i, label %178, label %160
+
+160:                                              ; preds = %157
+  %161 = sub i32 262130, %.099149.i
+  %162 = zext i32 %161 to i64
+  %163 = icmp ugt i64 %159, %162
+  br i1 %163, label %.thread.i, label %164
+
+164:                                              ; preds = %160
+  %165 = zext i32 %.099149.i to i64
+  %166 = getelementptr i8, ptr %94, i64 %165
+  %167 = load ptr, ptr %9, align 8
+  %168 = sub nsw i64 262144, %165
+  %169 = icmp ugt i32 %.099149.i, 262144
+  %170 = select i1 %169, i64 0, i64 %168
+  %171 = icmp ne i64 %170, -1
+  call void @llvm.assume(i1 %171)
+  %172 = call ptr @__memcpy_chk(ptr noundef %166, ptr noundef %167, i64 noundef %159, i64 noundef %170) #15, !alias.scope !10
+  %173 = trunc nuw i64 %159 to i32
+  %174 = add i32 %.099149.i, %173
+  %175 = zext i32 %174 to i64
+  %176 = getelementptr i8, ptr %94, i64 %175
+  store i8 10, ptr %176, align 1
+  %177 = add i32 %174, 1
+  br label %221
+
+178:                                              ; preds = %157
+  %179 = sub i32 262121, %.099149.i
+  %180 = zext i32 %179 to i64
+  %181 = icmp ugt i64 %159, %180
+  br i1 %181, label %.thread.i, label %182
+
+182:                                              ; preds = %178
+  %183 = load ptr, ptr %9, align 8
+  %184 = ptrtoint ptr %156 to i64
+  %185 = ptrtoint ptr %183 to i64
+  %186 = sub i64 %184, %185
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  %187 = xor i64 %186, -1
+  %188 = add i64 %159, %187
+  store i64 %188, ptr %13, align 8
+  %189 = zext i32 %.099149.i to i64
+  %190 = getelementptr i8, ptr %94, i64 %189
+  %191 = sub nsw i64 262144, %189
+  %192 = icmp ugt i32 %.099149.i, 262144
+  %193 = select i1 %192, i64 0, i64 %191
+  %194 = icmp ne i64 %193, -1
+  call void @llvm.assume(i1 %194)
+  %195 = call ptr @__memcpy_chk(ptr noundef %190, ptr noundef %183, i64 noundef %186, i64 noundef %193) #15, !alias.scope !14
+  %196 = trunc i64 %186 to i32
+  %197 = add i32 %.099149.i, %196
+  %198 = zext i32 %197 to i64
+  %199 = getelementptr i8, ptr %94, i64 %198
+  store i8 10, ptr %199, align 1
+  %200 = add i32 %197, 1
+  %201 = zext i32 %200 to i64
+  %202 = getelementptr i8, ptr %94, i64 %201
+  %203 = sub nsw i64 262144, %201
+  %204 = icmp ugt i32 %200, 262144
+  %205 = select i1 %204, i64 0, i64 %203
+  %206 = icmp ne i64 %205, -1
+  call void @llvm.assume(i1 %206)
+  %207 = call ptr @__memcpy_chk(ptr noundef %202, ptr noundef nonnull %13, i64 noundef 8, i64 noundef %205) #15, !alias.scope !18
+  %208 = add i32 %197, 9
+  %209 = zext i32 %208 to i64
+  %210 = getelementptr i8, ptr %94, i64 %209
+  %211 = getelementptr i8, ptr %183, i64 %186
+  %212 = getelementptr i8, ptr %211, i64 1
+  %213 = sub i64 %159, %186
+  %214 = sub nsw i64 262144, %209
+  %215 = icmp ugt i32 %208, 262144
+  %216 = select i1 %215, i64 0, i64 %214
+  %217 = icmp ne i64 %216, -1
+  call void @llvm.assume(i1 %217)
+  %218 = call ptr @__memcpy_chk(ptr noundef %210, ptr noundef %212, i64 noundef %213, i64 noundef %216) #15, !alias.scope !22
+  %219 = trunc i64 %213 to i32
+  %220 = add i32 %208, %219
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  br label %221
+
+221:                                              ; preds = %182, %164
+  %.2101.i = phi i32 [ %177, %164 ], [ %220, %182 ]
+  %222 = call i32 @sd_journal_enumerate_available_data(ptr noundef %93, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %223 = icmp sgt i32 %222, 0
+  br i1 %223, label %.lr.ph.i, label %.thread.i
+
+.thread.i:                                        ; preds = %221, %178, %160, %136
+  %.099.lcssa.i = phi i32 [ %151, %136 ], [ %.2101.i, %221 ], [ %.099149.i, %160 ], [ %.099149.i, %178 ]
+  %224 = and i32 %.099.lcssa.i, 3
+  %.not115.i = icmp eq i32 %224, 0
+  br i1 %.not115.i, label %236, label %225
+
+225:                                              ; preds = %.thread.i
+  %226 = sub nuw nsw i32 4, %224
+  %227 = zext nneg i32 %226 to i64
+  %228 = zext i32 %.099.lcssa.i to i64
+  %229 = getelementptr i8, ptr %94, i64 %228
+  %230 = sub nsw i64 262144, %228
+  %231 = icmp ugt i32 %.099.lcssa.i, 262144
+  %232 = select i1 %231, i64 0, i64 %230
+  %233 = icmp ne i64 %232, -1
+  call void @llvm.assume(i1 %233)
+  %234 = call ptr @__memset_chk(ptr noundef %229, i32 noundef 0, i64 noundef range(i64 1, 4) %227, i64 noundef %232) #15
+  %235 = add i32 %226, %.099.lcssa.i
+  br label %236
+
+236:                                              ; preds = %225, %.thread.i
+  %.4.i = phi i32 [ %235, %225 ], [ %.099.lcssa.i, %.thread.i ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  %237 = add i32 %.4.i, 4
+  store i32 %237, ptr %14, align 4
+  store i32 %237, ptr %98, align 1
+  %238 = zext i32 %.4.i to i64
+  %239 = getelementptr i8, ptr %94, i64 %238
+  %240 = sub nsw i64 262144, %238
+  %241 = icmp ugt i32 %.4.i, 262144
+  %242 = select i1 %241, i64 0, i64 %240
+  %243 = icmp ne i64 %242, -1
+  call void @llvm.assume(i1 %243)
+  %244 = call ptr @__memcpy_chk(ptr noundef %239, ptr noundef nonnull %14, i64 noundef 4, i64 noundef %242) #15, !alias.scope !26
+  %245 = call zeroext i1 @pcapng_write_block(ptr noundef nonnull %.033, ptr noundef %94, i32 noundef %237, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  br i1 %245, label %.backedge.i, label %248
+
+.backedge.i:                                      ; preds = %236
+  %246 = call zeroext i1 @writecap_flush(ptr noundef nonnull %.033, ptr noundef nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  %247 = icmp eq i32 %132, 0
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br i1 %247, label %.backedge, label %sdj_dump_entries.exit.thread
+
+sdj_dump_entries.exit.thread:                     ; preds = %.backedge.i
+  call void @g_free(ptr noundef %94)
+  br label %251
+
+sdj_dump_entries.exit.thread50:                   ; preds = %._crit_edge, %110, %118, %134, %.thread118.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -784,7 +784,7 @@ sdj_dump_entries.exit.thread50:                   ; preds = %._crit_edge, %108, 
   call void @g_free(ptr noundef %94)
   br label %251
 
-248:                                              ; preds = %234
+248:                                              ; preds = %236
   %249 = load i32, ptr %12, align 4
   %250 = call ptr @strerror(i32 noundef %249) #15
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 176, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.58, ptr noundef %250)
@@ -980,24 +980,24 @@ attributes #17 = { nounwind willreturn memory(read) }
 !6 = !{i32 7, !"uwtable", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
-!11 = distinct !{!11, !"memcpy.inline"}
-!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
-!15 = distinct !{!15, !"memcpy.inline"}
-!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
-!19 = distinct !{!19, !"memcpy.inline"}
-!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
-!23 = distinct !{!23, !"memcpy.inline"}
-!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
-!27 = distinct !{!27, !"memcpy.inline"}
-!28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
-!29 = distinct !{!29, !8}
+!9 = distinct !{!9, !8}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
+!16 = distinct !{!16, !"memcpy.inline"}
+!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
+!20 = distinct !{!20, !"memcpy.inline"}
+!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"memcpy.inline: argument 0"}
+!24 = distinct !{!24, !"memcpy.inline"}
+!25 = distinct !{!25, !24, !"memcpy.inline: argument 1"}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
+!28 = distinct !{!28, !"memcpy.inline"}
+!29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}

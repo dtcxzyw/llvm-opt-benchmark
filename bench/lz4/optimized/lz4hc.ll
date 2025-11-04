@@ -1963,9 +1963,9 @@ select_searchDict_function.exit.i:                ; preds = %64, %60, %39
   br label %77
 
 77:                                               ; preds = %.backedge.i, %.lr.ph725.i
-  %.1724.i = phi ptr [ %2, %.lr.ph725.i ], [ %.2496.i, %.backedge.i ]
-  %.1507723.i = phi ptr [ %1, %.lr.ph725.i ], [ %.2508.i, %.backedge.i ]
-  %.0510722.i = phi ptr [ %1, %.lr.ph725.i ], [ %.1511.i, %.backedge.i ]
+  %.1724.i = phi ptr [ %2, %.lr.ph725.i ], [ %.2496.jt0.i, %.backedge.i ]
+  %.1507723.i = phi ptr [ %1, %.lr.ph725.i ], [ %.2508.jt0.i, %.backedge.i ]
+  %.0510722.i = phi ptr [ %1, %.lr.ph725.i ], [ %.1511.jt0.i, %.backedge.i ]
   %78 = ptrtoint ptr %.0510722.i to i64
   %79 = sub i64 %78, %52
   %80 = trunc i64 %79 to i32
@@ -2893,15 +2893,15 @@ LZ4_wildCopy8.exit393.i:                          ; preds = %445
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %498, %482, %379
-  %.1511.i = phi ptr [ %483, %498 ], [ %483, %482 ], [ %384, %379 ]
-  %.2508.i = phi ptr [ %483, %498 ], [ %483, %482 ], [ %.1507723.i, %379 ]
-  %.2496.i = phi ptr [ %.7.i668, %498 ], [ %.7.i668, %482 ], [ %.1724.i, %379 ]
-  %.not273.i = icmp ugt ptr %.1511.i, %42
+  %.1511.jt0.i = phi ptr [ %483, %498 ], [ %483, %482 ], [ %384, %379 ]
+  %.2508.jt0.i = phi ptr [ %483, %498 ], [ %483, %482 ], [ %.1507723.i, %379 ]
+  %.2496.jt0.i = phi ptr [ %.7.i668, %498 ], [ %.7.i668, %482 ], [ %.1724.i, %379 ]
+  %.not273.i = icmp ugt ptr %.1511.jt0.i, %42
   br i1 %.not273.i, label %.loopexit.i, label %77, !llvm.loop !43
 
 .loopexit.i:                                      ; preds = %.backedge.i, %LZ4HC_encodeSequence.exit389.i, %select_searchDict_function.exit.i
-  %.0506.i = phi ptr [ %1, %select_searchDict_function.exit.i ], [ %636, %LZ4HC_encodeSequence.exit389.i ], [ %.2508.i, %.backedge.i ]
-  %.0495.i = phi ptr [ %2, %select_searchDict_function.exit.i ], [ %.16.i670, %LZ4HC_encodeSequence.exit389.i ], [ %.2496.i, %.backedge.i ]
+  %.0506.i = phi ptr [ %1, %select_searchDict_function.exit.i ], [ %636, %LZ4HC_encodeSequence.exit389.i ], [ %.2508.jt0.i, %.backedge.i ]
+  %.0495.i = phi ptr [ %2, %select_searchDict_function.exit.i ], [ %.16.i670, %LZ4HC_encodeSequence.exit389.i ], [ %.2496.jt0.i, %.backedge.i ]
   %518 = ptrtoint ptr %41 to i64
   %519 = ptrtoint ptr %.0506.i to i64
   %520 = sub i64 %518, %519

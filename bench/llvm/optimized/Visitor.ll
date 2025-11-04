@@ -5018,7 +5018,7 @@ _ZNK5clang12FunctionDecl14isUserProvidedEv.exit:  ; preds = %92
 124:                                              ; preds = %118
   %125 = and i32 %123, 512
   %.not260 = icmp eq i32 %125, 0
-  br i1 %.not260, label %126, label %.thread
+  br i1 %.not260, label %126, label %.thread.jt0
 
 126:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5107,12 +5107,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i115
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread
+  br label %.thread.jt0
 
 173:                                              ; preds = %118
   %174 = and i32 %123, 512
   %.not264 = icmp eq i32 %174, 0
-  br i1 %.not264, label %175, label %.thread
+  br i1 %.not264, label %175, label %.thread.jt0
 
 175:                                              ; preds = %173
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -5233,12 +5233,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %233, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i131
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread
+  br label %.thread.jt0
 
 238:                                              ; preds = %118
   %239 = and i32 %123, 8
   %.not265 = icmp eq i32 %239, 0
-  br i1 %.not265, label %240, label %.thread
+  br i1 %.not265, label %240, label %.thread.jt0
 
 240:                                              ; preds = %238
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -5278,26 +5278,22 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138: ; preds = %_ZN5clang16AvailabilityInfoD2Ev.exit135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i136
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %.thread
+  br label %.thread.jt0
 
-.thread:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133, %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117, %124, %238, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138
-  %.483 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138 ], [ 3, %238 ], [ 3, %124 ], [ 3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ], [ 3, %173 ], [ 3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133 ]
+.thread.jt0:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133, %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117, %124, %238, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138
   %260 = load ptr, ptr %4, align 8, !tbaa !447
   %261 = icmp eq ptr %260, %78
   br i1 %261, label %263, label %262
 
-262:                                              ; preds = %.thread
+262:                                              ; preds = %.thread.jt0
   call void @free(ptr noundef %260) #18
   br label %263
 
-263:                                              ; preds = %262, %.thread
+263:                                              ; preds = %262, %.thread.jt0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  switch i32 %.483, label %.thread241 [
-    i32 0, label %.thread236
-    i32 3, label %.thread236
-  ]
+  br label %.thread236
 
-.thread236:                                       ; preds = %92, %79, %108, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit, %87, %81, %263, %263
+.thread236:                                       ; preds = %263, %92, %79, %108, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit, %87, %81
   %264 = getelementptr inbounds nuw i8, ptr %.sroa.0206.0267, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %264, align 8
   %265 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -5575,7 +5571,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_7VarDeclEEppEv.exit: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread241
 
-.thread241:                                       ; preds = %116, %263, %.thread241.sink.split, %278
+.thread241:                                       ; preds = %116, %.thread241.sink.split, %278
   %377 = load ptr, ptr %3, align 8, !tbaa !447
   %378 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %379 = icmp eq ptr %377, %378

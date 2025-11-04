@@ -8134,25 +8134,70 @@ for.cond.preheader:                               ; preds = %if.end
   %conv29 = sext i32 %shr to i64
   br label %for.cond.outer
 
-for.cond.outer:                                   ; preds = %for.cond.outer.backedge, %for.cond.preheader
-  %result.1.ph = phi double [ 0.000000e+00, %for.cond.preheader ], [ %result.1.ph.be, %for.cond.outer.backedge ]
-  %lowestExponentBit.0.ph = phi i8 [ 0, %for.cond.preheader ], [ %lowestExponentBit.0.ph.be, %for.cond.outer.backedge ]
-  %curMode.0.ph = phi i32 [ 0, %for.cond.preheader ], [ %curMode.0.ph.be, %for.cond.outer.backedge ]
-  %itr.0.ph = phi ptr [ %str.coerce0, %for.cond.preheader ], [ %itr.1, %for.cond.outer.backedge ]
-  %lastMantissaBit.0.ph = phi i8 [ 0, %for.cond.preheader ], [ %lastMantissaBit.0.ph.be, %for.cond.outer.backedge ]
-  %bitMask.0.ph = phi i64 [ 0, %for.cond.preheader ], [ %shr33, %for.cond.outer.backedge ]
-  %curDigit.0.ph = phi i64 [ 0, %for.cond.preheader ], [ %curDigit.1, %for.cond.outer.backedge ]
-  %expFactor.0.ph = phi double [ 0.000000e+00, %for.cond.preheader ], [ %expFactor.0.ph.be, %for.cond.outer.backedge ]
-  %remainingMantissa.0.ph = phi i64 [ 53, %for.cond.preheader ], [ %remainingMantissa.0.ph.be, %for.cond.outer.backedge ]
+for.cond.outer:                                   ; preds = %if.end30, %for.cond.preheader
+  %result.1.ph = phi double [ 0.000000e+00, %for.cond.preheader ], [ %result.1.ph86, %if.end30 ]
+  %lowestExponentBit.0.ph = phi i8 [ 0, %for.cond.preheader ], [ %lowestExponentBit.0.ph92, %if.end30 ]
+  %curMode.0.ph = phi i32 [ 0, %for.cond.preheader ], [ %curMode.0.ph94, %if.end30 ]
+  %itr.0.ph = phi ptr [ %str.coerce0, %for.cond.preheader ], [ %itr.1, %if.end30 ]
+  %lastMantissaBit.0.ph = phi i8 [ 0, %for.cond.preheader ], [ %lastMantissaBit.0.ph102, %if.end30 ]
+  %bitMask.0.ph = phi i64 [ 0, %for.cond.preheader ], [ %shr33, %if.end30 ]
+  %curDigit.0.ph = phi i64 [ 0, %for.cond.preheader ], [ %curDigit.1, %if.end30 ]
+  %expFactor.0.ph = phi double [ 0.000000e+00, %for.cond.preheader ], [ %expFactor.0.ph108, %if.end30 ]
+  %remainingMantissa.0.ph = phi i64 [ 53, %for.cond.preheader ], [ %remainingMantissa.0.ph115, %if.end30 ]
   %cmp644 = icmp eq i64 %bitMask.0.ph, 0
   br i1 %cmp644, label %if.then7.lr.ph.split.us, label %if.end30
 
-if.then7.lr.ph.split.us:                          ; preds = %for.cond.outer
-  %cmp8.us53 = icmp eq ptr %itr.0.ph, %add.ptr.i.i
+for.cond.outer.jt4:                               ; preds = %if.end30.jt3, %sw.bb51, %sw.bb56
+  %shr33142 = phi i64 [ %shr33140, %sw.bb56 ], [ %shr33, %sw.bb51 ], [ %shr33.jt3, %if.end30.jt3 ]
+  %itr.1121 = phi ptr [ %itr.1119, %sw.bb56 ], [ %itr.1, %sw.bb51 ], [ %itr.1122.ph, %if.end30.jt3 ]
+  %result.2.jt4 = phi double [ %result.1.ph84, %sw.bb56 ], [ %result.1.ph86, %sw.bb51 ], [ %result.2.jt3.ph, %if.end30.jt3 ]
+  %lowestExponentBit.1.jt4 = phi i8 [ %lowestExponentBit.0.ph90, %sw.bb56 ], [ %lowestExponentBit.0.ph92, %sw.bb51 ], [ %lowestExponentBit.1.jt3.ph, %if.end30.jt3 ]
+  %lastMantissaBit.1.jt4 = phi i8 [ %lastMantissaBit.0.ph100, %sw.bb56 ], [ %lastMantissaBit.0.ph102, %sw.bb51 ], [ %lastMantissaBit.1.jt3.ph, %if.end30.jt3 ]
+  %expFactor.1.jt4 = phi double [ %mul57, %sw.bb56 ], [ %mul55, %sw.bb51 ], [ %mul55145, %if.end30.jt3 ]
+  %remainingMantissa.1.jt4 = phi i64 [ %remainingMantissa.0.ph113, %sw.bb56 ], [ %remainingMantissa.0.ph115, %sw.bb51 ], [ %remainingMantissa.1.jt3.ph, %if.end30.jt3 ]
+  %cmp644.jt4 = icmp eq i64 %shr33142, 0
+  br i1 %cmp644.jt4, label %if.then7.lr.ph.split.us, label %if.end30.jt4
+
+for.cond.outer.jt3:                               ; preds = %for.cond.outer.jt3.preheader, %if.end30.jt3
+  %shr33143 = phi i64 [ %shr33.jt3, %if.end30.jt3 ], [ %shr33143.ph, %for.cond.outer.jt3.preheader ]
+  %expFactor.1.jt3 = phi double [ %mul55145, %if.end30.jt3 ], [ %expFactor.1.jt3.ph, %for.cond.outer.jt3.preheader ]
+  %cmp644.jt3 = icmp eq i64 %shr33143, 0
+  br i1 %cmp644.jt3, label %if.then7.lr.ph.split.us, label %if.end30.jt3
+
+for.cond.outer.jt2:                               ; preds = %sw.bb37
+  %cmp644.jt2 = icmp eq i64 %shr33141, 0
+  br i1 %cmp644.jt2, label %if.then7.lr.ph.split.us, label %if.end30.jt2
+
+for.cond.outer.jt0:                               ; preds = %sw.bb.preheader, %if.end30.jt0
+  %shr33138182 = phi i64 [ %shr33.jt0, %if.end30.jt0 ], [ %shr33, %sw.bb.preheader ]
+  %cmp644.jt0 = icmp eq i64 %shr33138182, 0
+  br i1 %cmp644.jt0, label %if.then7.lr.ph.split.us, label %if.end30.jt0
+
+for.cond.outer.jt1:                               ; preds = %if.then35, %sw.bb37
+  %shr33144 = phi i64 [ %shr33141, %sw.bb37 ], [ %shr33138.lcssa, %if.then35 ]
+  %curDigit.1131 = phi i64 [ %curDigit.1128, %sw.bb37 ], [ %curDigit.1, %if.then35 ]
+  %itr.1123 = phi ptr [ %itr.1120, %sw.bb37 ], [ %itr.1, %if.then35 ]
+  %result.2.jt1 = phi double [ %add41, %sw.bb37 ], [ 1.000000e+00, %if.then35 ]
+  %lowestExponentBit.1.jt1 = phi i8 [ %lowestExponentBit.0.ph91, %sw.bb37 ], [ %lowestExponentBit.0.ph92, %if.then35 ]
+  %lastMantissaBit.1.jt1 = phi i8 [ %lastMantissaBit.0.ph101, %sw.bb37 ], [ %lastMantissaBit.0.ph102, %if.then35 ]
+  %expFactor.1.jt1 = phi double [ %expFactor.0.ph107, %sw.bb37 ], [ %expFactor.0.ph108, %if.then35 ]
+  %remainingMantissa.1.jt1 = phi i64 [ %dec42, %sw.bb37 ], [ %dec, %if.then35 ]
+  %cmp644.jt1 = icmp eq i64 %shr33144, 0
+  br i1 %cmp644.jt1, label %if.then7.lr.ph.split.us, label %if.end30.jt1
+
+if.then7.lr.ph.split.us:                          ; preds = %for.cond.outer.jt0, %for.cond.outer.jt3, %for.cond.outer.jt4, %for.cond.outer.jt2, %for.cond.outer.jt1, %for.cond.outer
+  %remainingMantissa.0.ph109 = phi i64 [ %remainingMantissa.1.jt4, %for.cond.outer.jt4 ], [ 0, %for.cond.outer.jt2 ], [ %remainingMantissa.1.jt1, %for.cond.outer.jt1 ], [ %remainingMantissa.0.ph, %for.cond.outer ], [ %remainingMantissa.1.jt3.ph, %for.cond.outer.jt3 ], [ %remainingMantissa.0.ph115, %for.cond.outer.jt0 ]
+  %expFactor.0.ph103 = phi double [ %expFactor.1.jt4, %for.cond.outer.jt4 ], [ %expFactor.0.ph107, %for.cond.outer.jt2 ], [ %expFactor.1.jt1, %for.cond.outer.jt1 ], [ %expFactor.0.ph, %for.cond.outer ], [ %expFactor.1.jt3, %for.cond.outer.jt3 ], [ %expFactor.0.ph108, %for.cond.outer.jt0 ]
+  %lastMantissaBit.0.ph96 = phi i8 [ %lastMantissaBit.1.jt4, %for.cond.outer.jt4 ], [ %frombool32136, %for.cond.outer.jt2 ], [ %lastMantissaBit.1.jt1, %for.cond.outer.jt1 ], [ %lastMantissaBit.0.ph, %for.cond.outer ], [ %lastMantissaBit.1.jt3.ph, %for.cond.outer.jt3 ], [ %lastMantissaBit.0.ph102, %for.cond.outer.jt0 ]
+  %itr.0.ph95 = phi ptr [ %itr.1121, %for.cond.outer.jt4 ], [ %itr.1120, %for.cond.outer.jt2 ], [ %itr.1123, %for.cond.outer.jt1 ], [ %itr.0.ph, %for.cond.outer ], [ %itr.1122.ph, %for.cond.outer.jt3 ], [ %itr.1, %for.cond.outer.jt0 ]
+  %curMode.0.ph93 = phi i32 [ 4, %for.cond.outer.jt4 ], [ 2, %for.cond.outer.jt2 ], [ 1, %for.cond.outer.jt1 ], [ %curMode.0.ph, %for.cond.outer ], [ 3, %for.cond.outer.jt3 ], [ 0, %for.cond.outer.jt0 ]
+  %lowestExponentBit.0.ph87 = phi i8 [ %lowestExponentBit.1.jt4, %for.cond.outer.jt4 ], [ %lowestExponentBit.0.ph91, %for.cond.outer.jt2 ], [ %lowestExponentBit.1.jt1, %for.cond.outer.jt1 ], [ %lowestExponentBit.0.ph, %for.cond.outer ], [ %lowestExponentBit.1.jt3.ph, %for.cond.outer.jt3 ], [ %lowestExponentBit.0.ph92, %for.cond.outer.jt0 ]
+  %result.1.ph80 = phi double [ %result.2.jt4, %for.cond.outer.jt4 ], [ %add41, %for.cond.outer.jt2 ], [ %result.2.jt1, %for.cond.outer.jt1 ], [ %result.1.ph, %for.cond.outer ], [ %result.2.jt3.ph, %for.cond.outer.jt3 ], [ %result.1.ph86, %for.cond.outer.jt0 ]
+  %cmp8.us53 = icmp eq ptr %itr.0.ph95, %add.ptr.i.i
   br i1 %cmp8.us53, label %for.end, label %if.end10.us
 
 if.end10.us:                                      ; preds = %if.then7.lr.ph.split.us, %if.then13.us
-  %itr.045.us54 = phi ptr [ %incdec.ptr.us, %if.then13.us ], [ %itr.0.ph, %if.then7.lr.ph.split.us ]
+  %itr.045.us54 = phi ptr [ %incdec.ptr.us, %if.then13.us ], [ %itr.0.ph95, %if.then7.lr.ph.split.us ]
   %5 = load i8, ptr %itr.045.us54, align 1
   %cmp11.us = icmp eq i8 %5, 95
   br i1 %cmp11.us, label %if.then13.us, label %if.end14
@@ -8174,82 +8219,132 @@ if.end14:                                         ; preds = %if.end10.us
   br label %if.end30
 
 if.end30:                                         ; preds = %for.cond.outer, %if.end14
-  %itr.1 = phi ptr [ %incdec.ptr28, %if.end14 ], [ %itr.0.ph, %for.cond.outer ]
-  %bitMask.1 = phi i64 [ %conv29, %if.end14 ], [ %bitMask.0.ph, %for.cond.outer ]
-  %curDigit.1 = phi i64 [ %curDigit.2, %if.end14 ], [ %curDigit.0.ph, %for.cond.outer ]
+  %remainingMantissa.0.ph115 = phi i64 [ %remainingMantissa.0.ph, %for.cond.outer ], [ %remainingMantissa.0.ph109, %if.end14 ]
+  %expFactor.0.ph108 = phi double [ %expFactor.0.ph, %for.cond.outer ], [ %expFactor.0.ph103, %if.end14 ]
+  %lastMantissaBit.0.ph102 = phi i8 [ %lastMantissaBit.0.ph, %for.cond.outer ], [ %lastMantissaBit.0.ph96, %if.end14 ]
+  %curMode.0.ph94 = phi i32 [ %curMode.0.ph, %for.cond.outer ], [ %curMode.0.ph93, %if.end14 ]
+  %lowestExponentBit.0.ph92 = phi i8 [ %lowestExponentBit.0.ph, %for.cond.outer ], [ %lowestExponentBit.0.ph87, %if.end14 ]
+  %result.1.ph86 = phi double [ %result.1.ph, %for.cond.outer ], [ %result.1.ph80, %if.end14 ]
+  %itr.1 = phi ptr [ %itr.0.ph, %for.cond.outer ], [ %incdec.ptr28, %if.end14 ]
+  %bitMask.1 = phi i64 [ %bitMask.0.ph, %for.cond.outer ], [ %conv29, %if.end14 ]
+  %curDigit.1 = phi i64 [ %curDigit.0.ph, %for.cond.outer ], [ %curDigit.2, %if.end14 ]
   %and = and i64 %curDigit.1, %bitMask.1
   %cmp31 = icmp ne i64 %and, 0
   %frombool32 = zext i1 %cmp31 to i8
   %shr33 = lshr i64 %bitMask.1, 1
-  switch i32 %curMode.0.ph, label %for.cond.outer.backedge [
-    i32 0, label %sw.bb
+  switch i32 %curMode.0.ph94, label %for.cond.outer [
+    i32 0, label %sw.bb.preheader
     i32 1, label %sw.bb37
-    i32 2, label %sw.bb48
+    i32 2, label %for.cond.outer.jt3.preheader
     i32 3, label %sw.bb51
     i32 4, label %sw.bb56
-  ]
+  ], !llvm.loop !104
 
-sw.bb:                                            ; preds = %if.end30
-  br i1 %cmp31, label %if.then35, label %for.cond.outer.backedge
+sw.bb.preheader:                                  ; preds = %if.end30
+  br i1 %cmp31, label %if.then35, label %for.cond.outer.jt0
 
-if.then35:                                        ; preds = %sw.bb
-  %dec = add i64 %remainingMantissa.0.ph, -1
-  br label %for.cond.outer.backedge
+if.end30.jt4:                                     ; preds = %for.cond.outer.jt4
+  %shr33.jt4 = lshr i64 %shr33142, 1
+  br label %sw.bb56
 
-sw.bb37:                                          ; preds = %if.end30
-  %mul = fmul double %result.1.ph, 2.000000e+00
-  %conv40 = uitofp i1 %cmp31 to double
+if.end30.jt3:                                     ; preds = %for.cond.outer.jt3
+  %and.jt3 = and i64 %curDigit.1130.ph, %shr33143
+  %cmp31.jt3.not = icmp eq i64 %and.jt3, 0
+  %shr33.jt3 = lshr i64 %shr33143, 1
+  %mul55145 = fmul double %expFactor.1.jt3, 2.000000e+00
+  br i1 %cmp31.jt3.not, label %for.cond.outer.jt3, label %for.cond.outer.jt4
+
+if.end30.jt2:                                     ; preds = %for.cond.outer.jt2
+  %and.jt2 = and i64 %curDigit.1128, %shr33141
+  %cmp31.jt2 = icmp ne i64 %and.jt2, 0
+  %frombool32.jt2 = zext i1 %cmp31.jt2 to i8
+  %shr33.jt2 = lshr i64 %shr33141, 1
+  br label %for.cond.outer.jt3.preheader
+
+if.end30.jt0:                                     ; preds = %for.cond.outer.jt0
+  %and.jt0 = and i64 %curDigit.1, %shr33138182
+  %cmp31.jt0.not = icmp eq i64 %and.jt0, 0
+  %shr33.jt0 = lshr i64 %shr33138182, 1
+  br i1 %cmp31.jt0.not, label %for.cond.outer.jt0, label %if.then35
+
+if.end30.jt1:                                     ; preds = %for.cond.outer.jt1
+  %and.jt1 = and i64 %curDigit.1131, %shr33144
+  %cmp31.jt1 = icmp ne i64 %and.jt1, 0
+  %frombool32.jt1 = zext i1 %cmp31.jt1 to i8
+  %shr33.jt1 = lshr i64 %shr33144, 1
+  br label %sw.bb37
+
+if.then35:                                        ; preds = %if.end30.jt0, %sw.bb.preheader
+  %shr33138.lcssa = phi i64 [ %shr33, %sw.bb.preheader ], [ %shr33.jt0, %if.end30.jt0 ]
+  %dec = add i64 %remainingMantissa.0.ph115, -1
+  br label %for.cond.outer.jt1
+
+sw.bb37:                                          ; preds = %if.end30.jt1, %if.end30
+  %shr33141 = phi i64 [ %shr33.jt1, %if.end30.jt1 ], [ %shr33, %if.end30 ]
+  %frombool32136 = phi i8 [ %frombool32.jt1, %if.end30.jt1 ], [ %frombool32, %if.end30 ]
+  %cmp31134 = phi i1 [ %cmp31.jt1, %if.end30.jt1 ], [ %cmp31, %if.end30 ]
+  %curDigit.1128 = phi i64 [ %curDigit.1131, %if.end30.jt1 ], [ %curDigit.1, %if.end30 ]
+  %itr.1120 = phi ptr [ %itr.1123, %if.end30.jt1 ], [ %itr.1, %if.end30 ]
+  %remainingMantissa.0.ph114 = phi i64 [ %remainingMantissa.1.jt1, %if.end30.jt1 ], [ %remainingMantissa.0.ph115, %if.end30 ]
+  %expFactor.0.ph107 = phi double [ %expFactor.1.jt1, %if.end30.jt1 ], [ %expFactor.0.ph108, %if.end30 ]
+  %lastMantissaBit.0.ph101 = phi i8 [ %lastMantissaBit.1.jt1, %if.end30.jt1 ], [ %lastMantissaBit.0.ph102, %if.end30 ]
+  %lowestExponentBit.0.ph91 = phi i8 [ %lowestExponentBit.1.jt1, %if.end30.jt1 ], [ %lowestExponentBit.0.ph92, %if.end30 ]
+  %result.1.ph85 = phi double [ %result.2.jt1, %if.end30.jt1 ], [ %result.1.ph86, %if.end30 ]
+  %mul = fmul double %result.1.ph85, 2.000000e+00
+  %conv40 = uitofp i1 %cmp31134 to double
   %add41 = fadd double %mul, %conv40
-  %dec42 = add i64 %remainingMantissa.0.ph, -1
+  %dec42 = add i64 %remainingMantissa.0.ph114, -1
   %cmp43 = icmp eq i64 %dec42, 0
-  br i1 %cmp43, label %if.then44, label %for.cond.outer.backedge
-
-for.cond.outer.backedge:                          ; preds = %sw.bb37, %if.then44, %sw.bb, %if.then35, %sw.bb56, %sw.bb51, %sw.bb48, %if.end30
-  %result.1.ph.be = phi double [ %result.1.ph, %if.end30 ], [ 1.000000e+00, %if.then35 ], [ %result.1.ph, %sw.bb ], [ %add41, %if.then44 ], [ %add41, %sw.bb37 ], [ %result.1.ph, %sw.bb48 ], [ %result.1.ph, %sw.bb51 ], [ %result.1.ph, %sw.bb56 ]
-  %lowestExponentBit.0.ph.be = phi i8 [ %lowestExponentBit.0.ph, %if.end30 ], [ %lowestExponentBit.0.ph, %if.then35 ], [ %lowestExponentBit.0.ph, %sw.bb ], [ %lowestExponentBit.0.ph, %if.then44 ], [ %lowestExponentBit.0.ph, %sw.bb37 ], [ %frombool32, %sw.bb48 ], [ %lowestExponentBit.0.ph, %sw.bb51 ], [ %lowestExponentBit.0.ph, %sw.bb56 ]
-  %curMode.0.ph.be = phi i32 [ %curMode.0.ph, %if.end30 ], [ 1, %if.then35 ], [ 0, %sw.bb ], [ 2, %if.then44 ], [ 1, %sw.bb37 ], [ 3, %sw.bb48 ], [ %spec.select, %sw.bb51 ], [ 4, %sw.bb56 ]
-  %lastMantissaBit.0.ph.be = phi i8 [ %lastMantissaBit.0.ph, %if.end30 ], [ %lastMantissaBit.0.ph, %if.then35 ], [ %lastMantissaBit.0.ph, %sw.bb ], [ %frombool32, %if.then44 ], [ %lastMantissaBit.0.ph, %sw.bb37 ], [ %lastMantissaBit.0.ph, %sw.bb48 ], [ %lastMantissaBit.0.ph, %sw.bb51 ], [ %lastMantissaBit.0.ph, %sw.bb56 ]
-  %expFactor.0.ph.be = phi double [ %expFactor.0.ph, %if.end30 ], [ %expFactor.0.ph, %if.then35 ], [ %expFactor.0.ph, %sw.bb ], [ %expFactor.0.ph, %if.then44 ], [ %expFactor.0.ph, %sw.bb37 ], [ 2.000000e+00, %sw.bb48 ], [ %mul55, %sw.bb51 ], [ %mul57, %sw.bb56 ]
-  %remainingMantissa.0.ph.be = phi i64 [ %remainingMantissa.0.ph, %if.end30 ], [ %dec, %if.then35 ], [ %remainingMantissa.0.ph, %sw.bb ], [ 0, %if.then44 ], [ %dec42, %sw.bb37 ], [ %remainingMantissa.0.ph, %sw.bb48 ], [ %remainingMantissa.0.ph, %sw.bb51 ], [ %remainingMantissa.0.ph, %sw.bb56 ]
-  br label %for.cond.outer, !llvm.loop !104
-
-if.then44:                                        ; preds = %sw.bb37
-  br label %for.cond.outer.backedge
-
-sw.bb48:                                          ; preds = %if.end30
-  br label %for.cond.outer.backedge
+  br i1 %cmp43, label %for.cond.outer.jt2, label %for.cond.outer.jt1
 
 sw.bb51:                                          ; preds = %if.end30
-  %spec.select = select i1 %cmp31, i32 4, i32 3
-  %mul55 = fmul double %expFactor.0.ph, 2.000000e+00
-  br label %for.cond.outer.backedge
+  %mul55 = fmul double %expFactor.0.ph108, 2.000000e+00
+  br i1 %cmp31, label %for.cond.outer.jt4, label %for.cond.outer.jt3.preheader
 
-sw.bb56:                                          ; preds = %if.end30
-  %mul57 = fmul double %expFactor.0.ph, 2.000000e+00
-  br label %for.cond.outer.backedge
+for.cond.outer.jt3.preheader:                     ; preds = %if.end30.jt2, %if.end30, %sw.bb51
+  %shr33143.ph = phi i64 [ %shr33, %sw.bb51 ], [ %shr33, %if.end30 ], [ %shr33.jt2, %if.end30.jt2 ]
+  %curDigit.1130.ph = phi i64 [ %curDigit.1, %sw.bb51 ], [ %curDigit.1, %if.end30 ], [ %curDigit.1128, %if.end30.jt2 ]
+  %itr.1122.ph = phi ptr [ %itr.1, %sw.bb51 ], [ %itr.1, %if.end30 ], [ %itr.1120, %if.end30.jt2 ]
+  %result.2.jt3.ph = phi double [ %result.1.ph86, %sw.bb51 ], [ %result.1.ph86, %if.end30 ], [ %add41, %if.end30.jt2 ]
+  %lowestExponentBit.1.jt3.ph = phi i8 [ %lowestExponentBit.0.ph92, %sw.bb51 ], [ %frombool32, %if.end30 ], [ %frombool32.jt2, %if.end30.jt2 ]
+  %lastMantissaBit.1.jt3.ph = phi i8 [ %lastMantissaBit.0.ph102, %sw.bb51 ], [ %lastMantissaBit.0.ph102, %if.end30 ], [ %frombool32136, %if.end30.jt2 ]
+  %expFactor.1.jt3.ph = phi double [ %mul55, %sw.bb51 ], [ 2.000000e+00, %if.end30 ], [ 2.000000e+00, %if.end30.jt2 ]
+  %remainingMantissa.1.jt3.ph = phi i64 [ %remainingMantissa.0.ph115, %sw.bb51 ], [ %remainingMantissa.0.ph115, %if.end30 ], [ 0, %if.end30.jt2 ]
+  br label %for.cond.outer.jt3
+
+sw.bb56:                                          ; preds = %if.end30.jt4, %if.end30
+  %shr33140 = phi i64 [ %shr33.jt4, %if.end30.jt4 ], [ %shr33, %if.end30 ]
+  %itr.1119 = phi ptr [ %itr.1121, %if.end30.jt4 ], [ %itr.1, %if.end30 ]
+  %remainingMantissa.0.ph113 = phi i64 [ %remainingMantissa.1.jt4, %if.end30.jt4 ], [ %remainingMantissa.0.ph115, %if.end30 ]
+  %expFactor.0.ph106 = phi double [ %expFactor.1.jt4, %if.end30.jt4 ], [ %expFactor.0.ph108, %if.end30 ]
+  %lastMantissaBit.0.ph100 = phi i8 [ %lastMantissaBit.1.jt4, %if.end30.jt4 ], [ %lastMantissaBit.0.ph102, %if.end30 ]
+  %lowestExponentBit.0.ph90 = phi i8 [ %lowestExponentBit.1.jt4, %if.end30.jt4 ], [ %lowestExponentBit.0.ph92, %if.end30 ]
+  %result.1.ph84 = phi double [ %result.2.jt4, %if.end30.jt4 ], [ %result.1.ph86, %if.end30 ]
+  %mul57 = fmul double %expFactor.0.ph106, 2.000000e+00
+  br label %for.cond.outer.jt4
 
 for.end:                                          ; preds = %if.then7.lr.ph.split.us, %if.then13.us
-  switch i32 %curMode.0.ph, label %return [
+  switch i32 %curMode.0.ph93, label %return [
     i32 4, label %sw.bb66
     i32 3, label %sw.bb59
   ]
 
 sw.bb59:                                          ; preds = %for.end
-  %tobool60 = trunc nuw i8 %lowestExponentBit.0.ph to i1
-  %8 = uitofp nneg i8 %lastMantissaBit.0.ph to double
+  %tobool60 = trunc nuw i8 %lowestExponentBit.0.ph87 to i1
+  %8 = uitofp nneg i8 %lastMantissaBit.0.ph96 to double
   %conv63 = select i1 %tobool60, double %8, double 0.000000e+00
-  %add64 = fadd double %result.1.ph, %conv63
-  %mul65 = fmul double %expFactor.0.ph, %add64
+  %add64 = fadd double %result.1.ph80, %conv63
+  %mul65 = fmul double %expFactor.0.ph103, %add64
   br label %return
 
 sw.bb66:                                          ; preds = %for.end
-  %conv69 = uitofp nneg i8 %lowestExponentBit.0.ph to double
-  %add70 = fadd double %result.1.ph, %conv69
-  %mul71 = fmul double %add70, %expFactor.0.ph
+  %conv69 = uitofp nneg i8 %lowestExponentBit.0.ph87 to double
+  %add70 = fadd double %result.1.ph80, %conv69
+  %mul71 = fmul double %add70, %expFactor.0.ph103
   br label %return
 
 return:                                           ; preds = %if.else23.i, %if.end.i, %entry, %if.end, %sw.bb66, %sw.bb59, %for.end
-  %retval.sroa.0.0 = phi double [ %result.4, %if.end ], [ %result.1.ph, %for.end ], [ %mul71, %sw.bb66 ], [ %mul65, %sw.bb59 ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %if.end.i ], [ 0.000000e+00, %if.else23.i ]
+  %retval.sroa.0.0 = phi double [ %result.4, %if.end ], [ %result.1.ph80, %for.end ], [ %mul71, %sw.bb66 ], [ %mul65, %sw.bb59 ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %if.end.i ], [ 0.000000e+00, %if.else23.i ]
   %retval.sroa.3.0 = phi i8 [ 1, %if.end ], [ 1, %for.end ], [ 1, %sw.bb66 ], [ 1, %sw.bb59 ], [ 1, %entry ], [ 0, %if.end.i ], [ 0, %if.else23.i ]
   %.fca.0.insert = insertvalue { double, i8 } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1

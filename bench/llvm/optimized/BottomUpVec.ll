@@ -3908,7 +3908,7 @@ define linkonce_odr hidden void @_ZN4llvm9sandboxir11PassManagerINS0_10RegionPas
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %class.anon.328, align 8
   %9 = icmp eq i64 %2, 0
-  br i1 %9, label %117, label %10
+  br i1 %9, label %118, label %10
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4032,7 +4032,7 @@ _ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS
   %.not99 = icmp samesign eq i64 %46, 0
   br i1 %.not99, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %114
+._crit_edge.loopexit:                             ; preds = %106, %115, %113
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !43
   br label %._crit_edge
@@ -4060,142 +4060,146 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E15setPassPipelineENS_9StringRefESt8functionIFSt10unique_ptrIS2_St14default_deleteIS2_EES4_S4_EEENUlS4_S4_E_D2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %117
+  br label %118
 
-.lr.ph:                                           ; preds = %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit, %114
-  %.0107 = phi i32 [ %.1, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.033106 = phi i32 [ %.134, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.035105 = phi i32 [ %.136, %114 ], [ undef, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.037104 = phi i32 [ %.138, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.sroa.074.0103 = phi ptr [ %.sroa.074.1, %114 ], [ null, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.sroa.6.0102 = phi i64 [ %.sroa.6.1, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.sroa.7.0101 = phi i64 [ %115, %114 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %.sroa.068.0100 = phi ptr [ %116, %114 ], [ %45, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
-  %66 = load i8, ptr %.sroa.068.0100, align 1, !tbaa !73
-  switch i32 %.0107, label %default.unreachable131 [
-    i32 0, label %67
-    i32 1, label %86
-    i32 2, label %107
+.lr.ph:                                           ; preds = %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit, %115
+  %.sroa.068.0100152 = phi ptr [ %117, %115 ], [ %45, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
+  %.sroa.7.0101147 = phi i64 [ %116, %115 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
+  %.033106132 = phi i32 [ %.134.jt0, %115 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
+  %66 = load i8, ptr %.sroa.068.0100152, align 1, !tbaa !73
+  switch i8 %66, label %115 [
+    i8 60, label %67
+    i8 62, label %72
+    i8 0, label %75
+    i8 44, label %75
   ]
 
 67:                                               ; preds = %.lr.ph
-  switch i8 %66, label %114 [
-    i8 60, label %68
-    i8 62, label %76
-    i8 0, label %79
-    i8 44, label %79
-  ]
+  %68 = sext i32 %.033106132 to i64
+  %.sroa.speculated3.i = call i64 @llvm.umin.i64(i64 %46, i64 %68)
+  %69 = icmp ugt i64 %.sroa.7.0101147, %46
+  %.sroa.speculate.load.false.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %.sroa.7.0101147, i64 %.sroa.speculated3.i)
+  %.sroa.speculated.i = select i1 %69, i64 %46, i64 %.sroa.speculate.load.false.sroa.speculated.i
+  %70 = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.speculated3.i
+  %71 = sub i64 %.sroa.speculated.i, %.sroa.speculated3.i
+  br label %.outer
 
-68:                                               ; preds = %67
-  %69 = sext i32 %.033106 to i64
-  %.sroa.speculated3.i = call i64 @llvm.umin.i64(i64 %46, i64 %69)
-  %70 = icmp ugt i64 %.sroa.7.0101, %46
-  %.sroa.speculate.load.false.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %.sroa.7.0101, i64 %.sroa.speculated3.i)
-  %.sroa.speculated.i = select i1 %70, i64 %46, i64 %.sroa.speculate.load.false.sroa.speculated.i
-  %71 = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.speculated3.i
-  %72 = sub i64 %.sroa.speculated.i, %.sroa.speculated3.i
-  %73 = trunc i64 %.sroa.7.0101 to i32
-  %74 = add i32 %73, 1
-  %75 = add nsw i32 %.037104, 1
-  br label %114
-
-76:                                               ; preds = %67
-  %77 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
-  %78 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef nonnull @.str.14)
+72:                                               ; preds = %.lr.ph
+  %73 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
+  %74 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef nonnull @.str.14)
   call void @exit(i32 noundef 1) #24
   unreachable
 
-79:                                               ; preds = %67, %67
-  %80 = sext i32 %.033106 to i64
-  %.sroa.speculated3.i53 = call i64 @llvm.umin.i64(i64 %46, i64 %80)
-  %81 = icmp ugt i64 %.sroa.7.0101, %46
-  %.sroa.speculate.load.false.sroa.speculated.i54 = call i64 @llvm.umax.i64(i64 %.sroa.7.0101, i64 %.sroa.speculated3.i53)
-  %.sroa.speculated.i55 = select i1 %81, i64 %46, i64 %.sroa.speculate.load.false.sroa.speculated.i54
-  %82 = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.speculated3.i53
-  %83 = sub i64 %.sroa.speculated.i55, %.sroa.speculated3.i53
-  call void @_ZZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E15setPassPipelineENS_9StringRefESt8functionIFSt10unique_ptrIS2_St14default_deleteIS2_EES4_S4_EEENKUlS4_S4_E_clES4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %82, i64 %83, ptr null, i64 0)
-  %84 = trunc i64 %.sroa.7.0101 to i32
-  %85 = add i32 %84, 1
-  br label %114
+75:                                               ; preds = %.lr.ph, %.lr.ph
+  %76 = sext i32 %.033106132 to i64
+  %.sroa.speculated3.i53 = call i64 @llvm.umin.i64(i64 %46, i64 %76)
+  %77 = icmp ugt i64 %.sroa.7.0101147, %46
+  %.sroa.speculate.load.false.sroa.speculated.i54 = call i64 @llvm.umax.i64(i64 %.sroa.7.0101147, i64 %.sroa.speculated3.i53)
+  %.sroa.speculated.i55 = select i1 %77, i64 %46, i64 %.sroa.speculate.load.false.sroa.speculated.i54
+  %78 = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.speculated3.i53
+  %79 = sub i64 %.sroa.speculated.i55, %.sroa.speculated3.i53
+  call void @_ZZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E15setPassPipelineENS_9StringRefESt8functionIFSt10unique_ptrIS2_St14default_deleteIS2_EES4_S4_EEENKUlS4_S4_E_clES4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %78, i64 %79, ptr null, i64 0)
+  %80 = trunc i64 %.sroa.7.0101147 to i32
+  %81 = add i32 %80, 1
+  br label %115
 
-86:                                               ; preds = %.lr.ph
-  switch i8 %66, label %114 [
-    i8 60, label %87
-    i8 62, label %89
-    i8 0, label %102
+.lr.ph.jt1:                                       ; preds = %113
+  %82 = add nuw i64 %.sroa.7.0101149, 1
+  %83 = load i8, ptr %114, align 1, !tbaa !73
+  switch i8 %83, label %113 [
+    i8 60, label %84
+    i8 62, label %86
+    i8 0, label %94
   ]
 
-87:                                               ; preds = %86
-  %88 = add nsw i32 %.037104, 1
-  br label %114
+84:                                               ; preds = %.lr.ph.jt1
+  %85 = add nsw i32 %.138.jt1.ph, 1
+  br label %.outer.backedge
+
+.outer.backedge:                                  ; preds = %84, %89
+  %.138.jt1.ph.be = phi i32 [ %85, %84 ], [ %87, %89 ]
+  br label %.outer
+
+.outer:                                           ; preds = %.outer.backedge, %67
+  %.sroa.068.0100154.ph = phi ptr [ %.sroa.068.0100152, %67 ], [ %114, %.outer.backedge ]
+  %.sroa.7.0101149.ph = phi i64 [ %.sroa.7.0101147, %67 ], [ %82, %.outer.backedge ]
+  %.138.jt1.ph = phi i32 [ 1, %67 ], [ %.138.jt1.ph.be, %.outer.backedge ]
+  br label %113
+
+86:                                               ; preds = %.lr.ph.jt1
+  %87 = add nsw i32 %.138.jt1.ph, -1
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %106, label %89
 
 89:                                               ; preds = %86
-  %90 = add nsw i32 %.037104, -1
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %97
+  %90 = icmp slt i32 %.138.jt1.ph, 1
+  br i1 %90, label %91, label %.outer.backedge
 
-92:                                               ; preds = %89
-  %93 = sext i32 %.035105 to i64
-  %.sroa.speculated3.i58 = call i64 @llvm.umin.i64(i64 %46, i64 %93)
-  %94 = icmp ugt i64 %.sroa.7.0101, %46
-  %.sroa.speculate.load.false.sroa.speculated.i59 = call i64 @llvm.umax.i64(i64 %.sroa.7.0101, i64 %.sroa.speculated3.i58)
-  %.sroa.speculated.i60 = select i1 %94, i64 %46, i64 %.sroa.speculate.load.false.sroa.speculated.i59
-  %95 = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.speculated3.i58
-  %96 = sub i64 %.sroa.speculated.i60, %.sroa.speculated3.i58
-  call void @_ZZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E15setPassPipelineENS_9StringRefESt8functionIFSt10unique_ptrIS2_St14default_deleteIS2_EES4_S4_EEENKUlS4_S4_E_clES4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %.sroa.074.0103, i64 %.sroa.6.0102, ptr %95, i64 %96)
-  br label %114
-
-97:                                               ; preds = %89
-  %98 = icmp slt i32 %.037104, 1
-  br i1 %98, label %99, label %114
-
-99:                                               ; preds = %97
-  %100 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
-  %101 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef nonnull @.str.14)
+91:                                               ; preds = %89
+  %92 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
+  %93 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %92, ptr noundef nonnull @.str.14)
   call void @exit(i32 noundef 1) #24
   unreachable
 
-102:                                              ; preds = %86
-  %103 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
-  %104 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %103, ptr noundef nonnull @.str.15)
-  %105 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %104, ptr %.sroa.074.0103, i64 %.sroa.6.0102)
-  %106 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %105, ptr noundef nonnull @.str.16)
+94:                                               ; preds = %.lr.ph.jt1
+  %95 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
+  %96 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull @.str.15)
+  %97 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr %70, i64 %71)
+  %98 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %97, ptr noundef nonnull @.str.16)
   call void @exit(i32 noundef 1) #24
   unreachable
 
-107:                                              ; preds = %.lr.ph
-  switch i8 %66, label %111 [
-    i8 0, label %108
-    i8 44, label %108
+.lr.ph.jt2:                                       ; preds = %106
+  %99 = load i8, ptr %112, align 1, !tbaa !73
+  switch i8 %99, label %103 [
+    i8 0, label %100
+    i8 44, label %100
   ]
 
-108:                                              ; preds = %107, %107
-  %109 = trunc i64 %.sroa.7.0101 to i32
-  %110 = add i32 %109, 1
-  br label %114
+100:                                              ; preds = %.lr.ph.jt2, %.lr.ph.jt2
+  %101 = trunc i64 %111 to i32
+  %102 = add i32 %101, 1
+  br label %115
 
-111:                                              ; preds = %107
-  %112 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
-  %113 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %112, ptr noundef nonnull @.str.17)
+103:                                              ; preds = %.lr.ph.jt2
+  %104 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
+  %105 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %104, ptr noundef nonnull @.str.17)
   call void @exit(i32 noundef 1) #24
   unreachable
 
-default.unreachable131:                           ; preds = %.lr.ph
-  unreachable
+106:                                              ; preds = %86
+  %107 = shl i64 %.sroa.7.0101147, 32
+  %sext = add i64 %107, 4294967296
+  %108 = ashr exact i64 %sext, 32
+  %.sroa.speculated3.i58 = call i64 @llvm.umin.i64(i64 %46, i64 %108)
+  %.not = icmp ult i64 %.sroa.7.0101149, %46
+  %.sroa.speculate.load.false.sroa.speculated.i59 = call i64 @llvm.umax.i64(i64 %82, i64 %.sroa.speculated3.i58)
+  %.sroa.speculated.i60 = select i1 %.not, i64 %.sroa.speculate.load.false.sroa.speculated.i59, i64 %46
+  %109 = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.speculated3.i58
+  %110 = sub i64 %.sroa.speculated.i60, %.sroa.speculated3.i58
+  call void @_ZZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E15setPassPipelineENS_9StringRefESt8functionIFSt10unique_ptrIS2_St14default_deleteIS2_EES4_S4_EEENKUlS4_S4_E_clES4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %70, i64 %71, ptr %109, i64 %110)
+  %111 = add nuw i64 %.sroa.7.0101149, 2
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.068.0100154, i64 2
+  %.not.jt2 = icmp eq ptr %112, %58
+  br i1 %.not.jt2, label %._crit_edge.loopexit, label %.lr.ph.jt2
 
-114:                                              ; preds = %86, %67, %92, %97, %79, %108, %87, %68
-  %.sroa.6.1 = phi i64 [ %.sroa.6.0102, %67 ], [ %72, %68 ], [ %.sroa.6.0102, %79 ], [ %.sroa.6.0102, %86 ], [ %.sroa.6.0102, %87 ], [ %.sroa.6.0102, %92 ], [ %.sroa.6.0102, %97 ], [ %.sroa.6.0102, %108 ]
-  %.sroa.074.1 = phi ptr [ %.sroa.074.0103, %67 ], [ %71, %68 ], [ %.sroa.074.0103, %79 ], [ %.sroa.074.0103, %86 ], [ %.sroa.074.0103, %87 ], [ %.sroa.074.0103, %92 ], [ %.sroa.074.0103, %97 ], [ %.sroa.074.0103, %108 ]
-  %.138 = phi i32 [ %.037104, %67 ], [ %75, %68 ], [ %.037104, %79 ], [ %.037104, %86 ], [ %88, %87 ], [ 0, %92 ], [ %90, %97 ], [ %.037104, %108 ]
-  %.136 = phi i32 [ %.035105, %67 ], [ %74, %68 ], [ %.035105, %79 ], [ %.035105, %86 ], [ %.035105, %87 ], [ %.035105, %92 ], [ %.035105, %97 ], [ %.035105, %108 ]
-  %.134 = phi i32 [ %.033106, %67 ], [ %.033106, %68 ], [ %85, %79 ], [ %.033106, %86 ], [ %.033106, %87 ], [ %.033106, %92 ], [ %.033106, %97 ], [ %110, %108 ]
-  %.1 = phi i32 [ 0, %67 ], [ 1, %68 ], [ 0, %79 ], [ 1, %86 ], [ 1, %87 ], [ 2, %92 ], [ 1, %97 ], [ 0, %108 ]
-  %115 = add nuw i64 %.sroa.7.0101, 1
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.068.0100, i64 1
-  %.not = icmp eq ptr %116, %58
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+113:                                              ; preds = %.outer, %.lr.ph.jt1
+  %.sroa.068.0100154 = phi ptr [ %114, %.lr.ph.jt1 ], [ %.sroa.068.0100154.ph, %.outer ]
+  %.sroa.7.0101149 = phi i64 [ %82, %.lr.ph.jt1 ], [ %.sroa.7.0101149.ph, %.outer ]
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.068.0100154, i64 1
+  %.not.jt1 = icmp eq ptr %114, %58
+  br i1 %.not.jt1, label %._crit_edge.loopexit, label %.lr.ph.jt1
 
-117:                                              ; preds = %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52
+115:                                              ; preds = %100, %75, %.lr.ph
+  %.sroa.068.0100155 = phi ptr [ %112, %100 ], [ %.sroa.068.0100152, %75 ], [ %.sroa.068.0100152, %.lr.ph ]
+  %.sroa.7.0101150 = phi i64 [ %111, %100 ], [ %.sroa.7.0101147, %75 ], [ %.sroa.7.0101147, %.lr.ph ]
+  %.134.jt0 = phi i32 [ %102, %100 ], [ %81, %75 ], [ %.033106132, %.lr.ph ]
+  %116 = add nuw i64 %.sroa.7.0101150, 1
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.068.0100155, i64 1
+  %.not.jt0 = icmp eq ptr %117, %58
+  br i1 %.not.jt0, label %._crit_edge.loopexit, label %.lr.ph
+
+118:                                              ; preds = %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52
   ret void
 }
 

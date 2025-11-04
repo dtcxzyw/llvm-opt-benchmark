@@ -969,11 +969,11 @@ _ZN6vectorI8rationalLb1EjE3endEv.exit:            ; preds = %225
   %.not183 = icmp eq i32 %229, 0
   br i1 %.not183, label %.loopexit176, label %.lr.ph185
 
-.lr.ph185:                                        ; preds = %_ZN6vectorI8rationalLb1EjE3endEv.exit, %593
-  %233 = phi ptr [ %258, %593 ], [ %205, %_ZN6vectorI8rationalLb1EjE3endEv.exit ]
-  %234 = phi ptr [ %587, %593 ], [ %205, %_ZN6vectorI8rationalLb1EjE3endEv.exit ]
-  %235 = phi ptr [ %588, %593 ], [ %205, %_ZN6vectorI8rationalLb1EjE3endEv.exit ]
-  %.048184 = phi ptr [ %594, %593 ], [ %226, %_ZN6vectorI8rationalLb1EjE3endEv.exit ]
+.lr.ph185:                                        ; preds = %_ZN6vectorI8rationalLb1EjE3endEv.exit, %_ZN8rationalD2Ev.exit154.jt0
+  %233 = phi ptr [ %258, %_ZN8rationalD2Ev.exit154.jt0 ], [ %205, %_ZN6vectorI8rationalLb1EjE3endEv.exit ]
+  %234 = phi ptr [ %589, %_ZN8rationalD2Ev.exit154.jt0 ], [ %205, %_ZN6vectorI8rationalLb1EjE3endEv.exit ]
+  %235 = phi ptr [ %590, %_ZN8rationalD2Ev.exit154.jt0 ], [ %205, %_ZN6vectorI8rationalLb1EjE3endEv.exit ]
+  %.048184 = phi ptr [ %594, %_ZN8rationalD2Ev.exit154.jt0 ], [ %226, %_ZN6vectorI8rationalLb1EjE3endEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 8, !tbaa !120
   %236 = load i8, ptr %91, align 4
@@ -1156,7 +1156,7 @@ _ZN8rationalD2Ev.exit91:                          ; preds = %.noexc.i90
   unreachable
 
 _ZN8rationalD2Ev.exit93:                          ; preds = %.noexc.i92
-  br i1 %299, label %316, label %586
+  br i1 %299, label %316, label %588
 
 309:                                              ; preds = %257, %247
   %310 = landingpad { ptr, i32 }
@@ -1757,8 +1757,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit:         ; preds = %_ZN6bufferIP3astLb0
 
 _ZN13ast_fast_markILj1EED2Ev.exit:                ; preds = %.loopexit.i, %539
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %spec.select = select i1 %.not171, i32 5, i32 0
-  br label %586
+  br i1 %.not171, label %586, label %588
 
 .lr.ph181:                                        ; preds = %.lr.ph181.preheader, %566
   %indvars.iv = phi i64 [ 0, %.lr.ph181.preheader ], [ %indvars.iv.next, %566 ]
@@ -1852,40 +1851,55 @@ _ZN11ast_manager7inc_refEP3ast.exit.i148:         ; preds = %572, %568
 
 583:                                              ; preds = %577, %_ZN11ast_manager7inc_refEP3ast.exit.i148, %582
   store ptr %258, ptr %570, align 8, !tbaa !116
-  br label %586
+  br label %588
 
 584:                                              ; preds = %582
   %585 = landingpad { ptr, i32 }
           cleanup
   br label %.body160
 
-586:                                              ; preds = %_ZN13ast_fast_markILj1EED2Ev.exit, %583, %_ZN8rationalD2Ev.exit93
-  %587 = phi ptr [ %259, %_ZN8rationalD2Ev.exit93 ], [ %258, %583 ], [ %259, %_ZN13ast_fast_markILj1EED2Ev.exit ]
-  %588 = phi ptr [ %260, %_ZN8rationalD2Ev.exit93 ], [ %258, %583 ], [ %259, %_ZN13ast_fast_markILj1EED2Ev.exit ]
-  %.044 = phi i32 [ 6, %_ZN8rationalD2Ev.exit93 ], [ 0, %583 ], [ %spec.select, %_ZN13ast_fast_markILj1EED2Ev.exit ]
-  %589 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !99
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %589, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %.noexc.i153 unwind label %590
+586:                                              ; preds = %_ZN13ast_fast_markILj1EED2Ev.exit
+  %587 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !99
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %587, ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %.noexc.i153.jt5 unwind label %.loopexit.split-lp.loopexit256
 
-.noexc.i153:                                      ; preds = %586
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %589, ptr noundef nonnull align 8 dereferenceable(16) %93)
-          to label %_ZN8rationalD2Ev.exit154 unwind label %590
+588:                                              ; preds = %583, %_ZN13ast_fast_markILj1EED2Ev.exit, %_ZN8rationalD2Ev.exit93
+  %589 = phi ptr [ %259, %_ZN8rationalD2Ev.exit93 ], [ %259, %_ZN13ast_fast_markILj1EED2Ev.exit ], [ %258, %583 ]
+  %590 = phi ptr [ %260, %_ZN8rationalD2Ev.exit93 ], [ %259, %_ZN13ast_fast_markILj1EED2Ev.exit ], [ %258, %583 ]
+  %591 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !99
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %591, ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %.noexc.i153.jt0 unwind label %.loopexit254
 
-590:                                              ; preds = %.noexc.i153, %586
-  %591 = landingpad { ptr, i32 }
+.noexc.i153.jt5:                                  ; preds = %586
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %587, ptr noundef nonnull align 8 dereferenceable(16) %93)
+          to label %_ZN8rationalD2Ev.exit154.jt5 unwind label %.loopexit.split-lp.loopexit256
+
+.noexc.i153.jt0:                                  ; preds = %588
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %591, ptr noundef nonnull align 8 dereferenceable(16) %93)
+          to label %_ZN8rationalD2Ev.exit154.jt0 unwind label %.loopexit254
+
+.loopexit254:                                     ; preds = %588, %.noexc.i153.jt0
+  %lpad.loopexit255 = landingpad { ptr, i32 }
           catch ptr null
-  %592 = extractvalue { ptr, i32 } %591, 0
-  call void @__clang_call_terminate(ptr %592) #21
+  br label %592
+
+.loopexit.split-lp.loopexit256:                   ; preds = %.noexc.i153.jt5, %586
+  %lpad.loopexit258 = landingpad { ptr, i32 }
+          catch ptr null
+  br label %592
+
+592:                                              ; preds = %.loopexit.split-lp.loopexit256, %.loopexit254
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit255, %.loopexit254 ], [ %lpad.loopexit258, %.loopexit.split-lp.loopexit256 ]
+  %593 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %593) #21
   unreachable
 
-_ZN8rationalD2Ev.exit154:                         ; preds = %.noexc.i153
+_ZN8rationalD2Ev.exit154.jt5:                     ; preds = %.noexc.i153.jt5
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  switch i32 %.044, label %.loopexit176 [
-    i32 0, label %593
-    i32 6, label %593
-  ]
+  br label %.loopexit176
 
-593:                                              ; preds = %_ZN8rationalD2Ev.exit154, %_ZN8rationalD2Ev.exit154
+_ZN8rationalD2Ev.exit154.jt0:                     ; preds = %.noexc.i153.jt0
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %594 = getelementptr inbounds nuw i8, ptr %.048184, i64 32
   %.not = icmp eq ptr %594, %232
   br i1 %.not, label %.loopexit176, label %.lr.ph185
@@ -1900,9 +1914,9 @@ _ZN8rationalD2Ev.exit154:                         ; preds = %.noexc.i153
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %598
 
-.loopexit176:                                     ; preds = %593, %_ZN8rationalD2Ev.exit154, %225, %_ZN6vectorI8rationalLb1EjE3endEv.exit, %224, %217
-  %596 = phi ptr [ %205, %_ZN6vectorI8rationalLb1EjE3endEv.exit ], [ %205, %224 ], [ %205, %217 ], [ %205, %225 ], [ %258, %_ZN8rationalD2Ev.exit154 ], [ %258, %593 ]
-  %597 = phi ptr [ %205, %_ZN6vectorI8rationalLb1EjE3endEv.exit ], [ %205, %224 ], [ %205, %217 ], [ %205, %225 ], [ %588, %_ZN8rationalD2Ev.exit154 ], [ %588, %593 ]
+.loopexit176:                                     ; preds = %_ZN8rationalD2Ev.exit154.jt0, %225, %_ZN8rationalD2Ev.exit154.jt5, %_ZN6vectorI8rationalLb1EjE3endEv.exit, %224, %217
+  %596 = phi ptr [ %205, %_ZN6vectorI8rationalLb1EjE3endEv.exit ], [ %205, %224 ], [ %205, %217 ], [ %258, %_ZN8rationalD2Ev.exit154.jt5 ], [ %205, %225 ], [ %258, %_ZN8rationalD2Ev.exit154.jt0 ]
+  %597 = phi ptr [ %205, %_ZN6vectorI8rationalLb1EjE3endEv.exit ], [ %205, %224 ], [ %205, %217 ], [ %259, %_ZN8rationalD2Ev.exit154.jt5 ], [ %205, %225 ], [ %590, %_ZN8rationalD2Ev.exit154.jt0 ]
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
   br i1 %exitcond196.not, label %._crit_edge188, label %201, !llvm.loop !222

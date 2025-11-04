@@ -7470,12 +7470,12 @@ set_filter.exit:                                  ; preds = %set_filter.exit.bac
   %.not99.i.not = icmp eq i8 %.fr, 0
   br i1 %.not99.i.not, label %.preheader108.i.preheader.us, label %.preheader108.i.preheader
 
-.preheader108.i.preheader.us:                     ; preds = %.preheader108.i.preheader.lr.ph, %select.unfold.i.us
-  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %select.unfold.i.us ], [ 8, %.preheader108.i.preheader.lr.ph ]
-  %44 = phi i32 [ %82, %select.unfold.i.us ], [ %43, %.preheader108.i.preheader.lr.ph ]
-  %45 = phi ptr [ %80, %select.unfold.i.us ], [ %17, %.preheader108.i.preheader.lr.ph ]
-  %.085.i36.us = phi i32 [ %.186.i.us, %select.unfold.i.us ], [ 1, %.preheader108.i.preheader.lr.ph ]
-  %.092.i35.us = phi i32 [ %.193.i.us, %select.unfold.i.us ], [ 0, %.preheader108.i.preheader.lr.ph ]
+.preheader108.i.preheader.us:                     ; preds = %.preheader108.i.preheader.lr.ph, %select.unfold.jt0.i.us
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %select.unfold.jt0.i.us ], [ 8, %.preheader108.i.preheader.lr.ph ]
+  %44 = phi i32 [ %82, %select.unfold.jt0.i.us ], [ %43, %.preheader108.i.preheader.lr.ph ]
+  %45 = phi ptr [ %80, %select.unfold.jt0.i.us ], [ %17, %.preheader108.i.preheader.lr.ph ]
+  %.085.i36.us = phi i32 [ %.186.jt0.i.us, %select.unfold.jt0.i.us ], [ 1, %.preheader108.i.preheader.lr.ph ]
+  %.092.i35.us = phi i32 [ %.193.jt0.i.us, %select.unfold.jt0.i.us ], [ 0, %.preheader108.i.preheader.lr.ph ]
   br label %.preheader108.i.us
 
 .preheader108.i.us:                               ; preds = %._crit_edge.i.us, %.preheader108.i.preheader.us
@@ -7532,18 +7532,18 @@ set_filter.exit:                                  ; preds = %set_filter.exit.bac
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %73 = add nsw i32 %.092.i35.us, 1
   %.not100.i.us = icmp ult i32 %73, %44
-  br i1 %.not100.i.us, label %select.unfold.i.us, label %74
+  br i1 %.not100.i.us, label %select.unfold.jt0.i.us, label %74
 
 74:                                               ; preds = %62
   %75 = add nsw i32 %.085.i36.us, 1
   %76 = load i32, ptr %15, align 8, !tbaa !48
   %.not101.i.us = icmp slt i32 %.085.i36.us, %76
-  br i1 %.not101.i.us, label %select.unfold.i.us, label %.preheader.i
+  br i1 %.not101.i.us, label %select.unfold.jt0.i.us, label %.preheader.i
 
-select.unfold.i.us:                               ; preds = %74, %62
-  %.193.i.us = phi i32 [ %73, %62 ], [ 0, %74 ]
-  %.186.i.us = phi i32 [ %.085.i36.us, %62 ], [ %75, %74 ]
-  %77 = sext i32 %.186.i.us to i64
+select.unfold.jt0.i.us:                           ; preds = %74, %62
+  %.193.jt0.i.us = phi i32 [ %73, %62 ], [ 0, %74 ]
+  %.186.jt0.i.us = phi i32 [ %.085.i36.us, %62 ], [ %75, %74 ]
+  %77 = sext i32 %.186.jt0.i.us to i64
   %78 = getelementptr inbounds %struct.MLPBlock, ptr %14, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 1316
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 3304
@@ -7564,12 +7564,12 @@ select.unfold.i.us:                               ; preds = %74, %62
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %.preheader109.i, label %83, !llvm.loop !248
 
-.preheader108.i.preheader:                        ; preds = %.preheader108.i.preheader.lr.ph, %select.unfold.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold.i ], [ 8, %.preheader108.i.preheader.lr.ph ]
-  %88 = phi i32 [ %127, %select.unfold.i ], [ %43, %.preheader108.i.preheader.lr.ph ]
-  %.pn = phi ptr [ %125, %select.unfold.i ], [ %17, %.preheader108.i.preheader.lr.ph ]
-  %.085.i36 = phi i32 [ %.186.i, %select.unfold.i ], [ 1, %.preheader108.i.preheader.lr.ph ]
-  %.092.i35 = phi i32 [ %.193.i, %select.unfold.i ], [ 0, %.preheader108.i.preheader.lr.ph ]
+.preheader108.i.preheader:                        ; preds = %.preheader108.i.preheader.lr.ph, %select.unfold.jt0.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold.jt0.i ], [ 8, %.preheader108.i.preheader.lr.ph ]
+  %88 = phi i32 [ %127, %select.unfold.jt0.i ], [ %43, %.preheader108.i.preheader.lr.ph ]
+  %.pn = phi ptr [ %125, %select.unfold.jt0.i ], [ %17, %.preheader108.i.preheader.lr.ph ]
+  %.085.i36 = phi i32 [ %.186.jt0.i, %select.unfold.jt0.i ], [ 1, %.preheader108.i.preheader.lr.ph ]
+  %.092.i35 = phi i32 [ %.193.jt0.i, %select.unfold.jt0.i ], [ 0, %.preheader108.i.preheader.lr.ph ]
   br label %.preheader108.i
 
 89:                                               ; preds = %._crit_edge.i
@@ -7631,18 +7631,18 @@ select.unfold.i.us:                               ; preds = %74, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %118 = add nsw i32 %.092.i35, 1
   %.not100.i = icmp ult i32 %118, %88
-  br i1 %.not100.i, label %select.unfold.i, label %119
+  br i1 %.not100.i, label %select.unfold.jt0.i, label %119
 
 119:                                              ; preds = %115
   %120 = add nsw i32 %.085.i36, 1
   %121 = load i32, ptr %15, align 8, !tbaa !48
   %.not101.i = icmp slt i32 %.085.i36, %121
-  br i1 %.not101.i, label %select.unfold.i, label %.preheader.i
+  br i1 %.not101.i, label %select.unfold.jt0.i, label %.preheader.i
 
-select.unfold.i:                                  ; preds = %119, %115
-  %.193.i = phi i32 [ %118, %115 ], [ 0, %119 ]
-  %.186.i = phi i32 [ %.085.i36, %115 ], [ %120, %119 ]
-  %122 = sext i32 %.186.i to i64
+select.unfold.jt0.i:                              ; preds = %119, %115
+  %.193.jt0.i = phi i32 [ %118, %115 ], [ 0, %119 ]
+  %.186.jt0.i = phi i32 [ %.085.i36, %115 ], [ %120, %119 ]
+  %122 = sext i32 %.186.jt0.i to i64
   %123 = getelementptr inbounds %struct.MLPBlock, ptr %14, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 1316
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 3304
@@ -7651,7 +7651,7 @@ select.unfold.i:                                  ; preds = %119, %115
   %.not.i = icmp eq i16 %126, 0
   br i1 %.not.i, label %.preheaderthread-pre-split.i, label %.preheader108.i.preheader
 
-.preheaderthread-pre-split.i:                     ; preds = %.preheader109.i, %select.unfold.i.us, %select.unfold.i
+.preheaderthread-pre-split.i:                     ; preds = %.preheader109.i, %select.unfold.jt0.i.us, %select.unfold.jt0.i
   %.pr.i = load i32, ptr %15, align 8, !tbaa !48
   br label %.preheader.i
 
