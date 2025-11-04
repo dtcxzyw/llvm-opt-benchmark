@@ -1690,16 +1690,11 @@ _ZN17crossbeam_channel5waker9SyncWaker8register17h65d0300def73ef1bE.exit: ; pred
 
 _ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit: ; preds = %115
   %121 = extractvalue { i64, i1 } %116, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %121, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %121, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread15 [
     i64 0, label %122
     i64 1, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread
     i64 2, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread
-    i64 3, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread15
   ], !prof !262
-
-default.unreachable:                              ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit
-  unreachable
 
 122:                                              ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.bcd0822671284ce01c088e0586fcb28e.25, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bcd0822671284ce01c088e0586fcb28e.27) #24
@@ -1851,7 +1846,7 @@ _ZN17crossbeam_channel5waker9SyncWaker10unregister17h3e7f2ed80af3f7d0E.exit: ; p
   %.not = icmp eq ptr %.sroa.0.0.copyload10, null
   br i1 %.not, label %187, label %183, !prof !97
 
-_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread15: ; preds = %.split.i, %.split.us.i, %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17hcb527718aa7a2072E.exit", %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit
+_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread15: ; preds = %.split.i, %.split.us.i, %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit, %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17hcb527718aa7a2072E.exit"
   ret void
 
 183:                                              ; preds = %_ZN17crossbeam_channel5waker9SyncWaker10unregister17h3e7f2ed80af3f7d0E.exit
@@ -20411,7 +20406,7 @@ attributes #28 = { cold "function-inline-cost-multiplier"="4" }
 !259 = distinct !{!259, !"_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..context..Context$GT$17hf95556f76993edefE"}
 !260 = distinct !{!260, !261, !"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17hcb527718aa7a2072E: argument 0"}
 !261 = distinct !{!261, !"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17hcb527718aa7a2072E"}
-!262 = !{!"branch_weights", i32 17, i32 6219984, i32 0, i32 0, i32 2141263647}
+!262 = !{!"branch_weights", i32 2141263647, i32 6219984, i32 0, i32 0}
 !263 = !{!264}
 !264 = distinct !{!264, !265, !"_ZN17crossbeam_channel5waker9SyncWaker10unregister17h3e7f2ed80af3f7d0E: argument 0"}
 !265 = distinct !{!265, !"_ZN17crossbeam_channel5waker9SyncWaker10unregister17h3e7f2ed80af3f7d0E"}

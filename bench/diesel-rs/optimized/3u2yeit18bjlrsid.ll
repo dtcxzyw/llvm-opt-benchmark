@@ -30,19 +30,19 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %20, ptr align 8 %1)
           to label %23 unwind label %21
 
-21:                                               ; preds = %73, %72, %71, %55, %53, %39, %35, %33, %29, %2
-  %.030 = phi i1 [ %.232, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ false, %35 ], [ true, %2 ]
-  %.027 = phi i1 [ %.229, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.024 = phi i1 [ %.226, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.021 = phi i1 [ %.223, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.018 = phi i1 [ %.220, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.015 = phi i1 [ %.217, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.012 = phi i1 [ %.214, %39 ], [ true, %29 ], [ false, %71 ], [ false, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.09 = phi i1 [ %.211, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ false, %72 ], [ false, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.0 = phi i1 [ %.2, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ false, %73 ], [ false, %33 ], [ true, %35 ], [ true, %2 ]
+21:                                               ; preds = %71, %70, %69, %53, %51, %37, %33, %31, %29, %2
+  %.030 = phi i1 [ %.232, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ false, %33 ], [ true, %2 ]
+  %.027 = phi i1 [ %.229, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.024 = phi i1 [ %.226, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.021 = phi i1 [ %.223, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.018 = phi i1 [ %.220, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.015 = phi i1 [ %.217, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.012 = phi i1 [ %.214, %37 ], [ true, %29 ], [ false, %69 ], [ false, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.09 = phi i1 [ %.211, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ false, %70 ], [ false, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.0 = phi i1 [ %.2, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ false, %71 ], [ false, %31 ], [ true, %33 ], [ true, %2 ]
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
 23:                                               ; preds = %2
   %24 = load i64, ptr %1, align 8, !range !3, !noundef !4
@@ -52,280 +52,274 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   switch i64 %27, label %28 [
     i64 0, label %29
     i64 1, label %30
-    i64 2, label %33
-    i64 3, label %35
+    i64 2, label %31
+    i64 3, label %33
   ]
-
-default.unreachable:                              ; preds = %30
-  unreachable
 
 28:                                               ; preds = %23
   unreachable
 
 29:                                               ; preds = %23
   invoke void @_ZN5serde2de7Visitor10visit_none17heeea642f2e3fccd8E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
 30:                                               ; preds = %23
-  %31 = add nsw i64 %24, -2
-  %32 = call i64 @llvm.umin.i64(i64 %31, i64 6)
-  switch i64 %32, label %default.unreachable [
-    i64 0, label %40
-    i64 1, label %42
-    i64 2, label %45
-    i64 3, label %48
-    i64 4, label %51
-    i64 5, label %53
-    i64 6, label %55
+  switch i64 %24, label %53 [
+    i64 2, label %38
+    i64 3, label %40
+    i64 4, label %43
+    i64 5, label %46
+    i64 6, label %49
+    i64 7, label %51
   ]
+
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) %32, i64 168, i1 false)
+  invoke void @"_ZN9toml_edit2de5table41_$LT$impl$u20$toml_edit..table..Table$GT$17into_deserializer17hd94eed66dbf02d95E"(ptr nonnull sret({ { i64, [2 x i64] }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }) align 8 %5, ptr nonnull align 8 %6)
+          to label %71 unwind label %21
 
 33:                                               ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) %34, i64 168, i1 false)
-  invoke void @"_ZN9toml_edit2de5table41_$LT$impl$u20$toml_edit..table..Table$GT$17into_deserializer17hd94eed66dbf02d95E"(ptr nonnull sret({ { i64, [2 x i64] }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }) align 8 %5, ptr nonnull align 8 %6)
-          to label %73 unwind label %21
-
-35:                                               ; preds = %23
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
   invoke void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6f51409cba510a68E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %4)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-39:                                               ; preds = %35, %73, %72, %71, %70, %67, %64, %61, %58, %29
-  %.232 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ false, %35 ]
-  %.229 = phi i1 [ true, %29 ], [ false, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.226 = phi i1 [ true, %29 ], [ true, %58 ], [ false, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.223 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ false, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.220 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ false, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.217 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ false, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.214 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ false, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.211 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ false, %72 ], [ true, %73 ], [ true, %35 ]
-  %.2 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ false, %73 ], [ true, %35 ]
+37:                                               ; preds = %33, %71, %70, %69, %68, %65, %62, %59, %56, %29
+  %.232 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ false, %33 ]
+  %.229 = phi i1 [ true, %29 ], [ false, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.226 = phi i1 [ true, %29 ], [ true, %56 ], [ false, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.223 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ false, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.220 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ false, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.217 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ false, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.214 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ false, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.211 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ false, %70 ], [ true, %71 ], [ true, %33 ]
+  %.2 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ false, %71 ], [ true, %33 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h36c0b2eda1a6bccdE"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nonnull align 8 %19, ptr nonnull align 8 %3)
-          to label %74 unwind label %21
+          to label %72 unwind label %21
+
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %39, i64 96, i1 false)
+  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbcbc54059f87d808E"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %17, ptr nonnull align 8 %18)
+          to label %56 unwind label %54
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %41, i64 96, i1 false)
-  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbcbc54059f87d808E"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %17, ptr nonnull align 8 %18)
-          to label %58 unwind label %56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %41, i64 80, i1 false)
+  %42 = invoke i64 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hd4cb58ca46a855b7E"(ptr nonnull align 8 %16)
+          to label %59 unwind label %57
 
-42:                                               ; preds = %30
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %43, i64 80, i1 false)
-  %44 = invoke i64 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hd4cb58ca46a855b7E"(ptr nonnull align 8 %16)
-          to label %61 unwind label %59
+43:                                               ; preds = %30
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(80) %44, i64 80, i1 false)
+  %45 = invoke double @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbb84c2f989123f80E"(ptr nonnull align 8 %15)
+          to label %62 unwind label %60
 
-45:                                               ; preds = %30
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(80) %46, i64 80, i1 false)
-  %47 = invoke double @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbb84c2f989123f80E"(ptr nonnull align 8 %15)
-          to label %64 unwind label %62
+46:                                               ; preds = %30
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %47, i64 80, i1 false)
+  %48 = invoke zeroext i1 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h9a6c567a1e43b0f4E"(ptr nonnull align 8 %14)
+          to label %65 unwind label %63
 
-48:                                               ; preds = %30
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %49, i64 80, i1 false)
-  %50 = invoke zeroext i1 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h9a6c567a1e43b0f4E"(ptr nonnull align 8 %14)
-          to label %67 unwind label %65
+49:                                               ; preds = %30
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %50, i64 96, i1 false)
+  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hee8931e99b4e14efE"(ptr nonnull sret({ { i32, [2 x i32] }, { i16, i16 }, { i16, [2 x i16] }, [1 x i16] }) align 4 %11, ptr nonnull align 8 %13)
+          to label %68 unwind label %66
 
 51:                                               ; preds = %30
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %52, i64 96, i1 false)
-  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hee8931e99b4e14efE"(ptr nonnull sret({ { i32, [2 x i32] }, { i16, i16 }, { i16, [2 x i16] }, [1 x i16] }) align 4 %11, ptr nonnull align 8 %13)
-          to label %70 unwind label %68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %52, i64 128, i1 false)
+  invoke void @"_ZN9toml_edit2de5array41_$LT$impl$u20$toml_edit..array..Array$GT$17into_deserializer17habda3680c34bef1eE"(ptr nonnull sret({ { i64, [2 x i64] }, { { i64, ptr }, i64 } }) align 8 %9, ptr nonnull align 8 %10)
+          to label %69 unwind label %21
 
 53:                                               ; preds = %30
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %54, i64 128, i1 false)
-  invoke void @"_ZN9toml_edit2de5array41_$LT$impl$u20$toml_edit..array..Array$GT$17into_deserializer17habda3680c34bef1eE"(ptr nonnull sret({ { i64, [2 x i64] }, { { i64, ptr }, i64 } }) align 8 %9, ptr nonnull align 8 %10)
-          to label %71 unwind label %21
-
-55:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 176, i1 false)
   invoke void @"_ZN9toml_edit2de5table54_$LT$impl$u20$toml_edit..inline_table..InlineTable$GT$17into_deserializer17h66674036132b835cE"(ptr nonnull sret({ { i64, [2 x i64] }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }) align 8 %7, ptr nonnull align 8 %8)
-          to label %72 unwind label %21
+          to label %70 unwind label %21
 
-56:                                               ; preds = %58, %40
-  %57 = landingpad { ptr, i32 }
+54:                                               ; preds = %56, %38
+  %55 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-58:                                               ; preds = %40
+56:                                               ; preds = %38
   invoke void @_ZN5serde2de7Visitor12visit_string17h6e66fbd44edc0b18E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %17)
-          to label %39 unwind label %56
+          to label %37 unwind label %54
 
-59:                                               ; preds = %61, %42
-  %60 = landingpad { ptr, i32 }
+57:                                               ; preds = %59, %40
+  %58 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-61:                                               ; preds = %42
-  invoke void @_ZN5serde2de7Visitor9visit_i6417h1c3fd647482ac008E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i64 %44)
-          to label %39 unwind label %59
+59:                                               ; preds = %40
+  invoke void @_ZN5serde2de7Visitor9visit_i6417h1c3fd647482ac008E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i64 %42)
+          to label %37 unwind label %57
 
-62:                                               ; preds = %64, %45
-  %63 = landingpad { ptr, i32 }
+60:                                               ; preds = %62, %43
+  %61 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-64:                                               ; preds = %45
-  invoke void @_ZN5serde2de7Visitor9visit_f6417hff80fe7a24e03452E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, double %47)
-          to label %39 unwind label %62
+62:                                               ; preds = %43
+  invoke void @_ZN5serde2de7Visitor9visit_f6417hff80fe7a24e03452E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, double %45)
+          to label %37 unwind label %60
 
-65:                                               ; preds = %67, %48
-  %66 = landingpad { ptr, i32 }
+63:                                               ; preds = %65, %46
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-67:                                               ; preds = %48
-  invoke void @"_ZN68_$LT$serde..de..impls..BoolVisitor$u20$as$u20$serde..de..Visitor$GT$10visit_bool17he001f0b977cb0835E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i1 zeroext %50)
-          to label %39 unwind label %65
+65:                                               ; preds = %46
+  invoke void @"_ZN68_$LT$serde..de..impls..BoolVisitor$u20$as$u20$serde..de..Visitor$GT$10visit_bool17he001f0b977cb0835E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i1 zeroext %48)
+          to label %37 unwind label %63
 
-68:                                               ; preds = %70, %51
-  %69 = landingpad { ptr, i32 }
+66:                                               ; preds = %68, %49
+  %67 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-70:                                               ; preds = %51
+68:                                               ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %12, ptr noundef nonnull align 4 dereferenceable(24) %11, i64 24, i1 false)
   invoke void @_ZN5serde2de7Visitor9visit_map17h54aedb5f88d8d0eeE(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 4 %12)
-          to label %39 unwind label %68
+          to label %37 unwind label %66
 
-71:                                               ; preds = %53
+69:                                               ; preds = %51
   invoke void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6f51409cba510a68E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %9)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-72:                                               ; preds = %55
+70:                                               ; preds = %53
   invoke void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfcec24bac234af9eE"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %7)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-73:                                               ; preds = %33
+71:                                               ; preds = %31
   invoke void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hfcec24bac234af9eE"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %5)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-74:                                               ; preds = %39
+72:                                               ; preds = %37
   ret void
 
-75:                                               ; preds = %68, %65, %62, %59, %56, %21
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %57, %56 ], [ %60, %59 ], [ %63, %62 ], [ %66, %65 ], [ %69, %68 ]
-  %.131 = phi i1 [ %.030, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.128 = phi i1 [ %.027, %21 ], [ false, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.125 = phi i1 [ %.024, %21 ], [ true, %56 ], [ false, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.122 = phi i1 [ %.021, %21 ], [ true, %56 ], [ true, %59 ], [ false, %62 ], [ true, %65 ], [ true, %68 ]
-  %.119 = phi i1 [ %.018, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ false, %65 ], [ true, %68 ]
-  %.116 = phi i1 [ %.015, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ false, %68 ]
-  %.113 = phi i1 [ %.012, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.110 = phi i1 [ %.09, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.1 = phi i1 [ %.0, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %76 = load i64, ptr %1, align 8, !range !3, !noundef !4
-  %77 = add nsw i64 %76, -8
-  %78 = icmp ult i64 %77, 4
-  %79 = select i1 %78, i64 %77, i64 1
-  switch i64 %79, label %.unreachabledefault [
-    i64 1, label %81
-    i64 2, label %84
-    i64 3, label %85
-    i64 0, label %80
+73:                                               ; preds = %66, %63, %60, %57, %54, %21
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %55, %54 ], [ %58, %57 ], [ %61, %60 ], [ %64, %63 ], [ %67, %66 ]
+  %.131 = phi i1 [ %.030, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.128 = phi i1 [ %.027, %21 ], [ false, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.125 = phi i1 [ %.024, %21 ], [ true, %54 ], [ false, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.122 = phi i1 [ %.021, %21 ], [ true, %54 ], [ true, %57 ], [ false, %60 ], [ true, %63 ], [ true, %66 ]
+  %.119 = phi i1 [ %.018, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ false, %63 ], [ true, %66 ]
+  %.116 = phi i1 [ %.015, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ false, %66 ]
+  %.113 = phi i1 [ %.012, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.110 = phi i1 [ %.09, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.1 = phi i1 [ %.0, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %74 = load i64, ptr %1, align 8, !range !3, !noundef !4
+  %75 = add nsw i64 %74, -8
+  %76 = icmp ult i64 %75, 4
+  %77 = select i1 %76, i64 %75, i64 1
+  switch i64 %77, label %.unreachabledefault [
+    i64 1, label %79
+    i64 2, label %82
+    i64 3, label %83
+    i64 0, label %78
   ]
 
-.unreachabledefault:                              ; preds = %75
+.unreachabledefault:                              ; preds = %73
   unreachable
 
-80:                                               ; preds = %75, %110, %108, %107, %105, %103, %101, %99, %97, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84
+78:                                               ; preds = %73, %108, %106, %105, %103, %101, %99, %97, %95, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82
   resume { ptr, i32 } %.pn
 
-81:                                               ; preds = %75
-  %82 = add nsw i64 %76, -2
-  %83 = call i64 @llvm.umin.i64(i64 %82, i64 6)
-  switch i64 %83, label %86 [
-    i64 0, label %87
-    i64 1, label %88
-    i64 2, label %89
-    i64 3, label %90
-    i64 4, label %91
-    i64 5, label %92
+79:                                               ; preds = %73
+  %80 = add nsw i64 %74, -2
+  %81 = call i64 @llvm.umin.i64(i64 %80, i64 6)
+  switch i64 %81, label %84 [
+    i64 0, label %85
+    i64 1, label %86
+    i64 2, label %87
+    i64 3, label %88
+    i64 4, label %89
+    i64 5, label %90
   ]
 
-84:                                               ; preds = %75
-  br i1 %.1, label %108, label %80
+82:                                               ; preds = %73
+  br i1 %.1, label %106, label %78
 
-85:                                               ; preds = %75
-  br i1 %.131, label %110, label %80
+83:                                               ; preds = %73
+  br i1 %.131, label %108, label %78
 
-86:                                               ; preds = %81
-  br i1 %.110, label %107, label %80
+84:                                               ; preds = %79
+  br i1 %.110, label %105, label %78
 
-87:                                               ; preds = %81
-  br i1 %.128, label %93, label %80
+85:                                               ; preds = %79
+  br i1 %.128, label %91, label %78
 
-88:                                               ; preds = %81
-  br i1 %.125, label %97, label %80
+86:                                               ; preds = %79
+  br i1 %.125, label %95, label %78
 
-89:                                               ; preds = %81
-  br i1 %.122, label %99, label %80
+87:                                               ; preds = %79
+  br i1 %.122, label %97, label %78
 
-90:                                               ; preds = %81
-  br i1 %.119, label %101, label %80
+88:                                               ; preds = %79
+  br i1 %.119, label %99, label %78
 
-91:                                               ; preds = %81
-  br i1 %.116, label %103, label %80
+89:                                               ; preds = %79
+  br i1 %.116, label %101, label %78
 
-92:                                               ; preds = %81
-  br i1 %.113, label %105, label %80
+90:                                               ; preds = %79
+  br i1 %.113, label %103, label %78
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$toml_edit..repr..Formatted$LT$alloc..string..String$GT$$GT$17he2001fde834ed6caE"(ptr nonnull align 8 %94) #7
-          to label %80 unwind label %95
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$toml_edit..repr..Formatted$LT$alloc..string..String$GT$$GT$17he2001fde834ed6caE"(ptr nonnull align 8 %92) #7
+          to label %78 unwind label %93
 
-95:                                               ; preds = %110, %108, %107, %105, %103, %101, %99, %97, %93
-  %96 = landingpad { ptr, i32 }
+93:                                               ; preds = %108, %106, %105, %103, %101, %99, %97, %95, %91
+  %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #8
   unreachable
 
-97:                                               ; preds = %88
+95:                                               ; preds = %86
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$i64$GT$$GT$17h5cc38b6d52fe8116E"(ptr nonnull align 8 %96) #7
+          to label %78 unwind label %93
+
+97:                                               ; preds = %87
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$i64$GT$$GT$17h5cc38b6d52fe8116E"(ptr nonnull align 8 %98) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$f64$GT$$GT$17h117207142d8a8c53E"(ptr nonnull align 8 %98) #7
+          to label %78 unwind label %93
 
-99:                                               ; preds = %89
+99:                                               ; preds = %88
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$f64$GT$$GT$17h117207142d8a8c53E"(ptr nonnull align 8 %100) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$toml_edit..repr..Formatted$LT$bool$GT$$GT$17ha92b6389bccbad47E"(ptr nonnull align 8 %100) #7
+          to label %78 unwind label %93
 
-101:                                              ; preds = %90
+101:                                              ; preds = %89
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$toml_edit..repr..Formatted$LT$bool$GT$$GT$17ha92b6389bccbad47E"(ptr nonnull align 8 %102) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17h40a266f0288926a8E"(ptr nonnull align 8 %102) #7
+          to label %78 unwind label %93
 
-103:                                              ; preds = %91
+103:                                              ; preds = %90
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17h40a266f0288926a8E"(ptr nonnull align 8 %104) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..array..Array$GT$17hf68f63a9211c09c8E"(ptr nonnull align 8 %104) #7
+          to label %78 unwind label %93
 
-105:                                              ; preds = %92
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..array..Array$GT$17hf68f63a9211c09c8E"(ptr nonnull align 8 %106) #7
-          to label %80 unwind label %95
-
-107:                                              ; preds = %86
+105:                                              ; preds = %84
   invoke void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..inline_table..InlineTable$GT$17heb38d7bf4fa1c9ccE"(ptr nonnull align 8 %1) #7
-          to label %80 unwind label %95
+          to label %78 unwind label %93
 
-108:                                              ; preds = %84
+106:                                              ; preds = %82
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17h26bd30ac5aa1539bE"(ptr nonnull align 8 %107) #7
+          to label %78 unwind label %93
+
+108:                                              ; preds = %83
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17h26bd30ac5aa1539bE"(ptr nonnull align 8 %109) #7
-          to label %80 unwind label %95
-
-110:                                              ; preds = %85
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h7b045188a76c9529E"(ptr nonnull align 8 %111) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h7b045188a76c9529E"(ptr nonnull align 8 %109) #7
+          to label %78 unwind label %93
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -351,19 +345,19 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %20, ptr align 8 %1)
           to label %23 unwind label %21
 
-21:                                               ; preds = %73, %72, %71, %55, %53, %39, %35, %33, %29, %2
-  %.030 = phi i1 [ %.232, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ false, %35 ], [ true, %2 ]
-  %.027 = phi i1 [ %.229, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.024 = phi i1 [ %.226, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.021 = phi i1 [ %.223, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.018 = phi i1 [ %.220, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.015 = phi i1 [ %.217, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.012 = phi i1 [ %.214, %39 ], [ true, %29 ], [ false, %71 ], [ false, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.09 = phi i1 [ %.211, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ false, %72 ], [ false, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.0 = phi i1 [ %.2, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ false, %73 ], [ false, %33 ], [ true, %35 ], [ true, %2 ]
+21:                                               ; preds = %71, %70, %69, %53, %51, %37, %33, %31, %29, %2
+  %.030 = phi i1 [ %.232, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ false, %33 ], [ true, %2 ]
+  %.027 = phi i1 [ %.229, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.024 = phi i1 [ %.226, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.021 = phi i1 [ %.223, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.018 = phi i1 [ %.220, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.015 = phi i1 [ %.217, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.012 = phi i1 [ %.214, %37 ], [ true, %29 ], [ false, %69 ], [ false, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.09 = phi i1 [ %.211, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ false, %70 ], [ false, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.0 = phi i1 [ %.2, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ false, %71 ], [ false, %31 ], [ true, %33 ], [ true, %2 ]
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
 23:                                               ; preds = %2
   %24 = load i64, ptr %1, align 8, !range !3, !noundef !4
@@ -373,280 +367,274 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   switch i64 %27, label %28 [
     i64 0, label %29
     i64 1, label %30
-    i64 2, label %33
-    i64 3, label %35
+    i64 2, label %31
+    i64 3, label %33
   ]
-
-default.unreachable:                              ; preds = %30
-  unreachable
 
 28:                                               ; preds = %23
   unreachable
 
 29:                                               ; preds = %23
   invoke void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$10visit_none17hac33d61a5870dff0E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
 30:                                               ; preds = %23
-  %31 = add nsw i64 %24, -2
-  %32 = call i64 @llvm.umin.i64(i64 %31, i64 6)
-  switch i64 %32, label %default.unreachable [
-    i64 0, label %40
-    i64 1, label %42
-    i64 2, label %45
-    i64 3, label %48
-    i64 4, label %51
-    i64 5, label %53
-    i64 6, label %55
+  switch i64 %24, label %53 [
+    i64 2, label %38
+    i64 3, label %40
+    i64 4, label %43
+    i64 5, label %46
+    i64 6, label %49
+    i64 7, label %51
   ]
+
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) %32, i64 168, i1 false)
+  invoke void @"_ZN9toml_edit2de5table41_$LT$impl$u20$toml_edit..table..Table$GT$17into_deserializer17hd94eed66dbf02d95E"(ptr nonnull sret({ { i64, [2 x i64] }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }) align 8 %5, ptr nonnull align 8 %6)
+          to label %71 unwind label %21
 
 33:                                               ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) %34, i64 168, i1 false)
-  invoke void @"_ZN9toml_edit2de5table41_$LT$impl$u20$toml_edit..table..Table$GT$17into_deserializer17hd94eed66dbf02d95E"(ptr nonnull sret({ { i64, [2 x i64] }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }) align 8 %5, ptr nonnull align 8 %6)
-          to label %73 unwind label %21
-
-35:                                               ; preds = %23
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
   invoke void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h425a74070a47f013E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %4)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-39:                                               ; preds = %35, %73, %72, %71, %70, %67, %64, %61, %58, %29
-  %.232 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ false, %35 ]
-  %.229 = phi i1 [ true, %29 ], [ false, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.226 = phi i1 [ true, %29 ], [ true, %58 ], [ false, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.223 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ false, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.220 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ false, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.217 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ false, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.214 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ false, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.211 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ false, %72 ], [ true, %73 ], [ true, %35 ]
-  %.2 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ false, %73 ], [ true, %35 ]
+37:                                               ; preds = %33, %71, %70, %69, %68, %65, %62, %59, %56, %29
+  %.232 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ false, %33 ]
+  %.229 = phi i1 [ true, %29 ], [ false, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.226 = phi i1 [ true, %29 ], [ true, %56 ], [ false, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.223 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ false, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.220 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ false, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.217 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ false, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.214 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ false, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.211 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ false, %70 ], [ true, %71 ], [ true, %33 ]
+  %.2 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ false, %71 ], [ true, %33 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h792a309cb22d7d9bE"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nonnull align 8 %19, ptr nonnull align 8 %3)
-          to label %74 unwind label %21
+          to label %72 unwind label %21
+
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %39, i64 96, i1 false)
+  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbcbc54059f87d808E"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %17, ptr nonnull align 8 %18)
+          to label %56 unwind label %54
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %41, i64 96, i1 false)
-  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbcbc54059f87d808E"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %17, ptr nonnull align 8 %18)
-          to label %58 unwind label %56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %41, i64 80, i1 false)
+  %42 = invoke i64 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hd4cb58ca46a855b7E"(ptr nonnull align 8 %16)
+          to label %59 unwind label %57
 
-42:                                               ; preds = %30
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %43, i64 80, i1 false)
-  %44 = invoke i64 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hd4cb58ca46a855b7E"(ptr nonnull align 8 %16)
-          to label %61 unwind label %59
+43:                                               ; preds = %30
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(80) %44, i64 80, i1 false)
+  %45 = invoke double @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbb84c2f989123f80E"(ptr nonnull align 8 %15)
+          to label %62 unwind label %60
 
-45:                                               ; preds = %30
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(80) %46, i64 80, i1 false)
-  %47 = invoke double @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbb84c2f989123f80E"(ptr nonnull align 8 %15)
-          to label %64 unwind label %62
+46:                                               ; preds = %30
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %47, i64 80, i1 false)
+  %48 = invoke zeroext i1 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h9a6c567a1e43b0f4E"(ptr nonnull align 8 %14)
+          to label %65 unwind label %63
 
-48:                                               ; preds = %30
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %49, i64 80, i1 false)
-  %50 = invoke zeroext i1 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h9a6c567a1e43b0f4E"(ptr nonnull align 8 %14)
-          to label %67 unwind label %65
+49:                                               ; preds = %30
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %50, i64 96, i1 false)
+  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hee8931e99b4e14efE"(ptr nonnull sret({ { i32, [2 x i32] }, { i16, i16 }, { i16, [2 x i16] }, [1 x i16] }) align 4 %11, ptr nonnull align 8 %13)
+          to label %68 unwind label %66
 
 51:                                               ; preds = %30
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %52, i64 96, i1 false)
-  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hee8931e99b4e14efE"(ptr nonnull sret({ { i32, [2 x i32] }, { i16, i16 }, { i16, [2 x i16] }, [1 x i16] }) align 4 %11, ptr nonnull align 8 %13)
-          to label %70 unwind label %68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %52, i64 128, i1 false)
+  invoke void @"_ZN9toml_edit2de5array41_$LT$impl$u20$toml_edit..array..Array$GT$17into_deserializer17habda3680c34bef1eE"(ptr nonnull sret({ { i64, [2 x i64] }, { { i64, ptr }, i64 } }) align 8 %9, ptr nonnull align 8 %10)
+          to label %69 unwind label %21
 
 53:                                               ; preds = %30
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %54, i64 128, i1 false)
-  invoke void @"_ZN9toml_edit2de5array41_$LT$impl$u20$toml_edit..array..Array$GT$17into_deserializer17habda3680c34bef1eE"(ptr nonnull sret({ { i64, [2 x i64] }, { { i64, ptr }, i64 } }) align 8 %9, ptr nonnull align 8 %10)
-          to label %71 unwind label %21
-
-55:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 176, i1 false)
   invoke void @"_ZN9toml_edit2de5table54_$LT$impl$u20$toml_edit..inline_table..InlineTable$GT$17into_deserializer17h66674036132b835cE"(ptr nonnull sret({ { i64, [2 x i64] }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }) align 8 %7, ptr nonnull align 8 %8)
-          to label %72 unwind label %21
+          to label %70 unwind label %21
 
-56:                                               ; preds = %58, %40
-  %57 = landingpad { ptr, i32 }
+54:                                               ; preds = %56, %38
+  %55 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-58:                                               ; preds = %40
+56:                                               ; preds = %38
   invoke void @_ZN5serde2de7Visitor12visit_string17h84f576234f3bacf9E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %17)
-          to label %39 unwind label %56
+          to label %37 unwind label %54
 
-59:                                               ; preds = %61, %42
-  %60 = landingpad { ptr, i32 }
+57:                                               ; preds = %59, %40
+  %58 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-61:                                               ; preds = %42
-  invoke void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h4fb8d5b567ad2f91E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i64 %44)
-          to label %39 unwind label %59
+59:                                               ; preds = %40
+  invoke void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h4fb8d5b567ad2f91E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i64 %42)
+          to label %37 unwind label %57
 
-62:                                               ; preds = %64, %45
-  %63 = landingpad { ptr, i32 }
+60:                                               ; preds = %62, %43
+  %61 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-64:                                               ; preds = %45
-  invoke void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_f6417hc89d7440a709b8f5E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, double %47)
-          to label %39 unwind label %62
+62:                                               ; preds = %43
+  invoke void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_f6417hc89d7440a709b8f5E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, double %45)
+          to label %37 unwind label %60
 
-65:                                               ; preds = %67, %48
-  %66 = landingpad { ptr, i32 }
+63:                                               ; preds = %65, %46
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-67:                                               ; preds = %48
-  invoke void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$10visit_bool17h5a43a8842ef39a91E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i1 zeroext %50)
-          to label %39 unwind label %65
+65:                                               ; preds = %46
+  invoke void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$10visit_bool17h5a43a8842ef39a91E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i1 zeroext %48)
+          to label %37 unwind label %63
 
-68:                                               ; preds = %70, %51
-  %69 = landingpad { ptr, i32 }
+66:                                               ; preds = %68, %49
+  %67 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-70:                                               ; preds = %51
+68:                                               ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %12, ptr noundef nonnull align 4 dereferenceable(24) %11, i64 24, i1 false)
   invoke void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_map17hed33f112d91f6713E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 4 %12)
-          to label %39 unwind label %68
+          to label %37 unwind label %66
 
-71:                                               ; preds = %53
+69:                                               ; preds = %51
   invoke void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h425a74070a47f013E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %9)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-72:                                               ; preds = %55
+70:                                               ; preds = %53
   invoke void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hc5b1473d2f85d3b5E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %7)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-73:                                               ; preds = %33
+71:                                               ; preds = %31
   invoke void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hc5b1473d2f85d3b5E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %5)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-74:                                               ; preds = %39
+72:                                               ; preds = %37
   ret void
 
-75:                                               ; preds = %68, %65, %62, %59, %56, %21
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %57, %56 ], [ %60, %59 ], [ %63, %62 ], [ %66, %65 ], [ %69, %68 ]
-  %.131 = phi i1 [ %.030, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.128 = phi i1 [ %.027, %21 ], [ false, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.125 = phi i1 [ %.024, %21 ], [ true, %56 ], [ false, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.122 = phi i1 [ %.021, %21 ], [ true, %56 ], [ true, %59 ], [ false, %62 ], [ true, %65 ], [ true, %68 ]
-  %.119 = phi i1 [ %.018, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ false, %65 ], [ true, %68 ]
-  %.116 = phi i1 [ %.015, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ false, %68 ]
-  %.113 = phi i1 [ %.012, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.110 = phi i1 [ %.09, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.1 = phi i1 [ %.0, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %76 = load i64, ptr %1, align 8, !range !3, !noundef !4
-  %77 = add nsw i64 %76, -8
-  %78 = icmp ult i64 %77, 4
-  %79 = select i1 %78, i64 %77, i64 1
-  switch i64 %79, label %.unreachabledefault [
-    i64 1, label %81
-    i64 2, label %84
-    i64 3, label %85
-    i64 0, label %80
+73:                                               ; preds = %66, %63, %60, %57, %54, %21
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %55, %54 ], [ %58, %57 ], [ %61, %60 ], [ %64, %63 ], [ %67, %66 ]
+  %.131 = phi i1 [ %.030, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.128 = phi i1 [ %.027, %21 ], [ false, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.125 = phi i1 [ %.024, %21 ], [ true, %54 ], [ false, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.122 = phi i1 [ %.021, %21 ], [ true, %54 ], [ true, %57 ], [ false, %60 ], [ true, %63 ], [ true, %66 ]
+  %.119 = phi i1 [ %.018, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ false, %63 ], [ true, %66 ]
+  %.116 = phi i1 [ %.015, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ false, %66 ]
+  %.113 = phi i1 [ %.012, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.110 = phi i1 [ %.09, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.1 = phi i1 [ %.0, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %74 = load i64, ptr %1, align 8, !range !3, !noundef !4
+  %75 = add nsw i64 %74, -8
+  %76 = icmp ult i64 %75, 4
+  %77 = select i1 %76, i64 %75, i64 1
+  switch i64 %77, label %.unreachabledefault [
+    i64 1, label %79
+    i64 2, label %82
+    i64 3, label %83
+    i64 0, label %78
   ]
 
-.unreachabledefault:                              ; preds = %75
+.unreachabledefault:                              ; preds = %73
   unreachable
 
-80:                                               ; preds = %75, %110, %108, %107, %105, %103, %101, %99, %97, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84
+78:                                               ; preds = %73, %108, %106, %105, %103, %101, %99, %97, %95, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82
   resume { ptr, i32 } %.pn
 
-81:                                               ; preds = %75
-  %82 = add nsw i64 %76, -2
-  %83 = call i64 @llvm.umin.i64(i64 %82, i64 6)
-  switch i64 %83, label %86 [
-    i64 0, label %87
-    i64 1, label %88
-    i64 2, label %89
-    i64 3, label %90
-    i64 4, label %91
-    i64 5, label %92
+79:                                               ; preds = %73
+  %80 = add nsw i64 %74, -2
+  %81 = call i64 @llvm.umin.i64(i64 %80, i64 6)
+  switch i64 %81, label %84 [
+    i64 0, label %85
+    i64 1, label %86
+    i64 2, label %87
+    i64 3, label %88
+    i64 4, label %89
+    i64 5, label %90
   ]
 
-84:                                               ; preds = %75
-  br i1 %.1, label %108, label %80
+82:                                               ; preds = %73
+  br i1 %.1, label %106, label %78
 
-85:                                               ; preds = %75
-  br i1 %.131, label %110, label %80
+83:                                               ; preds = %73
+  br i1 %.131, label %108, label %78
 
-86:                                               ; preds = %81
-  br i1 %.110, label %107, label %80
+84:                                               ; preds = %79
+  br i1 %.110, label %105, label %78
 
-87:                                               ; preds = %81
-  br i1 %.128, label %93, label %80
+85:                                               ; preds = %79
+  br i1 %.128, label %91, label %78
 
-88:                                               ; preds = %81
-  br i1 %.125, label %97, label %80
+86:                                               ; preds = %79
+  br i1 %.125, label %95, label %78
 
-89:                                               ; preds = %81
-  br i1 %.122, label %99, label %80
+87:                                               ; preds = %79
+  br i1 %.122, label %97, label %78
 
-90:                                               ; preds = %81
-  br i1 %.119, label %101, label %80
+88:                                               ; preds = %79
+  br i1 %.119, label %99, label %78
 
-91:                                               ; preds = %81
-  br i1 %.116, label %103, label %80
+89:                                               ; preds = %79
+  br i1 %.116, label %101, label %78
 
-92:                                               ; preds = %81
-  br i1 %.113, label %105, label %80
+90:                                               ; preds = %79
+  br i1 %.113, label %103, label %78
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$toml_edit..repr..Formatted$LT$alloc..string..String$GT$$GT$17he2001fde834ed6caE"(ptr nonnull align 8 %94) #7
-          to label %80 unwind label %95
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$toml_edit..repr..Formatted$LT$alloc..string..String$GT$$GT$17he2001fde834ed6caE"(ptr nonnull align 8 %92) #7
+          to label %78 unwind label %93
 
-95:                                               ; preds = %110, %108, %107, %105, %103, %101, %99, %97, %93
-  %96 = landingpad { ptr, i32 }
+93:                                               ; preds = %108, %106, %105, %103, %101, %99, %97, %95, %91
+  %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #8
   unreachable
 
-97:                                               ; preds = %88
+95:                                               ; preds = %86
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$i64$GT$$GT$17h5cc38b6d52fe8116E"(ptr nonnull align 8 %96) #7
+          to label %78 unwind label %93
+
+97:                                               ; preds = %87
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$i64$GT$$GT$17h5cc38b6d52fe8116E"(ptr nonnull align 8 %98) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$f64$GT$$GT$17h117207142d8a8c53E"(ptr nonnull align 8 %98) #7
+          to label %78 unwind label %93
 
-99:                                               ; preds = %89
+99:                                               ; preds = %88
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$f64$GT$$GT$17h117207142d8a8c53E"(ptr nonnull align 8 %100) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$toml_edit..repr..Formatted$LT$bool$GT$$GT$17ha92b6389bccbad47E"(ptr nonnull align 8 %100) #7
+          to label %78 unwind label %93
 
-101:                                              ; preds = %90
+101:                                              ; preds = %89
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$toml_edit..repr..Formatted$LT$bool$GT$$GT$17ha92b6389bccbad47E"(ptr nonnull align 8 %102) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17h40a266f0288926a8E"(ptr nonnull align 8 %102) #7
+          to label %78 unwind label %93
 
-103:                                              ; preds = %91
+103:                                              ; preds = %90
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17h40a266f0288926a8E"(ptr nonnull align 8 %104) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..array..Array$GT$17hf68f63a9211c09c8E"(ptr nonnull align 8 %104) #7
+          to label %78 unwind label %93
 
-105:                                              ; preds = %92
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..array..Array$GT$17hf68f63a9211c09c8E"(ptr nonnull align 8 %106) #7
-          to label %80 unwind label %95
-
-107:                                              ; preds = %86
+105:                                              ; preds = %84
   invoke void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..inline_table..InlineTable$GT$17heb38d7bf4fa1c9ccE"(ptr nonnull align 8 %1) #7
-          to label %80 unwind label %95
+          to label %78 unwind label %93
 
-108:                                              ; preds = %84
+106:                                              ; preds = %82
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17h26bd30ac5aa1539bE"(ptr nonnull align 8 %107) #7
+          to label %78 unwind label %93
+
+108:                                              ; preds = %83
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17h26bd30ac5aa1539bE"(ptr nonnull align 8 %109) #7
-          to label %80 unwind label %95
-
-110:                                              ; preds = %85
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h7b045188a76c9529E"(ptr nonnull align 8 %111) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h7b045188a76c9529E"(ptr nonnull align 8 %109) #7
+          to label %78 unwind label %93
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -672,19 +660,19 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %20, ptr align 8 %1)
           to label %23 unwind label %21
 
-21:                                               ; preds = %73, %72, %71, %55, %53, %39, %35, %33, %29, %2
-  %.030 = phi i1 [ %.232, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ false, %35 ], [ true, %2 ]
-  %.027 = phi i1 [ %.229, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.024 = phi i1 [ %.226, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.021 = phi i1 [ %.223, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.018 = phi i1 [ %.220, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.015 = phi i1 [ %.217, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.012 = phi i1 [ %.214, %39 ], [ true, %29 ], [ false, %71 ], [ false, %53 ], [ true, %72 ], [ true, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.09 = phi i1 [ %.211, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ false, %72 ], [ false, %55 ], [ true, %73 ], [ true, %33 ], [ true, %35 ], [ true, %2 ]
-  %.0 = phi i1 [ %.2, %39 ], [ true, %29 ], [ true, %71 ], [ true, %53 ], [ true, %72 ], [ true, %55 ], [ false, %73 ], [ false, %33 ], [ true, %35 ], [ true, %2 ]
+21:                                               ; preds = %71, %70, %69, %53, %51, %37, %33, %31, %29, %2
+  %.030 = phi i1 [ %.232, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ false, %33 ], [ true, %2 ]
+  %.027 = phi i1 [ %.229, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.024 = phi i1 [ %.226, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.021 = phi i1 [ %.223, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.018 = phi i1 [ %.220, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.015 = phi i1 [ %.217, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.012 = phi i1 [ %.214, %37 ], [ true, %29 ], [ false, %69 ], [ false, %51 ], [ true, %70 ], [ true, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.09 = phi i1 [ %.211, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ false, %70 ], [ false, %53 ], [ true, %71 ], [ true, %31 ], [ true, %33 ], [ true, %2 ]
+  %.0 = phi i1 [ %.2, %37 ], [ true, %29 ], [ true, %69 ], [ true, %51 ], [ true, %70 ], [ true, %53 ], [ false, %71 ], [ false, %31 ], [ true, %33 ], [ true, %2 ]
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
 23:                                               ; preds = %2
   %24 = load i64, ptr %1, align 8, !range !3, !noundef !4
@@ -694,280 +682,274 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   switch i64 %27, label %28 [
     i64 0, label %29
     i64 1, label %30
-    i64 2, label %33
-    i64 3, label %35
+    i64 2, label %31
+    i64 3, label %33
   ]
-
-default.unreachable:                              ; preds = %30
-  unreachable
 
 28:                                               ; preds = %23
   unreachable
 
 29:                                               ; preds = %23
   invoke void @_ZN5serde2de7Visitor10visit_none17h1cd545734051033bE(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
 30:                                               ; preds = %23
-  %31 = add nsw i64 %24, -2
-  %32 = call i64 @llvm.umin.i64(i64 %31, i64 6)
-  switch i64 %32, label %default.unreachable [
-    i64 0, label %40
-    i64 1, label %42
-    i64 2, label %45
-    i64 3, label %48
-    i64 4, label %51
-    i64 5, label %53
-    i64 6, label %55
+  switch i64 %24, label %53 [
+    i64 2, label %38
+    i64 3, label %40
+    i64 4, label %43
+    i64 5, label %46
+    i64 6, label %49
+    i64 7, label %51
   ]
+
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) %32, i64 168, i1 false)
+  invoke void @"_ZN9toml_edit2de5table41_$LT$impl$u20$toml_edit..table..Table$GT$17into_deserializer17hd94eed66dbf02d95E"(ptr nonnull sret({ { i64, [2 x i64] }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }) align 8 %5, ptr nonnull align 8 %6)
+          to label %71 unwind label %21
 
 33:                                               ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) %34, i64 168, i1 false)
-  invoke void @"_ZN9toml_edit2de5table41_$LT$impl$u20$toml_edit..table..Table$GT$17into_deserializer17hd94eed66dbf02d95E"(ptr nonnull sret({ { i64, [2 x i64] }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }) align 8 %5, ptr nonnull align 8 %6)
-          to label %73 unwind label %21
-
-35:                                               ; preds = %23
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
   invoke void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h63624e637ea188a4E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %4)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-39:                                               ; preds = %35, %73, %72, %71, %70, %67, %64, %61, %58, %29
-  %.232 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ false, %35 ]
-  %.229 = phi i1 [ true, %29 ], [ false, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.226 = phi i1 [ true, %29 ], [ true, %58 ], [ false, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.223 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ false, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.220 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ false, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.217 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ false, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.214 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ false, %71 ], [ true, %72 ], [ true, %73 ], [ true, %35 ]
-  %.211 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ false, %72 ], [ true, %73 ], [ true, %35 ]
-  %.2 = phi i1 [ true, %29 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ false, %73 ], [ true, %35 ]
+37:                                               ; preds = %33, %71, %70, %69, %68, %65, %62, %59, %56, %29
+  %.232 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ false, %33 ]
+  %.229 = phi i1 [ true, %29 ], [ false, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.226 = phi i1 [ true, %29 ], [ true, %56 ], [ false, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.223 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ false, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.220 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ false, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.217 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ false, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.214 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ false, %69 ], [ true, %70 ], [ true, %71 ], [ true, %33 ]
+  %.211 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ false, %70 ], [ true, %71 ], [ true, %33 ]
+  %.2 = phi i1 [ true, %29 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ false, %71 ], [ true, %33 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6ee3e9aab26540c1E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nonnull align 8 %19, ptr nonnull align 8 %3)
-          to label %74 unwind label %21
+          to label %72 unwind label %21
+
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %39, i64 96, i1 false)
+  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbcbc54059f87d808E"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %17, ptr nonnull align 8 %18)
+          to label %56 unwind label %54
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %41, i64 96, i1 false)
-  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbcbc54059f87d808E"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %17, ptr nonnull align 8 %18)
-          to label %58 unwind label %56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %41, i64 80, i1 false)
+  %42 = invoke i64 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hd4cb58ca46a855b7E"(ptr nonnull align 8 %16)
+          to label %59 unwind label %57
 
-42:                                               ; preds = %30
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %43, i64 80, i1 false)
-  %44 = invoke i64 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hd4cb58ca46a855b7E"(ptr nonnull align 8 %16)
-          to label %61 unwind label %59
+43:                                               ; preds = %30
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(80) %44, i64 80, i1 false)
+  %45 = invoke double @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbb84c2f989123f80E"(ptr nonnull align 8 %15)
+          to label %62 unwind label %60
 
-45:                                               ; preds = %30
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(80) %46, i64 80, i1 false)
-  %47 = invoke double @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hbb84c2f989123f80E"(ptr nonnull align 8 %15)
-          to label %64 unwind label %62
+46:                                               ; preds = %30
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %47, i64 80, i1 false)
+  %48 = invoke zeroext i1 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h9a6c567a1e43b0f4E"(ptr nonnull align 8 %14)
+          to label %65 unwind label %63
 
-48:                                               ; preds = %30
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %49, i64 80, i1 false)
-  %50 = invoke zeroext i1 @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h9a6c567a1e43b0f4E"(ptr nonnull align 8 %14)
-          to label %67 unwind label %65
+49:                                               ; preds = %30
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %50, i64 96, i1 false)
+  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hee8931e99b4e14efE"(ptr nonnull sret({ { i32, [2 x i32] }, { i16, i16 }, { i16, [2 x i16] }, [1 x i16] }) align 4 %11, ptr nonnull align 8 %13)
+          to label %68 unwind label %66
 
 51:                                               ; preds = %30
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %52, i64 96, i1 false)
-  invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hee8931e99b4e14efE"(ptr nonnull sret({ { i32, [2 x i32] }, { i16, i16 }, { i16, [2 x i16] }, [1 x i16] }) align 4 %11, ptr nonnull align 8 %13)
-          to label %70 unwind label %68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %52, i64 128, i1 false)
+  invoke void @"_ZN9toml_edit2de5array41_$LT$impl$u20$toml_edit..array..Array$GT$17into_deserializer17habda3680c34bef1eE"(ptr nonnull sret({ { i64, [2 x i64] }, { { i64, ptr }, i64 } }) align 8 %9, ptr nonnull align 8 %10)
+          to label %69 unwind label %21
 
 53:                                               ; preds = %30
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %54, i64 128, i1 false)
-  invoke void @"_ZN9toml_edit2de5array41_$LT$impl$u20$toml_edit..array..Array$GT$17into_deserializer17habda3680c34bef1eE"(ptr nonnull sret({ { i64, [2 x i64] }, { { i64, ptr }, i64 } }) align 8 %9, ptr nonnull align 8 %10)
-          to label %71 unwind label %21
-
-55:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 176, i1 false)
   invoke void @"_ZN9toml_edit2de5table54_$LT$impl$u20$toml_edit..inline_table..InlineTable$GT$17into_deserializer17h66674036132b835cE"(ptr nonnull sret({ { i64, [2 x i64] }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }) align 8 %7, ptr nonnull align 8 %8)
-          to label %72 unwind label %21
+          to label %70 unwind label %21
 
-56:                                               ; preds = %58, %40
-  %57 = landingpad { ptr, i32 }
+54:                                               ; preds = %56, %38
+  %55 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-58:                                               ; preds = %40
+56:                                               ; preds = %38
   invoke void @_ZN5serde2de7Visitor12visit_string17hc59581150a8e9f19E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %17)
-          to label %39 unwind label %56
+          to label %37 unwind label %54
 
-59:                                               ; preds = %61, %42
-  %60 = landingpad { ptr, i32 }
+57:                                               ; preds = %59, %40
+  %58 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-61:                                               ; preds = %42
-  invoke void @_ZN5serde2de7Visitor9visit_i6417hcd9ea70b4edcc088E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i64 %44)
-          to label %39 unwind label %59
+59:                                               ; preds = %40
+  invoke void @_ZN5serde2de7Visitor9visit_i6417hcd9ea70b4edcc088E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i64 %42)
+          to label %37 unwind label %57
 
-62:                                               ; preds = %64, %45
-  %63 = landingpad { ptr, i32 }
+60:                                               ; preds = %62, %43
+  %61 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-64:                                               ; preds = %45
-  invoke void @_ZN5serde2de7Visitor9visit_f6417h7d3b6b376c10cae7E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, double %47)
-          to label %39 unwind label %62
+62:                                               ; preds = %43
+  invoke void @_ZN5serde2de7Visitor9visit_f6417h7d3b6b376c10cae7E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, double %45)
+          to label %37 unwind label %60
 
-65:                                               ; preds = %67, %48
-  %66 = landingpad { ptr, i32 }
+63:                                               ; preds = %65, %46
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-67:                                               ; preds = %48
-  invoke void @_ZN5serde2de7Visitor10visit_bool17he841f77766d476d1E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i1 zeroext %50)
-          to label %39 unwind label %65
+65:                                               ; preds = %46
+  invoke void @_ZN5serde2de7Visitor10visit_bool17he841f77766d476d1E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, i1 zeroext %48)
+          to label %37 unwind label %63
 
-68:                                               ; preds = %70, %51
-  %69 = landingpad { ptr, i32 }
+66:                                               ; preds = %68, %49
+  %67 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %73
 
-70:                                               ; preds = %51
+68:                                               ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %12, ptr noundef nonnull align 4 dereferenceable(24) %11, i64 24, i1 false)
   invoke void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$migrations_internals..TomlMetadata$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17haeee7cdf3a693597E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 4 %12)
-          to label %39 unwind label %68
+          to label %37 unwind label %66
 
-71:                                               ; preds = %53
+69:                                               ; preds = %51
   invoke void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h63624e637ea188a4E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %9)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-72:                                               ; preds = %55
+70:                                               ; preds = %53
   invoke void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0516bf6040c212b4E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %7)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-73:                                               ; preds = %33
+71:                                               ; preds = %31
   invoke void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0516bf6040c212b4E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %19, ptr nonnull align 8 %5)
-          to label %39 unwind label %21
+          to label %37 unwind label %21
 
-74:                                               ; preds = %39
+72:                                               ; preds = %37
   ret void
 
-75:                                               ; preds = %68, %65, %62, %59, %56, %21
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %57, %56 ], [ %60, %59 ], [ %63, %62 ], [ %66, %65 ], [ %69, %68 ]
-  %.131 = phi i1 [ %.030, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.128 = phi i1 [ %.027, %21 ], [ false, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.125 = phi i1 [ %.024, %21 ], [ true, %56 ], [ false, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.122 = phi i1 [ %.021, %21 ], [ true, %56 ], [ true, %59 ], [ false, %62 ], [ true, %65 ], [ true, %68 ]
-  %.119 = phi i1 [ %.018, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ false, %65 ], [ true, %68 ]
-  %.116 = phi i1 [ %.015, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ false, %68 ]
-  %.113 = phi i1 [ %.012, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.110 = phi i1 [ %.09, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %.1 = phi i1 [ %.0, %21 ], [ true, %56 ], [ true, %59 ], [ true, %62 ], [ true, %65 ], [ true, %68 ]
-  %76 = load i64, ptr %1, align 8, !range !3, !noundef !4
-  %77 = add nsw i64 %76, -8
-  %78 = icmp ult i64 %77, 4
-  %79 = select i1 %78, i64 %77, i64 1
-  switch i64 %79, label %.unreachabledefault [
-    i64 1, label %81
-    i64 2, label %84
-    i64 3, label %85
-    i64 0, label %80
+73:                                               ; preds = %66, %63, %60, %57, %54, %21
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %55, %54 ], [ %58, %57 ], [ %61, %60 ], [ %64, %63 ], [ %67, %66 ]
+  %.131 = phi i1 [ %.030, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.128 = phi i1 [ %.027, %21 ], [ false, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.125 = phi i1 [ %.024, %21 ], [ true, %54 ], [ false, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.122 = phi i1 [ %.021, %21 ], [ true, %54 ], [ true, %57 ], [ false, %60 ], [ true, %63 ], [ true, %66 ]
+  %.119 = phi i1 [ %.018, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ false, %63 ], [ true, %66 ]
+  %.116 = phi i1 [ %.015, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ false, %66 ]
+  %.113 = phi i1 [ %.012, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.110 = phi i1 [ %.09, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %.1 = phi i1 [ %.0, %21 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ]
+  %74 = load i64, ptr %1, align 8, !range !3, !noundef !4
+  %75 = add nsw i64 %74, -8
+  %76 = icmp ult i64 %75, 4
+  %77 = select i1 %76, i64 %75, i64 1
+  switch i64 %77, label %.unreachabledefault [
+    i64 1, label %79
+    i64 2, label %82
+    i64 3, label %83
+    i64 0, label %78
   ]
 
-.unreachabledefault:                              ; preds = %75
+.unreachabledefault:                              ; preds = %73
   unreachable
 
-80:                                               ; preds = %75, %110, %108, %107, %105, %103, %101, %99, %97, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84
+78:                                               ; preds = %73, %108, %106, %105, %103, %101, %99, %97, %95, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82
   resume { ptr, i32 } %.pn
 
-81:                                               ; preds = %75
-  %82 = add nsw i64 %76, -2
-  %83 = call i64 @llvm.umin.i64(i64 %82, i64 6)
-  switch i64 %83, label %86 [
-    i64 0, label %87
-    i64 1, label %88
-    i64 2, label %89
-    i64 3, label %90
-    i64 4, label %91
-    i64 5, label %92
+79:                                               ; preds = %73
+  %80 = add nsw i64 %74, -2
+  %81 = call i64 @llvm.umin.i64(i64 %80, i64 6)
+  switch i64 %81, label %84 [
+    i64 0, label %85
+    i64 1, label %86
+    i64 2, label %87
+    i64 3, label %88
+    i64 4, label %89
+    i64 5, label %90
   ]
 
-84:                                               ; preds = %75
-  br i1 %.1, label %108, label %80
+82:                                               ; preds = %73
+  br i1 %.1, label %106, label %78
 
-85:                                               ; preds = %75
-  br i1 %.131, label %110, label %80
+83:                                               ; preds = %73
+  br i1 %.131, label %108, label %78
 
-86:                                               ; preds = %81
-  br i1 %.110, label %107, label %80
+84:                                               ; preds = %79
+  br i1 %.110, label %105, label %78
 
-87:                                               ; preds = %81
-  br i1 %.128, label %93, label %80
+85:                                               ; preds = %79
+  br i1 %.128, label %91, label %78
 
-88:                                               ; preds = %81
-  br i1 %.125, label %97, label %80
+86:                                               ; preds = %79
+  br i1 %.125, label %95, label %78
 
-89:                                               ; preds = %81
-  br i1 %.122, label %99, label %80
+87:                                               ; preds = %79
+  br i1 %.122, label %97, label %78
 
-90:                                               ; preds = %81
-  br i1 %.119, label %101, label %80
+88:                                               ; preds = %79
+  br i1 %.119, label %99, label %78
 
-91:                                               ; preds = %81
-  br i1 %.116, label %103, label %80
+89:                                               ; preds = %79
+  br i1 %.116, label %101, label %78
 
-92:                                               ; preds = %81
-  br i1 %.113, label %105, label %80
+90:                                               ; preds = %79
+  br i1 %.113, label %103, label %78
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$toml_edit..repr..Formatted$LT$alloc..string..String$GT$$GT$17he2001fde834ed6caE"(ptr nonnull align 8 %94) #7
-          to label %80 unwind label %95
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$toml_edit..repr..Formatted$LT$alloc..string..String$GT$$GT$17he2001fde834ed6caE"(ptr nonnull align 8 %92) #7
+          to label %78 unwind label %93
 
-95:                                               ; preds = %110, %108, %107, %105, %103, %101, %99, %97, %93
-  %96 = landingpad { ptr, i32 }
+93:                                               ; preds = %108, %106, %105, %103, %101, %99, %97, %95, %91
+  %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #8
   unreachable
 
-97:                                               ; preds = %88
+95:                                               ; preds = %86
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$i64$GT$$GT$17h5cc38b6d52fe8116E"(ptr nonnull align 8 %96) #7
+          to label %78 unwind label %93
+
+97:                                               ; preds = %87
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$i64$GT$$GT$17h5cc38b6d52fe8116E"(ptr nonnull align 8 %98) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$f64$GT$$GT$17h117207142d8a8c53E"(ptr nonnull align 8 %98) #7
+          to label %78 unwind label %93
 
-99:                                               ; preds = %89
+99:                                               ; preds = %88
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..repr..Formatted$LT$f64$GT$$GT$17h117207142d8a8c53E"(ptr nonnull align 8 %100) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$toml_edit..repr..Formatted$LT$bool$GT$$GT$17ha92b6389bccbad47E"(ptr nonnull align 8 %100) #7
+          to label %78 unwind label %93
 
-101:                                              ; preds = %90
+101:                                              ; preds = %89
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$toml_edit..repr..Formatted$LT$bool$GT$$GT$17ha92b6389bccbad47E"(ptr nonnull align 8 %102) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17h40a266f0288926a8E"(ptr nonnull align 8 %102) #7
+          to label %78 unwind label %93
 
-103:                                              ; preds = %91
+103:                                              ; preds = %90
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17h40a266f0288926a8E"(ptr nonnull align 8 %104) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..array..Array$GT$17hf68f63a9211c09c8E"(ptr nonnull align 8 %104) #7
+          to label %78 unwind label %93
 
-105:                                              ; preds = %92
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..array..Array$GT$17hf68f63a9211c09c8E"(ptr nonnull align 8 %106) #7
-          to label %80 unwind label %95
-
-107:                                              ; preds = %86
+105:                                              ; preds = %84
   invoke void @"_ZN4core3ptr57drop_in_place$LT$toml_edit..inline_table..InlineTable$GT$17heb38d7bf4fa1c9ccE"(ptr nonnull align 8 %1) #7
-          to label %80 unwind label %95
+          to label %78 unwind label %93
 
-108:                                              ; preds = %84
+106:                                              ; preds = %82
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17h26bd30ac5aa1539bE"(ptr nonnull align 8 %107) #7
+          to label %78 unwind label %93
+
+108:                                              ; preds = %83
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..table..Table$GT$17h26bd30ac5aa1539bE"(ptr nonnull align 8 %109) #7
-          to label %80 unwind label %95
-
-110:                                              ; preds = %85
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h7b045188a76c9529E"(ptr nonnull align 8 %111) #7
-          to label %80 unwind label %95
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h7b045188a76c9529E"(ptr nonnull align 8 %109) #7
+          to label %78 unwind label %93
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

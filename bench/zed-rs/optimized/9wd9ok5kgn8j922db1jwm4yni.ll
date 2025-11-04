@@ -62,6 +62,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.dd0f4d921f484611a0298299f7a2e1ad.59 = private unnamed_addr constant <{ [30 x i8] }> <{ [30 x i8] c"struct OpenAiEmbeddingResponse" }>, align 1
 @anon.dd0f4d921f484611a0298299f7a2e1ad.60 = private unnamed_addr constant <{ [22 x i8] }> <{ [22 x i8] c"struct OpenAiEmbedding" }>, align 1
 @__rust_no_alloc_shim_is_unstable = external global i8
+@switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E = private unnamed_addr constant [7 x i64] [i64 13, i64 5, i64 11, i64 6, i64 11, i64 10, i64 7], align 8
+@switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E.14 = private unnamed_addr constant [7 x ptr] [ptr @anon.dd0f4d921f484611a0298299f7a2e1ad.9, ptr @anon.dd0f4d921f484611a0298299f7a2e1ad.10, ptr @anon.dd0f4d921f484611a0298299f7a2e1ad.18, ptr @anon.dd0f4d921f484611a0298299f7a2e1ad.12, ptr @anon.dd0f4d921f484611a0298299f7a2e1ad.13, ptr @anon.dd0f4d921f484611a0298299f7a2e1ad.14, ptr @anon.dd0f4d921f484611a0298299f7a2e1ad.15], align 8
+@switch.table._ZN7open_ai5Model15max_token_count17h38cc0eecfcca23cbE = private unnamed_addr constant [7 x i64] [i64 16385, i64 8192, i64 128000, i64 128000, i64 128000, i64 128000, i64 128000], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h4327860efcae16e8E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
@@ -473,142 +476,51 @@ define void @_ZN7open_ai5Model7from_id17h6af74ce2a3cbf99cE(ptr dead_on_unwind no
 define { ptr, i64 } @_ZN7open_ai5Model2id17h2666e9c2b410420eE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !117, !noundef !4
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 7)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %16
-    i64 1, label %5
-    i64 2, label %6
-    i64 3, label %7
-    i64 4, label %8
-    i64 5, label %9
-    i64 6, label %10
-    i64 7, label %11
-  ]
-
-default.unreachable:                              ; preds = %1
-  unreachable
-
-5:                                                ; preds = %1
-  br label %16
-
-6:                                                ; preds = %1
-  br label %16
-
-7:                                                ; preds = %1
-  br label %16
-
-8:                                                ; preds = %1
-  br label %16
-
-9:                                                ; preds = %1
-  br label %16
-
-10:                                               ; preds = %1
-  br label %16
-
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !noundef !4
-  br label %16
-
-16:                                               ; preds = %1, %11, %10, %9, %8, %7, %6, %5
-  %.sroa.9.0 = phi i64 [ 5, %5 ], [ 11, %6 ], [ 6, %7 ], [ 11, %8 ], [ 10, %9 ], [ 7, %10 ], [ %15, %11 ], [ 13, %1 ]
-  %.sroa.0.0 = phi ptr [ @anon.dd0f4d921f484611a0298299f7a2e1ad.10, %5 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.18, %6 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.12, %7 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.13, %8 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.14, %9 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.15, %10 ], [ %13, %11 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.9, %1 ]
-  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %18 = insertvalue { ptr, i64 } %17, i64 %.sroa.9.0, 1
-  ret { ptr, i64 } %18
+  %4 = icmp ult i64 %3, 7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E, i64 %3
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E.14, i64 %3
+  %.sroa.9.0.in = select i1 %4, ptr %switch.gep, ptr %6
+  %.sroa.0.0.in = select i1 %4, ptr %switch.gep1, ptr %5
+  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
+  %.sroa.9.0 = load i64, ptr %.sroa.9.0.in, align 8
+  %7 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %.sroa.9.0, 1
+  ret { ptr, i64 } %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN7open_ai5Model12display_name17h622d2259d29c1e98E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !117, !noundef !4
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 7)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %19
-    i64 1, label %5
-    i64 2, label %6
-    i64 3, label %7
-    i64 4, label %8
-    i64 5, label %9
-    i64 6, label %10
-    i64 7, label %11
-  ]
-
-default.unreachable:                              ; preds = %1
-  unreachable
-
-5:                                                ; preds = %1
-  br label %19
-
-6:                                                ; preds = %1
-  br label %19
-
-7:                                                ; preds = %1
-  br label %19
-
-8:                                                ; preds = %1
-  br label %19
-
-9:                                                ; preds = %1
-  br label %19
-
-10:                                               ; preds = %1
-  br label %19
-
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i64, ptr %12, align 8, !range !15, !noundef !4
-  %14 = icmp eq i64 %13, -9223372036854775808
-  %. = select i1 %14, ptr %0, ptr %12
-  %15 = getelementptr inbounds nuw i8, ptr %., i64 8
-  %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %., i64 16
-  %18 = load i64, ptr %17, align 8, !noundef !4
-  br label %19
-
-19:                                               ; preds = %1, %11, %10, %9, %8, %7, %6, %5
-  %.sroa.9.0 = phi i64 [ 5, %5 ], [ 11, %6 ], [ 6, %7 ], [ 11, %8 ], [ 10, %9 ], [ 7, %10 ], [ %18, %11 ], [ 13, %1 ]
-  %.sroa.0.0 = phi ptr [ @anon.dd0f4d921f484611a0298299f7a2e1ad.10, %5 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.18, %6 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.12, %7 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.13, %8 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.14, %9 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.15, %10 ], [ %16, %11 ], [ @anon.dd0f4d921f484611a0298299f7a2e1ad.9, %1 ]
-  %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.9.0, 1
-  ret { ptr, i64 } %21
+  %4 = icmp ult i64 %3, 7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load i64, ptr %5, align 8, !range !15
+  %7 = icmp eq i64 %6, -9223372036854775808
+  %. = select i1 %7, ptr %0, ptr %5
+  %8 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %., i64 16
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E, i64 %3
+  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E.14, i64 %3
+  %.sroa.9.0.in = select i1 %4, ptr %switch.gep, ptr %9
+  %.sroa.0.0.in = select i1 %4, ptr %switch.gep4, ptr %8
+  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
+  %.sroa.9.0 = load i64, ptr %.sroa.9.0.in, align 8
+  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.9.0, 1
+  ret { ptr, i64 } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN7open_ai5Model15max_token_count17h38cc0eecfcca23cbE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !117, !noundef !4
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 7)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %10
-    i64 1, label %5
-    i64 2, label %6
-    i64 3, label %6
-    i64 4, label %6
-    i64 5, label %6
-    i64 6, label %6
-    i64 7, label %7
-  ]
-
-default.unreachable:                              ; preds = %1
-  unreachable
-
-5:                                                ; preds = %1
-  br label %10
-
-6:                                                ; preds = %1, %1, %1, %1, %1
-  br label %10
-
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load i64, ptr %8, align 8, !noundef !4
-  br label %10
-
-10:                                               ; preds = %1, %7, %6, %5
-  %.sroa.0.0 = phi i64 [ 8192, %5 ], [ 128000, %6 ], [ %9, %7 ], [ 16385, %1 ]
+  %4 = icmp ult i64 %3, 7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7open_ai5Model15max_token_count17h38cc0eecfcca23cbE, i64 %3
+  %.sroa.0.0.in = select i1 %4, ptr %switch.gep, ptr %5
+  %.sroa.0.0 = load i64, ptr %.sroa.0.0.in, align 8
   ret i64 %.sroa.0.0
 }
 

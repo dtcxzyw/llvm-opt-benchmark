@@ -11409,32 +11409,26 @@ _ZN5prost8encoding7message5merge17hacc56ceb6d5762ffE.exit: ; preds = %193
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5proto4view7Variant6encode17h89ec4e990824ea95E(ptr noalias noundef readonly align 8 dereferenceable(272) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8, !range !2521, !noundef !4
-  %4 = add nsw i64 %3, -5
-  %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 2)
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %6
-    i64 1, label %8
-    i64 2, label %10
+  switch i64 %3, label %8 [
+    i64 5, label %4
+    i64 6, label %6
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN5prost8encoding7message6encode17h6376f7541f49d3c4E(i32 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  br label %9
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5prost8encoding7message6encode17h6376f7541f49d3c4E(i32 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  br label %11
+  tail call void @_ZN5prost8encoding7message6encode17h0911d1be8cc07385E(i32 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(256) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  br label %9
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5prost8encoding7message6encode17h0911d1be8cc07385E(i32 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(256) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  br label %11
-
-10:                                               ; preds = %2
   tail call void @_ZN5prost8encoding7message6encode17hf353a8faf6336ba2E(i32 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(272) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  br label %11
+  br label %9
 
-11:                                               ; preds = %10, %8, %6
+9:                                                ; preds = %8, %6, %4
   ret void
 }
 

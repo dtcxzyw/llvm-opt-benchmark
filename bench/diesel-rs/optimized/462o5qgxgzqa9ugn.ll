@@ -3045,25 +3045,25 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br i1 %131, label %140, label %._crit_edge.thread
 
 134:                                              ; preds = %.lr.ph, %456
-  %.sroa.5126.0579 = phi i32 [ undef, %.lr.ph ], [ %.sroa.5126.3, %456 ]
-  %.sroa.0124.0578 = phi i32 [ 2, %.lr.ph ], [ %.sroa.0124.3, %456 ]
-  %.0577 = phi i8 [ 0, %.lr.ph ], [ %.2, %456 ]
-  %.sroa.5119.0576 = phi i32 [ undef, %.lr.ph ], [ %.sroa.5119.3, %456 ]
-  %.sroa.0117.0575 = phi i32 [ 2, %.lr.ph ], [ %.sroa.0117.3, %456 ]
-  %.0129574 = phi i8 [ 0, %.lr.ph ], [ %.2131, %456 ]
-  %.sroa.0.0573 = phi ptr [ %1, %.lr.ph ], [ %135, %456 ]
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.0573, i64 232
-  %136 = load i64, ptr %.sroa.0.0573, align 8, !range !420, !noundef !10
+  %.sroa.5126.0573 = phi i32 [ undef, %.lr.ph ], [ %.sroa.5126.3, %456 ]
+  %.sroa.0124.0572 = phi i32 [ 2, %.lr.ph ], [ %.sroa.0124.3, %456 ]
+  %.0571 = phi i8 [ 0, %.lr.ph ], [ %.2, %456 ]
+  %.sroa.5119.0570 = phi i32 [ undef, %.lr.ph ], [ %.sroa.5119.3, %456 ]
+  %.sroa.0117.0569 = phi i32 [ 2, %.lr.ph ], [ %.sroa.0117.3, %456 ]
+  %.0129568 = phi i8 [ 0, %.lr.ph ], [ %.2131, %456 ]
+  %.sroa.0.0567 = phi ptr [ %1, %.lr.ph ], [ %135, %456 ]
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.0567, i64 232
+  %136 = load i64, ptr %.sroa.0.0567, align 8, !range !420, !noundef !10
   %137 = icmp eq i64 %136, 41
   br i1 %137, label %234, label %230
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
-  %.sroa.5126.0.lcssa620 = phi i32 [ %.sroa.5126.3, %._crit_edge ], [ undef, %3 ]
-  %.sroa.0124.0.lcssa618 = phi i32 [ %.sroa.0124.3, %._crit_edge ], [ 2, %3 ]
-  %.0.lcssa616 = phi i1 [ %133, %._crit_edge ], [ false, %3 ]
-  %.sroa.5119.0.lcssa614 = phi i32 [ %.sroa.5119.3, %._crit_edge ], [ undef, %3 ]
-  %.sroa.0117.0.lcssa612 = phi i32 [ %.sroa.0117.3, %._crit_edge ], [ 2, %3 ]
-  %.0129.lcssa610 = phi i1 [ %132, %._crit_edge ], [ false, %3 ]
+  %.sroa.5126.0.lcssa614 = phi i32 [ %.sroa.5126.3, %._crit_edge ], [ undef, %3 ]
+  %.sroa.0124.0.lcssa612 = phi i32 [ %.sroa.0124.3, %._crit_edge ], [ 2, %3 ]
+  %.0.lcssa610 = phi i1 [ %133, %._crit_edge ], [ false, %3 ]
+  %.sroa.5119.0.lcssa608 = phi i32 [ %.sroa.5119.3, %._crit_edge ], [ undef, %3 ]
+  %.sroa.0117.0.lcssa606 = phi i32 [ %.sroa.0117.3, %._crit_edge ], [ 2, %3 ]
+  %.0129.lcssa604 = phi i1 [ %132, %._crit_edge ], [ false, %3 ]
   %138 = load i64, ptr %87, align 8, !range !38, !alias.scope !421, !noundef !10
   %switch.i = icmp slt i64 %138, -9223372036854775806
   br i1 %switch.i, label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit", label %139
@@ -3073,16 +3073,16 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
           to label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" unwind label %143
 
 140:                                              ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit", %._crit_edge
-  %.sroa.5126.0.lcssa621 = phi i32 [ %.sroa.5126.0.lcssa620, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.5126.3, %._crit_edge ]
-  %.sroa.0124.0.lcssa619 = phi i32 [ %.sroa.0124.0.lcssa618, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.0124.3, %._crit_edge ]
-  %.0.lcssa617 = phi i1 [ %.0.lcssa616, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %133, %._crit_edge ]
-  %.sroa.5119.0.lcssa615 = phi i32 [ %.sroa.5119.0.lcssa614, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.5119.3, %._crit_edge ]
-  %.sroa.0117.0.lcssa613 = phi i32 [ %.sroa.0117.0.lcssa612, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.0117.3, %._crit_edge ]
-  %.0129.lcssa611 = phi i1 [ %.0129.lcssa610, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %132, %._crit_edge ]
-  %spec.select = select i1 %.0129.lcssa611, i32 %.sroa.0117.0.lcssa613, i32 0
-  %spec.select162 = select i1 %.0129.lcssa611, i32 %.sroa.5119.0.lcssa615, i32 undef
-  %.sroa.0124.1 = select i1 %.0.lcssa617, i32 %.sroa.0124.0.lcssa619, i32 0
-  %.sroa.5126.1 = select i1 %.0.lcssa617, i32 %.sroa.5126.0.lcssa621, i32 undef
+  %.sroa.5126.0.lcssa615 = phi i32 [ %.sroa.5126.0.lcssa614, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.5126.3, %._crit_edge ]
+  %.sroa.0124.0.lcssa613 = phi i32 [ %.sroa.0124.0.lcssa612, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.0124.3, %._crit_edge ]
+  %.0.lcssa611 = phi i1 [ %.0.lcssa610, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %133, %._crit_edge ]
+  %.sroa.5119.0.lcssa609 = phi i32 [ %.sroa.5119.0.lcssa608, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.5119.3, %._crit_edge ]
+  %.sroa.0117.0.lcssa607 = phi i32 [ %.sroa.0117.0.lcssa606, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.0117.3, %._crit_edge ]
+  %.0129.lcssa605 = phi i1 [ %.0129.lcssa604, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %132, %._crit_edge ]
+  %spec.select = select i1 %.0129.lcssa605, i32 %.sroa.0117.0.lcssa607, i32 0
+  %spec.select162 = select i1 %.0129.lcssa605, i32 %.sroa.5119.0.lcssa609, i32 undef
+  %.sroa.0124.1 = select i1 %.0.lcssa611, i32 %.sroa.0124.0.lcssa613, i32 0
+  %.sroa.5126.1 = select i1 %.0.lcssa611, i32 %.sroa.5126.0.lcssa615, i32 undef
   %141 = load i8, ptr %85, align 8, !range !238, !noundef !10
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %157, label %145
@@ -3417,12 +3417,12 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 230:                                              ; preds = %134
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
-  store ptr %.sroa.0.0573, ptr %82, align 8
+  store ptr %.sroa.0.0567, ptr %82, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
-  %231 = add nsw i64 %136, -41
-  %232 = icmp ult i64 %231, -2
-  %. = select i1 %232, i64 176, i64 8
-  %233 = getelementptr inbounds nuw i8, ptr %.sroa.0.0573, i64 %.
+  %231 = add nsw i64 %136, -39
+  %switch.selectcmp = icmp ult i64 %231, 2
+  %232 = select i1 %switch.selectcmp, i64 8, i64 176
+  %233 = getelementptr inbounds nuw i8, ptr %.sroa.0.0567, i64 %232
   invoke void @_ZN12darling_core4util14path_to_string14path_to_string17hc1f335a3e67ecd13E(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %233)
           to label %235 unwind label %.thread382
 
@@ -3468,7 +3468,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br i1 %244, label %245, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit186.thread"
 
 245:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit174"
-  %246 = trunc nuw i8 %.0129574 to i1
+  %246 = trunc nuw i8 %.0129568 to i1
   br i1 %246, label %392, label %390
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit178": ; preds = %235
@@ -3477,7 +3477,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br i1 %247, label %248, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit186.thread"
 
 248:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit178"
-  %249 = trunc nuw i8 %.0577 to i1
+  %249 = trunc nuw i8 %.0571 to i1
   br i1 %249, label %361, label %359
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E.exit182": ; preds = %235
@@ -3577,12 +3577,12 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br label %271
 
 271:                                              ; preds = %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253", %454, %409, %420, %378, %389, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214", %358, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200", %317, %270
-  %.1130 = phi i8 [ %.0129574, %454 ], [ %.0129574, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ 1, %420 ], [ 1, %409 ], [ %.0129574, %389 ], [ %.0129574, %378 ], [ %.0129574, %358 ], [ %.0129574, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.0129574, %317 ], [ %.0129574, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.0129574, %270 ]
-  %.sroa.0117.2 = phi i32 [ %.sroa.0117.0575, %454 ], [ %.sroa.0117.0575, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ %.sroa.0117.0575, %420 ], [ %.sroa.0.0.i237, %409 ], [ %.sroa.0117.0575, %389 ], [ %.sroa.0117.0575, %378 ], [ %.sroa.0117.0575, %358 ], [ %.sroa.0117.0575, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.sroa.0117.0575, %317 ], [ %.sroa.0117.0575, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.sroa.0117.0575, %270 ]
-  %.sroa.5119.2 = phi i32 [ %.sroa.5119.0576, %454 ], [ %.sroa.5119.0576, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ %.sroa.5119.0576, %420 ], [ %.sroa.3.0.i236, %409 ], [ %.sroa.5119.0576, %389 ], [ %.sroa.5119.0576, %378 ], [ %.sroa.5119.0576, %358 ], [ %.sroa.5119.0576, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.sroa.5119.0576, %317 ], [ %.sroa.5119.0576, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.sroa.5119.0576, %270 ]
-  %.1 = phi i8 [ %.0577, %454 ], [ %.0577, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ %.0577, %420 ], [ %.0577, %409 ], [ 1, %389 ], [ 1, %378 ], [ %.0577, %358 ], [ %.0577, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.0577, %317 ], [ %.0577, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.0577, %270 ]
-  %.sroa.0124.2 = phi i32 [ %.sroa.0124.0578, %454 ], [ %.sroa.0124.0578, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ %.sroa.0124.0578, %420 ], [ %.sroa.0124.0578, %409 ], [ %.sroa.0124.0578, %389 ], [ %.sroa.0.0.i, %378 ], [ %.sroa.0124.0578, %358 ], [ %.sroa.0124.0578, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.sroa.0124.0578, %317 ], [ %.sroa.0124.0578, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.sroa.0124.0578, %270 ]
-  %.sroa.5126.2 = phi i32 [ %.sroa.5126.0579, %454 ], [ %.sroa.5126.0579, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ %.sroa.5126.0579, %420 ], [ %.sroa.5126.0579, %409 ], [ %.sroa.5126.0579, %389 ], [ %.sroa.3.0.i, %378 ], [ %.sroa.5126.0579, %358 ], [ %.sroa.5126.0579, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.sroa.5126.0579, %317 ], [ %.sroa.5126.0579, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.sroa.5126.0579, %270 ]
+  %.1130 = phi i8 [ %.0129568, %454 ], [ %.0129568, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ 1, %420 ], [ 1, %409 ], [ %.0129568, %389 ], [ %.0129568, %378 ], [ %.0129568, %358 ], [ %.0129568, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.0129568, %317 ], [ %.0129568, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.0129568, %270 ]
+  %.sroa.0117.2 = phi i32 [ %.sroa.0117.0569, %454 ], [ %.sroa.0117.0569, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ %.sroa.0117.0569, %420 ], [ %.sroa.0.0.i237, %409 ], [ %.sroa.0117.0569, %389 ], [ %.sroa.0117.0569, %378 ], [ %.sroa.0117.0569, %358 ], [ %.sroa.0117.0569, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.sroa.0117.0569, %317 ], [ %.sroa.0117.0569, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.sroa.0117.0569, %270 ]
+  %.sroa.5119.2 = phi i32 [ %.sroa.5119.0570, %454 ], [ %.sroa.5119.0570, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ %.sroa.5119.0570, %420 ], [ %.sroa.3.0.i236, %409 ], [ %.sroa.5119.0570, %389 ], [ %.sroa.5119.0570, %378 ], [ %.sroa.5119.0570, %358 ], [ %.sroa.5119.0570, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.sroa.5119.0570, %317 ], [ %.sroa.5119.0570, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.sroa.5119.0570, %270 ]
+  %.1 = phi i8 [ %.0571, %454 ], [ %.0571, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ %.0571, %420 ], [ %.0571, %409 ], [ 1, %389 ], [ 1, %378 ], [ %.0571, %358 ], [ %.0571, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.0571, %317 ], [ %.0571, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.0571, %270 ]
+  %.sroa.0124.2 = phi i32 [ %.sroa.0124.0572, %454 ], [ %.sroa.0124.0572, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ %.sroa.0124.0572, %420 ], [ %.sroa.0124.0572, %409 ], [ %.sroa.0124.0572, %389 ], [ %.sroa.0.0.i, %378 ], [ %.sroa.0124.0572, %358 ], [ %.sroa.0124.0572, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.sroa.0124.0572, %317 ], [ %.sroa.0124.0572, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.sroa.0124.0572, %270 ]
+  %.sroa.5126.2 = phi i32 [ %.sroa.5126.0573, %454 ], [ %.sroa.5126.0573, %"_ZN4core3ptr107drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$RP$$GT$17hcee8bab40a2c48c5E.exit253" ], [ %.sroa.5126.0573, %420 ], [ %.sroa.5126.0573, %409 ], [ %.sroa.5126.0573, %389 ], [ %.sroa.3.0.i, %378 ], [ %.sroa.5126.0573, %358 ], [ %.sroa.5126.0573, %"_ZN4core3ptr110drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$$RP$$GT$17h5548ca0a4452e5f2E.exit214" ], [ %.sroa.5126.0573, %317 ], [ %.sroa.5126.0573, %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit200" ], [ %.sroa.5126.0573, %270 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !567
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd4f77f7a7883f775E.llvm.566609780180471337"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %81)
           to label %.noexc191 unwind label %.thread382
@@ -4507,12 +4507,12 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br label %456
 
 456:                                              ; preds = %469, %455
-  %.2131 = phi i8 [ %.0129574, %469 ], [ %.1130, %455 ]
-  %.sroa.0117.3 = phi i32 [ %.sroa.0117.0575, %469 ], [ %.sroa.0117.2, %455 ]
-  %.sroa.5119.3 = phi i32 [ %.sroa.5119.0576, %469 ], [ %.sroa.5119.2, %455 ]
-  %.2 = phi i8 [ %.0577, %469 ], [ %.1, %455 ]
-  %.sroa.0124.3 = phi i32 [ %.sroa.0124.0578, %469 ], [ %.sroa.0124.2, %455 ]
-  %.sroa.5126.3 = phi i32 [ %.sroa.5126.0579, %469 ], [ %.sroa.5126.2, %455 ]
+  %.2131 = phi i8 [ %.0129568, %469 ], [ %.1130, %455 ]
+  %.sroa.0117.3 = phi i32 [ %.sroa.0117.0569, %469 ], [ %.sroa.0117.2, %455 ]
+  %.sroa.5119.3 = phi i32 [ %.sroa.5119.0570, %469 ], [ %.sroa.5119.2, %455 ]
+  %.2 = phi i8 [ %.0571, %469 ], [ %.1, %455 ]
+  %.sroa.0124.3 = phi i32 [ %.sroa.0124.0572, %469 ], [ %.sroa.0124.2, %455 ]
+  %.sroa.5126.3 = phi i32 [ %.sroa.5126.0573, %469 ], [ %.sroa.5126.2, %455 ]
   %457 = icmp eq ptr %135, %90
   br i1 %457, label %._crit_edge, label %134
 
@@ -4524,7 +4524,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br i1 %.not.i259, label %460, label %468
 
 460:                                              ; preds = %458
-  %461 = getelementptr inbounds nuw i8, ptr %.sroa.0.0573, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %.sroa.0.0567, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !954
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !954
   store ptr %461, ptr %4, align 8, !noalias !959

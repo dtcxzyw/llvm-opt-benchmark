@@ -327,6 +327,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc13333594d88ad0eE.63" = private unnamed_addr constant [11 x ptr] [ptr @anon.b49665e3d092988c0d1a394dee34fb25.71, ptr @anon.b49665e3d092988c0d1a394dee34fb25.72, ptr @anon.b49665e3d092988c0d1a394dee34fb25.73, ptr @anon.b49665e3d092988c0d1a394dee34fb25.74, ptr @anon.b49665e3d092988c0d1a394dee34fb25.75, ptr @anon.b49665e3d092988c0d1a394dee34fb25.76, ptr @anon.b49665e3d092988c0d1a394dee34fb25.77, ptr @anon.b49665e3d092988c0d1a394dee34fb25.78, ptr @anon.b49665e3d092988c0d1a394dee34fb25.79, ptr @anon.b49665e3d092988c0d1a394dee34fb25.80, ptr @anon.b49665e3d092988c0d1a394dee34fb25.81], align 8
 @"switch.table._ZN76_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Debug$GT$3fmt17hb642a3bdb6c1cc05E.llvm.7808069312437652055" = private unnamed_addr constant [18 x i64] [i64 10, i64 7, i64 7, i64 8, i64 8, i64 8, i64 8, i64 10, i64 10, i64 6, i64 6, i64 6, i64 6, i64 7, i64 6, i64 13, i64 15, i64 9], align 8
 @"switch.table._ZN76_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Debug$GT$3fmt17hb642a3bdb6c1cc05E.llvm.7808069312437652055.64" = private unnamed_addr constant [18 x ptr] [ptr @anon.b49665e3d092988c0d1a394dee34fb25.84, ptr @anon.b49665e3d092988c0d1a394dee34fb25.75, ptr @anon.b49665e3d092988c0d1a394dee34fb25.76, ptr @anon.b49665e3d092988c0d1a394dee34fb25.71, ptr @anon.b49665e3d092988c0d1a394dee34fb25.72, ptr @anon.b49665e3d092988c0d1a394dee34fb25.77, ptr @anon.b49665e3d092988c0d1a394dee34fb25.78, ptr @anon.b49665e3d092988c0d1a394dee34fb25.73, ptr @anon.b49665e3d092988c0d1a394dee34fb25.74, ptr @anon.b49665e3d092988c0d1a394dee34fb25.79, ptr @anon.b49665e3d092988c0d1a394dee34fb25.80, ptr @anon.b49665e3d092988c0d1a394dee34fb25.85, ptr @anon.b49665e3d092988c0d1a394dee34fb25.86, ptr @anon.b49665e3d092988c0d1a394dee34fb25.87, ptr @anon.b49665e3d092988c0d1a394dee34fb25.88, ptr @anon.b49665e3d092988c0d1a394dee34fb25.89, ptr @anon.b49665e3d092988c0d1a394dee34fb25.90, ptr @anon.b49665e3d092988c0d1a394dee34fb25.81], align 8
+@switch.table._ZN18wasmtime_cranelift21native_call_signature17h51d94a8076a2ba40E = private unnamed_addr constant [5 x i16] [i16 120, i16 121, i16 123, i16 124, i16 182], align 2
 @switch.table._ZN18wasmtime_cranelift29libcall_cranelift_to_wasmtime17h6d82ae821d860169E.llvm.7808069312437652055 = private unnamed_addr constant [17 x i8] [i8 4, i8 5, i8 0, i8 1, i8 6, i8 7, i8 2, i8 3, i8 8, i8 9, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 10], align 1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -17617,7 +17618,7 @@ define void @"_ZN116_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$a
   %16 = getelementptr inbounds nuw { { i32, [2 x i32] }, i8, [3 x i8] }, ptr %15, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false)
   %17 = call noundef zeroext i1 @_ZN14wasmtime_types11WasmValType15is_vmgcref_type17hb1e1e64d04ff511aE(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %6)
-  br i1 %17, label %44, label %18
+  br i1 %17, label %40, label %18
 
 18:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hf7aa7fa554a26687E.llvm.7808069312437652055.exit"
   %19 = call { i32, i32 } @_ZN18wasmtime_cranelift12func_environ15FuncEnvironment19get_global_location17h1176e78569d74a02E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(520) %1, ptr noalias noundef nonnull align 8 dereferenceable(872) %2, i32 noundef %3)
@@ -17625,85 +17626,67 @@ define void @"_ZN116_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$a
   %21 = extractvalue { i32, i32 } %19, 1
   %22 = call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %21)
   %.sroa.0.0.copyload = load i32, ptr %6, align 4
-  %23 = add nsw i32 %.sroa.0.0.copyload, -10
-  %narrow.i = call i32 @llvm.umin.i32(i32 %23, i32 5)
-  switch i32 %narrow.i, label %default.unreachable [
-    i32 0, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-    i32 1, label %24
-    i32 2, label %25
-    i32 3, label %26
-    i32 4, label %27
-    i32 5, label %28
-  ]
-
-default.unreachable:                              ; preds = %18
-  unreachable
+  %switch.tableidx = add i32 %.sroa.0.0.copyload, -10
+  %23 = icmp ult i32 %switch.tableidx, 5
+  br i1 %23, label %switch.lookup, label %24
 
 24:                                               ; preds = %18
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  %26 = load ptr, ptr %25, align 8, !nonnull !4, !align !11, !noundef !4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %28 = load ptr, ptr %27, align 8, !nonnull !4, !align !10, !noundef !4
+  %29 = call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26), !noalias !2553
+  %30 = and i32 %.sroa.0.0.copyload, 11
+  %switch.i.i = icmp samesign ult i32 %30, 3
+  br i1 %switch.i.i, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit, label %31
 
-25:                                               ; preds = %18
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-26:                                               ; preds = %18
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-27:                                               ; preds = %18
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-28:                                               ; preds = %18
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %30 = load ptr, ptr %29, align 8, !nonnull !4, !align !11, !noundef !4
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %32 = load ptr, ptr %31, align 8, !nonnull !4, !align !10, !noundef !4
-  %33 = call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30), !noalias !2553
-  %34 = icmp ult i32 %23, -7
-  %35 = add nsw i32 %.sroa.0.0.copyload, -4
-  %switch1.i.i = icmp ult i32 %35, 3
-  %switch.i.i = or i1 %34, %switch1.i.i
-  br i1 %switch.i.i, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit, label %36
-
-36:                                               ; preds = %28
-  switch i16 %33, label %37 [
+31:                                               ; preds = %24
+  switch i16 %29, label %32 [
     i16 120, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-    i16 121, label %42
+    i16 121, label %37
   ]
 
-37:                                               ; preds = %36
+32:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2556
   store ptr @anon.b49665e3d092988c0d1a394dee34fb25.329.llvm.7808069312437652055, ptr %5, align 8, !noalias !2556
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %38, align 8, !noalias !2556
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %39, align 8, !noalias !2556
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @anon.b49665e3d092988c0d1a394dee34fb25.25.llvm.7808069312437652055, ptr %40, align 8, !noalias !2556
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %41, align 8, !noalias !2556
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %33, align 8, !noalias !2556
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %34, align 8, !noalias !2556
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @anon.b49665e3d092988c0d1a394dee34fb25.25.llvm.7808069312437652055, ptr %35, align 8, !noalias !2556
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %36, align 8, !noalias !2556
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b49665e3d092988c0d1a394dee34fb25.330.llvm.7808069312437652055) #33, !noalias !2553
   unreachable
 
-42:                                               ; preds = %36
+37:                                               ; preds = %31
   br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
 
-_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %18, %24, %25, %26, %27, %28, %36, %42
-  %.0.i = phi i16 [ 121, %24 ], [ 123, %25 ], [ 124, %26 ], [ 182, %27 ], [ 120, %18 ], [ 127, %42 ], [ %33, %28 ], [ 126, %36 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 1, ptr %43, align 8
+switch.lookup:                                    ; preds = %18
+  %38 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN18wasmtime_cranelift21native_call_signature17h51d94a8076a2ba40E, i64 %38
+  %switch.load = load i16, ptr %switch.gep, align 2
+  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+
+_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %switch.lookup, %24, %31, %37
+  %.0.i = phi i16 [ 127, %37 ], [ %29, %24 ], [ 126, %31 ], [ %switch.load, %switch.lookup ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i16 1, ptr %39, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 %.0.i, ptr %.sroa.42.0..sroa_idx, align 2
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %20, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %22, ptr %.sroa.6.0..sroa_idx, align 8
-  br label %46
+  br label %42
 
-44:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hf7aa7fa554a26687E.llvm.7808069312437652055.exit"
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 2, ptr %45, align 8
-  br label %46
+40:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hf7aa7fa554a26687E.llvm.7808069312437652055.exit"
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i16 2, ptr %41, align 8
+  br label %42
 
-46:                                               ; preds = %44, %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+42:                                               ; preds = %40, %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
   store i64 -9223372036854775805, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -21788,186 +21771,168 @@ define hidden void @_ZN18wasmtime_cranelift32unbarriered_store_type_at_offset17h
   %19 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3541)
   %20 = load i32, ptr %3, align 4, !range !413, !alias.scope !3541, !noalias !3544, !noundef !4
-  %21 = add nsw i32 %20, -10
-  %narrow.i = tail call i32 @llvm.umin.i32(i32 %21, i32 5)
-  switch i32 %narrow.i, label %default.unreachable [
-    i32 0, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-    i32 1, label %22
-    i32 2, label %23
-    i32 3, label %24
-    i32 4, label %25
-    i32 5, label %26
-  ]
-
-default.unreachable:                              ; preds = %8
-  unreachable
+  %switch.tableidx = add nsw i32 %20, -10
+  %21 = icmp ult i32 %switch.tableidx, 5
+  br i1 %21, label %switch.lookup, label %22
 
 22:                                               ; preds = %8
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+  %23 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !3541
+  %24 = and i32 %20, 11
+  %switch.i.i = icmp samesign ult i32 %24, 3
+  br i1 %switch.i.i, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit, label %25
 
-23:                                               ; preds = %8
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-24:                                               ; preds = %8
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-25:                                               ; preds = %8
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-26:                                               ; preds = %8
-  %27 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !3541
-  %28 = icmp ult i32 %21, -7
-  %29 = add nsw i32 %20, -4
-  %switch1.i.i = icmp ult i32 %29, 3
-  %switch.i.i = or i1 %28, %switch1.i.i
-  br i1 %switch.i.i, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit, label %30
-
-30:                                               ; preds = %26
-  switch i16 %27, label %31 [
+25:                                               ; preds = %22
+  switch i16 %23, label %26 [
     i16 120, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-    i16 121, label %36
+    i16 121, label %31
   ]
 
-31:                                               ; preds = %30
+26:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !3546
   store ptr @anon.b49665e3d092988c0d1a394dee34fb25.329.llvm.7808069312437652055, ptr %19, align 8, !noalias !3546
-  %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 1, ptr %32, align 8, !noalias !3546
-  %33 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr null, ptr %33, align 8, !noalias !3546
-  %34 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr @anon.b49665e3d092988c0d1a394dee34fb25.25.llvm.7808069312437652055, ptr %34, align 8, !noalias !3546
-  %35 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i64 0, ptr %35, align 8, !noalias !3546
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 1, ptr %27, align 8, !noalias !3546
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store ptr null, ptr %28, align 8, !noalias !3546
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store ptr @anon.b49665e3d092988c0d1a394dee34fb25.25.llvm.7808069312437652055, ptr %29, align 8, !noalias !3546
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i64 0, ptr %30, align 8, !noalias !3546
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b49665e3d092988c0d1a394dee34fb25.330.llvm.7808069312437652055) #33, !noalias !3541
   unreachable
 
-36:                                               ; preds = %30
+31:                                               ; preds = %25
   br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
 
-_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %8, %22, %23, %24, %25, %26, %30, %36
-  %.0.i = phi i16 [ 121, %22 ], [ 123, %23 ], [ 124, %24 ], [ 182, %25 ], [ 120, %8 ], [ 127, %36 ], [ %27, %26 ], [ 126, %30 ]
-  %37 = tail call noundef zeroext i1 @_ZN17cranelift_codegen2ir5types4Type6is_ref17h520c7c947143aa85E(i16 noundef %.0.i)
-  %38 = tail call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  br i1 %37, label %53, label %39
+switch.lookup:                                    ; preds = %8
+  %32 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN18wasmtime_cranelift21native_call_signature17h51d94a8076a2ba40E, i64 %32
+  %switch.load = load i16, ptr %switch.gep, align 2
+  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
 
-39:                                               ; preds = %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %switch.lookup, %22, %25, %31
+  %.0.i = phi i16 [ 127, %31 ], [ %23, %22 ], [ 126, %25 ], [ %switch.load, %switch.lookup ]
+  %33 = tail call noundef zeroext i1 @_ZN17cranelift_codegen2ir5types4Type6is_ref17h520c7c947143aa85E(i16 noundef %.0.i)
+  %34 = tail call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  br i1 %33, label %49, label %35
+
+35:                                               ; preds = %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  store ptr %38, ptr %18, align 8, !noalias !3547
-  %40 = tail call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %6)
-  %41 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$15data_flow_graph17h59fc74a10939b9d0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18)
-  %42 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %41, i32 noundef %7)
-  %43 = load ptr, ptr %18, align 8, !noalias !3547, !nonnull !4, !align !11, !noundef !4
+  store ptr %34, ptr %18, align 8, !noalias !3547
+  %36 = tail call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %6)
+  %37 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$15data_flow_graph17h59fc74a10939b9d0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18)
+  %38 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %37, i32 noundef %7)
+  %39 = load ptr, ptr %18, align 8, !noalias !3547, !nonnull !4, !align !11, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !3547
-  %44 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  store i8 31, ptr %44, align 1, !noalias !3550
-  %45 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 %7, ptr %45, align 4, !noalias !3550
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  store i8 31, ptr %40, align 1, !noalias !3550
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  store i32 %7, ptr %41, align 4, !noalias !3550
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %5, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !3550
-  %46 = getelementptr inbounds nuw i8, ptr %17, i64 2
-  store i16 %4, ptr %46, align 2, !noalias !3550
-  %47 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  store i32 %40, ptr %47, align 4, !noalias !3550
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  store i16 %4, ptr %42, align 2, !noalias !3550
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  store i32 %36, ptr %43, align 4, !noalias !3550
   store i8 25, ptr %17, align 8, !noalias !3550
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !3550
-  store ptr %43, ptr %16, align 8, !noalias !3553
-  %48 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16), !noalias !3557
-  %49 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %48, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %17)
-  %50 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %48, i32 noundef %49, i16 noundef %42), !noalias !3557
-  %51 = load ptr, ptr %16, align 8, !noalias !3553, !nonnull !4, !align !11, !noundef !4
-  %52 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51, i32 noundef %49), !noalias !3557
+  store ptr %39, ptr %16, align 8, !noalias !3553
+  %44 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16), !noalias !3557
+  %45 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %44, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %17)
+  %46 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %44, i32 noundef %45, i16 noundef %38), !noalias !3557
+  %47 = load ptr, ptr %16, align 8, !noalias !3553, !nonnull !4, !align !11, !noundef !4
+  %48 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47, i32 noundef %45), !noalias !3557
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !3550
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !3547
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %66
+  br label %62
 
-53:                                               ; preds = %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-  %54 = tail call noundef i16 @_ZN17cranelift_codegen2ir5types4Type6as_int17hc5779713b144069cE(i16 noundef %.0.i)
-  %55 = tail call noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags3new17h9bd163d11503f7edE()
+49:                                               ; preds = %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+  %50 = tail call noundef i16 @_ZN17cranelift_codegen2ir5types4Type6as_int17hc5779713b144069cE(i16 noundef %.0.i)
+  %51 = tail call noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags3new17h9bd163d11503f7edE()
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !3558
-  %56 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  store i8 -104, ptr %56, align 1, !noalias !3561
-  %57 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 %7, ptr %57, align 4, !noalias !3561
-  %58 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  store i16 %55, ptr %58, align 2, !noalias !3561
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  store i8 -104, ptr %52, align 1, !noalias !3561
+  %53 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 %7, ptr %53, align 4, !noalias !3561
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  store i16 %51, ptr %54, align 2, !noalias !3561
   store i8 19, ptr %15, align 8, !noalias !3561
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !3561
-  store ptr %38, ptr %14, align 8, !noalias !3564
-  %59 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14), !noalias !3568
-  %60 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %59, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %15)
-  %61 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %59, i32 noundef %60, i16 noundef %54), !noalias !3568
-  %62 = load ptr, ptr %14, align 8, !noalias !3564, !nonnull !4, !align !11, !noundef !4
-  %63 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %62, i32 noundef %60), !noalias !3568
+  store ptr %34, ptr %14, align 8, !noalias !3564
+  %55 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14), !noalias !3568
+  %56 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %55, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %15)
+  %57 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %55, i32 noundef %56, i16 noundef %50), !noalias !3568
+  %58 = load ptr, ptr %14, align 8, !noalias !3564, !nonnull !4, !align !11, !noundef !4
+  %59 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %58, i32 noundef %56), !noalias !3568
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !3561
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !3558
-  %64 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %63, i32 noundef %60)
-  %65 = call noundef i8 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$13pointer_bytes17he8ff66b64734a6beE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-  switch i8 %65, label %67 [
-    i8 4, label %78
-    i8 8, label %68
+  %60 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %59, i32 noundef %56)
+  %61 = call noundef i8 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$13pointer_bytes17he8ff66b64734a6beE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  switch i8 %61, label %63 [
+    i8 4, label %74
+    i8 8, label %64
   ]
 
-66:                                               ; preds = %78, %39
+62:                                               ; preds = %74, %35
   ret void
 
-67:                                               ; preds = %53
+63:                                               ; preds = %49
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.226.llvm.7808069312437652055, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b49665e3d092988c0d1a394dee34fb25.319.llvm.7808069312437652055) #33
   unreachable
 
-68:                                               ; preds = %53
-  %69 = call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+64:                                               ; preds = %49
+  %65 = call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3569
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store i8 -101, ptr %70, align 1, !noalias !3572
-  %71 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %64, ptr %71, align 4, !noalias !3572
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  store i8 -101, ptr %66, align 1, !noalias !3572
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 %60, ptr %67, align 4, !noalias !3572
   store i8 30, ptr %13, align 8, !noalias !3572
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3572
-  store ptr %69, ptr %12, align 8, !noalias !3575
-  %72 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12), !noalias !3579
-  %73 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %72, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %13)
-  %74 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %72, i32 noundef %73, i16 noundef 120), !noalias !3579
-  %75 = load ptr, ptr %12, align 8, !noalias !3575, !nonnull !4, !align !11, !noundef !4
-  %76 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %75, i32 noundef %73), !noalias !3579
+  store ptr %65, ptr %12, align 8, !noalias !3575
+  %68 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12), !noalias !3579
+  %69 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %68, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %13)
+  %70 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %68, i32 noundef %69, i16 noundef 120), !noalias !3579
+  %71 = load ptr, ptr %12, align 8, !noalias !3575, !nonnull !4, !align !11, !noundef !4
+  %72 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %71, i32 noundef %69), !noalias !3579
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !3572
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !3569
-  %77 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %76, i32 noundef %73)
-  br label %78
+  %73 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %72, i32 noundef %69)
+  br label %74
 
-78:                                               ; preds = %53, %68
-  %.0 = phi i32 [ %77, %68 ], [ %64, %53 ]
-  %79 = call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+74:                                               ; preds = %49, %64
+  %.0 = phi i32 [ %73, %64 ], [ %60, %49 ]
+  %75 = call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store ptr %79, ptr %11, align 8, !noalias !3580
-  %80 = call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %6)
-  %81 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$15data_flow_graph17h59fc74a10939b9d0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11)
-  %82 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %81, i32 noundef %.0)
-  %83 = load ptr, ptr %11, align 8, !noalias !3580, !nonnull !4, !align !11, !noundef !4
+  store ptr %75, ptr %11, align 8, !noalias !3580
+  %76 = call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %6)
+  %77 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$15data_flow_graph17h59fc74a10939b9d0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11)
+  %78 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %77, i32 noundef %.0)
+  %79 = load ptr, ptr %11, align 8, !noalias !3580, !nonnull !4, !align !11, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !3580
-  %84 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 31, ptr %84, align 1, !noalias !3583
-  %85 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %.0, ptr %85, align 4, !noalias !3583
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i8 31, ptr %80, align 1, !noalias !3583
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 %.0, ptr %81, align 4, !noalias !3583
   %.sroa.4.0..sroa_idx.i.i1 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %5, ptr %.sroa.4.0..sroa_idx.i.i1, align 8, !noalias !3583
-  %86 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i16 %4, ptr %86, align 2, !noalias !3583
-  %87 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %80, ptr %87, align 4, !noalias !3583
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i16 %4, ptr %82, align 2, !noalias !3583
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i32 %76, ptr %83, align 4, !noalias !3583
   store i8 25, ptr %10, align 8, !noalias !3583
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3583
-  store ptr %83, ptr %9, align 8, !noalias !3586
-  %88 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9), !noalias !3590
-  %89 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %88, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %10)
-  %90 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %88, i32 noundef %89, i16 noundef %82), !noalias !3590
-  %91 = load ptr, ptr %9, align 8, !noalias !3586, !nonnull !4, !align !11, !noundef !4
-  %92 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %91, i32 noundef %89), !noalias !3590
+  store ptr %79, ptr %9, align 8, !noalias !3586
+  %84 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9), !noalias !3590
+  %85 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %84, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %10)
+  %86 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %84, i32 noundef %85, i16 noundef %78), !noalias !3590
+  %87 = load ptr, ptr %9, align 8, !noalias !3586, !nonnull !4, !align !11, !noundef !4
+  %88 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %87, i32 noundef %85), !noalias !3590
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3583
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3580
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %66
+  br label %62
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21983,236 +21948,200 @@ define hidden noundef i32 @_ZN18wasmtime_cranelift31unbarriered_load_type_at_off
   %16 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3591)
   %17 = load i32, ptr %3, align 4, !range !413, !alias.scope !3591, !noalias !3594, !noundef !4
-  %18 = add nsw i32 %17, -10
-  %narrow.i = tail call i32 @llvm.umin.i32(i32 %18, i32 5)
-  switch i32 %narrow.i, label %default.unreachable [
-    i32 0, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-    i32 5, label %23
-  ]
-
-default.unreachable:                              ; preds = %7
-  unreachable
+  %switch.tableidx = add nsw i32 %17, -10
+  %18 = icmp ult i32 %switch.tableidx, 5
+  br i1 %18, label %switch.lookup, label %19
 
 19:                                               ; preds = %7
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+  %20 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !3591
+  %21 = and i32 %17, 11
+  %switch.i.i = icmp samesign ult i32 %21, 3
+  br i1 %switch.i.i, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit, label %22
 
-20:                                               ; preds = %7
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-21:                                               ; preds = %7
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-22:                                               ; preds = %7
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-23:                                               ; preds = %7
-  %24 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !3591
-  %25 = icmp ult i32 %18, -7
-  %26 = add nsw i32 %17, -4
-  %switch1.i.i = icmp ult i32 %26, 3
-  %switch.i.i = or i1 %25, %switch1.i.i
-  br i1 %switch.i.i, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit, label %27
-
-27:                                               ; preds = %23
-  switch i16 %24, label %28 [
+22:                                               ; preds = %19
+  switch i16 %20, label %23 [
     i16 120, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-    i16 121, label %33
+    i16 121, label %28
   ]
 
-28:                                               ; preds = %27
+23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !3596
   store ptr @anon.b49665e3d092988c0d1a394dee34fb25.329.llvm.7808069312437652055, ptr %16, align 8, !noalias !3596
-  %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 1, ptr %29, align 8, !noalias !3596
-  %30 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr null, ptr %30, align 8, !noalias !3596
-  %31 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr @anon.b49665e3d092988c0d1a394dee34fb25.25.llvm.7808069312437652055, ptr %31, align 8, !noalias !3596
-  %32 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i64 0, ptr %32, align 8, !noalias !3596
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 1, ptr %24, align 8, !noalias !3596
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store ptr null, ptr %25, align 8, !noalias !3596
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr @anon.b49665e3d092988c0d1a394dee34fb25.25.llvm.7808069312437652055, ptr %26, align 8, !noalias !3596
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store i64 0, ptr %27, align 8, !noalias !3596
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b49665e3d092988c0d1a394dee34fb25.330.llvm.7808069312437652055) #33, !noalias !3591
   unreachable
 
-33:                                               ; preds = %27
+28:                                               ; preds = %22
   br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
 
-_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %7, %19, %20, %21, %22, %23, %27, %33
-  %.0.i = phi i16 [ 121, %19 ], [ 123, %20 ], [ 124, %21 ], [ 182, %22 ], [ 120, %7 ], [ 127, %33 ], [ %24, %23 ], [ 126, %27 ]
-  %34 = tail call noundef zeroext i1 @_ZN17cranelift_codegen2ir5types4Type6is_ref17h520c7c947143aa85E(i16 noundef %.0.i)
-  %35 = tail call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %36 = tail call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %6), !noalias !4
-  br i1 %34, label %48, label %37
+switch.lookup:                                    ; preds = %7
+  %29 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN18wasmtime_cranelift21native_call_signature17h51d94a8076a2ba40E, i64 %29
+  %switch.load = load i16, ptr %switch.gep, align 2
+  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
 
-37:                                               ; preds = %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %switch.lookup, %19, %22, %28
+  %.0.i = phi i16 [ 127, %28 ], [ %20, %19 ], [ 126, %22 ], [ %switch.load, %switch.lookup ]
+  %30 = tail call noundef zeroext i1 @_ZN17cranelift_codegen2ir5types4Type6is_ref17h520c7c947143aa85E(i16 noundef %.0.i)
+  %31 = tail call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %32 = tail call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %6), !noalias !4
+  br i1 %30, label %44, label %33
+
+33:                                               ; preds = %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !3597
-  %38 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  store i8 30, ptr %38, align 1, !noalias !3600
-  %39 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 %5, ptr %39, align 4, !noalias !3600
-  %40 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  store i16 %4, ptr %40, align 2, !noalias !3600
-  %41 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 %36, ptr %41, align 8, !noalias !3600
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  store i8 30, ptr %34, align 1, !noalias !3600
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 %5, ptr %35, align 4, !noalias !3600
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  store i16 %4, ptr %36, align 2, !noalias !3600
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i32 %32, ptr %37, align 8, !noalias !3600
   store i8 18, ptr %15, align 8, !noalias !3600
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !3600
-  store ptr %35, ptr %14, align 8, !noalias !3603
-  %42 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14), !noalias !3607
-  %43 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %42, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %15)
-  %44 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %42, i32 noundef %43, i16 noundef %.0.i), !noalias !3607
-  %45 = load ptr, ptr %14, align 8, !noalias !3603, !nonnull !4, !align !11, !noundef !4
-  %46 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45, i32 noundef %43), !noalias !3607
+  store ptr %31, ptr %14, align 8, !noalias !3603
+  %38 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14), !noalias !3607
+  %39 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %38, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %15)
+  %40 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %38, i32 noundef %39, i16 noundef %.0.i), !noalias !3607
+  %41 = load ptr, ptr %14, align 8, !noalias !3603, !nonnull !4, !align !11, !noundef !4
+  %42 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41, i32 noundef %39), !noalias !3607
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !3600
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !3597
-  %47 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %46, i32 noundef %43)
-  br label %60
+  %43 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %42, i32 noundef %39)
+  br label %56
 
-48:                                               ; preds = %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+44:                                               ; preds = %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3608
-  %49 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store i8 30, ptr %49, align 1, !noalias !3611
-  %50 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %5, ptr %50, align 4, !noalias !3611
-  %51 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  store i16 %4, ptr %51, align 2, !noalias !3611
-  %52 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 %36, ptr %52, align 8, !noalias !3611
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  store i8 30, ptr %45, align 1, !noalias !3611
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 %5, ptr %46, align 4, !noalias !3611
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  store i16 %4, ptr %47, align 2, !noalias !3611
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 %32, ptr %48, align 8, !noalias !3611
   store i8 18, ptr %13, align 8, !noalias !3611
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3611
-  store ptr %35, ptr %12, align 8, !noalias !3614
-  %53 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12), !noalias !3618
-  %54 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %53, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %13)
-  %55 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %53, i32 noundef %54, i16 noundef 120), !noalias !3618
-  %56 = load ptr, ptr %12, align 8, !noalias !3614, !nonnull !4, !align !11, !noundef !4
-  %57 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56, i32 noundef %54), !noalias !3618
+  store ptr %31, ptr %12, align 8, !noalias !3614
+  %49 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12), !noalias !3618
+  %50 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %13)
+  %51 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %49, i32 noundef %50, i16 noundef 120), !noalias !3618
+  %52 = load ptr, ptr %12, align 8, !noalias !3614, !nonnull !4, !align !11, !noundef !4
+  %53 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52, i32 noundef %50), !noalias !3618
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !3611
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !3608
-  %58 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %57, i32 noundef %54)
-  %59 = call noundef i8 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$13pointer_bytes17he8ff66b64734a6beE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-  switch i8 %59, label %61 [
-    i8 4, label %72
-    i8 8, label %62
+  %54 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %53, i32 noundef %50)
+  %55 = call noundef i8 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$13pointer_bytes17he8ff66b64734a6beE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  switch i8 %55, label %57 [
+    i8 4, label %68
+    i8 8, label %58
   ]
 
-60:                                               ; preds = %72, %37
-  %.0 = phi i32 [ %83, %72 ], [ %47, %37 ]
+56:                                               ; preds = %68, %33
+  %.0 = phi i32 [ %79, %68 ], [ %43, %33 ]
   ret i32 %.0
 
-61:                                               ; preds = %48
+57:                                               ; preds = %44
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.226.llvm.7808069312437652055, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b49665e3d092988c0d1a394dee34fb25.320.llvm.7808069312437652055) #33
   unreachable
 
-62:                                               ; preds = %48
-  %63 = call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+58:                                               ; preds = %44
+  %59 = call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !3619
-  %64 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i8 -91, ptr %64, align 1, !noalias !3622
-  %65 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 %58, ptr %65, align 4, !noalias !3622
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store i8 -91, ptr %60, align 1, !noalias !3622
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 %54, ptr %61, align 4, !noalias !3622
   store i8 30, ptr %11, align 8, !noalias !3622
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !3622
-  store ptr %63, ptr %10, align 8, !noalias !3625
-  %66 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10), !noalias !3629
-  %67 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %66, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %11)
-  %68 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %66, i32 noundef %67, i16 noundef 121), !noalias !3629
-  %69 = load ptr, ptr %10, align 8, !noalias !3625, !nonnull !4, !align !11, !noundef !4
-  %70 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %69, i32 noundef %67), !noalias !3629
+  store ptr %59, ptr %10, align 8, !noalias !3625
+  %62 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10), !noalias !3629
+  %63 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %62, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %11)
+  %64 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %62, i32 noundef %63, i16 noundef 121), !noalias !3629
+  %65 = load ptr, ptr %10, align 8, !noalias !3625, !nonnull !4, !align !11, !noundef !4
+  %66 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %65, i32 noundef %63), !noalias !3629
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3622
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3619
-  %71 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %70, i32 noundef %67)
-  br label %72
+  %67 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %66, i32 noundef %63)
+  br label %68
 
-72:                                               ; preds = %48, %62
-  %.02 = phi i32 [ %71, %62 ], [ %58, %48 ]
-  %73 = call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %74 = call noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags3new17h9bd163d11503f7edE()
+68:                                               ; preds = %44, %58
+  %.02 = phi i32 [ %67, %58 ], [ %54, %44 ]
+  %69 = call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %70 = call noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags3new17h9bd163d11503f7edE()
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3630
-  %75 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 -104, ptr %75, align 1, !noalias !3633
-  %76 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %.02, ptr %76, align 4, !noalias !3633
-  %77 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store i16 %74, ptr %77, align 2, !noalias !3633
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i8 -104, ptr %71, align 1, !noalias !3633
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %.02, ptr %72, align 4, !noalias !3633
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  store i16 %70, ptr %73, align 2, !noalias !3633
   store i8 19, ptr %9, align 8, !noalias !3633
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !3633
-  store ptr %73, ptr %8, align 8, !noalias !3636
-  %78 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !3640
-  %79 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %78, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
-  %80 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %78, i32 noundef %79, i16 noundef %.0.i), !noalias !3640
-  %81 = load ptr, ptr %8, align 8, !noalias !3636, !nonnull !4, !align !11, !noundef !4
-  %82 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %81, i32 noundef %79), !noalias !3640
+  store ptr %69, ptr %8, align 8, !noalias !3636
+  %74 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$19data_flow_graph_mut17h5be993a01c1c1c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !3640
+  %75 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E(ptr noalias noundef nonnull align 8 dereferenceable(416) %74, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %76 = call noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17make_inst_results17h3b6c64b9a45e4d17E(ptr noalias noundef nonnull align 8 dereferenceable(416) %74, i32 noundef %75, i16 noundef %.0.i), !noalias !3640
+  %77 = load ptr, ptr %8, align 8, !noalias !3636, !nonnull !4, !align !11, !noundef !4
+  %78 = call noundef align 8 dereferenceable(416) ptr @"_ZN118_$LT$$RF$mut$u20$cranelift_codegen..cursor..FuncCursor$u20$as$u20$cranelift_codegen..ir..builder..InstInserterBase$GT$17insert_built_inst17h86d9f704fd087ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %77, i32 noundef %75), !noalias !3640
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !3633
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3630
-  %83 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %82, i32 noundef %79)
-  br label %60
+  %79 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %78, i32 noundef %75)
+  br label %56
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i16 @_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %2) unnamed_addr #4 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = load i32, ptr %2, align 4, !range !413, !noundef !4
-  %6 = add nsw i32 %5, -10
-  %narrow = tail call i32 @llvm.umin.i32(i32 %6, i32 5)
-  switch i32 %narrow, label %default.unreachable [
-    i32 0, label %_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit
-    i32 1, label %7
-    i32 2, label %8
-    i32 3, label %9
-    i32 4, label %10
-    i32 5, label %11
-  ]
-
-default.unreachable:                              ; preds = %3
-  unreachable
+  %switch.tableidx = add nsw i32 %5, -10
+  %6 = icmp ult i32 %switch.tableidx, 5
+  br i1 %6, label %switch.lookup, label %7
 
 7:                                                ; preds = %3
-  br label %_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit
+  %8 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  %9 = and i32 %5, 11
+  %switch.i = icmp samesign ult i32 %9, 3
+  br i1 %switch.i, label %_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit, label %10
 
-8:                                                ; preds = %3
-  br label %_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit
-
-9:                                                ; preds = %3
-  br label %_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit
-
-10:                                               ; preds = %3
-  br label %_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit
-
-11:                                               ; preds = %3
-  %12 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-  %13 = icmp ult i32 %6, -7
-  %14 = add nsw i32 %5, -4
-  %switch1.i = icmp ult i32 %14, 3
-  %switch.i = or i1 %13, %switch1.i
-  br i1 %switch.i, label %_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit, label %15
-
-15:                                               ; preds = %11
-  switch i16 %12, label %16 [
+10:                                               ; preds = %7
+  switch i16 %8, label %11 [
     i16 120, label %_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit
-    i16 121, label %21
+    i16 121, label %16
   ]
 
-16:                                               ; preds = %15
+11:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.b49665e3d092988c0d1a394dee34fb25.329.llvm.7808069312437652055, ptr %4, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @anon.b49665e3d092988c0d1a394dee34fb25.25.llvm.7808069312437652055, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %20, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @anon.b49665e3d092988c0d1a394dee34fb25.25.llvm.7808069312437652055, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 0, ptr %15, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b49665e3d092988c0d1a394dee34fb25.330.llvm.7808069312437652055) #33
   unreachable
 
-21:                                               ; preds = %15
+16:                                               ; preds = %10
   br label %_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit
 
-_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit: ; preds = %21, %15, %11, %3, %10, %9, %8, %7
-  %.0 = phi i16 [ 121, %7 ], [ 123, %8 ], [ 124, %9 ], [ 182, %10 ], [ 120, %3 ], [ 127, %21 ], [ %12, %11 ], [ 126, %15 ]
+switch.lookup:                                    ; preds = %3
+  %17 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN18wasmtime_cranelift21native_call_signature17h51d94a8076a2ba40E, i64 %17
+  %switch.load = load i16, ptr %switch.gep, align 2
+  br label %_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit
+
+_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit: ; preds = %switch.lookup, %16, %10, %7
+  %.0 = phi i16 [ 127, %16 ], [ %8, %7 ], [ 126, %10 ], [ %switch.load, %switch.lookup ]
   ret i16 %.0
 }
 
@@ -22246,11 +22175,11 @@ define hidden void @_ZN18wasmtime_cranelift21native_call_signature17h51d94a8076a
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hce2654140cec507dE.llvm.12599983639457799574"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
           to label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hd947b1e32e3936fcE.exit" unwind label %22
 
-22:                                               ; preds = %69, %60, %42, %35, %4, %63, %61, %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+22:                                               ; preds = %65, %56, %37, %31, %4, %59, %57, %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..ir..extfunc..Signature$GT$17h54a7c92dcee39ab6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10) #34
-          to label %79 unwind label %77
+          to label %75 unwind label %73
 
 "_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hd947b1e32e3936fcE.exit": ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -22264,153 +22193,135 @@ define hidden void @_ZN18wasmtime_cranelift21native_call_signature17h51d94a8076a
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.0.0.copyload = load i32, ptr %28, align 4
-  %30 = add nsw i32 %.sroa.0.0.copyload, -10
-  %narrow.i = call i32 @llvm.umin.i32(i32 %30, i32 5)
-  switch i32 %narrow.i, label %default.unreachable [
-    i32 0, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-    i32 1, label %31
-    i32 2, label %32
-    i32 3, label %33
-    i32 4, label %34
-    i32 5, label %35
-  ]
-
-default.unreachable:                              ; preds = %26
-  unreachable
+  %switch.tableidx = add i32 %.sroa.0.0.copyload, -10
+  %30 = icmp ult i32 %switch.tableidx, 5
+  br i1 %30, label %switch.lookup, label %31
 
 31:                                               ; preds = %26
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-32:                                               ; preds = %26
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-33:                                               ; preds = %26
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-34:                                               ; preds = %26
-  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %15, align 8, !nonnull !4, !align !11, !noundef !4
-  %37 = load ptr, ptr %9, align 8, !nonnull !4, !align !10, !noundef !4
-  %38 = invoke noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36)
+  %32 = load ptr, ptr %15, align 8, !nonnull !4, !align !11, !noundef !4
+  %33 = load ptr, ptr %9, align 8, !nonnull !4, !align !10, !noundef !4
+  %34 = invoke noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32)
           to label %.noexc unwind label %22
 
-.noexc:                                           ; preds = %35
-  %39 = icmp ult i32 %30, -7
-  %40 = add nsw i32 %.sroa.0.0.copyload, -4
-  %switch1.i.i = icmp ult i32 %40, 3
-  %switch.i.i = or i1 %39, %switch1.i.i
-  br i1 %switch.i.i, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit, label %41
+.noexc:                                           ; preds = %31
+  %35 = and i32 %.sroa.0.0.copyload, 11
+  %switch.i.i = icmp samesign ult i32 %35, 3
+  br i1 %switch.i.i, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit, label %36
 
-41:                                               ; preds = %.noexc
-  switch i16 %38, label %42 [
+36:                                               ; preds = %.noexc
+  switch i16 %34, label %37 [
     i16 120, label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-    i16 121, label %47
+    i16 121, label %42
   ]
 
-42:                                               ; preds = %41
+37:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3641
   store ptr @anon.b49665e3d092988c0d1a394dee34fb25.329.llvm.7808069312437652055, ptr %5, align 8, !noalias !3641
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %43, align 8, !noalias !3641
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %44, align 8, !noalias !3641
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @anon.b49665e3d092988c0d1a394dee34fb25.25.llvm.7808069312437652055, ptr %45, align 8, !noalias !3641
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %46, align 8, !noalias !3641
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %38, align 8, !noalias !3641
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %39, align 8, !noalias !3641
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @anon.b49665e3d092988c0d1a394dee34fb25.25.llvm.7808069312437652055, ptr %40, align 8, !noalias !3641
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %41, align 8, !noalias !3641
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b49665e3d092988c0d1a394dee34fb25.330.llvm.7808069312437652055) #33
           to label %.noexc7 unwind label %22
 
-.noexc7:                                          ; preds = %42
+.noexc7:                                          ; preds = %37
   unreachable
 
-47:                                               ; preds = %41
+42:                                               ; preds = %36
   br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
 
-48:                                               ; preds = %.noexc8, %55
-  %49 = phi i64 [ %.pre.i, %.noexc8 ], [ %57, %55 ]
-  %50 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %51 = load ptr, ptr %50, align 8, !alias.scope !3645, !noalias !3648, !nonnull !4, !noundef !4
-  %52 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %51, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull readonly align 4 dereferenceable(12) %7, i64 12, i1 false)
-  %53 = load i64, ptr %56, align 8, !alias.scope !3645, !noalias !3648, !noundef !4
-  %54 = add i64 %53, 1
-  store i64 %54, ptr %56, align 8, !alias.scope !3645, !noalias !3648
+43:                                               ; preds = %.noexc8, %51
+  %44 = phi i64 [ %.pre.i, %.noexc8 ], [ %53, %51 ]
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %46 = load ptr, ptr %45, align 8, !alias.scope !3645, !noalias !3648, !nonnull !4, !noundef !4
+  %47 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %46, i64 %44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef nonnull readonly align 4 dereferenceable(12) %7, i64 12, i1 false)
+  %48 = load i64, ptr %52, align 8, !alias.scope !3645, !noalias !3648, !noundef !4
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %52, align 8, !alias.scope !3645, !noalias !3648
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not12 = icmp eq i64 %25, 1
-  br i1 %.not12, label %.thread, label %61
+  br i1 %.not12, label %.thread, label %57
 
-_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %47, %41, %.noexc, %34, %33, %32, %31, %26
-  %.0.i = phi i16 [ 121, %31 ], [ 123, %32 ], [ 124, %33 ], [ 182, %34 ], [ 120, %26 ], [ 127, %47 ], [ %38, %.noexc ], [ 126, %41 ]
+switch.lookup:                                    ; preds = %26
+  %50 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN18wasmtime_cranelift21native_call_signature17h51d94a8076a2ba40E, i64 %50
+  %switch.load = load i16, ptr %switch.gep, align 2
+  br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+
+_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %switch.lookup, %42, %36, %.noexc
+  %.0.i = phi i16 [ 127, %42 ], [ %34, %.noexc ], [ 126, %36 ], [ %switch.load, %switch.lookup ]
   invoke void @_ZN17cranelift_codegen2ir7extfunc8AbiParam3new17h841398fc81d42101E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 captures(none) dereferenceable(12) %7, i16 noundef %.0.i)
-          to label %55 unwind label %22
+          to label %51 unwind label %22
 
-55:                                               ; preds = %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
-  %56 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %57 = load i64, ptr %56, align 8, !alias.scope !3645, !noalias !3648, !noundef !4
-  %58 = load i64, ptr %29, align 8, !alias.scope !3645, !noalias !3648, !noundef !4
-  %59 = icmp eq i64 %57, %58
-  br i1 %59, label %60, label %48
+51:                                               ; preds = %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %53 = load i64, ptr %52, align 8, !alias.scope !3645, !noalias !3648, !noundef !4
+  %54 = load i64, ptr %29, align 8, !alias.scope !3645, !noalias !3648, !noundef !4
+  %55 = icmp eq i64 %53, %54
+  br i1 %55, label %56, label %43
 
-60:                                               ; preds = %55
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbc864bd831ca7d96E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %57)
+56:                                               ; preds = %51
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbc864bd831ca7d96E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %53)
           to label %.noexc8 unwind label %22
 
-.noexc8:                                          ; preds = %60
-  %.pre.i = load i64, ptr %56, align 8, !alias.scope !3645, !noalias !3648
-  br label %48
+.noexc8:                                          ; preds = %56
+  %.pre.i = load i64, ptr %52, align 8, !alias.scope !3645, !noalias !3648
+  br label %43
 
-61:                                               ; preds = %48
+57:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %62 = invoke noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
-          to label %63 unwind label %22
+  %58 = invoke noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+          to label %59 unwind label %22
 
-.thread:                                          ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hd947b1e32e3936fcE.exit", %48, %70
+.thread:                                          ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hd947b1e32e3936fcE.exit", %43, %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
-63:                                               ; preds = %61
-  invoke void @_ZN17cranelift_codegen2ir7extfunc8AbiParam3new17h841398fc81d42101E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 captures(none) dereferenceable(12) %6, i16 noundef %62)
-          to label %64 unwind label %22
+59:                                               ; preds = %57
+  invoke void @_ZN17cranelift_codegen2ir7extfunc8AbiParam3new17h841398fc81d42101E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 captures(none) dereferenceable(12) %6, i16 noundef %58)
+          to label %60 unwind label %22
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %66 = load i64, ptr %65, align 8, !alias.scope !3650, !noalias !3653, !noundef !4
-  %67 = load i64, ptr %10, align 8, !alias.scope !3650, !noalias !3653, !noundef !4
-  %68 = icmp eq i64 %66, %67
-  br i1 %68, label %69, label %70
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %62 = load i64, ptr %61, align 8, !alias.scope !3650, !noalias !3653, !noundef !4
+  %63 = load i64, ptr %10, align 8, !alias.scope !3650, !noalias !3653, !noundef !4
+  %64 = icmp eq i64 %62, %63
+  br i1 %64, label %65, label %66
 
-69:                                               ; preds = %64
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbc864bd831ca7d96E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %66)
+65:                                               ; preds = %60
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbc864bd831ca7d96E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %62)
           to label %.noexc10 unwind label %22
 
-.noexc10:                                         ; preds = %69
-  %.pre.i9 = load i64, ptr %65, align 8, !alias.scope !3650, !noalias !3653
-  br label %70
+.noexc10:                                         ; preds = %65
+  %.pre.i9 = load i64, ptr %61, align 8, !alias.scope !3650, !noalias !3653
+  br label %66
 
-70:                                               ; preds = %.noexc10, %64
-  %71 = phi i64 [ %.pre.i9, %.noexc10 ], [ %66, %64 ]
-  %72 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %73 = load ptr, ptr %72, align 8, !alias.scope !3650, !noalias !3653, !nonnull !4, !noundef !4
-  %74 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %73, i64 %71
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %74, ptr noundef nonnull readonly align 4 dereferenceable(12) %6, i64 12, i1 false)
-  %75 = load i64, ptr %65, align 8, !alias.scope !3650, !noalias !3653, !noundef !4
-  %76 = add i64 %75, 1
-  store i64 %76, ptr %65, align 8, !alias.scope !3650, !noalias !3653
+66:                                               ; preds = %.noexc10, %60
+  %67 = phi i64 [ %.pre.i9, %.noexc10 ], [ %62, %60 ]
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %69 = load ptr, ptr %68, align 8, !alias.scope !3650, !noalias !3653, !nonnull !4, !noundef !4
+  %70 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %69, i64 %67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull readonly align 4 dereferenceable(12) %6, i64 12, i1 false)
+  %71 = load i64, ptr %61, align 8, !alias.scope !3650, !noalias !3653, !noundef !4
+  %72 = add i64 %71, 1
+  store i64 %72, ptr %61, align 8, !alias.scope !3650, !noalias !3653
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
-77:                                               ; preds = %22
-  %78 = landingpad { ptr, i32 }
+73:                                               ; preds = %22
+  %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-79:                                               ; preds = %22
+75:                                               ; preds = %22
   resume { ptr, i32 } %23
 }
 
@@ -26295,17 +26206,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #29
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #30
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #31
+declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #32
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #30
+declare i64 @llvm.umax.i64(i64, i64) #32
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -26337,9 +26245,9 @@ attributes #26 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned")
 attributes #27 = { nounwind nonlazybind allockind("alloc,zeroed,aligned") allocsize(0) uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #28 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #31 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #32 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #30 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #31 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #32 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #33 = { noreturn }
 attributes #34 = { cold }
 attributes #35 = { cold noreturn nounwind }

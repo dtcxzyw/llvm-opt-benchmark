@@ -140,88 +140,83 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %5 = load i64, ptr %4, align 8, !range !21, !alias.scope !18, !noalias !22, !noundef !9
   %6 = xor i64 %5, -9223372036854775808
-  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 13)
-  switch i64 %7, label %default.unreachable [
-    i64 0, label %8
-    i64 1, label %10
-    i64 2, label %12
-    i64 3, label %14
-    i64 4, label %16
-    i64 5, label %18
-    i64 6, label %20
-    i64 7, label %22
-    i64 8, label %24
-    i64 9, label %26
-    i64 10, label %28
-    i64 11, label %30
-    i64 12, label %32
-    i64 13, label %34
+  switch i64 %6, label %33 [
+    i64 0, label %7
+    i64 1, label %9
+    i64 2, label %11
+    i64 3, label %13
+    i64 4, label %15
+    i64 5, label %17
+    i64 6, label %19
+    i64 7, label %21
+    i64 8, label %23
+    i64 9, label %25
+    i64 10, label %27
+    i64 11, label %29
+    i64 12, label %31
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.30, i64 noundef 10), !noalias !18
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.30, i64 noundef 10), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.31, i64 noundef 10), !noalias !18
+9:                                                ; preds = %2
+  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.31, i64 noundef 10), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-12:                                               ; preds = %2
-  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.32, i64 noundef 16), !noalias !18
+11:                                               ; preds = %2
+  %12 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.32, i64 noundef 16), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-14:                                               ; preds = %2
-  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.33, i64 noundef 14), !noalias !18
+13:                                               ; preds = %2
+  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.33, i64 noundef 14), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-16:                                               ; preds = %2
-  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.34, i64 noundef 16), !noalias !18
+15:                                               ; preds = %2
+  %16 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.34, i64 noundef 16), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-18:                                               ; preds = %2
-  %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.25, i64 noundef 13), !noalias !18
+17:                                               ; preds = %2
+  %18 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.25, i64 noundef 13), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-20:                                               ; preds = %2
-  %21 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.35, i64 noundef 15), !noalias !18
+19:                                               ; preds = %2
+  %20 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.35, i64 noundef 15), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-22:                                               ; preds = %2
-  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.26, i64 noundef 15), !noalias !18
+21:                                               ; preds = %2
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.26, i64 noundef 15), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-24:                                               ; preds = %2
-  %25 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.36, i64 noundef 11), !noalias !18
+23:                                               ; preds = %2
+  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.36, i64 noundef 11), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-26:                                               ; preds = %2
-  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.27, i64 noundef 24), !noalias !18
+25:                                               ; preds = %2
+  %26 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.27, i64 noundef 24), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-28:                                               ; preds = %2
-  %29 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.37, i64 noundef 14), !noalias !18
+27:                                               ; preds = %2
+  %28 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.37, i64 noundef 14), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-30:                                               ; preds = %2
-  %31 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.28, i64 noundef 12), !noalias !18
+29:                                               ; preds = %2
+  %30 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.28, i64 noundef 12), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-32:                                               ; preds = %2
-  %33 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.38, i64 noundef 15), !noalias !18
+31:                                               ; preds = %2
+  %32 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.38, i64 noundef 15), !noalias !18
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-34:                                               ; preds = %2
+33:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !24
   store ptr %4, ptr %3, align 8, !noalias !24
-  %35 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.29, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42429cce3d2a2cade9b7751ee2ebc5e8.0.llvm.18234772108217180036)
+  %34 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.29, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42429cce3d2a2cade9b7751ee2ebc5e8.0.llvm.18234772108217180036)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !24
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit"
 
-"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit": ; preds = %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34
-  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
+"_ZN92_$LT$deltalake_core..kernel..models..actions..WriterFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c01649d4a6ae6E.exit": ; preds = %7, %9, %11, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33
+  %.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ]
   ret i1 %.0.in.i
 }
 
@@ -251,43 +246,38 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %5 = load i64, ptr %4, align 8, !range !33, !alias.scope !30, !noalias !34, !noundef !9
   %6 = xor i64 %5, -9223372036854775808
-  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 4)
-  switch i64 %7, label %default.unreachable [
-    i64 0, label %8
-    i64 1, label %10
-    i64 2, label %12
-    i64 3, label %14
-    i64 4, label %16
+  switch i64 %6, label %15 [
+    i64 0, label %7
+    i64 1, label %9
+    i64 2, label %11
+    i64 3, label %13
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.25, i64 noundef 13), !noalias !30
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.25, i64 noundef 13), !noalias !30
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..ReaderFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h200e8157ba27a277E.exit"
 
-10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.26, i64 noundef 15), !noalias !30
+9:                                                ; preds = %2
+  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.26, i64 noundef 15), !noalias !30
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..ReaderFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h200e8157ba27a277E.exit"
 
-12:                                               ; preds = %2
-  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.27, i64 noundef 24), !noalias !30
+11:                                               ; preds = %2
+  %12 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.27, i64 noundef 24), !noalias !30
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..ReaderFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h200e8157ba27a277E.exit"
 
-14:                                               ; preds = %2
-  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.28, i64 noundef 12), !noalias !30
+13:                                               ; preds = %2
+  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.28, i64 noundef 12), !noalias !30
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..ReaderFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h200e8157ba27a277E.exit"
 
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !36
   store ptr %4, ptr %3, align 8, !noalias !36
-  %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.29, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42429cce3d2a2cade9b7751ee2ebc5e8.0.llvm.18234772108217180036)
+  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.42429cce3d2a2cade9b7751ee2ebc5e8.29, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42429cce3d2a2cade9b7751ee2ebc5e8.0.llvm.18234772108217180036)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !36
   br label %"_ZN92_$LT$deltalake_core..kernel..models..actions..ReaderFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h200e8157ba27a277E.exit"
 
-"_ZN92_$LT$deltalake_core..kernel..models..actions..ReaderFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h200e8157ba27a277E.exit": ; preds = %8, %10, %12, %14, %16
-  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
+"_ZN92_$LT$deltalake_core..kernel..models..actions..ReaderFeatures$u20$as$u20$core..fmt..Debug$GT$3fmt17h200e8157ba27a277E.exit": ; preds = %7, %9, %11, %13, %15
+  %.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
   ret i1 %.0.in.i
 }
 
@@ -552,7 +542,7 @@ define hidden void @_ZN4core9panicking13assert_failed17hf24975d994e22f34E(i8 nou
   %7 = alloca ptr, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %6, align 8
-  call void @_ZN4core9panicking19assert_failed_inner17hbec58bc3f09fc0a6E(i8 noundef %0, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42429cce3d2a2cade9b7751ee2ebc5e8.19, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42429cce3d2a2cade9b7751ee2ebc5e8.19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #17
+  call void @_ZN4core9panicking19assert_failed_inner17hbec58bc3f09fc0a6E(i8 noundef %0, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42429cce3d2a2cade9b7751ee2ebc5e8.19, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42429cce3d2a2cade9b7751ee2ebc5e8.19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #16
   unreachable
 }
 
@@ -1109,14 +1099,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
-
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1132,10 +1119,9 @@ attributes #10 = { inlinehint nofree norecurse nounwind nonlazybind memory(read,
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { noreturn }
+attributes #14 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #16 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

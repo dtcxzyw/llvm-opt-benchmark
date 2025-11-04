@@ -14726,89 +14726,84 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$tracing_subscriber..registry
 define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ty_project..metadata..ProjectDiscoveryError$GT$17hb9c1405b1be902e7E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1169, !noundef !3
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 3)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %9
-    i64 1, label %11
-    i64 2, label %15
-    i64 3, label %5
+  switch i64 %3, label %4 [
+    i64 0, label %8
+    i64 1, label %10
+    i64 2, label %14
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load i64, ptr %5, align 8, !range !193, !alias.scope !2541, !noundef !3
+  %switch.i = icmp slt i64 %6, -9223372036854775806
+  br i1 %switch.i, label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17hd4f2c89192496e66E.exit", label %7
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !range !193, !alias.scope !2541, !noundef !3
-  %switch.i = icmp slt i64 %7, -9223372036854775806
-  br i1 %switch.i, label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17hd4f2c89192496e66E.exit", label %8
+7:                                                ; preds = %4
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h6b056f33d4b7db88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17hd4f2c89192496e66E.exit" unwind label %24
 
-8:                                                ; preds = %5
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h6b056f33d4b7db88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17hd4f2c89192496e66E.exit" unwind label %25
-
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17hd4f2c89192496e66E.exit"
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val2 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val2 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   invoke void @"_ZN4core3ptr36drop_in_place$LT$toml..de..Error$GT$17hf7f23e2b899547c5E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %.val2)
-          to label %19 unwind label %.body
+          to label %18 unwind label %.body
 
-.body:                                            ; preds = %11
-  %13 = landingpad { ptr, i32 }
+.body:                                            ; preds = %10
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val2, i64 noundef 96, i64 noundef 8) #18
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h6b056f33d4b7db88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h69e8e9e3e3b5adfdE.exit" unwind label %21
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h6b056f33d4b7db88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h69e8e9e3e3b5adfdE.exit" unwind label %20
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   invoke void @"_ZN4core3ptr36drop_in_place$LT$toml..de..Error$GT$17hf7f23e2b899547c5E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %.val)
-          to label %23 unwind label %.body3
+          to label %22 unwind label %.body3
 
-.body3:                                           ; preds = %15
-  %17 = landingpad { ptr, i32 }
+.body3:                                           ; preds = %14
+  %16 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef 96, i64 noundef 8) #18
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h6b056f33d4b7db88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h69e8e9e3e3b5adfdE.exit" unwind label %21
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h6b056f33d4b7db88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h69e8e9e3e3b5adfdE.exit" unwind label %20
 
-"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17hd4f2c89192496e66E.exit": ; preds = %8, %5, %23, %19, %9
-  %.sink = phi ptr [ %24, %23 ], [ %20, %19 ], [ %10, %9 ], [ %0, %5 ], [ %0, %8 ]
+"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17hd4f2c89192496e66E.exit": ; preds = %7, %4, %22, %18, %8
+  %.sink = phi ptr [ %23, %22 ], [ %19, %18 ], [ %9, %8 ], [ %0, %4 ], [ %0, %7 ]
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h6b056f33d4b7db88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink, i64 noundef 1, i64 noundef 1)
   ret void
 
-19:                                               ; preds = %11
+18:                                               ; preds = %10
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val2, i64 noundef 96, i64 noundef 8) #18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17hd4f2c89192496e66E.exit"
 
-21:                                               ; preds = %25, %.body3, %.body
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %24, %.body3, %.body
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #17
   unreachable
 
-"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h69e8e9e3e3b5adfdE.exit": ; preds = %25, %.body3, %.body
-  %.pn = phi { ptr, i32 } [ %13, %.body ], [ %17, %.body3 ], [ %26, %25 ]
+"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h69e8e9e3e3b5adfdE.exit": ; preds = %24, %.body3, %.body
+  %.pn = phi { ptr, i32 } [ %12, %.body ], [ %16, %.body3 ], [ %25, %24 ]
   resume { ptr, i32 } %.pn
 
-23:                                               ; preds = %15
+22:                                               ; preds = %14
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef 96, i64 noundef 8) #18
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17hd4f2c89192496e66E.exit"
 
-25:                                               ; preds = %8
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %7
+  %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h6b056f33d4b7db88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h69e8e9e3e3b5adfdE.exit" unwind label %21
+          to label %"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h69e8e9e3e3b5adfdE.exit" unwind label %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22379,14 +22374,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #14
+declare i64 @llvm.usub.sat.i64(i64, i64) #15
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -22402,8 +22394,8 @@ attributes #10 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "p
 attributes #11 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { cold }
 attributes #17 = { cold noreturn nounwind }
 attributes #18 = { nounwind }

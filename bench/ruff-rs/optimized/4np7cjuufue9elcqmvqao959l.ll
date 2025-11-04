@@ -1191,89 +1191,84 @@ define internal void @"_ZN4core3ptr58drop_in_place$LT$toml_edit..parser..error..
 define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ty_project..metadata..ProjectDiscoveryError$GT$17h122f61e2317f747eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !156, !noundef !9
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 3)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %9
-    i64 1, label %11
-    i64 2, label %15
-    i64 3, label %5
+  switch i64 %3, label %4 [
+    i64 0, label %8
+    i64 1, label %10
+    i64 2, label %14
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load i64, ptr %5, align 8, !range !163, !alias.scope !164, !noundef !9
+  %switch.i = icmp slt i64 %6, -9223372036854775806
+  br i1 %switch.i, label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17ha64e8c23e7da4434E.exit", label %7
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !range !163, !alias.scope !164, !noundef !9
-  %switch.i = icmp slt i64 %7, -9223372036854775806
-  br i1 %switch.i, label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17ha64e8c23e7da4434E.exit", label %8
+7:                                                ; preds = %4
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbbfba75ed340759cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+          to label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17ha64e8c23e7da4434E.exit" unwind label %25
 
-8:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbbfba75ed340759cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-          to label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17ha64e8c23e7da4434E.exit" unwind label %26
-
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17ha64e8c23e7da4434E.exit"
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val2 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val2 = load ptr, ptr %11, align 8, !nonnull !9, !noundef !9
   invoke void @"_ZN4core3ptr36drop_in_place$LT$toml..de..Error$GT$17h47a8f1adbc96d37bE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %.val2)
-          to label %19 unwind label %.body
+          to label %18 unwind label %.body
 
-.body:                                            ; preds = %11
-  %13 = landingpad { ptr, i32 }
+.body:                                            ; preds = %10
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val2, i64 noundef 96, i64 noundef 8) #30
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17hbc5b0b5431579ea8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #31
-          to label %23 unwind label %21
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17hbc5b0b5431579ea8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #31
+          to label %22 unwind label %20
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val = load ptr, ptr %16, align 8, !nonnull !9, !noundef !9
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val = load ptr, ptr %15, align 8, !nonnull !9, !noundef !9
   invoke void @"_ZN4core3ptr36drop_in_place$LT$toml..de..Error$GT$17h47a8f1adbc96d37bE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %.val)
-          to label %24 unwind label %.body3
+          to label %23 unwind label %.body3
 
-.body3:                                           ; preds = %15
-  %17 = landingpad { ptr, i32 }
+.body3:                                           ; preds = %14
+  %16 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef 96, i64 noundef 8) #30
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17hbc5b0b5431579ea8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #31
-          to label %23 unwind label %21
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17hbc5b0b5431579ea8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #31
+          to label %22 unwind label %20
 
-"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17ha64e8c23e7da4434E.exit": ; preds = %8, %5, %24, %19, %9
-  %.sink = phi ptr [ %25, %24 ], [ %20, %19 ], [ %10, %9 ], [ %0, %5 ], [ %0, %8 ]
+"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17ha64e8c23e7da4434E.exit": ; preds = %7, %4, %23, %18, %8
+  %.sink = phi ptr [ %24, %23 ], [ %19, %18 ], [ %9, %8 ], [ %0, %4 ], [ %0, %7 ]
   tail call void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17hbc5b0b5431579ea8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink)
   ret void
 
-19:                                               ; preds = %11
+18:                                               ; preds = %10
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val2, i64 noundef 96, i64 noundef 8) #30
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17ha64e8c23e7da4434E.exit"
 
-21:                                               ; preds = %26, %.body3, %.body
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %25, %.body3, %.body
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #29
   unreachable
 
-23:                                               ; preds = %26, %.body3, %.body
-  %.pn = phi { ptr, i32 } [ %13, %.body ], [ %17, %.body3 ], [ %27, %26 ]
+22:                                               ; preds = %25, %.body3, %.body
+  %.pn = phi { ptr, i32 } [ %12, %.body ], [ %16, %.body3 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn
 
-24:                                               ; preds = %15
+23:                                               ; preds = %14
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef 96, i64 noundef 8) #30
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN4core3ptr80drop_in_place$LT$ty_project..metadata..pyproject..ResolveRequiresPythonError$GT$17ha64e8c23e7da4434E.exit"
 
-26:                                               ; preds = %8
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %7
+  %26 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17hbc5b0b5431579ea8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #31
-          to label %23 unwind label %21
+          to label %22 unwind label %20
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -13897,22 +13897,16 @@ define { i64, ptr } @_ZN11wasi_common5sched12subscription26MonotonicClockSubscri
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11wasi_common5sched12subscription18SubscriptionResult17from_subscription17h4672de024afb44e9E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @_ZN11wasi_common5sched12subscription18SubscriptionResult17from_subscription17h4672de024afb44e9E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { { { { i64, i32, [1 x i32] } } } }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8, !range !139, !noundef !4
-  %6 = add nsw i32 %5, -1000000000
-  %narrow = tail call i32 @llvm.umin.i32(i32 %6, i32 2)
-  switch i32 %narrow, label %default.unreachable [
-    i32 0, label %16
-    i32 1, label %20
-    i32 2, label %7
+  switch i32 %5, label %6 [
+    i32 1000000000, label %15
+    i32 1000000001, label %19
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-7:                                                ; preds = %2
+6:                                                ; preds = %2
   %.sroa.013.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -13923,31 +13917,31 @@ default.unreachable:                              ; preds = %2
   %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.715.0.copyload = load i64, ptr %.sroa.715.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5006
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 32
-  %9 = load ptr, ptr %8, align 8, !invariant.load !4, !noalias !5009, !nonnull !4
-  %10 = tail call { i64, i32 } %9(ptr noundef nonnull align 1 %.sroa.013.0.copyload, i64 noundef %.sroa.715.0.copyload, i32 noundef %5), !noalias !5009
-  %11 = extractvalue { i64, i32 } %10, 0
-  %12 = extractvalue { i64, i32 } %10, 1
-  store i64 %11, ptr %3, align 8, !noalias !5006
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %12, ptr %13, align 8, !noalias !5006
-  %14 = call { i64, i32 } @_ZN3std4time7Instant22checked_duration_since17h7e43be3efa4ec990E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, i64 noundef %.sroa.514.0.copyload, i32 noundef %.sroa.6.0.copyload), !noalias !5006
-  %15 = extractvalue { i64, i32 } %14, 1
-  %.not.i.not = icmp eq i32 %15, 1000000000
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 32
+  %8 = load ptr, ptr %7, align 8, !invariant.load !4, !noalias !5009, !nonnull !4
+  %9 = tail call { i64, i32 } %8(ptr noundef nonnull align 1 %.sroa.013.0.copyload, i64 noundef %.sroa.715.0.copyload, i32 noundef %5), !noalias !5009
+  %10 = extractvalue { i64, i32 } %9, 0
+  %11 = extractvalue { i64, i32 } %9, 1
+  store i64 %10, ptr %3, align 8, !noalias !5006
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %11, ptr %12, align 8, !noalias !5006
+  %13 = call { i64, i32 } @_ZN3std4time7Instant22checked_duration_since17h7e43be3efa4ec990E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, i64 noundef %.sroa.514.0.copyload, i32 noundef %.sroa.6.0.copyload), !noalias !5006
+  %14 = extractvalue { i64, i32 } %13, 1
+  %.not.i.not = icmp eq i32 %14, 1000000000
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !5006
-  br i1 %.not.i.not, label %23, label %24
+  br i1 %.not.i.not, label %22, label %23
 
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
-  %17 = icmp eq i64 %.sroa.0.0.copyload, 2
-  br i1 %17, label %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit3", label %18
+  %16 = icmp eq i64 %.sroa.0.0.copyload, 2
+  br i1 %16, label %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit3", label %17
 
-"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit3": ; preds = %16, %18
-  %.sink = phi i64 [ 0, %18 ], [ 3, %16 ]
+"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit3": ; preds = %15, %17
+  %.sink = phi i64 [ 0, %17 ], [ 3, %15 ]
   store i64 %.sink, ptr %0, align 8
-  br label %19
+  br label %18
 
-18:                                               ; preds = %16
+17:                                               ; preds = %15
   %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0.copyload, ptr %.sroa.419.0..sroa_idx, align 8
@@ -13955,20 +13949,20 @@ default.unreachable:                              ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.419.sroa.4.0..sroa.419.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.531.0..sroa_idx, i64 16, i1 false)
   br label %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit3"
 
-19:                                               ; preds = %23, %24, %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit6", %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit3"
+18:                                               ; preds = %22, %23, %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit6", %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit3"
   ret void
 
-20:                                               ; preds = %2
+19:                                               ; preds = %2
   %.sroa.033.0.copyload = load i64, ptr %1, align 8
-  %21 = icmp eq i64 %.sroa.033.0.copyload, 2
-  br i1 %21, label %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit6", label %22
+  %20 = icmp eq i64 %.sroa.033.0.copyload, 2
+  br i1 %20, label %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit6", label %21
 
-"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit6": ; preds = %20, %22
-  %.sink36 = phi i64 [ 1, %22 ], [ 3, %20 ]
+"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit6": ; preds = %19, %21
+  %.sink36 = phi i64 [ 1, %21 ], [ 3, %19 ]
   store i64 %.sink36, ptr %0, align 8
-  br label %19
+  br label %18
 
-22:                                               ; preds = %20
+21:                                               ; preds = %19
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.033.0.copyload, ptr %.sroa.425.0..sroa_idx, align 8
@@ -13976,15 +13970,15 @@ default.unreachable:                              ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.425.sroa.4.0..sroa.425.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.534.0..sroa_idx, i64 16, i1 false)
   br label %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit6"
 
-23:                                               ; preds = %7
+22:                                               ; preds = %6
   store i64 3, ptr %0, align 8
-  br label %19
+  br label %18
 
-24:                                               ; preds = %7
+23:                                               ; preds = %6
   store i64 2, ptr %0, align 8
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.429.0..sroa_idx, align 8
-  br label %19
+  br label %18
 }
 
 ; Function Attrs: nonlazybind uwtable

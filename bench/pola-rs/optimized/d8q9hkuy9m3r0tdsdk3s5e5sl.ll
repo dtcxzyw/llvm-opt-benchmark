@@ -19794,16 +19794,11 @@ define internal fastcc void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$4recv28_$
 
 _ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit: ; preds = %49
   %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %50, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.01.0.i.i.i, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
     i64 0, label %55
     i64 1, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread
     i64 2, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread
-    i64 3, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6
   ], !prof !1800
-
-default.unreachable:                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit
-  unreachable
 
 55:                                               ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit
   tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.155, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c531fd67d455b9bcbaca05dfc51ea67.157) #34
@@ -19817,7 +19812,7 @@ _ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread: ;
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %58, label %57, !prof !34
 
-_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6: ; preds = %.split.i, %.split.us.i, %57, %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit
+_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6: ; preds = %.split.i, %.split.us.i, %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit, %57
   ret void
 
 57:                                               ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread
@@ -20305,16 +20300,11 @@ define internal fastcc void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$4send28_$
 
 _ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit: ; preds = %52
   %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %53, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.01.0.i.i.i, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
     i64 0, label %58
     i64 1, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread
     i64 2, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread
-    i64 3, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6
   ], !prof !1800
-
-default.unreachable:                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit
-  unreachable
 
 58:                                               ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit
   tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.155, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c531fd67d455b9bcbaca05dfc51ea67.159) #34
@@ -20328,7 +20318,7 @@ _ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread: ;
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %61, label %60, !prof !34
 
-_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6: ; preds = %.split.i, %.split.us.i, %60, %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit
+_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6: ; preds = %.split.i, %.split.us.i, %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit, %60
   ret void
 
 60:                                               ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread
@@ -21729,139 +21719,133 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %4 = load ptr, ptr %0, align 8, !nonnull !6, !align !1175, !noundef !6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1946)
   %5 = load i8, ptr %4, align 1, !range !1949, !alias.scope !1946, !noalias !1950, !noundef !6
-  %6 = add nsw i8 %5, -18
-  %narrow.i = tail call i8 @llvm.umin.i8(i8 %6, i8 23)
-  switch i8 %narrow.i, label %default.unreachable [
-    i8 0, label %7
-    i8 1, label %9
-    i8 2, label %11
-    i8 3, label %13
-    i8 4, label %15
-    i8 5, label %17
-    i8 6, label %19
-    i8 7, label %21
-    i8 8, label %23
-    i8 9, label %25
-    i8 10, label %27
-    i8 11, label %29
-    i8 12, label %31
-    i8 13, label %33
-    i8 14, label %35
-    i8 15, label %37
-    i8 16, label %39
-    i8 17, label %41
-    i8 18, label %43
-    i8 19, label %45
-    i8 20, label %47
-    i8 21, label %49
-    i8 22, label %51
-    i8 23, label %53
+  switch i8 %5, label %52 [
+    i8 18, label %6
+    i8 19, label %8
+    i8 20, label %10
+    i8 21, label %12
+    i8 22, label %14
+    i8 23, label %16
+    i8 24, label %18
+    i8 25, label %20
+    i8 26, label %22
+    i8 27, label %24
+    i8 28, label %26
+    i8 29, label %28
+    i8 30, label %30
+    i8 31, label %32
+    i8 32, label %34
+    i8 33, label %36
+    i8 34, label %38
+    i8 35, label %40
+    i8 36, label %42
+    i8 37, label %44
+    i8 38, label %46
+    i8 39, label %48
+    i8 40, label %50
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-7:                                                ; preds = %2
-  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.451, i64 noundef 11), !noalias !1946
+6:                                                ; preds = %2
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.451, i64 noundef 11), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-9:                                                ; preds = %2
-  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.452, i64 noundef 9), !noalias !1946
+8:                                                ; preds = %2
+  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.452, i64 noundef 9), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-11:                                               ; preds = %2
-  %12 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.453, i64 noundef 8), !noalias !1946
+10:                                               ; preds = %2
+  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.453, i64 noundef 8), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-13:                                               ; preds = %2
-  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.454, i64 noundef 12), !noalias !1946
+12:                                               ; preds = %2
+  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.454, i64 noundef 12), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-15:                                               ; preds = %2
-  %16 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.455, i64 noundef 11), !noalias !1946
+14:                                               ; preds = %2
+  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.455, i64 noundef 11), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-17:                                               ; preds = %2
-  %18 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.456, i64 noundef 13), !noalias !1946
+16:                                               ; preds = %2
+  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.456, i64 noundef 13), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-19:                                               ; preds = %2
-  %20 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.457, i64 noundef 6), !noalias !1946
+18:                                               ; preds = %2
+  %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.457, i64 noundef 6), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-21:                                               ; preds = %2
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.458, i64 noundef 5), !noalias !1946
+20:                                               ; preds = %2
+  %21 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.458, i64 noundef 5), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-23:                                               ; preds = %2
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.459, i64 noundef 11), !noalias !1946
+22:                                               ; preds = %2
+  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.459, i64 noundef 11), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-25:                                               ; preds = %2
-  %26 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.460, i64 noundef 8), !noalias !1946
+24:                                               ; preds = %2
+  %25 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.460, i64 noundef 8), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-27:                                               ; preds = %2
-  %28 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.461, i64 noundef 17), !noalias !1946
+26:                                               ; preds = %2
+  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.461, i64 noundef 17), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-29:                                               ; preds = %2
-  %30 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.462, i64 noundef 11), !noalias !1946
+28:                                               ; preds = %2
+  %29 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.462, i64 noundef 11), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-31:                                               ; preds = %2
-  %32 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.463, i64 noundef 8), !noalias !1946
+30:                                               ; preds = %2
+  %31 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.463, i64 noundef 8), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-33:                                               ; preds = %2
-  %34 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.464, i64 noundef 13), !noalias !1946
+32:                                               ; preds = %2
+  %33 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.464, i64 noundef 13), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-35:                                               ; preds = %2
-  %36 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.465, i64 noundef 18), !noalias !1946
+34:                                               ; preds = %2
+  %35 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.465, i64 noundef 18), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-37:                                               ; preds = %2
-  %38 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.466, i64 noundef 11), !noalias !1946
+36:                                               ; preds = %2
+  %37 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.466, i64 noundef 11), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-39:                                               ; preds = %2
-  %40 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.467, i64 noundef 13), !noalias !1946
+38:                                               ; preds = %2
+  %39 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.467, i64 noundef 13), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-41:                                               ; preds = %2
-  %42 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.468, i64 noundef 13), !noalias !1946
+40:                                               ; preds = %2
+  %41 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.468, i64 noundef 13), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-43:                                               ; preds = %2
-  %44 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.469, i64 noundef 14), !noalias !1946
+42:                                               ; preds = %2
+  %43 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.469, i64 noundef 14), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-45:                                               ; preds = %2
-  %46 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.470, i64 noundef 21), !noalias !1946
+44:                                               ; preds = %2
+  %45 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.470, i64 noundef 21), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-47:                                               ; preds = %2
-  %48 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.471, i64 noundef 18), !noalias !1946
+46:                                               ; preds = %2
+  %47 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.471, i64 noundef 18), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-49:                                               ; preds = %2
-  %50 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.472, i64 noundef 18), !noalias !1946
+48:                                               ; preds = %2
+  %49 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.472, i64 noundef 18), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-51:                                               ; preds = %2
-  %52 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.473, i64 noundef 23), !noalias !1946
+50:                                               ; preds = %2
+  %51 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.473, i64 noundef 23), !noalias !1946
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-53:                                               ; preds = %2
+52:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1952
   store ptr %4, ptr %3, align 8, !noalias !1952
-  %54 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.475, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.6c531fd67d455b9bcbaca05dfc51ea67.474)
+  %53 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.475, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.6c531fd67d455b9bcbaca05dfc51ea67.474)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1952
   br label %"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit"
 
-"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit": ; preds = %7, %9, %11, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53
-  %.sroa.0.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
+"_ZN81_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hed91b63332110830E.exit": ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -34815,7 +34799,7 @@ attributes #34 = { noreturn }
 !1797 = distinct !{!1797, !"_ZN4core3ops8function6FnOnce9call_once17h4391348aebe2cdb7E"}
 !1798 = !{!"branch_weights", i32 1, i32 1, i32 2000, i32 2000}
 !1799 = !{i64 128}
-!1800 = !{!"branch_weights", i32 17, i32 6219984, i32 0, i32 0, i32 2141263647}
+!1800 = !{!"branch_weights", i32 2141263647, i32 6219984, i32 0, i32 0}
 !1801 = !{!1802}
 !1802 = distinct !{!1802, !1803, !"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$10start_send17he52bb14bbc2b617bE: argument 0:pre.rot"}
 !1803 = distinct !{!1803, !"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$10start_send17he52bb14bbc2b617bE"}

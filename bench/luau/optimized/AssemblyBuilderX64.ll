@@ -4333,281 +4333,276 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643nopEj(ptr nounde
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN4Luau7CodeGen3X6418AssemblyBuilderX646commitEv.exit
-  %.016 = phi i32 [ %1, %.lr.ph ], [ %9, %_ZN4Luau7CodeGen3X6418AssemblyBuilderX646commitEv.exit ]
-  %8 = tail call i32 @llvm.umin.i32(i32 %.016, i32 9)
-  %9 = sub i32 %.016, %8
-  %10 = load i8, ptr %3, align 8, !tbaa !14, !range !61, !noundef !62
-  %11 = trunc nuw i8 %10 to i1
-  switch i32 %8, label %default.unreachable18 [
-    i32 1, label %12
-    i32 2, label %14
-    i32 3, label %19
-    i32 4, label %26
-    i32 5, label %35
-    i32 6, label %46
-    i32 7, label %59
-    i32 8, label %74
-    i32 9, label %91
+  %.016 = phi i32 [ %1, %.lr.ph ], [ %8, %_ZN4Luau7CodeGen3X6418AssemblyBuilderX646commitEv.exit ]
+  %8 = add i32 %.016, -9
+  %9 = load i8, ptr %3, align 8, !tbaa !14, !range !61, !noundef !62
+  %10 = trunc nuw i8 %9 to i1
+  switch i32 %.016, label %90 [
+    i32 1, label %11
+    i32 2, label %13
+    i32 3, label %18
+    i32 4, label %25
+    i32 5, label %34
+    i32 6, label %45
+    i32 7, label %58
+    i32 8, label %73
   ]
 
-12:                                               ; preds = %7
-  br i1 %11, label %13, label %110
+11:                                               ; preds = %7
+  br i1 %10, label %12, label %109
 
-13:                                               ; preds = %12
+12:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.37)
-  br label %110
+  br label %109
 
-14:                                               ; preds = %7
-  br i1 %11, label %15, label %16
+13:                                               ; preds = %7
+  br i1 %10, label %14, label %15
 
-15:                                               ; preds = %14
+14:                                               ; preds = %13
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.38, i32 noundef 2)
-  br label %16
+  br label %15
 
-16:                                               ; preds = %15, %14
-  %17 = load ptr, ptr %4, align 8, !tbaa !51
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  store ptr %18, ptr %4, align 8, !tbaa !51
-  store i8 102, ptr %17, align 1, !tbaa !13
-  br label %110
+15:                                               ; preds = %14, %13
+  %16 = load ptr, ptr %4, align 8, !tbaa !51
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  store ptr %17, ptr %4, align 8, !tbaa !51
+  store i8 102, ptr %16, align 1, !tbaa !13
+  br label %109
 
-19:                                               ; preds = %7
-  br i1 %11, label %20, label %21
+18:                                               ; preds = %7
+  br i1 %10, label %19, label %20
 
-20:                                               ; preds = %19
+19:                                               ; preds = %18
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.39, i32 noundef 3)
-  br label %21
+  br label %20
 
-21:                                               ; preds = %20, %19
-  %22 = load ptr, ptr %4, align 8, !tbaa !51
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store ptr %23, ptr %4, align 8, !tbaa !51
-  store i8 15, ptr %22, align 1, !tbaa !13
-  %24 = load ptr, ptr %4, align 8, !tbaa !51
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
-  store ptr %25, ptr %4, align 8, !tbaa !51
-  store i8 31, ptr %24, align 1, !tbaa !13
-  br label %110
+20:                                               ; preds = %19, %18
+  %21 = load ptr, ptr %4, align 8, !tbaa !51
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  store ptr %22, ptr %4, align 8, !tbaa !51
+  store i8 15, ptr %21, align 1, !tbaa !13
+  %23 = load ptr, ptr %4, align 8, !tbaa !51
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  store ptr %24, ptr %4, align 8, !tbaa !51
+  store i8 31, ptr %23, align 1, !tbaa !13
+  br label %109
 
-26:                                               ; preds = %7
-  br i1 %11, label %27, label %28
+25:                                               ; preds = %7
+  br i1 %10, label %26, label %27
 
-27:                                               ; preds = %26
+26:                                               ; preds = %25
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.39, i32 noundef 4)
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %26
-  %29 = load ptr, ptr %4, align 8, !tbaa !51
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %30, ptr %4, align 8, !tbaa !51
-  store i8 15, ptr %29, align 1, !tbaa !13
-  %31 = load ptr, ptr %4, align 8, !tbaa !51
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  store ptr %32, ptr %4, align 8, !tbaa !51
-  store i8 31, ptr %31, align 1, !tbaa !13
-  %33 = load ptr, ptr %4, align 8, !tbaa !51
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  store ptr %34, ptr %4, align 8, !tbaa !51
-  store i8 64, ptr %33, align 1, !tbaa !13
-  br label %110
+27:                                               ; preds = %26, %25
+  %28 = load ptr, ptr %4, align 8, !tbaa !51
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  store ptr %29, ptr %4, align 8, !tbaa !51
+  store i8 15, ptr %28, align 1, !tbaa !13
+  %30 = load ptr, ptr %4, align 8, !tbaa !51
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  store ptr %31, ptr %4, align 8, !tbaa !51
+  store i8 31, ptr %30, align 1, !tbaa !13
+  %32 = load ptr, ptr %4, align 8, !tbaa !51
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  store ptr %33, ptr %4, align 8, !tbaa !51
+  store i8 64, ptr %32, align 1, !tbaa !13
+  br label %109
 
-35:                                               ; preds = %7
-  br i1 %11, label %36, label %37
+34:                                               ; preds = %7
+  br i1 %10, label %35, label %36
 
-36:                                               ; preds = %35
+35:                                               ; preds = %34
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.40, i32 noundef 5)
-  br label %37
+  br label %36
 
-37:                                               ; preds = %36, %35
-  %38 = load ptr, ptr %4, align 8, !tbaa !51
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  store ptr %39, ptr %4, align 8, !tbaa !51
-  store i8 15, ptr %38, align 1, !tbaa !13
-  %40 = load ptr, ptr %4, align 8, !tbaa !51
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  store ptr %41, ptr %4, align 8, !tbaa !51
-  store i8 31, ptr %40, align 1, !tbaa !13
-  %42 = load ptr, ptr %4, align 8, !tbaa !51
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store ptr %43, ptr %4, align 8, !tbaa !51
-  store i8 68, ptr %42, align 1, !tbaa !13
-  %44 = load ptr, ptr %4, align 8, !tbaa !51
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  store ptr %45, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %44, align 1, !tbaa !13
-  br label %110
+36:                                               ; preds = %35, %34
+  %37 = load ptr, ptr %4, align 8, !tbaa !51
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  store ptr %38, ptr %4, align 8, !tbaa !51
+  store i8 15, ptr %37, align 1, !tbaa !13
+  %39 = load ptr, ptr %4, align 8, !tbaa !51
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  store ptr %40, ptr %4, align 8, !tbaa !51
+  store i8 31, ptr %39, align 1, !tbaa !13
+  %41 = load ptr, ptr %4, align 8, !tbaa !51
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
+  store ptr %42, ptr %4, align 8, !tbaa !51
+  store i8 68, ptr %41, align 1, !tbaa !13
+  %43 = load ptr, ptr %4, align 8, !tbaa !51
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
+  store ptr %44, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %43, align 1, !tbaa !13
+  br label %109
 
-46:                                               ; preds = %7
-  br i1 %11, label %47, label %48
+45:                                               ; preds = %7
+  br i1 %10, label %46, label %47
 
-47:                                               ; preds = %46
+46:                                               ; preds = %45
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.41, i32 noundef 6)
-  br label %48
+  br label %47
 
-48:                                               ; preds = %47, %46
-  %49 = load ptr, ptr %4, align 8, !tbaa !51
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  store ptr %50, ptr %4, align 8, !tbaa !51
-  store i8 102, ptr %49, align 1, !tbaa !13
-  %51 = load ptr, ptr %4, align 8, !tbaa !51
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  store ptr %52, ptr %4, align 8, !tbaa !51
-  store i8 15, ptr %51, align 1, !tbaa !13
-  %53 = load ptr, ptr %4, align 8, !tbaa !51
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  store ptr %54, ptr %4, align 8, !tbaa !51
-  store i8 31, ptr %53, align 1, !tbaa !13
-  %55 = load ptr, ptr %4, align 8, !tbaa !51
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
-  store ptr %56, ptr %4, align 8, !tbaa !51
-  store i8 68, ptr %55, align 1, !tbaa !13
-  %57 = load ptr, ptr %4, align 8, !tbaa !51
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
-  store ptr %58, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %57, align 1, !tbaa !13
-  br label %110
+47:                                               ; preds = %46, %45
+  %48 = load ptr, ptr %4, align 8, !tbaa !51
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
+  store ptr %49, ptr %4, align 8, !tbaa !51
+  store i8 102, ptr %48, align 1, !tbaa !13
+  %50 = load ptr, ptr %4, align 8, !tbaa !51
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  store ptr %51, ptr %4, align 8, !tbaa !51
+  store i8 15, ptr %50, align 1, !tbaa !13
+  %52 = load ptr, ptr %4, align 8, !tbaa !51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  store ptr %53, ptr %4, align 8, !tbaa !51
+  store i8 31, ptr %52, align 1, !tbaa !13
+  %54 = load ptr, ptr %4, align 8, !tbaa !51
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
+  store ptr %55, ptr %4, align 8, !tbaa !51
+  store i8 68, ptr %54, align 1, !tbaa !13
+  %56 = load ptr, ptr %4, align 8, !tbaa !51
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  store ptr %57, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %56, align 1, !tbaa !13
+  br label %109
 
-59:                                               ; preds = %7
-  br i1 %11, label %60, label %61
+58:                                               ; preds = %7
+  br i1 %10, label %59, label %60
 
-60:                                               ; preds = %59
+59:                                               ; preds = %58
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.39, i32 noundef 7)
-  br label %61
+  br label %60
 
-61:                                               ; preds = %60, %59
-  %62 = load ptr, ptr %4, align 8, !tbaa !51
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
-  store ptr %63, ptr %4, align 8, !tbaa !51
-  store i8 15, ptr %62, align 1, !tbaa !13
-  %64 = load ptr, ptr %4, align 8, !tbaa !51
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
-  store ptr %65, ptr %4, align 8, !tbaa !51
-  store i8 31, ptr %64, align 1, !tbaa !13
-  %66 = load ptr, ptr %4, align 8, !tbaa !51
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
-  store ptr %67, ptr %4, align 8, !tbaa !51
-  store i8 -128, ptr %66, align 1, !tbaa !13
-  %68 = load ptr, ptr %4, align 8, !tbaa !51
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
-  store ptr %69, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %68, align 1, !tbaa !13
-  %70 = load ptr, ptr %4, align 8, !tbaa !51
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
-  store ptr %71, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %70, align 1, !tbaa !13
-  %72 = load ptr, ptr %4, align 8, !tbaa !51
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  store ptr %73, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %72, align 1, !tbaa !13
-  br label %110
+60:                                               ; preds = %59, %58
+  %61 = load ptr, ptr %4, align 8, !tbaa !51
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
+  store ptr %62, ptr %4, align 8, !tbaa !51
+  store i8 15, ptr %61, align 1, !tbaa !13
+  %63 = load ptr, ptr %4, align 8, !tbaa !51
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
+  store ptr %64, ptr %4, align 8, !tbaa !51
+  store i8 31, ptr %63, align 1, !tbaa !13
+  %65 = load ptr, ptr %4, align 8, !tbaa !51
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  store ptr %66, ptr %4, align 8, !tbaa !51
+  store i8 -128, ptr %65, align 1, !tbaa !13
+  %67 = load ptr, ptr %4, align 8, !tbaa !51
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
+  store ptr %68, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %67, align 1, !tbaa !13
+  %69 = load ptr, ptr %4, align 8, !tbaa !51
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  store ptr %70, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %69, align 1, !tbaa !13
+  %71 = load ptr, ptr %4, align 8, !tbaa !51
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
+  store ptr %72, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %71, align 1, !tbaa !13
+  br label %109
 
-74:                                               ; preds = %7
-  br i1 %11, label %75, label %76
+73:                                               ; preds = %7
+  br i1 %10, label %74, label %75
 
-75:                                               ; preds = %74
+74:                                               ; preds = %73
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.40, i32 noundef 8)
-  br label %76
+  br label %75
 
-76:                                               ; preds = %75, %74
-  %77 = load ptr, ptr %4, align 8, !tbaa !51
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
-  store ptr %78, ptr %4, align 8, !tbaa !51
-  store i8 15, ptr %77, align 1, !tbaa !13
-  %79 = load ptr, ptr %4, align 8, !tbaa !51
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
-  store ptr %80, ptr %4, align 8, !tbaa !51
-  store i8 31, ptr %79, align 1, !tbaa !13
-  %81 = load ptr, ptr %4, align 8, !tbaa !51
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
-  store ptr %82, ptr %4, align 8, !tbaa !51
-  store i8 -124, ptr %81, align 1, !tbaa !13
-  %83 = load ptr, ptr %4, align 8, !tbaa !51
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
-  store ptr %84, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %83, align 1, !tbaa !13
-  %85 = load ptr, ptr %4, align 8, !tbaa !51
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
-  store ptr %86, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %85, align 1, !tbaa !13
-  %87 = load ptr, ptr %4, align 8, !tbaa !51
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
-  store ptr %88, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %87, align 1, !tbaa !13
-  %89 = load ptr, ptr %4, align 8, !tbaa !51
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1
-  store ptr %90, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %89, align 1, !tbaa !13
-  br label %110
+75:                                               ; preds = %74, %73
+  %76 = load ptr, ptr %4, align 8, !tbaa !51
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
+  store ptr %77, ptr %4, align 8, !tbaa !51
+  store i8 15, ptr %76, align 1, !tbaa !13
+  %78 = load ptr, ptr %4, align 8, !tbaa !51
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1
+  store ptr %79, ptr %4, align 8, !tbaa !51
+  store i8 31, ptr %78, align 1, !tbaa !13
+  %80 = load ptr, ptr %4, align 8, !tbaa !51
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
+  store ptr %81, ptr %4, align 8, !tbaa !51
+  store i8 -124, ptr %80, align 1, !tbaa !13
+  %82 = load ptr, ptr %4, align 8, !tbaa !51
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
+  store ptr %83, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %82, align 1, !tbaa !13
+  %84 = load ptr, ptr %4, align 8, !tbaa !51
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
+  store ptr %85, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %84, align 1, !tbaa !13
+  %86 = load ptr, ptr %4, align 8, !tbaa !51
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
+  store ptr %87, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %86, align 1, !tbaa !13
+  %88 = load ptr, ptr %4, align 8, !tbaa !51
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
+  store ptr %89, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %88, align 1, !tbaa !13
+  br label %109
 
-91:                                               ; preds = %7
-  br i1 %11, label %92, label %93
+90:                                               ; preds = %7
+  br i1 %10, label %91, label %92
 
-92:                                               ; preds = %91
+91:                                               ; preds = %90
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.41, i32 noundef 9)
-  br label %93
+  br label %92
 
-93:                                               ; preds = %92, %91
-  %94 = load ptr, ptr %4, align 8, !tbaa !51
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  store ptr %95, ptr %4, align 8, !tbaa !51
-  store i8 102, ptr %94, align 1, !tbaa !13
-  %96 = load ptr, ptr %4, align 8, !tbaa !51
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
-  store ptr %97, ptr %4, align 8, !tbaa !51
-  store i8 15, ptr %96, align 1, !tbaa !13
-  %98 = load ptr, ptr %4, align 8, !tbaa !51
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
-  store ptr %99, ptr %4, align 8, !tbaa !51
-  store i8 31, ptr %98, align 1, !tbaa !13
-  %100 = load ptr, ptr %4, align 8, !tbaa !51
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
-  store ptr %101, ptr %4, align 8, !tbaa !51
-  store i8 -124, ptr %100, align 1, !tbaa !13
-  %102 = load ptr, ptr %4, align 8, !tbaa !51
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1
-  store ptr %103, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %102, align 1, !tbaa !13
-  %104 = load ptr, ptr %4, align 8, !tbaa !51
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1
-  store ptr %105, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %104, align 1, !tbaa !13
-  %106 = load ptr, ptr %4, align 8, !tbaa !51
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1
-  store ptr %107, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %106, align 1, !tbaa !13
-  %108 = load ptr, ptr %4, align 8, !tbaa !51
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1
-  store ptr %109, ptr %4, align 8, !tbaa !51
-  store i8 0, ptr %108, align 1, !tbaa !13
-  br label %110
+92:                                               ; preds = %91, %90
+  %93 = load ptr, ptr %4, align 8, !tbaa !51
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  store ptr %94, ptr %4, align 8, !tbaa !51
+  store i8 102, ptr %93, align 1, !tbaa !13
+  %95 = load ptr, ptr %4, align 8, !tbaa !51
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
+  store ptr %96, ptr %4, align 8, !tbaa !51
+  store i8 15, ptr %95, align 1, !tbaa !13
+  %97 = load ptr, ptr %4, align 8, !tbaa !51
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
+  store ptr %98, ptr %4, align 8, !tbaa !51
+  store i8 31, ptr %97, align 1, !tbaa !13
+  %99 = load ptr, ptr %4, align 8, !tbaa !51
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
+  store ptr %100, ptr %4, align 8, !tbaa !51
+  store i8 -124, ptr %99, align 1, !tbaa !13
+  %101 = load ptr, ptr %4, align 8, !tbaa !51
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
+  store ptr %102, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %101, align 1, !tbaa !13
+  %103 = load ptr, ptr %4, align 8, !tbaa !51
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 1
+  store ptr %104, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %103, align 1, !tbaa !13
+  %105 = load ptr, ptr %4, align 8, !tbaa !51
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
+  store ptr %106, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %105, align 1, !tbaa !13
+  %107 = load ptr, ptr %4, align 8, !tbaa !51
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 1
+  store ptr %108, ptr %4, align 8, !tbaa !51
+  store i8 0, ptr %107, align 1, !tbaa !13
+  br label %109
 
-default.unreachable18:                            ; preds = %7
-  unreachable
-
-110:                                              ; preds = %12, %13, %93, %76, %61, %48, %37, %28, %21, %16
-  %.sink = phi i8 [ 0, %93 ], [ 0, %76 ], [ 0, %61 ], [ 0, %48 ], [ 0, %37 ], [ 0, %28 ], [ 0, %21 ], [ -112, %16 ], [ -112, %13 ], [ -112, %12 ]
-  %111 = load ptr, ptr %4, align 8, !tbaa !51
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
-  store ptr %112, ptr %4, align 8, !tbaa !51
-  store i8 %.sink, ptr %111, align 1, !tbaa !13
-  %113 = load i32, ptr %5, align 8, !tbaa !63
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %5, align 8, !tbaa !63
-  %115 = load ptr, ptr %6, align 8, !tbaa !52
-  %116 = load ptr, ptr %4, align 8, !tbaa !51
+109:                                              ; preds = %11, %12, %92, %75, %60, %47, %36, %27, %20, %15
+  %.sink = phi i8 [ 0, %92 ], [ 0, %75 ], [ 0, %60 ], [ 0, %47 ], [ 0, %36 ], [ 0, %27 ], [ 0, %20 ], [ -112, %15 ], [ -112, %12 ], [ -112, %11 ]
+  %110 = load ptr, ptr %4, align 8, !tbaa !51
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
+  store ptr %111, ptr %4, align 8, !tbaa !51
+  store i8 %.sink, ptr %110, align 1, !tbaa !13
+  %112 = load i32, ptr %5, align 8, !tbaa !63
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %5, align 8, !tbaa !63
+  %114 = load ptr, ptr %6, align 8, !tbaa !52
+  %115 = load ptr, ptr %4, align 8, !tbaa !51
+  %116 = ptrtoint ptr %114 to i64
   %117 = ptrtoint ptr %115 to i64
-  %118 = ptrtoint ptr %116 to i64
-  %119 = sub i64 %117, %118
-  %120 = and i64 %119, 4294967280
-  %121 = icmp eq i64 %120, 0
-  br i1 %121, label %122, label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX646commitEv.exit
+  %118 = sub i64 %116, %117
+  %119 = and i64 %118, 4294967280
+  %120 = icmp eq i64 %119, 0
+  br i1 %120, label %121, label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX646commitEv.exit
 
-122:                                              ; preds = %110
+121:                                              ; preds = %109
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX646extendEv(ptr noundef nonnull align 8 dereferenceable(252) %0)
   br label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX646commitEv.exit
 
-_ZN4Luau7CodeGen3X6418AssemblyBuilderX646commitEv.exit: ; preds = %110, %122
-  %.not = icmp eq i32 %9, 0
+_ZN4Luau7CodeGen3X6418AssemblyBuilderX646commitEv.exit: ; preds = %109, %121
+  %.not = icmp ult i32 %.016, 10
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %_ZN4Luau7CodeGen3X6418AssemblyBuilderX646commitEv.exit, %2
@@ -7386,9 +7381,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

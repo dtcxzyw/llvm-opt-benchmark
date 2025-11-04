@@ -1648,16 +1648,11 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17851403509711027544.exit
 
 82:                                               ; preds = %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread10.i"
   %83 = extractvalue { i64, i1 } %77, 0
-  %spec.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %83, i64 3)
-  switch i64 %spec.select.i.i.i.i, label %default.unreachable [
+  switch i64 %83, label %.thread100 [
     i64 0, label %84
     i64 1, label %.thread92
     i64 2, label %.thread96
-    i64 3, label %.thread100
   ]
-
-default.unreachable:                              ; preds = %82
-  unreachable
 
 84:                                               ; preds = %82
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e3a0e4d384c7c8dabcbcd96683dc9462.9, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3a0e4d384c7c8dabcbcd96683dc9462.10) #34

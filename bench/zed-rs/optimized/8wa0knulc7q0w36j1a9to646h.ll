@@ -12641,16 +12641,11 @@ define internal fastcc void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv28_$u
 
 _ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit: ; preds = %40
   %.sroa.08.0.i.i.i = extractvalue { i64, i1 } %41, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.08.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.08.0.i.i.i, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7 [
     i64 0, label %46
     i64 1, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread
     i64 2, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread
-    i64 3, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7
   ]
-
-default.unreachable:                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
-  unreachable
 
 46:                                               ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
   tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.6a90dc96ac087ebf3b1d022259cc383a.159.llvm.15011353581665487143, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6a90dc96ac087ebf3b1d022259cc383a.160) #46
@@ -12664,7 +12659,7 @@ _ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread: ;
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %50
 
-_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7: ; preds = %.split.i, %.split.us.i, %"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h0d402cb9fb7c705fE.exit", %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
+_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7: ; preds = %.split.i, %.split.us.i, %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit, %"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h0d402cb9fb7c705fE.exit"
   ret void
 
 49:                                               ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread
@@ -13919,16 +13914,11 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i: ; preds = %56, %.noe
 
 83:                                               ; preds = %77
   %.sroa.08.0.i.i.i = extractvalue { i64, i1 } %78, 0
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %.sroa.08.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.08.0.i.i.i, label %.thread109 [
     i64 0, label %84
     i64 1, label %.thread101
     i64 2, label %.thread105
-    i64 3, label %.thread109
   ]
-
-default.unreachable:                              ; preds = %83
-  unreachable
 
 84:                                               ; preds = %83
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.6a90dc96ac087ebf3b1d022259cc383a.159.llvm.15011353581665487143, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6a90dc96ac087ebf3b1d022259cc383a.169) #46
@@ -14943,16 +14933,11 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i: ; preds = %51, %.noe
 
 76:                                               ; preds = %71
   %.sroa.08.0.i.i.i = extractvalue { i64, i1 } %72, 0
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %.sroa.08.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.08.0.i.i.i, label %.thread100 [
     i64 0, label %77
     i64 1, label %.thread
     i64 2, label %.thread96
-    i64 3, label %.thread100
   ]
-
-default.unreachable:                              ; preds = %76
-  unreachable
 
 77:                                               ; preds = %76
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.6a90dc96ac087ebf3b1d022259cc383a.159.llvm.15011353581665487143, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6a90dc96ac087ebf3b1d022259cc383a.177) #46
@@ -16019,16 +16004,11 @@ define internal fastcc void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$4recv28_$
 
 _ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit: ; preds = %45
   %.sroa.08.0.i.i.i = extractvalue { i64, i1 } %46, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.08.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.08.0.i.i.i, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7 [
     i64 0, label %51
     i64 1, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread
     i64 2, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread
-    i64 3, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7
   ]
-
-default.unreachable:                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
-  unreachable
 
 51:                                               ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
   tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.6a90dc96ac087ebf3b1d022259cc383a.159.llvm.15011353581665487143, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6a90dc96ac087ebf3b1d022259cc383a.185) #46
@@ -16042,7 +16022,7 @@ _ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread: ;
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %55
 
-_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7: ; preds = %.split.i, %.split.us.i, %"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h0d402cb9fb7c705fE.exit", %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
+_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7: ; preds = %.split.i, %.split.us.i, %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit, %"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h0d402cb9fb7c705fE.exit"
   ret void
 
 54:                                               ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread
@@ -16503,16 +16483,11 @@ define internal fastcc void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$4send28_$
 
 _ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit: ; preds = %48
   %.sroa.08.0.i.i.i = extractvalue { i64, i1 } %49, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.08.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.08.0.i.i.i, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7 [
     i64 0, label %54
     i64 1, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread
     i64 2, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread
-    i64 3, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7
   ]
-
-default.unreachable:                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
-  unreachable
 
 54:                                               ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
   tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.6a90dc96ac087ebf3b1d022259cc383a.159.llvm.15011353581665487143, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6a90dc96ac087ebf3b1d022259cc383a.187) #46
@@ -16526,7 +16501,7 @@ _ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread: ;
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %58
 
-_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7: ; preds = %.split.i, %.split.us.i, %"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h0d402cb9fb7c705fE.exit", %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
+_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread7: ; preds = %.split.i, %.split.us.i, %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit, %"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h0d402cb9fb7c705fE.exit"
   ret void
 
 57:                                               ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread

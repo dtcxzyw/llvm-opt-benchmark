@@ -9095,16 +9095,11 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %61, %.noe
 
 85:                                               ; preds = %80
   %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %81, 0
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %.sroa.01.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.01.0.i.i.i, label %.thread79 [
     i64 0, label %86
     i64 1, label %.thread71
     i64 2, label %.thread75
-    i64 3, label %.thread79
   ], !prof !1086
-
-default.unreachable:                              ; preds = %85
-  unreachable
 
 86:                                               ; preds = %85
   invoke void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ce5b0a37cc0818be69c93ca9b7420e61.114, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce5b0a37cc0818be69c93ca9b7420e61.115) #35
@@ -9687,16 +9682,11 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %59, %.noe
 
 83:                                               ; preds = %78
   %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %79, 0
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %.sroa.01.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.01.0.i.i.i, label %.thread83 [
     i64 0, label %84
     i64 1, label %.thread75
     i64 2, label %.thread79
-    i64 3, label %.thread83
   ], !prof !1086
-
-default.unreachable:                              ; preds = %83
-  unreachable
 
 84:                                               ; preds = %83
   invoke void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ce5b0a37cc0818be69c93ca9b7420e61.114, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce5b0a37cc0818be69c93ca9b7420e61.115) #35
@@ -11316,16 +11306,11 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %59, %.noe
 
 83:                                               ; preds = %78
   %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %79, 0
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %.sroa.01.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.01.0.i.i.i, label %.thread94 [
     i64 0, label %84
     i64 1, label %.thread
     i64 2, label %.thread90
-    i64 3, label %.thread94
   ], !prof !1086
-
-default.unreachable:                              ; preds = %83
-  unreachable
 
 84:                                               ; preds = %83
   invoke void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ce5b0a37cc0818be69c93ca9b7420e61.114, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce5b0a37cc0818be69c93ca9b7420e61.123) #35
@@ -11969,16 +11954,11 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %62, %.noe
 
 86:                                               ; preds = %81
   %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %82, 0
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %.sroa.01.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.01.0.i.i.i, label %.thread86 [
     i64 0, label %87
     i64 1, label %.thread
     i64 2, label %.thread82
-    i64 3, label %.thread86
   ], !prof !1086
-
-default.unreachable:                              ; preds = %86
-  unreachable
 
 87:                                               ; preds = %86
   invoke void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ce5b0a37cc0818be69c93ca9b7420e61.114, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce5b0a37cc0818be69c93ca9b7420e61.123) #35
@@ -79729,7 +79709,7 @@ attributes #41 = { cold "function-inline-cost-multiplier"="4" }
 !1083 = distinct !{!1083, !1084, !"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..flavors..zero..Packet$LT$lsp_server..msg..Message$GT$$GT$17h357b82648dd69978E: argument 0"}
 !1084 = distinct !{!1084, !"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..flavors..zero..Packet$LT$lsp_server..msg..Message$GT$$GT$17h357b82648dd69978E"}
 !1085 = !{i32 0, i32 1000000001}
-!1086 = !{!"branch_weights", i32 11, i32 5684834, i32 0, i32 1070899395, i32 1070899407}
+!1086 = !{!"branch_weights", i32 1070899407, i32 5684834, i32 0, i32 1070899395}
 !1087 = !{!1088}
 !1088 = distinct !{!1088, !1089, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h501800876daf9d41E: argument 0"}
 !1089 = distinct !{!1089, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h501800876daf9d41E"}

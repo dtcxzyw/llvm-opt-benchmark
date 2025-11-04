@@ -5574,74 +5574,69 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1312)
   %9 = load i64, ptr %8, align 8, !range !1315, !alias.scope !1312, !noalias !1316, !noundef !3
   %10 = xor i64 %9, -9223372036854775808
-  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 7)
-  switch i64 %11, label %default.unreachable [
-    i64 0, label %12
-    i64 1, label %14
-    i64 2, label %17
-    i64 3, label %20
-    i64 4, label %23
-    i64 5, label %25
-    i64 6, label %27
-    i64 7, label %30
+  switch i64 %10, label %29 [
+    i64 0, label %11
+    i64 1, label %13
+    i64 2, label %16
+    i64 3, label %19
+    i64 4, label %22
+    i64 5, label %24
+    i64 6, label %26
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-12:                                               ; preds = %2
-  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.173, i64 noundef 27), !noalias !1312
+11:                                               ; preds = %2
+  %12 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.173, i64 noundef 27), !noalias !1312
   br label %"_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit"
 
-14:                                               ; preds = %2
+13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1318
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %15, ptr %7, align 8, !noalias !1318
-  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.175, i64 noundef 9, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fb28629bf56ebf90cdd132cd362331b8.174)
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %14, ptr %7, align 8, !noalias !1318
+  %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.175, i64 noundef 9, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fb28629bf56ebf90cdd132cd362331b8.174)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1318
   br label %"_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit"
 
-17:                                               ; preds = %2
+16:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1318
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %18, ptr %6, align 8, !noalias !1318
-  %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.176, i64 noundef 14, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fb28629bf56ebf90cdd132cd362331b8.174)
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %17, ptr %6, align 8, !noalias !1318
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.176, i64 noundef 14, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fb28629bf56ebf90cdd132cd362331b8.174)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1318
   br label %"_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit"
 
-20:                                               ; preds = %2
+19:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1318
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %21, ptr %5, align 8, !noalias !1318
-  %22 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.178, i64 noundef 7, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fb28629bf56ebf90cdd132cd362331b8.177)
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %20, ptr %5, align 8, !noalias !1318
+  %21 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.178, i64 noundef 7, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fb28629bf56ebf90cdd132cd362331b8.177)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1318
   br label %"_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit"
 
-23:                                               ; preds = %2
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.179, i64 noundef 19), !noalias !1312
+22:                                               ; preds = %2
+  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.179, i64 noundef 19), !noalias !1312
   br label %"_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit"
 
-25:                                               ; preds = %2
-  %26 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.180, i64 noundef 20), !noalias !1312
+24:                                               ; preds = %2
+  %25 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.180, i64 noundef 20), !noalias !1312
   br label %"_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit"
 
-27:                                               ; preds = %2
+26:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1318
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %28, ptr %4, align 8, !noalias !1318
-  %29 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.181, i64 noundef 14, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fb28629bf56ebf90cdd132cd362331b8.177)
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %27, ptr %4, align 8, !noalias !1318
+  %28 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.181, i64 noundef 14, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fb28629bf56ebf90cdd132cd362331b8.177)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1318
   br label %"_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit"
 
-30:                                               ; preds = %2
+29:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1318
   store ptr %8, ptr %3, align 8, !noalias !1318
-  %31 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.182, i64 noundef 18, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fb28629bf56ebf90cdd132cd362331b8.85)
+  %30 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fb28629bf56ebf90cdd132cd362331b8.182, i64 noundef 18, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fb28629bf56ebf90cdd132cd362331b8.85)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1318
   br label %"_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit"
 
-"_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit": ; preds = %12, %14, %17, %20, %23, %25, %27, %30
-  %.sroa.0.0.in.i = phi i1 [ %13, %12 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %26, %25 ], [ %29, %27 ], [ %31, %30 ]
+"_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit": ; preds = %11, %13, %16, %19, %22, %24, %26, %29
+  %.sroa.0.0.in.i = phi i1 [ %12, %11 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %23, %22 ], [ %25, %24 ], [ %28, %26 ], [ %30, %29 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -43330,43 +43325,37 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN11uv_resolver11prefer
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN11uv_resolver11preferences15PreferenceIndex7matches17h88fd02ea6cedc1b9E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !range !2590, !noundef !3
-  %4 = add nsw i64 %3, -3
-  %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 2)
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.908770108122041493.exit"
-    i64 1, label %6
-    i64 2, label %7
+  switch i64 %3, label %5 [
+    i64 3, label %"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.908770108122041493.exit"
+    i64 4, label %4
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-6:                                                ; preds = %2
+4:                                                ; preds = %2
   br label %"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.908770108122041493.exit"
 
-7:                                                ; preds = %2
+5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10289)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10292)
-  %8 = load i64, ptr %1, align 8, !range !294, !alias.scope !10292, !noalias !10289, !noundef !3
-  %9 = icmp eq i64 %3, %8
-  br i1 %9, label %10, label %"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.908770108122041493.exit"
+  %6 = load i64, ptr %1, align 8, !range !294, !alias.scope !10292, !noalias !10289, !noundef !3
+  %7 = icmp eq i64 %3, %6
+  br i1 %7, label %8, label %"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.908770108122041493.exit"
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !10289, !noalias !10292, !nonnull !3, !noundef !3
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8, !alias.scope !10292, !noalias !10289, !nonnull !3, !noundef !3
-  %15 = icmp eq ptr %12, %14
-  br i1 %15, label %"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.908770108122041493.exit", label %.sink.split.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !alias.scope !10289, !noalias !10292, !nonnull !3, !noundef !3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load ptr, ptr %11, align 8, !alias.scope !10292, !noalias !10289, !nonnull !3, !noundef !3
+  %13 = icmp eq ptr %10, %12
+  br i1 %13, label %"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.908770108122041493.exit", label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %10
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %18 = tail call noundef zeroext i1 @"_ZN77_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h388c113d32ba4f58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %17), !noalias !10294
+.sink.split.i:                                    ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %16 = tail call noundef zeroext i1 @"_ZN77_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h388c113d32ba4f58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %15), !noalias !10294
   br label %"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.908770108122041493.exit"
 
-"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.908770108122041493.exit": ; preds = %.sink.split.i, %10, %7, %2, %6
-  %.sroa.0.0 = phi i1 [ false, %6 ], [ true, %2 ], [ false, %7 ], [ %18, %.sink.split.i ], [ true, %10 ]
+"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.908770108122041493.exit": ; preds = %.sink.split.i, %8, %5, %2, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %2 ], [ false, %5 ], [ %16, %.sink.split.i ], [ true, %8 ]
   ret i1 %.sroa.0.0
 }
 

@@ -151,6 +151,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.51838d820bef2e7c66f7646d11d2f552.59.llvm.6642645476840219850 = external hidden unnamed_addr constant <{ [12 x i8] }>, align 1
 @anon.51838d820bef2e7c66f7646d11d2f552.60.llvm.6642645476840219850 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @switch.table._ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE.37 = private unnamed_addr constant [10 x i64] [i64 24, i64 24, i64 24, i64 24, i64 40, i64 40, i64 40, i64 40, i64 40, i64 48], align 8
+@"switch.table._ZN83_$LT$actix_http..header..shared..charset..Charset$u20$as$u20$core..fmt..Display$GT$3fmt17hcb9226fd68f1c9f2E" = private unnamed_addr constant [24 x i64] [i64 8, i64 10, i64 10, i64 10, i64 10, i64 10, i64 10, i64 10, i64 10, i64 10, i64 11, i64 9, i64 6, i64 11, i64 6, i64 11, i64 13, i64 12, i64 12, i64 12, i64 12, i64 6, i64 4, i64 6], align 8
+@"switch.table._ZN83_$LT$actix_http..header..shared..charset..Charset$u20$as$u20$core..fmt..Display$GT$3fmt17hcb9226fd68f1c9f2E.38" = private unnamed_addr constant [24 x ptr] [ptr @anon.e9f42dff1fd369047582a93c3ee51670.174, ptr @anon.e9f42dff1fd369047582a93c3ee51670.175, ptr @anon.e9f42dff1fd369047582a93c3ee51670.176, ptr @anon.e9f42dff1fd369047582a93c3ee51670.177, ptr @anon.e9f42dff1fd369047582a93c3ee51670.178, ptr @anon.e9f42dff1fd369047582a93c3ee51670.179, ptr @anon.e9f42dff1fd369047582a93c3ee51670.180, ptr @anon.e9f42dff1fd369047582a93c3ee51670.181, ptr @anon.e9f42dff1fd369047582a93c3ee51670.182, ptr @anon.e9f42dff1fd369047582a93c3ee51670.183, ptr @anon.e9f42dff1fd369047582a93c3ee51670.184, ptr @anon.e9f42dff1fd369047582a93c3ee51670.185, ptr @anon.e9f42dff1fd369047582a93c3ee51670.186, ptr @anon.e9f42dff1fd369047582a93c3ee51670.187, ptr @anon.e9f42dff1fd369047582a93c3ee51670.188, ptr @anon.e9f42dff1fd369047582a93c3ee51670.189, ptr @anon.e9f42dff1fd369047582a93c3ee51670.190, ptr @anon.e9f42dff1fd369047582a93c3ee51670.191, ptr @anon.e9f42dff1fd369047582a93c3ee51670.192, ptr @anon.e9f42dff1fd369047582a93c3ee51670.193, ptr @anon.e9f42dff1fd369047582a93c3ee51670.194, ptr @anon.e9f42dff1fd369047582a93c3ee51670.195, ptr @anon.e9f42dff1fd369047582a93c3ee51670.196, ptr @anon.e9f42dff1fd369047582a93c3ee51670.197], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9cc2a09d608b8e03E.llvm.14674892691807634323"(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 {
@@ -14513,121 +14515,20 @@ _ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.1467489
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN83_$LT$actix_http..header..shared..charset..Charset$u20$as$u20$core..fmt..Display$GT$3fmt17hcb9226fd68f1c9f2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
-  %3 = load i64, ptr %0, align 8, !range !1556, !alias.scope !1557, !noundef !12
-  %4 = xor i64 %3, -9223372036854775808
-  %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 24)
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-    i64 1, label %6
-    i64 2, label %7
-    i64 3, label %8
-    i64 4, label %9
-    i64 5, label %10
-    i64 6, label %11
-    i64 7, label %12
-    i64 8, label %13
-    i64 9, label %14
-    i64 10, label %15
-    i64 11, label %16
-    i64 12, label %17
-    i64 13, label %18
-    i64 14, label %19
-    i64 15, label %20
-    i64 16, label %21
-    i64 17, label %22
-    i64 18, label %23
-    i64 19, label %24
-    i64 20, label %25
-    i64 21, label %26
-    i64 22, label %27
-    i64 23, label %28
-    i64 24, label %29
-  ]
-
-default.unreachable:                              ; preds = %2
-  unreachable
-
-6:                                                ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-7:                                                ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-8:                                                ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-9:                                                ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-10:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-11:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-12:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-13:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-14:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-15:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-16:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-17:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-18:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-19:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-20:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-21:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-22:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-23:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-24:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-25:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-26:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-27:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-28:                                               ; preds = %2
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-29:                                               ; preds = %2
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !alias.scope !1557, !nonnull !12, !noundef !12
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load i64, ptr %32, align 8, !alias.scope !1557, !noundef !12
-  br label %_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit
-
-_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit: ; preds = %2, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29
-  %.sroa.26.0.i = phi i64 [ 10, %6 ], [ 10, %7 ], [ 10, %8 ], [ 10, %9 ], [ 10, %10 ], [ 10, %11 ], [ 10, %12 ], [ 10, %13 ], [ 10, %14 ], [ 11, %15 ], [ 9, %16 ], [ 6, %17 ], [ 11, %18 ], [ 6, %19 ], [ 11, %20 ], [ 13, %21 ], [ 12, %22 ], [ 12, %23 ], [ 12, %24 ], [ 12, %25 ], [ 6, %26 ], [ 4, %27 ], [ 6, %28 ], [ %33, %29 ], [ 8, %2 ]
-  %.sroa.0.0.i = phi ptr [ @anon.e9f42dff1fd369047582a93c3ee51670.175, %6 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.176, %7 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.177, %8 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.178, %9 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.179, %10 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.180, %11 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.181, %12 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.182, %13 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.183, %14 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.184, %15 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.185, %16 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.186, %17 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.187, %18 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.188, %19 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.189, %20 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.190, %21 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.191, %22 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.192, %23 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.193, %24 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.194, %25 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.195, %26 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.196, %27 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.197, %28 ], [ %31, %29 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.174, %2 ]
-  %34 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.26.0.i)
-  ret i1 %34
+_ZN10actix_http6header6shared7charset7Charset5label17ha5766f2f40ebcab3E.exit:
+  %2 = load i64, ptr %0, align 8, !range !1556, !alias.scope !1557, !noundef !12
+  %3 = xor i64 %2, -9223372036854775808
+  %4 = icmp ult i64 %3, 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$actix_http..header..shared..charset..Charset$u20$as$u20$core..fmt..Display$GT$3fmt17hcb9226fd68f1c9f2E", i64 %3
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$actix_http..header..shared..charset..Charset$u20$as$u20$core..fmt..Display$GT$3fmt17hcb9226fd68f1c9f2E.38", i64 %3
+  %.sroa.26.0.i.in = select i1 %4, ptr %switch.gep, ptr %6
+  %.sroa.0.0.i.in = select i1 %4, ptr %switch.gep1, ptr %5
+  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.i.in, align 8
+  %.sroa.26.0.i = load i64, ptr %.sroa.26.0.i.in, align 8
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.26.0.i)
+  ret i1 %7
 }
 
 ; Function Attrs: nonlazybind uwtable

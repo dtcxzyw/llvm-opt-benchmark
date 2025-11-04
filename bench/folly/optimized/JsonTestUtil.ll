@@ -1924,12 +1924,10 @@ define linkonce_odr void @_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char
   store i32 256, ptr %17, align 8, !tbaa !108
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %18, align 8, !tbaa !109
-  %..i = call noundef i32 @llvm.umin.i32(i32 %2, i32 3)
-  switch i32 %..i, label %default.unreachable [
+  switch i32 %2, label %28 [
     i32 0, label %.invoke
     i32 1, label %21
     i32 2, label %26
-    i32 3, label %28
   ]
 
 19:                                               ; preds = %.invoke, %28, %26
@@ -1944,15 +1942,12 @@ define linkonce_odr void @_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char
 
 .invoke:                                          ; preds = %5, %21
   %24 = phi double [ %23, %21 ], [ %0, %5 ]
-  %25 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS_13StringBuilderENS0_8DtoaModeE(ptr noundef nonnull align 8 dereferenceable(48) %6, double noundef %24, ptr noundef nonnull %8, i32 noundef %..i)
+  %25 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS_13StringBuilderENS0_8DtoaModeE(ptr noundef nonnull align 8 dereferenceable(48) %6, double noundef %24, ptr noundef nonnull %8, i32 noundef %2)
           to label %30 unwind label %19
 
 26:                                               ; preds = %5
   %27 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter7ToFixedEdiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %6, double noundef %0, i32 noundef %3, ptr noundef nonnull %8)
           to label %30 unwind label %19
-
-default.unreachable:                              ; preds = %5
-  unreachable
 
 28:                                               ; preds = %5
   %29 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter11ToPrecisionEdiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %6, double noundef %0, i32 noundef %3, ptr noundef nonnull %8)
@@ -2350,9 +2345,6 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22

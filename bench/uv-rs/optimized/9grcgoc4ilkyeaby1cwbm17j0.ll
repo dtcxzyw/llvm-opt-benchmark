@@ -8261,33 +8261,28 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1738)
   %5 = load i64, ptr %4, align 8, !range !1741, !alias.scope !1738, !noalias !1742, !noundef !3
   %6 = xor i64 %5, -9223372036854775808
-  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 2)
-  switch i64 %7, label %default.unreachable [
-    i64 0, label %8
-    i64 1, label %10
-    i64 2, label %12
+  switch i64 %6, label %11 [
+    i64 0, label %7
+    i64 1, label %9
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fd166c9e2d114972f40f0ebb4c15647.248, i64 noundef 12), !noalias !1738
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fd166c9e2d114972f40f0ebb4c15647.248, i64 noundef 12), !noalias !1738
   br label %"_ZN83_$LT$uv_python..environment..InvalidEnvironmentKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h2b38712da05cfb5eE.exit"
 
-10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fd166c9e2d114972f40f0ebb4c15647.249, i64 noundef 5), !noalias !1738
+9:                                                ; preds = %2
+  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fd166c9e2d114972f40f0ebb4c15647.249, i64 noundef 5), !noalias !1738
   br label %"_ZN83_$LT$uv_python..environment..InvalidEnvironmentKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h2b38712da05cfb5eE.exit"
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1744
   store ptr %4, ptr %3, align 8, !noalias !1744
-  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fd166c9e2d114972f40f0ebb4c15647.250, i64 noundef 17, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4fd166c9e2d114972f40f0ebb4c15647.52)
+  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fd166c9e2d114972f40f0ebb4c15647.250, i64 noundef 17, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4fd166c9e2d114972f40f0ebb4c15647.52)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1744
   br label %"_ZN83_$LT$uv_python..environment..InvalidEnvironmentKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h2b38712da05cfb5eE.exit"
 
-"_ZN83_$LT$uv_python..environment..InvalidEnvironmentKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h2b38712da05cfb5eE.exit": ; preds = %8, %10, %12
-  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
+"_ZN83_$LT$uv_python..environment..InvalidEnvironmentKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h2b38712da05cfb5eE.exit": ; preds = %7, %9, %11
+  %.sroa.0.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -24544,9 +24539,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22

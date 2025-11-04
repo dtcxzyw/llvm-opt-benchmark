@@ -3433,16 +3433,11 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$
 
 _ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit: ; preds = %38
   %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %39, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.01.0.i.i.i, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread7 [
     i64 0, label %43
     i64 1, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread
     i64 2, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread
-    i64 3, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread7
   ], !prof !177
-
-default.unreachable:                              ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit
-  unreachable
 
 43:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.192cb737ebb450dbe56e29c1da06b260.41, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192cb737ebb450dbe56e29c1da06b260.42) #26
@@ -3456,7 +3451,7 @@ _ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thre
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %46, label %45, !prof !37
 
-_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread7: ; preds = %.split.i, %.split.us.i, %45, %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit
+_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread7: ; preds = %.split.i, %.split.us.i, %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit, %45
   ret void
 
 45:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread
@@ -3556,16 +3551,11 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$
 
 _ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit: ; preds = %38
   %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %39, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.01.0.i.i.i, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread7 [
     i64 0, label %43
     i64 1, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread
     i64 2, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread
-    i64 3, label %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread7
   ], !prof !177
-
-default.unreachable:                              ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit
-  unreachable
 
 43:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.192cb737ebb450dbe56e29c1da06b260.41, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192cb737ebb450dbe56e29c1da06b260.42) #26
@@ -3579,7 +3569,7 @@ _ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thre
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %46, label %45, !prof !37
 
-_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread7: ; preds = %.split.i, %.split.us.i, %45, %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit
+_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread7: ; preds = %.split.i, %.split.us.i, %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit, %45
   ret void
 
 45:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17hb4e6040598540c1cE.exit.thread
@@ -6515,9 +6505,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #23
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -6730,7 +6717,7 @@ attributes #28 = { cold noreturn nounwind }
 !174 = distinct !{!174, !175, !"_ZN4core3ops8function6FnOnce9call_once17h8e5d8f4ad5b949a0E: argument 0"}
 !175 = distinct !{!175, !"_ZN4core3ops8function6FnOnce9call_once17h8e5d8f4ad5b949a0E"}
 !176 = !{i64 128}
-!177 = !{!"branch_weights", i32 17, i32 6219984, i32 0, i32 0, i32 2141263647}
+!177 = !{!"branch_weights", i32 2141263647, i32 6219984, i32 0, i32 0}
 !178 = !{!179}
 !179 = distinct !{!179, !180, !"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$10start_send17he82219c79852905fE: argument 0"}
 !180 = distinct !{!180, !"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$10start_send17he82219c79852905fE"}

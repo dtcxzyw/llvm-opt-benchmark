@@ -15269,55 +15269,45 @@ default.unreachable1:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN95_$LT$awc..any_body..AnyBody$LT$B$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$4size17hdca2b90ae4197e4aE"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !535, !noundef !7
-  %3 = add nsw i64 %2, -3
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
-  switch i64 %4, label %default.unreachable [
+  switch i64 %2, label %default.unreachable [
+    i64 3, label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$4size17hce4a5e2eeef080c3E.llvm.14837436092785038340.exit"
+    i64 4, label %3
     i64 0, label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$4size17hce4a5e2eeef080c3E.llvm.14837436092785038340.exit"
-    i64 1, label %5
-    i64 2, label %8
+    i64 1, label %6
+    i64 2, label %9
   ]
+
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = load i64, ptr %4, align 8, !noundef !7
+  br label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$4size17hce4a5e2eeef080c3E.llvm.14837436092785038340.exit"
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !noundef !7
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i64, ptr %7, align 8, !noundef !7
   br label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$4size17hce4a5e2eeef080c3E.llvm.14837436092785038340.exit"
 
-8:                                                ; preds = %1
-  switch i64 %2, label %default.unreachable4.i [
-    i64 0, label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$4size17hce4a5e2eeef080c3E.llvm.14837436092785038340.exit"
-    i64 1, label %9
-    i64 2, label %12
-  ]
-
-default.unreachable4.i:                           ; preds = %8
-  unreachable
-
-9:                                                ; preds = %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i64, ptr %10, align 8, !noundef !7
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !nonnull !7, !noundef !7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load ptr, ptr %12, align 8, !nonnull !7, !align !25, !noundef !7
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %15 = load ptr, ptr %14, align 8, !invariant.load !7, !nonnull !7
+  %16 = tail call { i64, i64 } %15(ptr noundef nonnull align 1 %11)
+  %17 = extractvalue { i64, i64 } %16, 0
+  %18 = extractvalue { i64, i64 } %16, 1
   br label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$4size17hce4a5e2eeef080c3E.llvm.14837436092785038340.exit"
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !nonnull !7, !noundef !7
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !nonnull !7, !align !25, !noundef !7
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load ptr, ptr %17, align 8, !invariant.load !7, !nonnull !7
-  %19 = tail call { i64, i64 } %18(ptr noundef nonnull align 1 %14)
-  %20 = extractvalue { i64, i64 } %19, 0
-  %21 = extractvalue { i64, i64 } %19, 1
-  br label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$4size17hce4a5e2eeef080c3E.llvm.14837436092785038340.exit"
-
-"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$4size17hce4a5e2eeef080c3E.llvm.14837436092785038340.exit": ; preds = %12, %9, %8, %1, %5
-  %.sroa.4.0 = phi i64 [ %7, %5 ], [ undef, %1 ], [ %11, %9 ], [ %21, %12 ], [ undef, %8 ]
-  %.sroa.0.0 = phi i64 [ 1, %5 ], [ %4, %1 ], [ 1, %9 ], [ %20, %12 ], [ %2, %8 ]
-  %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %23 = insertvalue { i64, i64 } %22, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %23
+"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$4size17hce4a5e2eeef080c3E.llvm.14837436092785038340.exit": ; preds = %9, %6, %1, %1, %3
+  %.sroa.4.0 = phi i64 [ %5, %3 ], [ undef, %1 ], [ %8, %6 ], [ %18, %9 ], [ undef, %1 ]
+  %.sroa.0.0 = phi i64 [ 1, %3 ], [ 0, %1 ], [ 1, %6 ], [ %17, %9 ], [ 0, %1 ]
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -15326,150 +15316,144 @@ define hidden void @"_ZN95_$LT$awc..any_body..AnyBody$LT$B$GT$$u20$as$u20$actix_
   %4 = alloca { i64, [4 x i64] }, align 8
   %.sroa.46 = alloca [4 x i64], align 8
   %5 = load i64, ptr %1, align 8, !range !535, !noundef !7
-  %6 = add nsw i64 %5, -3
-  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 2)
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i64 %7, label %default.unreachable15 [
-    i64 0, label %9
-    i64 1, label %10
-    i64 2, label %14
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  switch i64 %5, label %12 [
+    i64 3, label %7
+    i64 4, label %8
   ]
 
-default.unreachable15:                            ; preds = %3
-  unreachable
-
-9:                                                ; preds = %3
+7:                                                ; preds = %3
   store i64 0, ptr %0, align 8
-  br label %39
+  br label %37
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load i64, ptr %11, align 8, !noundef !7
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %40, label %41
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = load i64, ptr %9, align 8, !noundef !7
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %38, label %39
 
-14:                                               ; preds = %3
+12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2875)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2878)
   switch i64 %5, label %default.unreachable12.i [
     i64 0, label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit.thread"
-    i64 1, label %15
-    i64 2, label %22
+    i64 1, label %13
+    i64 2, label %20
   ]
 
-default.unreachable12.i:                          ; preds = %14
+default.unreachable12.i:                          ; preds = %12
   unreachable
 
-15:                                               ; preds = %14
+13:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i)
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load i64, ptr %16, align 8, !alias.scope !2880, !noalias !2883, !noundef !7
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i", label %19
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = load i64, ptr %14, align 8, !alias.scope !2880, !noalias !2883, !noundef !7
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i", label %17
 
-19:                                               ; preds = %15
-  %.sroa.09.0.copyload.i = load ptr, ptr %8, align 8, !alias.scope !2878, !noalias !2883
+17:                                               ; preds = %13
+  %.sroa.09.0.copyload.i = load ptr, ptr %6, align 8, !alias.scope !2878, !noalias !2883
   %.sroa.410.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.410.0..sroa_idx.i, i64 24, i1 false), !noalias !2886
-  store ptr @anon.d07909af76fe9cd4e206baf0847e55b7.1.llvm.14837436092785038340, ptr %8, align 8, !alias.scope !2880, !noalias !2883
+  store ptr @anon.d07909af76fe9cd4e206baf0847e55b7.1.llvm.14837436092785038340, ptr %6, align 8, !alias.scope !2880, !noalias !2883
   store ptr @anon.d07909af76fe9cd4e206baf0847e55b7.0.llvm.14837436092785038340, ptr %.sroa.410.0..sroa_idx.i, align 8, !alias.scope !2880, !noalias !2883
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !alias.scope !2880, !noalias !2883
-  %20 = icmp eq ptr %.sroa.09.0.copyload.i, null
-  br i1 %20, label %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i", label %21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !2880, !noalias !2883
+  %18 = icmp eq ptr %.sroa.09.0.copyload.i, null
+  br i1 %18, label %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i", label %19
 
-21:                                               ; preds = %19
+19:                                               ; preds = %17
   %.sroa.4.0..sroa_idx.i5.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.09.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i5.i, align 8, !alias.scope !2887, !noalias !2891
   %.sroa.8.8..sroa.4.0..sroa_idx.i5.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.8..sroa.4.0..sroa_idx.i5.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i, i64 24, i1 false), !alias.scope !2892, !noalias !2891
   br label %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i"
 
-"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i": ; preds = %15, %19, %21
-  %.pr14 = phi i64 [ 1, %21 ], [ 0, %19 ], [ 0, %15 ]
+"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i": ; preds = %13, %17, %19
+  %.pr14 = phi i64 [ 1, %19 ], [ 0, %17 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %8, align 8, !alias.scope !2878, !noalias !2886, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load ptr, ptr %24, align 8, !alias.scope !2878, !noalias !2886, !nonnull !7, !align !25, !noundef !7
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = load ptr, ptr %26, align 8, !invariant.load !7, !noalias !2893, !nonnull !7
-  call void %27(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %4, ptr noundef nonnull align 1 %23, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !2878
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %6, align 8, !alias.scope !2878, !noalias !2886, !nonnull !7, !noundef !7
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = load ptr, ptr %22, align 8, !alias.scope !2878, !noalias !2886, !nonnull !7, !align !25, !noundef !7
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %25 = load ptr, ptr %24, align 8, !invariant.load !7, !noalias !2893, !nonnull !7
+  call void %25(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %4, ptr noundef nonnull align 1 %21, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !2878
   %.pr.pre = load i64, ptr %4, align 8, !alias.scope !2894, !noalias !2897
   br label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
 
-"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit": ; preds = %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i", %22
-  %.pr = phi i64 [ %.pr14, %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i" ], [ %.pr.pre, %22 ]
+"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit": ; preds = %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i", %20
+  %.pr = phi i64 [ %.pr14, %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i" ], [ %.pr.pre, %20 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2897)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2894)
   switch i64 %.pr, label %default.unreachable9.i [
-    i64 2, label %28
+    i64 2, label %26
     i64 0, label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit.thread"
-    i64 1, label %29
+    i64 1, label %27
   ]
 
 default.unreachable9.i:                           ; preds = %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
   unreachable
 
-28:                                               ; preds = %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
+26:                                               ; preds = %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
   store i64 2, ptr %0, align 8, !alias.scope !2897, !noalias !2894
   br label %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd8130d6a731f9657E.exit"
 
-"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit.thread": ; preds = %14, %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
+"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit.thread": ; preds = %12, %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
   store i64 0, ptr %0, align 8, !alias.scope !2897, !noalias !2894
   br label %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd8130d6a731f9657E.exit"
 
-29:                                               ; preds = %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %31 = load ptr, ptr %30, align 8, !alias.scope !2894, !noalias !2897, !noundef !7
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %34, label %33
+27:                                               ; preds = %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = load ptr, ptr %28, align 8, !alias.scope !2894, !noalias !2897, !noundef !7
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %32, label %31
 
-33:                                               ; preds = %29
+31:                                               ; preds = %27
   store i64 1, ptr %0, align 8, !alias.scope !2897, !noalias !2894
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %30, i64 32, i1 false), !alias.scope !2899
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %28, i64 32, i1 false), !alias.scope !2899
   br label %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd8130d6a731f9657E.exit"
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %36 = load ptr, ptr %35, align 8, !alias.scope !2894, !noalias !2897, !nonnull !7, !align !26, !noundef !7
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %38 = load ptr, ptr %37, align 8, !alias.scope !2894, !noalias !2897, !nonnull !7, !align !25, !noundef !7
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %34 = load ptr, ptr %33, align 8, !alias.scope !2894, !noalias !2897, !nonnull !7, !align !26, !noundef !7
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %36 = load ptr, ptr %35, align 8, !alias.scope !2894, !noalias !2897, !nonnull !7, !align !25, !noundef !7
   store i64 1, ptr %0, align 8, !alias.scope !2897, !noalias !2894
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !2897, !noalias !2894
   %.sroa.42.sroa.4.0..sroa.42.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %36, ptr %.sroa.42.sroa.4.0..sroa.42.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !2897, !noalias !2894
+  store ptr %34, ptr %.sroa.42.sroa.4.0..sroa.42.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !2897, !noalias !2894
   %.sroa.42.sroa.5.0..sroa.42.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %38, ptr %.sroa.42.sroa.5.0..sroa.42.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !2897, !noalias !2894
+  store ptr %36, ptr %.sroa.42.sroa.5.0..sroa.42.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !2897, !noalias !2894
   br label %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd8130d6a731f9657E.exit"
 
-"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd8130d6a731f9657E.exit": ; preds = %28, %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit.thread", %33, %34
+"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd8130d6a731f9657E.exit": ; preds = %26, %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit.thread", %31, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %39
+  br label %37
 
-39:                                               ; preds = %40, %41, %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd8130d6a731f9657E.exit", %9
+37:                                               ; preds = %38, %39, %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd8130d6a731f9657E.exit", %7
   ret void
 
-40:                                               ; preds = %10
+38:                                               ; preds = %8
   store i64 0, ptr %0, align 8
-  br label %39
+  br label %37
 
-41:                                               ; preds = %10
+39:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.46)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.46, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  store ptr @anon.d07909af76fe9cd4e206baf0847e55b7.1.llvm.14837436092785038340, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.46, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  store ptr @anon.d07909af76fe9cd4e206baf0847e55b7.1.llvm.14837436092785038340, ptr %6, align 8
   %.sroa.2.0..sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @anon.d07909af76fe9cd4e206baf0847e55b7.0.llvm.14837436092785038340, ptr %.sroa.2.0..sroa.6.8..sroa_idx, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i64 1, ptr %0, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.46, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.46)
-  br label %39
+  br label %37
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

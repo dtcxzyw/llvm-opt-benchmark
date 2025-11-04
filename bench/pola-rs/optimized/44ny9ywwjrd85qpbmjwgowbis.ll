@@ -16570,42 +16570,37 @@ define internal noundef zeroext i1 @"_ZN63_$LT$sqlparser..ast..SchemaName$u20$as
   %5 = alloca [8 x i8], align 8
   %6 = load i64, ptr %0, align 8, !range !205, !noundef !4
   %7 = xor i64 %6, -9223372036854775808
-  %8 = tail call i64 @llvm.umin.i64(i64 %7, i64 2)
-  switch i64 %8, label %default.unreachable [
-    i64 0, label %9
-    i64 1, label %12
-    i64 2, label %15
+  switch i64 %7, label %14 [
+    i64 0, label %8
+    i64 1, label %11
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %5, align 8
-  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.712, i64 noundef 6, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.116)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %9, ptr %5, align 8
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.712, i64 noundef 6, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.116)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %18
+  br label %17
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %13, ptr %4, align 8
-  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.713, i64 noundef 20, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.16)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %12, ptr %4, align 8
+  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.713, i64 noundef 20, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.16)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %18
+  br label %17
 
-15:                                               ; preds = %2
+14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %16, ptr %3, align 8
-  %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h0454beec65a859adE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.714, i64 noundef 18, ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.172, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.16)
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %15, ptr %3, align 8
+  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h0454beec65a859adE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.714, i64 noundef 18, ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.172, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.16)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %18
+  br label %17
 
-18:                                               ; preds = %15, %12, %9
-  %.sroa.0.0.in = phi i1 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ]
+17:                                               ; preds = %14, %11, %8
+  %.sroa.0.0.in = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -16657,200 +16652,203 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$sqlparser..ast..Function$u
   br i1 %26, label %27, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
 27:                                               ; preds = %17
-  switch i64 %22, label %default.unreachable57 [
+  switch i64 %21, label %30 [
     i64 1, label %28
-    i64 2, label %36
     i64 0, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21"
   ]
 
-default.unreachable57:                            ; preds = %80, %27
-  unreachable
-
 28:                                               ; preds = %27
   %29 = icmp eq i64 %23, -9223372036854775807
-  br i1 %29, label %30, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21"
+  br i1 %29, label %32, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21"
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %32 = load ptr, ptr %31, align 8, !alias.scope !1327, !noalias !1330, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %34 = load ptr, ptr %33, align 8, !alias.scope !1330, !noalias !1327, !nonnull !4, !noundef !4
-  %35 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Query$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2f01d427898414aE"(ptr noalias noundef readonly align 8 dereferenceable(1376) %32, ptr noalias noundef readonly align 8 dereferenceable(1376) %34), !noalias !1332
-  br i1 %35, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+30:                                               ; preds = %27
+  %31 = icmp ugt i64 %24, 1
+  br i1 %31, label %38, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21"
 
-36:                                               ; preds = %27
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %34 = load ptr, ptr %33, align 8, !alias.scope !1327, !noalias !1330, !nonnull !4, !noundef !4
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %36 = load ptr, ptr %35, align 8, !alias.scope !1330, !noalias !1327, !nonnull !4, !noundef !4
+  %37 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Query$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2f01d427898414aE"(ptr noalias noundef readonly align 8 dereferenceable(1376) %34, ptr noalias noundef readonly align 8 dereferenceable(1376) %36), !noalias !1332
+  br i1 %37, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+
+38:                                               ; preds = %30
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1333)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1336)
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %38 = load i8, ptr %37, align 8, !range !15, !alias.scope !1333, !noalias !1336, !noundef !4
-  %.not.i = icmp eq i8 %38, 2
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %40 = load i8, ptr %39, align 8, !range !15, !alias.scope !1336, !noalias !1333, !noundef !4
-  br i1 %.not.i, label %42, label %41
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %40 = load i8, ptr %39, align 8, !range !15, !alias.scope !1333, !noalias !1336, !noundef !4
+  %.not.i = icmp eq i8 %40, 2
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %42 = load i8, ptr %41, align 8, !range !15, !alias.scope !1336, !noalias !1333, !noundef !4
+  br i1 %.not.i, label %44, label %43
 
-41:                                               ; preds = %36
-  %.not31 = icmp eq i8 %38, %40
-  br i1 %.not31, label %44, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+43:                                               ; preds = %38
+  %.not31 = icmp eq i8 %40, %42
+  br i1 %.not31, label %46, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-42:                                               ; preds = %36
-  %43 = icmp eq i8 %40, 2
-  br i1 %43, label %44, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+44:                                               ; preds = %38
+  %45 = icmp eq i8 %42, 2
+  br i1 %45, label %46, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-44:                                               ; preds = %41, %42
+46:                                               ; preds = %43, %44
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1338)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1341)
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %46 = load ptr, ptr %45, align 8, !alias.scope !1343, !noalias !1344, !nonnull !4, !noundef !4
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %48 = load i64, ptr %47, align 8, !alias.scope !1343, !noalias !1344, !noundef !4
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %50 = load ptr, ptr %49, align 8, !alias.scope !1344, !noalias !1343, !nonnull !4, !noundef !4
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %52 = load i64, ptr %51, align 8, !alias.scope !1344, !noalias !1343, !noundef !4
-  %.not.i38 = icmp eq i64 %48, %52
-  br i1 %.not.i38, label %.preheader.split.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %48 = load ptr, ptr %47, align 8, !alias.scope !1343, !noalias !1344, !nonnull !4, !noundef !4
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %50 = load i64, ptr %49, align 8, !alias.scope !1343, !noalias !1344, !noundef !4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %52 = load ptr, ptr %51, align 8, !alias.scope !1344, !noalias !1343, !nonnull !4, !noundef !4
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %54 = load i64, ptr %53, align 8, !alias.scope !1344, !noalias !1343, !noundef !4
+  %.not.i36 = icmp eq i64 %50, %54
+  br i1 %.not.i36, label %.preheader.split.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-.preheader.split.i:                               ; preds = %44, %53
-  %.sroa.01.0.i = phi i64 [ %54, %53 ], [ 0, %44 ]
-  %exitcond.not.i = icmp eq i64 %.sroa.01.0.i, %48
-  br i1 %exitcond.not.i, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit", label %53
+.preheader.split.i:                               ; preds = %46, %55
+  %.sroa.01.0.i = phi i64 [ %56, %55 ], [ 0, %46 ]
+  %exitcond.not.i = icmp eq i64 %.sroa.01.0.i, %50
+  br i1 %exitcond.not.i, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit", label %55
 
-53:                                               ; preds = %.preheader.split.i
-  %54 = add i64 %.sroa.01.0.i, 1
-  %55 = getelementptr inbounds nuw { i64, [82 x i64] }, ptr %46, i64 %.sroa.01.0.i
-  %56 = getelementptr inbounds nuw { i64, [82 x i64] }, ptr %50, i64 %.sroa.01.0.i
-  %57 = tail call fastcc noundef zeroext i1 @"_ZN68_$LT$sqlparser..ast..FunctionArg$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0b51eeb37765d676E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(664) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(664) %56), !noalias !1345
-  br i1 %57, label %.preheader.split.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+55:                                               ; preds = %.preheader.split.i
+  %56 = add i64 %.sroa.01.0.i, 1
+  %57 = getelementptr inbounds nuw { i64, [82 x i64] }, ptr %48, i64 %.sroa.01.0.i
+  %58 = getelementptr inbounds nuw { i64, [82 x i64] }, ptr %52, i64 %.sroa.01.0.i
+  %59 = tail call fastcc noundef zeroext i1 @"_ZN68_$LT$sqlparser..ast..FunctionArg$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0b51eeb37765d676E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(664) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(664) %58), !noalias !1345
+  br i1 %59, label %.preheader.split.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
 "_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit": ; preds = %.preheader.split.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1346)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1349)
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %59 = load ptr, ptr %58, align 8, !alias.scope !1351, !noalias !1352, !nonnull !4, !noundef !4
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %61 = load i64, ptr %60, align 8, !alias.scope !1351, !noalias !1352, !noundef !4
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %63 = load ptr, ptr %62, align 8, !alias.scope !1352, !noalias !1351, !nonnull !4, !noundef !4
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %65 = load i64, ptr %64, align 8, !alias.scope !1352, !noalias !1351, !noundef !4
-  %.not.i39 = icmp eq i64 %61, %65
-  br i1 %.not.i39, label %.preheader.split.i41, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %61 = load ptr, ptr %60, align 8, !alias.scope !1351, !noalias !1352, !nonnull !4, !noundef !4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %63 = load i64, ptr %62, align 8, !alias.scope !1351, !noalias !1352, !noundef !4
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %65 = load ptr, ptr %64, align 8, !alias.scope !1352, !noalias !1351, !nonnull !4, !noundef !4
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %67 = load i64, ptr %66, align 8, !alias.scope !1352, !noalias !1351, !noundef !4
+  %.not.i37 = icmp eq i64 %63, %67
+  br i1 %.not.i37, label %.preheader.split.i39, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-.preheader.split.i41:                             ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit", %66
-  %.sroa.01.0.i42 = phi i64 [ %67, %66 ], [ 0, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit" ]
-  %exitcond.not.i43 = icmp eq i64 %.sroa.01.0.i42, %61
-  br i1 %exitcond.not.i43, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21", label %66
+.preheader.split.i39:                             ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit", %68
+  %.sroa.01.0.i40 = phi i64 [ %69, %68 ], [ 0, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit" ]
+  %exitcond.not.i41 = icmp eq i64 %.sroa.01.0.i40, %63
+  br i1 %exitcond.not.i41, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21", label %68
 
-66:                                               ; preds = %.preheader.split.i41
-  %67 = add i64 %.sroa.01.0.i42, 1
-  %68 = getelementptr inbounds nuw { i64, [41 x i64] }, ptr %59, i64 %.sroa.01.0.i42
-  %69 = getelementptr inbounds nuw { i64, [41 x i64] }, ptr %63, i64 %.sroa.01.0.i42
-  %70 = tail call fastcc noundef zeroext i1 @"_ZN79_$LT$sqlparser..ast..FunctionArgumentClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3bfd3a2efcdebff2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(336) %68, ptr noalias noundef nonnull readonly align 8 dereferenceable(336) %69), !noalias !1353
-  br i1 %70, label %.preheader.split.i41, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+68:                                               ; preds = %.preheader.split.i39
+  %69 = add i64 %.sroa.01.0.i40, 1
+  %70 = getelementptr inbounds nuw { i64, [41 x i64] }, ptr %61, i64 %.sroa.01.0.i40
+  %71 = getelementptr inbounds nuw { i64, [41 x i64] }, ptr %65, i64 %.sroa.01.0.i40
+  %72 = tail call fastcc noundef zeroext i1 @"_ZN79_$LT$sqlparser..ast..FunctionArgumentClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3bfd3a2efcdebff2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(336) %70, ptr noalias noundef nonnull readonly align 8 dereferenceable(336) %71), !noalias !1353
+  br i1 %72, label %.preheader.split.i39, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21": ; preds = %.preheader.split.i41, %27, %28, %30
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 256
+"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21": ; preds = %.preheader.split.i39, %28, %30, %27, %32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 256
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1354)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1357)
-  %73 = load i64, ptr %71, align 8, !range !205, !alias.scope !1354, !noalias !1357, !noundef !4
-  %74 = xor i64 %73, -9223372036854775808
-  %75 = tail call i64 @llvm.umin.i64(i64 %74, i64 2)
-  %76 = load i64, ptr %72, align 8, !range !205, !alias.scope !1357, !noalias !1354, !noundef !4
-  %77 = xor i64 %76, -9223372036854775808
-  %78 = tail call i64 @llvm.umin.i64(i64 %77, i64 2)
-  %79 = icmp eq i64 %75, %78
-  br i1 %79, label %80, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+  %75 = load i64, ptr %73, align 8, !range !205, !alias.scope !1354, !noalias !1357, !noundef !4
+  %76 = xor i64 %75, -9223372036854775808
+  %77 = tail call i64 @llvm.umin.i64(i64 %76, i64 2)
+  %78 = load i64, ptr %74, align 8, !range !205, !alias.scope !1357, !noalias !1354, !noundef !4
+  %79 = xor i64 %78, -9223372036854775808
+  %80 = tail call i64 @llvm.umin.i64(i64 %79, i64 2)
+  %81 = icmp eq i64 %77, %80
+  br i1 %81, label %82, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-80:                                               ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21"
-  switch i64 %75, label %default.unreachable57 [
-    i64 1, label %81
-    i64 2, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17"
+82:                                               ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21"
+  switch i64 %76, label %85 [
+    i64 1, label %83
     i64 0, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
   ]
 
-81:                                               ; preds = %80
-  %82 = icmp eq i64 %76, -9223372036854775807
-  br i1 %82, label %83, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
+83:                                               ; preds = %82
+  %84 = icmp eq i64 %78, -9223372036854775807
+  br i1 %84, label %87, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
 
-83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %85 = load ptr, ptr %84, align 8, !alias.scope !1354, !noalias !1357, !nonnull !4, !noundef !4
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %87 = load ptr, ptr %86, align 8, !alias.scope !1357, !noalias !1354, !nonnull !4, !noundef !4
-  %88 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Query$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2f01d427898414aE"(ptr noalias noundef readonly align 8 dereferenceable(1376) %85, ptr noalias noundef readonly align 8 dereferenceable(1376) %87), !noalias !1359
-  br i1 %88, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+85:                                               ; preds = %82
+  %86 = icmp ugt i64 %79, 1
+  br i1 %86, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
 
-"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17": ; preds = %80
-  %89 = tail call fastcc noundef zeroext i1 @"_ZN77_$LT$sqlparser..ast..FunctionArgumentList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h16b558b59af9fd3dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %72)
-  br i1 %89, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %89 = load ptr, ptr %88, align 8, !alias.scope !1354, !noalias !1357, !nonnull !4, !noundef !4
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %91 = load ptr, ptr %90, align 8, !alias.scope !1357, !noalias !1354, !nonnull !4, !noundef !4
+  %92 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Query$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2f01d427898414aE"(ptr noalias noundef readonly align 8 dereferenceable(1376) %89, ptr noalias noundef readonly align 8 dereferenceable(1376) %91), !noalias !1359
+  br i1 %92, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread": ; preds = %80, %81, %83, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17"
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %91 = load ptr, ptr %90, align 8, !align !5, !noundef !4
-  %.not = icmp eq ptr %91, null
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %93 = load ptr, ptr %92, align 8, !align !5, !noundef !4
-  %94 = icmp eq ptr %93, null
-  br i1 %.not, label %96, label %95
+"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17": ; preds = %85
+  %93 = tail call fastcc noundef zeroext i1 @"_ZN77_$LT$sqlparser..ast..FunctionArgumentList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h16b558b59af9fd3dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %74)
+  br i1 %93, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-95:                                               ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
-  br i1 %94, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread", label %97
+"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread": ; preds = %83, %85, %82, %87, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17"
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %95 = load ptr, ptr %94, align 8, !align !5, !noundef !4
+  %.not = icmp eq ptr %95, null
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %97 = load ptr, ptr %96, align 8, !align !5, !noundef !4
+  %98 = icmp eq ptr %97, null
+  br i1 %.not, label %100, label %99
 
-96:                                               ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
-  br i1 %94, label %99, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+99:                                               ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
+  br i1 %98, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread", label %101
 
-97:                                               ; preds = %95
-  %98 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %91, ptr noalias noundef readonly align 8 dereferenceable(328) %93)
-  br i1 %98, label %99, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+100:                                              ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
+  br i1 %98, label %103, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-99:                                               ; preds = %97, %96
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 321
-  %101 = load i8, ptr %100, align 1, !range !15, !noundef !4
-  %.not5 = icmp eq i8 %101, 2
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 321
-  %103 = load i8, ptr %102, align 1, !range !15, !noundef !4
-  br i1 %.not5, label %105, label %104
+101:                                              ; preds = %99
+  %102 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %95, ptr noalias noundef readonly align 8 dereferenceable(328) %97)
+  br i1 %102, label %103, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-104:                                              ; preds = %99
-  %.not32 = icmp eq i8 %101, %103
-  br i1 %.not32, label %107, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+103:                                              ; preds = %101, %100
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 321
+  %105 = load i8, ptr %104, align 1, !range !15, !noundef !4
+  %.not5 = icmp eq i8 %105, 2
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 321
+  %107 = load i8, ptr %106, align 1, !range !15, !noundef !4
+  br i1 %.not5, label %109, label %108
 
-105:                                              ; preds = %99
-  %106 = icmp eq i8 %103, 2
-  br i1 %106, label %107, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+108:                                              ; preds = %103
+  %.not32 = icmp eq i8 %105, %107
+  br i1 %.not32, label %111, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-107:                                              ; preds = %104, %105
-  %108 = load i64, ptr %0, align 8, !range !682, !noundef !4
-  %.not7 = icmp eq i64 %108, 5
-  %109 = load i64, ptr %1, align 8, !range !682, !noundef !4
-  %110 = icmp eq i64 %109, 5
-  br i1 %.not7, label %112, label %111
+109:                                              ; preds = %103
+  %110 = icmp eq i8 %107, 2
+  br i1 %110, label %111, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-111:                                              ; preds = %107
-  br i1 %110, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread", label %113
+111:                                              ; preds = %108, %109
+  %112 = load i64, ptr %0, align 8, !range !682, !noundef !4
+  %.not7 = icmp eq i64 %112, 5
+  %113 = load i64, ptr %1, align 8, !range !682, !noundef !4
+  %114 = icmp eq i64 %113, 5
+  br i1 %.not7, label %116, label %115
 
-112:                                              ; preds = %107
-  br i1 %110, label %115, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+115:                                              ; preds = %111
+  br i1 %114, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread", label %117
 
-113:                                              ; preds = %111
-  %114 = tail call fastcc noundef zeroext i1 @"_ZN67_$LT$sqlparser..ast..WindowType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h47dfd097dbad0827E"(ptr noalias noundef readonly align 8 dereferenceable(152) %0, ptr noalias noundef readonly align 8 dereferenceable(152) %1)
-  br i1 %114, label %115, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+116:                                              ; preds = %111
+  br i1 %114, label %119, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-115:                                              ; preds = %113, %112
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %.val12 = load ptr, ptr %116, align 8, !nonnull !4, !noundef !4
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %.val13 = load i64, ptr %117, align 8, !noundef !4
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val14 = load ptr, ptr %118, align 8, !nonnull !4, !noundef !4
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %.val15 = load i64, ptr %119, align 8, !noundef !4
-  %120 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e07b811c897a2aaE"(ptr noalias noundef nonnull readonly align 8 %.val12, i64 noundef %.val13, ptr noalias noundef nonnull readonly align 8 %.val14, i64 noundef %.val15)
+117:                                              ; preds = %115
+  %118 = tail call fastcc noundef zeroext i1 @"_ZN67_$LT$sqlparser..ast..WindowType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h47dfd097dbad0827E"(ptr noalias noundef readonly align 8 dereferenceable(152) %0, ptr noalias noundef readonly align 8 dereferenceable(152) %1)
+  br i1 %118, label %119, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
+
+119:                                              ; preds = %117, %116
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %.val12 = load ptr, ptr %120, align 8, !nonnull !4, !noundef !4
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %.val13 = load i64, ptr %121, align 8, !noundef !4
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %.val14 = load ptr, ptr %122, align 8, !nonnull !4, !noundef !4
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %.val15 = load i64, ptr %123, align 8, !noundef !4
+  %124 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e07b811c897a2aaE"(ptr noalias noundef nonnull readonly align 8 %.val12, i64 noundef %.val13, ptr noalias noundef nonnull readonly align 8 %.val14, i64 noundef %.val15)
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread"
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread": ; preds = %7, %53, %66, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit", %44, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21", %42, %41, %17, %2, %113, %97, %83, %30, %96, %105, %112, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit", %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17", %95, %104, %111, %115
-  %.sroa.0.0 = phi i1 [ %120, %115 ], [ false, %111 ], [ false, %104 ], [ false, %95 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17" ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit" ], [ false, %112 ], [ false, %105 ], [ false, %96 ], [ false, %30 ], [ false, %83 ], [ false, %97 ], [ false, %113 ], [ false, %2 ], [ false, %17 ], [ false, %41 ], [ false, %42 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21" ], [ false, %44 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit" ], [ false, %66 ], [ false, %53 ], [ false, %7 ]
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit.thread": ; preds = %7, %55, %68, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit", %46, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21", %44, %43, %17, %2, %117, %101, %87, %32, %100, %109, %116, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit", %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17", %99, %108, %115, %119
+  %.sroa.0.0 = phi i1 [ %124, %119 ], [ false, %115 ], [ false, %108 ], [ false, %99 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17" ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit" ], [ false, %116 ], [ false, %109 ], [ false, %100 ], [ false, %32 ], [ false, %87 ], [ false, %101 ], [ false, %117 ], [ false, %2 ], [ false, %17 ], [ false, %43 ], [ false, %44 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread21" ], [ false, %46 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit" ], [ false, %68 ], [ false, %55 ], [ false, %7 ]
   ret i1 %.sroa.0.0
 }
 
@@ -24728,18 +24726,14 @@ define internal fastcc noundef zeroext i1 @"_ZN67_$LT$sqlparser..ast..SchemaName
   br i1 %9, label %10, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit"
 
 10:                                               ; preds = %2
-  switch i64 %5, label %default.unreachable [
+  switch i64 %4, label %27 [
     i64 0, label %11
     i64 1, label %22
-    i64 2, label %27
   ]
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit": ; preds = %33, %17, %.preheader.split.i.i, %27, %11, %2, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit14", %22
-  %.sroa.0.0.shrunk = phi i1 [ %26, %22 ], [ %40, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit14" ], [ false, %2 ], [ false, %11 ], [ false, %27 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not.i.i, %17 ], [ false, %33 ]
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit": ; preds = %17, %.preheader.split.i.i, %33, %27, %11, %2, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit14", %22
+  %.sroa.0.0.shrunk = phi i1 [ %26, %22 ], [ %40, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h75b4ffb55f7f7b7aE.exit14" ], [ false, %2 ], [ false, %11 ], [ false, %27 ], [ false, %33 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not.i.i, %17 ]
   ret i1 %.sroa.0.0.shrunk
-
-default.unreachable:                              ; preds = %10
-  unreachable
 
 11:                                               ; preds = %10
   %12 = icmp eq i64 %6, -9223372036854775808
@@ -27042,37 +27036,32 @@ define internal noundef zeroext i1 @"_ZN70_$LT$sqlparser..ast..FunctionArguments
   %4 = alloca [8 x i8], align 8
   %5 = load i64, ptr %0, align 8, !range !205, !noundef !4
   %6 = xor i64 %5, -9223372036854775808
-  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 2)
-  switch i64 %7, label %default.unreachable [
-    i64 0, label %8
-    i64 1, label %10
-    i64 2, label %13
+  switch i64 %6, label %12 [
+    i64 0, label %7
+    i64 1, label %9
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.798, i64 noundef 4)
+  br label %14
 
-8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.798, i64 noundef 4)
-  br label %15
-
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %11, ptr %4, align 8
-  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.141, i64 noundef 8, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.140)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %10, ptr %4, align 8
+  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.141, i64 noundef 8, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.140)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %15
+  br label %14
 
-13:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.971, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.970)
+  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17haeb79a8cb53bd278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.1805cfd34382fd519a50fbaaf53e284c.971, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1805cfd34382fd519a50fbaaf53e284c.970)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %15
+  br label %14
 
-15:                                               ; preds = %13, %10, %8
-  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %12, %10 ], [ %14, %13 ]
+14:                                               ; preds = %12, %9, %7
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %11, %9 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -32424,18 +32413,14 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$sqlparser..ast..query..For
   br i1 %9, label %10, label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15"
 
 10:                                               ; preds = %2
-  switch i64 %5, label %default.unreachable [
-    i64 1, label %11
-    i64 2, label %13
-    i64 0, label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15"
+  switch i64 %3, label %13 [
+    i64 5, label %11
+    i64 4, label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15"
   ]
 
-"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15": ; preds = %47, %86, %.sink.split.i, %29, %92, %84, %85, %72, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread", %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit", %41, %27, %35, %28, %15, %10, %11, %13, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %13 ], [ true, %11 ], [ true, %10 ], [ %46, %41 ], [ false, %27 ], [ false, %35 ], [ false, %28 ], [ false, %15 ], [ %97, %92 ], [ false, %84 ], [ false, %85 ], [ false, %72 ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread" ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit" ], [ false, %29 ], [ false, %.sink.split.i ], [ false, %86 ], [ false, %47 ]
+"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15": ; preds = %47, %86, %.sink.split.i, %29, %92, %84, %85, %72, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread", %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit", %41, %27, %35, %28, %15, %11, %13, %10, %2
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %10 ], [ true, %13 ], [ true, %11 ], [ %46, %41 ], [ false, %27 ], [ false, %35 ], [ false, %28 ], [ false, %15 ], [ %97, %92 ], [ false, %84 ], [ false, %85 ], [ false, %72 ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread" ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit" ], [ false, %29 ], [ false, %.sink.split.i ], [ false, %86 ], [ false, %47 ]
   ret i1 %.sroa.0.0
-
-default.unreachable:                              ; preds = %10
-  unreachable
 
 11:                                               ; preds = %10
   %12 = icmp eq i64 %7, 1

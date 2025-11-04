@@ -2097,82 +2097,77 @@ define void @"_ZN16uv_configuration15package_options119_$LT$impl$u20$core..conve
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %1, align 8, !range !108, !noundef !7
   %6 = xor i64 %5, -9223372036854775808
-  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 2)
-  switch i64 %7, label %default.unreachable [
-    i64 0, label %8
-    i64 1, label %14
-    i64 2, label %20
+  switch i64 %6, label %19 [
+    i64 0, label %7
+    i64 1, label %13
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-8:                                                ; preds = %2
-  %9 = tail call { i64, i32 } @_ZN13uv_cache_info9timestamp9Timestamp3now17hd1b6afaf292eab7cE()
-  %10 = extractvalue { i64, i32 } %9, 0
-  %11 = extractvalue { i64, i32 } %9, 1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %10, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %11, ptr %13, align 8
+7:                                                ; preds = %2
+  %8 = tail call { i64, i32 } @_ZN13uv_cache_info9timestamp9Timestamp3now17hd1b6afaf292eab7cE()
+  %9 = extractvalue { i64, i32 } %8, 0
+  %10 = extractvalue { i64, i32 } %8, 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %9, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %10, ptr %12, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %23
+  br label %22
 
-14:                                               ; preds = %2
-  %15 = tail call { i64, i32 } @_ZN13uv_cache_info9timestamp9Timestamp3now17hd1b6afaf292eab7cE()
-  %16 = extractvalue { i64, i32 } %15, 0
-  %17 = extractvalue { i64, i32 } %15, 1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %16, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %17, ptr %19, align 8
+13:                                               ; preds = %2
+  %14 = tail call { i64, i32 } @_ZN13uv_cache_info9timestamp9Timestamp3now17hd1b6afaf292eab7cE()
+  %15 = extractvalue { i64, i32 } %14, 0
+  %16 = extractvalue { i64, i32 } %14, 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %15, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %16, ptr %18, align 8
   store i64 -9223372036854775806, ptr %0, align 8
-  br label %23
+  br label %22
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %22 = invoke { i64, i32 } @_ZN13uv_cache_info9timestamp9Timestamp3now17hd1b6afaf292eab7cE()
-          to label %26 unwind label %24
+  %21 = invoke { i64, i32 } @_ZN13uv_cache_info9timestamp9Timestamp3now17hd1b6afaf292eab7cE()
+          to label %25 unwind label %23
 
-23:                                               ; preds = %26, %14, %8
+22:                                               ; preds = %25, %13, %7
   ret void
 
-24:                                               ; preds = %20
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %19
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h43bbd49a65fbd4a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #21
-          to label %34 unwind label %32
+          to label %33 unwind label %31
 
-26:                                               ; preds = %20
-  %27 = extractvalue { i64, i32 } %22, 0
-  %28 = extractvalue { i64, i32 } %22, 1
+25:                                               ; preds = %19
+  %26 = extractvalue { i64, i32 } %21, 0
+  %27 = extractvalue { i64, i32 } %21, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %27, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %28, ptr %31, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %26, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %27, ptr %30, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %23
+  br label %22
 
-32:                                               ; preds = %34, %24
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %33, %23
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #22
   unreachable
 
-34:                                               ; preds = %24
+33:                                               ; preds = %23
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$17h2aab1fe4c46a7be0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #21
-          to label %35 unwind label %32
+          to label %34 unwind label %31
 
-35:                                               ; preds = %34
-  resume { ptr, i32 } %25
+34:                                               ; preds = %33
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2735,20 +2730,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #17
+declare i64 @llvm.usub.sat.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -2767,8 +2759,8 @@ attributes #13 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned")
 attributes #14 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #15 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #20 = { noreturn }
 attributes #21 = { cold }

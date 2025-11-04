@@ -2867,172 +2867,175 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$sqlparser..ast..Function$u
   br i1 %23, label %24, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
 24:                                               ; preds = %14
-  switch i64 %19, label %default.unreachable [
+  switch i64 %18, label %27 [
     i64 1, label %25
-    i64 2, label %33
     i64 0, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20"
   ]
 
-default.unreachable:                              ; preds = %61, %24
-  unreachable
-
 25:                                               ; preds = %24
   %26 = icmp eq i64 %20, -9223372036854775807
-  br i1 %26, label %27, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20"
+  br i1 %26, label %29, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20"
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %29 = load ptr, ptr %28, align 8, !alias.scope !76, !noalias !79, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %31 = load ptr, ptr %30, align 8, !alias.scope !79, !noalias !76, !nonnull !4, !noundef !4
-  %32 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Query$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2f01d427898414aE"(ptr noalias noundef readonly align 8 dereferenceable(1376) %29, ptr noalias noundef readonly align 8 dereferenceable(1376) %31), !noalias !82
-  br i1 %32, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+27:                                               ; preds = %24
+  %28 = icmp ugt i64 %21, 1
+  br i1 %28, label %35, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20"
 
-33:                                               ; preds = %24
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %31 = load ptr, ptr %30, align 8, !alias.scope !76, !noalias !79, !nonnull !4, !noundef !4
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %33 = load ptr, ptr %32, align 8, !alias.scope !79, !noalias !76, !nonnull !4, !noundef !4
+  %34 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Query$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2f01d427898414aE"(ptr noalias noundef readonly align 8 dereferenceable(1376) %31, ptr noalias noundef readonly align 8 dereferenceable(1376) %33), !noalias !82
+  br i1 %34, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+
+35:                                               ; preds = %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %35 = load i8, ptr %34, align 8, !range !88, !alias.scope !83, !noalias !86, !noundef !4
-  %.not.i = icmp eq i8 %35, 2
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %37 = load i8, ptr %36, align 8, !range !88, !alias.scope !86, !noalias !83, !noundef !4
-  br i1 %.not.i, label %39, label %38
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %37 = load i8, ptr %36, align 8, !range !88, !alias.scope !83, !noalias !86, !noundef !4
+  %.not.i = icmp eq i8 %37, 2
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %39 = load i8, ptr %38, align 8, !range !88, !alias.scope !86, !noalias !83, !noundef !4
+  br i1 %.not.i, label %41, label %40
 
-38:                                               ; preds = %33
-  %.not12.i = icmp eq i8 %35, %37
-  br i1 %.not12.i, label %41, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+40:                                               ; preds = %35
+  %.not12.i = icmp eq i8 %37, %39
+  br i1 %.not12.i, label %43, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-39:                                               ; preds = %33
-  %40 = icmp eq i8 %37, 2
-  br i1 %40, label %41, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+41:                                               ; preds = %35
+  %42 = icmp eq i8 %39, 2
+  br i1 %42, label %43, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-41:                                               ; preds = %39, %38
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.val.i = load ptr, ptr %42, align 8, !alias.scope !83, !noalias !86, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %.val3.i = load i64, ptr %43, align 8, !alias.scope !83, !noalias !86, !noundef !4
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %.val4.i = load ptr, ptr %44, align 8, !alias.scope !86, !noalias !83, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %.val5.i = load i64, ptr %45, align 8, !alias.scope !86, !noalias !83, !noundef !4
-  %46 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8799d4dd62983975E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i), !noalias !89
-  br i1 %46, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+43:                                               ; preds = %41, %40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %.val.i = load ptr, ptr %44, align 8, !alias.scope !83, !noalias !86, !nonnull !4, !noundef !4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %.val3.i = load i64, ptr %45, align 8, !alias.scope !83, !noalias !86, !noundef !4
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %.val4.i = load ptr, ptr %46, align 8, !alias.scope !86, !noalias !83, !nonnull !4, !noundef !4
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %.val5.i = load i64, ptr %47, align 8, !alias.scope !86, !noalias !83, !noundef !4
+  %48 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8799d4dd62983975E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i), !noalias !89
+  br i1 %48, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit": ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %.val6.i = load ptr, ptr %47, align 8, !alias.scope !83, !noalias !86, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %.val7.i = load i64, ptr %48, align 8, !alias.scope !83, !noalias !86, !noundef !4
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %.val8.i = load ptr, ptr %49, align 8, !alias.scope !86, !noalias !83, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %.val9.i = load i64, ptr %50, align 8, !alias.scope !86, !noalias !83, !noundef !4
-  %51 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h34ecb80e6d867af1E"(ptr noalias noundef nonnull readonly align 8 %.val6.i, i64 noundef %.val7.i, ptr noalias noundef nonnull readonly align 8 %.val8.i, i64 noundef %.val9.i), !noalias !89
-  br i1 %51, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit": ; preds = %43
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %.val6.i = load ptr, ptr %49, align 8, !alias.scope !83, !noalias !86, !nonnull !4, !noundef !4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %.val7.i = load i64, ptr %50, align 8, !alias.scope !83, !noalias !86, !noundef !4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %.val8.i = load ptr, ptr %51, align 8, !alias.scope !86, !noalias !83, !nonnull !4, !noundef !4
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %.val9.i = load i64, ptr %52, align 8, !alias.scope !86, !noalias !83, !noundef !4
+  %53 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h34ecb80e6d867af1E"(ptr noalias noundef nonnull readonly align 8 %.val6.i, i64 noundef %.val7.i, ptr noalias noundef nonnull readonly align 8 %.val8.i, i64 noundef %.val9.i), !noalias !89
+  br i1 %53, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20": ; preds = %24, %25, %27, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit"
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 256
+"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20": ; preds = %25, %27, %24, %29, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit"
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 256
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
-  %54 = load i64, ptr %52, align 8, !range !81, !alias.scope !90, !noalias !93, !noundef !4
-  %55 = xor i64 %54, -9223372036854775808
-  %56 = tail call i64 @llvm.umin.i64(i64 %55, i64 2)
-  %57 = load i64, ptr %53, align 8, !range !81, !alias.scope !93, !noalias !90, !noundef !4
-  %58 = xor i64 %57, -9223372036854775808
-  %59 = tail call i64 @llvm.umin.i64(i64 %58, i64 2)
-  %60 = icmp eq i64 %56, %59
-  br i1 %60, label %61, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+  %56 = load i64, ptr %54, align 8, !range !81, !alias.scope !90, !noalias !93, !noundef !4
+  %57 = xor i64 %56, -9223372036854775808
+  %58 = tail call i64 @llvm.umin.i64(i64 %57, i64 2)
+  %59 = load i64, ptr %55, align 8, !range !81, !alias.scope !93, !noalias !90, !noundef !4
+  %60 = xor i64 %59, -9223372036854775808
+  %61 = tail call i64 @llvm.umin.i64(i64 %60, i64 2)
+  %62 = icmp eq i64 %58, %61
+  br i1 %62, label %63, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-61:                                               ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20"
-  switch i64 %56, label %default.unreachable [
-    i64 1, label %62
-    i64 2, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17"
+63:                                               ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20"
+  switch i64 %57, label %66 [
+    i64 1, label %64
     i64 0, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
   ]
 
-62:                                               ; preds = %61
-  %63 = icmp eq i64 %57, -9223372036854775807
-  br i1 %63, label %64, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
+64:                                               ; preds = %63
+  %65 = icmp eq i64 %59, -9223372036854775807
+  br i1 %65, label %68, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %66 = load ptr, ptr %65, align 8, !alias.scope !90, !noalias !93, !nonnull !4, !noundef !4
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %68 = load ptr, ptr %67, align 8, !alias.scope !93, !noalias !90, !nonnull !4, !noundef !4
-  %69 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Query$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2f01d427898414aE"(ptr noalias noundef readonly align 8 dereferenceable(1376) %66, ptr noalias noundef readonly align 8 dereferenceable(1376) %68), !noalias !95
-  br i1 %69, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+66:                                               ; preds = %63
+  %67 = icmp ugt i64 %60, 1
+  br i1 %67, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
 
-"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17": ; preds = %61
-  %70 = tail call fastcc noundef zeroext i1 @"_ZN77_$LT$sqlparser..ast..FunctionArgumentList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h16b558b59af9fd3dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %53)
-  br i1 %70, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %70 = load ptr, ptr %69, align 8, !alias.scope !90, !noalias !93, !nonnull !4, !noundef !4
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %72 = load ptr, ptr %71, align 8, !alias.scope !93, !noalias !90, !nonnull !4, !noundef !4
+  %73 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Query$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2f01d427898414aE"(ptr noalias noundef readonly align 8 dereferenceable(1376) %70, ptr noalias noundef readonly align 8 dereferenceable(1376) %72), !noalias !95
+  br i1 %73, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread": ; preds = %61, %62, %64, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17"
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %72 = load ptr, ptr %71, align 8, !align !5, !noundef !4
-  %.not = icmp eq ptr %72, null
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %74 = load ptr, ptr %73, align 8, !align !5, !noundef !4
-  %75 = icmp eq ptr %74, null
-  br i1 %.not, label %77, label %76
+"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17": ; preds = %66
+  %74 = tail call fastcc noundef zeroext i1 @"_ZN77_$LT$sqlparser..ast..FunctionArgumentList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h16b558b59af9fd3dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %55)
+  br i1 %74, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-76:                                               ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
-  br i1 %75, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread", label %78
+"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread": ; preds = %64, %66, %63, %68, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17"
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %76 = load ptr, ptr %75, align 8, !align !5, !noundef !4
+  %.not = icmp eq ptr %76, null
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %78 = load ptr, ptr %77, align 8, !align !5, !noundef !4
+  %79 = icmp eq ptr %78, null
+  br i1 %.not, label %81, label %80
 
-77:                                               ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
-  br i1 %75, label %80, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+80:                                               ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
+  br i1 %79, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread", label %82
 
-78:                                               ; preds = %76
-  %79 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %72, ptr noalias noundef readonly align 8 dereferenceable(328) %74)
-  br i1 %79, label %80, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+81:                                               ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17.thread"
+  br i1 %79, label %84, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-80:                                               ; preds = %78, %77
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 321
-  %82 = load i8, ptr %81, align 1, !range !88, !noundef !4
-  %.not5 = icmp eq i8 %82, 2
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 321
-  %84 = load i8, ptr %83, align 1, !range !88, !noundef !4
-  br i1 %.not5, label %86, label %85
+82:                                               ; preds = %80
+  %83 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %76, ptr noalias noundef readonly align 8 dereferenceable(328) %78)
+  br i1 %83, label %84, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-85:                                               ; preds = %80
-  %.not27 = icmp eq i8 %82, %84
-  br i1 %.not27, label %88, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+84:                                               ; preds = %82, %81
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 321
+  %86 = load i8, ptr %85, align 1, !range !88, !noundef !4
+  %.not5 = icmp eq i8 %86, 2
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 321
+  %88 = load i8, ptr %87, align 1, !range !88, !noundef !4
+  br i1 %.not5, label %90, label %89
 
-86:                                               ; preds = %80
-  %87 = icmp eq i8 %84, 2
-  br i1 %87, label %88, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+89:                                               ; preds = %84
+  %.not27 = icmp eq i8 %86, %88
+  br i1 %.not27, label %92, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-88:                                               ; preds = %85, %86
-  %89 = load i64, ptr %0, align 8, !range !32, !noundef !4
-  %.not7 = icmp eq i64 %89, 5
-  %90 = load i64, ptr %1, align 8, !range !32, !noundef !4
-  %91 = icmp eq i64 %90, 5
-  br i1 %.not7, label %93, label %92
+90:                                               ; preds = %84
+  %91 = icmp eq i8 %88, 2
+  br i1 %91, label %92, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-92:                                               ; preds = %88
-  br i1 %91, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread", label %94
+92:                                               ; preds = %89, %90
+  %93 = load i64, ptr %0, align 8, !range !32, !noundef !4
+  %.not7 = icmp eq i64 %93, 5
+  %94 = load i64, ptr %1, align 8, !range !32, !noundef !4
+  %95 = icmp eq i64 %94, 5
+  br i1 %.not7, label %97, label %96
 
-93:                                               ; preds = %88
-  br i1 %91, label %96, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+96:                                               ; preds = %92
+  br i1 %95, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread", label %98
 
-94:                                               ; preds = %92
-  %95 = tail call fastcc noundef zeroext i1 @"_ZN67_$LT$sqlparser..ast..WindowType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h47dfd097dbad0827E"(ptr noalias noundef readonly align 8 dereferenceable(152) %0, ptr noalias noundef readonly align 8 dereferenceable(152) %1)
-  br i1 %95, label %96, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+97:                                               ; preds = %92
+  br i1 %95, label %100, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-96:                                               ; preds = %94, %93
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %.val12 = load ptr, ptr %97, align 8, !nonnull !4, !noundef !4
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %.val13 = load i64, ptr %98, align 8, !noundef !4
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val14 = load ptr, ptr %99, align 8, !nonnull !4, !noundef !4
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %.val15 = load i64, ptr %100, align 8, !noundef !4
-  %101 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e07b811c897a2aaE"(ptr noalias noundef nonnull readonly align 8 %.val12, i64 noundef %.val13, ptr noalias noundef nonnull readonly align 8 %.val14, i64 noundef %.val15)
+98:                                               ; preds = %96
+  %99 = tail call fastcc noundef zeroext i1 @"_ZN67_$LT$sqlparser..ast..WindowType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h47dfd097dbad0827E"(ptr noalias noundef readonly align 8 dereferenceable(152) %0, ptr noalias noundef readonly align 8 dereferenceable(152) %1)
+  br i1 %99, label %100, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
+
+100:                                              ; preds = %98, %97
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %.val12 = load ptr, ptr %101, align 8, !nonnull !4, !noundef !4
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %.val13 = load i64, ptr %102, align 8, !noundef !4
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %.val14 = load ptr, ptr %103, align 8, !nonnull !4, !noundef !4
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %.val15 = load i64, ptr %104, align 8, !noundef !4
+  %105 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e07b811c897a2aaE"(ptr noalias noundef nonnull readonly align 8 %.val12, i64 noundef %.val13, ptr noalias noundef nonnull readonly align 8 %.val14, i64 noundef %.val15)
   br label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread": ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20", %39, %38, %41, %14, %94, %78, %64, %27, %2, %77, %86, %93, %8, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit", %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17", %76, %85, %92, %96
-  %.sroa.0.0 = phi i1 [ %101, %96 ], [ false, %92 ], [ false, %85 ], [ false, %76 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17" ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit" ], [ false, %8 ], [ false, %93 ], [ false, %86 ], [ false, %77 ], [ false, %2 ], [ false, %27 ], [ false, %64 ], [ false, %78 ], [ false, %94 ], [ false, %14 ], [ false, %41 ], [ false, %38 ], [ false, %39 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20" ]
+"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread": ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20", %41, %40, %43, %14, %98, %82, %68, %29, %2, %81, %90, %97, %8, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit", %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17", %80, %89, %96, %100
+  %.sroa.0.0 = phi i1 [ %105, %100 ], [ false, %96 ], [ false, %89 ], [ false, %80 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17" ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit" ], [ false, %8 ], [ false, %97 ], [ false, %90 ], [ false, %81 ], [ false, %2 ], [ false, %29 ], [ false, %68 ], [ false, %82 ], [ false, %98 ], [ false, %14 ], [ false, %43 ], [ false, %40 ], [ false, %41 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20" ]
   ret i1 %.sroa.0.0
 }
 
@@ -7888,18 +7891,14 @@ define internal fastcc noundef zeroext i1 @"_ZN67_$LT$sqlparser..ast..SchemaName
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  switch i64 %5, label %default.unreachable [
+  switch i64 %4, label %24 [
     i64 0, label %12
     i64 1, label %19
-    i64 2, label %24
   ]
 
 11:                                               ; preds = %24, %2, %31, %19, %12
   %.sroa.0.0.shrunk = phi i1 [ %18, %12 ], [ %23, %19 ], [ %34, %31 ], [ false, %2 ], [ false, %24 ]
   ret i1 %.sroa.0.0.shrunk
-
-default.unreachable:                              ; preds = %10
-  unreachable
 
 12:                                               ; preds = %10
   %13 = icmp eq i64 %6, -9223372036854775808
@@ -11125,18 +11124,14 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$sqlparser..ast..query..For
   br i1 %9, label %10, label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15"
 
 10:                                               ; preds = %2
-  switch i64 %5, label %default.unreachable [
-    i64 1, label %11
-    i64 2, label %13
-    i64 0, label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15"
+  switch i64 %3, label %13 [
+    i64 5, label %11
+    i64 4, label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15"
   ]
 
-"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15": ; preds = %47, %86, %.sink.split.i, %29, %92, %84, %85, %72, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread", %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit", %41, %27, %35, %28, %15, %10, %11, %13, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %13 ], [ true, %11 ], [ true, %10 ], [ %46, %41 ], [ false, %27 ], [ false, %35 ], [ false, %28 ], [ false, %15 ], [ %97, %92 ], [ false, %84 ], [ false, %85 ], [ false, %72 ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread" ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit" ], [ false, %29 ], [ false, %.sink.split.i ], [ false, %86 ], [ false, %47 ]
+"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15": ; preds = %47, %86, %.sink.split.i, %29, %92, %84, %85, %72, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread", %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit", %41, %27, %35, %28, %15, %11, %13, %10, %2
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %10 ], [ true, %13 ], [ true, %11 ], [ %46, %41 ], [ false, %27 ], [ false, %35 ], [ false, %28 ], [ false, %15 ], [ %97, %92 ], [ false, %84 ], [ false, %85 ], [ false, %72 ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread" ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit" ], [ false, %29 ], [ false, %.sink.split.i ], [ false, %86 ], [ false, %47 ]
   ret i1 %.sroa.0.0
-
-default.unreachable:                              ; preds = %10
-  unreachable
 
 11:                                               ; preds = %10
   %12 = icmp eq i64 %7, 1

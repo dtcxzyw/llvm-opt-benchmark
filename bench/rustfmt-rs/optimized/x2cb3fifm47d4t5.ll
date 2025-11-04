@@ -18439,59 +18439,53 @@ define hidden void @_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_item17h5b
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i32, ptr %4, align 4, !range !5741, !noundef !4
-  %6 = add i32 %5, 255
-  %narrow = tail call i32 @llvm.umin.i32(i32 %6, i32 2)
-  switch i32 %narrow, label %default.unreachable [
-    i32 0, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_list17h7c6d3e6820e7a711E.llvm.13396924176064657314.exit
-    i32 1, label %7
-    i32 2, label %23
+  switch i32 %5, label %22 [
+    i32 -255, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_list17h7c6d3e6820e7a711E.llvm.13396924176064657314.exit
+    i32 -254, label %6
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-7:                                                ; preds = %2
+6:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5742)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5745)
-  %8 = tail call noundef i64 @_ZN4core3cmp6max_by17hfb4e1f5faba94159E.llvm.13158159170862922693(i64 noundef 8, i64 noundef 8), !noalias !5748
-  %.0.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %8, i64 16)
-  %9 = icmp ult i64 %8, 17
+  %7 = tail call noundef i64 @_ZN4core3cmp6max_by17hfb4e1f5faba94159E.llvm.13158159170862922693(i64 noundef 8, i64 noundef 8), !noalias !5748
+  %.0.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %7, i64 16)
+  %8 = icmp ult i64 %7, 17
   %.pre.i.i = load ptr, ptr %3, align 8, !alias.scope !5748
-  br i1 %9, label %14, label %10
+  br i1 %8, label %13, label %9
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
-  %12 = load i64, ptr %11, align 8, !noalias !5748, !noundef !4
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit", label %14
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
+  %11 = load i64, ptr %10, align 8, !noalias !5748, !noundef !4
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit", label %13
 
-14:                                               ; preds = %10, %7
-  %15 = getelementptr i8, ptr %.pre.i.i, i64 %.0.i.i.i
-  %16 = getelementptr i8, ptr %15, i64 16
+13:                                               ; preds = %9, %6
+  %14 = getelementptr i8, ptr %.pre.i.i, i64 %.0.i.i.i
+  %15 = getelementptr i8, ptr %14, i64 16
   br label %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit"
 
-"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit": ; preds = %10, %14
-  %.0.i.i = phi ptr [ %16, %14 ], [ inttoptr (i64 8 to ptr), %10 ]
-  %17 = load i64, ptr %.pre.i.i, align 8, !noalias !5742, !noundef !4
-  %.idx = mul nsw i64 %17, 72
-  %18 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.idx
-  %19 = icmp ne ptr %.0.i.i, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = icmp eq i64 %17, 0
-  br i1 %20, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_list17h7c6d3e6820e7a711E.llvm.13396924176064657314.exit, label %.lr.ph
+"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit": ; preds = %9, %13
+  %.0.i.i = phi ptr [ %15, %13 ], [ inttoptr (i64 8 to ptr), %9 ]
+  %16 = load i64, ptr %.pre.i.i, align 8, !noalias !5742, !noundef !4
+  %.idx = mul nsw i64 %16, 72
+  %17 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.idx
+  %18 = icmp ne ptr %.0.i.i, null
+  tail call void @llvm.assume(i1 %18)
+  %19 = icmp eq i64 %16, 0
+  br i1 %19, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_list17h7c6d3e6820e7a711E.llvm.13396924176064657314.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit", %.lr.ph
-  %.sroa.0.03 = phi ptr [ %21, %.lr.ph ], [ %.0.i.i, %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit" ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.03, i64 72
+  %.sroa.0.03 = phi ptr [ %20, %.lr.ph ], [ %.0.i.i, %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit" ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.03, i64 72
   tail call void @_ZN15rustfmt_nightly4attr11MetaVisitor22visit_nested_meta_item17hf5ccb82ec7c2b851E.llvm.13396924176064657314(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.0.03)
-  %22 = icmp eq ptr %21, %18
-  br i1 %22, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_list17h7c6d3e6820e7a711E.llvm.13396924176064657314.exit, label %.lr.ph
+  %21 = icmp eq ptr %20, %17
+  br i1 %21, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_list17h7c6d3e6820e7a711E.llvm.13396924176064657314.exit, label %.lr.ph
 
-23:                                               ; preds = %2
+22:                                               ; preds = %2
   tail call void @"_ZN101_$LT$rustfmt_nightly..modules..visitor..PathVisitor$u20$as$u20$rustfmt_nightly..attr..MetaVisitor$GT$21visit_meta_name_value17hbd6702e90af9b168E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3)
   br label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_list17h7c6d3e6820e7a711E.llvm.13396924176064657314.exit
 
-_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_list17h7c6d3e6820e7a711E.llvm.13396924176064657314.exit: ; preds = %.lr.ph, %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit", %2, %23
+_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_list17h7c6d3e6820e7a711E.llvm.13396924176064657314.exit: ; preds = %.lr.ph, %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit", %2, %22
   ret void
 }
 
@@ -18528,59 +18522,53 @@ define hidden void @_ZN15rustfmt_nightly4attr11MetaVisitor22visit_nested_meta_it
 6:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5749)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = add i32 %4, 255
-  %narrow.i = tail call i32 @llvm.umin.i32(i32 %8, i32 2)
-  switch i32 %narrow.i, label %default.unreachable [
-    i32 0, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_item17h5bf4b6b2ea577ea0E.exit
-    i32 1, label %9
-    i32 2, label %25
+  switch i32 %4, label %24 [
+    i32 -255, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_item17h5bf4b6b2ea577ea0E.exit
+    i32 -254, label %8
   ]
 
-default.unreachable:                              ; preds = %6
-  unreachable
-
-9:                                                ; preds = %6
+8:                                                ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5752)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5755)
-  %10 = tail call noundef i64 @_ZN4core3cmp6max_by17hfb4e1f5faba94159E.llvm.13158159170862922693(i64 noundef 8, i64 noundef 8), !noalias !5758
-  %.0.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %10, i64 16)
-  %11 = icmp ult i64 %10, 17
+  %9 = tail call noundef i64 @_ZN4core3cmp6max_by17hfb4e1f5faba94159E.llvm.13158159170862922693(i64 noundef 8, i64 noundef 8), !noalias !5758
+  %.0.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %9, i64 16)
+  %10 = icmp ult i64 %9, 17
   %.pre.i.i.i = load ptr, ptr %7, align 8, !alias.scope !5760, !noalias !5761
-  br i1 %11, label %16, label %12
+  br i1 %10, label %15, label %11
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
-  %14 = load i64, ptr %13, align 8, !noalias !5758, !noundef !4
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit.i", label %16
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
+  %13 = load i64, ptr %12, align 8, !noalias !5758, !noundef !4
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit.i", label %15
 
-16:                                               ; preds = %12, %9
-  %17 = getelementptr i8, ptr %.pre.i.i.i, i64 %.0.i.i.i.i
-  %18 = getelementptr i8, ptr %17, i64 16
+15:                                               ; preds = %11, %8
+  %16 = getelementptr i8, ptr %.pre.i.i.i, i64 %.0.i.i.i.i
+  %17 = getelementptr i8, ptr %16, i64 16
   br label %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit.i"
 
-"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit.i": ; preds = %16, %12
-  %.0.i.i.i = phi ptr [ %18, %16 ], [ inttoptr (i64 8 to ptr), %12 ]
-  %19 = load i64, ptr %.pre.i.i.i, align 8, !noalias !5762, !noundef !4
-  %.idx = mul nsw i64 %19, 72
-  %20 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 %.idx
-  %21 = icmp ne ptr %.0.i.i.i, null
-  tail call void @llvm.assume(i1 %21)
-  %22 = icmp eq i64 %19, 0
-  br i1 %22, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_item17h5bf4b6b2ea577ea0E.exit, label %.lr.ph
+"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit.i": ; preds = %15, %11
+  %.0.i.i.i = phi ptr [ %17, %15 ], [ inttoptr (i64 8 to ptr), %11 ]
+  %18 = load i64, ptr %.pre.i.i.i, align 8, !noalias !5762, !noundef !4
+  %.idx = mul nsw i64 %18, 72
+  %19 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 %.idx
+  %20 = icmp ne ptr %.0.i.i.i, null
+  tail call void @llvm.assume(i1 %20)
+  %21 = icmp eq i64 %18, 0
+  br i1 %21, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_item17h5bf4b6b2ea577ea0E.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit.i", %.lr.ph
-  %.sroa.0.03 = phi ptr [ %23, %.lr.ph ], [ %.0.i.i.i, %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit.i" ]
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.03, i64 72
+  %.sroa.0.03 = phi ptr [ %22, %.lr.ph ], [ %.0.i.i.i, %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit.i" ]
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.03, i64 72
   tail call void @_ZN15rustfmt_nightly4attr11MetaVisitor22visit_nested_meta_item17hf5ccb82ec7c2b851E.llvm.13396924176064657314(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.0.03), !noalias !5749
-  %24 = icmp eq ptr %23, %20
-  br i1 %24, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_item17h5bf4b6b2ea577ea0E.exit, label %.lr.ph
+  %23 = icmp eq ptr %22, %19
+  br i1 %23, label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_item17h5bf4b6b2ea577ea0E.exit, label %.lr.ph
 
-25:                                               ; preds = %6
+24:                                               ; preds = %6
   tail call void @"_ZN101_$LT$rustfmt_nightly..modules..visitor..PathVisitor$u20$as$u20$rustfmt_nightly..attr..MetaVisitor$GT$21visit_meta_name_value17hbd6702e90af9b168E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %7)
   br label %_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_item17h5bf4b6b2ea577ea0E.exit
 
-_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_item17h5bf4b6b2ea577ea0E.exit: ; preds = %.lr.ph, %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit.i", %2, %25, %6
+_ZN15rustfmt_nightly4attr11MetaVisitor15visit_meta_item17h5bf4b6b2ea577ea0E.exit: ; preds = %.lr.ph, %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE.exit.i", %2, %24, %6
   ret void
 }
 
@@ -30005,9 +29993,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #54
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #54
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #55
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #55

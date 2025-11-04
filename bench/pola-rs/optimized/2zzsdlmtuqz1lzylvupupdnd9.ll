@@ -13028,100 +13028,94 @@ define hidden void @_ZN11polars_core5frame6column10arithmetic21num_op_with_broad
   %5 = alloca [16 x i8], align 8
   %6 = alloca [160 x i8], align 16
   %7 = load i8, ptr %1, align 16, !range !1811, !noundef !3
-  %8 = add nsw i8 %7, -28
-  %narrow = tail call i8 @llvm.umin.i8(i8 %8, i8 2)
-  switch i8 %narrow, label %default.unreachable [
-    i8 0, label %9
-    i8 1, label %15
-    i8 2, label %21
+  switch i8 %7, label %20 [
+    i8 28, label %8
+    i8 29, label %14
   ]
 
-default.unreachable:                              ; preds = %3
-  unreachable
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN92_$LT$polars_core..frame..column..series..SeriesColumn$u20$as$u20$core..ops..deref..Deref$GT$5deref17h160166a383b70c02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  %11 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, i64 noundef %2)
+  %12 = extractvalue { ptr, ptr } %11, 0
+  %13 = extractvalue { ptr, ptr } %11, 1
+  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %12, ptr noalias noundef readonly align 8 dereferenceable(824) %13)
+  br label %37
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN92_$LT$polars_core..frame..column..series..SeriesColumn$u20$as$u20$core..ops..deref..Deref$GT$5deref17h160166a383b70c02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
-  %12 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11, i64 noundef %2)
-  %13 = extractvalue { ptr, ptr } %12, 0
-  %14 = extractvalue { ptr, ptr } %12, 1
-  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %13, ptr noalias noundef readonly align 8 dereferenceable(824) %14)
-  br label %38
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = tail call noundef align 8 dereferenceable(16) ptr @_ZN11polars_core5frame6column11partitioned17PartitionedColumn22as_materialized_series17hbf9e46c319e72606E(ptr noundef nonnull align 8 %15)
+  %17 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16, i64 noundef %2)
+  %18 = extractvalue { ptr, ptr } %17, 0
+  %19 = extractvalue { ptr, ptr } %17, 1
+  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %18, ptr noalias noundef readonly align 8 dereferenceable(824) %19)
+  br label %37
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = tail call noundef align 8 dereferenceable(16) ptr @_ZN11polars_core5frame6column11partitioned17PartitionedColumn22as_materialized_series17hbf9e46c319e72606E(ptr noundef nonnull align 8 %16)
-  %18 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17, i64 noundef %2)
-  %19 = extractvalue { ptr, ptr } %18, 0
-  %20 = extractvalue { ptr, ptr } %18, 1
-  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %19, ptr noalias noundef readonly align 8 dereferenceable(824) %20)
-  br label %38
-
-21:                                               ; preds = %3
+20:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %22 = tail call { ptr, ptr } @_ZN11polars_core5frame6column6scalar12ScalarColumn22as_single_value_series17hfd42ff760f2df3caE(ptr noundef nonnull align 16 %1)
-  %23 = extractvalue { ptr, ptr } %22, 0
-  %24 = extractvalue { ptr, ptr } %22, 1
-  store ptr %23, ptr %4, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %24, ptr %25, align 8
-  %26 = invoke { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef %2)
-          to label %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hdad0c9555e1bb5a8E.exit" unwind label %28
+  %21 = tail call { ptr, ptr } @_ZN11polars_core5frame6column6scalar12ScalarColumn22as_single_value_series17hfd42ff760f2df3caE(ptr noundef nonnull align 16 %1)
+  %22 = extractvalue { ptr, ptr } %21, 0
+  %23 = extractvalue { ptr, ptr } %21, 1
+  store ptr %22, ptr %4, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %23, ptr %24, align 8
+  %25 = invoke { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef %2)
+          to label %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hdad0c9555e1bb5a8E.exit" unwind label %27
 
-27:                                               ; preds = %34, %39, %28
-  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %35, %34 ], [ %29, %28 ]
+26:                                               ; preds = %33, %38, %27
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %34, %33 ], [ %28, %27 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #43
-          to label %43 unwind label %41
+          to label %42 unwind label %40
 
-28:                                               ; preds = %21
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %20
+  %28 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
-"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hdad0c9555e1bb5a8E.exit": ; preds = %21
-  %30 = extractvalue { ptr, ptr } %26, 0
-  %31 = extractvalue { ptr, ptr } %26, 1
-  store ptr %30, ptr %5, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %31, ptr %32, align 8
-  %33 = invoke noundef i64 @_ZN11polars_core5frame6column6scalar12ScalarColumn3len17h8538cd196e69e99bE(ptr noundef nonnull align 16 %1)
-          to label %36 unwind label %39
+"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hdad0c9555e1bb5a8E.exit": ; preds = %20
+  %29 = extractvalue { ptr, ptr } %25, 0
+  %30 = extractvalue { ptr, ptr } %25, 1
+  store ptr %29, ptr %5, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %30, ptr %31, align 8
+  %32 = invoke noundef i64 @_ZN11polars_core5frame6column6scalar12ScalarColumn3len17h8538cd196e69e99bE(ptr noundef nonnull align 16 %1)
+          to label %35 unwind label %38
 
-34:                                               ; preds = %36
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %35
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
-36:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hdad0c9555e1bb5a8E.exit"
-  invoke void @_ZN11polars_core5frame6column6scalar12ScalarColumn24from_single_value_series17h721fd8502be1128cE(ptr noalias noundef nonnull sret([160 x i8]) align 16 captures(none) dereferenceable(160) %6, ptr noundef nonnull %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(824) %31, i64 noundef %33)
-          to label %37 unwind label %34
+35:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hdad0c9555e1bb5a8E.exit"
+  invoke void @_ZN11polars_core5frame6column6scalar12ScalarColumn24from_single_value_series17h721fd8502be1128cE(ptr noalias noundef nonnull sret([160 x i8]) align 16 captures(none) dereferenceable(160) %6, ptr noundef nonnull %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(824) %30, i64 noundef %32)
+          to label %36 unwind label %33
 
-37:                                               ; preds = %36
+36:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, ptr noundef nonnull align 16 dereferenceable(160) %6, i64 160, i1 false)
   call void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %38
+  br label %37
 
-38:                                               ; preds = %9, %15, %37
+37:                                               ; preds = %8, %14, %36
   ret void
 
-39:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hdad0c9555e1bb5a8E.exit"
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hdad0c9555e1bb5a8E.exit"
+  %39 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #43
-          to label %27 unwind label %41
+          to label %26 unwind label %40
 
-41:                                               ; preds = %39, %27
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %38, %26
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #44
   unreachable
 
-43:                                               ; preds = %27
+42:                                               ; preds = %26
   resume { ptr, i32 } %.pn
 }
 
@@ -13131,100 +13125,94 @@ define hidden void @_ZN11polars_core5frame6column10arithmetic21num_op_with_broad
   %5 = alloca [16 x i8], align 8
   %6 = alloca [160 x i8], align 16
   %7 = load i8, ptr %1, align 16, !range !1811, !noundef !3
-  %8 = add nsw i8 %7, -28
-  %narrow = tail call i8 @llvm.umin.i8(i8 %8, i8 2)
-  switch i8 %narrow, label %default.unreachable [
-    i8 0, label %9
-    i8 1, label %15
-    i8 2, label %21
+  switch i8 %7, label %20 [
+    i8 28, label %8
+    i8 29, label %14
   ]
 
-default.unreachable:                              ; preds = %3
-  unreachable
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN92_$LT$polars_core..frame..column..series..SeriesColumn$u20$as$u20$core..ops..deref..Deref$GT$5deref17h160166a383b70c02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  %11 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17h146386b905dccb40E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, i32 noundef %2)
+  %12 = extractvalue { ptr, ptr } %11, 0
+  %13 = extractvalue { ptr, ptr } %11, 1
+  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %12, ptr noalias noundef readonly align 8 dereferenceable(824) %13)
+  br label %37
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN92_$LT$polars_core..frame..column..series..SeriesColumn$u20$as$u20$core..ops..deref..Deref$GT$5deref17h160166a383b70c02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
-  %12 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17h146386b905dccb40E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11, i32 noundef %2)
-  %13 = extractvalue { ptr, ptr } %12, 0
-  %14 = extractvalue { ptr, ptr } %12, 1
-  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %13, ptr noalias noundef readonly align 8 dereferenceable(824) %14)
-  br label %38
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = tail call noundef align 8 dereferenceable(16) ptr @_ZN11polars_core5frame6column11partitioned17PartitionedColumn22as_materialized_series17hbf9e46c319e72606E(ptr noundef nonnull align 8 %15)
+  %17 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17h146386b905dccb40E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16, i32 noundef %2)
+  %18 = extractvalue { ptr, ptr } %17, 0
+  %19 = extractvalue { ptr, ptr } %17, 1
+  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %18, ptr noalias noundef readonly align 8 dereferenceable(824) %19)
+  br label %37
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = tail call noundef align 8 dereferenceable(16) ptr @_ZN11polars_core5frame6column11partitioned17PartitionedColumn22as_materialized_series17hbf9e46c319e72606E(ptr noundef nonnull align 8 %16)
-  %18 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17h146386b905dccb40E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17, i32 noundef %2)
-  %19 = extractvalue { ptr, ptr } %18, 0
-  %20 = extractvalue { ptr, ptr } %18, 1
-  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %19, ptr noalias noundef readonly align 8 dereferenceable(824) %20)
-  br label %38
-
-21:                                               ; preds = %3
+20:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %22 = tail call { ptr, ptr } @_ZN11polars_core5frame6column6scalar12ScalarColumn22as_single_value_series17hfd42ff760f2df3caE(ptr noundef nonnull align 16 %1)
-  %23 = extractvalue { ptr, ptr } %22, 0
-  %24 = extractvalue { ptr, ptr } %22, 1
-  store ptr %23, ptr %4, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %24, ptr %25, align 8
-  %26 = invoke { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17h146386b905dccb40E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i32 noundef %2)
-          to label %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hf8a3f0a27916eca0E.exit" unwind label %28
+  %21 = tail call { ptr, ptr } @_ZN11polars_core5frame6column6scalar12ScalarColumn22as_single_value_series17hfd42ff760f2df3caE(ptr noundef nonnull align 16 %1)
+  %22 = extractvalue { ptr, ptr } %21, 0
+  %23 = extractvalue { ptr, ptr } %21, 1
+  store ptr %22, ptr %4, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %23, ptr %24, align 8
+  %25 = invoke { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17h146386b905dccb40E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i32 noundef %2)
+          to label %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hf8a3f0a27916eca0E.exit" unwind label %27
 
-27:                                               ; preds = %34, %39, %28
-  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %35, %34 ], [ %29, %28 ]
+26:                                               ; preds = %33, %38, %27
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %34, %33 ], [ %28, %27 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #43
-          to label %43 unwind label %41
+          to label %42 unwind label %40
 
-28:                                               ; preds = %21
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %20
+  %28 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
-"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hf8a3f0a27916eca0E.exit": ; preds = %21
-  %30 = extractvalue { ptr, ptr } %26, 0
-  %31 = extractvalue { ptr, ptr } %26, 1
-  store ptr %30, ptr %5, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %31, ptr %32, align 8
-  %33 = invoke noundef i64 @_ZN11polars_core5frame6column6scalar12ScalarColumn3len17h8538cd196e69e99bE(ptr noundef nonnull align 16 %1)
-          to label %36 unwind label %39
+"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hf8a3f0a27916eca0E.exit": ; preds = %20
+  %29 = extractvalue { ptr, ptr } %25, 0
+  %30 = extractvalue { ptr, ptr } %25, 1
+  store ptr %29, ptr %5, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %30, ptr %31, align 8
+  %32 = invoke noundef i64 @_ZN11polars_core5frame6column6scalar12ScalarColumn3len17h8538cd196e69e99bE(ptr noundef nonnull align 16 %1)
+          to label %35 unwind label %38
 
-34:                                               ; preds = %36
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %35
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
-36:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hf8a3f0a27916eca0E.exit"
-  invoke void @_ZN11polars_core5frame6column6scalar12ScalarColumn24from_single_value_series17h721fd8502be1128cE(ptr noalias noundef nonnull sret([160 x i8]) align 16 captures(none) dereferenceable(160) %6, ptr noundef nonnull %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(824) %31, i64 noundef %33)
-          to label %37 unwind label %34
+35:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hf8a3f0a27916eca0E.exit"
+  invoke void @_ZN11polars_core5frame6column6scalar12ScalarColumn24from_single_value_series17h721fd8502be1128cE(ptr noalias noundef nonnull sret([160 x i8]) align 16 captures(none) dereferenceable(160) %6, ptr noundef nonnull %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(824) %30, i64 noundef %32)
+          to label %36 unwind label %33
 
-37:                                               ; preds = %36
+36:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, ptr noundef nonnull align 16 dereferenceable(160) %6, i64 160, i1 false)
   call void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %38
+  br label %37
 
-38:                                               ; preds = %9, %15, %37
+37:                                               ; preds = %8, %14, %36
   ret void
 
-39:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hf8a3f0a27916eca0E.exit"
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic95_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hf8a3f0a27916eca0E.exit"
+  %39 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #43
-          to label %27 unwind label %41
+          to label %26 unwind label %40
 
-41:                                               ; preds = %39, %27
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %38, %26
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #44
   unreachable
 
-43:                                               ; preds = %27
+42:                                               ; preds = %26
   resume { ptr, i32 } %.pn
 }
 
@@ -13234,100 +13222,94 @@ define hidden void @_ZN11polars_core5frame6column10arithmetic21num_op_with_broad
   %5 = alloca [16 x i8], align 8
   %6 = alloca [160 x i8], align 16
   %7 = load i8, ptr %1, align 16, !range !1811, !noundef !3
-  %8 = add nsw i8 %7, -28
-  %narrow = tail call i8 @llvm.umin.i8(i8 %8, i8 2)
-  switch i8 %narrow, label %default.unreachable [
-    i8 0, label %9
-    i8 1, label %15
-    i8 2, label %21
+  switch i8 %7, label %20 [
+    i8 28, label %8
+    i8 29, label %14
   ]
 
-default.unreachable:                              ; preds = %3
-  unreachable
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN92_$LT$polars_core..frame..column..series..SeriesColumn$u20$as$u20$core..ops..deref..Deref$GT$5deref17h160166a383b70c02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  %11 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, i64 noundef %2)
+  %12 = extractvalue { ptr, ptr } %11, 0
+  %13 = extractvalue { ptr, ptr } %11, 1
+  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %12, ptr noalias noundef readonly align 8 dereferenceable(824) %13)
+  br label %37
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN92_$LT$polars_core..frame..column..series..SeriesColumn$u20$as$u20$core..ops..deref..Deref$GT$5deref17h160166a383b70c02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
-  %12 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11, i64 noundef %2)
-  %13 = extractvalue { ptr, ptr } %12, 0
-  %14 = extractvalue { ptr, ptr } %12, 1
-  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %13, ptr noalias noundef readonly align 8 dereferenceable(824) %14)
-  br label %38
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = tail call noundef align 8 dereferenceable(16) ptr @_ZN11polars_core5frame6column11partitioned17PartitionedColumn22as_materialized_series17hbf9e46c319e72606E(ptr noundef nonnull align 8 %15)
+  %17 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16, i64 noundef %2)
+  %18 = extractvalue { ptr, ptr } %17, 0
+  %19 = extractvalue { ptr, ptr } %17, 1
+  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %18, ptr noalias noundef readonly align 8 dereferenceable(824) %19)
+  br label %37
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = tail call noundef align 8 dereferenceable(16) ptr @_ZN11polars_core5frame6column11partitioned17PartitionedColumn22as_materialized_series17hbf9e46c319e72606E(ptr noundef nonnull align 8 %16)
-  %18 = tail call { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17, i64 noundef %2)
-  %19 = extractvalue { ptr, ptr } %18, 0
-  %20 = extractvalue { ptr, ptr } %18, 1
-  tail call fastcc void @"_ZN109_$LT$polars_core..frame..column..Column$u20$as$u20$core..convert..From$LT$polars_core..series..Series$GT$$GT$4from17h4f11901524035d4eE"(ptr noalias noundef align 16 captures(none) dereferenceable(160) %0, ptr noundef nonnull %19, ptr noalias noundef readonly align 8 dereferenceable(824) %20)
-  br label %38
-
-21:                                               ; preds = %3
+20:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %22 = tail call { ptr, ptr } @_ZN11polars_core5frame6column6scalar12ScalarColumn22as_single_value_series17hfd42ff760f2df3caE(ptr noundef nonnull align 16 %1)
-  %23 = extractvalue { ptr, ptr } %22, 0
-  %24 = extractvalue { ptr, ptr } %22, 1
-  store ptr %23, ptr %4, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %24, ptr %25, align 8
-  %26 = invoke { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef %2)
-          to label %"_ZN11polars_core5frame6column10arithmetic99_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hfbb902f11208108bE.exit" unwind label %28
+  %21 = tail call { ptr, ptr } @_ZN11polars_core5frame6column6scalar12ScalarColumn22as_single_value_series17hfd42ff760f2df3caE(ptr noundef nonnull align 16 %1)
+  %22 = extractvalue { ptr, ptr } %21, 0
+  %23 = extractvalue { ptr, ptr } %21, 1
+  store ptr %22, ptr %4, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %23, ptr %24, align 8
+  %25 = invoke { ptr, ptr } @"_ZN11polars_core6series10arithmetic8borrowed92_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..series..Series$GT$3mul17hb9b4a9cb99c6566cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef %2)
+          to label %"_ZN11polars_core5frame6column10arithmetic99_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hfbb902f11208108bE.exit" unwind label %27
 
-27:                                               ; preds = %34, %39, %28
-  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %35, %34 ], [ %29, %28 ]
+26:                                               ; preds = %33, %38, %27
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %34, %33 ], [ %28, %27 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #43
-          to label %43 unwind label %41
+          to label %42 unwind label %40
 
-28:                                               ; preds = %21
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %20
+  %28 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
-"_ZN11polars_core5frame6column10arithmetic99_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hfbb902f11208108bE.exit": ; preds = %21
-  %30 = extractvalue { ptr, ptr } %26, 0
-  %31 = extractvalue { ptr, ptr } %26, 1
-  store ptr %30, ptr %5, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %31, ptr %32, align 8
-  %33 = invoke noundef i64 @_ZN11polars_core5frame6column6scalar12ScalarColumn3len17h8538cd196e69e99bE(ptr noundef nonnull align 16 %1)
-          to label %36 unwind label %39
+"_ZN11polars_core5frame6column10arithmetic99_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hfbb902f11208108bE.exit": ; preds = %20
+  %29 = extractvalue { ptr, ptr } %25, 0
+  %30 = extractvalue { ptr, ptr } %25, 1
+  store ptr %29, ptr %5, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %30, ptr %31, align 8
+  %32 = invoke noundef i64 @_ZN11polars_core5frame6column6scalar12ScalarColumn3len17h8538cd196e69e99bE(ptr noundef nonnull align 16 %1)
+          to label %35 unwind label %38
 
-34:                                               ; preds = %36
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %35
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %26
 
-36:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic99_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hfbb902f11208108bE.exit"
-  invoke void @_ZN11polars_core5frame6column6scalar12ScalarColumn24from_single_value_series17h721fd8502be1128cE(ptr noalias noundef nonnull sret([160 x i8]) align 16 captures(none) dereferenceable(160) %6, ptr noundef nonnull %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(824) %31, i64 noundef %33)
-          to label %37 unwind label %34
+35:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic99_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hfbb902f11208108bE.exit"
+  invoke void @_ZN11polars_core5frame6column6scalar12ScalarColumn24from_single_value_series17h721fd8502be1128cE(ptr noalias noundef nonnull sret([160 x i8]) align 16 captures(none) dereferenceable(160) %6, ptr noundef nonnull %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(824) %30, i64 noundef %32)
+          to label %36 unwind label %33
 
-37:                                               ; preds = %36
+36:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, ptr noundef nonnull align 16 dereferenceable(160) %6, i64 160, i1 false)
   call void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %38
+  br label %37
 
-38:                                               ; preds = %9, %15, %37
+37:                                               ; preds = %8, %14, %36
   ret void
 
-39:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic99_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hfbb902f11208108bE.exit"
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %"_ZN11polars_core5frame6column10arithmetic99_$LT$impl$u20$core..ops..arith..Mul$LT$T$GT$$u20$for$u20$$RF$polars_core..frame..column..Column$GT$3mul28_$u7b$$u7b$closure$u7d$$u7d$17hfbb902f11208108bE.exit"
+  %39 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #43
-          to label %27 unwind label %41
+          to label %26 unwind label %40
 
-41:                                               ; preds = %39, %27
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %38, %26
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #44
   unreachable
 
-43:                                               ; preds = %27
+42:                                               ; preds = %26
   resume { ptr, i32 } %.pn
 }
 

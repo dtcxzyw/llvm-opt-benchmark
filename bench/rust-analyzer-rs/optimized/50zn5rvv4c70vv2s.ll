@@ -10793,115 +10793,109 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5debug75_$LT$impl$u20$core..fmt..
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %14 = alloca ptr, align 8
   %15 = load i64, ptr %0, align 8, !range !2620, !noundef !4
-  %16 = add nsw i64 %15, -5
-  %17 = tail call i64 @llvm.umin.i64(i64 %16, i64 3)
-  switch i64 %17, label %default.unreachable [
-    i64 0, label %18
-    i64 1, label %26
-    i64 2, label %34
-    i64 3, label %42
+  switch i64 %15, label %40 [
+    i64 5, label %16
+    i64 6, label %24
+    i64 7, label %32
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-18:                                               ; preds = %2
+16:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %19, ptr %14, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %14, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %14, ptr %12, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdf6ffc682b8916c6E", ptr %20, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdf6ffc682b8916c6E", ptr %18, align 8
   store ptr @anon.43da44c97f12b6aba74ab6c1fca3fc3e.240, ptr %13, align 8, !alias.scope !2621, !noalias !2624
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 1, ptr %21, align 8, !alias.scope !2621, !noalias !2624
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !2621, !noalias !2624
-  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %12, ptr %23, align 8, !alias.scope !2621, !noalias !2624
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !2621, !noalias !2624
-  %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 1, ptr %19, align 8, !alias.scope !2621, !noalias !2624
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store ptr null, ptr %20, align 8, !alias.scope !2621, !noalias !2624
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %12, ptr %21, align 8, !alias.scope !2621, !noalias !2624
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store i64 1, ptr %22, align 8, !alias.scope !2621, !noalias !2624
+  %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %49
+  br label %47
 
-26:                                               ; preds = %2
+24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %27, ptr %11, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %25, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %11, ptr %9, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h16d89f5a31dd3e7eE", ptr %28, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h16d89f5a31dd3e7eE", ptr %26, align 8
   store ptr @anon.43da44c97f12b6aba74ab6c1fca3fc3e.240, ptr %10, align 8, !alias.scope !2627, !noalias !2630
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 1, ptr %29, align 8, !alias.scope !2627, !noalias !2630
-  %30 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr null, ptr %30, align 8, !alias.scope !2627, !noalias !2630
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %9, ptr %31, align 8, !alias.scope !2627, !noalias !2630
-  %32 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 1, ptr %32, align 8, !alias.scope !2627, !noalias !2630
-  %33 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 1, ptr %27, align 8, !alias.scope !2627, !noalias !2630
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store ptr null, ptr %28, align 8, !alias.scope !2627, !noalias !2630
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %9, ptr %29, align 8, !alias.scope !2627, !noalias !2630
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 1, ptr %30, align 8, !alias.scope !2627, !noalias !2630
+  %31 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %49
+  br label %47
 
-34:                                               ; preds = %2
+32:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %35, ptr %8, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %33, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %8, ptr %6, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb3931c8abb136e1aE", ptr %36, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb3931c8abb136e1aE", ptr %34, align 8
   store ptr @anon.43da44c97f12b6aba74ab6c1fca3fc3e.240, ptr %7, align 8, !alias.scope !2633, !noalias !2636
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %37, align 8, !alias.scope !2633, !noalias !2636
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %38, align 8, !alias.scope !2633, !noalias !2636
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %6, ptr %39, align 8, !alias.scope !2633, !noalias !2636
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 1, ptr %40, align 8, !alias.scope !2633, !noalias !2636
-  %41 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %35, align 8, !alias.scope !2633, !noalias !2636
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr null, ptr %36, align 8, !alias.scope !2633, !noalias !2636
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %6, ptr %37, align 8, !alias.scope !2633, !noalias !2636
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 1, ptr %38, align 8, !alias.scope !2633, !noalias !2636
+  %39 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %49
+  br label %47
 
-42:                                               ; preds = %2
+40:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %5, ptr %3, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f6a3f683dd54936E", ptr %43, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f6a3f683dd54936E", ptr %41, align 8
   store ptr @anon.43da44c97f12b6aba74ab6c1fca3fc3e.240, ptr %4, align 8, !alias.scope !2639, !noalias !2642
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %44, align 8, !alias.scope !2639, !noalias !2642
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %45, align 8, !alias.scope !2639, !noalias !2642
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %46, align 8, !alias.scope !2639, !noalias !2642
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %47, align 8, !alias.scope !2639, !noalias !2642
-  %48 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %42, align 8, !alias.scope !2639, !noalias !2642
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %43, align 8, !alias.scope !2639, !noalias !2642
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %44, align 8, !alias.scope !2639, !noalias !2642
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 1, ptr %45, align 8, !alias.scope !2639, !noalias !2642
+  %46 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %49
+  br label %47
 
-49:                                               ; preds = %42, %34, %26, %18
-  %.0.in = phi i1 [ %25, %18 ], [ %33, %26 ], [ %41, %34 ], [ %48, %42 ]
+47:                                               ; preds = %40, %32, %24, %16
+  %.0.in = phi i1 [ %23, %16 ], [ %31, %24 ], [ %39, %32 ], [ %46, %40 ]
   ret i1 %.0.in
 }
 
@@ -11899,9 +11893,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21

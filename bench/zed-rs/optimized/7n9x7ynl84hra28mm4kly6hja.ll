@@ -14503,35 +14503,25 @@ define hidden noundef range(i8 0, 3) i8 @_ZN8terminal8mappings5mouse11MouseForma
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i8 32, 100) i8 @_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #9 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 4, !range !3273, !noundef !16
-  %4 = icmp eq i8 %3, 5
-  br i1 %4, label %7, label %switch.lookup
-
-switch.lookup:                                    ; preds = %1
-  %5 = add nsw i8 %3, -2
-  %narrow = tail call i8 @llvm.umin.i8(i8 %5, i8 3)
-  %6 = shl nuw nsw i8 %narrow, 3
-  %switch.shiftamt = zext nneg i8 %6 to i32
-  %switch.downshift = lshr i32 1663115808, %switch.shiftamt
-  %switch.masked = trunc i32 %switch.downshift to i8
-  br label %7
-
-7:                                                ; preds = %switch.lookup, %1
-  %.sroa.0.0 = phi i8 [ 35, %1 ], [ %switch.masked, %switch.lookup ]
-  ret i8 %.sroa.0.0
+switch.lookup:
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %2 = load i8, ptr %1, align 4, !range !3273, !noundef !16
+  %3 = shl nuw nsw i8 %2, 3
+  %switch.shiftamt = zext nneg i8 %3 to i48
+  %switch.downshift = lshr i48 38625213440867, %switch.shiftamt
+  %switch.masked = trunc i48 %switch.downshift to i8
+  ret i8 %switch.masked
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i8 0, 100) i8 @_ZN8terminal8mappings5mouse15AlacMouseButton11from_button17h4e6fbb503a1d03e5E.llvm.8621876355426791832(i8 noundef %0) unnamed_addr #11 {
-switch.lookup:
-  %1 = add i8 %0, -2
-  %narrow = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
-  %2 = shl nuw nsw i8 %narrow, 3
-  %switch.shiftamt = zext nneg i8 %2 to i32
-  %switch.downshift = lshr i32 1661075712, %switch.shiftamt
-  %switch.masked = trunc i32 %switch.downshift to i8
-  ret i8 %switch.masked
+  %2 = icmp ult i8 %0, 5
+  %switch.cast = zext i8 %0 to i40
+  %switch.shiftamt = shl nuw nsw i40 %switch.cast, 3
+  %switch.downshift = lshr i40 8606737251, %switch.shiftamt
+  %switch.masked = trunc i40 %switch.downshift to i8
+  %.sroa.01.0 = select i1 %2, i8 %switch.masked, i8 99
+  ret i8 %.sroa.01.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14916,28 +14906,28 @@ define void @_ZN8terminal8mappings5mouse10alt_scroll17h30d0d51edd398a92E(ptr dea
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN8terminal8mappings5mouse19mouse_button_report17h00c76ec2946c4e07E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, i32 noundef %2, i8 noundef %3, i40 %4, i1 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = add i8 %3, -2
-  %9 = icmp ugt i8 %8, 2
-  %10 = and i32 %6, 8264
-  %11 = icmp eq i32 %10, 0
-  %or.cond = or i1 %9, %11
-  br i1 %or.cond, label %_ZN8terminal8mappings5mouse15AlacMouseButton11from_button17h4e6fbb503a1d03e5E.llvm.8621876355426791832.exit.thread, label %12
+  %switch.tableidx = add i8 %3, -2
+  %8 = icmp ugt i8 %switch.tableidx, 2
+  %9 = and i32 %6, 8264
+  %10 = icmp eq i32 %9, 0
+  %or.cond = or i1 %8, %10
+  br i1 %or.cond, label %_ZN8terminal8mappings5mouse15AlacMouseButton11from_button17h4e6fbb503a1d03e5E.llvm.8621876355426791832.exit.thread, label %11
 
 _ZN8terminal8mappings5mouse15AlacMouseButton11from_button17h4e6fbb503a1d03e5E.llvm.8621876355426791832.exit.thread: ; preds = %7
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %16
+  br label %15
 
-12:                                               ; preds = %7
-  %13 = and i32 %6, 32
-  %.not.i = icmp eq i32 %13, 0
-  %14 = lshr i32 %6, 14
-  %15 = trunc i32 %14 to i8
-  %..i = and i8 %15, 1
+11:                                               ; preds = %7
+  %12 = and i32 %6, 32
+  %.not.i = icmp eq i32 %12, 0
+  %13 = lshr i32 %6, 14
+  %14 = trunc i32 %13 to i8
+  %..i = and i8 %14, 1
   %.sroa.0.0.i = select i1 %.not.i, i8 %..i, i8 2
-  tail call void @_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, i32 noundef %2, i8 noundef %8, i1 noundef zeroext %5, i40 %4, i8 noundef %.sroa.0.0.i)
-  br label %16
+  tail call void @_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, i32 noundef %2, i8 noundef %switch.tableidx, i1 noundef zeroext %5, i40 %4, i8 noundef %.sroa.0.0.i)
+  br label %15
 
-16:                                               ; preds = %12, %_ZN8terminal8mappings5mouse15AlacMouseButton11from_button17h4e6fbb503a1d03e5E.llvm.8621876355426791832.exit.thread
+15:                                               ; preds = %11, %_ZN8terminal8mappings5mouse15AlacMouseButton11from_button17h4e6fbb503a1d03e5E.llvm.8621876355426791832.exit.thread
   ret void
 }
 
@@ -14951,98 +14941,84 @@ define void @_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E
   %11 = alloca [1 x i8], align 1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i8, ptr %12, align 4, !range !3273, !alias.scope !3319, !noundef !16
-  %14 = icmp eq i8 %13, 5
-  br i1 %14, label %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit, label %15
+  %switch.tableidx = add nsw i8 %13, -2
+  %14 = icmp ult i8 %switch.tableidx, 4
+  br i1 %14, label %switch.lookup, label %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit.thread
 
-default.unreachable:                              ; preds = %15
-  unreachable
+switch.lookup:                                    ; preds = %5
+  %15 = shl nuw nsw i8 %switch.tableidx, 3
+  %switch.shiftamt13 = zext nneg i8 %15 to i32
+  %switch.downshift14 = lshr i32 589373984, %switch.shiftamt13
+  %switch.masked15 = trunc i32 %switch.downshift14 to i8
+  %16 = and i32 %4, 8256
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit.thread, label %18
 
-15:                                               ; preds = %5
-  %16 = add nsw i8 %13, -2
-  %narrow.i = tail call i8 @llvm.umin.i8(i8 %16, i8 3)
-  switch i8 %narrow.i, label %default.unreachable [
-    i8 0, label %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit
-    i8 1, label %17
-    i8 2, label %18
-    i8 3, label %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit.thread
-  ]
-
-17:                                               ; preds = %15
-  br label %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit
-
-18:                                               ; preds = %15
-  br label %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit
-
-_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit: ; preds = %5, %15, %17, %18
-  %.sroa.0.0.i = phi i8 [ 35, %5 ], [ 34, %17 ], [ 33, %18 ], [ 32, %15 ]
-  %19 = and i32 %4, 8256
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit.thread, label %21
-
-_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit.thread: ; preds = %15, %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit
+_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit.thread: ; preds = %5, %switch.lookup
   store i64 -9223372036854775808, ptr %0, align 8
   br label %_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832.exit
 
-21:                                               ; preds = %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit
-  %22 = and i32 %4, 8192
-  %23 = icmp ne i32 %22, 0
-  %or.cond = and i1 %23, %14
-  br i1 %or.cond, label %47, label %24
+18:                                               ; preds = %switch.lookup
+  %switch.masked = icmp eq i8 %switch.tableidx, 3
+  %19 = and i32 %4, 8192
+  %20 = icmp ne i32 %19, 0
+  %or.cond = and i1 %20, %switch.masked
+  br i1 %or.cond, label %44, label %21
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %.sroa.05.0.copyload = load i40, ptr %25, align 1
-  %26 = and i32 %4, 16384
-  %27 = icmp ne i32 %26, 0
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %.sroa.05.0.copyload = load i40, ptr %22, align 1
+  %23 = and i32 %4, 16384
+  %24 = icmp ne i32 %23, 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3322)
-  %28 = icmp slt i32 %2, 0
-  br i1 %28, label %39, label %29
+  %25 = icmp slt i32 %2, 0
+  br i1 %25, label %36, label %26
 
-29:                                               ; preds = %24
-  %30 = and i32 %4, 32
-  %.not.i.not = icmp eq i32 %30, 0
-  %31 = lshr i40 %.sroa.05.0.copyload, 14
-  %32 = trunc i40 %31 to i8
-  %spec.store.select.i = and i8 %32, 4
-  %33 = lshr i40 %.sroa.05.0.copyload, 5
-  %34 = trunc i40 %33 to i8
-  %35 = and i8 %34, 8
-  %spec.select.i = or disjoint i8 %spec.store.select.i, %35
-  %36 = trunc i40 %.sroa.05.0.copyload to i1
-  %37 = or disjoint i8 %spec.select.i, 16
-  %.sroa.06.1.i = select i1 %36, i8 %37, i8 %spec.select.i
-  %38 = or disjoint i8 %.sroa.06.1.i, %.sroa.0.0.i
-  br i1 %.not.i.not, label %46, label %40
+26:                                               ; preds = %21
+  %27 = and i32 %4, 32
+  %.not.i.not = icmp eq i32 %27, 0
+  %28 = lshr i40 %.sroa.05.0.copyload, 14
+  %29 = trunc i40 %28 to i8
+  %spec.store.select.i = and i8 %29, 4
+  %30 = lshr i40 %.sroa.05.0.copyload, 5
+  %31 = trunc i40 %30 to i8
+  %32 = and i8 %31, 8
+  %spec.select.i = or disjoint i8 %spec.store.select.i, %32
+  %33 = trunc i40 %.sroa.05.0.copyload to i1
+  %34 = or disjoint i8 %spec.select.i, 16
+  %.sroa.06.1.i = select i1 %33, i8 %34, i8 %spec.select.i
+  %35 = or disjoint i8 %.sroa.06.1.i, %switch.masked15
+  br i1 %.not.i.not, label %43, label %37
 
-39:                                               ; preds = %24
+36:                                               ; preds = %21
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !3322
   br label %_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832.exit
 
-40:                                               ; preds = %29
+37:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !3322
-  store i8 %38, ptr %11, align 1, !noalias !3325
+  store i8 %35, ptr %11, align 1, !noalias !3325
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !3325
   store i32 77, ptr %10, align 4, !noalias !3325
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3325
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !3325
-  %41 = add i64 %1, 1
-  store i64 %41, ptr %8, align 8, !noalias !3325
+  %38 = add i64 %1, 1
+  store i64 %38, ptr %8, align 8, !noalias !3325
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3325
-  %42 = add nuw i32 %2, 1
-  store i32 %42, ptr %7, align 4, !noalias !3325
+  %39 = add nuw i32 %2, 1
+  store i32 %39, ptr %7, align 4, !noalias !3325
   store ptr %11, ptr %9, align 8, !noalias !3325
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17haf36fcc7f3e0aea2E", ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !3325
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %8, ptr %43, align 8, !noalias !3325
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %8, ptr %40, align 8, !noalias !3325
   %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN72_$LT$alacritty_terminal..index..Column$u20$as$u20$core..fmt..Display$GT$3fmt17h44bf4c1094909e30E", ptr %.sroa.46.0..sroa_idx.i.i, align 8, !noalias !3325
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %7, ptr %44, align 8, !noalias !3325
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr %7, ptr %41, align 8, !noalias !3325
   %.sroa.410.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN70_$LT$alacritty_terminal..index..Line$u20$as$u20$core..fmt..Display$GT$3fmt17hf2bdb795afe71a6fE", ptr %.sroa.410.0..sroa_idx.i.i, align 8, !noalias !3325
-  %45 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %10, ptr %45, align 8, !noalias !3325
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store ptr %10, ptr %42, align 8, !noalias !3325
   %.sroa.414.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17hedc175efc39a91e3E", ptr %.sroa.414.0..sroa_idx.i.i, align 8, !noalias !3325
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3328
@@ -15064,15 +15040,15 @@ _ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3322
   br label %_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832.exit
 
-46:                                               ; preds = %29
-  tail call fastcc void @_ZN8terminal8mappings5mouse19normal_mouse_report17h75f9472bc4b71626E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, i32 noundef %2, i8 noundef %38, i1 noundef zeroext %27)
+43:                                               ; preds = %26
+  tail call fastcc void @_ZN8terminal8mappings5mouse19normal_mouse_report17h75f9472bc4b71626E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, i32 noundef %2, i8 noundef %35, i1 noundef zeroext %24)
   br label %_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832.exit
 
-47:                                               ; preds = %21
+44:                                               ; preds = %18
   store i64 -9223372036854775808, ptr %0, align 8
   br label %_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832.exit
 
-_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832.exit: ; preds = %46, %40, %39, %47, %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit.thread
+_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832.exit: ; preds = %43, %37, %36, %44, %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit.thread
   ret void
 }
 
@@ -16453,9 +16429,6 @@ declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #40
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #40
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #41

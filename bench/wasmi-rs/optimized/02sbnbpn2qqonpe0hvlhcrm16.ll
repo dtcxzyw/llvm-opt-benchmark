@@ -3376,37 +3376,28 @@ define internal void @"_ZN4core3ptr122drop_in_place$LT$wasmi..module..init_expr.
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE"(ptr noalias noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !616, !noundef !3
-  %.not = icmp eq i64 %2, 5
-  br i1 %.not, label %9, label %3
-
-3:                                                ; preds = %1
-  %4 = add nsw i64 %2, -2
-  %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 3)
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
-    i64 1, label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
-    i64 2, label %7
-    i64 3, label %6
+  switch i64 %2, label %3 [
+    i64 5, label %6
+    i64 2, label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
+    i64 3, label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
+    i64 4, label %4
   ]
 
-default.unreachable:                              ; preds = %3
-  unreachable
-
-6:                                                ; preds = %3
+3:                                                ; preds = %1
   tail call void @"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..types..Types$GT$17h4188fb37397452b9E"(ptr noalias noundef nonnull align 8 dereferenceable(320) %0)
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr119drop_in_place$LT$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h4adc070517d299c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr119drop_in_place$LT$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h4adc070517d299c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr65drop_in_place$LT$wasmparser..binary_reader..BinaryReaderError$GT$17h8021be9d56cccb25E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr65drop_in_place$LT$wasmparser..binary_reader..BinaryReaderError$GT$17h8021be9d56cccb25E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
 
-"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit": ; preds = %7, %6, %3, %3, %9
+"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit": ; preds = %1, %1, %4, %3, %6
   ret void
 }
 
@@ -11004,48 +10995,39 @@ define noundef nonnull align 8 ptr @_ZN5wasmi6module6parser12ModuleParser23proce
           cleanup
   %24 = load i64, ptr %6, align 8, !range !616, !noundef !3
   %25 = icmp eq i64 %24, 5
-  br i1 %25, label %34, label %35
+  br i1 %25, label %30, label %31
 
 26:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1165
   %27 = load i64, ptr %6, align 8, !range !616, !noundef !3
-  %28 = icmp eq i64 %27, 5
-  br i1 %28, label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit", label %29
+  switch i64 %27, label %28 [
+    i64 5, label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit"
+    i64 4, label %29
+    i64 2, label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit"
+    i64 3, label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit"
+  ]
 
-"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit": ; preds = %33, %32, %29, %29, %26
+"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit": ; preds = %26, %26, %26, %29, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %20
 
-29:                                               ; preds = %26
-  %30 = add nsw i64 %27, -2
-  %31 = tail call i64 @llvm.umin.i64(i64 %30, i64 3)
-  switch i64 %31, label %default.unreachable [
-    i64 0, label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit"
-    i64 1, label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit"
-    i64 2, label %33
-    i64 3, label %32
-  ]
-
-default.unreachable:                              ; preds = %29
-  unreachable
-
-32:                                               ; preds = %29
+28:                                               ; preds = %26
   call void @"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..types..Types$GT$17h4188fb37397452b9E"(ptr noalias noundef nonnull align 8 dereferenceable(320) %6)
   br label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit"
 
-33:                                               ; preds = %29
+29:                                               ; preds = %26
   call void @"_ZN4core3ptr119drop_in_place$LT$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h4adc070517d299c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
   br label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit"
 
-34:                                               ; preds = %35, %22
+30:                                               ; preds = %31, %22
   resume { ptr, i32 } %23
 
-35:                                               ; preds = %22
+31:                                               ; preds = %22
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE"(ptr noalias noundef align 8 dereferenceable(320) %6) #27
-          to label %34 unwind label %36
+          to label %30 unwind label %32
 
-36:                                               ; preds = %35
-  %37 = landingpad { ptr, i32 }
+32:                                               ; preds = %31
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #26
   unreachable
@@ -15421,9 +15403,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #22

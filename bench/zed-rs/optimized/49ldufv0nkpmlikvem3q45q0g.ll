@@ -79081,87 +79081,85 @@ define hidden void @"_ZN81_$LT$serde..__private..de..content..Content$u20$as$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23087)
   %3 = load i64, ptr %1, align 8, !range !12265, !alias.scope !23089, !noalias !23090, !noundef !5
   %4 = xor i64 %3, -9223372036854775808
-  %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 5)
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %6
-    i64 1, label %7
-    i64 2, label %10
-    i64 3, label %20
-    i64 4, label %25
-    i64 5, label %30
+  switch i64 %4, label %29 [
+    i64 0, label %5
+    i64 1, label %6
+    i64 2, label %9
+    i64 3, label %19
+    i64 4, label %24
   ]
 
-default.unreachable:                              ; preds = %10, %2
-  unreachable
-
-6:                                                ; preds = %2
+5:                                                ; preds = %2
   store i8 18, ptr %0, align 8, !alias.scope !23091, !noalias !23089
   br label %_ZN5serde2de12Deserializer21__deserialize_content17h6180569aefa50a99E.exit
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i8, ptr %8, align 8, !range !4, !alias.scope !23089, !noalias !23090, !noundef !5
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i8, ptr %7, align 8, !range !4, !alias.scope !23089, !noalias !23090, !noundef !5
   store i8 0, ptr %0, align 8, !alias.scope !23094, !noalias !23089
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %9, ptr %.sroa.4.0..sroa_idx.i.i.i, align 1, !alias.scope !23094, !noalias !23089
+  store i8 %8, ptr %.sroa.4.0..sroa_idx.i.i.i, align 1, !alias.scope !23094, !noalias !23089
   br label %_ZN5serde2de12Deserializer21__deserialize_content17h6180569aefa50a99E.exit
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23097)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23100)
-  %12 = load i64, ptr %11, align 8, !range !4139, !alias.scope !23102, !noalias !23103, !noundef !5
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = load i64, ptr %10, align 8, !range !4139, !alias.scope !23102, !noalias !23103, !noundef !5
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.41.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %12, label %default.unreachable [
-    i64 0, label %14
-    i64 1, label %16
-    i64 2, label %18
+  switch i64 %11, label %default.unreachable [
+    i64 0, label %13
+    i64 1, label %15
+    i64 2, label %17
   ]
 
-14:                                               ; preds = %10
-  %15 = load i64, ptr %13, align 8, !alias.scope !23102, !noalias !23103, !noundef !5
+default.unreachable:                              ; preds = %9
+  unreachable
+
+13:                                               ; preds = %9
+  %14 = load i64, ptr %12, align 8, !alias.scope !23102, !noalias !23103, !noundef !5
   store i8 4, ptr %0, align 8, !alias.scope !23104, !noalias !23102
-  store i64 %15, ptr %.sroa.41.0..sroa_idx.i.i.i.i, align 8, !alias.scope !23104, !noalias !23102
+  store i64 %14, ptr %.sroa.41.0..sroa_idx.i.i.i.i, align 8, !alias.scope !23104, !noalias !23102
   br label %_ZN5serde2de12Deserializer21__deserialize_content17h6180569aefa50a99E.exit
 
-16:                                               ; preds = %10
-  %17 = load i64, ptr %13, align 8, !alias.scope !23102, !noalias !23103, !noundef !5
+15:                                               ; preds = %9
+  %16 = load i64, ptr %12, align 8, !alias.scope !23102, !noalias !23103, !noundef !5
   store i8 8, ptr %0, align 8, !alias.scope !23107, !noalias !23102
-  store i64 %17, ptr %.sroa.41.0..sroa_idx.i.i.i.i, align 8, !alias.scope !23107, !noalias !23102
+  store i64 %16, ptr %.sroa.41.0..sroa_idx.i.i.i.i, align 8, !alias.scope !23107, !noalias !23102
   br label %_ZN5serde2de12Deserializer21__deserialize_content17h6180569aefa50a99E.exit
 
-18:                                               ; preds = %10
-  %19 = load double, ptr %13, align 8, !alias.scope !23102, !noalias !23103, !noundef !5
+17:                                               ; preds = %9
+  %18 = load double, ptr %12, align 8, !alias.scope !23102, !noalias !23103, !noundef !5
   store i8 10, ptr %0, align 8, !alias.scope !23110, !noalias !23102
-  store double %19, ptr %.sroa.41.0..sroa_idx.i.i.i.i, align 8, !alias.scope !23110, !noalias !23102
+  store double %18, ptr %.sroa.41.0..sroa_idx.i.i.i.i, align 8, !alias.scope !23110, !noalias !23102
   br label %_ZN5serde2de12Deserializer21__deserialize_content17h6180569aefa50a99E.exit
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !alias.scope !23089, !noalias !23090, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load i64, ptr %23, align 8, !alias.scope !23089, !noalias !23090, !noundef !5
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = load ptr, ptr %20, align 8, !alias.scope !23089, !noalias !23090, !nonnull !5, !noundef !5
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %23 = load i64, ptr %22, align 8, !alias.scope !23089, !noalias !23090, !noundef !5
   store i8 13, ptr %0, align 8, !alias.scope !23113, !noalias !23116
   %.sroa.41.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %22, ptr %.sroa.41.0..sroa_idx.i.i.i, align 8, !alias.scope !23113, !noalias !23116
+  store ptr %21, ptr %.sroa.41.0..sroa_idx.i.i.i, align 8, !alias.scope !23113, !noalias !23116
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %24, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !23113, !noalias !23116
+  store i64 %23, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !23113, !noalias !23116
   br label %_ZN5serde2de12Deserializer21__deserialize_content17h6180569aefa50a99E.exit
 
-25:                                               ; preds = %2
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = load ptr, ptr %26, align 8, !alias.scope !23089, !noalias !23090, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = load i64, ptr %28, align 8, !alias.scope !23089, !noalias !23090, !noundef !5
-  tail call void @_ZN10serde_json5value2de15visit_array_ref17h59543123a7a34674E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 %27, i64 noundef %29), !noalias !23089
+24:                                               ; preds = %2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8, !alias.scope !23089, !noalias !23090, !nonnull !5, !noundef !5
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %28 = load i64, ptr %27, align 8, !alias.scope !23089, !noalias !23090, !noundef !5
+  tail call void @_ZN10serde_json5value2de15visit_array_ref17h59543123a7a34674E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 %26, i64 noundef %28), !noalias !23089
   br label %_ZN5serde2de12Deserializer21__deserialize_content17h6180569aefa50a99E.exit
 
-30:                                               ; preds = %2
+29:                                               ; preds = %2
   tail call void @_ZN10serde_json5value2de16visit_object_ref17ha271560e289a1b3cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1)
   br label %_ZN5serde2de12Deserializer21__deserialize_content17h6180569aefa50a99E.exit
 
-_ZN5serde2de12Deserializer21__deserialize_content17h6180569aefa50a99E.exit: ; preds = %6, %7, %14, %16, %18, %20, %25, %30
+_ZN5serde2de12Deserializer21__deserialize_content17h6180569aefa50a99E.exit: ; preds = %5, %6, %13, %15, %17, %19, %24, %29
   ret void
 }
 

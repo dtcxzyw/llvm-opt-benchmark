@@ -253,94 +253,79 @@ define void @_ZN9google_ai12count_tokens17hcd79e70a6c85b796E(ptr dead_on_unwind 
 define { ptr, i64 } @_ZN9google_ai5Model2id17h4aefd28ba15dac34E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !62, !noundef !4
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %11
-    i64 1, label %5
-    i64 2, label %6
+  switch i64 %3, label %5 [
+    i64 0, label %10
+    i64 1, label %4
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
+4:                                                ; preds = %1
+  br label %10
 
 5:                                                ; preds = %1
-  br label %11
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  br label %10
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !noundef !4
-  br label %11
-
-11:                                               ; preds = %1, %6, %5
-  %.sroa.4.0 = phi i64 [ 16, %5 ], [ %10, %6 ], [ 14, %1 ]
-  %.sroa.0.0 = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %5 ], [ %8, %6 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %1 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %13
+10:                                               ; preds = %1, %5, %4
+  %.sroa.4.0 = phi i64 [ 16, %4 ], [ %9, %5 ], [ 14, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %4 ], [ %7, %5 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %1 ]
+  %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %12 = insertvalue { ptr, i64 } %11, i64 %.sroa.4.0, 1
+  ret { ptr, i64 } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN9google_ai5Model12display_name17h603c263b32812e6aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !62, !noundef !4
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %14
-    i64 1, label %5
-    i64 2, label %6
+  switch i64 %3, label %5 [
+    i64 0, label %13
+    i64 1, label %4
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
+4:                                                ; preds = %1
+  br label %13
 
 5:                                                ; preds = %1
-  br label %14
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load i64, ptr %6, align 8, !range !15, !noundef !4
+  %8 = icmp eq i64 %7, -9223372036854775808
+  %. = select i1 %8, ptr %0, ptr %6
+  %9 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %., i64 16
+  %12 = load i64, ptr %11, align 8, !noundef !4
+  br label %13
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i64, ptr %7, align 8, !range !15, !noundef !4
-  %9 = icmp eq i64 %8, -9223372036854775808
-  %. = select i1 %9, ptr %0, ptr %7
-  %10 = getelementptr inbounds nuw i8, ptr %., i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %., i64 16
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  br label %14
-
-14:                                               ; preds = %1, %6, %5
-  %.sroa.4.0 = phi i64 [ 16, %5 ], [ %13, %6 ], [ 14, %1 ]
-  %.sroa.0.0 = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.5, %5 ], [ %11, %6 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.4, %1 ]
-  %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %16
+13:                                               ; preds = %1, %5, %4
+  %.sroa.4.0 = phi i64 [ 16, %4 ], [ %12, %5 ], [ 14, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.5, %4 ], [ %10, %5 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.4, %1 ]
+  %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %15 = insertvalue { ptr, i64 } %14, i64 %.sroa.4.0, 1
+  ret { ptr, i64 } %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN9google_ai5Model15max_token_count17h3a9fa288247a975aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !62, !noundef !4
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %9
-    i64 1, label %5
-    i64 2, label %6
+  switch i64 %3, label %5 [
+    i64 0, label %8
+    i64 1, label %4
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
+4:                                                ; preds = %1
+  br label %8
 
 5:                                                ; preds = %1
-  br label %9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = load i64, ptr %6, align 8, !noundef !4
+  br label %8
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load i64, ptr %7, align 8, !noundef !4
-  br label %9
-
-9:                                                ; preds = %1, %6, %5
-  %.sroa.0.0 = phi i64 [ 1000000, %5 ], [ %8, %6 ], [ 2000000, %1 ]
+8:                                                ; preds = %1, %5, %4
+  %.sroa.0.0 = phi i64 [ 1000000, %4 ], [ %7, %5 ], [ 2000000, %1 ]
   ret i64 %.sroa.0.0
 }
 
@@ -353,39 +338,34 @@ define noundef zeroext i1 @"_ZN55_$LT$google_ai..Model$u20$as$u20$core..fmt..Dis
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i64, ptr %0, align 8, !range !62, !alias.scope !63, !noundef !4
   %7 = xor i64 %6, -9223372036854775808
-  %8 = tail call i64 @llvm.umin.i64(i64 %7, i64 2)
-  switch i64 %8, label %default.unreachable [
+  switch i64 %7, label %9 [
     i64 0, label %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit
-    i64 1, label %9
-    i64 2, label %10
+    i64 1, label %8
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+8:                                                ; preds = %2
+  br label %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit
 
 9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !alias.scope !63, !nonnull !4, !noundef !4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !alias.scope !63, !noundef !4
   br label %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !63, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i64, ptr %13, align 8, !alias.scope !63, !noundef !4
-  br label %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit
-
-_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit: ; preds = %2, %9, %10
-  %.sroa.4.0.i = phi i64 [ 16, %9 ], [ %14, %10 ], [ 14, %2 ]
-  %.sroa.0.0.i = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %9 ], [ %12, %10 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %2 ]
+_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit: ; preds = %2, %8, %9
+  %.sroa.4.0.i = phi i64 [ 16, %8 ], [ %13, %9 ], [ 14, %2 ]
+  %.sroa.0.0.i = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %8 ], [ %11, %9 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %2 ]
   store ptr %.sroa.0.0.i, ptr %4, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.4.0.i, ptr %15, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %.sroa.4.0.i, ptr %14, align 8
   store ptr %4, ptr %5, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hfce43609b4981fe8E", ptr %.sroa.42.0..sroa_idx, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val3 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.val = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val3 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !66
   store ptr @anon.b18fad0c55fffb1a80b539602e1e54e2.6, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -396,11 +376,11 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit: ; preds = %2, %9, %10
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %18 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !66
+  %17 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !66
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !66
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %18
+  ret i1 %17
 }
 
 ; Function Attrs: nonlazybind uwtable

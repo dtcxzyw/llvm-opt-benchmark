@@ -6544,16 +6544,11 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i: ; preds 
 
 _ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit: ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread26.i"
   %.sroa.07.0.i.i.i = extractvalue { i64, i1 } %53, 0
-  %spec.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.07.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i.i.i, label %default.unreachable20 [
+  switch i64 %.sroa.07.0.i.i.i, label %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread8 [
     i64 0, label %57
     i64 1, label %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread
     i64 2, label %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread
-    i64 3, label %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread8
   ]
-
-default.unreachable20:                            ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit
-  unreachable
 
 57:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.231749247c9dbb1d881e71a77925d738.17, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.231749247c9dbb1d881e71a77925d738.19) #36
@@ -6567,7 +6562,7 @@ _ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thre
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %61
 
-_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread8: ; preds = %35, %.preheader.split.i, %.preheader.split.us.i, %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17h3a07ae9bc9f5b15eE.exit", %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit
+_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread8: ; preds = %35, %.preheader.split.i, %.preheader.split.us.i, %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit, %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17h3a07ae9bc9f5b15eE.exit"
   ret void
 
 60:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread

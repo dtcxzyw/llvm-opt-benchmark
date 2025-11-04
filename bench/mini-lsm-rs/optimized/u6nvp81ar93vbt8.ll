@@ -2505,16 +2505,11 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i: ; preds 
 
 _ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit: ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread26.i"
   %58 = extractvalue { i64, i1 } %53, 0
-  %spec.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %58, i64 3)
-  switch i64 %spec.select.i.i.i.i, label %default.unreachable20 [
+  switch i64 %58, label %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread8 [
     i64 0, label %59
     i64 1, label %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread
     i64 2, label %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread
-    i64 3, label %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread8
   ]
-
-default.unreachable20:                            ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit
-  unreachable
 
 59:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.55fb3bd4cab6f2fd49023fef9a6410bb.17, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.55fb3bd4cab6f2fd49023fef9a6410bb.19) #17
@@ -2528,7 +2523,7 @@ _ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thre
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %63
 
-_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread8: ; preds = %35, %.preheader.split.i, %.preheader.split.us.i, %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17h350d768ea86a9c98E.exit", %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit
+_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread8: ; preds = %35, %.preheader.split.i, %.preheader.split.us.i, %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit, %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17h350d768ea86a9c98E.exit"
   ret void
 
 62:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h03c0fc92a426ca55E.exit.thread
@@ -3223,9 +3218,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

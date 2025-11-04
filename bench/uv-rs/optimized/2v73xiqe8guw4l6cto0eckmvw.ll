@@ -4555,42 +4555,37 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1179)
   %7 = load i64, ptr %6, align 8, !range !9, !alias.scope !1179, !noalias !1182, !noundef !3
   %8 = xor i64 %7, -9223372036854775808
-  %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 2)
-  switch i64 %9, label %default.unreachable [
-    i64 0, label %10
-    i64 1, label %13
-    i64 2, label %16
+  switch i64 %8, label %15 [
+    i64 0, label %9
+    i64 1, label %12
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1184
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %11, ptr %5, align 8, !noalias !1184
-  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b758752e93fe0560f89c3509e28cb19.146, i64 noundef 2, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2b758752e93fe0560f89c3509e28cb19.137)
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %10, ptr %5, align 8, !noalias !1184
+  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b758752e93fe0560f89c3509e28cb19.146, i64 noundef 2, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2b758752e93fe0560f89c3509e28cb19.137)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1184
   br label %"_ZN65_$LT$uv_python..virtualenv..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hceb57c83afa74fbcE.exit"
 
-13:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1184
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %14, ptr %4, align 8, !noalias !1184
-  %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b758752e93fe0560f89c3509e28cb19.147, i64 noundef 16, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2b758752e93fe0560f89c3509e28cb19.132)
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %13, ptr %4, align 8, !noalias !1184
+  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h5ff956a32c0a1e99E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b758752e93fe0560f89c3509e28cb19.147, i64 noundef 16, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2b758752e93fe0560f89c3509e28cb19.132)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1184
   br label %"_ZN65_$LT$uv_python..virtualenv..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hceb57c83afa74fbcE.exit"
 
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1184
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %17, ptr %3, align 8, !noalias !1184
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h78b43f4cc5600f05E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b758752e93fe0560f89c3509e28cb19.149, i64 noundef 14, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2b758752e93fe0560f89c3509e28cb19.148, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2b758752e93fe0560f89c3509e28cb19.137)
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %16, ptr %3, align 8, !noalias !1184
+  %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h78b43f4cc5600f05E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b758752e93fe0560f89c3509e28cb19.149, i64 noundef 14, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2b758752e93fe0560f89c3509e28cb19.148, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2b758752e93fe0560f89c3509e28cb19.137)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1184
   br label %"_ZN65_$LT$uv_python..virtualenv..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hceb57c83afa74fbcE.exit"
 
-"_ZN65_$LT$uv_python..virtualenv..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hceb57c83afa74fbcE.exit": ; preds = %10, %13, %16
-  %.sroa.0.0.in.i = phi i1 [ %12, %10 ], [ %15, %13 ], [ %18, %16 ]
+"_ZN65_$LT$uv_python..virtualenv..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hceb57c83afa74fbcE.exit": ; preds = %9, %12, %15
+  %.sroa.0.0.in.i = phi i1 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -5285,33 +5280,28 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h13a13f2f8e86bc69E(ptr n
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hb753f6860ed87ad4E(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !9, !alias.scope !1348, !noundef !3
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %5
+  switch i64 %3, label %9 [
+    i64 0, label %4
     i64 1, label %"_ZN67_$LT$uv_python..virtualenv..Error$u20$as$u20$core..error..Error$GT$6source17h38a8479f067d7128E.exit"
-    i64 2, label %10
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = tail call { ptr, ptr } @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..error..Error$GT$6source17h50268c757257c912E"(ptr noundef nonnull readonly align 1 %6)
-  %8 = extractvalue { ptr, ptr } %7, 0
-  %9 = extractvalue { ptr, ptr } %7, 1
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = tail call { ptr, ptr } @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..error..Error$GT$6source17h50268c757257c912E"(ptr noundef nonnull readonly align 1 %5)
+  %7 = extractvalue { ptr, ptr } %6, 0
+  %8 = extractvalue { ptr, ptr } %6, 1
   br label %"_ZN67_$LT$uv_python..virtualenv..Error$u20$as$u20$core..error..Error$GT$6source17h38a8479f067d7128E.exit"
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %"_ZN67_$LT$uv_python..virtualenv..Error$u20$as$u20$core..error..Error$GT$6source17h38a8479f067d7128E.exit"
 
-"_ZN67_$LT$uv_python..virtualenv..Error$u20$as$u20$core..error..Error$GT$6source17h38a8479f067d7128E.exit": ; preds = %1, %5, %10
-  %.sroa.4.0.i = phi ptr [ %9, %5 ], [ @anon.be360845690a7974eca65cf19609f225.284.llvm.10896961552849713402, %10 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %8, %5 ], [ %11, %10 ], [ null, %1 ]
-  %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.4.0.i, 1
-  ret { ptr, ptr } %13
+"_ZN67_$LT$uv_python..virtualenv..Error$u20$as$u20$core..error..Error$GT$6source17h38a8479f067d7128E.exit": ; preds = %1, %4, %9
+  %.sroa.4.0.i = phi ptr [ %8, %4 ], [ @anon.be360845690a7974eca65cf19609f225.284.llvm.10896961552849713402, %9 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %7, %4 ], [ %10, %9 ], [ null, %1 ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.4.0.i, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -12631,9 +12621,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26

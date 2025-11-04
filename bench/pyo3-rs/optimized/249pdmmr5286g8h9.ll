@@ -5194,83 +5194,73 @@ define hidden zeroext i1 @"_ZN72_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$
   %3 = alloca [8 x i8], align 8
   %4 = load i64, ptr %0, align 8
   %5 = xor i64 %4, -9223372036854775808
-  %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 4)
-  switch i64 %6, label %default.unreachable [
-    i64 0, label %7
-    i64 1, label %9
-    i64 2, label %11
-    i64 3, label %13
-    i64 4, label %15
+  switch i64 %5, label %14 [
+    i64 0, label %6
+    i64 1, label %8
+    i64 2, label %10
+    i64 3, label %12
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.93, i64 8)
+  br label %16
 
-7:                                                ; preds = %2
-  %8 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.93, i64 8)
-  br label %17
+8:                                                ; preds = %2
+  %9 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.94, i64 12)
+  br label %16
 
-9:                                                ; preds = %2
-  %10 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.94, i64 12)
-  br label %17
+10:                                               ; preds = %2
+  %11 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.95, i64 13)
+  br label %16
 
-11:                                               ; preds = %2
-  %12 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.95, i64 13)
-  br label %17
+12:                                               ; preds = %2
+  %13 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.96, i64 12)
+  br label %16
 
-13:                                               ; preds = %2
-  %14 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.96, i64 12)
-  br label %17
-
-15:                                               ; preds = %2
+14:                                               ; preds = %2
   store ptr %0, ptr %3, align 8
-  %16 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hda3bb1861e902cd2E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.163, i64 5, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.ca6e988e113f9f3b293ee61d3a823dd5.164)
-  br label %17
+  %15 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hda3bb1861e902cd2E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.163, i64 5, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.ca6e988e113f9f3b293ee61d3a823dd5.164)
+  br label %16
 
-17:                                               ; preds = %15, %13, %11, %9, %7
-  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
+16:                                               ; preds = %14, %12, %10, %8, %6
+  %.sroa.0.0.in = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN74_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..clone..Clone$GT$5clone17h356342da20e2d3abE"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #3 {
+define hidden void @"_ZN74_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..clone..Clone$GT$5clone17h356342da20e2d3abE"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #3 {
   %3 = alloca [24 x i8], align 8
   %4 = load i64, ptr %1, align 8
   %5 = xor i64 %4, -9223372036854775808
-  %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 4)
-  switch i64 %6, label %default.unreachable [
-    i64 0, label %7
-    i64 1, label %8
-    i64 2, label %9
-    i64 3, label %10
-    i64 4, label %11
+  switch i64 %5, label %10 [
+    i64 0, label %6
+    i64 1, label %7
+    i64 2, label %8
+    i64 3, label %9
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  store i64 -9223372036854775808, ptr %0, align 8
+  br label %11
 
 7:                                                ; preds = %2
-  store i64 -9223372036854775808, ptr %0, align 8
-  br label %12
+  store i64 -9223372036854775807, ptr %0, align 8
+  br label %11
 
 8:                                                ; preds = %2
-  store i64 -9223372036854775807, ptr %0, align 8
-  br label %12
+  store i64 -9223372036854775806, ptr %0, align 8
+  br label %11
 
 9:                                                ; preds = %2
-  store i64 -9223372036854775806, ptr %0, align 8
-  br label %12
+  store i64 -9223372036854775805, ptr %0, align 8
+  br label %11
 
 10:                                               ; preds = %2
-  store i64 -9223372036854775805, ptr %0, align 8
-  br label %12
-
-11:                                               ; preds = %2
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hdbaa59186bb9a20dE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  br label %12
+  br label %11
 
-12:                                               ; preds = %11, %10, %9, %8, %7
+11:                                               ; preds = %10, %9, %8, %7, %6
   ret void
 }
 

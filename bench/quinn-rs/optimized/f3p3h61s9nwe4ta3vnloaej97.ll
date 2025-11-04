@@ -6235,27 +6235,21 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 -64, -15) i8 @"_ZN11quinn_proto6packet95_$LT$impl$u20$core..convert..From$LT$quinn_proto..packet..LongHeaderType$GT$$u20$for$u20$u8$GT$4from17ha5f48027b0bb5d54E"(i8 noundef range(i8 0, 4) %0) unnamed_addr #6 {
-  %2 = add nsw i8 %0, -2
-  %narrow = tail call i8 @llvm.umin.i8(i8 %2, i8 2)
-  switch i8 %narrow, label %default.unreachable [
-    i8 0, label %6
-    i8 1, label %3
-    i8 2, label %4
+  switch i8 %0, label %3 [
+    i8 2, label %5
+    i8 3, label %2
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
+2:                                                ; preds = %1
+  br label %5
 
 3:                                                ; preds = %1
-  br label %6
+  %4 = trunc nuw i8 %0 to i1
+  %. = select i1 %4, i8 -48, i8 -32
+  br label %5
 
-4:                                                ; preds = %1
-  %5 = trunc nuw i8 %0 to i1
-  %. = select i1 %5, i8 -48, i8 -32
-  br label %6
-
-6:                                                ; preds = %4, %1, %3
-  %.sroa.02.0 = phi i8 [ -16, %3 ], [ -64, %1 ], [ %., %4 ]
+5:                                                ; preds = %3, %1, %2
+  %.sroa.02.0 = phi i8 [ -16, %2 ], [ -64, %1 ], [ %., %3 ]
   ret i8 %.sroa.02.0
 }
 
@@ -9050,14 +9044,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #21
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #22
+declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+declare i64 @llvm.umin.i64(i64, i64) #22
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -9080,8 +9071,8 @@ attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { noreturn }
 attributes #24 = { nounwind }
 attributes #25 = { cold noreturn nounwind }

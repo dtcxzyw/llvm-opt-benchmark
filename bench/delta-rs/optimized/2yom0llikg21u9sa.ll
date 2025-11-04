@@ -15118,38 +15118,33 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1795)
   %5 = load i64, ptr %4, align 8, !range !430, !alias.scope !1795, !noalias !1798, !noundef !9
   %6 = xor i64 %5, -9223372036854775808
-  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 3)
-  switch i64 %7, label %default.unreachable [
-    i64 0, label %8
-    i64 1, label %10
-    i64 2, label %12
-    i64 3, label %14
+  switch i64 %6, label %13 [
+    i64 0, label %7
+    i64 1, label %9
+    i64 2, label %11
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.260, i64 noundef 3), !noalias !1795
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.260, i64 noundef 3), !noalias !1795
   br label %"_ZN96_$LT$aws_sdk_dynamodb..types.._attribute_action..AttributeAction$u20$as$u20$core..fmt..Debug$GT$3fmt17hf043ee478a9245a5E.exit"
 
-10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.261, i64 noundef 6), !noalias !1795
+9:                                                ; preds = %2
+  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.261, i64 noundef 6), !noalias !1795
   br label %"_ZN96_$LT$aws_sdk_dynamodb..types.._attribute_action..AttributeAction$u20$as$u20$core..fmt..Debug$GT$3fmt17hf043ee478a9245a5E.exit"
 
-12:                                               ; preds = %2
-  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.262, i64 noundef 3), !noalias !1795
+11:                                               ; preds = %2
+  %12 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.262, i64 noundef 3), !noalias !1795
   br label %"_ZN96_$LT$aws_sdk_dynamodb..types.._attribute_action..AttributeAction$u20$as$u20$core..fmt..Debug$GT$3fmt17hf043ee478a9245a5E.exit"
 
-14:                                               ; preds = %2
+13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1800
   store ptr %4, ptr %3, align 8, !noalias !1800
-  %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.123, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.45489a1c287fb56ee4906c137a029157.124)
+  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.123, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.45489a1c287fb56ee4906c137a029157.124)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1800
   br label %"_ZN96_$LT$aws_sdk_dynamodb..types.._attribute_action..AttributeAction$u20$as$u20$core..fmt..Debug$GT$3fmt17hf043ee478a9245a5E.exit"
 
-"_ZN96_$LT$aws_sdk_dynamodb..types.._attribute_action..AttributeAction$u20$as$u20$core..fmt..Debug$GT$3fmt17hf043ee478a9245a5E.exit": ; preds = %8, %10, %12, %14
-  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
+"_ZN96_$LT$aws_sdk_dynamodb..types.._attribute_action..AttributeAction$u20$as$u20$core..fmt..Debug$GT$3fmt17hf043ee478a9245a5E.exit": ; preds = %7, %9, %11, %13
+  %.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.0.in.i
 }
 
@@ -15171,48 +15166,43 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1805)
   %5 = load i64, ptr %4, align 8, !range !1808, !alias.scope !1805, !noalias !1809, !noundef !9
   %6 = xor i64 %5, -9223372036854775808
-  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 5)
-  switch i64 %7, label %default.unreachable [
-    i64 0, label %8
-    i64 1, label %10
-    i64 2, label %12
-    i64 3, label %14
-    i64 4, label %16
-    i64 5, label %18
+  switch i64 %6, label %17 [
+    i64 0, label %7
+    i64 1, label %9
+    i64 2, label %11
+    i64 3, label %13
+    i64 4, label %15
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.242, i64 noundef 6), !noalias !1805
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.242, i64 noundef 6), !noalias !1805
   br label %"_ZN88_$LT$aws_sdk_dynamodb..types.._return_value..ReturnValue$u20$as$u20$core..fmt..Debug$GT$3fmt17he5cae3e4b4dbcdfdE.exit"
 
-10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.243, i64 noundef 6), !noalias !1805
+9:                                                ; preds = %2
+  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.243, i64 noundef 6), !noalias !1805
   br label %"_ZN88_$LT$aws_sdk_dynamodb..types.._return_value..ReturnValue$u20$as$u20$core..fmt..Debug$GT$3fmt17he5cae3e4b4dbcdfdE.exit"
 
-12:                                               ; preds = %2
-  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.121, i64 noundef 4), !noalias !1805
+11:                                               ; preds = %2
+  %12 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.121, i64 noundef 4), !noalias !1805
   br label %"_ZN88_$LT$aws_sdk_dynamodb..types.._return_value..ReturnValue$u20$as$u20$core..fmt..Debug$GT$3fmt17he5cae3e4b4dbcdfdE.exit"
 
-14:                                               ; preds = %2
-  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.244, i64 noundef 10), !noalias !1805
+13:                                               ; preds = %2
+  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.244, i64 noundef 10), !noalias !1805
   br label %"_ZN88_$LT$aws_sdk_dynamodb..types.._return_value..ReturnValue$u20$as$u20$core..fmt..Debug$GT$3fmt17he5cae3e4b4dbcdfdE.exit"
 
-16:                                               ; preds = %2
-  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.245, i64 noundef 10), !noalias !1805
+15:                                               ; preds = %2
+  %16 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.245, i64 noundef 10), !noalias !1805
   br label %"_ZN88_$LT$aws_sdk_dynamodb..types.._return_value..ReturnValue$u20$as$u20$core..fmt..Debug$GT$3fmt17he5cae3e4b4dbcdfdE.exit"
 
-18:                                               ; preds = %2
+17:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1811
   store ptr %4, ptr %3, align 8, !noalias !1811
-  %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.123, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.45489a1c287fb56ee4906c137a029157.124)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.123, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.45489a1c287fb56ee4906c137a029157.124)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1811
   br label %"_ZN88_$LT$aws_sdk_dynamodb..types.._return_value..ReturnValue$u20$as$u20$core..fmt..Debug$GT$3fmt17he5cae3e4b4dbcdfdE.exit"
 
-"_ZN88_$LT$aws_sdk_dynamodb..types.._return_value..ReturnValue$u20$as$u20$core..fmt..Debug$GT$3fmt17he5cae3e4b4dbcdfdE.exit": ; preds = %8, %10, %12, %14, %16, %18
-  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ]
+"_ZN88_$LT$aws_sdk_dynamodb..types.._return_value..ReturnValue$u20$as$u20$core..fmt..Debug$GT$3fmt17he5cae3e4b4dbcdfdE.exit": ; preds = %7, %9, %11, %13, %15, %17
+  %.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ]
   ret i1 %.0.in.i
 }
 
@@ -15253,33 +15243,28 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1818)
   %5 = load i64, ptr %4, align 8, !range !162, !alias.scope !1818, !noalias !1821, !noundef !9
   %6 = xor i64 %5, -9223372036854775808
-  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 2)
-  switch i64 %7, label %default.unreachable [
-    i64 0, label %8
-    i64 1, label %10
-    i64 2, label %12
+  switch i64 %6, label %11 [
+    i64 0, label %7
+    i64 1, label %9
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.121, i64 noundef 4), !noalias !1818
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.121, i64 noundef 4), !noalias !1818
   br label %"_ZN122_$LT$aws_sdk_dynamodb..types.._return_item_collection_metrics..ReturnItemCollectionMetrics$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4c09d5c1825ae2fE.exit"
 
-10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.122, i64 noundef 4), !noalias !1818
+9:                                                ; preds = %2
+  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.122, i64 noundef 4), !noalias !1818
   br label %"_ZN122_$LT$aws_sdk_dynamodb..types.._return_item_collection_metrics..ReturnItemCollectionMetrics$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4c09d5c1825ae2fE.exit"
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1823
   store ptr %4, ptr %3, align 8, !noalias !1823
-  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.123, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.45489a1c287fb56ee4906c137a029157.124)
+  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.45489a1c287fb56ee4906c137a029157.123, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.45489a1c287fb56ee4906c137a029157.124)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1823
   br label %"_ZN122_$LT$aws_sdk_dynamodb..types.._return_item_collection_metrics..ReturnItemCollectionMetrics$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4c09d5c1825ae2fE.exit"
 
-"_ZN122_$LT$aws_sdk_dynamodb..types.._return_item_collection_metrics..ReturnItemCollectionMetrics$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4c09d5c1825ae2fE.exit": ; preds = %8, %10, %12
-  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
+"_ZN122_$LT$aws_sdk_dynamodb..types.._return_item_collection_metrics..ReturnItemCollectionMetrics$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4c09d5c1825ae2fE.exit": ; preds = %7, %9, %11
+  %.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
   ret i1 %.0.in.i
 }
 
@@ -25250,9 +25235,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25

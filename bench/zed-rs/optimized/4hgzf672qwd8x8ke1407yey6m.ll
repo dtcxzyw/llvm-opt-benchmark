@@ -8587,32 +8587,26 @@ _ZN5prost8encoding7message5merge17h5936a7531255c262E.exit: ; preds = %193
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5proto4view7Variant6encode17hdf57781cf581861dE(ptr noalias noundef readonly align 8 dereferenceable(272) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8, !range !244, !noundef !4
-  %4 = add nsw i64 %3, -5
-  %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 2)
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %6
-    i64 1, label %8
-    i64 2, label %10
+  switch i64 %3, label %8 [
+    i64 5, label %4
+    i64 6, label %6
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN5prost8encoding7message6encode17he0836eaf420d3041E(i32 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  br label %9
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5prost8encoding7message6encode17he0836eaf420d3041E(i32 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  br label %11
+  tail call void @_ZN5prost8encoding7message6encode17h3f53a6002d7ae9beE(i32 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(256) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  br label %9
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5prost8encoding7message6encode17h3f53a6002d7ae9beE(i32 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(256) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  br label %11
-
-10:                                               ; preds = %2
   tail call void @_ZN5prost8encoding7message6encode17h0347d4f580de180aE(i32 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(272) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  br label %11
+  br label %9
 
-11:                                               ; preds = %10, %8, %6
+9:                                                ; preds = %8, %6, %4
   ret void
 }
 
@@ -9243,66 +9237,61 @@ _ZN5prost8encoding7message5merge17h8428a67659d30777E.exit: ; preds = %159
 define hidden void @_ZN5proto5shell9ShellType6encode17hdff829b6d97e37e9E(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8, !range !1635, !noundef !4
   %4 = xor i64 %3, -9223372036854775808
-  %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 2)
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %6
-    i64 1, label %24
-    i64 2, label %26
+  switch i64 %4, label %25 [
+    i64 0, label %5
+    i64 1, label %23
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-6:                                                ; preds = %2
+5:                                                ; preds = %2
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre8.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2162, !noalias !2177
-  %7 = load i64, ptr %1, align 8, !alias.scope !2162, !noalias !2177, !noundef !4
-  %8 = icmp eq i64 %7, %.pre8.i.i
-  br i1 %8, label %9, label %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit.i
+  %6 = load i64, ptr %1, align 8, !alias.scope !2162, !noalias !2177, !noundef !4
+  %7 = icmp eq i64 %6, %.pre8.i.i
+  br i1 %7, label %8, label %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit.i
 
-9:                                                ; preds = %6
+8:                                                ; preds = %5
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h405665e254903ee8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.pre8.i.i, i64 noundef 1), !noalias !2177
   %.pre.i.i.i.i.i5.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2162, !noalias !2177
   br label %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit.i
 
-_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit.i: ; preds = %9, %6
-  %10 = phi i64 [ %.pre.i.i.i.i.i5.i.i, %9 ], [ %.pre8.i.i, %6 ]
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !2162, !noalias !2177, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %12, i64 %10
-  store i8 10, ptr %13, align 1
-  %14 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2162, !noalias !2177, !noundef !4
-  %15 = add i64 %14, 1
-  store i64 %15, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2162, !noalias !2177
-  %16 = load i64, ptr %1, align 8, !alias.scope !2180, !noalias !2191, !noundef !4
-  %17 = icmp eq i64 %16, %15
-  br i1 %17, label %18, label %_ZN5prost8encoding7message6encode17h9e5e08942e04a02bE.exit
+_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit.i: ; preds = %8, %5
+  %9 = phi i64 [ %.pre.i.i.i.i.i5.i.i, %8 ], [ %.pre8.i.i, %5 ]
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !alias.scope !2162, !noalias !2177, !nonnull !4, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %11, i64 %9
+  store i8 10, ptr %12, align 1
+  %13 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2162, !noalias !2177, !noundef !4
+  %14 = add i64 %13, 1
+  store i64 %14, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2162, !noalias !2177
+  %15 = load i64, ptr %1, align 8, !alias.scope !2180, !noalias !2191, !noundef !4
+  %16 = icmp eq i64 %15, %14
+  br i1 %16, label %17, label %_ZN5prost8encoding7message6encode17h9e5e08942e04a02bE.exit
 
-18:                                               ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h405665e254903ee8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15, i64 noundef 1), !noalias !2191
+17:                                               ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit.i
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h405665e254903ee8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %14, i64 noundef 1), !noalias !2191
   %.pre.i.i.i.i.i4.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2180, !noalias !2191
   br label %_ZN5prost8encoding7message6encode17h9e5e08942e04a02bE.exit
 
-_ZN5prost8encoding7message6encode17h9e5e08942e04a02bE.exit: ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit.i, %18
-  %19 = phi i64 [ %.pre.i.i.i.i.i4.i, %18 ], [ %15, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit.i ]
-  %20 = load ptr, ptr %11, align 8, !alias.scope !2180, !noalias !2191, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %20, i64 %19
-  store i8 0, ptr %21, align 1
-  %22 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2180, !noalias !2191, !noundef !4
-  %23 = add i64 %22, 1
-  store i64 %23, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2180, !noalias !2191
-  br label %27
+_ZN5prost8encoding7message6encode17h9e5e08942e04a02bE.exit: ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit.i, %17
+  %18 = phi i64 [ %.pre.i.i.i.i.i4.i, %17 ], [ %14, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit.i ]
+  %19 = load ptr, ptr %10, align 8, !alias.scope !2180, !noalias !2191, !nonnull !4, !noundef !4
+  %20 = getelementptr inbounds i8, ptr %19, i64 %18
+  store i8 0, ptr %20, align 1
+  %21 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2180, !noalias !2191, !noundef !4
+  %22 = add i64 %21, 1
+  store i64 %22, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2180, !noalias !2191
+  br label %26
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5prost8encoding6string6encode17hf0dc30964b87f083E(i32 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  br label %27
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN5prost8encoding6string6encode17hf0dc30964b87f083E(i32 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  br label %26
 
-26:                                               ; preds = %2
+25:                                               ; preds = %2
   tail call void @_ZN5prost8encoding7message6encode17hb93bc8abc61374eeE(i32 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %26, %24, %_ZN5prost8encoding7message6encode17h9e5e08942e04a02bE.exit
+26:                                               ; preds = %25, %23, %_ZN5prost8encoding7message6encode17h9e5e08942e04a02bE.exit
   ret void
 }
 

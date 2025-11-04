@@ -6604,139 +6604,130 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2f
 "_ZN4core6option15Option$LT$T$GT$6map_or17he93f86c0eb1ab6c6E.exit.i": ; preds = %"_ZN55_$LT$proto..View$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hde36637854d523b2E.exit.i.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17h2bd2f867a5c19794E.exit.i"
   %.sroa.02.0.i8.i = phi i64 [ %63, %"_ZN55_$LT$proto..View$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hde36637854d523b2E.exit.i.i" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h2bd2f867a5c19794E.exit.i" ]
   %64 = load i64, ptr %0, align 8, !range !1123, !alias.scope !1105, !noundef !13
-  %65 = icmp eq i64 %64, 7
-  br i1 %65, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i", label %66
-
-66:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he93f86c0eb1ab6c6E.exit.i"
-  %67 = add nsw i64 %64, -5
-  %68 = tail call i64 @llvm.umin.i64(i64 %67, i64 2)
-  switch i64 %68, label %default.unreachable [
-    i64 0, label %69
-    i64 1, label %72
-    i64 2, label %99
+  switch i64 %64, label %95 [
+    i64 7, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i"
+    i64 5, label %65
+    i64 6, label %68
   ]
 
-default.unreachable:                              ; preds = %66
-  unreachable
-
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %71 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h67aaa35630382ef0E(ptr noalias noundef readonly align 8 dereferenceable(248) %70)
+65:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he93f86c0eb1ab6c6E.exit.i"
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %67 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h67aaa35630382ef0E(ptr noalias noundef readonly align 8 dereferenceable(248) %66)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i"
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %75 = load i64, ptr %74, align 8, !alias.scope !1124, !noundef !13
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %85, label %77
+68:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he93f86c0eb1ab6c6E.exit.i"
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %71 = load i64, ptr %70, align 8, !alias.scope !1124, !noundef !13
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %81, label %73
 
-77:                                               ; preds = %72
-  %78 = or i64 %75, 1
-  %79 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %78, i1 true)
-  %80 = xor i64 %79, 63
-  %81 = mul nuw nsw i64 %80, 9
-  %82 = add nuw nsw i64 %81, 73
-  %83 = lshr i64 %82, 6
-  %84 = add nuw nsw i64 %83, 1
-  br label %85
+73:                                               ; preds = %68
+  %74 = or i64 %71, 1
+  %75 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %74, i1 true)
+  %76 = xor i64 %75, 63
+  %77 = mul nuw nsw i64 %76, 9
+  %78 = add nuw nsw i64 %77, 73
+  %79 = lshr i64 %78, 6
+  %80 = add nuw nsw i64 %79, 1
+  br label %81
 
-85:                                               ; preds = %77, %72
-  %.sroa.0.0.i.i.i.i.i.i = phi i64 [ %84, %77 ], [ 0, %72 ]
-  %86 = load i64, ptr %73, align 8, !range !1135, !alias.scope !1124, !noundef !13
-  %87 = icmp eq i64 %86, 4
-  br i1 %87, label %_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.exit.i.i.i.i, label %88
+81:                                               ; preds = %73, %68
+  %.sroa.0.0.i.i.i.i.i.i = phi i64 [ %80, %73 ], [ 0, %68 ]
+  %82 = load i64, ptr %69, align 8, !range !1135, !alias.scope !1124, !noundef !13
+  %83 = icmp eq i64 %82, 4
+  br i1 %83, label %_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.exit.i.i.i.i, label %84
 
-88:                                               ; preds = %85
-  %89 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h67aaa35630382ef0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(256) dereferenceable_or_null(248) %73)
+84:                                               ; preds = %81
+  %85 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h67aaa35630382ef0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(256) dereferenceable_or_null(248) %69)
   br label %_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.exit.i.i.i.i
 
-_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.exit.i.i.i.i: ; preds = %88, %85
-  %.sroa.02.0.i.i.i.i.i.i.i = phi i64 [ %89, %88 ], [ 0, %85 ]
-  %90 = add i64 %.sroa.02.0.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i
-  %91 = or i64 %90, 1
-  %92 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %91, i1 true)
-  %93 = xor i64 %92, 63
-  %94 = mul nuw nsw i64 %93, 9
-  %95 = add nuw nsw i64 %94, 73
-  %96 = lshr i64 %95, 6
-  %97 = add i64 %90, 1
-  %98 = add i64 %97, %96
+_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.exit.i.i.i.i: ; preds = %84, %81
+  %.sroa.02.0.i.i.i.i.i.i.i = phi i64 [ %85, %84 ], [ 0, %81 ]
+  %86 = add i64 %.sroa.02.0.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i
+  %87 = or i64 %86, 1
+  %88 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %87, i1 true)
+  %89 = xor i64 %88, 63
+  %90 = mul nuw nsw i64 %89, 9
+  %91 = add nuw nsw i64 %90, 73
+  %92 = lshr i64 %91, 6
+  %93 = add i64 %86, 1
+  %94 = add i64 %93, %92
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i"
 
-99:                                               ; preds = %66
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %.val4.i.i.i.i.i.i = load i64, ptr %100, align 8, !alias.scope !1136, !noundef !13
+95:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he93f86c0eb1ab6c6E.exit.i"
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %.val4.i.i.i.i.i.i = load i64, ptr %96, align 8, !alias.scope !1136, !noundef !13
   %.not.i.i.not.i.i.i.i.i.i = icmp eq i64 %.val4.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.not.i.i.i.i.i.i, label %110, label %101
+  br i1 %.not.i.i.not.i.i.i.i.i.i, label %106, label %97
 
-101:                                              ; preds = %99
-  %102 = or i64 %.val4.i.i.i.i.i.i, 1
-  %103 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %102, i1 true)
-  %104 = xor i64 %103, 63
-  %105 = mul nuw nsw i64 %104, 9
-  %106 = add nuw nsw i64 %105, 73
-  %107 = lshr i64 %106, 6
-  %108 = add i64 %.val4.i.i.i.i.i.i, 1
-  %109 = add i64 %108, %107
-  br label %110
+97:                                               ; preds = %95
+  %98 = or i64 %.val4.i.i.i.i.i.i, 1
+  %99 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %98, i1 true)
+  %100 = xor i64 %99, 63
+  %101 = mul nuw nsw i64 %100, 9
+  %102 = add nuw nsw i64 %101, 73
+  %103 = lshr i64 %102, 6
+  %104 = add i64 %.val4.i.i.i.i.i.i, 1
+  %105 = add i64 %104, %103
+  br label %106
 
-110:                                              ; preds = %101, %99
-  %.sroa.0.0.i.i1.i.i.i.i = phi i64 [ %109, %101 ], [ 0, %99 ]
-  %111 = icmp eq i64 %64, 4
-  br i1 %111, label %_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.exit.i.i.i.i, label %112
+106:                                              ; preds = %97, %95
+  %.sroa.0.0.i.i1.i.i.i.i = phi i64 [ %105, %97 ], [ 0, %95 ]
+  %107 = icmp eq i64 %64, 4
+  br i1 %107, label %_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.exit.i.i.i.i, label %108
 
-112:                                              ; preds = %110
-  %113 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h67aaa35630382ef0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(320) dereferenceable_or_null(272) %0)
+108:                                              ; preds = %106
+  %109 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h67aaa35630382ef0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(320) dereferenceable_or_null(272) %0)
   br label %_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.exit.i.i.i.i
 
-_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.exit.i.i.i.i: ; preds = %112, %110
-  %.sroa.02.0.i.i.i2.i.i.i.i = phi i64 [ %113, %112 ], [ 0, %110 ]
-  %114 = add i64 %.sroa.02.0.i.i.i2.i.i.i.i, %.sroa.0.0.i.i1.i.i.i.i
-  %115 = or i64 %114, 1
-  %116 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %115, i1 true)
-  %117 = xor i64 %116, 63
-  %118 = mul nuw nsw i64 %117, 9
-  %119 = add nuw nsw i64 %118, 73
-  %120 = lshr i64 %119, 6
-  %121 = add i64 %114, 1
-  %122 = add i64 %121, %120
+_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.exit.i.i.i.i: ; preds = %108, %106
+  %.sroa.02.0.i.i.i2.i.i.i.i = phi i64 [ %109, %108 ], [ 0, %106 ]
+  %110 = add i64 %.sroa.02.0.i.i.i2.i.i.i.i, %.sroa.0.0.i.i1.i.i.i.i
+  %111 = or i64 %110, 1
+  %112 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %111, i1 true)
+  %113 = xor i64 %112, 63
+  %114 = mul nuw nsw i64 %113, 9
+  %115 = add nuw nsw i64 %114, 73
+  %116 = lshr i64 %115, 6
+  %117 = add i64 %110, 1
+  %118 = add i64 %117, %116
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i": ; preds = %_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.exit.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.exit.i.i.i.i, %69, %"_ZN4core6option15Option$LT$T$GT$6map_or17he93f86c0eb1ab6c6E.exit.i"
-  %.sroa.02.0.i9.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17he93f86c0eb1ab6c6E.exit.i" ], [ %71, %69 ], [ %98, %_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.exit.i.i.i.i ], [ %122, %_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.exit.i.i.i.i ]
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %124 = load i32, ptr %123, align 8, !range !569, !alias.scope !1105, !noundef !13
-  %trunc4.i = trunc nuw i32 %124 to i1
-  br i1 %trunc4.i, label %125, label %"_ZN55_$LT$proto..View$u20$as$u20$prost..message..Message$GT$11encoded_len17h441360d073fb5427E.exit"
+"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i": ; preds = %_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.exit.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.exit.i.i.i.i, %65, %"_ZN4core6option15Option$LT$T$GT$6map_or17he93f86c0eb1ab6c6E.exit.i"
+  %.sroa.02.0.i9.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17he93f86c0eb1ab6c6E.exit.i" ], [ %67, %65 ], [ %94, %_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.exit.i.i.i.i ], [ %118, %_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.exit.i.i.i.i ]
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %120 = load i32, ptr %119, align 8, !range !569, !alias.scope !1105, !noundef !13
+  %trunc4.i = trunc nuw i32 %120 to i1
+  br i1 %trunc4.i, label %121, label %"_ZN55_$LT$proto..View$u20$as$u20$prost..message..Message$GT$11encoded_len17h441360d073fb5427E.exit"
 
-125:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i"
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %.val.i10.i = load i32, ptr %126, align 4, !alias.scope !1141, !noundef !13
-  %127 = or i32 %.val.i10.i, 1
-  %128 = sext i32 %127 to i64
-  %129 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %128, i1 true)
-  %130 = xor i64 %129, 63
-  %131 = mul nuw nsw i64 %130, 9
-  %132 = add nuw nsw i64 %131, 73
-  %133 = lshr i64 %132, 6
-  %134 = add nuw nsw i64 %133, 1
+121:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i"
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %.val.i10.i = load i32, ptr %122, align 4, !alias.scope !1141, !noundef !13
+  %123 = or i32 %.val.i10.i, 1
+  %124 = sext i32 %123 to i64
+  %125 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %124, i1 true)
+  %126 = xor i64 %125, 63
+  %127 = mul nuw nsw i64 %126, 9
+  %128 = add nuw nsw i64 %127, 73
+  %129 = lshr i64 %128, 6
+  %130 = add nuw nsw i64 %129, 1
   br label %"_ZN55_$LT$proto..View$u20$as$u20$prost..message..Message$GT$11encoded_len17h441360d073fb5427E.exit"
 
-"_ZN55_$LT$proto..View$u20$as$u20$prost..message..Message$GT$11encoded_len17h441360d073fb5427E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i", %125
-  %.sroa.02.0.i11.i = phi i64 [ %134, %125 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i" ]
-  %135 = add nuw nsw i64 %.sroa.02.0.i8.i, %.sroa.02.0.i.i
-  %136 = add i64 %135, %.sroa.02.0.i9.i
-  %137 = add i64 %136, %.sroa.02.0.i11.i
-  %138 = or i64 %137, 1
-  %139 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %138, i1 true)
-  %140 = xor i64 %139, 63
-  %141 = mul nuw nsw i64 %140, 9
-  %142 = add nuw nsw i64 %141, 73
-  %143 = lshr i64 %142, 6
-  %144 = add i64 %137, 1
-  %145 = add i64 %144, %143
-  ret i64 %145
+"_ZN55_$LT$proto..View$u20$as$u20$prost..message..Message$GT$11encoded_len17h441360d073fb5427E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i", %121
+  %.sroa.02.0.i11.i = phi i64 [ %130, %121 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h85c1a875cdcc5394E.exit.i" ]
+  %131 = add nuw nsw i64 %.sroa.02.0.i8.i, %.sroa.02.0.i.i
+  %132 = add i64 %131, %.sroa.02.0.i9.i
+  %133 = add i64 %132, %.sroa.02.0.i11.i
+  %134 = or i64 %133, 1
+  %135 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %134, i1 true)
+  %136 = xor i64 %135, 63
+  %137 = mul nuw nsw i64 %136, 9
+  %138 = add nuw nsw i64 %137, 73
+  %139 = lshr i64 %138, 6
+  %140 = add i64 %133, 1
+  %141 = add i64 %140, %139
+  ret i64 %141
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -28459,9 +28450,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26

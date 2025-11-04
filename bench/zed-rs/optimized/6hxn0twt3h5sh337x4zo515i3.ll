@@ -1245,16 +1245,11 @@ _ZN3std4sync4mpmc5waker9SyncWaker8register17h272629d41a4f7b97E.exit: ; preds = %
 
 _ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit: ; preds = %108
   %115 = extractvalue { i64, i1 } %109, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %115, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable28 [
+  switch i64 %115, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread15 [
     i64 0, label %116
     i64 1, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread
     i64 2, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread
-    i64 3, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread15
   ]
-
-default.unreachable28:                            ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
-  unreachable
 
 116:                                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
   tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.9e0bb4bb8a9add8d9e827e14ab1220ca.6, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9e0bb4bb8a9add8d9e827e14ab1220ca.7) #19
@@ -1417,7 +1412,7 @@ _ZN3std4sync4mpmc5waker9SyncWaker10unregister17h3b9b13e4846dd82eE.exit: ; preds 
   %180 = icmp eq ptr %.sroa.0.015.i, null
   br i1 %180, label %181, label %182
 
-_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread15: ; preds = %.split.i, %.split.us.i, %"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h57081ee2ededbe1fE.exit", %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit
+_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread15: ; preds = %.split.i, %.split.us.i, %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit, %"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h57081ee2ededbe1fE.exit"
   ret void
 
 181:                                              ; preds = %_ZN3std4sync4mpmc5waker9SyncWaker10unregister17h3b9b13e4846dd82eE.exit
@@ -2436,9 +2431,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

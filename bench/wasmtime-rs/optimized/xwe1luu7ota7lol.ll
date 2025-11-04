@@ -3011,8 +3011,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h10d9
   %14 = load i64, ptr %5, align 8, !alias.scope !2395, !noalias !2396, !noundef !11
   %15 = add i64 %14, 4
   store i64 %15, ptr %5, align 8, !alias.scope !2395, !noalias !2396
-  %16 = icmp samesign ult i32 %13, 10
-  br i1 %16, label %17, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h459ad80dc7cb9711E.exit.i.i"
+  %16 = icmp samesign ugt i32 %13, 9
+  br i1 %16, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h459ad80dc7cb9711E.exit.i.i", label %17
 
 17:                                               ; preds = %11
   %18 = tail call noundef align 8 ptr @"_ZN14wasmtime_types1_79_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_types..WasmRefType$GT$9serialize17h043b47999654e357E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !2397
@@ -3434,8 +3434,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h2d9c
   %14 = load i64, ptr %5, align 8, !alias.scope !2557, !noalias !2558, !noundef !11
   %15 = add i64 %14, 4
   store i64 %15, ptr %5, align 8, !alias.scope !2557, !noalias !2558
-  %16 = icmp samesign ult i32 %13, 10
-  br i1 %16, label %17, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h08bdc061cf1c126fE.exit.i.i"
+  %16 = icmp samesign ugt i32 %13, 9
+  br i1 %16, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h08bdc061cf1c126fE.exit.i.i", label %17
 
 17:                                               ; preds = %11
   %18 = tail call noundef align 8 ptr @"_ZN14wasmtime_types1_79_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_types..WasmRefType$GT$9serialize17h5afd5b4bee0a29edE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !2559

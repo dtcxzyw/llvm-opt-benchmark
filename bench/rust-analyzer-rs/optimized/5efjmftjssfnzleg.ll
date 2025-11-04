@@ -38415,20 +38415,20 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor11visit_const17
   %5 = load ptr, ptr %1, align 8, !alias.scope !3202, !noalias !3205, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !range !3207, !noalias !3208, !noundef !4
-  %8 = icmp eq i64 %7, 5
-  br i1 %8, label %9, label %"_ZN89_$LT$chalk_ir..Const$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$GT$16super_visit_with17h2c3b14442fa788b5E.exit"
+  %cond = icmp eq i64 %7, 5
+  br i1 %cond, label %8, label %"_ZN89_$LT$chalk_ir..Const$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$GT$16super_visit_with17h2c3b14442fa788b5E.exit"
 
-9:                                                ; preds = %3
+8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3208
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %11 = load i64, ptr %10, align 8, !noalias !3208, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %13 = load i32, ptr %12, align 8, !noalias !3208, !noundef !4
-  call void @_ZN8chalk_ir8BoundVar14shifted_out_to17hbf97d60df288515eE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, i64 noundef %11, i32 noundef %13, i32 noundef %2), !noalias !3208
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %10 = load i64, ptr %9, align 8, !noalias !3208, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %12 = load i32, ptr %11, align 8, !noalias !3208, !noundef !4
+  call void @_ZN8chalk_ir8BoundVar14shifted_out_to17hbf97d60df288515eE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, i64 noundef %10, i32 noundef %12, i32 noundef %2), !noalias !3208
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3208
   br label %"_ZN89_$LT$chalk_ir..Const$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$GT$16super_visit_with17h2c3b14442fa788b5E.exit"
 
-"_ZN89_$LT$chalk_ir..Const$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$GT$16super_visit_with17h2c3b14442fa788b5E.exit": ; preds = %3, %9
+"_ZN89_$LT$chalk_ir..Const$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$GT$16super_visit_with17h2c3b14442fa788b5E.exit": ; preds = %3, %8
   ret i1 false
 }
 

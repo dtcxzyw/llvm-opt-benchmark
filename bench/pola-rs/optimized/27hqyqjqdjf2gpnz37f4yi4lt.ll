@@ -153627,65 +153627,60 @@ common.resume:                                    ; preds = %"_ZN4core3ptr46drop
 define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$17h98fe4dd974700e54E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1628, !noundef !3
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 3)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %5
-    i64 1, label %7
-    i64 2, label %9
-    i64 3, label %.sink.split
+  switch i64 %3, label %.sink.split [
+    i64 0, label %4
+    i64 1, label %6
+    i64 2, label %8
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hddaa959910047043E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit" unwind label %9
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hddaa959910047043E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit" unwind label %10
-
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hddaa959910047043E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit2" unwind label %16
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hddaa959910047043E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit2" unwind label %15
 
 .sink.split:                                      ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit2"
-  %.sink = phi ptr [ %19, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit2" ], [ %13, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit" ], [ %0, %1 ]
+  %.sink = phi ptr [ %18, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit2" ], [ %12, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit" ], [ %0, %1 ]
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hddaa959910047043E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sink, i64 noundef 1, i64 noundef 1)
-  br label %9
+  br label %8
 
-9:                                                ; preds = %.sink.split, %1
+8:                                                ; preds = %.sink.split, %1
   ret void
 
-10:                                               ; preds = %5
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %4
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hddaa959910047043E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit3" unwind label %14
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hddaa959910047043E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit3" unwind label %13
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit": ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit": ; preds = %4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.sink.split
 
-14:                                               ; preds = %16, %10
-  %15 = landingpad { ptr, i32 }
+13:                                               ; preds = %15, %9
+  %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #25
   unreachable
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit3": ; preds = %16, %10
-  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %17, %16 ]
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit3": ; preds = %15, %9
+  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %16, %15 ]
   resume { ptr, i32 } %.pn
 
-16:                                               ; preds = %7
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %6
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hddaa959910047043E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit3" unwind label %14
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hddaa959910047043E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit3" unwind label %13
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit2": ; preds = %7
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7f7a3be928754286E.exit2": ; preds = %6
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.sink.split
 }
 

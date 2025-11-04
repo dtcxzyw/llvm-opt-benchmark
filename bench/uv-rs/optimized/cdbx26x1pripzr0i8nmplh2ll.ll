@@ -41,7 +41,7 @@ define hidden { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$
   br i1 %5, label %6, label %7, !prof !3
 
 6:                                                ; preds = %4
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #11
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #10
   unreachable
 
 7:                                                ; preds = %4
@@ -131,31 +131,25 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !6, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %4 = load i8, ptr %3, align 1, !range !16, !alias.scope !13, !noalias !17, !noundef !4
-  %5 = add nsw i8 %4, -5
-  %narrow.i = tail call i8 @llvm.umin.i8(i8 %5, i8 2)
-  switch i8 %narrow.i, label %default.unreachable [
-    i8 0, label %6
-    i8 1, label %8
-    i8 2, label %10
+  switch i8 %4, label %9 [
+    i8 5, label %5
+    i8 6, label %7
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-6:                                                ; preds = %2
-  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.aa9068f40b126d8175dba68a3caa855e.29.llvm.5207847320515704180, i64 noundef 17), !noalias !13
+5:                                                ; preds = %2
+  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.aa9068f40b126d8175dba68a3caa855e.29.llvm.5207847320515704180, i64 noundef 17), !noalias !13
   br label %"_ZN89_$LT$uv_distribution_filename..build_tag..BuildTagError$u20$as$u20$core..fmt..Display$GT$3fmt17h8403ffb736c51e91E.exit"
 
-8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.aa9068f40b126d8175dba68a3caa855e.30.llvm.5207847320515704180, i64 noundef 23), !noalias !13
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.aa9068f40b126d8175dba68a3caa855e.30.llvm.5207847320515704180, i64 noundef 23), !noalias !13
   br label %"_ZN89_$LT$uv_distribution_filename..build_tag..BuildTagError$u20$as$u20$core..fmt..Display$GT$3fmt17h8403ffb736c51e91E.exit"
 
-10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @"_ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h3f92fac053ce53c6E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+9:                                                ; preds = %2
+  %10 = tail call noundef zeroext i1 @"_ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h3f92fac053ce53c6E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN89_$LT$uv_distribution_filename..build_tag..BuildTagError$u20$as$u20$core..fmt..Display$GT$3fmt17h8403ffb736c51e91E.exit"
 
-"_ZN89_$LT$uv_distribution_filename..build_tag..BuildTagError$u20$as$u20$core..fmt..Display$GT$3fmt17h8403ffb736c51e91E.exit": ; preds = %6, %8, %10
-  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
+"_ZN89_$LT$uv_distribution_filename..build_tag..BuildTagError$u20$as$u20$core..fmt..Display$GT$3fmt17h8403ffb736c51e91E.exit": ; preds = %5, %7, %9
+  %.sroa.0.0.in.i = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -546,11 +540,8 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #9
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -561,9 +552,8 @@ attributes #5 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "
 attributes #6 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { noreturn }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #10 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

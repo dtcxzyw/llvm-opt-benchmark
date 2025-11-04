@@ -19319,10 +19319,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i.i: ; preds = %"_ZN4core6opti
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h83e2db62870007e9E.exit.thread.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h83e2db62870007e9E.exit.thread.i.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h83e2db62870007e9E.exit.i.i.i", %327, %.thread167.i.i.i, %306, %261
-  %.sroa.1120.i.sroa.0.0.i.i = phi i24 [ %.sroa.1120.i.sroa.0.0.copyload29.i.i, %261 ], [ undef, %.thread167.i.i.i ], [ %.sroa.637.sroa.0.i.sroa.0.0.copyload.i.i, %306 ], [ %.sroa.812.sroa.0.i.sroa.0.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h83e2db62870007e9E.exit.i.i.i" ], [ %.sroa.715.sroa.0.i.sroa.0.0.copyload.i.i, %327 ]
-  %.sroa.717.2224.i.i.i = phi i8 [ %.sroa.717.4.copyload18.i.i.i, %261 ], [ 15, %.thread167.i.i.i ], [ %.sroa.240.0.copyload.i.i.i, %306 ], [ %.sroa.09.0.copyload11.i.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h83e2db62870007e9E.exit.i.i.i" ], [ %.sroa.265.sroa.0.0.copyload.i.i.i, %327 ]
-  %.sroa.12.2223.i.i.i = phi i64 [ %.sroa.12.4.copyload23.i.i.i, %261 ], [ %.sroa.047.sroa.0.0.insert.insert.i.i.i, %.thread167.i.i.i ], [ %.sroa.441.sroa.3.0.copyload.i.i.i, %306 ], [ %.sroa.812.sroa.5.0.copyload.i.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h83e2db62870007e9E.exit.i.i.i" ], [ %.sroa.265.sroa.2.sroa.2.0.copyload.i.i.i, %327 ]
-  %.sroa.17.2222.i.i.i = phi ptr [ %.sroa.17.4.copyload29.i.i.i, %261 ], [ %309, %.thread167.i.i.i ], [ %.sroa.441.sroa.6.0.copyload.i.i.i, %306 ], [ %.sroa.812.sroa.6.0.copyload.i.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h83e2db62870007e9E.exit.i.i.i" ], [ %.sroa.265.sroa.2.sroa.3.0.copyload.i.i.i, %327 ]
+  %.sroa.1120.i.sroa.0.0.i.i = phi i24 [ %.sroa.1120.i.sroa.0.0.copyload29.i.i, %261 ], [ %.sroa.637.sroa.0.i.sroa.0.0.copyload.i.i, %306 ], [ undef, %.thread167.i.i.i ], [ %.sroa.812.sroa.0.i.sroa.0.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h83e2db62870007e9E.exit.i.i.i" ], [ %.sroa.715.sroa.0.i.sroa.0.0.copyload.i.i, %327 ]
+  %.sroa.717.2224.i.i.i = phi i8 [ %.sroa.717.4.copyload18.i.i.i, %261 ], [ %.sroa.240.0.copyload.i.i.i, %306 ], [ 15, %.thread167.i.i.i ], [ %.sroa.09.0.copyload11.i.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h83e2db62870007e9E.exit.i.i.i" ], [ %.sroa.265.sroa.0.0.copyload.i.i.i, %327 ]
+  %.sroa.12.2223.i.i.i = phi i64 [ %.sroa.12.4.copyload23.i.i.i, %261 ], [ %.sroa.441.sroa.3.0.copyload.i.i.i, %306 ], [ %.sroa.047.sroa.0.0.insert.insert.i.i.i, %.thread167.i.i.i ], [ %.sroa.812.sroa.5.0.copyload.i.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h83e2db62870007e9E.exit.i.i.i" ], [ %.sroa.265.sroa.2.sroa.2.0.copyload.i.i.i, %327 ]
+  %.sroa.17.2222.i.i.i = phi ptr [ %.sroa.17.4.copyload29.i.i.i, %261 ], [ %.sroa.441.sroa.6.0.copyload.i.i.i, %306 ], [ %309, %.thread167.i.i.i ], [ %.sroa.812.sroa.6.0.copyload.i.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h83e2db62870007e9E.exit.i.i.i" ], [ %.sroa.265.sroa.2.sroa.3.0.copyload.i.i.i, %327 ]
   %.sroa.13.0.insert.ext.i.i = zext nneg i16 %179 to i64
   %.sroa.13.4.insert.ext.i.i = zext i8 %.sroa.717.2224.i.i.i to i64
   %.sroa.13.4.insert.shift.i.i = shl nuw nsw i64 %.sroa.13.4.insert.ext.i.i, 32
@@ -19439,8 +19439,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i.i: ; preds = %"_ZN4core6opti
 304:                                              ; preds = %301
   %.sroa.441.sroa.3.0.copyload.i.i.i = load i64, ptr %.sroa.441.sroa.3.0..sroa.441.0..sroa_idx.sroa_idx.i.i.i, align 4, !noalias !6872
   %.sroa.441.sroa.6.0.copyload.i.i.i = load ptr, ptr %.sroa.441.sroa.6.0..sroa.441.0..sroa_idx.sroa_idx.i.i.i, align 4, !noalias !6872
-  %305 = icmp samesign ult i32 %302, 3
-  br i1 %305, label %.thread167.i.i.i, label %306
+  %305 = icmp samesign ugt i32 %302, 2
+  br i1 %305, label %306, label %.thread167.i.i.i
 
 306:                                              ; preds = %304
   %.sroa.240.0.copyload.i.i.i = load i8, ptr %.sroa.240.0..sroa_idx.i.i.i, align 4, !noalias !6872

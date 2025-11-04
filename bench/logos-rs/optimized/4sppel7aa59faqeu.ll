@@ -148,7 +148,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 36:                                               ; preds = %43, %30
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..BareFnArg$GT$$GT$17h25d8722a38c03501E"(ptr nonnull align 8 %3) #6
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..BareFnArg$GT$$GT$17h25d8722a38c03501E"(ptr nonnull align 8 %3) #5
           to label %47 unwind label %45
 
 38:                                               ; preds = %30
@@ -173,7 +173,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 45:                                               ; preds = %36
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
 47:                                               ; preds = %36
@@ -265,7 +265,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 36:                                               ; preds = %43, %30
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..BareFnArg$GT$$GT$17h25d8722a38c03501E"(ptr nonnull align 8 %3) #6
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..BareFnArg$GT$$GT$17h25d8722a38c03501E"(ptr nonnull align 8 %3) #5
           to label %47 unwind label %45
 
 38:                                               ; preds = %30
@@ -290,7 +290,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 45:                                               ; preds = %36
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
 47:                                               ; preds = %36
@@ -352,8 +352,8 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
   store ptr %7, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %12
 
 12:                                               ; preds = %.backedge8, %2
@@ -364,12 +364,12 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
   %17 = invoke align 8 ptr %16(ptr align 1 %14)
           to label %21 unwind label %19
 
-18:                                               ; preds = %66, %42, %19
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %43, %42 ], [ %67, %66 ]
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..PathSegment$GT$$GT$17h5a34d033b9e58d51E"(ptr nonnull align 8 %5) #6
-          to label %76 unwind label %55
+18:                                               ; preds = %65, %41, %19
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %42, %41 ], [ %66, %65 ]
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..PathSegment$GT$$GT$17h5a34d033b9e58d51E"(ptr nonnull align 8 %5) #5
+          to label %75 unwind label %54
 
-19:                                               ; preds = %75, %70, %46, %31, %28, %12
+19:                                               ; preds = %74, %69, %45, %30, %27, %12
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %18
@@ -385,133 +385,128 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
 24:                                               ; preds = %21
   %25 = load i64, ptr %17, align 8
   %26 = xor i64 %25, -9223372036854775808
-  %27 = call i64 @llvm.umin.i64(i64 %26, i64 2)
-  switch i64 %27, label %default.unreachable [
+  switch i64 %26, label %30 [
     i64 0, label %.backedge8
-    i64 1, label %28
-    i64 2, label %31
+    i64 1, label %27
   ]
 
-.backedge8:                                       ; preds = %24, %46, %72, %75
+.backedge8:                                       ; preds = %24, %45, %71, %74
   %.pre = load ptr, ptr %5, align 8
   %.pre9 = load ptr, ptr %9, align 8
   br label %12
 
-default.unreachable:                              ; preds = %24
-  unreachable
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %29 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h70e914da73a22ff0E"(ptr nonnull align 8 %28)
+          to label %32 unwind label %19
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %30 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h70e914da73a22ff0E"(ptr nonnull align 8 %29)
-          to label %33 unwind label %19
+30:                                               ; preds = %24
+  %31 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hb81889fa038cb932E"(ptr nonnull align 8 %17)
+          to label %56 unwind label %19
 
-31:                                               ; preds = %24
-  %32 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hb81889fa038cb932E"(ptr nonnull align 8 %17)
-          to label %57 unwind label %19
+32:                                               ; preds = %27
+  %33 = extractvalue { ptr, ptr } %29, 0
+  %34 = extractvalue { ptr, ptr } %29, 1
+  store ptr %33, ptr %4, align 8
+  store ptr %34, ptr %10, align 8
+  br label %35
 
-33:                                               ; preds = %28
-  %34 = extractvalue { ptr, ptr } %30, 0
-  %35 = extractvalue { ptr, ptr } %30, 1
-  store ptr %34, ptr %4, align 8
-  store ptr %35, ptr %11, align 8
-  br label %36
+35:                                               ; preds = %.backedge, %32
+  %36 = phi ptr [ %.pre11, %.backedge ], [ %34, %32 ]
+  %37 = phi ptr [ %.pre10, %.backedge ], [ %33, %32 ]
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %39 = load ptr, ptr %38, align 8, !invariant.load !3, !nonnull !3
+  %40 = invoke align 8 ptr %39(ptr align 1 %37)
+          to label %43 unwind label %41
 
-36:                                               ; preds = %.backedge, %33
-  %37 = phi ptr [ %.pre11, %.backedge ], [ %35, %33 ]
-  %38 = phi ptr [ %.pre10, %.backedge ], [ %34, %33 ]
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %40 = load ptr, ptr %39, align 8, !invariant.load !3, !nonnull !3
-  %41 = invoke align 8 ptr %40(ptr align 1 %38)
-          to label %44 unwind label %42
-
-42:                                               ; preds = %.invoke, %36
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %.invoke, %35
+  %42 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %4) #6
-          to label %18 unwind label %55
+  invoke void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %4) #5
+          to label %18 unwind label %54
 
-44:                                               ; preds = %36
-  %45 = icmp eq ptr %41, null
-  br i1 %45, label %46, label %47
+43:                                               ; preds = %35
+  %44 = icmp eq ptr %40, null
+  br i1 %44, label %45, label %46
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   invoke void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %4)
           to label %.backedge8 unwind label %19
 
-47:                                               ; preds = %44
-  %48 = load i64, ptr %41, align 8
-  %49 = add i64 %48, -17
-  %50 = icmp ult i64 %49, 6
-  %51 = select i1 %50, i64 %49, i64 3
-  switch i64 %51, label %.backedge [
-    i64 1, label %52
+46:                                               ; preds = %43
+  %47 = load i64, ptr %40, align 8
+  %48 = add i64 %47, -17
+  %49 = icmp ult i64 %48, 6
+  %50 = select i1 %49, i64 %48, i64 3
+  switch i64 %50, label %.backedge [
+    i64 1, label %51
     i64 3, label %.invoke
   ]
 
-.backedge:                                        ; preds = %.invoke, %47
+.backedge:                                        ; preds = %.invoke, %46
   %.pre10 = load ptr, ptr %4, align 8
-  %.pre11 = load ptr, ptr %11, align 8
-  br label %36
+  %.pre11 = load ptr, ptr %10, align 8
+  br label %35
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i8, ptr %41, i64 8
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 8
   br label %.invoke
 
-.invoke:                                          ; preds = %47, %52
-  %54 = phi ptr [ %53, %52 ], [ %41, %47 ]
-  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hfdb2139c3465b7acE(ptr nonnull align 8 %54, ptr align 8 %1)
-          to label %.backedge unwind label %42
+.invoke:                                          ; preds = %46, %51
+  %53 = phi ptr [ %52, %51 ], [ %40, %46 ]
+  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hfdb2139c3465b7acE(ptr nonnull align 8 %53, ptr align 8 %1)
+          to label %.backedge unwind label %41
 
-55:                                               ; preds = %66, %42, %18
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %65, %41, %18
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-57:                                               ; preds = %31
-  %58 = extractvalue { ptr, ptr } %32, 0
-  %59 = extractvalue { ptr, ptr } %32, 1
-  store ptr %58, ptr %3, align 8
-  store ptr %59, ptr %10, align 8
-  br label %60
+56:                                               ; preds = %30
+  %57 = extractvalue { ptr, ptr } %31, 0
+  %58 = extractvalue { ptr, ptr } %31, 1
+  store ptr %57, ptr %3, align 8
+  store ptr %58, ptr %11, align 8
+  br label %59
 
-60:                                               ; preds = %71, %57
-  %61 = load ptr, ptr %3, align 8
-  %62 = load ptr, ptr %10, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %64 = load ptr, ptr %63, align 8, !invariant.load !3, !nonnull !3
-  %65 = invoke align 8 ptr %64(ptr align 1 %61)
-          to label %68 unwind label %66
+59:                                               ; preds = %70, %56
+  %60 = load ptr, ptr %3, align 8
+  %61 = load ptr, ptr %11, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %63 = load ptr, ptr %62, align 8, !invariant.load !3, !nonnull !3
+  %64 = invoke align 8 ptr %63(ptr align 1 %60)
+          to label %67 unwind label %65
 
-66:                                               ; preds = %71, %60
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %70, %59
+  %66 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..Type$GT$$GT$17hb420fdaa428f02dcE"(ptr nonnull align 8 %3) #6
-          to label %18 unwind label %55
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..Type$GT$$GT$17hb420fdaa428f02dcE"(ptr nonnull align 8 %3) #5
+          to label %18 unwind label %54
 
-68:                                               ; preds = %60
-  %69 = icmp eq ptr %65, null
-  br i1 %69, label %70, label %71
+67:                                               ; preds = %59
+  %68 = icmp eq ptr %64, null
+  br i1 %68, label %69, label %70
 
-70:                                               ; preds = %68
+69:                                               ; preds = %67
   invoke void @"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..Type$GT$$GT$17hb420fdaa428f02dcE"(ptr nonnull align 8 %3)
-          to label %72 unwind label %19
+          to label %71 unwind label %19
 
-71:                                               ; preds = %68
-  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hfdb2139c3465b7acE(ptr nonnull align 8 %65, ptr align 8 %1)
-          to label %60 unwind label %66
+70:                                               ; preds = %67
+  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hfdb2139c3465b7acE(ptr nonnull align 8 %64, ptr align 8 %1)
+          to label %59 unwind label %65
 
-72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %.not = icmp eq ptr %74, null
-  br i1 %.not, label %.backedge8, label %75
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %.not = icmp eq ptr %73, null
+  br i1 %.not, label %.backedge8, label %74
 
-75:                                               ; preds = %72
-  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hfdb2139c3465b7acE(ptr nonnull align 8 %74, ptr align 8 %1)
+74:                                               ; preds = %71
+  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hfdb2139c3465b7acE(ptr nonnull align 8 %73, ptr align 8 %1)
           to label %.backedge8 unwind label %19
 
-76:                                               ; preds = %18
+75:                                               ; preds = %18
   resume { ptr, i32 } %.pn
 }
 
@@ -526,8 +521,8 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
   store ptr %7, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %12
 
 12:                                               ; preds = %.backedge8, %2
@@ -538,12 +533,12 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
   %17 = invoke align 8 ptr %16(ptr align 1 %14)
           to label %21 unwind label %19
 
-18:                                               ; preds = %66, %42, %19
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %43, %42 ], [ %67, %66 ]
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..PathSegment$GT$$GT$17h5a34d033b9e58d51E"(ptr nonnull align 8 %5) #6
-          to label %76 unwind label %55
+18:                                               ; preds = %65, %41, %19
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %42, %41 ], [ %66, %65 ]
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..PathSegment$GT$$GT$17h5a34d033b9e58d51E"(ptr nonnull align 8 %5) #5
+          to label %75 unwind label %54
 
-19:                                               ; preds = %75, %70, %46, %31, %28, %12
+19:                                               ; preds = %74, %69, %45, %30, %27, %12
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %18
@@ -559,133 +554,128 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
 24:                                               ; preds = %21
   %25 = load i64, ptr %17, align 8
   %26 = xor i64 %25, -9223372036854775808
-  %27 = call i64 @llvm.umin.i64(i64 %26, i64 2)
-  switch i64 %27, label %default.unreachable [
+  switch i64 %26, label %30 [
     i64 0, label %.backedge8
-    i64 1, label %28
-    i64 2, label %31
+    i64 1, label %27
   ]
 
-.backedge8:                                       ; preds = %24, %46, %72, %75
+.backedge8:                                       ; preds = %24, %45, %71, %74
   %.pre = load ptr, ptr %5, align 8
   %.pre9 = load ptr, ptr %9, align 8
   br label %12
 
-default.unreachable:                              ; preds = %24
-  unreachable
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %29 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h70e914da73a22ff0E"(ptr nonnull align 8 %28)
+          to label %32 unwind label %19
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %30 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h70e914da73a22ff0E"(ptr nonnull align 8 %29)
-          to label %33 unwind label %19
+30:                                               ; preds = %24
+  %31 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hb81889fa038cb932E"(ptr nonnull align 8 %17)
+          to label %56 unwind label %19
 
-31:                                               ; preds = %24
-  %32 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hb81889fa038cb932E"(ptr nonnull align 8 %17)
-          to label %57 unwind label %19
+32:                                               ; preds = %27
+  %33 = extractvalue { ptr, ptr } %29, 0
+  %34 = extractvalue { ptr, ptr } %29, 1
+  store ptr %33, ptr %4, align 8
+  store ptr %34, ptr %10, align 8
+  br label %35
 
-33:                                               ; preds = %28
-  %34 = extractvalue { ptr, ptr } %30, 0
-  %35 = extractvalue { ptr, ptr } %30, 1
-  store ptr %34, ptr %4, align 8
-  store ptr %35, ptr %11, align 8
-  br label %36
+35:                                               ; preds = %.backedge, %32
+  %36 = phi ptr [ %.pre11, %.backedge ], [ %34, %32 ]
+  %37 = phi ptr [ %.pre10, %.backedge ], [ %33, %32 ]
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %39 = load ptr, ptr %38, align 8, !invariant.load !3, !nonnull !3
+  %40 = invoke align 8 ptr %39(ptr align 1 %37)
+          to label %43 unwind label %41
 
-36:                                               ; preds = %.backedge, %33
-  %37 = phi ptr [ %.pre11, %.backedge ], [ %35, %33 ]
-  %38 = phi ptr [ %.pre10, %.backedge ], [ %34, %33 ]
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %40 = load ptr, ptr %39, align 8, !invariant.load !3, !nonnull !3
-  %41 = invoke align 8 ptr %40(ptr align 1 %38)
-          to label %44 unwind label %42
-
-42:                                               ; preds = %.invoke, %36
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %.invoke, %35
+  %42 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %4) #6
-          to label %18 unwind label %55
+  invoke void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %4) #5
+          to label %18 unwind label %54
 
-44:                                               ; preds = %36
-  %45 = icmp eq ptr %41, null
-  br i1 %45, label %46, label %47
+43:                                               ; preds = %35
+  %44 = icmp eq ptr %40, null
+  br i1 %44, label %45, label %46
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   invoke void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %4)
           to label %.backedge8 unwind label %19
 
-47:                                               ; preds = %44
-  %48 = load i64, ptr %41, align 8
-  %49 = add i64 %48, -17
-  %50 = icmp ult i64 %49, 6
-  %51 = select i1 %50, i64 %49, i64 3
-  switch i64 %51, label %.backedge [
-    i64 1, label %52
+46:                                               ; preds = %43
+  %47 = load i64, ptr %40, align 8
+  %48 = add i64 %47, -17
+  %49 = icmp ult i64 %48, 6
+  %50 = select i1 %49, i64 %48, i64 3
+  switch i64 %50, label %.backedge [
+    i64 1, label %51
     i64 3, label %.invoke
   ]
 
-.backedge:                                        ; preds = %.invoke, %47
+.backedge:                                        ; preds = %.invoke, %46
   %.pre10 = load ptr, ptr %4, align 8
-  %.pre11 = load ptr, ptr %11, align 8
-  br label %36
+  %.pre11 = load ptr, ptr %10, align 8
+  br label %35
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i8, ptr %41, i64 8
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 8
   br label %.invoke
 
-.invoke:                                          ; preds = %47, %52
-  %54 = phi ptr [ %53, %52 ], [ %41, %47 ]
-  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hbd599f2f5600100eE(ptr nonnull align 8 %54, ptr align 1 %1)
-          to label %.backedge unwind label %42
+.invoke:                                          ; preds = %46, %51
+  %53 = phi ptr [ %52, %51 ], [ %40, %46 ]
+  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hbd599f2f5600100eE(ptr nonnull align 8 %53, ptr align 1 %1)
+          to label %.backedge unwind label %41
 
-55:                                               ; preds = %66, %42, %18
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %65, %41, %18
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-57:                                               ; preds = %31
-  %58 = extractvalue { ptr, ptr } %32, 0
-  %59 = extractvalue { ptr, ptr } %32, 1
-  store ptr %58, ptr %3, align 8
-  store ptr %59, ptr %10, align 8
-  br label %60
+56:                                               ; preds = %30
+  %57 = extractvalue { ptr, ptr } %31, 0
+  %58 = extractvalue { ptr, ptr } %31, 1
+  store ptr %57, ptr %3, align 8
+  store ptr %58, ptr %11, align 8
+  br label %59
 
-60:                                               ; preds = %71, %57
-  %61 = load ptr, ptr %3, align 8
-  %62 = load ptr, ptr %10, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %64 = load ptr, ptr %63, align 8, !invariant.load !3, !nonnull !3
-  %65 = invoke align 8 ptr %64(ptr align 1 %61)
-          to label %68 unwind label %66
+59:                                               ; preds = %70, %56
+  %60 = load ptr, ptr %3, align 8
+  %61 = load ptr, ptr %11, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %63 = load ptr, ptr %62, align 8, !invariant.load !3, !nonnull !3
+  %64 = invoke align 8 ptr %63(ptr align 1 %60)
+          to label %67 unwind label %65
 
-66:                                               ; preds = %71, %60
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %70, %59
+  %66 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..Type$GT$$GT$17hb420fdaa428f02dcE"(ptr nonnull align 8 %3) #6
-          to label %18 unwind label %55
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..Type$GT$$GT$17hb420fdaa428f02dcE"(ptr nonnull align 8 %3) #5
+          to label %18 unwind label %54
 
-68:                                               ; preds = %60
-  %69 = icmp eq ptr %65, null
-  br i1 %69, label %70, label %71
+67:                                               ; preds = %59
+  %68 = icmp eq ptr %64, null
+  br i1 %68, label %69, label %70
 
-70:                                               ; preds = %68
+69:                                               ; preds = %67
   invoke void @"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..Type$GT$$GT$17hb420fdaa428f02dcE"(ptr nonnull align 8 %3)
-          to label %72 unwind label %19
+          to label %71 unwind label %19
 
-71:                                               ; preds = %68
-  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hbd599f2f5600100eE(ptr nonnull align 8 %65, ptr align 1 %1)
-          to label %60 unwind label %66
+70:                                               ; preds = %67
+  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hbd599f2f5600100eE(ptr nonnull align 8 %64, ptr align 1 %1)
+          to label %59 unwind label %65
 
-72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %.not = icmp eq ptr %74, null
-  br i1 %.not, label %.backedge8, label %75
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %.not = icmp eq ptr %73, null
+  br i1 %.not, label %.backedge8, label %74
 
-75:                                               ; preds = %72
-  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hbd599f2f5600100eE(ptr nonnull align 8 %74, ptr align 1 %1)
+74:                                               ; preds = %71
+  invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hbd599f2f5600100eE(ptr nonnull align 8 %73, ptr align 1 %1)
           to label %.backedge8 unwind label %19
 
-76:                                               ; preds = %18
+75:                                               ; preds = %18
   resume { ptr, i32 } %.pn
 }
 
@@ -758,17 +748,13 @@ declare void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..p
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..Type$GT$$GT$17hb420fdaa428f02dcE"(ptr align 8) unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #5
-
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { cold }
-attributes #7 = { cold noreturn nounwind }
+attributes #5 = { cold }
+attributes #6 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

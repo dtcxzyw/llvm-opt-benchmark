@@ -3447,34 +3447,28 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !21, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !623)
   %5 = load i8, ptr %4, align 1, !range !569, !alias.scope !623, !noalias !626, !noundef !3
-  %6 = add nsw i8 %5, -2
-  %narrow.i = tail call i8 @llvm.umin.i8(i8 %6, i8 2)
-  switch i8 %narrow.i, label %default.unreachable [
-    i8 0, label %7
-    i8 1, label %9
-    i8 2, label %11
+  switch i8 %5, label %10 [
+    i8 2, label %6
+    i8 3, label %8
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-7:                                                ; preds = %2
-  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.981, i64 noundef 5), !noalias !623
+6:                                                ; preds = %2
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.981, i64 noundef 5), !noalias !623
   br label %"_ZN85_$LT$ruff_python_ast..str_prefix..StringLiteralPrefix$u20$as$u20$core..fmt..Debug$GT$3fmt17hd799c2c3058a254eE.exit"
 
-9:                                                ; preds = %2
-  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.982, i64 noundef 7), !noalias !623
+8:                                                ; preds = %2
+  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.982, i64 noundef 7), !noalias !623
   br label %"_ZN85_$LT$ruff_python_ast..str_prefix..StringLiteralPrefix$u20$as$u20$core..fmt..Debug$GT$3fmt17hd799c2c3058a254eE.exit"
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !628
   store ptr %4, ptr %3, align 8, !noalias !628
-  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha1d56172232f9f17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.983, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.984, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18ff8fbd04110e1d2a6adbb6cd15703a.798)
+  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha1d56172232f9f17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.983, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.984, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18ff8fbd04110e1d2a6adbb6cd15703a.798)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !628
   br label %"_ZN85_$LT$ruff_python_ast..str_prefix..StringLiteralPrefix$u20$as$u20$core..fmt..Debug$GT$3fmt17hd799c2c3058a254eE.exit"
 
-"_ZN85_$LT$ruff_python_ast..str_prefix..StringLiteralPrefix$u20$as$u20$core..fmt..Debug$GT$3fmt17hd799c2c3058a254eE.exit": ; preds = %7, %9, %11
-  %.sroa.0.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
+"_ZN85_$LT$ruff_python_ast..str_prefix..StringLiteralPrefix$u20$as$u20$core..fmt..Debug$GT$3fmt17hd799c2c3058a254eE.exit": ; preds = %6, %8, %10
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -32093,11 +32087,11 @@ define noundef range(i8 0, 84) i8 @_ZN15ruff_python_ast10expression14StringLikeP
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !135, !noundef !3
   switch i64 %2, label %default.unreachable4 [
     i64 0, label %5
-    i64 1, label %17
-    i64 2, label %22
+    i64 1, label %13
+    i64 2, label %18
   ]
 
-default.unreachable4:                             ; preds = %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i", %1
+default.unreachable4:                             ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
@@ -32105,64 +32099,45 @@ default.unreachable4:                             ; preds = %"_ZN98_$LT$ruff_pyt
   %7 = load i8, ptr %6, align 8, !noundef !3
   %8 = and i8 %7, 4
   %.not.i.i.i.i = icmp eq i8 %8, 0
-  br i1 %.not.i.i.i.i, label %9, label %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i"
+  br i1 %.not.i.i.i.i, label %9, label %"_ZN128_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..StringLiteralFlags$GT$$GT$4from17hf6ac6846c555bb75E.exit"
 
 9:                                                ; preds = %5
   %10 = and i8 %7, 8
   %.not1.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not1.i.i.i.i, label %11, label %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i"
+  br i1 %.not1.i.i.i.i, label %11, label %"_ZN128_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..StringLiteralFlags$GT$$GT$4from17hf6ac6846c555bb75E.exit"
 
 11:                                               ; preds = %9
-  %12 = and i8 %7, 16
-  %.not2.i.i.i.i = icmp eq i8 %12, 0
-  %..i.i.i.i = select i1 %.not2.i.i.i.i, i8 2, i8 1
-  br label %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i"
-
-"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i": ; preds = %11, %9, %5
-  %.sroa.0.0.i.i.i.i = phi i8 [ 3, %5 ], [ 0, %9 ], [ %..i.i.i.i, %11 ]
-  %13 = add nsw i8 %.sroa.0.0.i.i.i.i, -2
-  %narrow.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %13, i8 2)
-  switch i8 %narrow.i.i.i.i, label %default.unreachable4 [
-    i8 0, label %"_ZN128_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..StringLiteralFlags$GT$$GT$4from17hf6ac6846c555bb75E.exit"
-    i8 1, label %14
-    i8 2, label %15
-  ]
-
-14:                                               ; preds = %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i"
+  %12 = shl i8 %7, 2
+  %spec.select.i.i = and i8 %12, 64
   br label %"_ZN128_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..StringLiteralFlags$GT$$GT$4from17hf6ac6846c555bb75E.exit"
 
-15:                                               ; preds = %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i"
-  %16 = trunc nuw i8 %.sroa.0.0.i.i.i.i to i1
-  %..i.i2.i.i = select i1 %16, i8 64, i8 32
-  br label %"_ZN128_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..StringLiteralFlags$GT$$GT$4from17hf6ac6846c555bb75E.exit"
-
-17:                                               ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %19 = load i8, ptr %18, align 8, !noundef !3
-  %20 = and i8 %19, 4
-  %.not.i.i.not.i.i = icmp eq i8 %20, 0
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %15 = load i8, ptr %14, align 8, !noundef !3
+  %16 = and i8 %15, 4
+  %.not.i.i.not.i.i = icmp eq i8 %16, 0
   %switch.select.i.i.i.i = select i1 %.not.i.i.not.i.i, i8 72, i8 40
-  %21 = and i8 %19, 12
-  %switch.selectcmp10.i.i.i.i = icmp eq i8 %21, 0
+  %17 = and i8 %15, 12
+  %switch.selectcmp10.i.i.i.i = icmp eq i8 %17, 0
   %switch.select11.i.i.i.i = select i1 %switch.selectcmp10.i.i.i.i, i8 8, i8 %switch.select.i.i.i.i
   br label %"_ZN128_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..StringLiteralFlags$GT$$GT$4from17hf6ac6846c555bb75E.exit"
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %24 = load i8, ptr %23, align 8, !noundef !3
-  %25 = and i8 %24, 4
-  %.not.i.i.not.i.i2 = icmp eq i8 %25, 0
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %20 = load i8, ptr %19, align 8, !noundef !3
+  %21 = and i8 %20, 4
+  %.not.i.i.not.i.i2 = icmp eq i8 %21, 0
   %switch.select13.i.i.i.i = select i1 %.not.i.i.not.i.i2, i8 80, i8 48
-  %26 = and i8 %24, 12
-  %switch.selectcmp14.i.i.i.i = icmp eq i8 %26, 0
+  %22 = and i8 %20, 12
+  %switch.selectcmp14.i.i.i.i = icmp eq i8 %22, 0
   %switch.select15.i.i.i.i = select i1 %switch.selectcmp14.i.i.i.i, i8 16, i8 %switch.select13.i.i.i.i
   br label %"_ZN128_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..StringLiteralFlags$GT$$GT$4from17hf6ac6846c555bb75E.exit"
 
-"_ZN128_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..StringLiteralFlags$GT$$GT$4from17hf6ac6846c555bb75E.exit": ; preds = %15, %14, %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i", %22, %17
-  %.sink5 = phi i8 [ %24, %22 ], [ %19, %17 ], [ %7, %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i" ], [ %7, %14 ], [ %7, %15 ]
-  %switch.select15.i.i.i.i.sink = phi i8 [ %switch.select15.i.i.i.i, %22 ], [ %switch.select11.i.i.i.i, %17 ], [ %narrow.i.i.i.i, %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i" ], [ 4, %14 ], [ %..i.i2.i.i, %15 ]
-  %27 = and i8 %.sink5, 3
-  %.sroa.0.0.i2.i.i.i3 = or disjoint i8 %switch.select15.i.i.i.i.sink, %27
+"_ZN128_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..StringLiteralFlags$GT$$GT$4from17hf6ac6846c555bb75E.exit": ; preds = %11, %9, %5, %18, %13
+  %.sink5 = phi i8 [ %20, %18 ], [ %15, %13 ], [ %7, %5 ], [ %7, %9 ], [ %7, %11 ]
+  %switch.select15.i.i.i.i.sink = phi i8 [ %switch.select15.i.i.i.i, %18 ], [ %switch.select11.i.i.i.i, %13 ], [ 4, %5 ], [ 32, %9 ], [ %spec.select.i.i, %11 ]
+  %23 = and i8 %.sink5, 3
+  %.sroa.0.0.i2.i.i.i3 = or disjoint i8 %switch.select15.i.i.i.i.sink, %23
   ret i8 %.sroa.0.0.i2.i.i.i3
 }
 
@@ -32172,11 +32147,11 @@ define { i32, i32 } @_ZN15ruff_python_ast10expression14StringLikePart13content_r
   tail call void @llvm.assume(i1 %3)
   switch i64 %0, label %default.unreachable [
     i64 0, label %4
-    i64 1, label %16
-    i64 2, label %21
+    i64 1, label %12
+    i64 2, label %17
   ]
 
-default.unreachable:                              ; preds = %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i.i", %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
@@ -32184,132 +32159,113 @@ default.unreachable:                              ; preds = %"_ZN98_$LT$ruff_pyt
   %6 = load i8, ptr %5, align 8, !noalias !5077, !noundef !3
   %7 = and i8 %6, 4
   %.not.i.i.i.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i.i.i.i.i, label %8, label %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %8, label %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread
 
 8:                                                ; preds = %4
   %9 = and i8 %6, 8
   %.not1.i.i.i.i.i = icmp eq i8 %9, 0
-  br i1 %.not1.i.i.i.i.i, label %10, label %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i.i"
+  br i1 %.not1.i.i.i.i.i, label %10, label %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread
 
 10:                                               ; preds = %8
-  %11 = and i8 %6, 16
-  %.not2.i.i.i.i.i = icmp eq i8 %11, 0
-  %..i.i.i.i.i = select i1 %.not2.i.i.i.i.i, i8 2, i8 1
-  br label %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i.i"
-
-"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i.i": ; preds = %10, %8, %4
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ 3, %4 ], [ 0, %8 ], [ %..i.i.i.i.i, %10 ]
-  %12 = add nsw i8 %.sroa.0.0.i.i.i.i.i, -2
-  %narrow.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %12, i8 2)
-  switch i8 %narrow.i.i.i.i.i, label %default.unreachable [
-    i8 0, label %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread
-    i8 1, label %13
-    i8 2, label %14
-  ]
-
-13:                                               ; preds = %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i.i"
-  br label %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread
-
-14:                                               ; preds = %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i.i"
-  %15 = trunc nuw i8 %.sroa.0.0.i.i.i.i.i to i1
-  %..i.i2.i.i.i = select i1 %15, i8 64, i8 32
+  %11 = shl i8 %6, 2
+  %spec.select.i.i.i = and i8 %11, 64
   br label %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i8, ptr %17, align 8, !noalias !5077, !noundef !3
-  %19 = and i8 %18, 4
-  %.not.i.i.not.i.i.i = icmp eq i8 %19, 0
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = load i8, ptr %13, align 8, !noalias !5077, !noundef !3
+  %15 = and i8 %14, 4
+  %.not.i.i.not.i.i.i = icmp eq i8 %15, 0
   %switch.select.i.i.i.i.i = select i1 %.not.i.i.not.i.i.i, i8 72, i8 40
-  %20 = and i8 %18, 12
-  %switch.selectcmp10.i.i.i.i.i = icmp eq i8 %20, 0
+  %16 = and i8 %14, 12
+  %switch.selectcmp10.i.i.i.i.i = icmp eq i8 %16, 0
   %switch.select11.i.i.i.i.i = select i1 %switch.selectcmp10.i.i.i.i.i, i8 8, i8 %switch.select.i.i.i.i.i
   br label %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %23 = load i8, ptr %22, align 8, !noalias !5077, !noundef !3
-  %24 = and i8 %23, 4
-  %.not.i.i.not.i.i2.i = icmp eq i8 %24, 0
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = load i8, ptr %18, align 8, !noalias !5077, !noundef !3
+  %20 = and i8 %19, 4
+  %.not.i.i.not.i.i2.i = icmp eq i8 %20, 0
   %switch.select13.i.i.i.i.i = select i1 %.not.i.i.not.i.i2.i, i8 80, i8 48
-  %25 = and i8 %23, 12
-  %switch.selectcmp14.i.i.i.i.i = icmp eq i8 %25, 0
+  %21 = and i8 %19, 12
+  %switch.selectcmp14.i.i.i.i.i = icmp eq i8 %21, 0
   %switch.select15.i.i.i.i.i = select i1 %switch.selectcmp14.i.i.i.i.i, i8 16, i8 %switch.select13.i.i.i.i.i
   br label %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit
 
-_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread: ; preds = %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i.i", %13
-  %switch.select15.i.i.i.i.sink.i.ph = phi i8 [ 4, %13 ], [ %narrow.i.i.i.i.i, %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i.i" ]
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.pn5.i18 = load i32, ptr %26, align 8, !noalias !5080, !noundef !3
-  br label %34
+_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread: ; preds = %4, %8
+  %switch.select15.i.i.i.i.sink.i.ph = phi i8 [ 32, %8 ], [ 4, %4 ]
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.pn5.i18 = load i32, ptr %22, align 8, !noalias !5080, !noundef !3
+  br label %30
 
-_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit: ; preds = %14, %16, %21
-  %.sink5.i = phi i8 [ %23, %21 ], [ %18, %16 ], [ %6, %14 ]
-  %switch.select15.i.i.i.i.sink.i = phi i8 [ %switch.select15.i.i.i.i.i, %21 ], [ %switch.select11.i.i.i.i.i, %16 ], [ %..i.i2.i.i.i, %14 ]
-  %28 = icmp eq i64 %0, 2
-  %..i = select i1 %28, i64 24, i64 16
-  %.8.i = select i1 %28, i64 28, i64 20
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %..i
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.8.i
-  %.pn5.i = load i32, ptr %29, align 8, !noalias !5080, !noundef !3
-  %31 = and i8 %switch.select15.i.i.i.i.sink.i, 16
-  %.not.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i, label %34, label %32
+_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit: ; preds = %10, %12, %17
+  %.sink5.i = phi i8 [ %19, %17 ], [ %14, %12 ], [ %6, %10 ]
+  %switch.select15.i.i.i.i.sink.i = phi i8 [ %switch.select15.i.i.i.i.i, %17 ], [ %switch.select11.i.i.i.i.i, %12 ], [ %spec.select.i.i.i, %10 ]
+  %24 = icmp eq i64 %0, 2
+  %..i = select i1 %24, i64 24, i64 16
+  %.8.i = select i1 %24, i64 28, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %..i
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.8.i
+  %.pn5.i = load i32, ptr %25, align 8, !noalias !5080, !noundef !3
+  %27 = and i8 %switch.select15.i.i.i.i.sink.i, 16
+  %.not.i.i = icmp eq i8 %27, 0
+  br i1 %.not.i.i, label %30, label %28
 
-32:                                               ; preds = %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit
-  %33 = and i8 %switch.select15.i.i.i.i.sink.i, 96
-  %or.cond.i = icmp eq i8 %33, 0
+28:                                               ; preds = %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit
+  %29 = and i8 %switch.select15.i.i.i.i.sink.i, 96
+  %or.cond.i = icmp eq i8 %29, 0
   %spec.select.i = select i1 %or.cond.i, i32 1, i32 2
   br label %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
 
-34:                                               ; preds = %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit
+30:                                               ; preds = %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit
   %.pn5.i24 = phi i32 [ %.pn5.i18, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %.pn5.i, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
-  %35 = phi ptr [ %27, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %30, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
+  %31 = phi ptr [ %23, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %26, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
   %switch.select15.i.i.i.i.sink.i22 = phi i8 [ %switch.select15.i.i.i.i.sink.i.ph, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %switch.select15.i.i.i.i.sink.i, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
   %.sink5.i21 = phi i8 [ %6, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %.sink5.i, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
-  %36 = and i8 %switch.select15.i.i.i.i.sink.i22, 8
-  %.not1.i.i = icmp eq i8 %36, 0
-  br i1 %.not1.i.i, label %39, label %37
+  %32 = and i8 %switch.select15.i.i.i.i.sink.i22, 8
+  %.not1.i.i = icmp eq i8 %32, 0
+  br i1 %.not1.i.i, label %35, label %33
 
-37:                                               ; preds = %34
-  %38 = and i8 %switch.select15.i.i.i.i.sink.i22, 96
-  %or.cond19.i = icmp eq i8 %38, 0
+33:                                               ; preds = %30
+  %34 = and i8 %switch.select15.i.i.i.i.sink.i22, 96
+  %or.cond19.i = icmp eq i8 %34, 0
   %spec.select20.i = select i1 %or.cond19.i, i32 1, i32 2
   br label %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
 
-39:                                               ; preds = %34
-  %40 = and i8 %switch.select15.i.i.i.i.sink.i22, 100
-  %41 = icmp ne i8 %40, 0
-  %.sroa.11.0.i.ph.i = zext i1 %41 to i32
+35:                                               ; preds = %30
+  %36 = and i8 %switch.select15.i.i.i.i.sink.i22, 100
+  %37 = icmp ne i8 %36, 0
+  %.sroa.11.0.i.ph.i = zext i1 %37 to i32
   br label %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
 
-_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit: ; preds = %32, %37, %39
-  %.pn5.i23 = phi i32 [ %.pn5.i24, %39 ], [ %.pn5.i24, %37 ], [ %.pn5.i, %32 ]
-  %42 = phi ptr [ %35, %39 ], [ %35, %37 ], [ %30, %32 ]
-  %.sink5.i20 = phi i8 [ %.sink5.i21, %39 ], [ %.sink5.i21, %37 ], [ %.sink5.i, %32 ]
-  %..i6.sink.i.i = phi i32 [ %.sroa.11.0.i.ph.i, %39 ], [ %spec.select20.i, %37 ], [ %spec.select.i, %32 ]
-  %43 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i6.sink.i.i)
-  %44 = and i8 %.sink5.i20, 2
-  %.not.i.i.not.i.i = icmp eq i8 %44, 0
+_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit: ; preds = %28, %33, %35
+  %.pn5.i23 = phi i32 [ %.pn5.i24, %35 ], [ %.pn5.i24, %33 ], [ %.pn5.i, %28 ]
+  %38 = phi ptr [ %31, %35 ], [ %31, %33 ], [ %26, %28 ]
+  %.sink5.i20 = phi i8 [ %.sink5.i21, %35 ], [ %.sink5.i21, %33 ], [ %.sink5.i, %28 ]
+  %..i6.sink.i.i = phi i32 [ %.sroa.11.0.i.ph.i, %35 ], [ %spec.select20.i, %33 ], [ %spec.select.i, %28 ]
+  %39 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i6.sink.i.i)
+  %40 = and i8 %.sink5.i20, 2
+  %.not.i.i.not.i.i = icmp eq i8 %40, 0
   %..i1.i = select i1 %.not.i.i.not.i.i, i32 1, i32 3
-  %45 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i1.i)
-  %46 = add i32 %43, %.pn5.i23
-  %47 = add i32 %46, %45
-  %.pn3.i4 = load i32, ptr %42, align 4, !noalias !5083, !noundef !3
-  %48 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i1.i)
-  %49 = sub i32 %.pn3.i4, %48
-  %.not = icmp ugt i32 %47, %49
-  br i1 %.not, label %50, label %51, !prof !143
+  %41 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i1.i)
+  %42 = add i32 %39, %.pn5.i23
+  %43 = add i32 %42, %41
+  %.pn3.i4 = load i32, ptr %38, align 4, !noalias !5083, !noundef !3
+  %44 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i1.i)
+  %45 = sub i32 %.pn3.i4, %44
+  %.not = icmp ugt i32 %43, %45
+  br i1 %.not, label %46, label %47, !prof !143
 
-50:                                               ; preds = %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
+46:                                               ; preds = %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.321, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18ff8fbd04110e1d2a6adbb6cd15703a.323) #56
   unreachable
 
-51:                                               ; preds = %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
-  %52 = insertvalue { i32, i32 } poison, i32 %47, 0
-  %53 = insertvalue { i32, i32 } %52, i32 %49, 1
-  ret { i32, i32 } %53
+47:                                               ; preds = %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
+  %48 = insertvalue { i32, i32 } poison, i32 %43, 0
+  %49 = insertvalue { i32, i32 } %48, i32 %45, 1
+  ret { i32, i32 } %49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -54478,42 +54434,32 @@ define noundef i8 @_ZN15ruff_python_ast5nodes18StringLiteralFlags18with_triple_q
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, -8) i8 @_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E(i8 noundef %0, i8 noundef range(i8 0, 4) %1) unnamed_addr #18 {
-  %3 = add nsw i8 %1, -2
-  %narrow = tail call i8 @llvm.umin.i8(i8 %3, i8 2)
-  switch i8 %narrow, label %default.unreachable [
-    i8 0, label %4
-    i8 1, label %6
-    i8 2, label %9
+  %3 = and i8 %0, -29
+  switch i8 %1, label %default.unreachable [
+    i8 2, label %6
+    i8 3, label %4
+    i8 0, label %7
+    i8 1, label %9
   ]
+
+4:                                                ; preds = %2
+  %5 = or disjoint i8 %3, 4
+  br label %6
+
+6:                                                ; preds = %2, %9, %7, %4
+  %.sroa.02.0 = phi i8 [ %5, %4 ], [ %10, %9 ], [ %8, %7 ], [ %3, %2 ]
+  ret i8 %.sroa.02.0
+
+7:                                                ; preds = %2
+  %8 = or disjoint i8 %3, 8
+  br label %6
 
 default.unreachable:                              ; preds = %2
   unreachable
 
-4:                                                ; preds = %2
-  %5 = and i8 %0, -29
-  br label %12
-
-6:                                                ; preds = %2
-  %7 = and i8 %0, -29
-  %8 = or disjoint i8 %7, 4
-  br label %12
-
 9:                                                ; preds = %2
-  %10 = trunc nuw i8 %1 to i1
-  %11 = and i8 %0, -29
-  br i1 %10, label %15, label %13
-
-12:                                               ; preds = %15, %13, %6, %4
-  %.sroa.02.0 = phi i8 [ %5, %4 ], [ %8, %6 ], [ %16, %15 ], [ %14, %13 ]
-  ret i8 %.sroa.02.0
-
-13:                                               ; preds = %9
-  %14 = or disjoint i8 %11, 8
-  br label %12
-
-15:                                               ; preds = %9
-  %16 = or disjoint i8 %11, 16
-  br label %12
+  %10 = or disjoint i8 %3, 16
+  br label %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -55698,7 +55644,7 @@ define noundef i8 @_ZN15ruff_python_ast5nodes14AnyStringFlags11with_prefix17hf53
     i8 2, label %6
   ]
 
-default.unreachable16:                            ; preds = %6, %3
+default.unreachable16:                            ; preds = %3
   unreachable
 
 4:                                                ; preds = %3
@@ -55706,36 +55652,33 @@ default.unreachable16:                            ; preds = %6, %3
   %switch.select = select i1 %switch.selectcmp, i8 40, i8 72
   %switch.selectcmp10 = icmp eq i8 %2, 2
   %switch.select11 = select i1 %switch.selectcmp10, i8 8, i8 %switch.select
-  br label %8
+  br label %7
 
 5:                                                ; preds = %3
   %switch.selectcmp12 = icmp eq i8 %2, 0
   %switch.select13 = select i1 %switch.selectcmp12, i8 48, i8 80
   %switch.selectcmp14 = icmp eq i8 %2, 2
   %switch.select15 = select i1 %switch.selectcmp14, i8 16, i8 %switch.select13
-  br label %8
+  br label %7
 
 6:                                                ; preds = %3
-  %7 = add i8 %2, -2
-  %narrow = tail call i8 @llvm.umin.i8(i8 %7, i8 2)
-  switch i8 %narrow, label %default.unreachable16 [
-    i8 0, label %8
-    i8 1, label %10
-    i8 2, label %11
+  switch i8 %2, label %10 [
+    i8 2, label %7
+    i8 3, label %9
   ]
 
-8:                                                ; preds = %5, %4, %11, %6, %10
-  %.sroa.08.0 = phi i8 [ 4, %10 ], [ %narrow, %6 ], [ %., %11 ], [ %switch.select11, %4 ], [ %switch.select15, %5 ]
-  %9 = or i8 %.sroa.08.0, %0
-  ret i8 %9
+7:                                                ; preds = %5, %4, %10, %6, %9
+  %.sroa.08.0 = phi i8 [ 4, %9 ], [ 0, %6 ], [ %., %10 ], [ %switch.select11, %4 ], [ %switch.select15, %5 ]
+  %8 = or i8 %.sroa.08.0, %0
+  ret i8 %8
+
+9:                                                ; preds = %6
+  br label %7
 
 10:                                               ; preds = %6
-  br label %8
-
-11:                                               ; preds = %6
-  %12 = trunc nuw i8 %2 to i1
-  %. = select i1 %12, i8 64, i8 32
-  br label %8
+  %11 = trunc nuw i8 %2 to i1
+  %. = select i1 %11, i8 64, i8 32
+  br label %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -55746,7 +55689,7 @@ define noundef range(i8 0, 84) i8 @_ZN15ruff_python_ast5nodes14AnyStringFlags3ne
     i8 2, label %7
   ]
 
-default.unreachable:                              ; preds = %7, %4
+default.unreachable:                              ; preds = %4
   unreachable
 
 5:                                                ; preds = %4
@@ -55764,28 +55707,25 @@ default.unreachable:                              ; preds = %7, %4
   br label %_ZN15ruff_python_ast5nodes14AnyStringFlags11with_prefix17hf53c773550d2fecaE.exit
 
 7:                                                ; preds = %4
-  %8 = add i8 %1, -2
-  %narrow.i = tail call i8 @llvm.umin.i8(i8 %8, i8 2)
-  switch i8 %narrow.i, label %default.unreachable [
-    i8 0, label %_ZN15ruff_python_ast5nodes14AnyStringFlags11with_prefix17hf53c773550d2fecaE.exit
-    i8 1, label %9
-    i8 2, label %10
+  switch i8 %1, label %9 [
+    i8 2, label %_ZN15ruff_python_ast5nodes14AnyStringFlags11with_prefix17hf53c773550d2fecaE.exit
+    i8 3, label %8
   ]
 
+8:                                                ; preds = %7
+  br label %_ZN15ruff_python_ast5nodes14AnyStringFlags11with_prefix17hf53c773550d2fecaE.exit
+
 9:                                                ; preds = %7
+  %10 = trunc nuw i8 %1 to i1
+  %..i = select i1 %10, i8 64, i8 32
   br label %_ZN15ruff_python_ast5nodes14AnyStringFlags11with_prefix17hf53c773550d2fecaE.exit
 
-10:                                               ; preds = %7
-  %11 = trunc nuw i8 %1 to i1
-  %..i = select i1 %11, i8 64, i8 32
-  br label %_ZN15ruff_python_ast5nodes14AnyStringFlags11with_prefix17hf53c773550d2fecaE.exit
-
-_ZN15ruff_python_ast5nodes14AnyStringFlags11with_prefix17hf53c773550d2fecaE.exit: ; preds = %5, %6, %7, %9, %10
-  %.sroa.08.0.i = phi i8 [ 4, %9 ], [ %narrow.i, %7 ], [ %..i, %10 ], [ %switch.select11.i, %5 ], [ %switch.select15.i, %6 ]
+_ZN15ruff_python_ast5nodes14AnyStringFlags11with_prefix17hf53c773550d2fecaE.exit: ; preds = %5, %6, %7, %8, %9
+  %.sroa.08.0.i = phi i8 [ 4, %8 ], [ 0, %7 ], [ %..i, %9 ], [ %switch.select11.i, %5 ], [ %switch.select15.i, %6 ]
   %masksel.i = zext i1 %2 to i8
   %masksel.i1 = select i1 %3, i8 0, i8 2
-  %12 = or disjoint i8 %masksel.i1, %masksel.i
-  %.sroa.0.0.i2 = or i8 %12, %.sroa.08.0.i
+  %11 = or disjoint i8 %masksel.i1, %masksel.i
+  %.sroa.0.0.i2 = or i8 %11, %.sroa.08.0.i
   ret i8 %.sroa.0.0.i2
 }
 
@@ -55988,82 +55928,69 @@ define noundef range(i8 0, 20) i8 @"_ZN128_$LT$ruff_python_ast..nodes..StringLit
   %4 = alloca [48 x i8], align 8
   %5 = and i8 %0, 24
   %or.cond = icmp eq i8 %5, 0
-  br i1 %or.cond, label %6, label %24
+  br i1 %or.cond, label %6, label %22
 
 6:                                                ; preds = %1
   %7 = and i8 %0, 32
   %.not2.i = icmp eq i8 %7, 0
-  br i1 %.not2.i, label %8, label %12
+  br i1 %.not2.i, label %8, label %15
 
 8:                                                ; preds = %6
   %9 = and i8 %0, 64
   %.not3.i = icmp eq i8 %9, 0
-  br i1 %.not3.i, label %10, label %12
+  br i1 %.not3.i, label %10, label %18
 
 10:                                               ; preds = %8
   %11 = and i8 %0, 4
   %.not4.i = icmp eq i8 %11, 0
-  %.10.i = select i1 %.not4.i, i8 2, i8 3
-  br label %12
+  br i1 %.not4.i, label %.thread, label %13
 
-12:                                               ; preds = %10, %8, %6
-  %.sroa.11.0.i = phi i8 [ 0, %6 ], [ 1, %8 ], [ %.10.i, %10 ]
-  %13 = and i8 %0, 1
-  %14 = add nsw i8 %.sroa.11.0.i, -2
-  %narrow.i = tail call i8 @llvm.umin.i8(i8 %14, i8 2)
-  switch i8 %narrow.i, label %default.unreachable [
-    i8 0, label %_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit
-    i8 1, label %15
-    i8 2, label %17
-  ]
-
-default.unreachable:                              ; preds = %12
-  unreachable
-
-15:                                               ; preds = %12
-  %16 = or disjoint i8 %13, 4
+.thread:                                          ; preds = %10
+  %12 = and i8 %0, 1
   br label %_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit
 
-17:                                               ; preds = %12
-  %18 = trunc nuw i8 %.sroa.11.0.i to i1
-  br i1 %18, label %21, label %19
-
-19:                                               ; preds = %17
-  %20 = or disjoint i8 %13, 8
+13:                                               ; preds = %10
+  %14 = and i8 %0, 5
   br label %_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit
 
-21:                                               ; preds = %17
-  %22 = or disjoint i8 %13, 16
+15:                                               ; preds = %6
+  %16 = and i8 %0, 1
+  %17 = or disjoint i8 %16, 8
   br label %_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit
 
-_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit: ; preds = %12, %15, %19, %21
-  %.sroa.02.0.i = phi i8 [ %16, %15 ], [ %22, %21 ], [ %20, %19 ], [ %13, %12 ]
-  %23 = and i8 %0, 2
-  %.sroa.0.0.i8 = or disjoint i8 %.sroa.02.0.i, %23
+18:                                               ; preds = %8
+  %19 = and i8 %0, 1
+  %20 = or disjoint i8 %19, 16
+  br label %_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit
+
+_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit: ; preds = %.thread, %13, %15, %18
+  %.sroa.02.0.i = phi i8 [ %14, %13 ], [ %20, %18 ], [ %17, %15 ], [ %12, %.thread ]
+  %21 = and i8 %0, 2
+  %.sroa.0.0.i8 = or disjoint i8 %.sroa.02.0.i, %21
   ret i8 %.sroa.0.0.i8
 
-24:                                               ; preds = %1
+22:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %25 = tail call { i8, i8 } @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17h20f4b55334950d5aE"(i8 noundef %0)
-  %26 = extractvalue { i8, i8 } %25, 0
-  %27 = extractvalue { i8, i8 } %25, 1
-  store i8 %26, ptr %2, align 1
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %27, ptr %28, align 1
+  %23 = tail call { i8, i8 } @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17h20f4b55334950d5aE"(i8 noundef %0)
+  %24 = extractvalue { i8, i8 } %23, 0
+  %25 = extractvalue { i8, i8 } %23, 1
+  store i8 %24, ptr %2, align 1
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 %25, ptr %26, align 1
   store ptr %2, ptr %3, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN83_$LT$ruff_python_ast..str_prefix..AnyStringPrefix$u20$as$u20$core..fmt..Display$GT$3fmt17h5411ae7b32a476deE", ptr %.sroa.43.0..sroa_idx, align 8
   store ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.448, ptr %4, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 2, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %32, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 2, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 1, ptr %30, align 8
   call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18ff8fbd04110e1d2a6adbb6cd15703a.449) #56
   unreachable
 }
@@ -56072,44 +55999,22 @@ _ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.
 define noundef range(i8 0, 68) i8 @"_ZN128_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..StringLiteralFlags$GT$$GT$4from17hf6ac6846c555bb75E"(i8 noundef %0) unnamed_addr #18 {
   %2 = and i8 %0, 4
   %.not.i.i.i = icmp eq i8 %2, 0
-  br i1 %.not.i.i.i, label %3, label %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i"
+  br i1 %.not.i.i.i, label %3, label %_ZN15ruff_python_ast5nodes11StringFlags19as_any_string_flags17h66251d8e33a7c393E.exit
 
 3:                                                ; preds = %1
   %4 = and i8 %0, 8
   %.not1.i.i.i = icmp eq i8 %4, 0
-  br i1 %.not1.i.i.i, label %5, label %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i"
+  br i1 %.not1.i.i.i, label %5, label %_ZN15ruff_python_ast5nodes11StringFlags19as_any_string_flags17h66251d8e33a7c393E.exit
 
 5:                                                ; preds = %3
-  %6 = and i8 %0, 16
-  %.not2.i.i.i = icmp eq i8 %6, 0
-  %..i.i.i = select i1 %.not2.i.i.i, i8 2, i8 1
-  br label %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i"
-
-"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i": ; preds = %5, %3, %1
-  %.sroa.0.0.i.i.i = phi i8 [ 3, %1 ], [ 0, %3 ], [ %..i.i.i, %5 ]
-  %7 = add nsw i8 %.sroa.0.0.i.i.i, -2
-  %narrow.i.i.i = tail call i8 @llvm.umin.i8(i8 %7, i8 2)
-  switch i8 %narrow.i.i.i, label %default.unreachable [
-    i8 0, label %_ZN15ruff_python_ast5nodes11StringFlags19as_any_string_flags17h66251d8e33a7c393E.exit
-    i8 1, label %8
-    i8 2, label %9
-  ]
-
-default.unreachable:                              ; preds = %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i"
-  unreachable
-
-8:                                                ; preds = %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i"
+  %6 = shl i8 %0, 2
+  %spec.select.i = and i8 %6, 64
   br label %_ZN15ruff_python_ast5nodes11StringFlags19as_any_string_flags17h66251d8e33a7c393E.exit
 
-9:                                                ; preds = %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i"
-  %10 = trunc nuw i8 %.sroa.0.0.i.i.i to i1
-  %..i.i2.i = select i1 %10, i8 64, i8 32
-  br label %_ZN15ruff_python_ast5nodes11StringFlags19as_any_string_flags17h66251d8e33a7c393E.exit
-
-_ZN15ruff_python_ast5nodes11StringFlags19as_any_string_flags17h66251d8e33a7c393E.exit: ; preds = %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i", %8, %9
-  %.sroa.08.0.i.i.i = phi i8 [ 4, %8 ], [ %narrow.i.i.i, %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i" ], [ %..i.i2.i, %9 ]
-  %11 = and i8 %0, 3
-  %.sroa.0.0.i2.i.i = or disjoint i8 %.sroa.08.0.i.i.i, %11
+_ZN15ruff_python_ast5nodes11StringFlags19as_any_string_flags17h66251d8e33a7c393E.exit: ; preds = %1, %3, %5
+  %.sroa.08.0.i.i.i = phi i8 [ 4, %1 ], [ 32, %3 ], [ %spec.select.i, %5 ]
+  %7 = and i8 %0, 3
+  %.sroa.0.0.i2.i.i = or disjoint i8 %.sroa.08.0.i.i.i, %7
   ret i8 %.sroa.0.0.i2.i.i
 }
 
@@ -61944,31 +61849,25 @@ define noundef zeroext i1 @_ZN15ruff_python_ast3str15is_triple_quote17h2a329e373
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN15ruff_python_ast10str_prefix19StringLiteralPrefix6as_str17hd09a33f8b9214ba8E(i8 noundef range(i8 0, 4) %0) unnamed_addr #18 {
-  %2 = add nsw i8 %0, -2
-  %narrow = tail call i8 @llvm.umin.i8(i8 %2, i8 2)
-  switch i8 %narrow, label %default.unreachable [
-    i8 0, label %6
-    i8 1, label %3
-    i8 2, label %4
+  switch i8 %0, label %3 [
+    i8 2, label %5
+    i8 3, label %2
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
+2:                                                ; preds = %1
+  br label %5
 
 3:                                                ; preds = %1
-  br label %6
+  %4 = trunc nuw i8 %0 to i1
+  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672 = select i1 %4, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.673, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.672
+  br label %5
 
-4:                                                ; preds = %1
-  %5 = trunc nuw i8 %0 to i1
-  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672 = select i1 %5, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.673, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.672
-  br label %6
-
-6:                                                ; preds = %4, %1, %3
-  %.sroa.02.0 = phi ptr [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.671, %3 ], [ inttoptr (i64 1 to ptr), %1 ], [ %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672, %4 ]
-  %.sroa.5.0 = phi i64 [ 1, %3 ], [ 0, %1 ], [ 1, %4 ]
-  %7 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
-  %8 = insertvalue { ptr, i64 } %7, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %8
+5:                                                ; preds = %3, %1, %2
+  %.sroa.02.0 = phi ptr [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.671, %2 ], [ inttoptr (i64 1 to ptr), %1 ], [ %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672, %3 ]
+  %.sroa.5.0 = phi i64 [ 1, %2 ], [ 0, %1 ], [ 1, %3 ]
+  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
+  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0, 1
+  ret { ptr, i64 } %7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -61982,30 +61881,24 @@ define noundef i32 @_ZN15ruff_python_ast10str_prefix19StringLiteralPrefix8text_l
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN87_$LT$ruff_python_ast..str_prefix..StringLiteralPrefix$u20$as$u20$core..fmt..Display$GT$3fmt17h1e0cab154a973d99E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1, !range !569, !noundef !3
-  %4 = add nsw i8 %3, -2
-  %narrow.i = tail call i8 @llvm.umin.i8(i8 %4, i8 2)
-  switch i8 %narrow.i, label %default.unreachable [
-    i8 0, label %_ZN15ruff_python_ast10str_prefix19StringLiteralPrefix6as_str17hd09a33f8b9214ba8E.exit
-    i8 1, label %5
-    i8 2, label %6
+  switch i8 %3, label %5 [
+    i8 2, label %_ZN15ruff_python_ast10str_prefix19StringLiteralPrefix6as_str17hd09a33f8b9214ba8E.exit
+    i8 3, label %4
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+4:                                                ; preds = %2
+  br label %_ZN15ruff_python_ast10str_prefix19StringLiteralPrefix6as_str17hd09a33f8b9214ba8E.exit
 
 5:                                                ; preds = %2
+  %6 = trunc nuw i8 %3 to i1
+  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i = select i1 %6, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.673, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.672
   br label %_ZN15ruff_python_ast10str_prefix19StringLiteralPrefix6as_str17hd09a33f8b9214ba8E.exit
 
-6:                                                ; preds = %2
-  %7 = trunc nuw i8 %3 to i1
-  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i = select i1 %7, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.673, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.672
-  br label %_ZN15ruff_python_ast10str_prefix19StringLiteralPrefix6as_str17hd09a33f8b9214ba8E.exit
-
-_ZN15ruff_python_ast10str_prefix19StringLiteralPrefix6as_str17hd09a33f8b9214ba8E.exit: ; preds = %2, %5, %6
-  %.sroa.02.0.i = phi ptr [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.671, %5 ], [ inttoptr (i64 1 to ptr), %2 ], [ %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i, %6 ]
-  %.sroa.5.0.i = phi i64 [ 1, %5 ], [ 0, %2 ], [ 1, %6 ]
-  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.5.0.i)
-  ret i1 %8
+_ZN15ruff_python_ast10str_prefix19StringLiteralPrefix6as_str17hd09a33f8b9214ba8E.exit: ; preds = %2, %4, %5
+  %.sroa.02.0.i = phi ptr [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.671, %4 ], [ inttoptr (i64 1 to ptr), %2 ], [ %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i, %5 ]
+  %.sroa.5.0.i = phi i64 [ 1, %4 ], [ 0, %2 ], [ 1, %5 ]
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.5.0.i)
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -62128,7 +62021,7 @@ define { ptr, i64 } @_ZN15ruff_python_ast10str_prefix15AnyStringPrefix6as_str17h
     i8 2, label %9
   ]
 
-default.unreachable10:                            ; preds = %9, %2
+default.unreachable10:                            ; preds = %2
   unreachable
 
 3:                                                ; preds = %2
@@ -62156,25 +62049,22 @@ default.unreachable10:                            ; preds = %9, %2
   br label %_ZN15ruff_python_ast10str_prefix16ByteStringPrefix6as_str17hbd7c862afcf4a40bE.exit
 
 9:                                                ; preds = %2
-  %10 = add nsw i8 %1, -2
-  %narrow.i = tail call i8 @llvm.umin.i8(i8 %10, i8 2)
-  switch i8 %narrow.i, label %default.unreachable10 [
-    i8 0, label %_ZN15ruff_python_ast10str_prefix16ByteStringPrefix6as_str17hbd7c862afcf4a40bE.exit
-    i8 1, label %11
-    i8 2, label %12
+  switch i8 %1, label %11 [
+    i8 2, label %_ZN15ruff_python_ast10str_prefix16ByteStringPrefix6as_str17hbd7c862afcf4a40bE.exit
+    i8 3, label %10
   ]
 
+10:                                               ; preds = %9
+  br label %_ZN15ruff_python_ast10str_prefix16ByteStringPrefix6as_str17hbd7c862afcf4a40bE.exit
+
 11:                                               ; preds = %9
+  %12 = trunc nuw i8 %1 to i1
+  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i = select i1 %12, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.673, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.672
   br label %_ZN15ruff_python_ast10str_prefix16ByteStringPrefix6as_str17hbd7c862afcf4a40bE.exit
 
-12:                                               ; preds = %9
-  %13 = trunc nuw i8 %1 to i1
-  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i = select i1 %13, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.673, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.672
-  br label %_ZN15ruff_python_ast10str_prefix16ByteStringPrefix6as_str17hbd7c862afcf4a40bE.exit
-
-_ZN15ruff_python_ast10str_prefix16ByteStringPrefix6as_str17hbd7c862afcf4a40bE.exit: ; preds = %12, %11, %9, %8, %7, %6, %5, %4, %3
-  %.sroa.02.0.i.pn = phi ptr [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.679, %5 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.678, %4 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.677, %3 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.676, %8 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.675, %7 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.674, %6 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.671, %11 ], [ inttoptr (i64 1 to ptr), %9 ], [ %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i, %12 ]
-  %.sroa.4.0.i.pn = phi i64 [ 2, %5 ], [ 2, %4 ], [ 1, %3 ], [ 2, %8 ], [ 2, %7 ], [ 1, %6 ], [ 1, %11 ], [ 0, %9 ], [ 1, %12 ]
+_ZN15ruff_python_ast10str_prefix16ByteStringPrefix6as_str17hbd7c862afcf4a40bE.exit: ; preds = %11, %10, %9, %8, %7, %6, %5, %4, %3
+  %.sroa.02.0.i.pn = phi ptr [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.679, %5 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.678, %4 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.677, %3 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.676, %8 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.675, %7 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.674, %6 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.671, %10 ], [ inttoptr (i64 1 to ptr), %9 ], [ %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i, %11 ]
+  %.sroa.4.0.i.pn = phi i64 [ 2, %5 ], [ 2, %4 ], [ 1, %3 ], [ 2, %8 ], [ 2, %7 ], [ 1, %6 ], [ 1, %10 ], [ 0, %9 ], [ 1, %11 ]
   %.pn8 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.i.pn, 0
   %.pn = insertvalue { ptr, i64 } %.pn8, i64 %.sroa.4.0.i.pn, 1
   ret { ptr, i64 } %.pn
@@ -62232,7 +62122,7 @@ define noundef zeroext i1 @"_ZN83_$LT$ruff_python_ast..str_prefix..AnyStringPref
     i8 2, label %12
   ]
 
-default.unreachable:                              ; preds = %12, %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 6:                                                ; preds = %2
@@ -62260,27 +62150,24 @@ default.unreachable:                              ; preds = %12, %2
   br label %_ZN15ruff_python_ast10str_prefix15AnyStringPrefix6as_str17h0a028b44036e8837E.exit
 
 12:                                               ; preds = %2
-  %13 = add nsw i8 %5, -2
-  %narrow.i.i = tail call i8 @llvm.umin.i8(i8 %13, i8 2)
-  switch i8 %narrow.i.i, label %default.unreachable [
-    i8 0, label %_ZN15ruff_python_ast10str_prefix15AnyStringPrefix6as_str17h0a028b44036e8837E.exit
-    i8 1, label %14
-    i8 2, label %15
+  switch i8 %5, label %14 [
+    i8 2, label %_ZN15ruff_python_ast10str_prefix15AnyStringPrefix6as_str17h0a028b44036e8837E.exit
+    i8 3, label %13
   ]
 
+13:                                               ; preds = %12
+  br label %_ZN15ruff_python_ast10str_prefix15AnyStringPrefix6as_str17h0a028b44036e8837E.exit
+
 14:                                               ; preds = %12
+  %15 = trunc nuw i8 %5 to i1
+  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i.i = select i1 %15, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.673, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.672
   br label %_ZN15ruff_python_ast10str_prefix15AnyStringPrefix6as_str17h0a028b44036e8837E.exit
 
-15:                                               ; preds = %12
-  %16 = trunc nuw i8 %5 to i1
-  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i.i = select i1 %16, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.673, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.672
-  br label %_ZN15ruff_python_ast10str_prefix15AnyStringPrefix6as_str17h0a028b44036e8837E.exit
-
-_ZN15ruff_python_ast10str_prefix15AnyStringPrefix6as_str17h0a028b44036e8837E.exit: ; preds = %6, %7, %8, %9, %10, %11, %12, %14, %15
-  %.sroa.02.0.i.pn.i = phi ptr [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.679, %8 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.678, %7 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.677, %6 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.676, %11 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.675, %10 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.674, %9 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.671, %14 ], [ inttoptr (i64 1 to ptr), %12 ], [ %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i.i, %15 ]
-  %.sroa.4.0.i.pn.i = phi i64 [ 2, %8 ], [ 2, %7 ], [ 1, %6 ], [ 2, %11 ], [ 2, %10 ], [ 1, %9 ], [ 1, %14 ], [ 0, %12 ], [ 1, %15 ]
-  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i.pn.i, i64 noundef %.sroa.4.0.i.pn.i)
-  ret i1 %17
+_ZN15ruff_python_ast10str_prefix15AnyStringPrefix6as_str17h0a028b44036e8837E.exit: ; preds = %6, %7, %8, %9, %10, %11, %12, %13, %14
+  %.sroa.02.0.i.pn.i = phi ptr [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.679, %8 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.678, %7 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.677, %6 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.676, %11 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.675, %10 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.674, %9 ], [ @anon.18ff8fbd04110e1d2a6adbb6cd15703a.671, %13 ], [ inttoptr (i64 1 to ptr), %12 ], [ %anon.18ff8fbd04110e1d2a6adbb6cd15703a.673.anon.18ff8fbd04110e1d2a6adbb6cd15703a.672.i.i, %14 ]
+  %.sroa.4.0.i.pn.i = phi i64 [ 2, %8 ], [ 2, %7 ], [ 1, %6 ], [ 2, %11 ], [ 2, %10 ], [ 1, %9 ], [ 1, %13 ], [ 0, %12 ], [ 1, %14 ]
+  %16 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i.pn.i, i64 noundef %.sroa.4.0.i.pn.i)
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -74753,34 +74640,28 @@ define internal noundef zeroext i1 @"_ZN64_$LT$ruff_python_ast..str..Quote$u20$a
 define internal noundef zeroext i1 @"_ZN85_$LT$ruff_python_ast..str_prefix..StringLiteralPrefix$u20$as$u20$core..fmt..Debug$GT$3fmt17hd799c2c3058a254eE"(ptr noalias noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = alloca [8 x i8], align 8
   %4 = load i8, ptr %0, align 1, !range !569, !noundef !3
-  %5 = add nsw i8 %4, -2
-  %narrow = tail call i8 @llvm.umin.i8(i8 %5, i8 2)
-  switch i8 %narrow, label %default.unreachable [
-    i8 0, label %6
-    i8 1, label %8
-    i8 2, label %10
+  switch i8 %4, label %9 [
+    i8 2, label %5
+    i8 3, label %7
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+5:                                                ; preds = %2
+  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.981, i64 noundef 5)
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.981, i64 noundef 5)
-  br label %12
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.982, i64 noundef 7)
+  br label %11
 
-8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.982, i64 noundef 7)
-  br label %12
-
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha1d56172232f9f17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.983, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.984, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18ff8fbd04110e1d2a6adbb6cd15703a.798)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17ha1d56172232f9f17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.983, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.984, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18ff8fbd04110e1d2a6adbb6cd15703a.798)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %12
+  br label %11
 
-12:                                               ; preds = %10, %8, %6
-  %.sroa.0.0.in = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
+11:                                               ; preds = %9, %7, %5
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in
 }
 

@@ -1814,8 +1814,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %.thread145, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  switch i32 %80, label %default.unreachable [
-    i32 18, label %128
+  switch i32 %79, label %128 [
+    i32 17, label %126
     i32 1, label %94
     i32 2, label %96
     i32 3, label %98
@@ -1832,7 +1832,6 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %.thread145, %85
     i32 14, label %120
     i32 15, label %122
     i32 16, label %124
-    i32 17, label %126
   ]
 
 94:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
@@ -1906,9 +1905,6 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %.thread145, %85
 128:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %129 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi18EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
   br label %130
-
-default.unreachable:                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  unreachable
 
 130:                                              ; preds = %94, %96, %98, %100, %102, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %13
   %.0102 = phi i1 [ false, %13 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ %129, %128 ]

@@ -2613,54 +2613,49 @@ _ZN3std7process7Command3arg17hbc4d2caff86943afE.exit410: ; preds = %_ZN3std7proc
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @"_ZN78_$LT$uv_torch..accelerator..AcceleratorError$u20$as$u20$core..error..Error$GT$6source17h24c76835387a66f1E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !259, !noundef !4
-  %3 = icmp eq i64 %2, -9223372036854775808
-  br i1 %3, label %4, label %9
+  %cond = icmp eq i64 %2, -9223372036854775808
+  br i1 %cond, label %3, label %8
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = tail call { ptr, ptr } @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..error..Error$GT$6source17h50268c757257c912E"(ptr noundef nonnull align 1 %5)
-  %7 = extractvalue { ptr, ptr } %6, 0
-  %8 = extractvalue { ptr, ptr } %6, 1
-  br label %9
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = tail call { ptr, ptr } @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..error..Error$GT$6source17h50268c757257c912E"(ptr noundef nonnull align 1 %4)
+  %6 = extractvalue { ptr, ptr } %5, 0
+  %7 = extractvalue { ptr, ptr } %5, 1
+  br label %8
 
-9:                                                ; preds = %1, %4
-  %.sroa.4.0 = phi ptr [ %8, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %7, %4 ], [ null, %1 ]
-  %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %11
+8:                                                ; preds = %1, %3
+  %.sroa.4.0 = phi ptr [ %7, %3 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %6, %3 ], [ null, %1 ]
+  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.4.0, 1
+  ret { ptr, ptr } %10
 }
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN78_$LT$uv_torch..accelerator..AcceleratorError$u20$as$u20$core..fmt..Display$GT$3fmt17h4f1b640016202669E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8, !range !259, !noundef !4
   %4 = xor i64 %3, -9223372036854775808
-  %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 2)
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %6
-    i64 1, label %9
-    i64 2, label %12
+  switch i64 %4, label %11 [
+    i64 0, label %5
+    i64 1, label %8
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = tail call noundef zeroext i1 @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h7fff79f4d840cceaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  br label %13
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call noundef zeroext i1 @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h7fff79f4d840cceaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  br label %14
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = tail call noundef zeroext i1 @"_ZN76_$LT$uv_pep440..version..VersionParseError$u20$as$u20$core..fmt..Display$GT$3fmt17h6e03c946106fabe5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  br label %13
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = tail call noundef zeroext i1 @"_ZN76_$LT$uv_pep440..version..VersionParseError$u20$as$u20$core..fmt..Display$GT$3fmt17h6e03c946106fabe5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  br label %14
+11:                                               ; preds = %2
+  %12 = tail call noundef zeroext i1 @"_ZN67_$LT$alloc..string..FromUtf8Error$u20$as$u20$core..fmt..Display$GT$3fmt17h9d0b82ee603a2f87E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  br label %13
 
-12:                                               ; preds = %2
-  %13 = tail call noundef zeroext i1 @"_ZN67_$LT$alloc..string..FromUtf8Error$u20$as$u20$core..fmt..Display$GT$3fmt17h9d0b82ee603a2f87E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  br label %14
-
-14:                                               ; preds = %12, %9, %6
-  %.sroa.0.0.in = phi i1 [ %8, %6 ], [ %11, %9 ], [ %13, %12 ]
+13:                                               ; preds = %11, %8, %5
+  %.sroa.0.0.in = phi i1 [ %7, %5 ], [ %10, %8 ], [ %12, %11 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -2818,17 +2813,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #15
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -2845,8 +2837,8 @@ attributes #11 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "p
 attributes #12 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { cold }
 attributes #18 = { cold noreturn nounwind }
 attributes #19 = { noreturn }

@@ -11372,17 +11372,13 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hd760400f384a1f8dE.llvm.1315
   %12 = xor i64 %11, %9
   %13 = mul i64 %12, 5871781006564002453
   store i64 %13, ptr %2, align 8, !alias.scope !3118, !noalias !3113
-  switch i64 %9, label %default.unreachable [
-    i64 0, label %14
-    i64 1, label %26
-    i64 2, label %32
-    i64 3, label %34
-    i64 4, label %42
-    i64 5, label %54
+  switch i64 %7, label %54 [
+    i64 2, label %14
+    i64 3, label %26
+    i64 4, label %32
+    i64 5, label %34
+    i64 6, label %42
   ]
-
-default.unreachable:                              ; preds = %.lr.ph
-  unreachable
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.05, i64 8
@@ -19293,17 +19289,13 @@ define hidden void @"_ZN60_$LT$gpui..window..ElementId$u20$as$u20$core..hash..Ha
   %8 = xor i64 %7, %5
   %9 = mul i64 %8, 5871781006564002453
   store i64 %9, ptr %1, align 8, !alias.scope !4241
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %10
-    i64 1, label %22
-    i64 2, label %28
-    i64 3, label %30
-    i64 4, label %38
-    i64 5, label %50
+  switch i64 %3, label %50 [
+    i64 2, label %10
+    i64 3, label %22
+    i64 4, label %28
+    i64 5, label %30
+    i64 6, label %38
   ]
-
-default.unreachable:                              ; preds = %2
-  unreachable
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28112,14 +28104,14 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not, label %.preheader.split.preheader, label %_ZN4core3cmp9PartialEq2ne17hc3902bb7367b0e11E.exit.thread
 
 .preheader.split.preheader:                       ; preds = %4
-  %exitcond.not9 = icmp eq i64 %1, 0
-  br i1 %exitcond.not9, label %_ZN4core3cmp9PartialEq2ne17hc3902bb7367b0e11E.exit.thread, label %.lr.ph
+  %exitcond.not7 = icmp eq i64 %1, 0
+  br i1 %exitcond.not7, label %_ZN4core3cmp9PartialEq2ne17hc3902bb7367b0e11E.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.split.preheader, %.preheader.split.backedge
-  %.sroa.01.010 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
-  %5 = add i64 %.sroa.01.010, 1
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %0, i64 %.sroa.01.010
-  %7 = getelementptr inbounds { i64, [3 x i64] }, ptr %2, i64 %.sroa.01.010
+  %.sroa.01.08 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
+  %5 = add i64 %.sroa.01.08, 1
+  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %0, i64 %.sroa.01.08
+  %7 = getelementptr inbounds { i64, [3 x i64] }, ptr %2, i64 %.sroa.01.08
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5493)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5496)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5498)
@@ -28138,17 +28130,13 @@ _ZN4core3cmp9PartialEq2ne17hc3902bb7367b0e11E.exit.thread: ; preds = %.preheader
   ret i1 %.sroa.0.0
 
 15:                                               ; preds = %.lr.ph
-  switch i64 %10, label %default.unreachable [
-    i64 0, label %16
-    i64 1, label %23
-    i64 2, label %30
-    i64 3, label %32
-    i64 4, label %39
-    i64 5, label %46
+  switch i64 %8, label %46 [
+    i64 2, label %16
+    i64 3, label %23
+    i64 4, label %30
+    i64 5, label %32
+    i64 6, label %39
   ]
-
-default.unreachable:                              ; preds = %15
-  unreachable
 
 16:                                               ; preds = %15
   %17 = icmp eq i64 %12, 0

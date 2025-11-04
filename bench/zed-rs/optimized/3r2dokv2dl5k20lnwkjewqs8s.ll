@@ -3383,17 +3383,13 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h9deba96347a667bdE(ptr noali
   %12 = xor i64 %11, %9
   %13 = mul i64 %12, 5871781006564002453
   store i64 %13, ptr %2, align 8, !alias.scope !1132, !noalias !1126
-  switch i64 %9, label %default.unreachable [
-    i64 0, label %14
-    i64 1, label %26
-    i64 2, label %32
-    i64 3, label %34
-    i64 4, label %42
-    i64 5, label %54
+  switch i64 %7, label %54 [
+    i64 2, label %14
+    i64 3, label %26
+    i64 4, label %32
+    i64 5, label %34
+    i64 6, label %42
   ]
-
-default.unreachable:                              ; preds = %.lr.ph
-  unreachable
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.05, i64 8
@@ -12586,17 +12582,13 @@ define hidden void @"_ZN60_$LT$gpui..window..ElementId$u20$as$u20$core..hash..Ha
   %8 = xor i64 %7, %5
   %9 = mul i64 %8, 5871781006564002453
   store i64 %9, ptr %1, align 8, !alias.scope !2859
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %10
-    i64 1, label %22
-    i64 2, label %28
-    i64 3, label %30
-    i64 4, label %38
-    i64 5, label %50
+  switch i64 %3, label %50 [
+    i64 2, label %10
+    i64 3, label %22
+    i64 4, label %28
+    i64 5, label %30
+    i64 6, label %38
   ]
-
-default.unreachable:                              ; preds = %2
-  unreachable
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14109,21 +14101,17 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$
   br i1 %9, label %10, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf1e4bef10c33949E.exit"
 
 10:                                               ; preds = %2
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %11
-    i64 1, label %18
-    i64 2, label %25
-    i64 3, label %37
-    i64 4, label %44
-    i64 5, label %51
+  switch i64 %3, label %51 [
+    i64 2, label %11
+    i64 3, label %18
+    i64 4, label %25
+    i64 5, label %37
+    i64 6, label %44
   ]
 
 "_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf1e4bef10c33949E.exit": ; preds = %51, %27, %25, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf1e4bef10c33949E.exit13", %44, %11, %2, %70, %64, %58, %37, %18
   %.sroa.0.0.shrunk = phi i1 [ %63, %58 ], [ %24, %18 ], [ %43, %37 ], [ %69, %64 ], [ %75, %70 ], [ false, %2 ], [ false, %11 ], [ false, %44 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf1e4bef10c33949E.exit13" ], [ %36, %27 ], [ false, %25 ], [ false, %51 ]
   ret i1 %.sroa.0.0.shrunk
-
-default.unreachable:                              ; preds = %10
-  unreachable
 
 11:                                               ; preds = %10
   %12 = icmp eq i64 %7, 0

@@ -7624,16 +7624,11 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %55, %.noe
 
 86:                                               ; preds = %80
   %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %81, 0
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %.sroa.01.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.01.0.i.i.i, label %.thread74 [
     i64 0, label %87
     i64 1, label %.thread66
     i64 2, label %.thread70
-    i64 3, label %.thread74
   ], !prof !306
-
-default.unreachable:                              ; preds = %86
-  unreachable
 
 87:                                               ; preds = %86
   invoke void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.6c8d3e21dead441a9d31acd18fc44269.57, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c8d3e21dead441a9d31acd18fc44269.78) #32
@@ -8963,16 +8958,11 @@ _ZN3std4sync4mpmc5waker9SyncWaker8register17hcf6a3145f552a683E.exit: ; preds = %
 
 _ZN3std4sync4mpmc7context7Context10wait_until17h72822059108c02cbE.exit: ; preds = %115
   %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %116, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.01.0.i.i.i, label %_ZN3std4sync4mpmc7context7Context10wait_until17h72822059108c02cbE.exit.thread14 [
     i64 0, label %121
     i64 1, label %_ZN3std4sync4mpmc7context7Context10wait_until17h72822059108c02cbE.exit.thread
     i64 2, label %_ZN3std4sync4mpmc7context7Context10wait_until17h72822059108c02cbE.exit.thread
-    i64 3, label %_ZN3std4sync4mpmc7context7Context10wait_until17h72822059108c02cbE.exit.thread14
   ], !prof !408
-
-default.unreachable:                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h72822059108c02cbE.exit
-  unreachable
 
 121:                                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h72822059108c02cbE.exit
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.6c8d3e21dead441a9d31acd18fc44269.57, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c8d3e21dead441a9d31acd18fc44269.86) #32
@@ -9124,7 +9114,7 @@ _ZN3std4sync4mpmc5waker9SyncWaker10unregister17hfa47d97a794ee1abE.exit: ; preds 
   %.not = icmp eq ptr %.sroa.0.0.copyload9, null
   br i1 %.not, label %183, label %182, !prof !43
 
-_ZN3std4sync4mpmc7context7Context10wait_until17h72822059108c02cbE.exit.thread14: ; preds = %.split.i, %.split.us.i, %182, %_ZN3std4sync4mpmc7context7Context10wait_until17h72822059108c02cbE.exit
+_ZN3std4sync4mpmc7context7Context10wait_until17h72822059108c02cbE.exit.thread14: ; preds = %.split.i, %.split.us.i, %_ZN3std4sync4mpmc7context7Context10wait_until17h72822059108c02cbE.exit, %182
   ret void
 
 182:                                              ; preds = %_ZN3std4sync4mpmc5waker9SyncWaker10unregister17hfa47d97a794ee1abE.exit
@@ -40030,7 +40020,7 @@ attributes #32 = { noreturn }
 !303 = distinct !{!303, !301, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha158bf0c2d1b9e37E: argument 1"}
 !304 = !{i64 0, i64 -9223372036854775808}
 !305 = !{i32 0, i32 1000000001}
-!306 = !{!"branch_weights", i32 11, i32 5684834, i32 0, i32 1070899395, i32 1070899407}
+!306 = !{!"branch_weights", i32 1070899407, i32 5684834, i32 0, i32 1070899395}
 !307 = !{!308}
 !308 = distinct !{!308, !309, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4803c67dabc5f7a7E: argument 0"}
 !309 = distinct !{!309, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4803c67dabc5f7a7E"}
@@ -40132,7 +40122,7 @@ attributes #32 = { noreturn }
 !405 = distinct !{!405, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha158bf0c2d1b9e37E"}
 !406 = !{!407}
 !407 = distinct !{!407, !405, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha158bf0c2d1b9e37E: argument 1"}
-!408 = !{!"branch_weights", i32 17, i32 6219984, i32 0, i32 0, i32 2141263647}
+!408 = !{!"branch_weights", i32 2141263647, i32 6219984, i32 0, i32 0}
 !409 = !{!410}
 !410 = distinct !{!410, !411, !"_ZN3std4sync4mpmc5waker9SyncWaker10unregister17hfa47d97a794ee1abE: argument 0"}
 !411 = distinct !{!411, !"_ZN3std4sync4mpmc5waker9SyncWaker10unregister17hfa47d97a794ee1abE"}

@@ -1605,6 +1605,26 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN105_$LT$$LT$proto..Error$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hac12f1a37342a4cfE" = private unnamed_addr constant [19 x i64] [i64 8, i64 13, i64 12, i64 9, i64 15, i64 9, i64 poison, i64 8, i64 15, i64 16, i64 15, i64 15, i64 12, i64 13, i64 22, i64 16, i64 32, i64 21, i64 17], align 8
 @"switch.table._ZN105_$LT$$LT$proto..Error$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hac12f1a37342a4cfE.19" = private unnamed_addr constant [19 x ptr] [ptr @anon.ba04b4589202c89c8749c7f35133e62a.1340, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1341, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1342, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1343, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1344, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1345, ptr poison, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1346, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1347, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1348, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1349, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1350, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1351, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1352, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1353, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1354, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1355, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1356, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1357], align 8
 @switch.table._ZN5proto5Error4code17he231511b5cd110a3E = private unnamed_addr constant [18 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 0, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18], align 4
+@"switch.table._ZN170_$LT$$LT$$LT$proto..UpdateWorktreeSettings$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$..fmt..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4cc252135586a03E" = private unnamed_addr constant [3 x ptr] [ptr @anon.ba04b4589202c89c8749c7f35133e62a.270.llvm.13408623423305182581, ptr @anon.ba04b4589202c89c8749c7f35133e62a.271.llvm.13408623423305182581, ptr @anon.ba04b4589202c89c8749c7f35133e62a.272.llvm.13408623423305182581], align 8
+@"switch.table._ZN170_$LT$$LT$$LT$proto..UpdateWorktreeSettings$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$..fmt..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4cc252135586a03E.22" = private unnamed_addr constant [3 x i64] [i64 8, i64 5, i64 12], align 8
+@"switch.table._ZN117_$LT$$LT$proto..DocumentHighlight$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h98de2e803ce07e73E" = private unnamed_addr constant [3 x ptr] [ptr @anon.ba04b4589202c89c8749c7f35133e62a.355, ptr @anon.ba04b4589202c89c8749c7f35133e62a.356, ptr @anon.ba04b4589202c89c8749c7f35133e62a.357], align 8
+@"switch.table._ZN117_$LT$$LT$proto..DocumentHighlight$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h98de2e803ce07e73E.23" = private unnamed_addr constant [3 x i64] [i64 4, i64 4, i64 5], align 8
+@"switch.table._ZN112_$LT$$LT$proto..ResolveState$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h0695db713dc62882E" = private unnamed_addr constant [3 x ptr] [ptr @anon.ba04b4589202c89c8749c7f35133e62a.584, ptr @anon.ba04b4589202c89c8749c7f35133e62a.585, ptr @anon.ba04b4589202c89c8749c7f35133e62a.586], align 8
+@"switch.table._ZN112_$LT$$LT$proto..ResolveState$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h0695db713dc62882E.24" = private unnamed_addr constant [3 x i64] [i64 8, i64 10, i64 9], align 8
+@"switch.table._ZN123_$LT$$LT$proto..RespondToContactRequest$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hd283bb0f03028ca8E" = private unnamed_addr constant [4 x ptr] [ptr @anon.ba04b4589202c89c8749c7f35133e62a.856, ptr @anon.ba04b4589202c89c8749c7f35133e62a.857, ptr @anon.ba04b4589202c89c8749c7f35133e62a.858, ptr @anon.ba04b4589202c89c8749c7f35133e62a.859], align 8
+@"switch.table._ZN123_$LT$$LT$proto..RespondToContactRequest$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hd283bb0f03028ca8E.30" = private unnamed_addr constant [4 x i64] [i64 6, i64 7, i64 5, i64 7], align 8
+@"switch.table._ZN111_$LT$$LT$proto..StatusEntry$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h3eb7270345e02faaE" = private unnamed_addr constant [3 x ptr] [ptr @anon.ba04b4589202c89c8749c7f35133e62a.964.llvm.13408623423305182581, ptr @anon.ba04b4589202c89c8749c7f35133e62a.965.llvm.13408623423305182581, ptr @anon.ba04b4589202c89c8749c7f35133e62a.966.llvm.13408623423305182581], align 8
+@"switch.table._ZN111_$LT$$LT$proto..StatusEntry$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h3eb7270345e02faaE.32" = private unnamed_addr constant [3 x i64] [i64 5, i64 8, i64 8], align 8
+@"switch.table._ZN110_$LT$$LT$proto..Diagnostic$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hddbcfdad8e5c1867E" = private unnamed_addr constant [5 x ptr] [ptr @anon.ba04b4589202c89c8749c7f35133e62a.26, ptr @anon.ba04b4589202c89c8749c7f35133e62a.37.llvm.13408623423305182581, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1028, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1029, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1030], align 8
+@"switch.table._ZN110_$LT$$LT$proto..Diagnostic$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hddbcfdad8e5c1867E.33" = private unnamed_addr constant [5 x i64] [i64 4, i64 5, i64 7, i64 11, i64 4], align 8
+@"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E" = private unnamed_addr constant [5 x ptr] [ptr @anon.ba04b4589202c89c8749c7f35133e62a.116, ptr @anon.ba04b4589202c89c8749c7f35133e62a.117, ptr @anon.ba04b4589202c89c8749c7f35133e62a.118, ptr @anon.ba04b4589202c89c8749c7f35133e62a.119, ptr @anon.ba04b4589202c89c8749c7f35133e62a.120], align 8
+@"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E.34" = private unnamed_addr constant [5 x i64] [i64 5, i64 6, i64 5, i64 6, i64 6], align 8
+@"switch.table._ZN124_$LT$$LT$proto..CountLanguageModelTokens$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d4033642f794e09E" = private unnamed_addr constant [4 x ptr] [ptr @anon.ba04b4589202c89c8749c7f35133e62a.1116, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1117, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1118, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1119], align 8
+@"switch.table._ZN124_$LT$$LT$proto..CountLanguageModelTokens$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d4033642f794e09E.35" = private unnamed_addr constant [4 x i64] [i64 9, i64 6, i64 6, i64 3], align 8
+@"switch.table._ZN112_$LT$$LT$proto..TaskTemplate$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hef9a6cebbec07ce7E" = private unnamed_addr constant [3 x ptr] [ptr @anon.ba04b4589202c89c8749c7f35133e62a.1256, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1257, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1258], align 8
+@"switch.table._ZN112_$LT$$LT$proto..TaskTemplate$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hef9a6cebbec07ce7E.36" = private unnamed_addr constant [3 x i64] [i64 10, i64 9, i64 13], align 8
+@"switch.table._ZN114_$LT$$LT$proto..ContextMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h673c2a6db3c6b935E" = private unnamed_addr constant [3 x ptr] [ptr @anon.ba04b4589202c89c8749c7f35133e62a.1275, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1276, ptr @anon.ba04b4589202c89c8749c7f35133e62a.1277], align 8
+@"switch.table._ZN114_$LT$$LT$proto..ContextMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h673c2a6db3c6b935E.37" = private unnamed_addr constant [3 x i64] [i64 17, i64 22, i64 19], align 8
 @switch.table._ZN5proto9ErrorCode8from_i3217h0ac7852fd343765fE = private unnamed_addr constant [19 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 19, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18], align 4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -6309,63 +6329,45 @@ define noundef zeroext i1 @"_ZN55_$LT$proto..Participant$u20$as$u20$core..fmt..D
 define noundef zeroext i1 @"_ZN111_$LT$$LT$proto..Participant$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h4bf55ac9ca66a042E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 6) i32 @llvm.umin.i32(i32 %4, i32 5)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 5, label %5
-    i32 0, label %23
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-  ]
+  %5 = icmp ult i32 %4, 5
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !1738, !noalias !1741, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !1738, !noalias !1741, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %23
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %23
-
-20:                                               ; preds = %2
-  br label %23
-
-21:                                               ; preds = %2
-  br label %23
-
-22:                                               ; preds = %2
-  br label %23
-
-23:                                               ; preds = %2, %22, %21, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.117, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.118, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.119, %21 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.120, %22 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.116, %2 ]
-  %.sroa.8.0 = phi i64 [ 6, %19 ], [ 5, %20 ], [ 6, %21 ], [ 6, %22 ], [ 5, %2 ]
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.8.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E.34", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -9971,63 +9973,45 @@ define noundef zeroext i1 @"_ZN63_$LT$proto..JoinProjectResponse$u20$as$u20$core
 define noundef zeroext i1 @"_ZN119_$LT$$LT$proto..JoinProjectResponse$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f551020f8fcaf68E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 6) i32 @llvm.umin.i32(i32 %4, i32 5)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 5, label %5
-    i32 0, label %23
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-  ]
+  %5 = icmp ult i32 %4, 5
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !2394, !noalias !2397, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !2394, !noalias !2397, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %23
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %23
-
-20:                                               ; preds = %2
-  br label %23
-
-21:                                               ; preds = %2
-  br label %23
-
-22:                                               ; preds = %2
-  br label %23
-
-23:                                               ; preds = %2, %22, %21, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.117, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.118, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.119, %21 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.120, %22 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.116, %2 ]
-  %.sroa.8.0 = phi i64 [ 6, %19 ], [ 5, %20 ], [ 6, %21 ], [ 6, %22 ], [ 5, %2 ]
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.8.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E.34", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -10587,55 +10571,45 @@ define noundef zeroext i1 @"_ZN122_$LT$$LT$proto..UpdateWorktreeSettings$u20$as$
 define noundef zeroext i1 @"_ZN170_$LT$$LT$$LT$proto..UpdateWorktreeSettings$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$..fmt..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4cc252135586a03E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 4) i32 @llvm.umin.i32(i32 %4, i32 3)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 3, label %5
-    i32 0, label %21
-    i32 1, label %19
-    i32 2, label %20
-  ]
+  %5 = icmp ult i32 %4, 3
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !2460, !noalias !2463, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !2460, !noalias !2463, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %21
-  %.sroa.0.0.in = phi i1 [ %22, %21 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %21
-
-20:                                               ; preds = %2
-  br label %21
-
-21:                                               ; preds = %2, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.271.llvm.13408623423305182581, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.272.llvm.13408623423305182581, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.270.llvm.13408623423305182581, %2 ]
-  %.sroa.6.0 = phi i64 [ 5, %19 ], [ 12, %20 ], [ 8, %2 ]
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.6.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN170_$LT$$LT$$LT$proto..UpdateWorktreeSettings$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$..fmt..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4cc252135586a03E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN170_$LT$$LT$$LT$proto..UpdateWorktreeSettings$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$..fmt..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4cc252135586a03E.22", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -12512,55 +12486,45 @@ define noundef zeroext i1 @"_ZN61_$LT$proto..DocumentHighlight$u20$as$u20$core..
 define noundef zeroext i1 @"_ZN117_$LT$$LT$proto..DocumentHighlight$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h98de2e803ce07e73E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef i32 @llvm.umin.i32(i32 %4, i32 3)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 3, label %5
-    i32 0, label %21
-    i32 1, label %19
-    i32 2, label %20
-  ]
+  %5 = icmp ult i32 %4, 3
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !2498, !noalias !2501, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !2498, !noalias !2501, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %21
-  %.sroa.0.0.in = phi i1 [ %22, %21 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %21
-
-20:                                               ; preds = %2
-  br label %21
-
-21:                                               ; preds = %2, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.356, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.357, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.355, %2 ]
-  %.sroa.6.0 = phi i64 [ 4, %19 ], [ 5, %20 ], [ 4, %2 ]
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.6.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN117_$LT$$LT$proto..DocumentHighlight$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h98de2e803ce07e73E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN117_$LT$$LT$proto..DocumentHighlight$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h98de2e803ce07e73E.23", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -18795,55 +18759,45 @@ define noundef zeroext i1 @"_ZN56_$LT$proto..ResolveState$u20$as$u20$core..fmt..
 define noundef zeroext i1 @"_ZN112_$LT$$LT$proto..ResolveState$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h0695db713dc62882E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef i32 @llvm.umin.i32(i32 %4, i32 3)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 3, label %5
-    i32 0, label %21
-    i32 1, label %19
-    i32 2, label %20
-  ]
+  %5 = icmp ult i32 %4, 3
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !3379, !noalias !3382, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !3379, !noalias !3382, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %21
-  %.sroa.0.0.in = phi i1 [ %22, %21 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %21
-
-20:                                               ; preds = %2
-  br label %21
-
-21:                                               ; preds = %2, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.585, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.586, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.584, %2 ]
-  %.sroa.6.0 = phi i64 [ 10, %19 ], [ 9, %20 ], [ 8, %2 ]
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.6.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN112_$LT$$LT$proto..ResolveState$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h0695db713dc62882E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN112_$LT$$LT$proto..ResolveState$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h0695db713dc62882E.24", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -21722,63 +21676,45 @@ define noundef zeroext i1 @"_ZN61_$LT$proto..ChannelMembership$u20$as$u20$core..
 define noundef zeroext i1 @"_ZN117_$LT$$LT$proto..ChannelMembership$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb693e804a70f2c44E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 6) i32 @llvm.umin.i32(i32 %4, i32 5)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 5, label %5
-    i32 0, label %23
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-  ]
+  %5 = icmp ult i32 %4, 5
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !3802, !noalias !3805, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !3802, !noalias !3805, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %23
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %23
-
-20:                                               ; preds = %2
-  br label %23
-
-21:                                               ; preds = %2
-  br label %23
-
-22:                                               ; preds = %2
-  br label %23
-
-23:                                               ; preds = %2, %22, %21, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.117, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.118, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.119, %21 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.120, %22 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.116, %2 ]
-  %.sroa.8.0 = phi i64 [ 6, %19 ], [ 5, %20 ], [ 6, %21 ], [ 6, %22 ], [ 5, %2 ]
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.8.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E.34", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -21919,63 +21855,45 @@ define noundef zeroext i1 @"_ZN61_$LT$proto..ChannelPermission$u20$as$u20$core..
 define noundef zeroext i1 @"_ZN117_$LT$$LT$proto..ChannelPermission$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h1a7f1e62390900d9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 6) i32 @llvm.umin.i32(i32 %4, i32 5)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 5, label %5
-    i32 0, label %23
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-  ]
+  %5 = icmp ult i32 %4, 5
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !3807, !noalias !3810, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !3807, !noalias !3810, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %23
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %23
-
-20:                                               ; preds = %2
-  br label %23
-
-21:                                               ; preds = %2
-  br label %23
-
-22:                                               ; preds = %2
-  br label %23
-
-23:                                               ; preds = %2, %22, %21, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.117, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.118, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.119, %21 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.120, %22 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.116, %2 ]
-  %.sroa.8.0 = phi i64 [ 6, %19 ], [ 5, %20 ], [ 6, %21 ], [ 6, %22 ], [ 5, %2 ]
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.8.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E.34", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -23070,63 +22988,45 @@ default.unreachable5:                             ; preds = %2
 define noundef zeroext i1 @"_ZN113_$LT$$LT$proto..ChannelMember$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hf8eb8960de1136f4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 6) i32 @llvm.umin.i32(i32 %4, i32 5)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 5, label %5
-    i32 0, label %23
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-  ]
+  %5 = icmp ult i32 %4, 5
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !3899, !noalias !3902, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !3899, !noalias !3902, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %23
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %23
-
-20:                                               ; preds = %2
-  br label %23
-
-21:                                               ; preds = %2
-  br label %23
-
-22:                                               ; preds = %2
-  br label %23
-
-23:                                               ; preds = %2, %22, %21, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.117, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.118, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.119, %21 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.120, %22 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.116, %2 ]
-  %.sroa.8.0 = phi i64 [ 6, %19 ], [ 5, %20 ], [ 6, %21 ], [ 6, %22 ], [ 5, %2 ]
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.8.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E.34", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -23511,63 +23411,45 @@ define noundef zeroext i1 @"_ZN63_$LT$proto..InviteChannelMember$u20$as$u20$core
 define noundef zeroext i1 @"_ZN119_$LT$$LT$proto..InviteChannelMember$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h28f546c91ada2206E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 6) i32 @llvm.umin.i32(i32 %4, i32 5)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 5, label %5
-    i32 0, label %23
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-  ]
+  %5 = icmp ult i32 %4, 5
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !3943, !noalias !3946, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !3943, !noalias !3946, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %23
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %23
-
-20:                                               ; preds = %2
-  br label %23
-
-21:                                               ; preds = %2
-  br label %23
-
-22:                                               ; preds = %2
-  br label %23
-
-23:                                               ; preds = %2, %22, %21, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.117, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.118, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.119, %21 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.120, %22 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.116, %2 ]
-  %.sroa.8.0 = phi i64 [ 6, %19 ], [ 5, %20 ], [ 6, %21 ], [ 6, %22 ], [ 5, %2 ]
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.8.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E.34", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -23713,63 +23595,45 @@ define noundef zeroext i1 @"_ZN64_$LT$proto..SetChannelMemberRole$u20$as$u20$cor
 define noundef zeroext i1 @"_ZN120_$LT$$LT$proto..SetChannelMemberRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hd9beb906c4aba122E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 6) i32 @llvm.umin.i32(i32 %4, i32 5)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 5, label %5
-    i32 0, label %23
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-  ]
+  %5 = icmp ult i32 %4, 5
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !3948, !noalias !3951, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !3948, !noalias !3951, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %23
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %23
-
-20:                                               ; preds = %2
-  br label %23
-
-21:                                               ; preds = %2
-  br label %23
-
-22:                                               ; preds = %2
-  br label %23
-
-23:                                               ; preds = %2, %22, %21, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.117, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.118, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.119, %21 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.120, %22 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.116, %2 ]
-  %.sroa.8.0 = phi i64 [ 6, %19 ], [ 5, %20 ], [ 6, %21 ], [ 6, %22 ], [ 5, %2 ]
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.8.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E.34", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -26591,59 +26455,45 @@ define noundef zeroext i1 @"_ZN67_$LT$proto..RespondToContactRequest$u20$as$u20$
 define noundef zeroext i1 @"_ZN123_$LT$$LT$proto..RespondToContactRequest$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hd283bb0f03028ca8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %4, i32 4)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 4, label %5
-    i32 0, label %22
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-  ]
+  %5 = icmp ult i32 %4, 4
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !4177, !noalias !4180, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !4177, !noalias !4180, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %22
-  %.sroa.0.0.in = phi i1 [ %23, %22 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %22
-
-20:                                               ; preds = %2
-  br label %22
-
-21:                                               ; preds = %2
-  br label %22
-
-22:                                               ; preds = %2, %21, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.857, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.858, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.859, %21 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.856, %2 ]
-  %.sroa.7.0 = phi i64 [ 7, %19 ], [ 5, %20 ], [ 7, %21 ], [ 6, %2 ]
-  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.7.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN123_$LT$$LT$proto..RespondToContactRequest$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hd283bb0f03028ca8E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN123_$LT$$LT$proto..RespondToContactRequest$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hd283bb0f03028ca8E.30", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -29251,55 +29101,45 @@ define noundef zeroext i1 @"_ZN105_$LT$$LT$proto..Entry$u20$as$u20$core..fmt..De
 define noundef zeroext i1 @"_ZN153_$LT$$LT$$LT$proto..Entry$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$..fmt..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17hd79318a08b7a91c0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 4) i32 @llvm.umin.i32(i32 %4, i32 3)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 3, label %5
-    i32 0, label %21
-    i32 1, label %19
-    i32 2, label %20
-  ]
+  %5 = icmp ult i32 %4, 3
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !4453, !noalias !4456, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !4453, !noalias !4456, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %21
-  %.sroa.0.0.in = phi i1 [ %22, %21 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %21
-
-20:                                               ; preds = %2
-  br label %21
-
-21:                                               ; preds = %2, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.965.llvm.13408623423305182581, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.966.llvm.13408623423305182581, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.964.llvm.13408623423305182581, %2 ]
-  %.sroa.6.0 = phi i64 [ 8, %19 ], [ 8, %20 ], [ 5, %2 ]
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.6.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN111_$LT$$LT$proto..StatusEntry$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h3eb7270345e02faaE", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN111_$LT$$LT$proto..StatusEntry$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h3eb7270345e02faaE.32", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -29559,55 +29399,45 @@ define noundef zeroext i1 @"_ZN55_$LT$proto..StatusEntry$u20$as$u20$core..fmt..D
 define noundef zeroext i1 @"_ZN111_$LT$$LT$proto..StatusEntry$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h3eb7270345e02faaE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 4) i32 @llvm.umin.i32(i32 %4, i32 3)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 3, label %5
-    i32 0, label %21
-    i32 1, label %19
-    i32 2, label %20
-  ]
+  %5 = icmp ult i32 %4, 3
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !4467, !noalias !4470, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !4467, !noalias !4470, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %21
-  %.sroa.0.0.in = phi i1 [ %22, %21 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %21
-
-20:                                               ; preds = %2
-  br label %21
-
-21:                                               ; preds = %2, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.965.llvm.13408623423305182581, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.966.llvm.13408623423305182581, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.964.llvm.13408623423305182581, %2 ]
-  %.sroa.6.0 = phi i64 [ 8, %19 ], [ 8, %20 ], [ 5, %2 ]
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.6.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN111_$LT$$LT$proto..StatusEntry$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h3eb7270345e02faaE", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN111_$LT$$LT$proto..StatusEntry$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h3eb7270345e02faaE.32", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -30786,63 +30616,45 @@ define noundef zeroext i1 @"_ZN110_$LT$$LT$proto..Diagnostic$u20$as$u20$core..fm
 define noundef zeroext i1 @"_ZN110_$LT$$LT$proto..Diagnostic$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hddbcfdad8e5c1867E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef i32 @llvm.umin.i32(i32 %4, i32 5)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 5, label %5
-    i32 0, label %23
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-  ]
+  %5 = icmp ult i32 %4, 5
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !4554, !noalias !4557, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !4554, !noalias !4557, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %23
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %23
-
-20:                                               ; preds = %2
-  br label %23
-
-21:                                               ; preds = %2
-  br label %23
-
-22:                                               ; preds = %2
-  br label %23
-
-23:                                               ; preds = %2, %22, %21, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.37.llvm.13408623423305182581, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1028, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1029, %21 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1030, %22 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.26, %2 ]
-  %.sroa.8.0 = phi i64 [ 5, %19 ], [ 7, %20 ], [ 11, %21 ], [ 4, %22 ], [ 4, %2 ]
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.8.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN110_$LT$$LT$proto..Diagnostic$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hddbcfdad8e5c1867E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN110_$LT$$LT$proto..Diagnostic$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hddbcfdad8e5c1867E.33", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -33101,63 +32913,45 @@ define noundef zeroext i1 @"_ZN66_$LT$proto..SetRoomParticipantRole$u20$as$u20$c
 define noundef zeroext i1 @"_ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 6) i32 @llvm.umin.i32(i32 %4, i32 5)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 5, label %5
-    i32 0, label %23
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-  ]
+  %5 = icmp ult i32 %4, 5
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !4799, !noalias !4802, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !4799, !noalias !4802, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %23
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %23
-
-20:                                               ; preds = %2
-  br label %23
-
-21:                                               ; preds = %2
-  br label %23
-
-22:                                               ; preds = %2
-  br label %23
-
-23:                                               ; preds = %2, %22, %21, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.117, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.118, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.119, %21 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.120, %22 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.116, %2 ]
-  %.sroa.8.0 = phi i64 [ 6, %19 ], [ 5, %20 ], [ 6, %21 ], [ 6, %22 ], [ 5, %2 ]
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.8.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN122_$LT$$LT$proto..SetRoomParticipantRole$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1e768b163f20c58E.34", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -33250,59 +33044,45 @@ define noundef zeroext i1 @"_ZN68_$LT$proto..CountLanguageModelTokens$u20$as$u20
 define noundef zeroext i1 @"_ZN124_$LT$$LT$proto..CountLanguageModelTokens$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d4033642f794e09E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %4, i32 4)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 4, label %5
-    i32 0, label %22
-    i32 1, label %19
-    i32 2, label %20
-    i32 3, label %21
-  ]
+  %5 = icmp ult i32 %4, 4
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !4804, !noalias !4807, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !4804, !noalias !4807, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %22
-  %.sroa.0.0.in = phi i1 [ %23, %22 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %22
-
-20:                                               ; preds = %2
-  br label %22
-
-21:                                               ; preds = %2
-  br label %22
-
-22:                                               ; preds = %2, %21, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.1117, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1118, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1119, %21 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1116, %2 ]
-  %.sroa.7.0 = phi i64 [ 6, %19 ], [ 6, %20 ], [ 3, %21 ], [ 9, %2 ]
-  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.7.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN124_$LT$$LT$proto..CountLanguageModelTokens$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d4033642f794e09E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN124_$LT$$LT$proto..CountLanguageModelTokens$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d4033642f794e09E.35", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -36990,55 +36770,45 @@ default.unreachable5:                             ; preds = %2
 define noundef zeroext i1 @"_ZN112_$LT$$LT$proto..TaskTemplate$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hef9a6cebbec07ce7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 4) i32 @llvm.umin.i32(i32 %4, i32 3)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 3, label %5
-    i32 0, label %21
-    i32 1, label %19
-    i32 2, label %20
-  ]
+  %5 = icmp ult i32 %4, 3
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !5298, !noalias !5301, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !5298, !noalias !5301, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %21
-  %.sroa.0.0.in = phi i1 [ %22, %21 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %21
-
-20:                                               ; preds = %2
-  br label %21
-
-21:                                               ; preds = %2, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.1257, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1258, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1256, %2 ]
-  %.sroa.6.0 = phi i64 [ 9, %19 ], [ 13, %20 ], [ 10, %2 ]
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.6.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN112_$LT$$LT$proto..TaskTemplate$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hef9a6cebbec07ce7E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN112_$LT$$LT$proto..TaskTemplate$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hef9a6cebbec07ce7E.36", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
@@ -37614,55 +37384,45 @@ define noundef zeroext i1 @"_ZN58_$LT$proto..ContextMessage$u20$as$u20$core..fmt
 define noundef zeroext i1 @"_ZN114_$LT$$LT$proto..ContextMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h673c2a6db3c6b935E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %spec.select.i = tail call noundef range(i32 0, 4) i32 @llvm.umin.i32(i32 %4, i32 3)
-  switch i32 %spec.select.i, label %default.unreachable5 [
-    i32 3, label %5
-    i32 0, label %21
-    i32 1, label %19
-    i32 2, label %20
-  ]
+  %5 = icmp ult i32 %4, 3
+  br i1 %5, label %switch.lookup, label %6
 
-default.unreachable5:                             ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !5506, !noalias !5509, !noundef !4
+  %9 = and i32 %8, 16
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %14
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %7 = load i32, ptr %6, align 4, !alias.scope !5506, !noalias !5509, !noundef !4
-  %8 = and i32 %7, 16
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %13
+11:                                               ; preds = %6
+  %12 = and i32 %8, 32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %16, label %18
 
-10:                                               ; preds = %5
-  %11 = and i32 %7, 32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %17
-
-13:                                               ; preds = %5
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+14:                                               ; preds = %6
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-15:                                               ; preds = %10
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+16:                                               ; preds = %11
+  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-17:                                               ; preds = %10
-  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+18:                                               ; preds = %11
+  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %17, %15, %13, %21
-  %.sroa.0.0.in = phi i1 [ %22, %21 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit": ; preds = %18, %16, %14, %switch.lookup
+  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 
-19:                                               ; preds = %2
-  br label %21
-
-20:                                               ; preds = %2
-  br label %21
-
-21:                                               ; preds = %2, %20, %19
-  %.sroa.04.0 = phi ptr [ @anon.ba04b4589202c89c8749c7f35133e62a.1276, %19 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1277, %20 ], [ @anon.ba04b4589202c89c8749c7f35133e62a.1275, %2 ]
-  %.sroa.6.0 = phi i64 [ 22, %19 ], [ 19, %20 ], [ 17, %2 ]
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.6.0)
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN114_$LT$$LT$proto..ContextMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h673c2a6db3c6b935E", i64 %20
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %21 = zext nneg i32 %4 to i64
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN114_$LT$$LT$proto..ContextMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h673c2a6db3c6b935E.37", i64 %21
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 }
 
